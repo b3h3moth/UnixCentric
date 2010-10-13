@@ -16,11 +16,11 @@ rendere al codice la giusta collocazione che merita, ossia di primo attore
 indiscusso.
 
 Oltre alle regole fondamentali di ciascun linguaggio di programmazione, 
-indipendentemente dal paradigma utilizzato, si presetra' particolare 
+indipendentemente dal paradigma utilizzato, si prestera' particolare 
 attenzione alle tecniche per scrivere codice di qualita' e sicuro.
 
 Al momento della stesura di questo documento sono stati scelti due paradigmi
-di programmazione e due linguaggi specifici; il paradigma Object Orfiented 
+di programmazione e due linguaggi specifici; il paradigma Object Oriented 
 con il linguaggio C++ e il paradigma procedurale con il linguaggio C.
 
 Infine un ulteriore repository sara' dedicato alla programmazione di sistema
