@@ -3,9 +3,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 int main(int argc, char *argv[])
 {
    printf(" uid %d\neuid %d\n gid %d\negid %d\n", getuid(), geteuid(), getgid(), getegid());
