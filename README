@@ -35,11 +35,26 @@ operativi UNIX con kernel Linux, pertanto è stato contrassegnato come L-LP.
 Ciascun sorgente potra' essere compilato mediante il compilatore GCC:
 $ gcc main.c -o main
 
+Tuttavia, se si volesse compilare con maggiore accortezza, sia per l'eventuale
+debug sia per avere a disposizione maggiori informazioni in caso di errore, 
+si possono utilizzare i seguenti parametri:
+$ gcc -g main.c  -Wall -W -D_GNU_SOURCE -pedantic
+
+La versione di GCC utilizzata e' la seguente:
+gcc (Debian 4.4.5-2) 4.4.5
+
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
 
+I nomi delle directory sono state denominate seguendo i capitoli dello Stevens
+"Advanced Programming in the UNIX Environment 2nd", ma il codice sorgente e'
+totalmente nuovo, lo si consideri come una dedica nei confronti di uno dei
+piu' illustri informatici del XX secolo; per intenderci, se si scrive un
+listato sull'IO non bufferizzato, i relativi file saranno collocati nella
+directory File I/O, e cosi' via discorrendo.
+
 ##############################################################################
 INFO
 ##############################################################################
-Per commenti, info e quant'altro: <l.s _at_ cryptolab _dot_ net >
+Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
