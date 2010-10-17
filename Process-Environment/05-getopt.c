@@ -8,16 +8,16 @@ int main(int argc,char **argv) {
     while ( (optch = getopt(argc,argv,optstring)) != -1 )
         switch ( optch ) {
         case 'c' :
-            printf("-c processed ___%d___.\n", optind);
+            puts("-c processed.");
             break;
         case 'g' :
-            printf("-g processed ___%d___.\n", optind);
+            puts("-g processed.");
             break;
         case 'W' :
-            printf("-W '%s' processed ___%d___\n",optarg, optind);
+            printf("-W '%s' processed.\n",optarg);
             break;
         default :
-            puts("Unknown option!\n");
+            puts("Unknown option!");
         }
 
     for ( ; optind < argc; ++optind )
