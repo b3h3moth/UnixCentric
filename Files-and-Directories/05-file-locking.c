@@ -20,7 +20,7 @@ int main(int argc, char *argv[], char *envp[])
       exit(1);
    }
 
-   /* Azzera l'aria di memoria per flock */
+   /* Azzera l'area di memoria per flock */
    memset(&lock, 0, sizeof(lock));
    printout("Sto bloccando....");
 
