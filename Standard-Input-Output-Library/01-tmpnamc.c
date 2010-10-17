@@ -3,17 +3,15 @@
 #include <errno.h>
 #include <string.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 int main(int argc, char *argv[])
 {
    /*
     * La funzione tmpnam() ha il compito di generare il percorso di un nuovo
-    * file temporaneo che non esiste ancora
-    */
-   char *tmp_pathname;	/* Temp File pathname */
-   FILE *tmpf = 0;	/* Opeened temp file */
+    * file temporaneo, file da creare naturalmente; tuttavia al posto di 
+	* tmpnam() e' consigliabile utilizzare mkstemp(). */
+
+   char *tmp_pathname;		/* Temp File pathname */
+   FILE *tmpf = 0;			/* Opeened temp file */
 
    if (!(tmp_pathname = tmpnam(0)) ) {
       fprintf(stderr, "%s: generating a temp file name.\n", (char *)strerror(errno));
