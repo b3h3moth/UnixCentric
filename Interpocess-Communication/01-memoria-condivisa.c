@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     * si puo' utilizzare tale memoria per scriverci una stringa.
     */
 
-   sprintf(shared_memory, "hacking is not a crime");
+   sprintf(shared_memory, "Interprocesso Communication - IPC");
 
    /* 
     * Si puo' inoltre stampare la stringa contenuta nella memoria condivisa
