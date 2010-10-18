@@ -32,7 +32,3 @@ void gestore_segnale(void)
    write(STDOUT_FILENO, buffer, strlen(buffer));
    exit(0);
 }
-
-/* 
-EOF $Source: /home/luca/devel/programming-Posix/segnali/0.1-intercettazione-segnale.c,v $ 
-*/

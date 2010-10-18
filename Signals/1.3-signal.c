@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <signal.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 void inthandler();	/* gestore segnale interrupt */
 void quithandler();	/* gestore segnale quit */
 
