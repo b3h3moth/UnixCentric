@@ -32,6 +32,7 @@ int main(int argc, char *argv[], char *envp[])
       write(STDOUT_FILENO, buf, nread);
    }
 
+   close(fd);
 
    return(EXIT_SUCCESS);
 }

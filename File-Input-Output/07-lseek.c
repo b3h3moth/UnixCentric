@@ -6,11 +6,15 @@
 
 #define MAXBUF 128
 
+/* Crea il file passwd.txt, all'interno del quale inserisce il range di
+ * caratteri definito da lseek
+ */
+
 int main(int argc, char *argv[], char *envp[])
 {
    int fd1, fd2;
    char *filename = "/etc/passwd";
-   char *filename_out = "08-passwd.txt";
+   char *filename_out = "passwd.txt";
    char buf[] = "luka:x";
 
    if ( (fd1 = open(filename, O_RDONLY)) == -1)

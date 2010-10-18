@@ -1,14 +1,3 @@
-/* 
-$Author: luca $
-$Date: 2010/07/27 15:48:44 $
-$Revision: 1.1 $
-
-$Log: 1.3-IOSeek.c,v $
-Revision 1.1  2010/07/27 15:48:44  luca
-Initial revision
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -52,8 +41,3 @@ int main(int argc, char *argv[])
 
    return(EXIT_SUCCESS);
 }
-
-
-/* 
-EOF $Source: /home/luca/devel/programming-Posix/esercizi_Linuguaggio-C-in-Ambiente-Linux/modulo-1-gestione-file-a-basso-livello/1.3-IOSeek.c,v $ 
-*/

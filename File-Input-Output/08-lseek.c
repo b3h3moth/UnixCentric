@@ -5,6 +5,8 @@
 
 #define PERMS 0666
 
+/* Modifica alcuni caratteri della stringa buffer[] */
+
 int main(int argc, char* argv[])
 {
   int fd1,ret;

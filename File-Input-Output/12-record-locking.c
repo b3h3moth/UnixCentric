@@ -1,16 +1,5 @@
-/* 
-$Author: luca $
-$Date: 2010/08/05 15:55:06 $
-$Revision: 1.1 $
-
-$Log: 2.4-record-locking.c,v $
-Revision 1.1  2010/08/05 15:55:06  luca
-Initial revision
-
-*/
-
 /*
- * Programma che accdede in scrittura ad un file di caratteri per modificare uno
+ * Programma che accede in scrittura ad un file di caratteri per modificare uno
  * specifico carattere in una posizione data; il programma inoltre deve
  * consentire l'accesso esclusivo al file, applicando un blocco sulla sola
  * porzione da modificare.
@@ -55,10 +44,7 @@ int main(int argc, char *argv[])
       fl.l_len = 2;
    }
 
+   close(fd);
+
    return(EXIT_SUCCESS);
 }
-
-
-/* 
-EOF $Source: /home/luca/devel/programming-Posix/esercizi_Linuguaggio-C-in-Ambiente-Linux/modulo-1-gestione-file-a-basso-livello/2.4-record-locking.c,v $ 
-*/

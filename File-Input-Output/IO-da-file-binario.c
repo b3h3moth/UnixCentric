@@ -1,17 +1,6 @@
-/* 
-$Author: luca $
-$Date: 2010/07/18 15:41:58 $
-$Revision: 1.1 $
-
-$Log: 1.1-IONumeri.c,v $
-Revision 1.1  2010/07/18 15:41:58  luca
-Initial revision
-
-*/
 
 /* 
- * Listato 1.1
- * Scrivere un programma che carichi in un file binario, gestito a basso livello,
+ * Programma che carica in un file binario, gestito a basso livello,
  * una serie di numeri interi contenuti in un array
  */
 
@@ -54,8 +43,3 @@ int main(int argc, char *argv[])
 
    return(EXIT_SUCCESS);
 }
-
-
-/* 
-EOF $Source: /home/luca/devel/programming-Posix/esercizi_Linuguaggio-C-in-Ambiente-Linux/modulo-1-gestione-file-a-basso-livello/1.1-IONumeri.c,v $ 
-*

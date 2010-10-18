@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[], char *envp[])
 {
-   char stringa[] = "hacking is not a crime";
+   char stringa[] = "Linux Programming";
 
 
    /* Questo metodo di 'stampare' sullo stdout e'

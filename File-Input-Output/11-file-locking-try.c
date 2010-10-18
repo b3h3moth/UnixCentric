@@ -1,13 +1,3 @@
-/* 
-$Author: luca $
-$Date: 2010/08/01 18:34:00 $
-$Revision: 1.2 $
-
-Revision 1.1  2009/04/06 15:55:38  luka
-Initial revision
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>  
@@ -70,7 +60,3 @@ void printout(char *s)
 {
    printf("%s\n", s);
 }
-
-/* 
-EOF $Source: /home/luca/devel/programming-Posix/esercizi_Linuguaggio-C-in-Ambiente-Linux/modulo-1-gestione-file-a-basso-livello/2.3-file-locking-try.c,v $ 
-*/
