@@ -1,10 +1,9 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 
 #define MAXBUF		256
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
 
 int main(int argc, char *argv[])
 {
