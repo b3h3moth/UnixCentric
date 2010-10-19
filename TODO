@@ -1,0 +1,12 @@
+[19-10-2010 17:55]
+- Si deve aggiungere una introduzione al linguaggio, ritengo sia necessaria per
+poter affrontare lo studio del linguaggio di programmazione, inoltre ritengo 
+possa essere utile accennare anche al periodo storico nel quale il linguaggio
+C e'  nato e si e' evoluto; il tutto naturalmente secondo la filosofia
+code-oriented del progetto. 
+
+Si deve decidere se presentare un listato che comprenda la BNF; si deve trovare
+un metodo che possa essere utilie all'utente, una sorta di database? 
+Al cui interno sia contenuta tutta la grammatica del linguaggio
+in modo tale che l'utente possa cercare il costrutto preciso? La strada potrebbe
+essere questa.
