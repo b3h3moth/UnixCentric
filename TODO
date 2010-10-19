@@ -5,8 +5,16 @@ possa essere utile accennare anche al periodo storico nel quale il linguaggio
 C e'  nato e si e' evoluto; il tutto naturalmente secondo la filosofia
 code-oriented del progetto. 
 
-Si deve decidere se presentare un listato che comprenda la BNF; si deve trovare
+- Si deve decidere se presentare un listato che comprenda la BNF; si deve trovare
 un metodo che possa essere utilie all'utente, una sorta di database? 
 Al cui interno sia contenuta tutta la grammatica del linguaggio
 in modo tale che l'utente possa cercare il costrutto preciso? La strada potrebbe
 essere questa.
+
+- Probabilmente e' il caso di inserire un ordine cronologico in ciascuna
+directory, questo perche' potrebbe capitare anche l'utente con l'intenzione di
+studiare il linguaggio dall'inizio alla fine; questo e' da valutare poiche'
+ritengo che chi utilizza GIT sia comunque un utente *avanzato*, tuttavia e' 
+anche vero il contrario, cioe' che ora per clonare un repository lo si fa 
+semplicemente cliccando sul pulsante di github. Da valutare prima inserire 
+altre sorgenti.
