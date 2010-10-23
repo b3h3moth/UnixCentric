@@ -27,26 +27,35 @@ int main(int argc, char *argv[])
 	FILE *f_tmp;
 
 	/* Template della stringa */
-	char *template = "/tmp/00-XXXXXX";
+	char *temp_template = "/tmp/00-XXXXXX";
 
 	/* Si copia il template nel path temporaneo */
-	strcpy(temp_path, template);
+	strcpy(temp_path, temp_template);
 
+	/* Si passa a mkstemp() il modello del percorso del file temporaneo; la
+	 * funzione quindi modifica il contenuto del buffer, sostituendo gli ultimi
+	 * sei caratteri con una stringa univoca. 
+	 *
+	 * Se fd sara' positivo, viene restituito ad esso il file descriptor del
+	 * file aperto, nel caso specifico il file temporaneo. */
 	if ((fd = mkstemp(temp_path)) < 0) {
 		fprintf(stderr, "%s: Creazione file temp.\n", (char *)strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 
-	/* In output il nome del file creato */
-	printf("Temp file :%s\n", temp_path);
+	/* Si stampa a video il file temporaneo modificato */
+	printf("Temp file : %s\n", temp_path);
 
-	/* Si apre il file in lettura e scrittura */
+	/* Si apre il file temporaneo in lettura e scrittura */
 	if ( (f_tmp = fdopen(fd, "w+")) == NULL) {
 		fprintf(stderr, "%s: Scrittura su file", (char *)strerror(errno));
 		exit(EXIT_SUCCESS);
 	}
 
-	fprintf(f_tmp, "Scrittura sul file %s\n", temp_path);
+	/* Si scrive sul file temporaneo */
+	fprintf(f_tmp, "Sto scrivendo sul file: %s\n", temp_path);
+
+	/* Si chiude il file temporaneo */
 	fclose(f_tmp);
 
    return(EXIT_SUCCESS);
