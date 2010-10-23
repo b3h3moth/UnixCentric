@@ -6,7 +6,11 @@
 #define MAX_BUF 512
 
 /*
- * Utilizzo di tmpfile - Prototipo: FILE *tmpfile(void);
+ * Utilizzo di tmpfile
+ * Prototipo: FILE *tmpfile(void);
+ *
+ * La caratteristica della funzione tmpfile() e' che il file temporaneo creato
+ * sara' automaticamente eliminato alla chiusura del programma
  */
 int main(int argc, char *argv[])
 {
@@ -14,8 +18,7 @@ int main(int argc, char *argv[])
 
 	FILE *ftmp;
 
-	/* Crea il file temporaneo con tmpfile(), che sara' eliminato alla chiusura
-	 * del programma */
+	/* Crea il file temporaneo mediante tmpfile() */
 	if ( (ftmp = tmpfile()) == NULL)
 			fprintf(stderr, "%s :generazione file temp.", (char *)strerror(errno));
 
@@ -30,6 +33,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "%s lettura da file temp.", (char *)strerror(errno));
 	fputs(buf, stdout);
 
+	/* Chiusura del file */
 	fclose(ftmp);
 
    return(EXIT_SUCCESS);
