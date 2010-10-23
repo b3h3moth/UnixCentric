@@ -55,6 +55,20 @@ listato sull'IO non bufferizzato, i relativi file saranno collocati nella
 directory File I/O, e cosi' via discorrendo.
 
 ##############################################################################
+ Linee guida per la scrittura dei listati
+##############################################################################
+ INTESTAZIONI 
+
+/*
+ 	Utilizzo:
+	Prototipo:
+
+	Note:
+*/
+
+ CODICE
+
+##############################################################################
 INFO
 ##############################################################################
 Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
