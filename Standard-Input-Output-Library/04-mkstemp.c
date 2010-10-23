@@ -46,7 +46,9 @@ int main(int argc, char *argv[])
 	/* Si stampa a video il file temporaneo modificato */
 	printf("Temp file : %s\n", temp_path);
 
-	/* Si apre il file temporaneo in lettura e scrittura */
+	/* Si apre il file temporaneo in lettura e scrittura; si utilizza fdopen()
+	 * poiche' e' necessario, in questo caso, lavorare con un file gia' aperto
+	 * e soprattutto che non venga azzerato */
 	if ( (f_tmp = fdopen(fd, "w+")) == NULL) {
 		fprintf(stderr, "%s: Scrittura su file", (char *)strerror(errno));
 		exit(EXIT_SUCCESS);
