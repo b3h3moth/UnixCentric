@@ -6,11 +6,15 @@
 #define MAX_BUF 516
 
 /* 
- * Utilizzo di tmpnam() con argomento NULL 
- * Prototipo: char *tmpnam(char *s);
- *
- * POSIX tuttavia consiglia di utilizzare mkstemp() invece di tmpnam()
- */
+
+Prototipo:
+	char *tmpnam(char *s);
+
+Note:
+	Utilizzo di tmpnam() con argomento NULL
+	POSIX tuttavia consiglia di utilizzare mkstemp() invece di tmpnam()
+
+*/
 
 int main(int argc, char *argv[])
 {

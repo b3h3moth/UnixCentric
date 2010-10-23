@@ -6,12 +6,17 @@
 #define MAX_BUF 512
 
 /*
- * Utilizzo di tmpfile
- * Prototipo: FILE *tmpfile(void);
- *
- * La caratteristica della funzione tmpfile() e' che il file temporaneo creato
- * sara' automaticamente eliminato alla chiusura del programma
- */
+
+Prototipo:
+	FILE *tmpfile(void);
+
+Note:
+	Utilizzo di tmpfile.
+	La caratteristica della funzione tmpfile() e' che il file temporaneo creato
+	sara' automaticamente eliminato alla chiusura del programma
+
+*/
+
 int main(int argc, char *argv[])
 {
 	char buf[MAX_BUF];

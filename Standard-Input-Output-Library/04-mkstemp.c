@@ -7,15 +7,19 @@
 #define MAX_BUF 64
 
 /*
- * Utilizzo della funzione mkstemp()
- * Prototipo: int mkstemp(char *template);
- *
- * Il parametro e' un puntatore ad una stringa, ossia un puntatore a char, tale
- * stringa sara' utilizzata come modello per il percorso temporaneo; da notare
- * che gli ultimi 6 caratteri dovranno essere necessariamente composto in questa
- * maniera: "XXXXXX", dopodiche' saranno sovrascritte affinche' il percorso
- * risulti unico.
- */
+
+Prototipo:
+	int mkstemp(char *template);
+
+Note:
+	Utilizzo della funzione mkstemp()
+	Il parametro e' un puntatore ad una stringa, ossia un puntatore a char, tale
+	stringa sara' utilizzata come modello per il percorso temporaneo; da notare
+	che gli ultimi 6 caratteri dovranno essere necessariamente composto in 
+	questa maniera: "XXXXXX", dopodiche' saranno sovrascritte affinche' il
+	percorso risulti unico.
+
+*/
 
 int main(int argc, char *argv[])
 {
