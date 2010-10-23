@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <string.h>
 
-#define MAX_BUF 1024
+#define MAX_BUF 516
 
 /* 
  * Utilizzo di tmpnam() con argomento NULL - Prototipo: char *tmpnam(char *s); 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	* genera una stringa; tale file sara' creato nella directory /tmp */
 
    char *tmp_pathname;		/* Percorso del file temporaneo */
-   FILE *ftmp = 0;			/* File temporaneo */
+   FILE *ftmp;				/* File temporaneo */
    char buf[MAX_BUF];		/* Servira' se tutto andra' bene, per contenere
    							   cio' che sara' scritto nel file temporaneo */
 
@@ -33,26 +33,24 @@ int main(int argc, char *argv[])
    printf("File temporaneo: %s\n", tmp_pathname);
 
    /* Si chiama la fopen() per la creazione del file */
-   if ((ftmp = fopen(tmp_pathname, "w")) == NULL ) { 
+   if ((ftmp = fopen(tmp_pathname, "w+")) == NULL ) { 
       fprintf(stderr, "%s: creazione file temporaneo %s\n", (char *)strerror(errno), tmp_pathname);
       exit(EXIT_FAILURE);
    }
 
-   /* Si scrive sui file temporaneo */
+   /* SCRITTURA E LETTURA DA FILE TEMP
    fputs("Sto scrivendo sul file temporaneo appena creato.\n"
    		 "Da notare che la tmpnam() restituisce un puntatore\n", ftmp);
 
-   /* Si riporta il puntatore all'inizio del file */
    rewind(ftmp);
 
-   /* Leggo dal file temporaneo */
-   if ( (fgets(buf, sizeof(buf), ftmp)) != NULL) {
+   if ( (fgets(buf, MAX_BUF, ftmp)) != NULL) {
       fprintf(stderr, "%s: lettura da file temporaneo %s\n", (char *)strerror(errno), ftmp);
 	  exit(EXIT_FAILURE);
    }
 
-   /* Si stampa il contenuto del file */
    fputs(buf, stdout);
+   */
 
    /* Il puntatore al file viene deallocato */
    fclose(ftmp);
