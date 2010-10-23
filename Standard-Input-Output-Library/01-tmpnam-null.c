@@ -9,7 +9,7 @@
  * Utilizzo di tmpnam() con argomento NULL 
  * Prototipo: char *tmpnam(char *s);
  *
- * POSIX tuttavia consiglia di utilizzare mktemp() e non tmpnam()
+ * POSIX tuttavia consiglia di utilizzare mkstemp() invece di tmpnam()
  */
 
 int main(int argc, char *argv[])
@@ -40,20 +40,6 @@ int main(int argc, char *argv[])
       fprintf(stderr, "%s: creazione file temporaneo %s\n", (char *)strerror(errno), tmp_pathname);
       exit(EXIT_FAILURE);
    }
-
-   /* SCRITTURA E LETTURA DA FILE TEMP
-   fputs("Sto scrivendo sul file temporaneo appena creato.\n"
-   		 "Da notare che la tmpnam() restituisce un puntatore\n", ftmp);
-
-   rewind(ftmp);
-
-   if ( (fgets(buf, MAX_BUF, ftmp)) != NULL) {
-      fprintf(stderr, "%s: lettura da file temporaneo %s\n", (char *)strerror(errno), ftmp);
-	  exit(EXIT_FAILURE);
-   }
-
-   fputs(buf, stdout);
-   */
 
    /* Il puntatore al file viene deallocato */
    fclose(ftmp);
