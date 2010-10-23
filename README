@@ -60,10 +60,13 @@ directory File I/O, e cosi' via discorrendo.
  INTESTAZIONI 
 
 /*
- 	Utilizzo:
-	Prototipo:
 
-	Note:
+Prototipo/i:
+	void prototipo(parametri);
+
+Note:
+	Note sul programma in uso, breve descrizione
+
 */
 
  CODICE
