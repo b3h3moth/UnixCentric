@@ -10,7 +10,7 @@
  */
 
 int main(int argc, char *argv[]) {
-   FILE *Ptr_file;
+   FILE *f_input;
    char riga[MAX_LEN];
    int conta_righe, x;
 
@@ -19,13 +19,13 @@ int main(int argc, char *argv[]) {
       exit(1);
    }
 
-   if ( (Ptr_file = fopen(argv[1], "r") ) == NULL) {
+   if ( (f_input = fopen(argv[1], "r") ) == NULL) {
       fprintf(stderr,"Errore nell'apertura del file \"%s\".\n", argv[1]);
       exit(1);
    }
 
    conta_righe = 0;
-   while (fgets(riga, MAX_LEN, Ptr_file) != NULL) {
+   while (fgets(riga, MAX_LEN, f_input) != NULL) {
       conta_righe++;
    }
    
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
       printf("Argomento argv[%d] = %s\n", x, argv[x]);
    }
 
-   fclose(Ptr_file);
+   fclose(f_input);
 
    return(EXIT_SUCCESS);
 }
