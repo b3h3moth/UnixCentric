@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
    int conta_righe, x;
 
    if (argc < 2) {
-      fprintf(stderr, "ATTENZIONE: Inserire un argomento\n");
+      fprintf(stderr, "Uso: %s [file]\n", argv[0]);
       exit(1);
    }
 
