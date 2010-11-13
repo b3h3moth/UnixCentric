@@ -6,8 +6,8 @@ char *my_strcat(char *s1, const char *s2);
 
 int main(int argc, char *argv[], char *envp[])
 {
-   char str[] = "hacking is not a crime";
-   char str2[] = " Hackers on planet hearth!";
+   char str[] = "C Language Programming ";
+   char str2[] = "Kernighan and Ritchie";
    printf("len: %d\n", my_strlen(str));
    my_strcat(str, str2);
    printf("%s\n", str);
