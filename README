@@ -36,6 +36,9 @@ come L-C.
 Ciascun sorgente potra' essere compilato mediante il compilatore GCC:
 $ gcc main.c -o main
 
+Oppure, se si vuole maggiore 'precisione':
+$ gcc main.c -g -ansi -Wall -pedantic 
+
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
