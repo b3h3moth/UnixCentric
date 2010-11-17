@@ -36,21 +36,32 @@ come L-C.
 Ciascun sorgente potra' essere compilato mediante il compilatore GCC:
 $ gcc main.c -o main
 
-Oppure, se si vuole maggiore 'precisione':
-$ gcc main.c -g -ansi -Wall -pedantic 
+Oppure, se si vuole maggiore dettaglio:
+$ gcc -o main main.c -g -ansi -Wall -pedantic
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
 
-Le directory sono state denominate seguendo il percorso didattico della
-bibbia del C, *Linguaggio C*, di Kernighan & Ritchie - d'ora in poi, 
-sorgenti comprese, K&R -; si e' optato per questa scelta, sia per avere quella
-chiarezza *universalmente riconosciuta* rispetto ai contenuti, sia per 
-omaggiare Kernighan & Ritchie stessi, due tra le figure piu' importanti per
-cio' che concerne l'informatica, per UNIX in particolare.
+Le directory sono state denominate seguendo il percorso didattico della bibbia 
+del C, "Linguaggio C", di Kernighan & Ritchie - d'ora in poi K&R -, alcuni 
+argomenti tuttavia sono stati aggiunti, per cui oltre al normale content di K&R
+sono state e saranno realizzate ulteriore sezioni; si e' optato per questa
+scelta, sia per avere quella chiarezza "universalmente riconosciuta" rispetto ai
+contenuti, sia per omaggiare Kernighan & Ritchie stessi, due tra le figure piu'
+importanti dell'Informatica del XX secolo, in particolare per cio' che concerne
+il mondo dei sistemi operativi UNIX like.
 
 ##############################################################################
 INFO
 ##############################################################################
 Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
+
+Qualora si volesse comunicare mediante crittografia a chiave pubblica, questa e'
+la mia impronta digitale (fingerprint)
+
+Key fingerprint = 11C3 D822 EA07 6D99 1F59  5F86 2023 8259 E83F 9FBB
+
+La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
+chiavi pubbliche.
+
