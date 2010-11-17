@@ -37,6 +37,7 @@ int regex_match (char *pattern, const char *default_string)
         regfree (&preg);
         return (EXIT_FAILURE);
       }
+
     regfree (&preg);
     
 	return(EXIT_SUCCESS);
