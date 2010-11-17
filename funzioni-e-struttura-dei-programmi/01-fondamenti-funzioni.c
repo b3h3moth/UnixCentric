@@ -1,16 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /* Prototipi delle funzioni */
 double Media(double val_a, double val_b);
 int Potenza(int x, int n);
+
 
 int main(int argc, char *argv[])
 {
 	double x = 10.8,  y = 89.90;
 	int val = 2, n = 5;
-	
-	/* LE FUNZIONI sono essenziali nel contesto di un programma C, poiche'
+
+	/* CONCETTI FONDAMENTALI SULLE FUNZIONI
+	 ***************************************************************************
+	 * Le funzioni sono essenziali nel contesto di un programma C, poiche'
 	 * aiutano notevolmente nella realizzazione di programmi agili e
 	 * performanti.
 	 *
@@ -30,16 +34,16 @@ int main(int argc, char *argv[])
 	 * - (C89) Se si dovesse omettere il tipo-restituito sara' utilizzato il
 	 *   tipo di default <int>, in (C99) non e' prevista tale circostanza.
 	 * 
-	 * ID-funzione, e' il nome della funzione, c'e' ampia liberta' in tal senso,
-	 * tuttavia e' sempre meglio utilizzare nomi autoesplicativi che possano
-	 * aiutare coloro che leggeranno il programma.
+	 * nome-funzione, e' il nome della funzione, c'e' ampia liberta' in tal 
+	 * senso, tuttavia e' sempre meglio utilizzare nomi autoesplicativi che
+	 * possano aiutare coloro che leggeranno il programma.
 	 *
 	 * Dopo il nome o ID, tra parentesi, ci sono i parametri, ciascun parametro
 	 * deve essere preceduto da uno specificatore di tipo, tale regola vale
 	 * anche quando ci sono diversi parametri dello stesso tipo; quando la 
-	 * funzione comprende diversi parametri ciascuno sara' separato dall'altro
-	 * mediante una virgola, se invece la funzione non prevede parametri si puo'
-	 * utilizzare void.
+	 * funzione comprende diversi parametri ciascuno di essi deve essere
+	 * separato dall'altro mediante una virgola, se invece la funzione non
+	 * prevede parametri si puo' utilizzare void.
 	 *
 	 * Il corpo di una funzione puo' essere caratterizzato sia da dichiarazioni
 	 * sia da istruzioni; le variabili dichiarate all'interno della funzione
@@ -47,12 +51,12 @@ int main(int argc, char *argv[])
 	 * per cui non sono visibili all'esterno del blocco della funzione. Nel C89
 	 * le variabili dovevano essere dichiarate prima di tutte le altre
 	 * istruzioni, nel C99 questa restrizione non c'e', naturalmente una
-	 * variabile per essere utilizzata dovra' essere prima dichiarata, questo e'
+	 * variabile per essere utilizzata deve essere prima dichiarata, questo e'
 	 * ovvio.
 	 *
 	 * Concettualmente appare logico che una funzione dovrebbe essere definita
 	 * prima del main per poter essere utilizzata, poiche' altrimenti sarebbe
-	 * impossibile ottenere le informazioni necessarie per chiamare la funzione
+	 * impossibile ottenere le informazioni necessarie per invocare la funzione
 	 * stessa; nel C99 e' possibile ovviare a questo problema dichiarando il
 	 * prototipo della funzione prima che possa essere invocata, tale
 	 * dichiarazione fornisce al compilatore i dettagli relativi al tipo di dato
@@ -63,19 +67,23 @@ int main(int argc, char *argv[])
 	 *
 	 * tipo-restituito nome-funzione( parametri );
 	 *
-	 * Ovviamente il prototipo della funzione deve essere fedele alla sua
-	 * definizione, nel prototipo inoltre per cio' che concerne i parametri, non
-	 * c'e' l'obbligo di inserire il nome ma e' sufficiente il tipo di dato:
+	 * Il prototipo della funzione naturalmente deve essere fedele alla sua
+	 * definizione, nel prototipo inoltre, per cio' che concerne i parametri,
+	 * non c'e' l'obbligo di inserire il nome ma e' sufficiente il tipo di dato:
 	 *
 	 * <int Somma(int, int);> piuttosto che <int Somma(int x, int y);>
 	 * Questa comunque non e' una regola ma solo una possibilita', che peraltro
 	 * andrebbe presa con le molle e comunque gestica con criterio.
 	 */
 
-	/* Un semplice esempio con cio' che e' stato detto sin'ora */
+	/* L'esempio seguente mostra in estrema sintesi tutto cio' che e' stato
+	 * detto sin'ora. */
+
 	printf("La media di %g + %g = %g\n", x, y, Media(x,y));
 
-	/* In genere si indica come parametro (argomento formale) la variabile 
+	/* ARGOMENTI (ARGOMENTI ATTUALI) E PARAMETRI (ARGOMENTI FORMALI)
+	 ***************************************************************************
+	 * In genere si indica come parametro (argomento formale) la variabile 
 	 * menzionata nell'elenco tra parentesi della definizione  di una funzione,
 	 * mentre con argomento (argomento attuale) si indica il valore usato da una
 	 * chiamata di una funzione; nel caso specifico, nella chiamata Media(x,y)
@@ -91,16 +99,19 @@ int main(int argc, char *argv[])
 	 * Come si evince dalla funzione si lavora con delle copie, pertanto i
 	 * valori passati come argomenti non saranno modificati.
 	 */
+
 	printf("La potenza di %d^%d = %d\n", val, n, Potenza(val, n));
 	printf("Valori degli argomenti nel main val=%d n=%d\n", val, n );
 
 	return(EXIT_SUCCESS);
 }
 
+
 double Media(double val_a, double val_b)
 {
 	return ( (val_a + val_b) / 2);
 }
+
 
 /* In questo caso la variabile n assumera' il valore -1 all'interno della
  * funzione, ma il corrispettivo argomento attuale non sara' modificato.
@@ -118,7 +129,7 @@ int Potenza(int x, int n)
 }
 
 
-/* ALCUNE REGOLE, stilistiche e non:
+/* Alcune regole, stilistiche e non:
  * - Inserire il tipo restituito sopra il nome della funzione migliora la
  *   leggibilita' allorquando dovessero essere utilizzati tipi di dato piuttosto
  *   lunghi, come ad esempio potrebbe esssere <unsigned long int>.
@@ -128,8 +139,8 @@ int Potenza(int x, int n)
  *
  * - Il corpo di una funzione dichiarata void, puo' anche essere vuoto.
  *
- * - Il casting (void) e' un modo educato per dire "butta via"; ci si trova
- *   nel caso in cui si debba scartare una funzione.
+ * - Il casting (void) e' un modo educato per dire che "non serve", se ci si
+ *   trova nel caso in cui si debba scartare una funzione.
  *
  * - Gli argomenti o argomenti attuali sono passati per valore.
  */
