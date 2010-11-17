@@ -3,16 +3,20 @@
 
 /* Prototipi delle funzioni */
 double Media(double val_a, double val_b);
+int Potenza(int x, int n);
 
 int main(int argc, char *argv[])
 {
+	double x = 10.8,  y = 89.90;
+	int val = 2, n = 5;
+	
 	/* LE FUNZIONI sono essenziali nel contesto di un programma C, poiche'
 	 * aiutano notevolmente nella realizzazione di programmi agili e
 	 * performanti.
 	 *
 	 * La tipica funzione C99 e' cosi' strutturata:
 	 *
-	 * tipo-restituito ID-funzione( parametri )
+	 * tipo-restituito nome-funzione( parametri )
 	 * {
 	 *     dichiarazioni
 	 *     istruzioni
@@ -57,7 +61,7 @@ int main(int argc, char *argv[])
 	 * prototipo della funzione, e consta della prima linea della definizione,
 	 * seguito pero' da un punto e virgola finale:
 	 *
-	 * tipo-restituito ID-funzione( parametri );
+	 * tipo-restituito nome-funzione( parametri );
 	 *
 	 * Ovviamente il prototipo della funzione deve essere fedele alla sua
 	 * definizione, nel prototipo inoltre per cio' che concerne i parametri, non
@@ -66,13 +70,30 @@ int main(int argc, char *argv[])
 	 * <int Somma(int, int);> piuttosto che <int Somma(int x, int y);>
 	 * Questa comunque non e' una regola ma solo una possibilita', che peraltro
 	 * andrebbe presa con le molle e comunque gestica con criterio.
-	 *
 	 */
 
-	double x = 10.8,  y = 89.90;
+	/* Un semplice esempio con cio' che e' stato detto sin'ora */
+	printf("La media di %g + %g = %g\n", x, y, Media(x,y));
 
-	printf("la media di %g + %g = %g\n", x, y, Media(x,y));
-	
+	/* In genere si indica come parametro (argomento formale) la variabile 
+	 * menzionata nell'elenco tra parentesi della definizione  di una funzione,
+	 * mentre con argomento (argomento attuale) si indica il valore usato da una
+	 * chiamata di una funzione; nel caso specifico, nella chiamata Media(x,y)
+	 * le variabili x e y sono argomenti o argomenti attuali, mentre val_a e 
+	 * val_b sono parametri o argomenti formali. Gli argomenti attuali pertanto
+	 * sono delle espressioni, i parametri sono dei nomi che saranno forniti
+	 * alla funzione allorquando sara' invocata.
+	 *
+	 * Nel C gli argomenti sono passati per valore, cio' vuol dire che quando si
+	 * verifica una chiamata di funzione ogni argomento sara' calcolato e il
+	 * risultato inserito nel corrispondente parametro.
+	 *
+	 * Come si evince dalla funzione si lavora con delle copie, pertanto i
+	 * valori passati come argomenti non saranno modificati.
+	 */
+	printf("La potenza di %d^%d = %d\n", val, n, Potenza(val, n));
+	printf("Valori degli argomenti nel main val=%d n=%d\n", val, n );
+
 	return(EXIT_SUCCESS);
 }
 
@@ -81,9 +102,24 @@ double Media(double val_a, double val_b)
 	return ( (val_a + val_b) / 2);
 }
 
+/* In questo caso la variabile n assumera' il valore -1 all'interno della
+ * funzione, ma il corrispettivo argomento attuale non sara' modificato.
+ */
+int Potenza(int x, int n)
+{
+	int risultato = 1;
 
-/* Regole stilistiche e altro:
- * - Inserire il tipo restitioto sopra il nome della funzione migliora la
+	while (n-- > 0)
+		risultato = risultato * x;
+
+	printf("valore di n all'interno della funzione %d\n", n);
+
+	return risultato;
+}
+
+
+/* ALCUNE REGOLE, stilistiche e non:
+ * - Inserire il tipo restituito sopra il nome della funzione migliora la
  *   leggibilita' allorquando dovessero essere utilizzati tipi di dato piuttosto
  *   lunghi, come ad esempio potrebbe esssere <unsigned long int>.
  *
@@ -94,4 +130,6 @@ double Media(double val_a, double val_b)
  *
  * - Il casting (void) e' un modo educato per dire "butta via"; ci si trova
  *   nel caso in cui si debba scartare una funzione.
+ *
+ * - Gli argomenti o argomenti attuali sono passati per valore.
  */
