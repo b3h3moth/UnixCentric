@@ -3,7 +3,6 @@
 #include <errno.h>
 #include <string.h>
 
-#define MAX_BUF			516
 #define CAESAR_SEEK		3
 #define LEN_ALPHABET	23
 
@@ -39,16 +38,17 @@ int main(int argc, char *argv[])
 	while ( (r_char = fgetc(f_cleartext)) != EOF) {
 		tot_rows++;
 	}
+
 	fclose(f_cleartext);
 
 	/* Si alloca lo spazio necessario per contenere contenere tutti i caratteri
-	 * del file di input  */
+	 * del file di input */
 	buf_rows = calloc(tot_rows, sizeof(char));
 
 	f_cleartext = OpenCleartext(argv[1], "r");
 
 	/* Si copia ciascun carattere del file di input (cleartext) nel buffer
-	 * creato ad hoc */
+	 * creato ad hoc buf_rows */
 	while ( (r_char = fgetc(f_cleartext)) != EOF) {
 		buf_rows[i++] = r_char;
 	}
@@ -89,7 +89,7 @@ FILE *OpenCleartext(char *inputfile, char *mode)
 	FILE *fp;
 
 	if ( (fp = fopen(inputfile, mode)) == NULL) {
-		fprintf(stderr, "%s: Apertura testo in chiaro\n", (char *)strerror(errno));
+		fprintf(stderr, "%s: Apertura file\n", (char *)strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 
