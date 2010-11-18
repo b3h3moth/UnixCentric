@@ -8,12 +8,15 @@
 double Media(double val_a, double val_b);
 int Potenza(int x, int n);
 int SommaElementi(int vect[], int len);
+void StampaGiorno(int val);
+int VerificaData(int gg);
 
 int main(int argc, char *argv[])
 {
 	double x = 10.8,  y = 89.90;
 	int val = 2, n = 5;
 	int vettore[MAX_LEN], tot_elem;
+	int data = 5;
 
 	/* CONCETTI FONDAMENTALI SULLE FUNZIONI
 	 ***************************************************************************
@@ -125,16 +128,48 @@ int main(int argc, char *argv[])
 	printf("Somma elementi vettore = %d\n", tot_elem);
 
 	/* Da notare che, mediante la funzione SommaElementi(), ciascun elemento del
-	 * vettore e' stato modificato, ma non si era detto che gli argomenti,
-	 * essendo passati per valore, non possono essere modificati? Certo, ma
+	 * vettore e' stato modificato; ma non si era detto che gli argomenti,
+	 * essendo passati per valore, non possono essere modificati? Certo, ma 
 	 * ovviamente ci sono delle eccezioni, vettori e puntatori viaggiano in
-	 * stretto contatto, per cui e' facilmente intuibile perche' e' stato
-	 * possibile modificare i valori di un vettore. Tale argomento tuttavia
+	 * stretto contatto peraltro, per cui e' facilmente intuibile perche' e' 
+	 * stato possibile modificare i valori di un vettore. Tale argomento tuttavia
 	 * sara' ampiamente trattato allorquando ci si occupera' di funzioni e
 	 * puntatori.
 	 */
 
-	
+	/* RETURN
+	 ***************************************************************************
+	 * Se una funzione non e' stata dichiarata void si deve utilizzare
+	 * l'istruzione return per restituire il risultato, possono essere
+	 * utilizzate anche diverse istruzioni return all'interno dello stesso
+	 * blocco, l'importante e' che logicamente la funzione ritorni solo e
+	 * soltanto una volta; essa e' cosi' strutturata:
+	 *
+	 * return expr;
+	 *
+	 * Spesso e volentieri expr corrisponde ad una costante intera, come il
+	 * valore di ritorno del main, 0 (true) oppure 1 (false); da notare che
+	 * potrebbe essere utilizzata anche in una funzione di tipo void, ad esempio
+	 * per controllare un valore ed eventualmente far terminare la funzione:
+	 */
+
+	StampaGiorno(31); /* L'unico visualizzato */
+	StampaGiorno(-1);
+	StampaGiorno(32);
+
+	/* L'espressione associata all'istruzione return puo' anche essere gestita
+	 * mediante un'istruzione condizionale (verificare la funzione non il codice
+	 * nel mail):
+	 */
+
+	while (data--) {
+		if (VerificaData(data) > 0)
+			printf("%d e' una data valida\n", data);
+		else
+			printf("%d non e' una data valida\n", data);
+	}
+
+
 	return(EXIT_SUCCESS);
 }
 
@@ -175,6 +210,23 @@ int SommaElementi(int vect[], int len)
 	return somma;
 }
 
+/* Stampa un intero passato come argomento, l'intero si riferisce ai giorni di
+ * un mese, per cui dev'essere compreso tra 1 e 31. */
+void StampaGiorno(int val)
+{
+	if (val <= 0 || val > 31)
+		return;
+
+	printf("giorno: %d\n", val);
+}
+
+/* Simile alla funzione StampaGiorno(), la differenza e' che VerificaData()
+ * ritorna un intero e soprattutto che il controllo sulla correttezza della data
+ * e' effettuato direttamene dal main. */
+int VerificaData(int gg)
+{
+	return (gg <= 0 || gg > 31) ? 0 : gg;
+}
 
 /* DA RICORDARE
  *******************************************************************************
@@ -193,5 +245,8 @@ int SommaElementi(int vect[], int len)
  * - Gli argomenti o argomenti attuali sono passati per valore;
  *
  * - Per la leggibilita' del codice e' una buona idea commentare ciascuna
- *   funzione, indicando brevemente lo scopo per il quale e' stata scritta.
+ *   funzione, indicando brevemente lo scopo per il quale e' stata scritta;
+ *
+ * - Una funzione non void deve utilizzare l'istruzione return per restituire un
+ *   risultato.
  */
