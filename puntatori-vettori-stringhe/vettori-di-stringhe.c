@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_STR 20
+
 int main(int argc, char *argv[])
 {
    /*
@@ -18,8 +20,8 @@ int main(int argc, char *argv[])
    int i;
    char planets[][8] = {"plutone","nettuno","giove","mercurio","marte","urano","terra"};
 
-   /* più efficiente così
-    */
+   /* più efficiente  poiche' non si spreca spazio, ciascun puntatore puntera'
+	* ad una stringa con dimensioni differenti l'un l'altra */
    char *pianeti[8] = {"plutone","nettuno","giove","mercurio","marte","urano","terra"};
 
    for (i=0; i<7; i++) 
@@ -29,10 +31,11 @@ int main(int argc, char *argv[])
    printf("Grandezza del vettore: ");
    scanf("%d", &dim);
    char *test[dim];
-   char temp[40];
+   char temp[MAX_STR];
 
+   /* Creazione dinamica di un vettore di stringhe */
    for (i=0; i<dim; i++) { 
-      printf("inserisci la '%d' squadra: ", i);
+      printf("inserisci la squadra '%d': ", i);
       scanf("%s", temp);
       test[i] = malloc(strlen(temp) * sizeof(char));
       strcpy(test[i], temp);
