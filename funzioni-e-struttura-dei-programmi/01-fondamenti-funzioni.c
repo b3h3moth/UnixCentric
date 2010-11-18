@@ -10,6 +10,7 @@ int Potenza(int x, int n);
 int SommaElementi(int vect[], int len);
 void StampaGiorno(int val);
 int VerificaData(int gg);
+/*void SommaInterna(int n);*/
 
 int main(int argc, char *argv[])
 {
@@ -169,6 +170,8 @@ int main(int argc, char *argv[])
 			printf("%d non e' una data valida\n", data);
 	}
 
+	/*SommaInterna(100);*/
+
 
 	return(EXIT_SUCCESS);
 }
@@ -228,7 +231,21 @@ int VerificaData(int gg)
 	return (gg <= 0 || gg > 31) ? 0 : gg;
 }
 
-/* DA RICORDARE
+/* La dichiarazione della funzione Stampa e' interna ad un'altra funzione
+void SommaInterna(int n)
+{
+	int Stampa(int x)
+	{
+		return x += n;
+	}
+
+	printf("%d\n", Stampa(n));
+}
+*/
+
+
+
+/* DA RICORDARE (C99)
  *******************************************************************************
  * - Inserire il tipo restituito sopra il nome della funzione migliora la
  *   leggibilita' allorquando dovessero essere utilizzati tipi di dato piuttosto
@@ -248,5 +265,27 @@ int VerificaData(int gg)
  *   funzione, indicando brevemente lo scopo per il quale e' stata scritta;
  *
  * - Una funzione non void deve utilizzare l'istruzione return per restituire un
- *   risultato.
+ *   valore;
+ *
+ * - Le definizioni di funzioni non possono essere annidate in altre funzioni;
+ *
+ * - I nomi dei parametri dei prototipi possono anche essere diversi da quelli
+ *   delle definizioni, l'importante e' che coincida il tipo di dato; da notare
+ *   che il prototipo e' cio' che un utente dovrebbe vedere per poter utilizzare
+ *   la funzione, per cui e' importante anche che vi siano nomi autoesplicativi;
+ *
+ * - I parametri sono detti anche argomenti formali o parametri formali; gli
+ *   argomenti sono detti anche argomenti attuali o parametri attuali;
+ *
+ * - Funzioni dello stesso tipo possono essere combinate come le variabili:
+ *   int funz1(), funz2(), var, funz3();
+ *   tuttavia non e' consigliabile poiche', per la natura stessa delle funzioni,
+ *   si potrebbe generare confusione;
+ *
+ * - E' sempre preferibile che il valore retituito dal main sia un intero,
+ *   tuttavia e' possibile anche restituire un valore diverso da quello di
+ *   default. Pratica sconsigliata per la portabilita';
+ *
+ * - Si  potrebbe incorrere in un errore se si dovesse utilizzare una istruzione
+ *   return senza espressione di ritorno in una funzione dichiaraata non void.
  */
