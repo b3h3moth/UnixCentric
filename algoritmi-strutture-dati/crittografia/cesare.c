@@ -3,18 +3,18 @@
 #include <errno.h>
 #include <string.h>
 
-#define MAX_BUF			1024
+#define MAX_BUF			516
 #define CAESAR_SEEK		3
 #define LEN_ALPHABET	23
 
-FILE *OpenCleartext(FILE *fp, char *inputfile);
+FILE *OpenCleartext(char *inputfile, char *mode);
 
 /*
  * Implementazione del cifrario di Cesare, che prevede lo scostamento di tre
- * carratteri in avanti per ogni lettera; e' stato uno dei primi algoritmi
+ * carratteri in avanti per ogni carattere; e' stato uno dei primi algoritmi
  * crittografici della storia. Saranno modificati solo caratteri alfanumerici,
- * ossia solo numeri e lettere, in tal modo la struttura del documento restera'
- * inalterata, ottenendo peraltro un effetto molto interessante.
+ * in tal modo la struttura del documento rimarra' inalterata, ottenendo
+ * peraltro un effetto molto interessante e piacevole.
  */
 
 int main(int argc, char *argv[])
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	FILE *f_cleartext;
 	FILE *f_ciphertext;
 	char *ciphertext = "ciphertext.txt";
-	char *buf_rows = malloc(sizeof(char) * MAX_BUF);
+	char *buf_rows;
 	int r_char;
 	int tot_rows = 0, i = 0;
 
@@ -33,29 +33,21 @@ int main(int argc, char *argv[])
 	}
 
 	/* Il file di input da cifrare e' fornito come argomento  */
-	f_cleartext = OpenCleartext(f_cleartext, argv[1]);
+	f_cleartext = OpenCleartext(argv[1], "r");
 
 	/* Conteggio righe del file da cifrare (cleartext) */
 	while ( (r_char = fgetc(f_cleartext)) != EOF) {
 		tot_rows++;
 	}
+	fclose(f_cleartext);
 
-	/* Se le righe del file da cifrare sono maggiori dell'ampiezza definita di
-	 * default, si rialloca lo spazio con la nuova dimensione */
-	if (tot_rows > MAX_BUF) {
-		buf_rows = realloc(buf_rows, (tot_rows * sizeof(char)));
-	}
+	/* Si alloca lo spazio necessario per contenere contenere tutti i caratteri
+	 * del file di input  */
+	buf_rows = calloc(tot_rows, sizeof(char));
 
-	/* Si pulisce lo stream per consentire nuovamente di lavorare con il
-	 * file di input; si e' preferito non chiudere lo strem precedente */
-	fflush(NULL);
+	f_cleartext = OpenCleartext(argv[1], "r");
 
-	if ( (f_cleartext = fopen(argv[1], "r")) == NULL) {
-		fprintf(stderr, "%s: Apertura testo in chiaro\n", (char *)strerror(errno));
-		exit(EXIT_FAILURE);
-	}
-
-	/* Si copia ciascun carattere del file di input (cleartext) nel buf_rows
+	/* Si copia ciascun carattere del file di input (cleartext) nel buffer
 	 * creato ad hoc */
 	while ( (r_char = fgetc(f_cleartext)) != EOF) {
 		buf_rows[i++] = r_char;
@@ -63,12 +55,8 @@ int main(int argc, char *argv[])
 
 	fclose(f_cleartext);
 
-
 	/* Si apre un file in scrittura per contenere il testo cifrato (ciphertext) */
-	if ((f_ciphertext = fopen(ciphertext, "w+")) == NULL) {
-		fprintf(stderr, "%s: Scrittura testo cifrato\n", (char *)strerror(errno));
-		abort();
-	}
+	f_ciphertext = OpenCleartext(ciphertext, "w+");
 
 	/* Si modificano solo i caratteri ASCII; ciascun carattere pertanto sara'
 	 * spostato di 3 elementi in avanti; cosi' come il cifrario di Cesare
@@ -96,10 +84,11 @@ int main(int argc, char *argv[])
  }
 
 	
-FILE *OpenCleartext(FILE *fp, char *inputfile)
+FILE *OpenCleartext(char *inputfile, char *mode)
 {
+	FILE *fp;
 
-	if ( (fp = fopen(inputfile, "r")) == NULL) {
+	if ( (fp = fopen(inputfile, mode)) == NULL) {
 		fprintf(stderr, "%s: Apertura testo in chiaro\n", (char *)strerror(errno));
 		exit(EXIT_FAILURE);
 	}
