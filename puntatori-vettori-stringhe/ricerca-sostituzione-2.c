@@ -14,10 +14,8 @@ int main(int argc, char *argv[])
    return(EXIT_SUCCESS);
 }
 
-/*
- * spezza la stringa url all'ultimo slash,
- * praticamente elimina, in questo caso, index.html
- */
+/* spezza la stringa, in questo caso un URL, all'ultimo slash, per cui elimina
+ * nel caso specifico index.html */
 void remove_filename(char *url)
 {
    int i = 0;
@@ -28,7 +26,7 @@ void remove_filename(char *url)
       if (url[i] == 47)
       {
       	 url[i] = '\0';
-	 break;
+		 break;
       }
    }
       
