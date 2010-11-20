@@ -6,7 +6,7 @@
 #define CAESAR_SEEK		3
 #define LEN_ALPHABET	23
 
-FILE *OpenCleartext(char *inputfile, char *mode);
+FILE *Openfile(char *inputfile, char *mode);
 
 /*
  * Implementazione del cifrario di Cesare, che prevede lo scostamento di tre
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* Il file di input da cifrare e' fornito come argomento  */
-	f_cleartext = OpenCleartext(argv[1], "r");
+	f_cleartext = Openfile(argv[1], "r");
 
 	/* Conteggio righe del file da cifrare (cleartext) */
 	while ( (r_char = fgetc(f_cleartext)) != EOF) {
@@ -41,11 +41,11 @@ int main(int argc, char *argv[])
 
 	fclose(f_cleartext);
 
-	/* Si alloca lo spazio necessario per contenere contenere tutti i caratteri
-	 * del file di input */
+	/* Si alloca lo spazio necessario per contenere tutti i caratteri del file
+	 * di input */
 	buf_rows = calloc(tot_rows, sizeof(char));
 
-	f_cleartext = OpenCleartext(argv[1], "r");
+	f_cleartext = Openfile(argv[1], "r");
 
 	/* Si copia ciascun carattere del file di input (cleartext) nel buffer
 	 * creato ad hoc buf_rows */
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 	fclose(f_cleartext);
 
 	/* Si apre un file in scrittura per contenere il testo cifrato (ciphertext) */
-	f_ciphertext = OpenCleartext(ciphertext, "w+");
+	f_ciphertext = Openfile(ciphertext, "w+");
 
 	/* Si modificano solo i caratteri ASCII; ciascun carattere pertanto sara'
 	 * spostato di 3 elementi in avanti; cosi' come il cifrario di Cesare
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
  }
 
 	
-FILE *OpenCleartext(char *inputfile, char *mode)
+FILE *Openfile(char *inputfile, char *mode)
 {
 	FILE *fp;
 
