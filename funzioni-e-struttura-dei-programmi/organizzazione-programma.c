@@ -118,13 +118,11 @@ int main(int argc, char *argv[])
 		push(200);
 	}
 
-	if ( StackPieno() ) {
 		pop();
 		pop();
 		pop();
 		pop();
 		pop();
-	}
 
 	StampaStack();
 	
@@ -194,6 +192,7 @@ void push(int i)
 /* Elimina un elemento dalla cima dello stack */
 void pop(void)
 {
+	contenuto[top] = 0;
 	contenuto[--top];
 }
 
