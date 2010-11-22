@@ -2,11 +2,26 @@
 #include <stdlib.h>
 #include <stdbool.h> /* solo C99 */
 
-/* Prototipi delle funzioni */
+
+/* Massima ampiezza dello stack */
+#define STACK_SIZE 10
+
+
+/* VARIABILI ESTERNE O GLOBALI
+ *
+ * Vettore utilizzato per memorizzare gli elementi dello stack */
+int contenuto[STACK_SIZE];
+
+/* Indica la posizione in cima allo stack */
+int top = 0;
+
+
+/* PROTOTIPI DELLE FUNZIONI */
 int Somma(int n);
 int Potenza(int n, int x);
 int Incrementa(void);
 int Decrementa();
+
 /* Prototipi inerenti l'implementazione dello stack */
 void SvuotaStack(void);
 bool StackVuoto(void);
@@ -14,15 +29,6 @@ bool StackPieno(void);
 void push(int i);
 void pop(void);
 void StampaStack(void);
-
-/* Massima ampiezza dello stack */
-#define STACK_SIZE 10
-
-/* VARIABILI ESTERNE O GLOBALI
- * Vettore utilizzato per memorizzare gli elementi dello stack */
-int contenuto[STACK_SIZE];
-/* Indica la posizione in cima allo stack */
-int top = 0;
 
 
 int main(int argc, char *argv[])
@@ -121,6 +127,21 @@ int main(int argc, char *argv[])
 	 * consigliata in seno alla programmazione C, poiche', piuttosto che
 	 * condividere variabili esterne per la comunicazione tra funzioni, e'
 	 * consigliato utilizzare per tale comunicazione i parametri delle funzioni.
+	 */
+
+	/* ORGANIZZAZIONE DI UN PROGRAMMA C
+	 ***************************************************************************
+	 * Tenendo comunque conto che un programma C di grosse dimensioni andrebbe
+	 * suddiviso in diversi file, ora si fornira' un consiglio su quale potrebbe
+	 * essere il modo corretto per organizzare un listato:
+	 *
+	 * Direttive #include 
+	 * Direttive #define
+	 * Definizioni di tipo
+	 * Dichiarazione variabili globali
+	 * Prototipi delle funzioni
+	 * Definizione del main()
+	 * Definizione delle funzioni
 	 */
 
 	return(EXIT_SUCCESS);
