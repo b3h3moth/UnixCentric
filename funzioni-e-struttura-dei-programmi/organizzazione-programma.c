@@ -99,17 +99,13 @@ int main(int argc, char *argv[])
 		push(10);
 	}
 	
-	push(20);
-	push(30);
-	push(40);
-	push(50);
+	push(20), push(30), push(40), push(50);
 
 	if ( StackPieno() ) {
 		pop();
 	}
 	
 	StampaStack();
-
 	push(60), push(70), push(80), push(90), push(100);
 	StampaStack();
 
@@ -117,14 +113,16 @@ int main(int argc, char *argv[])
 		push(200);
 	}
 
-		pop();
-		pop();
-		pop();
-		pop();
-		pop();
-
+	pop(), pop(), pop(), pop();
 	StampaStack();
-	
+
+	/* 
+	 * Da notare, infine, che l'uso delle variabili globali non e' una pratica
+	 * consigliata in seno alla programmazione C, poiche', piuttosto che
+	 * condividere variabili esterne per la comunicazione tra funzioni, e'
+	 * consigliato utilizzare per tale comunicazione i parametri delle funzioni.
+	 */
+
 	return(EXIT_SUCCESS);
 }
 
