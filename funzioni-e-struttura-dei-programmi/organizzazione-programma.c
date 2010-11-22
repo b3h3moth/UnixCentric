@@ -64,14 +64,14 @@ int main(int argc, char *argv[])
 	 ***************************************************************************
 	 * Se si aggiunge la parola chiave static ad una variabile locale, essa non
 	 * perdera' il suo valore poiche' avra' a disposizione una locazione di
-	 * memoria per tutta la durata del programma, pertanto la durata di
+	 * memoria per tutta la durata del programma, peraltro la durata di
 	 * memorizzazione diventera' statica.
 	 *
 	 * Lo scope naturalmente e' di blocco, poiche' e' sempre una variabile
 	 * locale.
 	 *
 	 * Come si evince dalla funzione Incrementa(), ad ogni invocazione la
-	 * variavile static avra' il valore precedentemente salvato, cio' che invece
+	 * variabile static avra' il valore precedentemente salvato, cio' che invece
 	 * non avviene nella funzione Decrementa().
 	 */
 
@@ -84,13 +84,12 @@ int main(int argc, char *argv[])
 	 * qualsiasi funzione:
 	 *
 	 * - Durata della memorizzazione statica.
-	 *   Si comportanto esattamente come le variabili statiche locali, per cui
+	 *   Si comportano esattamente come le variabili statiche locali, per cui
 	 *   la locazione di memoria assegnata ad esse sara' valida per tutta la
 	 *   durata del programma.
 	 *
-	 * - Scopo di file.
-	 *   E' visibile dal punto in cui e' stata dichiarata fino alla fine del
-	 *   file.
+	 * - Scopo di file, ovvero una variabile globale e' visibile dal punto in
+	 *   cui e' stata dichiarata fino alla fine del file.
 	 * 
 	 * Si implementa ora uno stack (LIFO) per verificarne il comportamento.
 	 */
