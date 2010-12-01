@@ -1,4 +1,9 @@
-[17-11-2010 10:47]
+[01/12/2010 19:40]
+- Sarebbe il caso, allorquando si presentano gli algoritmi, di implementarli in
+un file header (.h) in modo tale da poter testarli aggiungendo una semplice
+inclusione.
+
+[17-11-2010 10:47] 
 - Per il database stavo pensando a Redis, e' necessario pertanto provvedere 
 alla ricerca di informazioni e allo studio delle specifiche di tale DB, per
 verificare se possa essere adatto al progetto.
