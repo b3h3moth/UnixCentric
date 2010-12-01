@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	for (i=0; i<MAX_ARR_SIZE; i++)
 		vettore[i] = MAX_ARR_SIZE*(1.0*rand()/RAND_MAX);
 
-	int elem = 11;
+	int elem;
 
 	/* Poiche' il vettore e' riempito con numeri casuali si e' preferito
 	 * eseguire la ricerca considerando l'intera ampiezza del vettore stesso */
@@ -44,12 +44,15 @@ int main(int argc, char *argv[])
 	 * casuali, compresi tra 1 e 40, la ricerca pertanto sara' eseguita su
 	 * questi valori */
 	for (j=0; j<MAX_ARR_SIZE; j++) {
+		
 		elem = MAX_ARR_SIZE*(1.0*rand()/RAND_MAX);
+
 		searching = RicercaSequenziale(vettore, elem, max_pos, &posizione);
 		
 		if (searching == TRUE)
 			printf("Trovato l'intero \"%d\" tra i primi \"%d\". "
-					"In posizione \"%d\" del vettore.\n", elem, max_pos, posizione);
+					"In posizione \"%d\" del vettore.\n",
+					elem, max_pos, posizione);
 		else
 			printf("Intero %d non trovato\n", elem);
 	}
