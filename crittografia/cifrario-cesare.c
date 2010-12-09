@@ -10,10 +10,11 @@ FILE *Openfile(char *inputfile, char *mode);
 
 /*
  * Implementazione del cifrario di Cesare, che prevede lo scostamento di tre
- * carratteri in avanti per ogni carattere; e' stato uno dei primi algoritmi
- * crittografici della storia. Saranno modificati solo caratteri alfanumerici,
- * in tal modo la struttura del documento rimarra' inalterata, ottenendo
- * peraltro un effetto molto interessante e piacevole.
+ * carratteri in avanti per ciascun carattare del file; e' stato uno dei primi
+ * algoritmi crittografici della storia. 
+ *
+ * Saranno modificati solo caratteri alfanumerici, in tal modo la struttura
+ * del documento rimarra' inalterata.
  */
 
 int main(int argc, char *argv[])
