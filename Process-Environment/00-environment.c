@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
 		printf("Gli argomenti sono: \n");
 		for (i=0; i<argc; ++i)
-			printf("%s\n", argv[i]);
+			printf("argv[%i] %s\n", i, argv[i]);
     }
 
     return(EXIT_SUCCESS);
