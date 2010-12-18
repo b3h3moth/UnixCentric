@@ -7,9 +7,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 void son_process(void);
 void parent_process(pid_t pid);
 

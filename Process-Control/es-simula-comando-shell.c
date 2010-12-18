@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
    if (pid == 0) {
       if ( (execlp(command, options, NULL)) < 0) {
       	 fprintf(stderr, "Errore nella execlp(): %s\n", strerror(errno));
-	 exit(EXIT_FAILURE);
+		 exit(EXIT_FAILURE);
       }
    } else {
       wait(&wait_shell_process);

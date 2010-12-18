@@ -14,9 +14,6 @@
 #include <string.h>
 #include <wait.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 int main(int argc, char *argv[])
 {
    pid_t pid;

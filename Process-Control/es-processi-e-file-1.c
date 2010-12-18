@@ -14,8 +14,6 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
 #define PERMS	0755
 
 const char *s1 ="Testo 1\n";
