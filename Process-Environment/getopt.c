@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 /* Studio della funzione getopt() - Parsing delle opzioni
@@ -7,7 +8,7 @@
  *
  * Un programma  ha la possibilita' di ottenere argomenti ed opzioni allorquando
  * viene eseguito, il passaggio degli argomenti viene effettuato mediante i
- * paramketri di default argc e argv[], della funzione main().
+ * parametri di default argc e argv[], della funzione main().
  *
  * extern char *optarg;
  * --------------------
@@ -34,8 +35,10 @@
  * inserire un messaggio di errore e su quale stream inviarlo, pertanto
  * impostando opterr a 0 non saranno inviati messaggi d'errore.
  *
- * extern intr optopt;
+ * extern int optopt;
  * -------------------
+ * La variabile esterna optopt contiene il carattere dell'opzione non
+ * riconosciuta.
  *
  * extern int getopt(int argc, char *const *argv, const char *shortopts);
  * ----------------------------------------------------------------------
@@ -46,29 +49,70 @@
  * gestisce l'intera operazione della getopt(), poiche' determina quali sono le
  * opzioni valide e quali accettano parametri propri. Esemplificando si potrebbe
  * affermare che shortopts contiene l'interfaccia del programma.
+ *
+ * 
+ * Come lavora la funzione getopt()
+ * -----------------------------------------------------------------------------
+ * Le opzioni solitamente sono precedute dal carattere '-', esso stesso e' 
+ * considerato un'opzione se inserito dopo '-', le opzioni sono formate da un
+ * singolo carattere precedute da '-' e possono avere o meno un parametro.
+ *
+ * La funzione getopt() prende le due variabili argc ed argv come argomenti
+ * della funzione main(), inoltre lavora con una stringa per verificare quali
+ * sono le opzioni valide; la getopt() effettua una sorta di scansione nella
+ * lista degli argomenti (argv) cercando ogni stringa che cominci con '-', 
+ * shortopts indica alla getopt() quali sono le opzioni accettabili, da notare
+ * che se un opzione deve ricevere un parametro, al carattere deve seguire il
+ * simbolo ":". 
+ *
+ * Se il carattere non e' presente nella lista delle opzioni shortopts, non e'
+ * valida e la getopt() restituisce '?'; se invece l'opzione e' presente nella
+ * stringa shortopts, la getopt() verifica se questa opzione accetta o meno un
+ * parametro, controllando la presenza del simbolo ':' dopo il carattere stesso,
+ * in shortopts.
+ *
+ * L'uso della getopt() appare ora piuttosto evidente, tutto sta nel richiamarla
+ * in un ciclo fino a quando non restiuisce il valore -1, che identifica il caso
+ * in cui non ci sono piu' opzioni.
+ *
+ * Se non si inserisce un parametro ad una opzione che lo richiede, la funzione 
+ * getopt() restituisce ':'.
  */
 
-int main(int argc,char **argv) {
-    int optch;
-    static char optstring[] = "gW:c";
 
-    while ( (optch = getopt(argc,argv,optstring)) != -1 )
-        switch ( optch ) {
-        case 'c' :
-            puts("-c processed.");
-            break;
-        case 'g' :
-            puts("-g processed.");
-            break;
-        case 'W' :'
-            printf("-W '%s' processed.\n",optarg);
-            break;
-        default :
-            puts("Unknown option!");
-        }
+int main(int argc, char *argv[]) {
+	/* Si disabilita la stampa di errori sullo stdout per le opzioni che non
+	 * sono state rinosciute */
+	opterr = 0;
+	int opt;
 
-    for ( ; optind < argc; ++optind )
-        printf("argv[%d] = '%s'\n", optind, argv[optind]);
+	/* La stringa contenente le opzioni, una con parametro */
+	static char shortopts[] = "hU:v";
 
-    return 0;
+	while ((opt = getopt(argc, argv, shortopts)) != -1)
+		switch(opt) {
+			case 'h':
+				puts("Processata l'opzione -h");
+		printf("optind = %d - argc = %d\n", optind, argc);
+				break;
+			case 'v':
+				puts("Processata l'opzione -v");
+		printf("optind = %d - argc = %d\n", optind, argc);
+				break;
+			case 'U':
+				printf("Opzione -U \"%s\" parametro \n", optarg);
+				break;
+			case '?':
+				printf("Parametro non valido \"?\"\n");
+				break;
+			default:
+				puts("Opzione sconosciuta");
+		}
+
+	for ( ; optind < argc; ++optind) {
+		printf("argv[%d] = %s\n", optind, argv[optind]);
+		printf("optind = %d - argc = %d\n", optind, argc);
+	}
+	
+	return(EXIT_SUCCESS);
 }
