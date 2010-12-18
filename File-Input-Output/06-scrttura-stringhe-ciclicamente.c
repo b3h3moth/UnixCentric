@@ -5,6 +5,10 @@
 #include <string.h>
 
 #define DIMBUF	128
+/*
+ * Il programma riceve delle stringhe in input, tali stringhe dopo essere state
+ * copiate sullo stdout sono copiate, senza spazi, in un file
+ */
 
 void inserisci(char b[], int fdw);
 void stampa(char b[], int fdr);
