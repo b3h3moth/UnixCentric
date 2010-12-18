@@ -11,9 +11,6 @@
 #include <unistd.h>
 #include <errno.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
-
 int main(int argc, char *argv[])
 {
    int fd;
