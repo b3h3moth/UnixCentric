@@ -21,7 +21,9 @@ int main(int argc, char *argv[]) {
 
    while ((direntp = readdir(dirp)) != NULL) 
       printf("%s\n", direntp->d_name); 
-   while ((closedir(dirp) == -1) && (errno == EINTR)) ; 
+   
+   while ((closedir(dirp) == -1) && (errno == EINTR)) 
+   	   ; 
    
    return(EXIT_SUCCESS); 
 }
