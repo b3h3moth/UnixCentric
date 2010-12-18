@@ -1,6 +1,6 @@
-##############################################################################
+################################################################################
  INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
-##############################################################################
+################################################################################
 Il progetto Learning-<Programming Language> mira a realizzare un manuale 
 code oriented su alcuni dei linguaggi di programmazione maggiormente 
 utilizzati sui sistemi operativi UNIX con kernel Linux.
@@ -26,9 +26,9 @@ con il linguaggio C++ e il paradigma procedurale con il linguaggio C.
 Infine un ulteriore repository sara' dedicato alla programmazione di sistema
 su sistemi operativi UNIX con kernel Linux.
 
-##############################################################################
+################################################################################
  LEARNING-<Linux Programming> - Programmazione di sistema (GNU/Linux)
-##############################################################################
+################################################################################
 Il presente repository riguarda la programmazione di sistema su sistemi
 operativi UNIX con kernel Linux, pertanto è stato contrassegnato come L-LP.
 
@@ -54,9 +54,9 @@ piu' illustri informatici del XX secolo; per intenderci, se si scrive un
 listato sull'IO non bufferizzato, i relativi file saranno collocati nella
 directory File I/O, e cosi' via discorrendo.
 
-##############################################################################
+################################################################################
  Linee guida per la scrittura dei listati
-##############################################################################
+################################################################################
  INTESTAZIONI 
 
 /*
@@ -71,7 +71,16 @@ Note:
 
  CODICE
 
-##############################################################################
+################################################################################
 INFO
-##############################################################################
+################################################################################
 Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
+
+Qualora si volesse comunicare mediante crittografia a chiave pubblica, questa e'
+la mia impronta digitale (fingerprint)
+
+Key fingerprint = 11C3 D822 EA07 6D99 1F59  5F86 2023 8259 E83F 9FBB
+
+La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
+chiavi pubbliche.
+
