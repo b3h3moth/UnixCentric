@@ -57,10 +57,8 @@ INFO
 ##############################################################################
 Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
 
-Qualora si volesse comunicare mediante crittografia a chiave pubblica, questa e'
-la mia impronta digitale (fingerprint)
-
-Key fingerprint = 11C3 D822 EA07 6D99 1F59  5F86 2023 8259 E83F 9FBB
+Qualora si volesse comunicare mediante crittografia a chiave pubblica:          
+KeyID = 0xE83F9FBB                                                  
 
 La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
 chiavi pubbliche.
