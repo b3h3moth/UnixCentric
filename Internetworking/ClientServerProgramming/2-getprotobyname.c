@@ -4,7 +4,7 @@
 #include <netdb.h> /* getprotobyname() */
 
 /* Il programma riceve un parametro da utilizzare con getprotobyname(), se tale
- * parametro corrisponde ad un protocollo valida saranno restituite alcune
+ * parametro corrisponde ad un protocollo valido saranno restituite alcune
  * informazioni specifiche relative al protocollo stesso.
  */
 
