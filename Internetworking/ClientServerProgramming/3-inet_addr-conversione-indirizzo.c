@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
 	/* Indirizzo da convertire, nella forma decimale puntato */
-	char *ind_dp = "74.125.232.114";
+	char *ind_dp = "207.97.227.239";
 
 	/* I sistemi operativi che utilizzano lo standard POSIX conservano gli
 	 * indirizzi in una variabile di tipo in_addr_t */
