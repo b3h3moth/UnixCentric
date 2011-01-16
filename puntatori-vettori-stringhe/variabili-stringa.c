@@ -2,59 +2,79 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_STR 8
+#define F_STR 11
+
 int main(int argc, char *argv[], char *envp[])
 {
-   /* Il C tratta le variabili stringa come vettore unidimensionali con
-    * l'aggiunta di un terminatore di stringa.
-    *
-    * Allorquando si crea una variabile che dovessere servire come stringa
-    * bisogna sempre calcolare anche il carattere in più.
-    * es.
-    * #define STR_LEN 80
-    * char str[STR_LEN + 1];
-    *
-    * Questa pratica è comunissima tra i programmatori C
-    * 
-    * INIZIALIZZAZIONE:
-    * Una variabile stringa puà essere inizializzata nel momen to della
-    * dichiarazione
-    */
-   char date[8] = "June 14"; /* sembra una stringa letterale ma non lo è, 
-   				il C la vede come un'abbreviazione 
-				dell'inizializzazione di un  vettore */
+	int i;
 
-
-   /* Si può omettere la lunghezza, che sarà calcolata dal compilatore
-    */
-   char date2[] ="March 31";
-   printf("date %d\ndate2 %d\n", strlen(date), strlen(date2));
-
-   /* VETTORI DI CARATTERI E PUNTATORI A CONFRONTO 
-    * char date [] = "June 14";
-    * char *date2 = "June 14;
-    *
-    * Il primo tratta date come un vettore, il secondo tratta date2 come un
-    * puntatore, pertanto in qualsiasi funzione le potremmo utilizzare entrambe,
+	/* Il linguaggio di programmazione C-ANSI non contiene tra i tipi di dato 
+	* predefinti il tipo stringa, e' cura del programmatore realizzarlo mediante
+	* vettori unidimensionali a cui si aggiunge un carattere finale indicante la
+	* terminazione della stringa, esso e' \0 (null character, null terminator).
+	*
+	* Stringa in C: Un vettore di caratteri piu' un null character finale. */
+   	
+	char first_string[F_STR+1] = "Hello World";
+	
+	/* Stampa 'char by char' della stringa */
+	for (i=0; i<F_STR; i++) {
+		printf("%2d - %c\n", i, first_string[i]);
+	}
+	
+	/* La lunghezza della stringa first_string e' stata impostata a F_STR+1,
+	 * poiche', essendo un vettore, l'indice inizia 0, come si evince dal
+	 * seguente schema:
+	 *  
+	 *  0   1   2   3   4   5   6   7   8   9  10  11
+	 * 'h' 'e' 'l' 'l' 'o' ' ' 'w' 'o' 'r' 'l' 'd' '\0'
+	 * 
+	 * Buona abitudine: Allorquando si lavora con le stringhe, verificare sempre
+	 * la lunghezza calcolando anche lo spazio per il null-character, inoltre,
+	 * la lunghezza della stringa stessa, quando possibile, sarebbe opportuno
+	 * definirla mediante una costante simbolica, utilizzando la #define. */
+	
+	/* INIZIALIZZAZIONE
+	****************************************************************************
+    * Una variabile stringa puà essere inizializzata al momento della
+    * dichiarazione; l'istruzione di seguito sembrerebbe una stringa letterale,
+	* ma non lo e', poiche' il C la vede come un'abbreviazione 
+	* dell'inizializzazione di un vettore */
+   	
+	char date[MAX_STR] = "June 14"; 
+	
+	/* Si può anche omettere la lunghezza, che sarà calcolata dal compilatore */
+	
+	char new_date[] ="March 31";
+	printf("len date: %d\nlen new_date: %d\n", strlen(date), strlen(new_date));
+	
+	/* VETTORI DI CARATTERI E PUNTATORI A CONFRONTO
+	***************************************************************************/
+	
+	char vett[] = "March 31";
+	char *ptr = "March 31";
+   
+   /* Il primo tratta vett come un vettore, il secondo tratta ptr come un
+    * puntatore, pertanto in qualsiasi funzione le potremmo utilizattzare entrambe,
     * tuttavia questo non vuol dire che siano intercambiabili.
     *
-    * Nella prima versione ogni carattere può essere modificato come in un
-    * vettore, perchè è un vettore; nel secondo caso si tratta di una stringa
-    * letterale, pertantoi caratteri non possono essere modificati.
+    * In vett ogni carattere può essere modificato come in un vettore, poiche' è
+	* un vettore; nel secondo caso invece, si tratta di una stringa letterale, 
+	* pertanto i caratteri non possono essere modificati, tuttavia nel corso del
+	* programma ptr puo' esser fatto puntare ad altre zone di memoria.
     *
-    * Nella prima date è un vettore, dichiarato come vettore; nella seconda
-    * date2 è un puntatore pertanto nel corso del programma può esser fatto
-    * puntare verso ad altri lidi :)
+    * Mediante la seguente istruzione:
+	* char *p;
+    * si dichiara un puntatore a char, e il compilatore alloca lo spazio per 
+	* contenere un puntatore a char e non per una stringa, e del resto come 
+	* potrebbe? 
     *
-    * char *p;
-    * dichiara un puntatore a char, certo può essere una stringa ma il
-    * compilatore alloca lo spazio per contenere un puntatore a char e non per
-    * una stringa, e del resto come potrebbe?
-    *
-    * Una possibilità però è di farla puntare ad una stringa
-    * char str[STR_NEL+1], *p;
-    * p = str;
-    * Oppure ad una stringa allocata dinamicamente.
-    */
+    * E' possibile far sì che un  puntatore punti ad una stringa: */
+    char  *p;
+    p = first_string;
+
+	printf("%s\n", p);
 
 
    return(EXIT_SUCCESS);
