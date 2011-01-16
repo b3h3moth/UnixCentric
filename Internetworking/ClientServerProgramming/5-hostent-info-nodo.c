@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
+	printf("Informazioni circa il nodo: %s\n", ind_alphanum);
+
 	/* Si estrae il primo indirizzo numerico mediante un cast */
 	ind = *((in_addr_t*) (host_info->h_addr_list[0]));
 	
@@ -33,21 +35,10 @@ int main(int argc, char *argv[])
 	printf("h_name       - nome ufficiale: ");
 	for (i=0; host_info->h_name[i] != 0; i++)
 		printf("%c", host_info->h_name[i]);
-	/*
-	printf("\nh_aliases    - lista degli alias: ");
-	for (i=0; host_info->h_aliases[i] != NULL; i++) {
-		char alias = *(char *)host_info->h_aliases[i];
-		printf("%c", alias );
-	}
-	*/
 
 	printf("\nh_addrtype   - tipo di indirizzo: %d\n", host_info->h_addrtype);
 	printf("h_length     - dimensioni indirizzo: %d byte\n", host_info->h_length);
 	printf("h_addr_list  - lista degli indirizzi (IP 32bit): %u\n", ind);
-
-
-
-	
 
 	return(EXIT_SUCCESS);
 }
