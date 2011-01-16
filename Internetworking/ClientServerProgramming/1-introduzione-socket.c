@@ -5,25 +5,43 @@
 
 int main(int argc, char *argv[])
 {
-	/* Per il dominio si possono utilizzare talune costanti definite in 
-	 * sys/socket.h:
+	/* int socket(int dominio, int tipo, int protocollo);
+	 * header da includere: <sys/socket.h>
+	 *
+	 * La creazione di un socket è gestita mediante la funzione socket(), che
+	 * restituisce un file descriptor mediante il quale e' possibile far 
+	 * riferimento al socket stesso; i parametri della funzione socket sono tre,
+	 * dominio, tipo e protocollo.
+	 *
+	 * 1 - Dominio:
+	 * definisce il dominio del socket, ossia la famiglia di protocolli
+	 * utilizzati, si possono adoperare alcune costanti tra cui:
 	 *
 	 * AF_UNIX	dominio UNIX, comunicazioni locali
 	 * AF_INET	internet, per comunicazioni con protocollo ipv4
 	 * AF_INET6	internet versione 6, per comunicazioni con protocollo ipv6
 	 *
-	 * Per il tipo/trasferimento si possono utilizzare talune costanti anch'esse
-	 * definite in sys/socket.h:
+	 * AF sta per Address Family, ossia il formato degli indirizzi utilizzati
+	 * da quel dominio.
 	 *
-	 * SOCK_STREAM	per socket byte-stream
-	 * SOCK_DGRAM	per socket datagram
-	 * SOCK_RAW		per l'accesso a funzionalita' di basso livello
+	 * 2 - Tipo: 
+	 * definisce il tipo di comunicazione, anche in questo caso si possono 
+	 * utilizzare alcune costanti, tra cui:
+	 *
+	 * SOCK_STREAM		socket byte-stream
+	 * SOCK_DGRAM		socket datagram
+	 * SOCK_RAW			accesso a funzionalita' di basso livello
+	 * SOCK_SEQPACKET	canale di comunicazione affidabile, bidirezionale
+	 *
+	 * 3 - Protocollo
+	 * indica il protocollo, solitamente e' impostato a 0.
+	 *
 	 */
 	int dominio = AF_INET;
 	int tipo = SOCK_DGRAM;
 	int protocollo = 0;
 
-	/* La socket */
+	/* Il socket */
 	int skt;
 	/* Informazioni sul protocollo */
 	struct protoent *proto_info;
@@ -39,7 +57,7 @@ int main(int argc, char *argv[])
 	 * parametro relativo al numero del protocollo */
 	protocollo = proto_info->p_proto;
 
-	/* Creazione della socket */
+	/* Si apre il socket */
 	skt = socket(dominio, tipo, protocollo);
 
 	if (skt < 0) {
