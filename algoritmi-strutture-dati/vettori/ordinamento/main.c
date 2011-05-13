@@ -13,9 +13,7 @@ int main(int argc, char *argv[])
 		printf("%3d ", vett[i]);
 
 	SelectionSort(vett, MAX_VECT);
-	printf("\n");
-
-	printf("Selection sort  (dopo) -> ");
+	printf("\nSelection sort  (dopo) -> ");
 
 	for (i=0; i<MAX_VECT; i++)
 		printf("%3d ", vett[i]);
