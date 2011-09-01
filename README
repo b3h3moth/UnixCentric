@@ -8,7 +8,7 @@ utilizzati sui sistemi operativi UNIX con kernel Linux.
 Per code oriented si intende anzitutto immediata operativita', nel senso che
 non ci saranno pagine da sfogliare ma solo e soprattutto righe di codice da
 leggere ed interpretare, commenti mirati inoltre saranno inseriti all'interno
-del codice stesso laddove ce ne sia bisogno.
+del codice stesso laddove ce ne fosse bisogno.
 
 I libri talvolta si perdono in inutili dettagli, tralasciando troppo spesso
 il codice, L-<PL> invece si pone l'obiettivo di fare il lavoro opposto, e
