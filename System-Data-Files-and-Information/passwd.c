@@ -7,6 +7,7 @@ int main(void)
 {
 	struct passwd *pd;
 	uid_t uid = getuid();
+	
 	if ( (pd = getpwuid(uid)) < 0) 
 		exit(EXIT_FAILURE);
 	else {
