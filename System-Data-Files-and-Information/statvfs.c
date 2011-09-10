@@ -5,9 +5,7 @@
 int main(void)
 {
 	struct statvfs hdd;
-	unsigned long long result;
 	double disk_size, disk_free, disk_used;
-
 
 	if (statvfs("/", &hdd) != -1) {
 		disk_size = (double)(hdd.f_bsize * hdd.f_blocks)/MB;
@@ -18,9 +16,6 @@ int main(void)
 		printf("Disk free: %.5g MB\n", disk_free);
 		printf("Disk used: %.5g MB\n", disk_used);
 	}
-
-
-
 	
 	return(EXIT_SUCCESS);
 }
