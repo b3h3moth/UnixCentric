@@ -24,8 +24,9 @@ int main(int argc, char *argv[], char *envp[])
     * inserito DIMBUF a 1 e un while al posto dell'if seguente
     * il risultato sarebbe stato lo stesso e probabilmente piu'
     * efficiente 
-    * DIMBUF 1
-    * if ( (nread = read(fd, buf, DIMBUF )) >0 )
+    * # DIMBUF 1
+    * while ( (nread = read(fd, buf, DIMBUF )) >0 )
+    * ...
     */
    if ( (nread = read(fd, buf, DIMBUF )) >0 )
    {
