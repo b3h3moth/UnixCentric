@@ -23,11 +23,13 @@ static void hello_exit(void)
 module_init(hello_init);
 module_exit(hello_exit);
 
-/* 
+/* Loglevel:
  * KERN_ALERT
  * KERN_INFO
  * KERN_NOTICE
  * KERN_WARNING
  * KERN_ERR
  * KERN_CRIT
+ * KERN_DEBUG
+ * KERN_EMERG
  */
