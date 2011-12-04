@@ -5,7 +5,7 @@
 /* MACRO for documentation purposes */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Luca Suriano");
-MODULE_DESCRIPTION("Basic hello world module, just for learning the basics");
+MODULE_DESCRIPTION("Basic LKM; hello world module");
 
 /* init function, called when the modudle is loading */
 static int hello_init(void)
