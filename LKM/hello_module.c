@@ -13,20 +13,20 @@ MODULE_DESCRIPTION("Basic LKM; hello world module");
 MODULE_VERSION("0.0");
 
 /* funzione di inizializzazione, chiamata da insmod */
-static int init_routine(void)
+static int __init init_routine(void)
 {
    printk(KERN_ALERT "Init: \"Hello World\" module is up\n");
    return 0;
 }
 
 /* funzione di uscita o pulizia, chiamata con rmmod */
-static void exit_routine(void)
+static void __exit exit_routine(void)
 {
    printk(KERN_ALERT "Exit: \"Hello World\" module is down\n");
 }
 
 module_init(init_routine);
-module_exit(exit_routine;
+module_exit(exit_routine);
 
 /* Loglevel MACRO collocate in ../linux/kernel.h
  * KERN_EMERG	<0>

@@ -1,4 +1,5 @@
-obj-m += hello_module.o
+obj-m += hello_module.o 
+obj-m += parametri.o 
 
 KERNELVERSION = $(shell uname -r)
 
