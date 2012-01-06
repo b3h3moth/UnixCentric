@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
    /* Si crea un nuovo processo figlio */
    pid = fork();
 
-   if (pid == -1) {
+   if (pid < 0) {
       fprintf(stderr, "%s: fork() fallita\n", strerror(errno));
       exit(13);
    }
@@ -68,9 +68,6 @@ int main(int argc, char *argv[])
 	 }
       }
    }
-
-
-
 
    return(EXIT_SUCCESS);
 }
