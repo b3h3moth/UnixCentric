@@ -5,18 +5,12 @@
 #include <unistd.h>
 
 int glob_var = 10;
-char buf[] = "UNIX Programming\n";
 
 int main(int argc, char *argv[], char *envp[])
 {
    int var;
    pid_t pid = fork();
    var = 100;
-
-   if (write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)
-      fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
-
-   printf("Prima della chiamata fork()\n");
 
    if (pid < 0)
       fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
