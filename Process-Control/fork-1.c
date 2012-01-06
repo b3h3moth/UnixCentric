@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     Nei sistemi operativi UNIX una modalita' per creare un nuovo processo e' 
     mediante la SystemCall fork(), che da vita ad un Child Process, copia esatta
     del Parent Process; in realta' la terminologia corretta dovrebbe essere che
-    la fork() crea un Child Process del processo chiamante.
+    la fork() crea un Child Process dal processo chiamante.
 
     Non appena viene invocata la fork(), il PID del Child Process viene 
     assegnato al Parent Process e il PID del Child Process assume valore zero,
@@ -36,7 +36,9 @@ int main(int argc, char *argv[]) {
     sistema UNIX utilizzato; l'header da utilizzare e' <unistd.h>.
 
     pid_t e' un tipo di dato definito in sys/types.h, sarebbe stato lo stesso
-    se si fosse utilizzato un int. 
+    se si fosse utilizzato un altro tipo di dato intero, tuttavia e' sempre
+    consigliabile utilizzare i tipi consigliati per una maggiore portabilita'
+    (tra sistemi UNIX naturalmente).
 */
    
    pid_t pid = fork();
