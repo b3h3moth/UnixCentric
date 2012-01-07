@@ -20,6 +20,8 @@ int main(int argc, char *argv[]) {
     assegnato al Parent Process e il PID del Child Process assume valore zero,
     in pratica il PID del Child Process viene restituito al processo chiamante.
 
+    Si dice infatti che la fork() e' chiamata una volta ma ritorna due volte.
+
     Il Sistema Operativo assegna due porzioni di memoria private, una per il
     Parent Process, l'altra per il Child Process, pertanto qualora uno dei due
     processi dovesse modificare una *propria* variabile, tale modifica non
@@ -45,10 +47,12 @@ int main(int argc, char *argv[]) {
 
    if (pid < 0)
       fprintf(stderr, "Err. Process %s\n", strerror(errno));
-   else if(pid > 0)
-      printf("Sezione relativa al Parent Process\n");
-   else
-      printf("Sezione relativa al Child Process\n");
+   else if(pid == 0)
+      printf("Child pid: %d - Parent: %d\n", pid, getpid());
+   else {
+      sleep(1);
+      printf("Parent pid: %d \n", pid);
+   }
 
    return(EXIT_SUCCESS);
 }
