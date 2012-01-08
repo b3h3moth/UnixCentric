@@ -4,11 +4,10 @@
 #include <unistd.h> 
 #include <string.h> 
 
-#define MAXBUF 128
-
-/* Crea il file passwd.txt, all'interno del quale inserisce il range di
- * caratteri definito da lseek
- */
+/*
+ Crea il file passwd.txt, all'interno del quale inserisce il range di caratteri
+ definito da lseek
+*/
 
 int main(int argc, char *argv[], char *envp[])
 {
@@ -30,9 +29,9 @@ int main(int argc, char *argv[], char *envp[])
    }
 
    /* ESEMPIO PESSIMO */
-   lseek(fd1, 4, SEEK_SET );
-   read(fd1, buf, strlen(buf));
-   write(fd2, buf, strlen(buf));
+   lseek(fd1, 100, SEEK_SET );
+   read(fd1, buf, sizeof(buf));
+   write(fd2, &buf, sizeof(buf));
 
    close(fd1);
    close(fd2);
