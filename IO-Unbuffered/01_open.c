@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h> /* O_RDONLY */
+#include <fcntl.h>
+
+#define MAX_BUF	1
 
 /*
  Il termine Unbuffered I/O (I/O di basso livello) indica che le varie routine
@@ -16,18 +18,17 @@
 int main() {
    char *filename="/etc/passwd";
    int fd, n;
-   char buf[10];
+   char buf[MAX_BUF];
    
    if ( (fd = open(filename, O_RDONLY)) < 0) {
       printf("Cannot open file ...");
       exit(EXIT_FAILURE);
    }
 
-   /* Scrive il file /etc/passwd in output; 
-    * il parametro 1 della write() sta per standard output */
-   while ( (n = read(fd, buf, 10)) > 0) {
-      write (1,buf,n);
-   }
+   /* Scrive il contenuto del file 'filename' in output, un carattere
+    * per volta */
+   while ( (n = read(fd, buf, MAX_BUF)) > 0)
+      write (STDOUT_FILENO, buf, n);
 
    close(fd);
    return(EXIT_SUCCESS);
