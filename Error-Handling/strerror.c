@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <string.h>	// strerror e' ubicata in string.h non in errnp.h
+#include <string.h> /* strerror() */
 
 
 int main(int argc, char **argv) {
