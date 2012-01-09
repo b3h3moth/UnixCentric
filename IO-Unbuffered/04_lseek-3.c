@@ -1,43 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <fcntl.h>
-#include <errno.h>
 
-#define DIMBUF 10
-#define PERMESSI 0755
+#define PERMS 0644
+#define OFFSET 4096
+
+char buf_1[] = "UNIX PROGRAMMING";
+char buf_2[] = "unix programming";
+
+/*
+ Mostra come creare un buco, letteralmente, tra le stringhe buf_1 e buf_2 
+ all'interno del file 'filename'.
+*/
 
 int main(int argc, char *argv[])
 {
-   int buf[DIMBUF] = {1,2,3,4,5,6,7,8,9,10};
-   int i, fd1, pos, num;
-   long offset;
-   char *filename = "IONumeri.txt";
+   int fd;
+   char *filename = "hole.txt";
 
-   if ((fd1 = open(filename, O_WRONLY | O_CREAT, PERMESSI)) == -1) {
-      printf("Errore nell'aperura del file %s\n", filename);
-      printf("%d\n", errno);
-      exit(1);
+   if ((fd = open(filename, O_RDWR | O_CREAT, PERMS)) < 0) {
+      fprintf(stderr, "Err. open file\n");
+      exit(EXIT_FAILURE);
    }
 
-   write(fd1, &buf, sizeof(buf));
-   close(fd1);
-
-   printf("Psozione: ");
-   scanf("%d", &pos);
-
-   if ((fd1 = open(filename, O_RDONLY)) == -1) {
-      printf("Errore nell'aperura del file %s\n", filename);
-      printf("%d\n", errno);
-      exit(1);
+   /* Scrive la prima stringa 'buf_1' nel file 'filename' */
+   if (write(fd, buf_1, sizeof(buf_1)) != sizeof(buf_1)) {
+      fprintf(stderr, "Err. write file\n");
+      exit(EXIT_FAILURE);
+      /* l'offset ora e' "sizeof(buf_1)", ossia 16 */
+   }
+   
+   if (lseek(fd, OFFSET, SEEK_SET) == -1) {
+      fprintf(stderr, "Err. seek\n");
+      exit(EXIT_FAILURE);
    }
 
-   offset = (pos-1) * sizeof(int);
-   int test = lseek(fd1, offset, SEEK_SET);
-   printf("%d\n", test);
-
-   read(fd1, &num, sizeof(int));
-   printf("Trovato: %d\n", num);
-   close(fd1);
+   if (write(fd, buf_2, sizeof(buf_2)) != sizeof(buf_2)) {
+      fprintf(stderr, "Err. write file\n");
+      exit(EXIT_FAILURE);
+      /* l'offset ora e' "OFFSET", ossia 4096 */
+   }
+   
+   /*
+    Se si aprisse il file 'filename', si notera' la presenza di un buco tra le
+    due stringhe, ancor meglio se lo si aprisse mediante 'od', con cui si 
+    vedrebbe chiaramente anche l'azzeramento di tutti i byte tra le due 
+    stringhe, per azzeramento si intende posti a zero.
+    $ od -c hole.txt
+   */
 
    return(EXIT_SUCCESS);
 }
