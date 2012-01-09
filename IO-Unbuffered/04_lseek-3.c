@@ -3,8 +3,6 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
 #define DIMBUF 10
 #define PERMESSI 0755
 
@@ -34,7 +32,9 @@ int main(int argc, char *argv[])
    }
 
    offset = (pos-1) * sizeof(int);
-   lseek(fd1, offset, SEEK_SET);
+   int test = lseek(fd1, offset, SEEK_SET);
+   printf("%d\n", test);
+
    read(fd1, &num, sizeof(int));
    printf("Trovato: %d\n", num);
    close(fd1);
