@@ -1,4 +1,3 @@
-
 /* 
  * Programma che carica in un file binario, gestito a basso livello,
  * una serie di numeri interi contenuti in un array
@@ -11,11 +10,8 @@
 
 #define DIMBUF 10
 #define PERMESSI 0755
-#define AUTHOR		"Luca Suriano"
-#define MAIL_AUTHOR	"luka@linux.it"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
    int buf[DIMBUF] = {1,2,3,4,5,6,7,8,9,10};
    int i, fd;
 
