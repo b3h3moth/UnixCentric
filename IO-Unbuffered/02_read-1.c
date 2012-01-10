@@ -6,6 +6,9 @@
 
 #define MAX_BUF 4096
 
+/* 
+ Legge MAX_BUF byte dal file fornito in input e li pone sullo standard output 
+*/
 int main(int argc, char *argv[], char *envp[])
 {
    int fd, n;
@@ -21,7 +24,11 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   /* legge MAX_BUF byte e li pone sullo standard output */
+   /*
+    la read, legge MAX_BUF byte dal file descriptor 'fd' e li pone, senza alcuna
+    conversione, in buf; ritorna il numero di byte letti, oppure -1 in caso di 
+    fallimento.
+   */
    if ((n = read(fd,&buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read file\n");
       exit(EXIT_FAILURE);
