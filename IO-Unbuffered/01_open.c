@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <fcntl.h>
-
-#define MAX_BUF	1
 
 /*
  Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le 
@@ -14,20 +11,11 @@
 
  L'I/O Unbuffered non e' standard ISO C bensi' standard POSIX 1., nonche' Single
  Unix Specification.
-
- Comportamento del programma:
- Il programma richiede l'inserimento del nome di un file in input, utilizzando 
- un path assoluto, dopodiche' tale file sara' inviato allo standard output.
 */
 
 int main(int argc, char *argv[]) {
-   int fd, n;
-   char buf[MAX_BUF];
-
-   if (argc < 2) {
-      fprintf(stderr, "Uso: %s <file name>\n", argv[0]);
-      exit(EXIT_FAILURE);
-   }
+   int fd;
+   char *filename = "/etc/group";
   
    /*
     int open(const char *pathnarme, int oflag, mode_t mode);
@@ -53,16 +41,13 @@ int main(int argc, char *argv[]) {
     Nell'esempio, e' un file in sola lettura, pertanto non ha bisogno del terzo 
     argomento.
    */
-   if ( (fd = open(argv[1], O_RDONLY)) < 0) {
+   if ( (fd = open(filename, O_RDONLY)) < 0) {
       fprintf(stderr, "Err. open file\n");
       exit(EXIT_FAILURE);
    }
 
-   /* Scrive il contenuto del file 'filename' in output, un carattere
-    * per volta */
-   while ((n = read(fd, buf, MAX_BUF)) > 0)
-      write (STDOUT_FILENO, buf, n);
-
+   /* Lo si chiude subito senza alcuna operazione su di esso */
    close(fd);
+
    return(EXIT_SUCCESS);
 }
