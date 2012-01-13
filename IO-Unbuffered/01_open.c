@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
 
 /*
  Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le 
  varie routine (open, read, write, lseek, close, etc...) sono chiamate dirette 
- al sistema operativo e pertanto gestite direttamente dal Kernel; tecnicamente 
- invece indica che l'accesso in lettura e in scrittura sul disco comporta un 
- "semplice" trasferimento di byte, naturalmente senza formattazione.
+ al sistema operativo e pertanto gestite dal Kernel stesso, inoltre l'accesso
+ in lettura e in scrittura sul disco comporta un  "semplice" trasferimento di 
+ byte, naturalmente senza formattazione.
 
- L'I/O Unbuffered non e' standard ISO C bensi' standard POSIX 1., nonche' Single
- Unix Specification.
-*/
+ L'I/O Unbuffered non e' standard ISO C, bensi' standard POSIX 1., nonche'
+ Single Unix Specification.
+*/  
 
 int main(int argc, char *argv[]) {
    int fd;
-   char *filename = "/etc/group";
+   char *filename = "/etc/fstab";
   
    /*
     int open(const char *pathnarme, int oflag, mode_t mode);
@@ -36,17 +38,45 @@ int main(int argc, char *argv[]) {
 
     Per poter iniziare a lavorare con un file e' necessario per prima cosa 
     aprirlo, la open() ha questo compito, ed e' peralto in questo momento che 
-    sono associati ad esso anche i 3 file descriptor di default.
+    sono associati ad esso anche i 3 file descriptor di default; da notare che
+    provvede alla localizzazione dell'inode del file che s'intende aprire.
 
     Nell'esempio, e' un file in sola lettura, pertanto non ha bisogno del terzo 
     argomento.
    */
+
    if ( (fd = open(filename, O_RDONLY)) < 0) {
-      fprintf(stderr, "Err. open file\n");
+      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+   
+   /* 
+    Si chiude subito il canale di comunicazione stabilito con il kernel, senza
+    eseguire alcuna operazione aggiuntiva
+   */
+   
+   close(fd);
+
+   /*
+    Nell'esempio il file  e' stato aperto in sola lettura, vi sono tuttavia una
+    serie di ulteriori costanti simboliche con cui si sarebbe potuta gestire 
+    l'apertura, o la scrittura, del file, alcune di esse sono:
+    - O_RDONLY - Apre il file in lettura;
+    - O_WRONLY - Apre il file in scrittura;
+    - O_RDWR   - Apre il file il lettura e scrittura;
+    - O_CREAT  - Se il file non esiste sara' creato;
+    - O_EXCL   - E' utilizzato in concomitanza con O_CREAT, in modo che se il
+                 file dovesse essere gia' presente nel filesystem, ritornerebbe
+		 un errore EEXIST, ossia file gia' esistente nel filesystem.
+
+    Nell'esempio che segue si simulera' proprio il il caso appena citato.
+   */
+
+   if ((fd = open("01_open.c", O_CREAT | O_EXCL, 0644)) < 0) {
+      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
 
-   /* Lo si chiude subito senza alcuna operazione su di esso */
    close(fd);
 
    return(EXIT_SUCCESS);
