@@ -81,8 +81,13 @@ int main(int argc, char *argv[]) {
       	 pt = "socket";
       else
       	 pt = "** tipo di file sconosciuto **";
-      printf("%s\n", pt);
+      printf("%s UID:%d GID:%d\n", pt, buffer.st_uid, buffer.st_gid);
    }
+
+   /*
+    Al risulato si aggiungono le informazioni relative all'UserID e GroupID del 
+    file 
+   */
    
    return(EXIT_SUCCESS);
 }
