@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include <string.h>
 
 /*
  Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le 
