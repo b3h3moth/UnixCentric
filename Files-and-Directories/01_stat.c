@@ -11,12 +11,12 @@ RETURNS  : 0 in caso di successo, -1 in caso di errore.
 
 stat() consente di acquisire svariate informazioni inerenti un file, ovvero
 tutti quei dati che sono conservati nell'inode; in realta' la peculiarita' di
-ottenere specifiche informazioni sui file e' ptoptia della famiglia di funzioni
-stat che comptende anche fstat() e lstat().
+ottenere specifiche informazioni sui file e' proptia della famiglia di funzioni
+stat che comprende anche fstat() e lstat().
 
 La struttura stat puo' dipendere dall'implementazione, il kernel Linux tuttavia
-utilizza la seguente: (si tenga ptesente che i campi  contrassegnati con un 
-asterisco non sono richiesti dallo standard POSIX.1).
+utilizza la seguente: (si tenga ptesente che i campi contrassegnati con un 
+asterisco non sono richiesti dallo standard POSIX.1):
  
 struct stat {
 	mode_t    st_mode;	"file type & mode permissions (ptotection)"
@@ -51,15 +51,16 @@ int main(int argc, char *argv[]) {
    char *pt;
 
    if (argc < 2) {
-      fprintf(stderr, "Uso: %s <path> ... <parth N>\n", argv[0]);
+      fprintf(stderr, "Uso: %s <pathname> ... <pathname N>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
    for (i=0; i<argc; i++) {
       printf("%s: ", argv[i]);
       /*
-       con lstat(), qualora ci si dovesse imbattere in un symbolic link, sara'
-       considerato quel file e non il file a cui esso si riferisce.
+       Si adopera la funzione lstat(), invece di stat, poiche' qualora ci si 
+       dovesse imbattere in un symbolic link, sara' considerato quel file e 
+       non il file a cui esso - symbolic link - si riferisce.
       */
       if (lstat(argv[i], &buffer) < 0) {
       	 fprintf(stderr, "Err: stat\n");
