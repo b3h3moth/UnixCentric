@@ -3,19 +3,20 @@
 #include <sys/stat.h>
 
 /*
- HEADER: <sys/stat.h>
- PROTOTIPO: int stat(const char *restrict path, struct stat *restrict buf);
- SEMANTICA: Legge le informazioni relative al file 'path', collocandole nella
+HEADER    : <sys/stat.h>
+PROTOTYPE : int stat(const char *restrict path, struct stat *restrict buf);
+SEMANTICS : Legge le informazioni relative al file 'path', collocandole nella
             struttura stat puntata da 'buf'.
+RETURNS  : 0 in caso di successo, -1 in caso di errore.
 
- stat() consente di acquisire svariate informazioni inerenti un file, ovvero
- tutti quei dati che sono conservati nell'inode; in realta' la peculiarita' di
- ottenere specifiche informazioni sui file e' ptoptia della famiglia di funzioni
- stat che comptende anche fstat() e lstat().
+stat() consente di acquisire svariate informazioni inerenti un file, ovvero
+tutti quei dati che sono conservati nell'inode; in realta' la peculiarita' di
+ottenere specifiche informazioni sui file e' ptoptia della famiglia di funzioni
+stat che comptende anche fstat() e lstat().
 
- La struttura stat puo' dipendere dall'implementazione, il kernel Linux tuttavia
- utilizza la seguente: (si tenga ptesente che i campi  contrassegnati con un 
- asterisco non sono richiesti dallo standard POSIX.1).
+La struttura stat puo' dipendere dall'implementazione, il kernel Linux tuttavia
+utilizza la seguente: (si tenga ptesente che i campi  contrassegnati con un 
+asterisco non sono richiesti dallo standard POSIX.1).
  
 struct stat {
 	mode_t    st_mode;	"file type & mode permissions (ptotection)"
@@ -31,17 +32,17 @@ struct stat {
 	time_t    st_atime;	"time of last access"
 	time_t    st_mtime;	"time of last modification"
 	time_t    st_ctime;	"time of last status change"
- };
+};
 
- Il tipo di file e' decodificato mediante il campo 'st_mode', e' possibile infatti
- determinare il tipo di file mediante specifiche macro:
- - Regular file           = S_ISREG;
- - Directory file         = S_ISDIR;
- - Block special file     = S_ISBLK;
- - Character special file = S_ISCHR;
- - FIFO                   = S_ISFIFO;
- - Socket file            = S_ISSOCK;
- - Symbolic link file     = S_ISLNK.
+Il tipo di file e' decodificato mediante il campo 'st_mode', e' possibile
+infatti determinare il tipo di file mediante specifiche macro:
+- Regular file           = S_ISREG;
+- Directory file         = S_ISDIR;
+- Block special file     = S_ISBLK;
+- Character special file = S_ISCHR;
+- FIFO                   = S_ISFIFO;
+- Socket file            = S_ISSOCK;
+- Symbolic link file     = S_ISLNK.
 */
  
 int main(int argc, char *argv[]) {

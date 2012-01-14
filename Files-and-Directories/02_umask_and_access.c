@@ -4,31 +4,34 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/*
+La combinazione delle costanti simboliche e' definita mediante un OR binario
+*/
 #define RWRWRW (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
 
 /*
-HEADER: <sys/stat.h>
-PROTOTIPO: mode_t umask(mode_t mask);
-SEMANTICA: imposta la maschera dei permessi dei bit al valore mask.
-RITORNA: La funzione non ha valore di ritorno.
+HEADER    : <sys/stat.h>
+PROTOTYPE : mode_t umask(mode_t mask);
+SEMANTICS : imposta la maschera dei permessi dei bit al valore mask.
+RETURNS   : La funzione non ha valore di ritorno.
 
- Quali sono i permessi di default allorquando si crea un nuovo file?  umask() si
- occupa proprio di questo, consente infatti di specificare i permessi da non
- assegnare ad un nuovo file, solitamente tale valore e' impostato in fase di 
- login a 0022, ovvero i nuovi file non dovranno contere i permessi di scrittura 
- per gruppo e others.
+Quali sono i permessi di default allorquando si crea un nuovo file?  umask() si
+occupa proprio di questo, consente infatti di specificare i permessi da non
+assegnare ad un nuovo file, solitamente tale valore e' impostato in fase di 
+login a 0022, ovvero i nuovi file non dovranno contere i permessi di scrittura 
+per gruppo e others.
 
- 'mask' e' un valore espresso in ottale, impostabile mediante specifiche
- costanti simboliche:
- - 0400 = user read;
- - 0200 = user write;
- - 0100 = user execute;
- - 0040 = group read;
- - 0020 = group write;
- - 0010 = group execute;
- - 0004 = other read;
- - 0002 = other write;
- - 0001 = other execute;
+'mask' e' un valore espresso in ottale, impostabile mediante specifiche
+costanti simboliche:
+- 0400 = user read;
+- 0200 = user write;
+- 0100 = user execute;
+- 0040 = group read;
+- 0020 = group write;
+- 0010 = group execute;
+- 0004 = other read;
+- 0002 = other write;
+- 0001 = other execute;
 */
 
 int main(int argc, char *argv[]) {
@@ -53,19 +56,18 @@ PROTOTIPO: int access(const char *pathname, int mode);
 SEMANTICA: verifica i permessi di accesso 'mode' rispetto a 'pathname'.
 RITORNA: 0 in caso di successo, -1 in caso di errore.
  
- access() permette di verificare l'accesso ad un file, controllando i permessi
- relativi al real-User-ID e al real-Group-ID; da notare che di solito, quando
- si apre un file, il kernel verifica l'accesso controllando l'effective-User-ID
- e l'effective-Group-ID.
+access() permette di verificare l'accesso ad un file, controllando i permessi
+relativi al real-User-ID e al real-Group-ID; da notare che di solito, quando
+si apre un file, il kernel verifica l'accesso controllando l'effective-User-ID
+e l'effective-Group-ID.
 
- Le costanti simboliche utilizzabili da 'mode' sono:
- - F_OK = test di esistenza del file;
- - R_OK = test di lettura del file;
- - W_OK = test di scrittura del file;
- - X_OK = test di esecuzione del file.
+Le costanti simboliche utilizzabili da 'mode' sono:
+- F_OK = test di esistenza del file;
+- R_OK = test di lettura del file;
+- W_OK = test di scrittura del file;
+- X_OK = test di esecuzione del file.
 
- Gli ultimi 3 sono eseguiti solo se la prima e' vera.
-
+Gli ultimi 3 sono eseguiti solo se la prima e' vera.
 */
    /* Verifica del file */
    if ((verify_fd1 = access(file_1, F_OK)) < 0) {
