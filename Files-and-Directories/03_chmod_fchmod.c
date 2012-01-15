@@ -10,13 +10,16 @@
 
 /*
 HEADER    : <sys/stat.h>
+
 PROTOTYPE : int chmod(const char *pathname, mode_t mode);
             int fchmod(int fd, mode_t mode);
+
 SEMANTICS : chmod() modifica i permessi del file 'pathname' secondo la modalita'
             definita da 'mode'; fchmod() e' simile alla chmod(), fatta eccezione
 	    che lavora sul file descriptor 'fd'.
-RETURNS   : Entrambe ritornano 0 in caso di successo, -1 in caso di errore.
 
+RETURNS   : Entrambe ritornano 0 in caso di successo, -1 in caso di errore.
+--------------------------------------------------------------------------------
 Le funzioni hanno ragione di esistere solo se le modifiche saranno apportate
 dall'User-ID proprietario del processo, o dal SysAdmin naturalmente; detto in
 parole povere, solo il proprietario del file potra' intervenire sui bit di mode

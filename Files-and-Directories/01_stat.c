@@ -4,11 +4,14 @@
 
 /*
 HEADER    : <sys/stat.h>
+
 PROTOTYPE : int stat(const char *restrict path, struct stat *restrict buf);
+
 SEMANTICS : Legge le informazioni relative al file 'path', collocandole nella
             struttura stat puntata da 'buf'.
-RETURNS  : 0 in caso di successo, -1 in caso di errore.
 
+RETURNS  : 0 in caso di successo, -1 in caso di errore.
+--------------------------------------------------------------------------------
 stat() consente di acquisire svariate informazioni inerenti un file, ovvero
 tutti quei dati che sono conservati nell'inode; in realta' la peculiarita' di
 ottenere specifiche informazioni sui file e' proptia della famiglia di funzioni

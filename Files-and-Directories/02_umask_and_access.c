@@ -11,10 +11,13 @@ La combinazione delle costanti simboliche e' definita mediante un OR binario
 
 /*
 HEADER    : <sys/stat.h>
-PROTOTYPE : mode_t umask(mode_t mask);
-SEMANTICS : imposta la maschera dei permessi dei bit al valore mask.
-RETURNS   : La funzione non ha valore di ritorno.
 
+PROTOTYPE : mode_t umask(mode_t mask);
+
+SEMANTICS : imposta la maschera dei permessi dei bit al valore mask.
+
+RETURNS   : La funzione non ha valore di ritorno.
+--------------------------------------------------------------------------------
 Quali sono i permessi di default allorquando si crea un nuovo file?  umask() si
 occupa proprio di questo, consente infatti di specificare i permessi da non
 assegnare ad un nuovo file, solitamente tale valore e' impostato in fase di 
