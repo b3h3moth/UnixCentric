@@ -19,8 +19,8 @@ parole povere, solo il proprietario del file potra' intervenire sui bit di mode
 del file stesso.
 
 Le costanti simboliche utilizzabili da mode:
-- S_ISUID (04000) set user-ID;
-- S_ISGID (02000) set group-ID;
+- S_ISUID (04000) set user-ID (suid);
+- S_ISGID (02000) set group-ID (sgid);
 - S_ISVTX (01000) sticky bit;
 
 - S_IRWXU (00700) red, write and execute by user 
@@ -66,4 +66,3 @@ int main(int argc, char *argv[]) {
 
    return(EXIT_SUCCESS);
 }
-
