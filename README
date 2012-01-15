@@ -61,7 +61,7 @@ Ottobre 2011: E' venuto a mancare uno dei padri del sistema operativo UNIX,
 nonche' co-autore del linguaggio C, Dennis Ritchie.
 
 Dedico questo modesto lavoro, con un senso di profonda gratitudine per tutto 
-cio' che ci hanno lasciato a Richard Stevens e Dennis Ritchie.
+cio' che ci hanno lasciato, a Richard Stevens e Dennis Ritchie.
 
 ################################################################################
 INFO
@@ -72,6 +72,6 @@ Qualora si volesse comunicare mediante crittografia a chiave pubblica:
 KeyID = 0xE83F9FBB 
 
 La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
-chiavi pubbliche.
+chiavi pubbliche, ad esempio pgp.mit.edu
 
-b3h3m0th
+Luca Suriano a.k.a. b3h3m0th
