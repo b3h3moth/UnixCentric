@@ -25,16 +25,21 @@ SEMANTICS : Ciascuna di esse cambia i permessi utente (user-ID) e gruppo
 RETURNS   : 0 In caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 In pratica, sia esso un file sia esso un symbolic link, le funzioni modificano
-il proprietario del file, tale processo peraltro puo' essere svolto solo 
-dall'amministratore del sistema.
+il proprietario del file, l'uso di queste funzioni peraltro andra' a buon fine
+solo se l'effective UserID del processo corrisponde all'UserID del proprietario
+del file o dell'amministratore del sistema.
 
-Provare questo programma prima come utente normale poi con sudo.
+Nota: Qualora l'esecuzione del programma dovesse ritornare errori relativi alla
+non possibilita' di poter modificare UserID e GroupID, sarebbe opportuno 
+provarlo con permessi di superutente (o con sudo).
 */
 int main(int argc, char *argv[]) {
    struct stat buf;
+   int fd;
 
-   if (argc < 2) {
-      fprintf(stderr, "Uso: %s <symbolic link>\n", argv[0]);
+   if (argc < 3 ){
+      fprintf(stderr, "Uso: %s <filename> <filename>\n"
+      	    "Il primo argomento dev'essere un link simbolico\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
@@ -43,15 +48,31 @@ int main(int argc, char *argv[]) {
       exit(errno);
    }
 
-   /* Verifica che si stia lavorando su un symbolic link, dopdiche'
-    * imposta i permessi di UserID e GroupID  */
+   /*
+    Verifica che si stia lavorando su un symbolic link, dopdiche' imposta i 
+    permessi di UserID e GroupID 
+   */
    if (S_ISLNK(buf.st_mode)) {
-      if (lchown(argv[1], 1000, 1000) < 0) {
-      	 fprintf(stderr, "Err. cannot set User-ID Group-ID to '%s'\n", argv[1]);
+      if (lchown(argv[1], 1001, 1001) < 0) {
+      	 fprintf(stderr, "Err. cannot set User-ID Group-ID on '%s'\n", argv[1]);
 	 exit(EXIT_FAILURE);
       }
    } else {
       fprintf(stderr, "Err. '%s' is not a symbolic link\n", argv[1]);
+      exit(EXIT_FAILURE);
+   }
+
+   if ((fd = open(argv[2], O_RDONLY)) < 0) {
+      fprintf(stderr, "Err: (%d) - %s: '%s'\n", errno, strerror(errno), argv[2]);
+      exit(errno);
+   }
+
+   /*
+    fchown() lavora con il file descriptor 'fd', il parametro -1 indica di 
+    lasciare i permessi immutati 
+   */
+   if (fchown(fd, -1, 1001) < 0) {
+      fprintf(stderr, "Err. cannot set User-ID Group-ID on '%s'\n", argv[2]);
       exit(EXIT_FAILURE);
    }
 
