@@ -18,7 +18,7 @@ SEMANTICS : chmod() modifica i permessi del file 'pathname' secondo la modalita'
             definita da 'mode'; fchmod() e' simile alla chmod(), fatta eccezione
 	    che lavora sul file descriptor 'fd'.
 
-RETURNS   : Entrambe ritornano 0 in caso di successo, -1 in caso di errore.
+RETURNS   : 0 in caso di successo, -1 in caso di errore.
 --------------------------------------------------------------------------------
 Le funzioni hanno ragione di esistere solo se le modifiche saranno apportate
 dall'User-ID proprietario del processo, o dal SysAdmin naturalmente; detto in
