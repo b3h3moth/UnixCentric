@@ -3,6 +3,10 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+#define RXRXRX (S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH)
 
 /*
 HEADER    : <sys/stat.h>
@@ -41,6 +45,7 @@ Le costanti simboliche utilizzabili da mode:
 
 int main(int argc, char *argv[]) {
    struct stat buf;
+   int fd;
 
    if (argc < 3) {
       fprintf(stderr, "Uso: %s <filename 1> <filename 2>\n", argv[0]);
@@ -48,21 +53,29 @@ int main(int argc, char *argv[]) {
    }
 
    if (stat(argv[1], &buf) < 0) {
-      fprintf(stderr, "Err 'stat': (%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
       exit(errno);
    }
 
-   /* Si imposta il GID bit, visibile con la S mediante ls */
+   /* fchmod(), come detto, deve lavorare su un file descriptor */
+   if ((fd = open(argv[2], O_RDONLY)) < 0) {
+      fprintf(stderr, "Err: (%d) %s - %s\n", errno, argv[2], strerror(errno));
+      exit(errno);
+   }
+
+   /* Imposta il GID bit ai permessi del file;  visibile con la S mediante ls */
    if (chmod(argv[1], (buf.st_mode & ~S_IXGRP) | S_ISGID) < 0) {
-      fprintf(stderr, "Err 'chmod': (%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
       exit(errno);
    }
 
-   /* Imposta i permessi del file a 755 */
-   if (chmod(argv[2], S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH) < 0) {
-      fprintf(stderr, "Err 'chmod': (%d) - %s\n", errno, strerror(errno));
+   /* Imposta i permessi del file indicato dal file descriptor 'fd' a RXRXRX */
+   if (fchmod(fd, RXRXRX) < 0) {
+      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
       exit(errno);
    }
+
+   close(fd);
 
    return(EXIT_SUCCESS);
 }
