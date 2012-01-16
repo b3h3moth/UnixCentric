@@ -29,8 +29,8 @@ di directory inserita, ma in realta' il file non sara' eliminato, per lo meno
 fino a quando il processo non terminera' la sua esecuzione, dopodiche' il kernel
 chiudera' tutti i file aperti relativi al processo stesso e quindi cancellera'
 il file. Da notare inoltre che ritornera' un errore qualora lo si dovesse 
-utilizzare con una directory - in tal caso, su una directory vuota, si dovrebbe
-utilizzare rmdir().
+utilizzare con una directory su sistemi UNIX con kernel Linux - in tal caso, su
+una directory vuota, si dovrebbe utilizzare rmdir().
 */
 
 int main(int argc, char *argv[]) {

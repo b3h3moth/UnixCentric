@@ -33,3 +33,21 @@ int main(int argc, char **argv, char **envp) {
 
    return(EXIT_SUCCESS);
 }
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+HEADER    : 
+
+PROTOTYPE : 
+
+SEMANTICS : 
+
+RETURNS   : 0 In caso di successo, -1 in caso di errore
+--------------------------------------------------------------------------------
+*/
+
+int main(int argc, char *argv[]) {
+
+   return(EXIT_SUCCESS);
+}
