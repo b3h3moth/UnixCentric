@@ -25,7 +25,8 @@ uno stesso pathname potra' avere diversi collegamenti diretti, il totale dei
 collegamenti ad un pathname e' gestito da st_nlink.
 
 unlink(), come accennato nell'header non fa altro che eliminare la nuova voce
-di directory inserita
+di directory inserita, riportera' errore qualora lo si dovesse utilizzare con
+una directory - in tal caso, per una directory vuota, si usa rmdir().
 */
 
 int main(int argc, char *argv[]) {
