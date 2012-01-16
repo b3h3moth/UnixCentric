@@ -24,9 +24,13 @@ pathname puntera' ad un file esistente, ma non ne e' una copia; da notare che
 uno stesso pathname potra' avere diversi collegamenti diretti, il totale dei
 collegamenti ad un pathname e' gestito da st_nlink.
 
-unlink(), come accennato nell'header non fa altro che eliminare la nuova voce
-di directory inserita, riportera' errore qualora lo si dovesse utilizzare con
-una directory - in tal caso, per una directory vuota, si usa rmdir().
+unlink(), come accennato nell'header, non fa altro che cancellare la nuova voce
+di directory inserita, ma in realta' il file non sara' eliminato, per lo meno
+fino a quando il processo non terminera' la sua esecuzione, dopodiche' il kernel
+chiudera' tutti i file aperti relativi al processo stesso e quindi cancellera'
+il file. Da notare inoltre che ritornera' un errore qualora lo si dovesse 
+utilizzare con una directory - in tal caso, su una directory vuota, si dovrebbe
+utilizzare rmdir().
 */
 
 int main(int argc, char *argv[]) {
