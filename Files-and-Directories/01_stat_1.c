@@ -58,6 +58,9 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
+   /*
+    Stampa il tipo di file
+   */
    for (i=0; i<argc; i++) {
       printf("%s: ", argv[i]);
       /*
