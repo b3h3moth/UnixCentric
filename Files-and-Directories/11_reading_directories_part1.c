@@ -81,5 +81,10 @@ int main(int argc, char *argv[]) {
    
    closedir(dfd);
 
+   /* Oppure:
+   while ((closedir(dfd) == -1) & (errno == EINTR))
+      ;
+   */
+
    exit(EXIT_SUCCESS);
 }
