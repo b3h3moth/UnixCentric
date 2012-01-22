@@ -4,10 +4,11 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/stat.h>
+
 #define MAX_PATH 1024
 
 void filesize(char *name);
-void dirwalk(char *dir, void (*fcn)(char *));
+void dirwalk(char *dir, void (*fsize)(char *));
 
 int main(int argc, char *argv[]) {
 
@@ -43,7 +44,7 @@ void filesize(char *name)
    printf("%8ld %s\n", stbuf.st_size, name);
 }
 
-void dirwalk(char *dir, void (*fcn)(char *))
+void dirwalk(char *dir, void (*fsize)(char *name))
 {
    char name[MAX_PATH];
    struct dirent *dp;
@@ -61,7 +62,7 @@ void dirwalk(char *dir, void (*fcn)(char *))
       	 fprintf(stderr, "nome %s/%s troppo lungo\n", dir, dp->d_name);
       else {
       	 sprintf(name, "%s/%s", dir, dp->d_name);
-	 (*fcn)(name);
+	 (*fsize)(name);
       }
    }
 
