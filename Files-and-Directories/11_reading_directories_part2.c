@@ -8,7 +8,7 @@
 #define MAX_PATH 1024
 
 void filesize(char *name);
-void dirwalk(char *dir, void (*fsize)(char *));
+void dirwalk(char *dir, void (*fsize)(char *name));
 
 int main(int argc, char *argv[]) {
 
