@@ -6,6 +6,8 @@
 
 #define MAX_PATH 256
 
+void get_working_dir(void);
+
 /*
 HEADER    : <unistd.h>
 PROTOTYPE : int chdir(const char *pathname);
@@ -35,7 +37,24 @@ Nota: La funzione fchdir() non e' parte delle specifiche POSIX.1, ma e' una
 estensione XSI della SUS.
 */
 
+
 int main(int argc, char *argv[]) {
+
+   get_working_dir();
+
+   /* Mi sposto nella parent directory */
+   if (chdir("..") < 0) {
+      fprintf(stderr, "Err.:(%d) - %s: \"..\"\n", errno, strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+
+   get_working_dir();
+
+   return(EXIT_SUCCESS);
+}
+
+void get_working_dir(void) 
+{
    char buf[MAX_PATH];
 
    /* La directory di lavoro corrente in forma assoluta */
@@ -44,22 +63,5 @@ int main(int argc, char *argv[]) {
       	    errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
-
    printf("%s\n", buf);
-
-   if (chdir("..") < 0) {
-      fprintf(stderr, "Err.:(%d) - %s: \"..\"\n", errno, strerror(errno));
-      exit(EXIT_FAILURE);
-   }
-
-   /* La directory di lavoro corrente in forma assoluta */
-   if (getcwd(buf, sizeof(buf)) == NULL) {
-      fprintf(stderr, "Err.:(%d) - %s: current working directory\n", 
-      	    errno, strerror(errno));
-      exit(EXIT_FAILURE);
-   }
-
-   printf("%s\n", buf);
-
-   return(EXIT_SUCCESS);
 }
