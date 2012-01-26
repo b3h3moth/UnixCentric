@@ -6,6 +6,7 @@
 #include <limits.h>
 
 void get_working_dir(void);
+void change_dir(void);
 
 /*
 HEADER    : <unistd.h>
@@ -46,12 +47,7 @@ int main(int argc, char *argv[]) {
    char *buf;
 
    get_working_dir();
-
-   /* Mi sposto nella parent directory */
-   if (chdir("..") < 0) {
-      fprintf(stderr, "Err.:(%d) - %s: \"..\"\n", errno, strerror(errno));
-      exit(EXIT_FAILURE);
-   }
+   change_dir();
 
    /*
     Se si utilizza un puntatore nullo e size 0, sara' allocata automaticamente
@@ -64,7 +60,22 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
    
-   printf("%s %d\n", buf, strlen(buf));
+   get_working_dir();
+   change_dir();
+   get_working_dir();
+
+   /* 
+    La funzione getcwd() e' utile per memorizzare la "current working directory"
+    iniziale, utilizzandola come parametro per chdir() allorquando si vuole che 
+    l'applicazione torni al "punto di partenza".
+   */
+   if (chdir(buf) < 0) {
+      fprintf(stderr, "Err.:(%d) - %s; %s\n", errno, strerror(errno), buf);
+      exit(EXIT_FAILURE);
+   }
+
+   printf("%s\n", buf);
+
    free(buf);
 
    return(EXIT_SUCCESS);
@@ -85,4 +96,13 @@ void get_working_dir(void)
    }
 
    printf("%s\n", buf);
+}
+
+/* Salgo l'albero della directory */
+void change_dir(void) 
+{
+   if (chdir("..") < 0) {
+      fprintf(stderr, "Err.:(%d) - %s: \"..\"\n", errno, strerror(errno));
+      exit(EXIT_FAILURE);
+   }
 }
