@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 	 *
 	 * <int Somma(int, int);> piuttosto che <int Somma(int x, int y);>
 	 * Questa comunque non e' una regola ma solo una possibilita', che peraltro
-	 * andrebbe presa con le molle e comunque gestica con criterio.
+	 * andrebbe presa con le molle e comunque gestita con criterio.
 	 */
 
 	/* L'esempio seguente mostra in estrema sintesi tutto cio' che e' stato
