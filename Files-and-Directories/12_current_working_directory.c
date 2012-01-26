@@ -55,7 +55,9 @@ int main(int argc, char *argv[]) {
 
    /*
     Se si utilizza un puntatore nullo e size 0, sara' allocata automaticamente
-    una stringa pari alla lunghezza del pathname corrente
+    una stringa pari alla lunghezza del pathname corrente, tuttavia questa
+    pratica e' sconsigliata poiche' non e' ne' POSIX ne' SUS, e quindi non 
+    portabile.
    */
    if ((buf = getcwd(NULL, 0)) == NULL) {
       fprintf(stderr, "Err.:(%d) - %s: buf\n", errno, strerror(errno));
