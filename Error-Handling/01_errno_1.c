@@ -17,7 +17,8 @@
  quello di fornire il tipo di errore occorso.
 
  Come accennato pocanzi, diverse macro che indicano la specificita' di ciascun
- codice di errore sono definite in <errno.h>.
+ codice di errore sono definite in <errno.h>, esse iniziano con il carattere E
+ e naturalmente sono a tutti gli effetti nomi riservati.
 */
 
 
