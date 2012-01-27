@@ -23,21 +23,22 @@
 
 
 int main(int argc, char **argv) {
-   int fd;
+   int fd, my_err;
 
    /*
     All'inizio di una 'chiamata' errno e' impostato a 0, per cui qualsiasi
     altro valore indichera' ad errno un codice di errore
    */
    if ( (fd = open("/dubito/che/esista/questo/file", O_RDONLY)) < 0) {
-      if (errno != 0) { 
+      my_err = errno;
+      if (my_err != 0) { 
       	 fprintf(stderr, "Err.:(%d) Il file non esiste\n", errno);
 	 /*
 	  Una sottigliezza, uscire dal programma fornendo alla funzione exit()
 	  il parametro 'errno'; il codice di uscita del programma peraltro si
 	  puo' verificare eseguendo via terminale "echo $?" 
 	 */
-	 exit(errno);
+	 exit(my_err);
       }
       /*
        Non tutte le funzioni o le system call salvano un codice di errore nella
