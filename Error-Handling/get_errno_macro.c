@@ -3,9 +3,8 @@
 #include <errno.h>
 
 /*
- Questo semplicissimo programmino serve per verificare il tipo di errore 
- associato alla variabile errno; e' sufficiente fornire il numero in input
- per avere le informazioni su quella specifica macro.
+ L'argomento fornito in input fornira' informazioni sulla macro associata alla
+ variabile 'errno'.
 */
 
 int main(int argc, char *argv[]) {
