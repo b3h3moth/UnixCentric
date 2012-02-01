@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 
 /*
 Nota: la libreria Standard I/O e' stata  scritta nel 1975 dal compianto Dennis 
@@ -23,13 +25,14 @@ la gestione dello stream, tra cui:
 - Indicatore di errore;
 - Indicatori di stato (lettura, scrittura o entrambi);
 - La grandezza del buffer;
-- Fine del file (EOF);
+- Fine del file (EOF).
 
 Nota: Il programmatore non ha alcuna necessita' di interagire direttamente con i
 vari campi della struttura FILE, poiche' ciascuna operazione di I/O potra'
 gestirla mediante un puntatore alla struttura stessa, definita in <stdio.h>.
 
-Come accennato in IO-unbuffered, ogni processo dispone di 3 stream predefiniti, o file descriptor, nella sostanza sono gli stessi:
+Come accennato in IO-unbuffered, ogni processo dispone di 3 stream predefiniti,
+o file descriptor, nella sostanza sono gli stessi:
 - standard input  = stdin  - POSIX(STDIN_LINENO);
 - standard output = stdout - POSIX(STDOUT_LINENO;
 - standard error  = stderr - POSIX(STDERR_LINENO).
@@ -45,28 +48,41 @@ possano sorgere delle incongruenze.
 Vi sono 3 tipi di buffering (modalita' di bufferizzazione):
 - Fully Buffered, I caratteri sono trasmessi non appena il buffer e' pieno;
 - Line buffered , I caratteri sono trasmessi non appena si incontra un '\n';
-- Unbuffered    , I caratteri sono trasmessi non appena e' possibile.
+- Unbuffered    , Non vi e' bufferizzazione; i caratteri sono trasmessi non 
+                  appena e' possibile.
 
-
+Di norma lo standard error e' sempre trasmesso in modalita' unbuffered, mentre
+lo standard input e lo standard output sono in modalita' line buffered se 
+associati ad un terminale, fully bufferd altrimenti.
+--------------------------------------------------------------------------------
 HEADER    : <stdio.h>
+
 PROTOTYPE : FILE *fopen(const char *path, const char *mode); 
-SEMANTICS : La funzione fopen() apre il file puntato da 'path', secondo i 
-            permessi 'mode'
-RETURNS   : Il file puntato in caso di successo, NULL in caso di errore
+            FILE *freopen(const char *path, const char *mode, FILE *stream); 
+            FILE *fdopen(int fd, const char *mode);
+
+SEMANTICS : La funzione fopen() aapre il file puntato da 'path', secondo i 
+            permessi 'mode'; la funzione freopen() apre il file 'path' secondo
+	    i permessi 'mode', e lo associa allo stream 'stream'; la funzione
+	    fdopen() apre lo stream definito dal file descriptor 'fd', secondo i
+	    permessi 'mode'.
+
+RETURNS   : Un puntatore al file in caso di successo, NULL in caso di errore
 --------------------------------------------------------------------------------
-HEADER    : <stdio.h>
-PROTOTYPE : FILE *freopen(const char *path, const char *mode); 
-SEMANTICS : La funzione fopen() apre il file puntato da 'path', secondo i 
-            permessi 'mode'
-RETURNS   : Il file puntato in caso di successo, NULL in caso di errore
---------------------------------------------------------------------------------
-HEADER    : <stdio.h>
-PROTOTYPE : FILE *fdopen(const char *path, const char *mode); 
-SEMANTICS : La funzione fopen() apre il file puntato da 'path', secondo i 
-            permessi 'mode'
-RETURNS   : Il file puntato in caso di successo, NULL in caso di errore
---------------------------------------------------------------------------------
+La funzione fopen() naturalmente e' la piu' adoperata, per chiudere uno stream
+invece si adopera fclose().
 */
+
 int main(int argc, char *argv[]) {
+   FILE *fs;
+
+   if ((fs = fopen(argv[1], "r")) == NULL) {
+      fprintf(stderr, "Err.:(%d) - %s\n", errno, strerror(errno));
+      exit(EXIT_FAILURE);
+   }
+
+   /* si chiude lo stream */
+   fclose(fs);
+
    return(EXIT_SUCCESS);
 }
