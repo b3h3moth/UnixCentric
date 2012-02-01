@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     Stampa il tipo di file
    */
    for (i=0; i<argc; i++) {
-      printf("%s: ", argv[i]);
+      printf("%s: \n", argv[i]);
       /*
        Si adopera la funzione lstat(), invece di stat, poiche' qualora ci si 
        dovesse imbattere in un symbolic link, sara' considerato quel file e 
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]) {
       	 pt = "socket";
       else
       	 pt = "** tipo di file sconosciuto **";
-      printf("%s UID:%d GID:%d\n", pt, buffer.st_uid, buffer.st_gid);
+      printf("%-20s UID:%-5d GID:%-5d\n\n", pt, buffer.st_uid, buffer.st_gid);
    }
 
    /*
