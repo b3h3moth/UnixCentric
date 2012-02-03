@@ -80,8 +80,10 @@ SEMANTICS : La funzione fputs() scrive la stringa 'buf' nello sream 'fp'; la
             funzione puts() scrive la stringa 'buf' sullo standard output.
 RETURNS   : buf in caso di successo, NULL o EOF in caso di errore
 --------------------------------------------------------------------------------
-Nota: La stringa stampata in output con la fputs() comprende il carattere di 
-new-line.
+Nota: La stringa stampata in output con la puts() comprende il carattere di 
+new-line, cosa che non avviene con fputs(); entrambe scrivono una stringa
+comprendente il carattere di terminazione nullo (null-byte -  null terminated 
+string).
 */
 
 int main(int argc, char *argv[]) {
