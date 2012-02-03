@@ -74,15 +74,15 @@ invece si adopera fclose().
 */
 
 int main(int argc, char *argv[]) {
-   FILE *fs;
+   FILE *fs, *frp;
 
    if ((fs = fopen(argv[1], "r")) == NULL) {
-      fprintf(stderr, "Err.:(%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.:(%d) - %s: fopen()\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
 
    /* si chiude lo stream */
-   fclose(fs);
+   fclose(frp);
 
    return(EXIT_SUCCESS);
 }
