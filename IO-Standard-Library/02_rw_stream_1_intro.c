@@ -35,7 +35,11 @@ SEMANTICS : La funzione ferror() verifica se vi e' stato un errore nello stream
 	    fine del file (EOF).
 RETURNS   : true, non zero , se la condizione e' vera,  0 altrimenti
 --------------------------------------------------------------------------------
-Il valore di EOF - End Of File - generalmente e' un valore negativo, ossia -1.
+L'oggetto FILE della standard library contiene il flag "End of File", che indica
+il raggiungimento della fine del file, e per lo meno anche il flag di errore 
+indicante appunto un errore nelle operazioni I/O; tali flag sono letti dalle
+funzioni su citate. Il valore di EOF corrisponde ad un intero negativo, 
+generalmente -1.
 
 
 Le funzioni inerenti l'OUTPUT - Character at a time I/O:
@@ -70,6 +74,7 @@ ricordare infine che la fgets() pone il carattere null-byte '\0' alla fine della
 stringa 'buf'.
 
 Si consiglia di non utilizzare la funzione gets(), se non per scopi didattiti.
+
 
 Le funzioni inerenti l'OUTPUT - Line at a time I/O:
 ================================================================================
