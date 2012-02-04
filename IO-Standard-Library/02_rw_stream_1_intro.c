@@ -13,11 +13,11 @@ Le funzioni inerenti l'INPUT - Character at a time I/O:
 ================================================================================
 HEADER    : <stdio.h>
 PROTOTYPE : int getc(FILE *fp);
-            int fgetc(int c, FILE *fp);
+            int fgetc(FILE *fp);
             int getchar(void);
 SEMANTICS : La funzione getc() legge il carattere dallo stream 'fp'; la funzione
-            fgetc() legge il carattere 'c' dallo stream 'fp'; la funzione 
-	    getchar() e' equivalente a getc(stdin).
+            fgetc() legge il carattere dallo stream 'fp'; la funzione getchar()
+	    e' equivalente a getc(stdin).
 RETURNS   : c in caso di successo, EOF in caso di errore
 --------------------------------------------------------------------------------
 Nota: la funzione getc() puo' essere implementata come una macro.
