@@ -22,13 +22,6 @@ int main(int argc, char *argv[]) {
 	 exit(EXIT_FAILURE);
       }
    }
-  
-   /* Si sarebbe potuto anche utilizzare:
-   if (ferror(stdin)) {
-      fprintf(stderr, "Err(%d) %s: ferror()\n", errno, strerror(errno));
-      exit(EXIT_FAILURE);
-   }
-   */
 
    fclose(fp);
 
