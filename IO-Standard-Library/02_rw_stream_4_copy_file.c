@@ -22,12 +22,12 @@ int main(int argc, char *argv[]) {
    fputs("File sorgente da cui copiare i dati: ", stdout);
    fgets(str_from, MAX_BUF, stdin);
 
-   remove_new_line(str_from, strlen(str_from));
+   remove_new_line(str_from, sizeof(str_from));
 
-   fputs("File destinazioni in cui inserire i dati: ", stdout);
+   fputs("File destinazione in cui inserire i dati: ", stdout);
    fgets(str_to, MAX_BUF, stdin);
 
-   remove_new_line(str_to, strlen(str_to));
+   remove_new_line(str_to, sizeof(str_to));
 
    fp_in = open_file(str_from, "r");
    fp_out = open_file(str_to, "w");
