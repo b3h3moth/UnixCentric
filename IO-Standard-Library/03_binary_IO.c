@@ -31,7 +31,7 @@ RETURNS   : Il numero di dati scritti o letti in caso di successo, in caso di
 int main(void) {
    FILE *fp;
    char *binary_file = "file.bin";
-   int i, irc, num_list_elem;
+   int i, ret_func, num_list_elem;
   
    unix_systems list_unix_os[] = {
       {1, "BSD", 1978},
@@ -50,7 +50,16 @@ int main(void) {
    }
 
    /* Scrive l'array nel file binario puntato da fp */
-   irc = fwrite(list_unix_os, sizeof(unix_systems), num_list_elem, fp);
+   ret_func = fwrite(list_unix_os, sizeof(unix_systems), num_list_elem, fp);
+
+   if ( ret_func == EOF ) {
+      fprintf(stderr, "End of file: fwrite()\n");
+      exit(EXIT_FAILURE);
+   } else if ( ret_func <= 0 ) {
+      fprintf(stderr, "Error: fwrite()\n");
+      exit(EXIT_FAILURE);
+   }
+
 
    /* Consente la lettura dall'inizio del file */
    rewind(fp);
