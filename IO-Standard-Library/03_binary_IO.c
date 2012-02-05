@@ -14,11 +14,17 @@ typedef struct OS {
 /*
 HEADER    : <stdio.h>
 
-PROTOTYPE : fread(); fwrite()
+PROTOTYPE : size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+     size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 
-SEMANTICS : 
+SEMANTICS : La funzione fread() legge 'nmemb' elementi di dati, ciascuno di essi
+            di 'size' bytes di lunghezza, dallo stream puntato da 'stream',
+	    collocandoli in 'ptr'; la funzione fwrite() scrive 'nmemb' elementi
+	    di dati collocati in 'ptr', ciascuno di essi di 'size' bytes di 
+	    lunghezza, nello stream puntato da 'stream'.
 
-RETURNS   : 0 In caso di successo, -1 in caso di errore
+RETURNS   : Il numero di dati scritti o letti in caso di successo, in caso di 
+            errore o EOF un numero di elementi minore rispetto al richiesto
 --------------------------------------------------------------------------------
 */
 
@@ -35,7 +41,7 @@ int main(void) {
       {5, "Linux", 1991}
    };
 
-   unix_systems one_product, *product_ptr = &one_product;
+   unix_systems new_item, *unix_os_lists = &new_item;
    num_list_elem = sizeof(list_unix_os) / sizeof(unix_systems);
 
    if ((fp = fopen(binary_file,"w+")) == NULL) {
@@ -51,9 +57,12 @@ int main(void) {
    
    printf("  version  year\n");
    for (i=0; i<num_list_elem; i++) {
-     fread(product_ptr, sizeof(unix_systems), 1, fp);
-     printf("%-2d%-9s%-4d\n",
-     	   product_ptr->num, product_ptr->name, product_ptr->year);
+     fread(unix_os_lists, sizeof(unix_systems), 1, fp);
+     
+     printf("%-2d%-9s%-4d\n", \
+     	   unix_os_lists->num, \
+	   unix_os_lists->name, \
+	   unix_os_lists->year);
    }
 
    return(EXIT_SUCCESS);
