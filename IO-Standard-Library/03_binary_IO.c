@@ -52,10 +52,15 @@ int main(void) {
    /* Scrive l'array nel file binario puntato da fp */
    ret_func = fwrite(list_unix_os, sizeof(unix_systems), num_list_elem, fp);
 
-   if ( ret_func == EOF ) {
+   /* 
+    La funzione fwrite(), come la fwrite(), non e' in grado di riconoscere ne'
+    end of file ne' il tipo di errore, pertanto si utilizzano feof() e ferror()
+    per la verifica di eventuali problemi nell'esecuzione del programma.
+   */
+   if ( feof(fp) ) {
       fprintf(stderr, "End of file: fwrite()\n");
       exit(EXIT_FAILURE);
-   } else if ( ret_func <= 0 ) {
+   } else if ( ferror(fp) ) {
       fprintf(stderr, "Error: fwrite()\n");
       exit(EXIT_FAILURE);
    }
