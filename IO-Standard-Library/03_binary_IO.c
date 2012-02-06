@@ -52,11 +52,6 @@ int main(void) {
    /* Scrive l'array nel file binario puntato da fp */
    ret_func = fwrite(list_unix_os, sizeof(unix_systems), num_list_elem, fp);
 
-   /* 
-    La funzione fwrite(), come la fwrite(), non e' in grado di riconoscere ne'
-    end of file ne' il tipo di errore, pertanto si utilizzano feof() e ferror()
-    per la verifica di eventuali problemi nell'esecuzione del programma.
-   */
    if ( feof(fp) ) {
       fprintf(stderr, "End of file: fwrite()\n");
       exit(EXIT_FAILURE);
@@ -65,7 +60,6 @@ int main(void) {
       exit(EXIT_FAILURE);
    }
 
-
    /* Consente la lettura dall'inizio del file */
    rewind(fp);
    
@@ -73,9 +67,9 @@ int main(void) {
    for (i=0; i<num_list_elem; i++) {
      fread(unix_os_lists, sizeof(unix_systems), 1, fp);
      
-     printf("%-2d%-9s%-4d\n", \
-     	   unix_os_lists->num, \
-	   unix_os_lists->name, \
+     printf("%-2d%-9s%-4d\n",
+     	   unix_os_lists->num,
+	   unix_os_lists->name,
 	   unix_os_lists->year);
    }
 
