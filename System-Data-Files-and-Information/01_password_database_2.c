@@ -13,7 +13,7 @@ PROTOTYPE : struct passwd *getpwent(void);
             void setpwent(void);
 	    void endpwent(void);
 SEMANTICS : La funzione getpwent() consente di ottenere il campo successivo
-            della struttura 'passwd'; la funzione setpwent() riavvolge il 
+            del file /etc/passwd; la funzione setpwent() riavvolge il 
 	    "password database"; la funzione endpwent() chiude il "password 
 	    database" dopo che tutte le operazioni sono state eseguite.
 RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd in
