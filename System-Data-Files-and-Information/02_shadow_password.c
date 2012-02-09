@@ -7,15 +7,14 @@
 
 /*
 Nel file /etc/passwd, come si puo' facilmente notare, il secondo campo relativo
-alla password  e' offuscato, la password infatti e tutte le informazioni 
-relative ad essa sono gestite dal sistema delle "shadow password", i cui file di
-riferimento sono:
+alla password e' criptato, tale file oltre alla password stessa contiene diverse
+informazioni relative agli account del sistema; i file di riferimento sono:
 - /etc/shadow ;
 - /etc/gshadow ;
 - /etc/shadow- (backup).
 
-Il file /etc/shadow contiene le informazioni sulla password degli account del
-sistema, non e' "world readable", e contiene generalmente 9 campi:
+Il file /etc/shadow non e' "world readable", pertanto solo 'root' puo' leggerlo 
+e modificarlo, contiene generalmente 9 campi:
 1 - user login name;
 2 - encrypted password;
 3 - date of last password change;

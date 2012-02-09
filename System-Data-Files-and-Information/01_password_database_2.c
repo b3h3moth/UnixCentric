@@ -12,10 +12,10 @@ HEADER    : <pwd.h>
 PROTOTYPE : struct passwd *getpwent(void);
             void setpwent(void);
 	    void endpwent(void);
-SEMANTICS : La funzione getpwent() consente di ottenere il campo successivo
-            del file /etc/passwd; la funzione setpwent() riavvolge il 
-	    "password database"; la funzione endpwent() chiude il "password 
-	    database" dopo che tutte le operazioni sono state eseguite.
+SEMANTICS : La funzione getpwent() consente di ottenere il prossimo campo del
+            database delle password; la funzione setpwent() riavvolge il 
+	    database delle password, ossia punta al primo record; la funzione 
+	    endpwent() chiude tutti i file ad operazioni avvenute.
 RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd in
             caso di successo, NULL in caso di errore.
 --------------------------------------------------------------------------------
