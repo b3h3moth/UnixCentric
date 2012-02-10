@@ -32,10 +32,10 @@ RETURNS   : Un puntatore alla struttura passwd in caso di successo, NULL in caso
             di errore
 --------------------------------------------------------------------------------
 Nota: La struttura 'passwd' utilizzata dalle funzioni in oggetto e' allocata
-staticamente, per cui il conenuto e' sovrascritto ad ogni nuova chiamata; esse 
+staticamente, per cui il contenuto e' sovrascritto ad ogni nuova chiamata; esse 
 sono utili qualora dovesse servire uno dei campi del file /etc/passwd, se
 invece si volesse analizzare il file nel suo complesso dovrebbero essere
-utilizzate altre funzioni.
+utilizzate altre funzioni come getpwent(), setpwent(), endpwent().
 */
 
 int main(void) {

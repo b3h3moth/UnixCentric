@@ -33,7 +33,7 @@ Nota: La struttura 'group' utilizzata dalle funzioni in oggetto e' allocata
 staticamente, per cui il contenuto e' sovrascritto ad ogni nuova chiamata; esse 
 sono utili qualora dovesse servire uno dei campi del file /etc/group, se
 invece si volesse analizzare il file nel suo complesso dovrebbero essere
-utilizzate altre funzioni.
+utilizzate altre funzioni quali getgrent(), setgrent(), endgrent().
 */
 
 int main(int argc, char *argv[]) {
