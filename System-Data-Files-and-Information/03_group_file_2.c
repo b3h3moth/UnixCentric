@@ -24,29 +24,35 @@ RETURNS   : La funzione getgrent() ritorna un puntatore alla struttura group in
 */
 
 int main(int argc, char *argv[]) {
+/* Il programma scrive nel file 'database' i campi di ciascun gruppo */
    struct group *grp;
    char **tmp_memb;
+   FILE *fp;
+   char *database = "database_group.txt";
+
+   if ((fp = fopen(database, "w+")) == NULL) {
+      fprintf(stderr, "Err.(%s): %s\n", strerror(errno), database);
+      exit(EXIT_FAILURE);
+   }
 
    setgrent();
 
    while ((grp = getgrent()) != NULL) {
-      printf("  gr_name: %s\n", grp->gr_name);
-      printf("gr_passwd: %s\n", grp->gr_passwd);
-      printf("   gr_gid: %d\n", grp->gr_gid);
-      printf("   gr_mem: " );
-
-      fflush(stdout);
+      fprintf(fp, "%30s | ", grp->gr_name);
+      fprintf(fp, "%s | ", grp->gr_passwd);
+      fprintf(fp, "%5d | ", grp->gr_gid);
       
       tmp_memb = grp->gr_mem;
 
       while (*tmp_memb != NULL) {
-      	 printf("%s, ", *tmp_memb);
+      	 fprintf(fp, "%s, ", *tmp_memb);
 	 tmp_memb++;
       }
-      puts("\n");
-
+      fprintf(fp, "\n");
    }
 
    endgrent();
+   fclose(fp);
+
    return(EXIT_SUCCESS);
 }
