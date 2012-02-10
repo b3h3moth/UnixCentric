@@ -24,7 +24,9 @@ RETURNS   : La funzione getgrent() ritorna un puntatore alla struttura group in
 */
 
 int main(int argc, char *argv[]) {
-/* Il programma scrive nel file 'database' i campi di ciascun gruppo */
+   
+   /* Il programma scrive nel file 'database' i campi di ciascun gruppo */
+   
    struct group *grp;
    char **tmp_memb;
    FILE *fp;
