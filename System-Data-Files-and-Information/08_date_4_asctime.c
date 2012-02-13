@@ -8,7 +8,7 @@
 HEADER    : <time.h>
 PROTOTYPE : char *asctime(const struct tm *ptm);
 SEMANTICS : La funzione asctime() partendo dal parametro broken-down time 'ptm'
-            produce una stringa null-terminated simile al comando 'date'
+            produce una stringa null-terminated, simile al comando 'date'
 RETURNS   : Il puntatore alla stringa in caso di successo, NULL in caso di 
             errore
 --------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
    /* La conversione in stringa, partendo da un valore definito in broken-down
     time */
    if ((str_time = asctime(ptm)) == NULL) {
-      fprintf(stderr, "Err.(%s) getting ascii string time\n", strerror(errno));
+      fprintf(stderr, "Err.(%s) str conversion: asctime()\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
    
