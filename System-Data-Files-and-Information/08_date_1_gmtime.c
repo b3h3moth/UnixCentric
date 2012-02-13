@@ -32,7 +32,7 @@ struct tm
 HEADER    : <time.h>
 PROTOTYPE : struct tm *gmtime(const time_t *tp);
 SEMANTICS : La funzione gmtime() converte la variabile 'tp' dal formato calendar
-            time al formato broken-down time.
+            time al formato broken-down time espresso in UTC,
 RETURNS   : Un puntatore alla struttura 'tm' in caso di successo, NULL in caso
             di errore
 --------------------------------------------------------------------------------
@@ -47,6 +47,8 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
    
+   /* Si ricorda che la conversione avviene da calendar time a  broken-down time
+    espresso in UTC */
    local_gm = gmtime(&t);
    
    printf("  anno: %d\n  mese: %d\ngiorno: %d\n   ora: %d:%d:%d\n",
