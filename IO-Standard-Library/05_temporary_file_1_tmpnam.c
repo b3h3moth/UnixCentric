@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <string.h>
 
-#define MAX_BUF 516
+#define MAX_BUF 512
 
 /*
 HEADER    : <stdio.h>
