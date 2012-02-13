@@ -5,7 +5,7 @@
 #include <time.h>
 
 /*
-Le funzioni per la gestione del tempo in "calendar time (epoch)"  non sono 
+Nota: Le funzioni per la gestione del tempo in "calendar time (epoch)"  non sono
 affatto intuitive qualora si volesse rappresentare una data.
 
 Le date sono gestite mediante l'implementazione "broken-down time", che consente
