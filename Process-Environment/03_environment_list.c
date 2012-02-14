@@ -2,18 +2,27 @@
 #include <stdlib.h>
 
 /*
- * Array di stringhe che permette di verificare le variabili di ambiente del
- * sistema
- */
+Ogni programma ha a dispozione una "environment list", ovvero un puntatore ad un
+vettore di stringhe, all'interno del quale ciascuna stringa (null-terminated) 
+indica una variabile d'ambiente - nella forma "nome = valore" - ; ogni
+variabile d'ambiente contiene specifiche informazioni sul sistema in uso, 
+o meglio, sull'ambiente in cui il programma sta girando.
 
-extern char** environ;
+E' possibile accedere alla lista delle variabili d'ambiente "environment list"
+mediante la variabile esterna 'environ', oppure utilizzando un terzo argomento
+della funzione main(), ossia envp[], tuttavia altamente sconsigliato sia da ISO
+C sia da POSIX.
+*/
+
+extern char **environ;
 
 int main(void) {
-    char** var;
-
-    for (var = environ; *var != NULL; ++var) {
-		printf("%s\n", *var);
-    }
+   char **var;
+  
+   /* stampa tutte le variabili di ambiente definite */
+   for (var = environ; *var != NULL; ++var) {
+      printf("%s\n", *var);
+   }
 
     return(EXIT_SUCCESS);
 }
