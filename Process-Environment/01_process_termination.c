@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
-   printf("La funzione e' conclusa\nDa notare le chiamate in ordine inverso\n");
+   printf("Da notare le chiamate in reverse-order\n");
 
    return(EXIT_SUCCESS);
 }
