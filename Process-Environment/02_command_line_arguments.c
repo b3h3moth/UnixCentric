@@ -3,14 +3,14 @@
 
 /*
 Ogni programma puo' ricevere argomenti ed opzioni, per cio' che concerne gli
-argomenti essi possono essere passati all'avvio del programma agli argomenti
-della funzione main, che solitamente sono definiti come 'argc' e 'argv', il
-primo e' un intero ed indica il numero di argomenti, il secondo e' un puntatore
-ad un vettore di stringhe (ogni argomento corrisponde ad una stringa).
+argomenti essi possono essere passati all'avvio del programma (dalla shell) agli
+argomenti della funzione main, che convenzionalmente sono definiti 'argc' e 
+'argv', il primo e' un intero ed indica il numero di argomenti, il secondo e' un
+puntatore ad un vettore di stringhe (ogni argomento corrisponde ad una stringa).
 
 Note:
 - argv[0] corrisponde sempre, ovviamente, al programma in esecuzione;
-- argv[argc] e' sempre un puntatore nullo (argv e' un vettore per cui inizia il
+- argv[argc] e' sempre un puntatore nullo (argv e' un vettore, per cui inizia il
   conteggio da 0, argc invece inizia da 1);
 - argc e argv sono nomi convenzionali, si consiglia di non modificarli.
 */
