@@ -2,16 +2,17 @@
 #include <stdlib.h>
 
 /*
-Ogni programma ha a dispozione una "environment list", ovvero un puntatore ad un
-vettore di stringhe, all'interno del quale ciascuna stringa (null-terminated) 
-indica una variabile d'ambiente - nella forma "nome = valore" - ; ogni
-variabile d'ambiente contiene specifiche informazioni sul sistema in uso, 
-o meglio, sull'ambiente in cui il programma sta girando.
+Ogni programma ha a dispozione, oltre ai parametri passati alla funzione main(),
+una "environment list", ovvero un puntatore ad un vettore di stringhe, 
+all'interno del quale ciascuna stringa (null-terminated) indica una variabile 
+d'ambiente, nella forma "nome = valore"; ogni variabile d'ambiente contiene 
+specifiche informazioni sul sistema in uso, o meglio, sull'ambiente in cui il 
+programma sta girando.
 
 E' possibile accedere alla lista delle variabili d'ambiente "environment list"
-mediante la variabile esterna 'environ', oppure utilizzando un terzo argomento
-della funzione main(), ossia envp[], tuttavia altamente sconsigliato sia da ISO
-C sia da POSIX.
+mediante la variabile (globale) esterna 'environ', oppure utilizzando un terzo 
+argomento della funzione main(), envp[], altamente sconsigliato sia da ISO C 
+sia da POSIX.
 */
 
 extern char **environ;
