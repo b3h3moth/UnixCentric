@@ -2,16 +2,18 @@
 #include <stdlib.h>
 
 /*
-Ogni programma puo' ricevere argomenti ed opzioni, per cio' che concerne gli
-argomenti essi possono essere passati all'avvio del programma (dalla shell) agli
-argomenti della funzione main, che convenzionalmente sono definiti 'argc' e 
-'argv', il primo e' un intero ed indica il numero di argomenti, il secondo e' un
-puntatore ad un vettore di stringhe (ogni argomento corrisponde ad una stringa).
+La funzione main(), come accennato nel sorgente dedicato alla terminazione dei
+processi, e' una funzione essenziale, dal punto di vista dello sviluppatore 
+ad esempio e' possibile accedere alle informazioni passate dall'utente 
+attraverso i parametri argc ed argv[] della funzione main() stessa; argc e' un 
+intero ed indica il numero di argomenti, argv[] invece e' un puntatore ad un 
+vettore di stringhe, ossia ognuno degli elementi che lo costituiscono referenzia
+una stringa contenente uno dei parametri passati dalla shell.
 
 Note:
 - argv[0] corrisponde sempre, ovviamente, al programma in esecuzione;
-- argv[argc] e' sempre un puntatore nullo (argv e' un vettore, per cui inizia il
-  conteggio da 0, argc invece inizia da 1);
+- argv[argc] e' sempre un puntatore nullo che indica la fine del vettore;
+- argv[argc-1] referenzia l'ultimo parametro;
 - argc e argv sono nomi convenzionali, si consiglia di non modificarli.
 */
 
