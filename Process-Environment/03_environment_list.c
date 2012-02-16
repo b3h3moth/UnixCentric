@@ -6,8 +6,7 @@ Ogni programma ha a dispozione, oltre ai parametri passati alla funzione main(),
 una "environment list", ovvero un puntatore ad un vettore di stringhe, 
 all'interno del quale ciascuna stringa (null-terminated) indica una variabile 
 d'ambiente, nella forma "nome = valore"; ogni variabile d'ambiente contiene 
-specifiche informazioni sul sistema in uso, o meglio, sull'ambiente in cui il 
-programma sta girando.
+specifiche informazioni sull'ambiente in cui il programma sta girando.
 
 E' possibile accedere alla lista delle variabili d'ambiente "environment list"
 mediante la variabile (globale) esterna 'environ', oppure utilizzando un terzo 
