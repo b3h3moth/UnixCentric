@@ -80,39 +80,42 @@
  */
 
 
-int main(int argc, char *argv[]) {
-	/* Si disabilita la stampa di errori sullo stdout per le opzioni che non
-	 * sono state rinosciute */
-	opterr = 0;
-	int opt;
+int main (int argc, char *argv[])
+{
+  /* Si disabilita la stampa di errori sullo stdout per le opzioni che non
+   * sono state rinosciute */
+  opterr = 0;
+  int opt;
 
-	/* La stringa contenente le opzioni, una con parametro */
-	static char shortopts[] = "hU:v";
+  /* La stringa contenente le opzioni, una con parametro */
+  static char shortopts[] = "hU:v";
 
-	while ((opt = getopt(argc, argv, shortopts)) != -1)
-		switch(opt) {
-			case 'h':
-				puts("Processata l'opzione -h");
-		printf("optind = %d - argc = %d\n", optind, argc);
-				break;
-			case 'v':
-				puts("Processata l'opzione -v");
-		printf("optind = %d - argc = %d\n", optind, argc);
-				break;
-			case 'U':
-				printf("Opzione -U \"%s\" parametro \n", optarg);
-				break;
-			case '?':
-				printf("Parametro non valido \"?\"\n");
-				break;
-			default:
-				puts("Opzione sconosciuta");
-		}
+  while ((opt = getopt (argc, argv, shortopts)) != -1)
+    switch (opt)
+      {
+      case 'h':
+	puts ("Processata l'opzione -h");
+	printf ("optind = %d - argc = %d\n", optind, argc);
+	break;
+      case 'v':
+	puts ("Processata l'opzione -v");
+	printf ("optind = %d - argc = %d\n", optind, argc);
+	break;
+      case 'U':
+	printf ("Opzione -U \"%s\" parametro \n", optarg);
+	break;
+      case '?':
+	printf ("Parametro non valido \"?\"\n");
+	break;
+      default:
+	puts ("Opzione sconosciuta");
+      }
 
-	for ( ; optind < argc; ++optind) {
-		printf("argv[%d] = %s\n", optind, argv[optind]);
-		printf("optind = %d - argc = %d\n", optind, argc);
-	}
-	
-	return(EXIT_SUCCESS);
+  for (; optind < argc; ++optind)
+    {
+      printf ("argv[%d] = %s\n", optind, argv[optind]);
+      printf ("optind = %d - argc = %d\n", optind, argc);
+    }
+
+  return (EXIT_SUCCESS);
 }
