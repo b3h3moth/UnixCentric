@@ -34,6 +34,14 @@ nella forma "name=value".
 Da notare che sia la modifica sia l'aggiunta di una nuova variabile d'ambiente
 avranno la durata del processo in esecuzione, ossia a programma chiuso le
 modifiche andranno perdute.
+
+Per cancellare tutte le variabili d'ambiente si usa la funzione clearenv():
+
+HEADER    : <stdlib.h>
+PROTOTYPE : int clearenv(void);
+SEMANTICS : La funzione cancella tutte le variabili d'ambiente
+RETURNS   : 0 in caso di sucesso, non-zero in caso di errore
+--------------------------------------------------------------------------------
 */
 
 int main(int argc, char *argv[]) {
