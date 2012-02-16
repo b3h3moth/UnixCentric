@@ -8,7 +8,9 @@ all'interno del quale ciascuna stringa (null-terminated) indica una variabile
 d'ambiente, nella forma "nome = valore"; ogni variabile d'ambiente contiene 
 specifiche informazioni sull'ambiente in cui il programma sta girando.
 
-Le variabili d'ambiente sono settate, generalmente, al login.
+Le variabili d'ambiente sono settate, generalmente, al login, tuttavia 
+l'implementazione dipende essclusivamente dal sistema in uso; POSIX si occupa
+della definizione delle variabili d'ambiente e non ISO C.
 
 E' possibile accedere alla lista delle variabili d'ambiente "environment list"
 mediante la variabile (globale) esterna 'environ', oppure utilizzando un terzo 
