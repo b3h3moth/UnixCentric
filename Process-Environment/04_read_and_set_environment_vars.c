@@ -35,6 +35,39 @@ Da notare che sia la modifica sia l'aggiunta di una nuova variabile d'ambiente
 avranno la durata del processo in esecuzione, ossia a programma chiuso le
 modifiche andranno perdute.
 
+L'environment list e' solitamente conservata sopra lo spazio di memoria del 
+processo, sullo stack, per cui l'aggiunta o la modifica di una variabile di
+ambiente deve seguire specifiche regole (si faccia sempre riferimento a
+nome=valore per cio' che concerne le variabili di ambiente):
+
+1 - Se si sta modificando un nome esistente:
+    
+    a - Se la grandezza del nuovo valore <= vecchio valore, si sostituisce il
+        vecchio valore con il nuovo valore;
+    
+    b - Se la grandezza del nuovo valore > vecchio valore, si deve allocare lo
+        spazio, con la funzione malloc(), sufficiente per collocare la nuova 
+	stringa, dopodiche' si riposiziona il puntatore facendolo puntare dal 
+	vecchio valore al nuovo;
+
+2 - Se si sta aggiungendo un nuovo nome:
+    
+    a - Se e' la prima volta che si aggiunge un nuovo nome alla environment
+        list, si deve invocare dapprima la malloc() per allocare lo spazio 
+	necessario per una nuova lista di puntatori. Si copia la vecchia 
+	environment list nella nuova area di memoria, inserendo un puntatore 
+	alla nuova coppia nome=valore alla fine della lista stessa, seguita da
+	un puntatore nullo di fine lista. Dopodiche' si fa puntare la variabile 
+	environ all'indirizzo della nuova lista. La lista puntatori e' spostata
+	sullo heap, ma i puntatori alle stringhe, ossia alle variabili 
+	d'ambiente, puntano sempre sullo stack.
+    
+    b - Se non e' la prima volta che si aggiunge un nome alla environment list,
+        vorra' dire che lo spazio sullo heap e' gia' a disposizione, per cui e' 
+	sufficiente invocare la funzione realloc() per sistemare il nuovo 
+	puntatore alla stringa, e anch'esso, come il caso precedente, inserito 
+	alla fine della lista e seguito da un puntatore nullo.
+
 Per cancellare tutte le variabili d'ambiente si usa la funzione clearenv():
 
 HEADER    : <stdlib.h>
