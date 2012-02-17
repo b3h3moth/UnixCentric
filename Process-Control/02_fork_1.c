@@ -25,7 +25,6 @@ SEMANTICS : La funzione fork() crea un processo duplicando il processo chiamante
 RETURNS   : 0 nel figlio, il PID del figlio nel padre in caso di successo, -1 in
             caso di errore
 --------------------------------------------------------------------------------
-
 Il Child Process e' una copia del data segment, dello stack e dello heap del 
 Parent Process, tale copia e' ad uso e consumo del Child Process e pertanto non
 vi e' condivisione col Parent Process; La sezione text segment invece e' 
@@ -36,13 +35,29 @@ Parent Process, l'altra per il Child Process, pertanto qualora uno dei due
 processi dovesse modificare una *propria* variabile, tale modifica non
 sarebbe visibile ad entrambi; i file aperti invece sono condivisi, per cui 
 una eventuale modifica ad un file sarebbe ad entrambi visibile.
-    
+
 L'implementazione della SystemCall fork() puo' essere diversa a seconda del
 sistema UNIX utilizzato; l'header da utilizzare e' <unistd.h>.
 
 pid_t e' un tipo di dato definito in <sys/types.h>, sarebbe stato lo stesso
 se si fosse utilizzato un altro tipo di dato intero, tuttavia e' sempre
 consigliabile utilizzare i tipi proposti per una maggiore portabilita'.
+
+Condivisione dei file (File sharing):
+I file descriptors aperti nel padre sono duplicati nel figlio, come se fosse
+utilizzata la funzione dup()[1], infatti essi condividono sia la file table,
+sia la posizione (offset) all'interno file stesso, che peraltro e' di 
+fondamentale importanza qualora due o piu' processi volessero scrivere sul 
+medesimo file. Tuttavia e' estremamente importante ricordare che se padre e 
+figlio volessero interagire con lo stesso file descriptor e senza
+nessun meccanismo di sincronizzazione, il risultato sarebbe un mix delle due
+scritture sul file, e quindi  poco coerente; pertanto, sebbene possibile, 
+non e' certamente il metodo piu' adatto, poiche' vi sono solo due casi in cui e'
+possibile gestire file despritors dopo una chiamata a fork():
+
+1 - Il padre aspetta che il figlio completi la propria esecuzione;
+2 - Il padre ed il figlio proseguono indipendentemente l'un l'altro.
+
 */
 
 int main(int argc, char *argv[]) {
@@ -65,3 +80,7 @@ int main(int argc, char *argv[]) {
 
    return(EXIT_SUCCESS);
 }
+
+/*
+[1] Files-and-Directories: 13_duplicate_file_descriptor.c
+*/
