@@ -5,29 +5,32 @@
 #include <unistd.h>
 
 int glob_var = 10;
-char buf[] = "UNIX Programming\n";
+char buf[] = "scrivo su stdout\n";
 
-int main(int argc, char *argv[], char *envp[])
-{
+/* L'obiettivo del programma e' di far notare che le modifiche delle variabili
+nel child process non hanno effetto sulle variabili del parent p.  */
+
+int main(int argc, char *argv[], char *envp[]) {
    int var;
    pid_t pid;
    var = 100;
 
    if (write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)
-      fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
+      fprintf(stderr, "Err.(%d) - I/O - %s\n", errno, strerror(errno));
 
-   printf("Prima della chiamata fork()\n");
+   printf("Prima della fork()\n");
 
    if ((pid = fork()) < 0)
-      fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
-   else if ( pid == 0)
-   {
+      fprintf(stderr, "Err.(%d) - fork - %s\n", errno, strerror(errno));
+   else if  (pid == 0) {
       /* Child Process */
       glob_var++;
       var++;
    }
    else
-      /* Parent Process */
+      /* Parent Process 
+      Si mette in attesa per due secondi, dando modo al figlio di essere 
+      eseguito */
       sleep(2);
 
    /* 
