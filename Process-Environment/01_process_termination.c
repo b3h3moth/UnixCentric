@@ -4,16 +4,18 @@
 #include <string.h>
 
 /*
-Un processo termina normalmente quando:
-1 - Ritorna dal main;
-2 - Chiamata ad exit();
-3 - Chiamata ad _exit() oppure all'equivalente _Exit();
-4 - Mediante thread.
+Un processo termina normalmente:
+1 - Con una chiamata a return() dal main();
+2 - Con una chiamata ad exit();
+3 - Con una chiamata ad _exit() oppure all'equivalente _Exit();
+4 - Con una chiamata a return() dalla routine dell'ultimo thread nel processo;
+5 - Con una chiamata a pthread_exit() dalla routine dell'ultimo thread nel 
+    processo.
 
 Un processo termina in maniera anomala:
-6 - Chiamata ad abort();
-7 - Ricezione segnali;
-8 - Mediante thread;
+1 - Con una chiamata ad abort();
+2 - Con la ricezione di un segnale;
+3 - Un thread che risponde alla richiesta di cancellazione.
 
 La funzione _exit() o _Exit() restituisce immediatamente il controllo al kernel,
 la funzione exit() invece esegue prima talune operazioni di pulizia, come ad
@@ -21,14 +23,24 @@ esempio la chiusura di tutti gli stream, dopodiche' anch'essa restituisce il
 controllo al kernel chiamando la funzione _exit().
 
 L'argomento di ciascuna funzione indica lo "stato di uscita" del processo,
-solitamente 0 corrisponde a true, 1 a false; la shell prevede il comando echo $?
-che stampa sullo standard output lo stato di uscita dell'ultimo processo 
-eseguito.
+solitamente 0 corrisponde a true, 1 a false; la shell prevede il comando 
+"echo $?" che stampa sullo standard output lo stato di uscita dell'ultimo 
+processo eseguito.
+
+Exit Status vs Termination Status:
+Quando un processo termina la propria esecuzione in maniera normale deve 
+notificare (al padre) in che modo e' avvenuta la terminazione, le funzioni 
+exit(), _exit() ed _Exit() lo fanno passando un "exit status" come argomento 
+alla funzione; se tuttavia il processo termina in maniera anomala non puo'
+inviare nessun "exit status", in questo caso e' il kernel stesso che entra in 
+gioco, generando un "termination status" indicante le ragioni della uscita
+anomala. In ogni caso, il processo padre puo' ottenere il "termination status"
+o da wait() o da waitpid().
 
 Nota: La funzione main() e' una sorta di chiave di accensione per ciascun 
 programma, senza di essa infatti non ci sarebbe esecuzione; una routine di avvio
-e' chiamata poco prima della funzione main, il cui indirizzo e' il punto di 
-partenza dell'eseguibile. Nella funzione main() le funzioni exit(0) e return(0) 
+e' chiamata poco prima della funzione main(), il cui indirizzo e' il punto di 
+partenza dell'eseguibile. All'interno del main() le funzioni exit(0) e return(0)
 sono del tutto equivalenti.
 
 Talvolta e' estremamente comodo ma anche necessario eseguire diverse operazioni
