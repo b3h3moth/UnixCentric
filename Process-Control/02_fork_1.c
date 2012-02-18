@@ -9,8 +9,8 @@ Un processo esistente puo' creare un nuovo processo chiamando la system call
 fork(), il nuovo processo creato dalla fork() e' chiamato "Child Process" 
 (Processo figlio), mentre il processo generatore e' chiamato "Parent Process"
 (Processo padre); la fork() e' chiamata una volta ma ritorna due volte, una 
-volta nel padre e una volta nel figlio, infatti il PID del figlio e' assegnato 
-al padre mentre il PID del figlio assume valore 0.
+nel padre e una nel figlio, infatti il PID del figlio e' assegnato al padre 
+mentre il PID del figlio assume valore 0.
 
 Perche' la fork() ritorna due volte? Un processo puo' avere uno o piu' figli, il
 valore di ritorno della fork() e' l'unico modo per individuare l'ultimo 'nato';
@@ -22,12 +22,12 @@ PROTOTYPE : pid_t fork(void);
 SEMANTICS : La funzione fork() crea un processo duplicando il processo chiamante
             , il nuovo processo e' chiamato processo figlio, mentre il processo
 	    chiamante e' il processo genitore.
-RETURNS   : 0 nel figlio, il PID del figlio nel padre in caso di successo, -1 in
-            caso di errore
+RETURNS   : 0 nel figlio e il PID del figlio nel padre in caso di successo, -1 
+            in caso di errore
 --------------------------------------------------------------------------------
 Il Child Process e' una copia del data segment, dello stack e dello heap del 
 Parent Process, tale copia e' ad uso e consumo del Child Process e pertanto non
-vi e' condivisione col Parent Process; La sezione text segment invece e' 
+vi e' condivisione col Parent Process; la sezione text segment invece e' 
 condivisa tra Parent Process e Child Process.
 
 Il Sistema Operativo assegna due porzioni di memoria private, una per il
@@ -58,6 +58,9 @@ possibile gestire file despritors dopo una chiamata a fork():
 1 - Il padre aspetta che il figlio completi la propria esecuzione;
 2 - Il padre ed il figlio proseguono indipendentemente l'un l'altro.
 
+Da notare, infine, che non vi e' certezza se sara' eseguito prima il padre o
+prima il figlio, questo dipende dal comportamento dello schedulatore e quindi
+dall'implementazione degli algoritmi di scheduling dei processi.
 */
 
 int main(int argc, char *argv[]) {
@@ -76,7 +79,6 @@ int main(int argc, char *argv[]) {
       printf(" Padre - getpid() %d - getppid() %d - PID: %d\n", 
       	    getpid(), getppid(), pid);
    }
-
 
    return(EXIT_SUCCESS);
 }
