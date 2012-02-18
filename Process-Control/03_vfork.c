@@ -42,7 +42,7 @@ int main(int argc, char *argv[], char *envp[]) {
       */
       glob++;
       var++;
-      exit(0); 
+      _exit(0); 
    }
    
    /* Parent Process */
