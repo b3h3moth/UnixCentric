@@ -33,15 +33,24 @@ int main(int argc, char *argv[], char *envp[]) {
    if ((pid = vfork()) < 0)
       fprintf(stderr, "Err.(%d) - vfork - %s\n", errno, strerror(errno));
    else if  (pid == 0) {
-      /* Child Process */
+      /* Child Process
+
+      Eseguendo il programma si potra' notare che i cambiamenti avvenuti nel
+      processo figlio saranno effettivi anche nel processo padre - interessante
+      la differenza con la funzione fork()[1]; il child process in questo caso 
+      e' eseguito nel medesimo address space del parent process.
+      */
       glob++;
       var++;
-      _exit(0); 
+      exit(0); 
    }
    
    /* Parent Process */
-
    printf("pid = %d, glob = %d, var = %d\n", getpid(), glob, var);
 
    return(EXIT_SUCCESS);
 }
+/*
+[1] Il programma 02_fork_2.c e' del tutto simile a questo, tuttavia le 
+    differenze tra fork() e vfrok() sono evidenti.
+*/
