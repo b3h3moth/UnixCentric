@@ -69,16 +69,23 @@ int main(int argc, char *argv[]) {
    /* Si crea un processo figlio */
    pid = fork();
 
-   if (pid < 0) {
-      fprintf(stderr, "Err.(%s) - fork() failed\n", strerror(errno));
-      exit(EXIT_FAILURE);
-   } else if (pid == 0) {
-      printf("Figlio - getpid() %d - getppid() %d - PID: %d\n", 
-      	    getpid(), getppid(), pid);
-   } else  {
-      printf(" Padre - getpid() %d - getppid() %d - PID: %d\n", 
-      	    getpid(), getppid(), pid);
+   switch(pid) {
+      case -1:
+      	 fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+	 exit(EXIT_FAILURE);
+
+      case 0:
+      	 printf("(PID %ld) Figlio in esecuzione, il Padre: %ld - pid=%ld\n",
+	       (long)getpid(), (long)getppid(), (long)pid);
+	 exit(EXIT_SUCCESS);
+
+      default:
+      	 printf("(PID %ld) Padre  in esecuzione, il Padre: %ld - pid=%ld\n",
+	       (long)getpid(), (long)getppid(), (long)pid);
+	 sleep(1);
+	 exit(EXIT_SUCCESS);
    }
+
 
    return(EXIT_SUCCESS);
 }
