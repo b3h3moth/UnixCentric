@@ -6,6 +6,10 @@
 #include <sys/wait.h>
 
 /*
+Lo scopo della funzione wait() e' di attendere che il processo figlio termini la
+prpria esecuzione, dopodiche' anche il processo padre potra' fermarsi; e' molto
+utile per la prevenzione dei processi zombie.
+
 HEADER    : <sys/wait.h>
 PROTOTYPE : pid_t wait(int status);
 SEMANTICS : La funzione wait() sospende l'esecuzione del processo chimante fino
@@ -39,10 +43,11 @@ int main(int argc, char *argv[]) {
       default:
       	 printf("(PID %ld) Padre  in esecuzione, il Padre: %ld - pid=%ld\n",
 	       (long)getpid(), (long)getppid(), (long)pid);
-	 
 
+	 /* Il padre resta in attesa che il figlio termini */
 	 wpid = wait(&status);
 	 
+	 printf("Padre terminato ....\n");
 	 exit(EXIT_SUCCESS);
    }
 
