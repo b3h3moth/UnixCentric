@@ -53,5 +53,5 @@ int main(int argc, char *argv[]) {
 
    return(EXIT_SUCCESS);
 }
-/* L'effettiva valenza di ciascuna funzione sara' estremamente chiara negli esempi
-successivi a questo, andando avanti nello studio dei processi */
+/* L'effettiva valenza e utilita0 di ciascuna funzione sara' estremamente chiara
+negli esempi successivi a questo, andando avanti nello studio dei processi */
