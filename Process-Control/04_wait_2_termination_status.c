@@ -26,9 +26,6 @@ di analizzare l'"exit status", e non solo:
    WIFSTOPPED(status), vera se il processo che ha causato il ritorno di watpid()
                        e' bloccato. Uso possibile solo con WUNTRACED attivato;
 
- WIFCONTINUED(status), vera se un processo figlio ha continuato l'esecuzione
-                       dopo un job conrol stop (solo waitpid);
-
     WCOREDUMP(status), vera se il processo terminato ha generato un file "core 
                        dump". Valutata solo se WIFSIGNALED restituisce un valore
 		       non nullo;
