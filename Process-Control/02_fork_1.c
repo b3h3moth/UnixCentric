@@ -5,7 +5,7 @@
 #include <errno.h> 
 
 /*
-Un processo esistente puo' creare un nuovo processo chiamando la system call
+Un processo esistente puo' creare un nuovo processo invocando la system call
 fork(), il nuovo processo creato dalla fork() e' chiamato "Child Process" 
 (Processo figlio), mentre il processo generatore e' chiamato "Parent Process"
 (Processo padre); la fork() e' chiamata una volta ma ritorna due volte, una 
@@ -52,8 +52,10 @@ medesimo file. Tuttavia e' estremamente importante ricordare che se padre e
 figlio volessero interagire con lo stesso file descriptor e senza
 nessun meccanismo di sincronizzazione, il risultato sarebbe un mix delle due
 scritture sul file, e quindi  poco coerente; pertanto, sebbene possibile, 
-non e' certamente il metodo piu' adatto, poiche' vi sono solo due casi in cui e'
-possibile gestire file despritors dopo una chiamata a fork():
+non e' certamente il metodo piu' adatto.
+
+Vi sono solo due casi in cui e' possibile gestire file despritors dopo una 
+chiamata a fork():
 
 1 - Il padre aspetta che il figlio completi la propria esecuzione;
 2 - Il padre ed il figlio proseguono indipendentemente l'un l'altro.
