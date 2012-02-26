@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
    }
    printf("---\n");
 
+   /* In questo caso e' sempre il figlio ad essere eseguito per primo */
    for (i=0; i<10; i++) {
       if (pid == 0)
       	 printf("sono il figlio\n");

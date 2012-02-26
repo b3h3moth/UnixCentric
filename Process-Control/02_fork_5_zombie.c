@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <unistd.h>
 
 /*
@@ -26,9 +28,17 @@ int main(int argc, char *argv[])
    pid_t pid;
    pid = fork();
 
-   if (pid > 0)
+   if (pid < 0) {
+      fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+      exit(EXIT_FAILURE);
+   } else if (pid > 0)
+      /* Il processo padre va in attesa per 30 secondi dando tutto il tempo
+      al processo figlio di essere eseguito */
       sleep(30);
    else
+      /* Il processo figlio esce immediatamente, con il padre che resta ancora
+      in attesa di ricevere le informazioni sullo stato di terminazione del
+      figlio */
       exit(0);
 
    return(EXIT_SUCCESS);

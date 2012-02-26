@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	       (long)pid,	/* PID figlio */
 	       status);		/* Stato di uscita */
    }
-   sleep(10);
+   sleep(5);
 
 
    return(EXIT_SUCCESS);
