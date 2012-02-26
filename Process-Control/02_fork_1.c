@@ -28,7 +28,10 @@ RETURNS   : 0 nel figlio e il PID del figlio nel padre in caso di successo, -1
 Il Child Process e' una copia del data segment, dello stack e dello heap del 
 Parent Process, tale copia e' ad uso e consumo del Child Process e pertanto non
 vi e' condivisione col Parent Process; la sezione text segment invece e' 
-condivisa tra Parent Process e Child Process.
+condivisa tra Parent Process e Child Process, per gli altri segmenti invece
+il kernel Linux utilizza la tecnica del "copy on write", ossia ogni pagina
+viene realmente ed effettivamente copiata per il nuovo processo se e solo se
+tale pagina e' stata scritta.
 
 Il Sistema Operativo assegna due porzioni di memoria private, una per il
 Parent Process, l'altra per il Child Process, pertanto qualora uno dei due
@@ -60,9 +63,24 @@ chiamata a fork():
 1 - Il padre aspetta che il figlio completi la propria esecuzione;
 2 - Il padre ed il figlio proseguono indipendentemente l'un l'altro.
 
-Da notare, infine, che non vi e' certezza se sara' eseguito prima il padre o
-prima il figlio, questo dipende dal comportamento dello schedulatore e quindi
-dall'implementazione degli algoritmi di scheduling dei processi.
+Implementazione:
+Il kernel conserva una lista di tutti i processi attivi in una tabella, detta
+"process table", ciascuna voce all'interno di questa tabella e' definita dalla
+struttura "task_struct" implementata nell'header <linux/sched.h>, tale struttura
+gestisce diverse informazioni, dallo stato del processo alla priorita', dal PID
+alla policy e via discorrendo, in pratica tutto cio' che riguarda un processo.
+
+Quale' il compito dello scheduler?
+Non vi e' certezza se sara' eseguito prima il padre o prima il figlio, questo 
+dipende dal comportamento dello schedulatore dei processi; e' lo scheduler che 
+decide, secondo specifici algoritmi, basati anche sulla priorita', quale 
+processo debba essere messo in esecuzione - e' come se fosse un vigile urbano, 
+e' lui che dirige il traffico -; viene eseguito quando:
+- Si invoca una System Call;
+- Si verifica un Interruput;
+- Si chiama esplicitamente;
+- altre circostanze.
+
 */
 
 int main(int argc, char *argv[]) {
