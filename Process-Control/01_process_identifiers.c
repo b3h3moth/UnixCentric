@@ -5,12 +5,15 @@
 #include <unistd.h>
 
 /*
-A ciascun nuovo processo e' assegnato un intero di 16 bit non negativo e 
+A ciascun nuovo processo e' assegnato un intero di 16 bit con segno e 
 progressivo che lo identifica univocamente rispetto agli altri processi, il 
 "Process ID" (PID); essendo peraltro un intero a 16 bit puo' raggiungere al 
 massimo il valore di 32768, dopodiche' eventualmente, dopo la terminazione di un
 processo puo' anche  essere riutilizzato, ma solo dopo uno specifico lasso di 
 tempo.
+
+Nota: Il primo bit e' riservato al segno, ecco perche' il valore e' 32768, ossia
+2^15.
 
 PID 0, solitamente e' assegnato allo schedulatore dei processi, detto "swapper";
 PID 1, e' assegnao ad "init", invocato dal kernel alla fine della procedura di 
@@ -38,9 +41,11 @@ SEMANTICS : getpid() ritorna il PID del processo chiamante;
 RETURNS   : L'identificativo richiesto in caso di successo, nessun errore.
 --------------------------------------------------------------------------------
 Nota: Le due funzioni getpid() e getppid() servono per acquisire il PID del 
-current process e il PID del parent process, ossia il PPID; da notare che il 
-parent process del processo corrente risulta essere la shell in cui si esegue il 
-programma.
+current process e il PID del parent process, ossia il PPID, questo perche' tutti
+i processi conservano, oltre al proprio PID anche il PID del genitore. 
+
+Da notare infine che il parent process del processo corrente risulta essere la 
+shell in cui si esegue il programma.
 */
 
 int main(int argc, char *argv[]) {
