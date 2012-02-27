@@ -40,10 +40,7 @@ int main(int argc, char *argv[])
 	    (long)pid);	/* PID processo figlio */
 
       /* Attende la terminazione del processo figlio */
-      wpid = waitpid(-1, &status, 0);	/* Stato di uscita del processo figlio */
-      /* equivalente a
-       * wpid = wait(&status);
-       */
+      wpid = waitpid(-1, &status, 0);
 
       if (wpid == -1) {
       	 fprintf(stderr, "%s: wait()\n", strerror(errno));
