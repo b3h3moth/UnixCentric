@@ -61,7 +61,6 @@ Differenze tra le varie funzioni:
     con l'ambiente, le altre utilizzeranno la variabile globale esterna environ.
 */
 
-char *env_int[] = { "USER=unknow", "PATH=/tmp", NULL};
 
 int main(int argc, char *argv[]) {
     pid_t pid;
@@ -69,30 +68,32 @@ int main(int argc, char *argv[]) {
     if ((pid = fork()) < 0) {
     	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
 	exit(EXIT_FAILURE);
-    } else if (pid == 0) { /* Si specifica il path e l'ambiente */
-    	if (execle("/home/b3h3m0th/devel/L-LP/Process-Environment/a.out",
-		    "a.out", "myarg1", "MYARG2", (char *)0, env_int) < 0) {
-	    fprintf(stderr, "Err.(%s) execle() failed\n", strerror(errno));
+    } else if (pid == 0) { /* Il primo figlio compila un programma */
+    	if (execl("/usr/bin/gcc", "gcc", "-v", "02_fork_1.c", (char*)0) < 0) {
+	    fprintf(stderr,"Err.(%s) execl() failed\n", strerror(errno));
 	    exit(EXIT_FAILURE);
 	}
     }
-
-	if (waitpid(pid, NULL, 0) < 0) {
-	    fprintf(stderr, "Err.(%s) waitpid() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
-	}
-
-	if ((pid = fork()) < 0) {
-	    fprintf(stderr, "Err.(%s) fork() 2 failed()\n", strerror(errno));
-	    exit(EXIT_FAILURE);
-	} else if (pid == 0) {
-	    if (execlp("a.out", "a.out", "only 1 arg", (char*)0) < 0) {
-	    	fprintf(stderr, "Err.(%s) exelp() failed\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	    }
-	}
-
-
     
+    if (waitpid(pid, NULL, 0) < 0) {
+       fprintf(stderr,"Err.(%s) waitpid() failed\n", strerror(errno));
+       exit(EXIT_FAILURE);
+    }
+
+    /*
+    if ((pid = fork()) < 0) {
+    	fprintf(stderr,"Err.(%s) fork() failed\n", strerror(errno));
+	exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+    	if (execl("./a.out","a.out","-1",(char*)0) < 0) {
+	    fprintf(stderr,"Err.(%s)execl() failed\n", strerror(errno));
+	    exit(EXIT_FAILURE);
+	}
+    }
+    if (waitpid(pid, NULL, 0) < 0) {
+       fprintf(stderr,"Err.(%s) waitpid() failed\n", strerror(errno));
+       exit(EXIT_FAILURE);
+    }
+    */
     return(EXIT_SUCCESS);
 }
