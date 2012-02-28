@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     if ((pid = fork()) < 0) {
     	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
 	exit(EXIT_FAILURE);
-    } else if (pid == 0) { /* Il primo figlio compila un programma */
+    } else if (pid == 0) { /* Il figlio compila un programma */
     	if (execl("/usr/bin/gcc", "gcc", "-v", "02_fork_1.c", (char*)0) < 0) {
 	    fprintf(stderr,"Err.(%s) execl() failed\n", strerror(errno));
 	    exit(EXIT_FAILURE);
