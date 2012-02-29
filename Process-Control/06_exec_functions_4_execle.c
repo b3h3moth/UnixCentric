@@ -34,7 +34,11 @@ per cui stampera' solo le variabili passate come argomento.
 
 Si e' adoperato il programma 'env' della FSF, qualora non dovesse essere 
 presente sul sistema unix in uso, si puo' adoperare 'printenv', entrambi hanno
-lo scopo di stampare sullo stdout la lista delle variabili d'ambiente. */
+lo scopo di stampare sullo stdout la lista delle variabili d'ambiente.
+
+La lista delle variabili di ambiente e' passata mediante un vettore di stringhe
+dichiarato separatamente.
+*/
 
 int main(int argc, char *argv[]) {
     pid_t pid;

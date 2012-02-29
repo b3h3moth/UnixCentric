@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
 	case 0:
 	    if (execlp("ls", "ls", "-l", "-t", "-r", (char *)0) < 0) {
-	    	fprintf(stderr, "Err.(%s) execl() failed\n", strerror(errno));
+	    	fprintf(stderr, "Err.(%s) execlp() failed\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	    }
 

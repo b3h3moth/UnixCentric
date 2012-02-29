@@ -35,7 +35,10 @@ per cui stampera' solo le variabili passate come argomento.
 
 Si e' adoperato il programma 'env' della FSF, qualora non dovesse essere 
 presente sul sistema unix in uso, si puo' adoperare 'printenv', entrambi hanno
-lo scopo di stampare sullo stdout la lista delle variabili d'ambiente. */
+lo scopo di stampare sullo stdout la lista delle variabili d'ambiente.
+
+La lista degli argomenti e' passata mediante un vettore di stringhe dichiarato
+separatamente, cosi' come la lista delle variabili di ambiente. */
 
 int main(int argc, char *argv[]) {
     pid_t pid;
@@ -50,7 +53,7 @@ int main(int argc, char *argv[]) {
 
 	case 0:
 	    if (execve("/usr/bin/env", args, env_vars) < 0) {
-	    	fprintf(stderr, "Err.(%s) execl() failed\n", strerror(errno));
+	    	fprintf(stderr, "Err.(%s) execve() failed\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	    }
 
