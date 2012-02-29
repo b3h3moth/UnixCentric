@@ -37,7 +37,7 @@ Nota: I prototipi delle funzioni, seppur piuttosto complessi da ricordare, hanno
 il vantaggio che possono essere facilmente memorizzati grazie a specifiche
 lettere che compongono la desinenza di ciascun nome di funzione:
 
--        p (path) = Il programma 'file' da eseguire va ricercato nella directory 
+-        p (path) = Il programma 'file' da eseguire va ricercato nella directory
                     corrente;
 -        l (list) = Il programma utilizza una lista di argomenti che termina con
                     un puntatore nullo.
@@ -53,10 +53,12 @@ Differenze tra le varie funzioni:
     le ultime due funzioni invece eseguiranno il programma specificato mediante
     un 'file', lettera 'p'.
 
-    Nota: 'path' e' il nome del programma che deve essere eseguito. Se in 'path'
-          vi e' uno slash '/' si considera tale percorso e la variabile 
-	  d'ambiente PATH e' ignorata, altrimenti il programma lo si cerca nella
-	  directory corrente.
+    'path' e' il nome del programma che deve essere eseguito. Se in 'path'
+           vi e' uno slash '/' si considera tale percorso e la variabile 
+	   d'ambiente PATH non viene considerata, altrimenti il programma lo si 
+	   cerca nella directory corrente.
+    'file' e' il nome del programma che deve essere eseguito. Non richiede
+	   un percorso completo poiche' utilizza la variabile d'ambiente PATH.
 
 2 - Il passaggio dei parametri.
     Si considerano le lettere all'interno della funzione 'v' ed 'l', la prima e'
