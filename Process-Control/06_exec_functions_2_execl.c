@@ -18,7 +18,7 @@ deve terminare con un puntatore nullo, possibilmente nella forma '(char *)0';
 l'eseguibile va cercato nel PATH indicato da 'path'.
 */
 
-/* Il programma stampa in output la lista dei file della directory corrente
+/* Il programma stampa sullo stdout la lista dei file della directory corrente
 utilizzando la funzione execl() nel processo figlio */
 
 int main(int argc, char *argv[]) {
