@@ -11,7 +11,7 @@ PROTOTYPE : int execv(const char *path, const *const arg[]);
 SEMANTICS : La funzione execv() esegue il programma 'path', a tale programma
             possono essere passati gli argomenti definiti nel vettore di
 	    stringhe argv[].
-RETURNS   : 0 in caso di successo, -1 in caso di errore
+RETURNS   : Ritornano solo in caso di errore, restituendo -1
 --------------------------------------------------------------------------------
 Nota: La desinenza 'v' nel nome della funzione indica che il programma puo' 
 ricevere gli argomenti mediante il vettore di stringhe argv[], nella classica

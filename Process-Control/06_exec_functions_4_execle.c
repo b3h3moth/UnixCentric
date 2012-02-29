@@ -12,7 +12,7 @@ PROTOTYPE : int execle(const char *path, const char *arg0, ...,
 SEMANTICS : La funzione execle() esegue il programma 'path', a tale programma
             puo' essere passata la una lista di argomenti arg0, e una lista
 	    di variabili di ambiente envp[].
-RETURNS   : 0 in caso di successo, -1 in caso di errore
+RETURNS   : Ritornano solo in caso di errore, restituendo -1
 --------------------------------------------------------------------------------
 Nota: La desinenza 'l' nel nome della funzione indica che il programma puo' 
 ricevere una lista di argomenti nella forma arg0, arg1, ... argN, tale lista 
