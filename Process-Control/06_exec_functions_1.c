@@ -12,7 +12,7 @@ famiglia delle funzioni exec.
 
 Allorquando un processo viene chiamato da una delle funzioni exec, tale processo
 e' completamente rimpiazzato da un nuovo programma - in pratica l'immagine del
-processo corrente viene rimpiazzata da una nuova immagine - , il quale inizia la
+processo corrente viene rimpiazzata da una nuova immagine - , il quale inizia
 l'esecuzione dalla funzione main() - come qualsiasi altro programma del resto -,
 il PID non cambia poiche' non e' stato creato un nuovo processo, ma si "limita"
 a rimpiazzare testo, dati, heap e il segmento dello stack.
@@ -30,34 +30,43 @@ int execve(const char *path, char *const argv[], char *const envp[]);
 int execlp(const char *file, const char *arg0, ...);
 int execvp(const char *file, char *const argv[]);
 SEMANTICS : Eseguono il programma definito in 'path' on in 'file', con o senza
-            argomenti.
+            argomenti, nell'ambiente di default o definito da envp[].
 RETURNS   : Ritornano solo in caso di errore, restituendo -1
 --------------------------------------------------------------------------------
 Nota: I prototipi delle funzioni, seppur piuttosto complessi da ricordare, hanno
 il vantaggio che possono essere facilmente memorizzati grazie a specifiche
-lettere che compongono ciascuna funzione:
+lettere che compongono la desinenza di ciascun nome di funzione:
 
-- p = La funzione utilizza come argomento un filename per cercare in PATH il
-      file eseguibile;
-- l = La funzione utilizza una lista di argomenti;
-- v = La funzione utilizza il vettore argv[];
-- e = La funzione utilizza l'array envp[] per interagire con l'ambiente.
+-        p (path) = Il programma 'file' da eseguire va ricercato nella directory 
+                    corrente;
+-        l (list) = Il programma utilizza una lista di argomenti che termina con
+                    un puntatore nullo.
+		    (arg0, arg1, ... argvN) - Termina con (char *)0;
+-      v (vector) = Il programma utilizza un array di stringhe che termina con
+                    un puntatore nullo.
+		    (argv[0], arg[1], ... argv[N]) - Termina con (char *)0;
+- e (environment) = L'ambiente del processo e' gestito mediante l'array envp[];
 
 Differenze tra le varie funzioni:
 1 - La modalita' di esecuzione del programma. 
     Le prime quattro funzioni eseguiranno il programma definito da un 'path', 
     le ultime due funzioni invece eseguiranno il programma specificato mediante
-    un 'file', lettera p.
+    un 'file', lettera 'p'.
+
+    Nota: 'path' e' il nome del programma che deve essere eseguito. Se in 'path'
+          vi e' uno slash '/' si considera tale percorso e la variabile 
+	  d'ambiente PATH e' ignorata, altrimenti il programma lo si cerca nella
+	  directory corrente.
 
 2 - Il passaggio dei parametri.
-    Si considerano le lettere all'interno della funzione v ed l, la prima e' un
-    vettore la seconda una lista; nel primo caso gli argomenti sono passati 
+    Si considerano le lettere all'interno della funzione 'v' ed 'l', la prima e'
+    un vettore la seconda una lista; nel primo caso gli argomenti sono passati 
     mediante il vettore di puntatori ad argv[], seguite da un puntatore nullo, 
     nel secondo caso gli argomenti sono passati come una lista di puntatori, 
     terminata da un puntatore nullo.
 
 3 - Il passaggio della lista delle variabili d'ambiente.
-    Le funzioni con la lettera e utilizzeranno l'array envp[] per interagire
+    Le funzioni con la lettera 'e' utilizzeranno l'array envp[] per interagire
     con l'ambiente, le altre utilizzeranno la variabile globale esterna environ.
 */
 
@@ -75,12 +84,13 @@ int main(int argc, char *argv[]) {
 	}
     }
     
+    /* Si attende la terminazione del processo figlio */
     if (waitpid(pid, NULL, 0) < 0) {
        fprintf(stderr,"Err.(%s) waitpid() failed\n", strerror(errno));
        exit(EXIT_FAILURE);
     }
 
-    /*
+    /* In questo caso si esegue il programma precedentemente compilato
     if ((pid = fork()) < 0) {
     	fprintf(stderr,"Err.(%s) fork() failed\n", strerror(errno));
 	exit(EXIT_FAILURE);
