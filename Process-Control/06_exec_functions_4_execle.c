@@ -10,13 +10,14 @@ HEADER    : <unistd.h>
 PROTOTYPE : int execle(const char *path, const char *arg0, ..., 
                        char *const envp[]);
 SEMANTICS : La funzione execle() esegue il programma 'path', a tale programma
-            puo' essere passata la una lista di argomenti arg0, e una lista
-	    di variabili di ambiente envp[].
+            possono essere passati gli argomenti definiti nella lista arg0 ed 
+	    ulteriori argomenti definiti nel vettore di stringhe envp[].
 RETURNS   : Ritornano solo in caso di errore, restituendo -1
 --------------------------------------------------------------------------------
 Nota: La desinenza 'l' nel nome della funzione indica che il programma puo' 
-ricevere una lista di argomenti nella forma arg0, arg1, ... argN, tale lista 
-deve terminare con un puntatore nullo, possibilmente nella forma '(char *)0'.
+ricevere una lista di argomenti nella forma:
+arg0, arg1, ... argN, tale lista deve terminare con un puntatore nullo, 
+possibilmente '(char *)0'.
 
 La desinenza 'e' indica che al programma possono essere passate le variabili di
 ambiente gestite dal vettore di stringhe envp[], nella forma:

@@ -7,17 +7,18 @@
 
 /*
 HEADER    : <unistd.h>
-PROTOTYPE : int execv(const char *path, const *const arg[]);
+PROTOTYPE : int execv(const char *path, const *const argv[]);
 SEMANTICS : La funzione execv() esegue il programma 'path', a tale programma
             possono essere passati gli argomenti definiti nel vettore di
 	    stringhe argv[].
 RETURNS   : Ritornano solo in caso di errore, restituendo -1
 --------------------------------------------------------------------------------
 Nota: La desinenza 'v' nel nome della funzione indica che il programma puo' 
-ricevere gli argomenti mediante il vettore di stringhe argv[], nella classica
-forma argv[0], argv[1], ... argv[N], tale vettore deve terminare con un 
-puntatore nullo, possibilmente nella forma '(char *)0'; l'eseguibile va cercato
-nel PATH indicato da 'path'.
+ricevere gli argomenti mediante il vettore di stringhe argv[], nella forma:
+argv[0], argv[1], ... argv[N], tale vettore deve terminare con un 
+puntatore nullo, possibilmente '(char *)0'.
+
+L'eseguibile va cercato nel PATH indicato da 'path'.
 */
 
 /* Il programma stampa sullo stdout la lista dei processi dell'utente loggato
