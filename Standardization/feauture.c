@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int
-main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
 #ifdef _POSIX_SOURCE
   printf ("_POSIX_SOURCE defined\n");
@@ -11,6 +11,10 @@ main (int argc, char *argv[])
 
 #ifdef _POSIX_C_SOURCE
   printf ("_POSIX_C_SOURCE defined: %ldL\n", (long) _POSIX_C_SOURCE);
+#endif
+
+#ifdef _POSIX_SAVED_IDS
+  printf("_POSIX_SAVED_IDS defined: %d\n", _POSIX_SAVED_IDS);
 #endif
 
 #ifdef _ISOC99_SOURCE
@@ -60,6 +64,7 @@ main (int argc, char *argv[])
 #ifdef _FORTIFY_SOURCE
   printf ("_FORTIFY_SOURCE defined\n");
 #endif
+
 
   exit (EXIT_SUCCESS);
 }
