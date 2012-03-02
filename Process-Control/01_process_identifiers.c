@@ -63,16 +63,21 @@ necessario essere a conoscenza dell'utente che ha lanciato il programma, ragion
 per cui anche un processo deve avere i propri UID e GID.
 
 I sistemi unix-like forniscono per lo meno due gruppi di identificatori:
-- real      , real user-ID / real group-ID
+
+- real      , real user-ID (RUID) / real group-ID (RGID)
               Sono impostati al login al valore dell'utente e del gruppo con cui
 	      si accede al sistema. Solitamente non vengono cambiati, potrebbe
 	      farlo tuttavia solo un processo che gode dei privilegi di 
-	      superuser, poiche' identificano l'utente.
-- effective , effective user-ID / effective group-ID
+	      superuser. 
+	      Identificano l'utente e il gruppo dei proprietari del processo.
+
+- effective , effective user-ID (EUID) / effective group-ID (EGID)
               Ai due si aggiunge anche l'effective GID di altri eventuali gruppi
 	      di appartenenza.
 	      Sono utilizzati nelle verifiche dei permessi del processo e per il
-	      controllo d'accesso ai file.
+	      controllo d'accesso ai file, in pratica identificano l'utente e
+	      il gruppo usati per decidere se un processo possa o meno accedere
+	      ad una risorsa.
 
 Nota: solitamente real ed effective sono identici, tranne nel caso in cui il
       programma in esecuzione avesse i bit 'suid' o 'sgid' impostati, in tal
@@ -82,25 +87,24 @@ Nota: solitamente real ed effective sono identici, tranne nel caso in cui il
       un serio problema di sicurezza.
               
 I sistemi con kernel Linux ne aggiungono altri due:
+
 - saved     , saved user-ID / saved group-ID 
               Solo se _POSIX_SAVED_IDS e' impostato.
 	      Sono copie dell'effective User-ID ed effettive group-ID del 
 	      processo padre, impostati da una delle funzioni exec all'avvio
 	      del processo. 
-- filesystem, Estensione di sicurezza NFS.
 
-Da notare infine che il parent process del processo corrente risulta essere la 
-shell in cui si esegue il programma.
+- filesystem, Estensione di sicurezza NFS.
 */
 
 int main(int argc, char *argv[]) {
    printf("Processo chiamante:\n");
-   printf("               PID: %d\n", getpid());
-   printf("              PPID: %d - la shell\n", getppid());
-   printf("      Real User ID: %d\n", getuid());
-   printf(" Effective User ID: %d\n", geteuid());
-   printf("     Real Group ID: %d\n", getgid());
-   printf("Effective Group ID: %d\n", getegid());
+   printf("                  Process-ID (PID): %d\n", getpid());
+   printf("          Parent Process-ID (PPID): %d - la shell\n", getppid());
+   printf("           Real User-ID (real-UID): %d\n", getuid());
+   printf( "Effective User-ID (effective-UID): %d\n", geteuid());
+   printf("          Real Group-ID (real-GID): %d\n", getgid());
+   printf("Effective Group-ID (effective-GID): %d\n", getegid());
 
    return(EXIT_SUCCESS);
 }
