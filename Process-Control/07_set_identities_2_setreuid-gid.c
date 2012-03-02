@@ -17,6 +17,7 @@ SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
 	    ID a 'rgid' e 'egid' rispettivamente;
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
+Impostando ciascun parametro a -1, i valori non saranno modificati.
 */
 int main(int argc, char *argv[]) {
     printf("Permessi originari:\n");
@@ -34,14 +35,22 @@ int main(int argc, char *argv[]) {
     non apporteranno nessuna modifica, impostando invece il bit suid ed
     aggiornando i privilegi sul file, si otterra' il risultato desiderato
     */
-    printf("Permessi modificati:\n");
+    printf("\nPermessi invariati impostando ciascun parametro a -1:\n"
+    	   "setreuid(-1, -1) - setregid(-1, -1)\n");
+    setreuid(-1, -1);
+    setregid(-1, -1);
+    printf("RUID: %d\n", getuid());
+    printf("EUID: %d\n", geteuid());
+    printf("RGID: %d\n", getgid());
+    printf("EGID: %d\n", getegid());
+
+    printf("\nPermessi modificati:\nsetreuid(500, 1000) - setregid(0, 1000)\n");
     setreuid(500, 1000);
     setregid(0, 1000);
     printf("RUID: %d\n", getuid());
     printf("EUID: %d\n", geteuid());
     printf("RGID: %d\n", getgid());
     printf("EGID: %d\n", getegid());
-
     
     return(EXIT_SUCCESS);
 }
