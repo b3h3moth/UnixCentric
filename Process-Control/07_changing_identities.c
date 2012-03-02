@@ -11,7 +11,9 @@ accesso[1] prima di proseguire con le funzioni per la modifica dell'identita'.
 
 HEADER    : <unistd.h>
 PROTOTYPE : int setuid(uid_t uid);
-SEMANTICS : La funzione setta il real user-ID e l'effective user-ID
+            int setgid(uid_t gid);
+SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID;
+            la funzione setgid() setta il real group-ID e l'effective group-ID
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
@@ -46,32 +48,42 @@ sono regole ben precise a riguardo:
   
 3 Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
   a EPERM, e la funzione setuid() ritorna -1.
+
+Le regole per User-ID sono le medesime anche per Group-ID
 */
 
+/* Il programma mostra com'e' possibile abbassare i privilegi dl superuser
+temporaneamente e poi in modo definitivo */
 
 int main(int argc, char *argv[]) {
-    pid_t pid;
-    char *log_kernel = "/var/log/kern.log";
-    char *prog_args[] = {"./clone_cat", log_kernel, (char *)0};
+    printf("Permessi originari:\n");
+    printf("RUID: %d\n", getuid());
+    printf("EUID: %d\n", geteuid());
+    printf("RGID: %d\n", getgid());
+    printf("EGID: %d\n", getegid());
 
-    switch(pid = fork()) {
-    	case -1:
-	    fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
+    printf("\nAbbassamento permessi: setuid(1000) setgid(1000)\n");
+    setuid(1000);
+    setgid(1000);
+    printf("RUID: %d\n", getuid());
+    printf("EUID: %d\n", geteuid());
+    printf("RGID: %d\n", getgid());
+    printf("EGID: %d\n", getegid());
 
-	case 0:
-	    
-	    if (execv("./clone_cat", prog_args) < 0) {
-	    	fprintf(stderr, "Err.(%s) execv() failed\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	    }
-	    
-	default:
-	    waitpid(pid, NULL, 0);
-    }
+    printf("\nRipristino permessi: setuid(0) setgid(0)\n");
+    setuid(0);
+    setgid(0);
+    printf("RUID: %d\n", getuid());
+    printf("EUID: %d fallito\n", geteuid());
+    printf("RGID: %d\n", getgid());
+    printf("EGID: %d\n", getegid());
 
     return(EXIT_SUCCESS);
 }
 /*
 [1] ../Process-Control/01_process_identifiers.c
+*/
+
+/*
+NOTA: inserire un esempio meno banale 
 */
