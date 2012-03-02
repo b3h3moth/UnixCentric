@@ -11,9 +11,11 @@ accesso[1] prima di proseguire con le funzioni per la modifica dell'identita'.
 
 HEADER    : <unistd.h>
 PROTOTYPE : int setuid(uid_t uid);
-            int setgid(uid_t gid);
-SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID;
+            int setgid(gid_t gid);
+SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
+            'uid';
             la funzione setgid() setta il real group-ID e l'effective group-ID
+	    a 'gid'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
@@ -62,28 +64,34 @@ int main(int argc, char *argv[]) {
     printf("RGID: %d\n", getgid());
     printf("EGID: %d\n", getegid());
 
+    /* 
+    Si testi il programma dopo aver apportato le seguenti modifiche al file 
+    binario:
+    $ sudo chown root.root a.out && sudo chmod +s a.out
+
+    Se si esegue il programma con i normali privilegi, le funzioni, ovviamente,
+    non apporteranno nessuna modifica, impostando invece il bit suid ed
+    aggiornando i privilegi sul file, si otterra' il risultato desiderato.
+    */
+
     printf("\nAbbassamento permessi: setuid(1000) setgid(1000)\n");
     setuid(1000);
     setgid(1000);
-    printf("RUID: %d\n", getuid());
+    printf("RUID: %d - invariato\n", getuid());
     printf("EUID: %d\n", geteuid());
-    printf("RGID: %d\n", getgid());
+    printf("RGID: %d - invariato\n", getgid());
     printf("EGID: %d\n", getegid());
 
     printf("\nRipristino permessi: setuid(0) setgid(0)\n");
     setuid(0);
     setgid(0);
-    printf("RUID: %d\n", getuid());
-    printf("EUID: %d fallito\n", geteuid());
-    printf("RGID: %d\n", getgid());
+    printf("RUID: %d - invariato\n", getuid());
+    printf("EUID: %d - fallito\n", geteuid());
+    printf("RGID: %d - invariato \n", getgid());
     printf("EGID: %d\n", getegid());
 
     return(EXIT_SUCCESS);
 }
 /*
 [1] ../Process-Control/01_process_identifiers.c
-*/
-
-/*
-NOTA: inserire un esempio meno banale 
 */
