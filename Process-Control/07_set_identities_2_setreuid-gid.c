@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     printf("EGID: %d\n", getegid());
 
     printf("\nPermessi modificati:\nsetreuid(500, 1000) - setregid(0, 1000)\n");
-    setreuid(500, 1000);
+    setreuid(0, 1000);
     setregid(0, 1000);
     printf("RUID: %d\n", getuid());
     printf("EUID: %d\n", geteuid());
