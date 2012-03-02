@@ -62,16 +62,16 @@ risulta ovvio che per poter fornire un controllo su tali operazioni e'
 necessario essere a conoscenza dell'utente che ha lanciato il programma, ragion
 per cui anche un processo deve avere i propri UID e GID.
 
-I sistemi unix-like forniscono per lo meno due gruppi di identificatori:
+I sistemi unix-like forniscono i seguenti gruppi di identificatori:
 
-- real      , real user-ID (RUID) / real group-ID (RGID)
+- Real      , real user-ID (RUID) / real group-ID (RGID)
               Sono impostati al login al valore dell'utente e del gruppo con cui
 	      si accede al sistema. Solitamente non vengono cambiati, potrebbe
 	      farlo tuttavia solo un processo che gode dei privilegi di 
 	      superuser. 
 	      Identificano l'utente e il gruppo dei proprietari del processo.
 
-- effective , effective user-ID (EUID) / effective group-ID (EGID)
+- Effective , effective user-ID (EUID) / effective group-ID (EGID)
               Ai due si aggiunge anche l'effective GID di altri eventuali gruppi
 	      di appartenenza.
 	      Sono utilizzati nelle verifiche dei permessi del processo e per il
@@ -79,22 +79,22 @@ I sistemi unix-like forniscono per lo meno due gruppi di identificatori:
 	      il gruppo usati per decidere se un processo possa o meno accedere
 	      ad una risorsa.
 
-Nota: solitamente real ed effective sono identici, tranne nel caso in cui il
-      programma in esecuzione avesse i bit 'suid' o 'sgid' impostati, in tal
-      caso gli effective saranno impostati al nome dell'utente e del gruppo 
-      proprietari del file. Questo e' il caso in cui un programma puo' essere
-      eseguito da un utente con privilegi di superuser (o altri). Puo' essere
-      un serio problema di sicurezza.
+              Nota: solitamente real ed effective sono identici, tranne nel caso
+	      in cui il programma in esecuzione avesse i bit 'suid' o 'sgid' 
+	      impostati, in tal caso gli effective saranno impostati al nome 
+	      dell'utente e del gruppo proprietari del file. Questo e' il caso 
+	      in cui un programma puo' essere eseguito da un utente con 
+	      privilegi di superuser (o altri). Puo' essere un serio problema di
+	      sicurezza.
               
-I sistemi con kernel Linux ne aggiungono altri due:
-
-- saved     , saved user-ID / saved group-ID 
+- Saved     , saved user-ID / saved group-ID 
               Solo se _POSIX_SAVED_IDS e' impostato.
 	      Sono copie dell'effective User-ID ed effettive group-ID del 
-	      processo padre, impostati da una delle funzioni exec all'avvio
-	      del processo. 
+	      processo padre - impostati da una delle funzioni exec all'avvio
+	      del processo - cosi che sia possibile ripristinarli.
 
-- filesystem, Estensione di sicurezza NFS.
+I sistemi con kernel Linux dispongono anche dell'identificatore filesystem, una
+estensione di sicurezza NFS.
 */
 
 int main(int argc, char *argv[]) {
