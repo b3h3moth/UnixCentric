@@ -8,19 +8,23 @@
 /*
 HEADER    : <stdlib.h>
 PROTOTYPE : int system(const char *cmdstring);
-SEMANTICS : La funzione esegue il comando definito in 'cmdstring'.
-RETURNS   : Poiche' system() e' implementata utilizzando fork(), exec e 
-            waitpid(), puo' avere 3 tipi di valori di ritorno:
+SEMANTICS : La funzione system() esegue il comando definito in 'cmdstring'.
+RETURNS   : La funzione system() e' implementata utilizzando fork(), exec e 
+            waitpid(), pertanto e' dotata di tre valori di ritorno:
 	    1 - Se la fork() fallisce o la waitpid() ritorna un errore diverso
 	        da EINTR, restituira' -1;
             2 - Se la exec fallisce impedendo cosi' l'esecuzione di /bin/sh 
 	        restitura' exit(127);
-            3 - Se non ci sono errori, restituira' il termination status della
-	        shell, nella forma specificata per waitpid().
+            3 - Se non ci sono errori in fork(), exec e waitpid(), restituira' 
+	        il termination status della shell, nella forma specificata per 
+		waitpid().
 --------------------------------------------------------------------------------
-La funzione esegue un comando specificato in 'cmdstring' nella forma:
+La funzione esegue un comando specificato in 'cmdstring' nella forma
 /bin/sh -c 'cmdstring', e ritorna solo dopo che il comando sara' completamente
-portato a termine.
+portato a termine; il parametro -c sta a significare di prendere il prossimo
+argomento dalla linea di comando, ossia 'cmdstring'.
+
+'cmdstring' puo' essere qualsiasi comando da eseguirsi nella shell.
 
 La funzione system() e' standard ISO C, tuttavia il suo comportamento e'
 fortemente dipendente dal sistema; durante l'esecuzione del comando 'cmdstring'
