@@ -38,12 +38,12 @@ il comportamento (concettuale) della funzione in oggetto. */
 int system_clone(const char *cmd_string);
 
 int main(int argc, char *argv[]) {
-    
+
     if (argc < 2) {
-    	fprintf(stderr, "Uso: %s <command/s>\n", argv[0]);
+    	fprintf(stderr, "Uso: %s \"<command/s>\"\n", argv[0]);
 	exit(EXIT_FAILURE);
     }
-    
+
     system_clone(argv[1]);
 
     return(EXIT_SUCCESS);
