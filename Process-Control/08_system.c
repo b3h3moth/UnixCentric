@@ -34,9 +34,13 @@ oggetto. */
 int system_clone(const char *cmd_string);
 
 int main(int argc, char *argv[]) {
-    system_clone("ps U b3h3m0th");
-    system_clone(NULL);
-    system_clone("fottiti");
+    
+    if (argc < 2) {
+    	fprintf(stderr, "Uso: %s <command/s>\n", argv[0]);
+	exit(EXIT_FAILURE);
+    }
+    
+    system_clone(argv[1]);
 
     return(EXIT_SUCCESS);
 }
@@ -52,8 +56,8 @@ int system_clone(const char *cmd_string)
     if ((pid = fork()) < 0) {
     	status = -1;
     } else if (pid == 0) {
-    	execl("/bin/sh", "sh", "-c", cmd_string, (char *)0);
-	_exit(127);
+    	if (execl("/bin/sh", "sh", "-c", cmd_string, (char *)0) < 0)
+	    _exit(127);
     } else {
     	while (waitpid(pid, &status, 0) < 0) {
 	    if (errno != EINTR) {
