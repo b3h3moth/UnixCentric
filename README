@@ -1,27 +1,14 @@
 ################################################################################
 REVISIONE IN CORSO
 ################################################################################
-[13 Feb 2012] 
 Le sezioni complete e revisionate sono:
-- IO Unbuffered;
+- IO Unbuffered (parziale, solo gli esempi);
 - Files and Directories;
 - IO Standard Library;
 - System data files and information
 
 In corso:
 - Process Control
-
-[08 Feb 2012] Si sta procedendo ad una revisione totale degli esempi, si 
-provvedera' ad aggiungere specifiche informazioni relative all'argomento 
-trattato.
-
-Le sezioni complete e revisionate sono:
-- IO Unbuffered;
-- Files and Directories;
-- IO Standard Library;
-
-In corso:
-- System data files and information
 
 Lo scopo e' di rendere ciascuna sezione il piu' completa possibile.
 
