@@ -6,9 +6,16 @@
 
 #define MAX_BUF 4096
 
-/* 
- Legge MAX_BUF byte dal file fornito in input e li pone sullo standard output 
+/*
+HEADER    : <unistd.h>
+PROTOTYPE : ssize_t read(int fd, void *buf, size_t nbytes);
+SEMANTICS : La funzione read() legge 'nbytes' byte dalla posizione corrente
+            del file descriptor 'fd' nel buffer 'buf'.
+RETURNS   : Il numero dei byte letti in caso di successo, -1 in caso di errore
+--------------------------------------------------------------------------------
 */
+
+
 int main(int argc, char *argv[], char *envp[])
 {
    int fd, n;
@@ -24,11 +31,9 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   /*
-    la read, legge MAX_BUF byte dal file descriptor 'fd' e li pone, senza alcuna
-    conversione, in buf; ritorna il numero di byte letti, oppure -1 in caso di 
-    fallimento.
-   */
+   /* la funzione read(), legge MAX_BUF byte dal file descriptor 'fd' e li pone,
+   senza alcuna conversione, in buf; ritorna il numero di byte letti, oppure -1
+   in caso di fallimento. */
    if ((n = read(fd,&buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read file\n");
       exit(EXIT_FAILURE);
