@@ -29,7 +29,12 @@ argomento dalla linea di comando, ossia 'cmdstring'.
 La funzione system() e' standard ISO C, tuttavia il suo comportamento e'
 fortemente dipendente dal sistema; durante l'esecuzione del comando 'cmdstring'
 il segnale SIGCHLD sara' bloccato, mentre i segnali SIGINT e SIGQUIT saranno
-ignorati. */
+ignorati. 
+
+Sicurezza: Potrebbe rappresentare un grosso problema di sicurezza qualora si
+           chiamasse la funzione system() all'interno di un programma setuid,
+	   per cui e' estremamente sconsigliato tale utilizzo.
+*/
 
 /* Si provvede ora alla implementazione di un clone della funzione system(),
 la differenza sostanziale riguarda la gestione dei segnali che in questo caso e'
