@@ -7,13 +7,10 @@
 
 /*
 HEADER    : <unistd.h>
-
 PROTOTYPE : int dup(int fd);
             int dup2(int fd, int fd2);
-
 SEMANTICS : La funzione dup(), duplica il file descriptor 'fd'; la funzione
             dup2() duplica il file descriptor 'fd' in 'fd2'.
-
 RETURNS   : Enrambe ritornanano il nuovo file descriptor, -1 in caso di errore
 --------------------------------------------------------------------------------
 */

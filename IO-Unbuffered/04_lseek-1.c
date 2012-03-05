@@ -6,10 +6,11 @@
 
 #define MAX_BUF 32
 #define PERMS 0644
+
 /*
- Legge il contenuto del file 'input_file' e copia MAX_BUF byte in 'output_file'; 
- mediante la lseek si individua l'offset da cui copiare, ossia l'inizio del
- file.
+Legge il contenuto del file 'input_file' e copia MAX_BUF byte in 'output_file';
+mediante la lseek si individua l'offset da cui copiare, ossia l'inizio del
+file.
 */
 
 int main(int argc, char *argv[], char *envp[])
