@@ -31,11 +31,11 @@ directory di lavoro corrente - iniziale e' indicata dal sesto campo di
 /etc/passwd, ossia la HOME directory dell'utente stesso.
 
 Ad ogni processo e' associata una "current working directory", che sta ad 
-indicare il pathname relativo, essa, via terminale, puo' essere cambiata 
-mediante il comando cd, oppure stampata in output con il comando pwd; ciascun
+indicare il pathname relativo, puo' essere cambiata via terminale mediante 
+il comando cd, oppure stampata in output con il comando pwd; ciascun
 nuovo processo eredita la "current working directory" dal proprio genitore.
 
-L'argomento i'size' della funzione getcwd() ha un valore compreso tra:
+L'argomento 'size' della funzione getcwd() ha un valore compreso tra:
 0 e PATH_MAX.
 
 Nota: La funzione fchdir() non e' parte delle specifiche POSIX.1, ma e' una 
