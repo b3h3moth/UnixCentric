@@ -41,12 +41,14 @@ int main(int argc, char *argv[]) {
 
    /* Crea il symbolic-link verso il file di origine */
    if (symlink(argv[1], argv[2]) < 0) {
-      fprintf(stderr, "Err.:(%d) - Create symbolic-link: %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.:(%d) - Create symbolic-link: %s\n", errno, 
+      	      strerror(errno));
       exit(EXIT_FAILURE);
    }
 
    if (readlink(argv[2], buf, BUF_SIZE) < 0 ) {
-      fprintf(stderr, "Err.:(%d) - Read symbolic-link: %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.:(%d) - Read symbolic-link: %s\n", errno, 
+      	      strerror(errno));
       exit(EXIT_FAILURE);
    }
 
