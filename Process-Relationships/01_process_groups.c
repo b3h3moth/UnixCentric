@@ -53,6 +53,7 @@ RETURNS   : 0 in caso di successo, -1 in caso di errore
 */
 
 void *err(char *str_err);
+void get_process_info(pid_t pgid);
 
 int main(int argc, char *argv[]) {
     pid_t pid;
@@ -67,25 +68,19 @@ int main(int argc, char *argv[]) {
 	    	err("getpgrp() failed");
 
 	    /* Si estraggono PID, PPID e PGID del 1° processo figlio */
-	    printf("             PID: %ld\n", (long)getpid());
-	    printf("            PPID: %ld\n", (long)getppid());
-	    printf("Process Group-ID: %ld\n", (long)pgid);
+	    get_process_info(pgid);
 
 	    if ((pid = fork()) < 0)
 	    	err("fork() failed");
-	    
 	    else if (pid == 0) {
 
 	    	/* Si assegna il gruppo pgid al nuovo processo; in realta'
 		ci sarebbe andato lo stesso */
-	    	
 		if (setpgid(pid, pgid) < 0)
 		    err("setpgid() failed");
-
+		
 		/* Si estraggono PID, PPID e PGID del 2° processo figlio */
-		printf("\n             PID: %ld\n", (long)getpid());
-		printf("            PPID: %ld\n", (long)getppid());
-		printf("Process Group-ID: %ld\n", (long)pgid);
+		get_process_info(pgid);
 	    } else {
 	    	waitpid(pid, NULL, 0);
 		exit(EXIT_SUCCESS);
@@ -103,4 +98,11 @@ int main(int argc, char *argv[]) {
 void *err(char *str_err) {
     fprintf(stderr,"Err.(%s) - %s\n", strerror(errno), str_err);
     exit(EXIT_FAILURE);
+}
+
+void get_process_info(pid_t pgid)
+{
+    printf("\n             PID: %ld\n", (long)getpid());
+    printf("            PPID: %ld\n", (long)getppid());
+    printf("Process Group-ID: %ld\n", (long)pgid);
 }
