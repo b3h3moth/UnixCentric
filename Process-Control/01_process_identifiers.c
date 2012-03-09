@@ -84,8 +84,8 @@ I sistemi unix-like forniscono i seguenti gruppi di identificatori:
 	      impostati, in tal caso gli effective saranno impostati al nome 
 	      dell'utente e del gruppo proprietari del file. Questo e' il caso 
 	      in cui un programma puo' essere eseguito da un utente con 
-	      privilegi di superuser (o altri). Puo' essere un serio problema di
-	      sicurezza.
+	      privilegi di superuser (o altri). Puo' rappresentare un serio 
+	      problema di sicurezza.
               
 - Saved     , saved user-ID / saved group-ID 
               Solo se _POSIX_SAVED_IDS e' impostato.
