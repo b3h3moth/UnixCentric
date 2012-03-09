@@ -42,7 +42,10 @@ L'ultimo processo di un gruppo di processi ha due alternative:
 - entrare in un nuovo gruppo di processi.
 
 La funzione deputata a far si che un processo possa creare un nuovo gruppo 
-di processi o che possa entrare in un gruppo di processi esistente e' setpgid().
+di processi o che possa entrare in un gruppo di processi esistente e' setpgid(),
+tuttavia e' bene ricordate che un processo puo' settare solo il PGID proprio e
+dei processi figli, nell'ultimo caso solo dopo una chiamata ad una delle 
+funzioni della famiglia exec.
 
 HEADER    : <unistd.h>
 PROTOTYPE : pid_t setpgid(pid_t pid, pid_t pgid);
@@ -50,6 +53,12 @@ SEMANTICS : La funzione setpgid() assegna al processo 'pid' il gruppo di
             processi 'pgid'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
+Per cio' che concerne la funzione setpgid(), vi sono delle regole specifiche:
+- setta il PGID a 'pgid' del processo il cui PID e' uguale a 'pid';
+- Se 'pgid' e' uguale a 'pid' , il processo indicato da 'pid' diventa il process
+  group leader;
+- se 'pid' e' uguale a 0 si usa il PID del processo chiamante;
+- se 'pgid' e' uguale a 0, il PID usato da 'pid' e' usato come PGID.
 */
 
 void *err(char *str_err);
@@ -104,5 +113,5 @@ void get_process_info(pid_t pgid)
 {
     printf("\n             PID: %ld\n", (long)getpid());
     printf("            PPID: %ld\n", (long)getppid());
-    printf("Process Group-ID: %ld\n", (long)pgid);
+    printf("Process Group-ID: %ld +\n", (long)pgid);
 }
