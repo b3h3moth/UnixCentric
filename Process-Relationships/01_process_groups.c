@@ -27,9 +27,8 @@ RETURNS   : Il PGID in caso di successo, -1 in caso di errore
 Nota: getpgrp() e' equivalente a getpgid(0).
 
 Ciascun gruppo di processi puo' avere un processo leader, una sorta di capo 
-famiglia, il PGID del quale corrisponde al proprio PID; solitamente il processo
-leader e' sempre riconducibile al processo padre, come si puo' evincere dall'
-esempio.
+famiglia, il PGID del quale corrisponde al proprio PID; solitamente il primo
+processo ad entrare nel gruppo diviene anche process group leader.
 
 Il process group leader puo' sia creare nuovi gruppi, sia creare nuovi processi
 all'interno del gruppo, che continueranno ad esistere anche qualora il process
