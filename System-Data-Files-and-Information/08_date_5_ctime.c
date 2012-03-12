@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
    }
 
    /* La conversione in stringa, partendo da un valore di tipo time_t */
-   if ((str_time = ctime(&t)) < 0) {
+   if ((str_time = ctime(&t)) == NULL) {
       fprintf(stderr, "Err.(%s) str conversion: ctime()\n", strerror(errno));
       exit(EXIT_FAILURE);
    }

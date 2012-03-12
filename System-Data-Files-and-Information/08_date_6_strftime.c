@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
    $ ./a.out '%d %b %Y'
    */
    if (argc < 2) {
-      fprintf(stderr, "Uso: %s <specificatore/i di conversione\n", argv[0]);
+      fprintf(stderr, "Uso: %s <specificatore/i di conversione>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
    
