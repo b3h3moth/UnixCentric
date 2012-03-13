@@ -77,9 +77,9 @@ funzione tcsetpgrp() per settare il PGID di foregorund a 'pgrpid', il cui valore
 deve essere il PGID del gruppo di processi della stessa sessione e 'fd' si deve
 riferire al terminale di controllo della sessione stessa.
 
-HEADER    : <unistd.h>
+HEADER    : <termios.h>
 PROTOTYPE : int tcgetsid(int fd);
-SEMANTICS : La funzione tcgetsid() restituisce il il leader della sessione del
+SEMANTICS : La funzione tcgetsid() restituisce il leader della sessione del
             gruppo di processi
 RETURNS   : Il leader della sessione del gruppo di processi in caso di successo,
             -1 in caso di errore
