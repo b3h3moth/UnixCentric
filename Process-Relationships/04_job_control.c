@@ -46,6 +46,20 @@ possa leggere l'input del terminale, e viceversa.
 Shell: Il comando per portare un job in background e' bg; il comando per portare
        un job in foreground e' fg.
 
+Nota: Un processo fa parte di un "process group" e un "process group" fa parte 
+      di una sessione. Una sessione puo' avere o meno un terminale di controllo.
+      Se una sessione ha un terminale di controllo, allora il terminal device
+      e' a conoscenza del process group ID del processo di foreground, il valore
+      del quale puo' essere settato mediante la funzione tcsetpgrp() nei driver
+      del terminale. L'ID del gruppo di processi di foreground e' un attributo 
+      del terminale non del processo, il comando 'ps' lo stampa grazie al valore
+      di TPGID, ma non tutte le shell lo supportano.
+      
+      $ ps -o pid,ppid,pgid,pgrp,sess,tpgid,comm
+      PID  PPID  PGID  PGRP  SESS TPGID COMMAND
+      6726  6725  6726  6726  6726  6862 bash
+      6862  6726  6862  6862  6726  6862 ps 
+
 */
 
 void get_info(char *str_proc, pid_t pid);
