@@ -50,6 +50,7 @@ Shell: Il comando per portare un job in background e' bg; il comando per portare
 
 void get_info(char *str_proc, pid_t pid);
 
+/* ____ SOSTIUIRE QUESTO PROGRAMMA __ */
 int main(int argc, char *argv[]) {
     pid_t pid;
     int fd;
