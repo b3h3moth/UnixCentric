@@ -12,7 +12,7 @@
  Da notare che in linea di massima sia le funzioni della libreria standard sia
  le system call adottano dei valori generici atti ad indicare lo stato di
  errore, ossia '-1', 'NULL' ed 'EOF', ma in questi casi si comprende solo 
- l'occorrenza di un errore, ignorandone tuttavia la natura; il compito della
+ l'occorrenza di un errore, ignorandone del tutto la natura; il compito della
  variabile 'errno', associata a specifiche macro definite in errno.h, e' proprio
  quello di fornire il tipo di errore occorso.
 
@@ -36,13 +36,15 @@ int main(int argc, char **argv) {
 	 /*
 	  Una sottigliezza, uscire dal programma fornendo alla funzione exit()
 	  il parametro 'errno'; il codice di uscita del programma peraltro si
-	  puo' verificare eseguendo via terminale "echo $?" 
+	  puo' verificare eseguendo via terminale "echo $?"
+
+	  Tale pratica tuttavia non e' consigliata.
 	 */
 	 exit(my_err);
       }
       /*
        Non tutte le funzioni o le system call salvano un codice di errore nella
-       variiabile 'errno'.
+       variiabile 'errno', per cui e' necessario porre particolare attenzione.
       */
       exit(EXIT_FAILURE); 
    }
