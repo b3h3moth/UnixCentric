@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <wait.h>
 
 /*
 I segnali rappresentano la modalita' piu' elementare di comunicazione tra
@@ -67,21 +68,120 @@ evento puo':
     casi corrisponde alla terminazione del processo.
 
 Unix System Signals:
+I sistemi GNU/Linux supportano i segnali standard elencati di seguito, diversi
+numeri di segnale tuttavia dipendono dall'architettura, per cui nel campo valore
+e' indicato solo il valore corrispondente alle architettture i386, ppc e sh[2].
 
+Ciascun segnale ha una disposizione attuale, che determina come si comporta il 
+processo quando il segnale viene recapitato, le  voci  nella colonna "Azione" 
+della tabella specificano per l'appunto l'azione di default del segnale:
 
+Term, terminare il processo;
+Ign , ignorare il segnale;
+Core, terminare il processo e fare un dump-core;
+Stop, arrestare il processo;
+Cont, continuare il processo se esso è attualmente fermo.
 
+Infine, il carattere "-" denota che un segnale è assente sulla corrispondente 
+architettura. 
 
-HEADER    : 
-PROTOTYPE : 
-SEMANTICS : 
-RETURNS   : 0 in caso di successo, -1 in caso di errore
+Segnali descritti nello standard POSIX.1-1990 originale.
+
+Segnale    Valore    Azione   Commento
+SIGHUP        1       Term    La linea sul terminale che ha il controllo è
+                               stata agganciata o il processo che ha il 
+			       controllo è morto
+SIGINT        2       Term    Interrupt da tastiera
+SIGQUIT       3       Core    Segnale d'uscita della tastiera
+SIGILL        4       Core    Istruzione illegale
+SIGABRT       6       Core    Segnale d'abbandono di abort(3)
+SIGFPE        8       Core    Eccezione di virgola mobile
+SIGKILL       9       Term    Termina il processo
+SIGSEGV      11       Core    Riferimento di memoria non valido
+SIGPIPE      13       Term    Pipe rotta: scrittura su una pipe priva di
+                              lettori
+SIGALRM      14       Term    Segnale del timer da alarm(2)
+SIGTERM      15       Term    Segnale di termine
+SIGUSR1      10       Term    Segnale 1 definito dall'utente
+SIGUSR2      12       Term    Segnale 2 definito dall'utente
+SIGCHLD      17       Ign     Figlio fermato o terminato
+SIGCONT      18       Cont    Continua se fermato
+SIGSTOP      19       Stop    Ferma il processo
+SIGTSTP      20       Stop    Stop digitato da tty
+SIGTTIN      21       Stop    Input da tty per un processo in background
+SIGTTOU      22       Stop    Output da tty per un processo in background
+
+I segnali SIGKILL e SIGSTOP non possono essere intercettati, bloccati oppure
+ignorati.
+
+Seguono i segnali  che  non  sono  nello  standard  POSIX.1-1990  ma  sono
+descritti in SUSv2 e POSIX.1-2001.
+
+Segnale      Valore    Azione   Commento
 --------------------------------------------------------------------------------
+SIGBUS         7        Core    Errore sul bus (accesso erroneo alla memoria)
+SIGPOLL                 Term    Evento suscettibile di polling (Sys V). 
+                                Sinonimo di SIGIO
+SIGPROF        27       Term    Timer del profiler scaduto
+SIGSYS         -        Core    Argomento sbagliato alla routine (SVr4)
+SIGTRAP        5        Core    Trappola per trace/breakpoint
+SIGURG         23       Ign     Condizione urgente sul socket (4.2 BSD)
+SIGVTALRM      26       Term    Allarme virtuale (4.2 BSD)
+SIGXCPU        24       Core    Ecceduto tempo limite di CPU (4.2 BSD)
+SIGXFSZ        25       Core    Limite dimensione file superato (4.2 BSD)
+
+Altri vari segnali.
+
+Segnale      Valore    Azione   Commento
+--------------------------------------------------------------------------------
+SIGIOT         6        Core    Trappola IOT. Sinonimo di SIGABRT
+SIGEMT         -        Term
+SIGSTKFLT      16       Term    Errore dello stack del coprocessore 
+SIGIO          29       Term    I/O ora possibile (4.2 BSD)
+SIGCLD         -        Ign     Sinonimo di SIGCHLD
+SIGPWR         30       Term    Mancanza di corrente (System V)
+SIGINFO        -                Sinonimo di SIGPWR
+SIGLOST        -        Term    Perso il lock del file
+SIGWINCH       28       Ign     Dimensioni finestra cambiate (4.3 BSD, Sun)
+SIGUNUSED      31       Term    Segnale inutilizzato (diventerà SIGSYS)
+
+Nota: Il comando kill -l fornisce un elenco di segnali.
 */
 
+/* Lo scopo del programma e' di verificare la combinazione di tasti utilizzata
+per interrompere un programma, nel caso specifico il parametro da osservare e' 
+"intr", che dovrebbe corrispondere a ^C, ovvero Control-C. 
+
+In questo caso la combinazione di tasti ^C causera' il segnale di interruzione
+SIGINT */
+
 int main(int argc, char *argv[]) {
+    pid_t pid;
+    const char *prog_name = "/bin/stty";
+    char *arg_list[] = {"stty", "-a", (char*)0}; 
+
+    switch(pid = fork()) {
+    	case -1:
+	    fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+	    exit(EXIT_FAILURE);
+
+	case 0:
+	    if (execv(prog_name, arg_list) < 0) {
+	    	fprintf(stderr, "Err.(%s) execv() failed\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	    }
+
+	default:
+		waitpid(pid, NULL, 0);
+    }
+
     return(EXIT_SUCCESS);
 }
 /*
 [1] In realta' le diverse implementazioni dei sistemi unix-like definiscono i
     segnali in altri header, tuttavia e' considereata buona pratica inserire
     solo l'header citato.
+
+[2] Consultare le pagine di man per un approfondimento sulle diverse 
+    architetture: man 7 signal.
+*/
