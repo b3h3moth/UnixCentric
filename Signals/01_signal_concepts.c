@@ -150,10 +150,10 @@ Nota: Il comando kill -l fornisce un elenco di segnali.
 
 /* Lo scopo del programma e' di verificare la combinazione di tasti utilizzata
 per interrompere un programma, nel caso specifico il parametro da osservare e' 
-"intr", che dovrebbe corrispondere a ^C, ovvero Control-C. 
+"intr", che dovrebbe corrispondere a ^C, ovvero Control-C, che causera' il 
+segnale di interruzione SIGINT 
 
-In questo caso la combinazione di tasti ^C causera' il segnale di interruzione
-SIGINT */
+Il comando stty -a tuttavia restituira' tutto il settaggio corrente di stty.*/
 
 int main(int argc, char *argv[]) {
     pid_t pid;
