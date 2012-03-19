@@ -98,8 +98,7 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
     }
 
-    /* Il programma va in loop in modo tale da poter eseguire il segnale 
-    nel momento opportuno. */
+    /* La funzione pause() pone in attesa il processo in attesa di un segnale */
     while(1)
     	pause();
 
