@@ -80,7 +80,9 @@ Nota: D'ora in avanti per indicare, ad esempio, Control-C, si utilizzera' ^C,
       molto piu' chiaro.
 */
 int main(int argc, char *argv[]) {
-    
+    /* I segnali SIGUSR1 e SIGUSR2 sono segnali a disposizione dell'utente per
+    scopi personali, SIGINT invece e' un segnale di terminazione corrispondente
+    ai tasti ^C. */
     if (signal(SIGUSR1, signal_handler) == SIG_ERR) {
     	fprintf(stderr, "Err.(%s), cant' catch SIGUSR1\n", strerror(errno));
 	exit(EXIT_FAILURE);
