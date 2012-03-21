@@ -30,18 +30,32 @@ int main(int argc, char *argv[]) {
 	exit(0);
     } else {
     	/* Processo figlio */
-    	print_process_info("Figlio");
+    	
+	print_process_info("Figlio");
+	
 	/* cattura il segnale SIGHUP mediante il gestore dei segnali, dopodiche'
-	grazie al segnale SIGTSTP il processo figlio si ferma */
+	la funzione kill() invia al figlio stesso il segnale SIGTSTP, che 
+	serve per arrestare un processo in foreground, come se fosse stata
+	utilizzata la combinazione di tasti Control-Z.*/
 	signal(SIGHUP, signal_handler_sighup);
 	kill(getpid(), SIGTSTP);
 	
-	/* stampa solo quando e' ritornato, il ppid ora dovrebbe essere 1, ossia
-	adottato da init */
-	print_process_info("child");	
 	
-	if (read(STDIN_FILENO, &c, 1) < 0)
-	    fprintf(stderr, "Err.(%s) read() TTY failed\n", strerror(errno));
+	/* Il processo padre a questo punto e' terminato, per cui il figlio
+	e' orfano, la stampa del ppid dovrebbe essere 1, ossia adottato da 
+	init.
+	
+	A questo punto il figlio e' membro del gruppo dei processi orfani.*/
+	print_process_info("child");	
+
+	/* Il processo figlio prova a leggere lo standard input, ma quando un
+	gruppo di processi in background prova a leggere dal proprio terminale
+	di controllo, viene generato il segnale SIGTTIN a tutti i processi
+	del gruppo di processi in background. POSIX.1 specifica che in questi
+	casi la funzione read() deve ritornare un errore e la variabile errno
+	dev'essere impostata ad EIO, ossia 5 */
+	if (read(STDIN_FILENO, &c, 1) != 1)
+	    printf("Err.(%d) read() TTY failed - %s\n", errno,strerror(errno));
 	exit(0);
     }
     
