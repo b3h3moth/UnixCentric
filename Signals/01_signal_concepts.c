@@ -67,7 +67,25 @@ evento puo':
     Ciascun processo ha un comportamento di default, che nella maggior parte dei
     casi corrisponde alla terminazione del processo.
 
-Unix System Signals:
+Eredità delle impostazioni
+--------------------------
+Come vengono gestite le impostazioni dei segnali quando si creano nuovi processi
+figli ?
+     
+- il comportamento associato alla ricezione di un segnale viene "ereditato" dai
+  processi figli;
+
+- per quanto riguarda le funzioni del tipo exec, solo le impostazioni di SIG_IGN
+  e SIG_DFL vengono mantenute, mentre per ogni segnale armato con una specifica
+  funzione di gestione viene automaticamente impostato il comportamento di 
+  default;
+
+- Naturalmente il nuovo programma può definire al suo interno una nuova gestione
+  dei segnali.
+
+
+Unix System Signals
+-------------------
 I sistemi GNU/Linux supportano i segnali standard elencati di seguito, diversi
 numeri di segnale tuttavia dipendono dall'architettura, per cui nel campo valore
 e' indicato solo il valore corrispondente alle architettture i386, ppc e sh[2].
