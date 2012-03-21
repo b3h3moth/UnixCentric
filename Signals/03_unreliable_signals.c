@@ -63,7 +63,6 @@ int main(int argc, char *argv[]) {
 	Se dovesse occorrere un nuovo segnale subito dopo la verifica di
 	segnale_arrivato ma prima della funzione pause(), il processo potrebbe
 	andare in sleep per sempre e il segnale andrebbe perso. */
-
     	pause(); /* Il processo attendera' un ulteriore segnale */
 
     return(EXIT_SUCCESS);
