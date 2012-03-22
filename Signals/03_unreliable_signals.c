@@ -6,9 +6,10 @@
 #include <signal.h>
 
 /*
-I segnali possono essere definiti da due tipologie di comportamento: 
-- i segnali affidabili "reliable signals";
-- i segnali inaffidabili "unreliable signals".
+I segnali possono essere definiti da due tipologie di comportamento, dette
+semantiche:
+- i segnali affidabili o semantica affidabile "reliable signals";
+- i segnali inaffidabili o semantiche inaffidabile "unreliable signals".
 
 Le prime versioni di UNIX fornivano segnali inaffidabili; quando un programma
 intercettava un segnale, l'azione registrata per il segnale rimandava a quella
@@ -22,8 +23,10 @@ attiva una volta eseguita, per cui dev'essere cura dell'utente ripetere
 l'installazione all'interno del segnale nei casi in cui si vuole che resti 
 attivo.
 
-Per questo motivo i segnali erano considerati inaffidabili; in pratica c'era il
-rischio che i segnali potessero essere perduti.
+Per questo motivo l'implementazione dei segnali secondo questa semantica erano
+considerati inaffidabili; sia la ricezione sia la reinstallazione del relativo
+signal handler non sono operazioni atomiche, per cui sono sempre possibili delle
+"race condition", inoltre c'e' il rischio che i segnali possano essere perduti.
 
 Interruzione della computazione
 -------------------------------
@@ -42,7 +45,6 @@ in che modo riprende, una volta completata la fase di gestione del segnale ?
 
 - Le System call che non bloccano il processo sono eseguite in modo atomico e 
   non vengono mai interrotte da alcun segnale.
-
 */
 
 void signal_handler(int signum);

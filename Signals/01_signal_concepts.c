@@ -20,7 +20,7 @@ Nota: Non vi e' un "signal number" 0, POSIX.1 lo definisce in questo ambito come
 
 I segnali sostanzialmente sono utilizzati affinche' si possa comunicare ad un
 processo il verificarsi di un particolare evento, ma quali sono le modalita' per
-le quali si possa generare un segnale? Alcune di esse sono:
+le quali e' possibile generare un segnale? Alcune di esse sono:
 
 - Un segnale puo' essere generato dall'utente allorquando invia dalla tastiera
   una particolare combinazione di tasti per terminare o sospendere il programma,
@@ -59,9 +59,8 @@ evento puo':
     generati da eccezioni hardware;
 
 2 - Catturare il segnale,
-    Al verificarsi del segnale e' necessario informare il kernel di invocare
-    una funzione creata ad-hoc; i segnali SIGKILL e SIGSTOP non possono essere
-    catturati.
+    Al verificarsi del segnale una funzione creata ad-hoc sara' automaticamente
+    invocata. I segnali SIGKILL e SIGSTOP non possono essere catturati;
 
 3 - Comportamento di default.
     Ciascun processo ha un comportamento di default, che nella maggior parte dei
