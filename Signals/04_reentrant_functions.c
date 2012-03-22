@@ -44,13 +44,25 @@ taluni specifici requisiti:
 4 - Il codice non deve modificare ne' variabili globali, ne' aree di memoria 
     condivise, ne' impiegare variabili locali statiche.
 
-LISTA
+accept, fchmod, lseek, sendto, stat, access, fchown, lstat, setgid, symlink,
+aio_error, fcntl, mkdir, setpgid, sysconf, aio_return, fdatasync, mkfifo, 
+setsid, tcdrain, aio_suspend, fork, open, setsockopt, tcflow, alarm, fpathconf,
+pathconf, setuid, tcflush, bind, fstat, pause, shutdown, tcgetattr, cfgetispeed,
+fsync, pipe, sigaction, tcgetpgrp, cfgetospeed, ftruncate, poll, sigaddset, 
+tcsendbreak, cfsetispeed, getegid, posix_trace_event, sigdelset, tcsetattr, 
+cfsetospeed, geteuid, pselect, sigemptyset, tcsetpgrp, chdir, getgid, raise, 
+sigfillset, time, chmod, getgroups, read, sigismember, timer_getoverrun, chown,
+getpeername, readlink, signal, timer_gettime, clock_gettime, getpgrp, recv, 
+sigpause, timer_settime, close, getpid, recvfrom, sigpending, times, connect, 
+getppid, recvmsg, sigprocmask, umask, creat, getsockname, rename, sigqueue, 
+uname, dup, getsockopt, rmdir, sigset, unlink, dup2, getuid, select, sigsuspend,
+utime, execle, kill, sem_post, sleep, wait, execve, link, send, socket, waitpid,
+_Exit, &, _exit, listen, sendmsg, socketpair, write.
 
 Se una funzione non e' presente nella lista:
 - E' perche' utilizza strutture dati statiche;
 - E' una malloc() o una free();
 - E' perche' fa parte della libreria I/O standard.
-
 */
 
 int main(int argc, char *argv[]) {
