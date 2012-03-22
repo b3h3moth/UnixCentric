@@ -3,6 +3,8 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <signal.h>
+#include <pwd.h>
 
 /*
 Quando un segnale viene catturato, la normale sequenza di istruzioni viene
@@ -12,10 +14,10 @@ di chiamare la funzione exit() o altre, il processo prosegue la normale sequenza
 di istruzioni che stava eseguendo prima di essere "interrotto" dal segnale.
 
 Cosa succede se nel corso della esecuzione di una system call viene catturato un
-segnale e all'interno del signal handler si invocasse la medesima system call?
-Ad esempio un processo sta utilizzando una malloc() che durante la propria
-esecuzione riceve un segnale, il relativo signal handler chiama ancora una
-malloc.
+segnale? Solitamente l'eventuale azione associata viene eseguita solo dopo la 
+terminazione della system call, tuttavia in alcune system call lente "slow", 
+le prime  versioni di Unix potevano interrompere la system call stessa, che 
+ritornava ­1 come errore ed 'errno' settata a EINTR.
 
 Reentrant functions, funzioni rientranti
 ----------------------------------------
@@ -65,6 +67,38 @@ Se una funzione non e' presente nella lista:
 - E' perche' fa parte della libreria I/O standard.
 */
 
+static void new_alarm(int sig_num);
+
+/* Il programma invoca la funzione non rientrante getpwnam() dal signal handler,
+ogni secondo; il programma dovrebbe crashare con un segnale SIGSEGV.  */
+
 int main(int argc, char *argv[]) {
-    return(EXIT_SUCCESS);
+    struct passwd *ptr;
+    signal(SIGALRM, new_alarm);
+    alarm(1);
+
+    for (;;) {
+    	if ((ptr = getpwnam("b3h3m0th")) == NULL) {
+	    fprintf(stderr, "Err.(%s) getpwnam() failed\n", strerror(errno));
+	    exit(EXIT_FAILURE);
+	}
+
+	if(strcmp(ptr->pw_name, "b3h3m0th") != 0)
+	    printf("valore di ritorno corrotto, pw_name = %s\n", ptr->pw_name);
+    }
+}
+
+static void new_alarm(int sig_num)
+{
+    struct passwd *rootptr;
+
+    printf("Nel signal handler\n");
+
+    /* Taluni puntatori interni della funzione getpwnam() sono stati corrotti
+    allorquando il signal handler ha invocato la medesima funzione. */
+    if ((rootptr = getpwnam("root")) == NULL) {
+    	fprintf(stderr, "Err.(%s) getpwnam() sh failed\n", strerror(errno));
+	exit(EXIT_FAILURE);
+    }
+    alarm(1);
 }
