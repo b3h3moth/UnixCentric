@@ -7,6 +7,9 @@
 #include <sys/wait.h>
 
 /*
+SIGCHLD: E' il segnale che il kernel invia al processo padre per notificarlo 
+         sulla terminazione del figlio
+
 Quando un processo termina o si ferma, il segnale SIGCHLD e' inviato al processo
 padre, da notare tuttavia che il comportamento di default consiste nell'ignorare
 il segnale, per cui il processo padre deve catturare il segnale se vuole essere
@@ -28,35 +31,32 @@ Quando occorre un segnale SIGCHLD, lo stato del processo figlio cambia, vi e'
 pertanto la necessita' di invocare una delle funzioni wait() affinche' si possa
 determinare l'accaduto.
 
-
-HEADER    : 
-PROTOTYPE : 
-SEMANTICS : 
-RETURNS   : 0 in caso di successo, -1 in caso di errore
---------------------------------------------------------------------------------
+Tramite l'uso di segnali e' possibile svincolare il padre da un'attesa esplicita
+della terminazione del figlio, mediante un'apposita funzione handler per la 
+gestione di SIGCHLD; la funzione handler verrà attivata in modo asincrono alla 
+ricezione del segnale, l'hhandler chiamerà wait() con cui il padre potra'
+raccogliere ed eventualmente gestire lo stato di terminazione del figlio.
 */
-
-#define MAX_PR 2
 
 static void signal_handler(int sig_num);
 
 int main(int argc, char *argv[]) {
     pid_t pid;
-    int i;
+    int status, ret;
     signal(SIGCHLD, signal_handler);
-
-    for (i=0; i<MAX_PR; i++) {
-    	if ((pid = fork()) < 0) {
-	    fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
-	} else if (pid == 0) {
-	    sleep(1);
-	    exit(0);
-	}
+    
+    if ((pid = fork()) < 0) {
+    	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+	exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+    	printf("PID figlio: %ld\n", (long)getpid());
+	sleep(2);
+	exit(EXIT_SUCCESS);
+    } else {
+    	printf("Padre - in attesa del figlio, PID %d\n", pid);
+	ret = waitpid(pid, &status, 0);
+    	printf("Figlio terminato, PID: %d\n", ret);
     }
-
-    while(1)
-    	;
 
     return(EXIT_SUCCESS);
 }
@@ -65,6 +65,7 @@ static void signal_handler(int sig_num)
 {
     pid_t pid;
     int child_status;
-    pid = waitpid(-1, &child_status, 0);
-    printf("Ricevuto segnale %d dal processo %ld\n", sig_num, (long)pid);
+    pid = waitpid(WAIT_ANY, &child_status, WNOHANG);
+    printf("Ricevuto segnale %d\n", sig_num);
+    signal(SIGCHLD, signal_handler);
 }
