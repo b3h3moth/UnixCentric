@@ -79,7 +79,11 @@ int main(int argc, char *argv[]) {
 	    printf("Padre, PID: %ld\n", (long)getpid());
 	    
 	    /* Si invia il segnale generico SIGURG1 al processo figlio */
-	    kill(pid, SIGUSR1);
+	    if (kill(pid, SIGUSR1) == -1) {
+	    	fprintf(stderr,"Err.(%s) kill() failed()\n", strerror(errno));
+		exit(EXIT_FAILURE);
+	    }
+	    
 	    sleep(1);
 
 	    exit(EXIT_SUCCESS);
