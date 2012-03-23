@@ -23,10 +23,19 @@ attiva una volta eseguita, per cui dev'essere cura dell'utente ripetere
 l'installazione all'interno del segnale nei casi in cui si vuole che resti 
 attivo.
 
-Per questo motivo l'implementazione dei segnali secondo questa semantica erano
-considerati inaffidabili; sia la ricezione sia la reinstallazione del relativo
+Per questo motivo l'implementazione dei segnali secondo questa semantica era
+considerata inaffidabile; sia la ricezione sia la reinstallazione del relativo
 signal handler non sono operazioni atomiche, per cui sono sempre possibili delle
 "race condition", inoltre c'e' il rischio che i segnali possano essere perduti.
+
+Un ulteriore problema consiste nel fatto che che non vi e' un modo di bloccare
+i segnali quando s'intende non farli arrivare a destinazione; i segnali tuttavia
+possono essere ignorati ma non vi e' modo di istruire il sistema a non fare
+nulla all'occorrere di un segnale.
+
+Pertanto i problemi noti dei dei segnali inaffidibili sono:
+- reinstallazione all'interno nel signal handler;
+- impossibilita' di bloccare un segnale.
 
 Interruzione della computazione
 -------------------------------
