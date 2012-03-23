@@ -42,7 +42,6 @@ static void signal_handler(int sig_num);
 
 int main(int argc, char *argv[]) {
     pid_t pid;
-    int status;
     
     if (signal(SIGCHLD, signal_handler) == SIG_ERR) {
     	fprintf(stderr, "Err.(%s) signal() 'main' error\n", strerror(errno));
@@ -53,7 +52,7 @@ int main(int argc, char *argv[]) {
     	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
 	exit(EXIT_FAILURE);
     } else if (pid == 0) {
-    	printf("PID figlio: %ld\n", (long)getpid());
+    	printf("Figlio, PID: %ld\n", (long)getpid());
 	sleep(2);
 	exit(EXIT_SUCCESS);
     } 
