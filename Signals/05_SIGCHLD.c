@@ -42,8 +42,12 @@ static void signal_handler(int sig_num);
 
 int main(int argc, char *argv[]) {
     pid_t pid;
-    int status, ret;
-    signal(SIGCHLD, signal_handler);
+    int status;
+    
+    if (signal(SIGCHLD, signal_handler) == SIG_ERR) {
+    	fprintf(stderr, "Err.(%s) signal() 'main' error\n", strerror(errno));
+	exit(EXIT_FAILURE);
+    }
     
     if ((pid = fork()) < 0) {
     	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
@@ -52,11 +56,10 @@ int main(int argc, char *argv[]) {
     	printf("PID figlio: %ld\n", (long)getpid());
 	sleep(2);
 	exit(EXIT_SUCCESS);
-    } else {
-    	printf("Padre - in attesa del figlio, PID %d\n", pid);
-	ret = waitpid(pid, &status, 0);
-    	printf("Figlio terminato, PID: %d\n", ret);
-    }
+    } 
+    
+    pause();
+    printf("Padre, PID: %d\n", getpid());
 
     return(EXIT_SUCCESS);
 }
@@ -65,7 +68,17 @@ static void signal_handler(int sig_num)
 {
     pid_t pid;
     int child_status;
-    pid = waitpid(WAIT_ANY, &child_status, WNOHANG);
-    printf("Ricevuto segnale %d\n", sig_num);
-    signal(SIGCHLD, signal_handler);
+
+    if ((pid = waitpid(-1, &child_status, 0)) < 0) {
+    	fprintf(stderr, "Err.(%s) waitpid() error\n",strerror(errno));
+	exit(EXIT_FAILURE);
+    }
+    
+    printf("Ricevuto segnale %d - pid: %d\n", sig_num, pid);
+
+    /* Si provvede alla reinstallazione  */
+    if (signal(SIGCHLD, signal_handler) == SIG_ERR) {
+    	fprintf(stderr, "Err.(%s) signal() 'sig-han' error\n",strerror(errno));
+	exit(EXIT_FAILURE);
+    }
 }
