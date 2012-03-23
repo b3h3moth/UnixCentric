@@ -34,7 +34,7 @@ possono essere ignorati ma non vi e' modo di istruire il sistema a non fare
 nulla all'occorrere di un segnale.
 
 Pertanto i problemi noti dei dei segnali inaffidibili sono:
-- reinstallazione all'interno nel signal handler;
+- reinstallazione all'interno del signal handler;
 - impossibilita' di bloccare un segnale.
 
 Interruzione della computazione
