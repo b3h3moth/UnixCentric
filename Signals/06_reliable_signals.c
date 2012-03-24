@@ -6,8 +6,9 @@
 
 /*
 I segnali affidabili "realiable signals" non hanno tutti i problemi che si
-possono verificare con i segnali inaffidabili "unreliable signals"[1], ed e' 
-anche la semantica adottata dagli unix moderni e Linux.
+possono verificare con i segnali inaffidabili "unreliable signals"[1].
+
+Nota: E' la semantica adottata dagli unix moderni e Linux.
 
 Nella gestione affidabile dei segnali il "signal handler" una volta installato
 resta attivo per tutta la durata del processo, i segnali sono generati dal
@@ -33,9 +34,9 @@ segnale e' il comportamento di default o la cattura del segnale, il segnale
 resta pendente fintanto che il processo non lo sblocca o cambia l'azione facendo
 in modo che possa ignorarlo.
 
-Nota: Il kernel decide cosa fare del segnale bloccato alla consegna del segnale
-      e non quando il segnale e' stato generato, consentendo in tal modo il
-      cambiamento dell'azione del segnale stesso, e prima che venga consegnato.
+Nota: Il kernel decide cosa fare del segnale bloccato, alla consegna del segnale
+      stesso e non quando il segnale e' stato generato, consentendo in tal modo
+      il cambiamento dell'azione del segnale prima che venga consegnato.
 
 La funzione sigpending() consente di determinare quali segnali sono bloccati e
 quali sono pendenti.

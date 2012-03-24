@@ -46,6 +46,15 @@ La funzione restituisce l'indirizzo dell'azione precedente, che puo' essere
 salvato per poi essere riutilizzato in un secondo tempo, ovvero quando il 
 processo tornera' dalla funzione di gestione del segnale e proprio nel punto in
 cui era avvenuta l'eccezione.
+
+Dura nel tempo l'associazione segnale/handler?
+----------------------------------------------
+Talune implementazioni di Unix, tra cui BSD e SyVr.3, prevedono che l'azione 
+rimanga installata anche dopo la ricezione del segnale, in altre invece, come 
+SysV prime versioni, dopo l'attivazione dell'handler si ripristina 
+automaticamente l'azione di default. In questi casi, per riagganciare il segnale
+all'handler e' necessario reinstallare nuovamente il segnale nel corpo dell'
+handler stesso.
 */
 
 static void signal_handler(int signum);

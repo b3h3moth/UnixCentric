@@ -34,7 +34,7 @@ determinare l'accaduto.
 Tramite l'uso di segnali e' possibile svincolare il padre da un'attesa esplicita
 della terminazione del figlio, mediante un'apposita funzione handler per la 
 gestione di SIGCHLD; la funzione handler verrà attivata in modo asincrono alla 
-ricezione del segnale, l'hhandler chiamerà wait() con cui il padre potra'
+ricezione del segnale, l'handler chiamerà wait() con cui il padre potra'
 raccogliere ed eventualmente gestire lo stato di terminazione del figlio.
 */
 
@@ -73,7 +73,8 @@ static void signal_handler(int sig_num)
 	exit(EXIT_FAILURE);
     }
     
-    printf("Ricevuto segnale %d - pid: %d\n", sig_num, pid);
+    printf("Segnale '%d' verso '%d' - child status: %d\n", 
+    	    sig_num, pid, child_status);
 
     /* Si provvede alla reinstallazione  */
     if (signal(SIGCHLD, signal_handler) == SIG_ERR) {
