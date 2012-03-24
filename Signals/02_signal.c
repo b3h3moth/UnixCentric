@@ -108,9 +108,17 @@ int main(int argc, char *argv[]) {
 
 static void signal_handler(int signum)
 {
-    if (signum == SIGUSR1)
-    	printf("Ricevuto il segnale: SIGUSR1\n");
-    else if (signum == SIGUSR2)
+    if (signum == SIGUSR1) {
+
+    	/* Reinstalla l'azione di default per il segnale SIGUSR1 */
+	if (signal(SIGUSR1, SIG_DFL) == SIG_ERR) {
+	    fprintf(stderr, "Err.(%s), cant' catch SIGUSR1\n", strerror(errno));
+	    exit(EXIT_FAILURE);
+	}
+    	
+	printf("Ricevuto il segnale: SIGUSR1\n");
+    
+    } else if (signum == SIGUSR2)
     	printf("Ricevuto il segnale: SIGUSR2\n");
     else if (signum == SIGINT)
     	printf("Ricevuto il segnale: SIGINT\n");
