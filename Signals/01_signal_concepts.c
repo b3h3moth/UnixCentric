@@ -18,6 +18,10 @@ ogni nome definisce una costante il cui valore indica un intero positivo, il
 Nota: Non vi e' un "signal number" 0, POSIX.1 lo definisce in questo ambito come
       "null signal" - segnale nullo.
 
+Un segnale puo' essere inviato:
+- dal kernel ad un processo;
+- da un processo ad un altro prcoesso.
+
 I segnali sostanzialmente sono utilizzati affinche' si possa comunicare ad un
 processo il verificarsi di un particolare evento, ma quali sono le modalita' per
 le quali e' possibile generare un segnale? Alcune di esse sono:
@@ -65,6 +69,12 @@ evento puo':
 3 - Comportamento di default.
     Ciascun processo ha un comportamento di default, che nella maggior parte dei
     casi corrisponde alla terminazione del processo.
+
+Per cio' che concerne i casi due e tre, il processo non appena riceve un segnale
+risponde in modo asincrono, ovvero:
+a - interrompe la propria esecuzione;
+b - esegue l'azione associata, che sia quella di default o la cattura;
+c - ritorna alla prossima istruzione da eseguire dopo l'interruzione.
 
 Eredità delle impostazioni
 --------------------------
