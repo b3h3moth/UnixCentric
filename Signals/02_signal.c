@@ -31,7 +31,7 @@ Il prototipo della funzione e' caratterizzato da due argomenti:
 - 'handler' un puntatore ad una funzione void che riceve come argomento un 
    intero. Il kernel puo' essere informato su una funzione deputata al 
    trattamento del segnale, tale funzione e' definita "signal handler", gestore
-   del segnale.
+   del segnale. Non restituisce alcun risultato.
 
 Il valore della funzione handler puo' essere: 
 - l'indirizzo della funzione da chiamare al verificarsi del segnale;
