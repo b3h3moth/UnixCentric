@@ -13,7 +13,7 @@ cosi' via, pertanto la funzione signal() e' diventata nel tempo inutile nei
 sistemi unix-like, e poiche' la semantica differisce totalmente da un sistema
 all'altro si consiglia di adoperare la funzione sigaction().
 
-La funzione signal() e' tratatta per puro scopo didattico.
+La funzione signal() e' trattata per puro scopo didattico.
 
 HEADER    : <signal.h>
 PROTOTYPE : typedef void (*sighandler_t)(int);
@@ -24,15 +24,16 @@ RETURNS   : Il gestore precedente in caso di successo, SIG_ERR in caso di errore
 --------------------------------------------------------------------------------
 Nota: si e' utilizzata la typedef per rendere il prototipo della funzione
       meno ostico da leggere ed interpretare, il tipo di dato sighandler_t e'
-      una estensione GNU delle glibc. Il prototipo della funzione pertanto e'
-      caratterizzato da due argomenti, l'intero 'signum' e un puntatore ad una
-      funzione void che riceve come argomento un intero.
+      una estensione GNU delle glibc. 
+      
+Il prototipo della funzione e' caratterizzato da due argomenti:
+- 'signum', un intero indicante il signal number;
+- 'handler' un puntatore ad una funzione void che riceve come argomento un 
+   intero. Il kernel puo' essere informato su una funzione deputata al 
+   trattamento del segnale, tale funzione e' definita "signal handler", gestore
+   del segnale.
 
-Il kernel puo' essere informato su una funzione deputata al trattamento del
-segnale, tale funzione e' definita signal handler.
-
-'signum' e' il nome del segnale, mentre il valore della funzione handler puo' 
-essere: 
+Il valore della funzione handler puo' essere: 
 - l'indirizzo della funzione da chiamare al verificarsi del segnale;
 - la costante SIG_IGN, per ignorare il segnale;
 - la costante SIG_DFL, per l'azione di default del segnale.
@@ -43,8 +44,8 @@ di un segnale.
 
 La funzione restituisce l'indirizzo dell'azione precedente, che puo' essere
 salvato per poi essere riutilizzato in un secondo tempo, ovvero quando il 
-processo torna dalla funzione di gestione del segnale, ritorna proprio nel 
-punto in cui era avvenuta l'eccezione.
+processo tornera' dalla funzione di gestione del segnale e proprio nel punto in
+cui era avvenuta l'eccezione.
 */
 
 static void signal_handler(int signum);
