@@ -35,7 +35,8 @@ Semantica
 - L'azione di default corrispondente e' la terminazione del processo;
 
 - Il segnale SIGALRM puo' essere catturato, ma in tal caso il signal handler
-  deve essere installato prima di chiamare la funzione alarm().
+  deve essere installato prima di chiamare la funzione alarm(), in caso 
+  contrario il processo sara' terminato.
 
 HEADER    : <unistd.h>
 PROTOTYPE : unsigned int alarm(unsigned int seconds);
@@ -66,6 +67,7 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
     } else if (pid == 0) {
 	printf("Figlio, PID: %ld\n", (long)getpid());
+
 
 	if (signal(SIGALRM, handler) == SIG_ERR) {
 	    fprintf(stderr, "Err.(%s) sigalarm() failed\n", strerror(errno));
