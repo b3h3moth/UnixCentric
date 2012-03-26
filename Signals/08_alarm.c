@@ -11,8 +11,31 @@
 static void handler(int sig_num);
 
 /*
-La funzione alarm() setta un timer che allo scadere del tempo invia un segnale 
-SIGALRM al processo; l'azione di default associata a SIGALRM è la terminazione.
+La funzione alarm() fornisce un metodo che permette ad un processo di
+predisporre una interruzione in un futuro prossimo, mediante il segnale SIGALRM
+inviato dopo un preciso numero di secondi.
+
+Nota: I secondi sono del tipo clock time.
+
+Semantica
+---------
+- Vi e' un solo alarm clock per processo;
+
+- Se quando si invoca un alarm clock per un processo, ci si imbatte in un altro
+  alarm clock precedentemente registrato e non ancora scaduto per il processo
+  stesso, il numero di secondo rimanenti dell'alarm clock e' ritornato come 
+  valore della funzione. Il precedente alarm clock e' rimpiazzato dal nuovo 
+  valore;
+
+- Se un alarm clock precedentemente registrato per un processo non e' ancora
+  scaduto e il valore di 'seconds' e' uguale a zero, tale alarm clock e'
+  cancellato. Il numero di secondi rimanenti dell'alarm clock registrato in
+  precedenza e' riornato come valore della funzione;
+
+- L'azione di default corrispondente e' la terminazione del processo;
+
+- Il segnale SIGALRM puo' essere catturato, ma in tal caso il signal handler
+  deve essere installato prima di chiamare la funzione alarm().
 
 HEADER    : <unistd.h>
 PROTOTYPE : unsigned int alarm(unsigned int seconds);
