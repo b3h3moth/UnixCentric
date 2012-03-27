@@ -25,7 +25,13 @@ unsigned int sleep_clone(unsigned int sec);
 /* Il programma simula il comportamento della funzione sleep(); anche se in
 modo non propriamente elegante ed ineccepibile, ma utile a scopo didattico.
 Si deve fornire come parametro il numero di secondi che s'intende porre 
-il processo in attesa. */
+il processo in attesa.
+
+Il programma causa una pericolosa race condition, infatti se il processo dovesse
+essere interrotto tra la chiamata ad alarm() e pause(), potrebbe capitare che
+il tempo di attesa definito in alarm() scada prima dell'esecuzione di pause(),
+che sarebbe eseguita dopo l'arrivo del segnale SIGALRM.
+*/
 
 int main(int argc, char *argv[]) {
     int ret_func_value, sec_temp;

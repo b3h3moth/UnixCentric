@@ -15,8 +15,14 @@ prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIG;
 ogni nome definisce una costante il cui valore indica un intero positivo, il
 "signal number" - numero del segnale.
 
+Per verificare il numero totale dei segnali disponibili e' possibile utilizzare
+la macro NSIG.
+
 Nota: Non vi e' un "signal number" 0, POSIX.1 lo definisce in questo ambito come
-      "null signal" - segnale nullo.
+      "null signal", segnale nullo. E' consigliabile, anche per la portabilita',
+      utilizzare sempre i nomi associati ai segnali e non i corrispettivi valori
+      numerici, questo perche' i valori numerici possono variare, anche
+      sensibilmente, rispetto alle varie implementazioni del sistema[2].
 
 Un segnale puo' essere inviato:
 - dal kernel ad un processo;
@@ -178,9 +184,9 @@ Nota: Il comando kill -l fornisce un elenco di segnali.
 /* Lo scopo del programma e' di verificare la combinazione di tasti utilizzata
 per interrompere un programma, nel caso specifico il parametro da osservare e' 
 "intr", che dovrebbe corrispondere a ^C, ovvero Control-C, che causera' il 
-segnale di interruzione SIGINT 
-
-Il comando stty -a tuttavia restituira' tutto il settaggio corrente di stty.*/
+segnale di interruzione SIGINT. Il comando stty -a tuttavia restituira' il
+settaggio corrente di stty. Infine la macro NSIG restituira' il numero totale
+dei segnali presenti nel sistema. */
 
 int main(int argc, char *argv[]) {
     pid_t pid;
@@ -200,6 +206,7 @@ int main(int argc, char *argv[]) {
 
 	default:
 		waitpid(pid, NULL, 0);
+		printf("Il sistema dispone di %d segnali\n", NSIG); 
     }
 
     return(EXIT_SUCCESS);

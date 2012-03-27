@@ -82,6 +82,8 @@ int main(int argc, char *argv[]) {
 
 void signal_handler(int signum)
 {
+    /* Reinstallazione del segnale */
     signal(SIGUSR1, signal_handler);
+
     segnale_arrivato = 1;
 }
