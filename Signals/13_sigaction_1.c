@@ -81,16 +81,131 @@ deve essere considerato.
 
 E' possibile utilizzare due tipi di signal-handler, uno mediante 'sa_sigaction',
 l'altro mediante 'sa_handler', il primo e' molto piu' complesso poiche' consente
-di ottenere diverse informazioni aggiuntive grazie alla struttura siginfo_t.
+di ottenere diverse informazioni aggiuntive grazie alla struttura siginfo_t. La
+funzione signal() utilizza sa_handler.
+
+Nota: Normalmente il signal handler e' invocato mediante la sequente chiamata:
+      void handler(int signo);
+      Se invece e' settato il flag SA_SIGINFO, il signal-handler e' invocato 
+      mediante quest'altra chiamata:
+      void handler(int signo, siginfo_t *info, void *context);
+
+La struttura siginfo_t, come accenato pocanzi, contiene diverse informazioni
+circa il segnale generato. Una struttura conforme alle specifiche POSIX.1 deve
+includere come minimo i campi 'si_signo' e 'si_code', mentre invece una
+struttura conforme alle specifiche XSI deve conenere i campi:
 
 struct siginfo {
+    int    si_signo;   "numero del segnale"
+    int    si_errno;   "se non zero, il valore di 'errno' da <errno.h>"
+    int    si_code;    "informazioni addizionali a seconda del segnale"
+    pid_t  si_pid;     "PID del processo che invia il segnale"
+    uid_t  si_uid;     "Real UID del processo che invia il segnale"
+    void   *si_addr    "Indirizzo che causa il fault"
+    int    si_status   "valore di exit o numero del segnale"
+    long   si_band;    "numero band per SIGPOLL"
+    ... 
 };
 
-Nota: La funzione signal() utilizza sa_handler.
+Nota: L'intera struttura e' visionabile in /usr/include/bits/siginfo.h su
+      sistemi con kernel Linux. Nello specifico il kernel in uso e' il 3.2.0 su
+      architettura PPC.
+
+Valori si_code
+--------------
+I segnali utilizzano  'si_code' per ottenere svariate informazioni, ad esempio
+taluni segnali di errore lo usano per avere specifici dettagli sull'errore
+stesso, quali potrebbero essere una violazione di memoria o un errore aritmetico
+e cosi' via. L'elenco dei valori disponibili, cosi' come sono stati
+implementati in siginfo.h, e' il seguente
+
+Valori positivi sono riservati per segnali generati dal kernel:
+enum
+{
+  SI_ASYNCNL = -60,		 Sent by asynch name lookup completion.  
+  SI_TKILL = -6,		 Sent by tkill.  
+  SI_SIGIO,			 Sent by queued SIGIO. 
+  SI_ASYNCIO,			 Sent by AIO completion.  
+  SI_MESGQ,			 Sent by real time mesq state change.  
+  SI_TIMER,			 Sent by timer expiration.  
+  SI_QUEUE,			 Sent by sigqueue.  
+  SI_USER,			 Sent by kill, sigsend, raise.  
+  SI_KERNEL = 0x80		 Send by kernel.  
+};
+
+Valori relativi al segnale SIGILL:
+enum
+{
+  ILL_ILLOPC = 1,		 Illegal opcode.  
+  ILL_ILLOPN,			 Illegal operand.  
+  ILL_ILLADR,			 Illegal addressing mode.  
+  ILL_ILLTRP,			 Illegal trap. 
+  ILL_PRVOPC,			 Privileged opcode.  
+  ILL_PRVREG,			 Privileged register.  
+  ILL_COPROC,			 Coprocessor error.  
+  ILL_BADSTK			 Internal stack error.  
+};
+
+Valori relativi al segnale SIGFPE:
+enum
+{
+  FPE_INTDIV = 1,		 Integer divide by zero.  
+  FPE_INTOVF,			 Integer overflow.  
+  FPE_FLTDIV,			 Floating point divide by zero.  
+  FPE_FLTOVF,			 Floating point overflow.  
+  FPE_FLTUND,			 Floating point underflow.  
+  FPE_FLTRES,			 Floating point inexact result.  
+  FPE_FLTINV,			 Floating point invalid operation.  
+  FPE_FLTSUB			 Subscript out of range.  
+};
+
+Valori relativi al segnale SIGSEGV:
+enum
+{
+  SEGV_MAPERR = 1,		 Address not mapped to object.  
+  SEGV_ACCERR			 Invalid permissions for mapped object.  
+};
+
+Valori relativi al segnale SIGBUS:
+enum
+{
+  BUS_ADRALN = 1,		 Invalid address alignment.  
+  BUS_ADRERR,			 Non-existant physical address.  
+  BUS_OBJERR			 Object specific hardware error.  
+};
+
+Valori relativi al segnale SIGTRAP:
+enum
+{
+  TRAP_BRKPT = 1,		 Process breakpoint.  
+  TRAP_TRACE			 Process trace trap.  
+};
+
+Valori relativi al segnale SIGCHLD:
+enum
+{
+  CLD_EXITED = 1,		 Child has exited.  
+  CLD_KILLED,			 Child was killed.  
+  CLD_DUMPED,			 Child terminated abnormally.  
+  CLD_TRAPPED,			 Traced child has trapped.  
+  CLD_STOPPED,			 Child has stopped.  
+  CLD_CONTINUED			 Stopped child has continued.  
+};
+
+Valori relativi al segnale SIGPOLL:
+enum
+{
+  POLL_IN = 1,			 Data input available.  
+  POLL_OUT,			 Output buffers available.  
+  POLL_MSG,			 Input message available.   
+  POLL_ERR,			 IO error.  
+  POLL_PRI,			 High priority input available.  
+  POLL_HUP			 Device disconnected.  
+};
 
 */
-
 int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
+
