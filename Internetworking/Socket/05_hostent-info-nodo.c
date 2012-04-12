@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     int i;
     
     /* Indirizzo nella forma alfanumerica */
-    char *ind_alphanum = "localhost";
+    char *ind_alphanum = "www.lwn.com";
     
     /* I sistemi operativi che utilizzano lo standard POSIX conservano gli
     indirizzi in una variabile di tipo in_addr_t */
