@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <unistd.h>
 #include <signal.h>
 
 /*
@@ -204,8 +205,37 @@ enum
 };
 
 */
+
+static int count = 0;
+
+/* Il gestore del segnale, si occupa di catturare il segnale SIGINT; ad ogni
+ricezione di tale segnale la variabile count sara' incrementata di 1 */
+static void sig_handler_sigint(int signo);
+
 int main(int argc, char *argv[]) {
+    struct sigaction sa_old;
+    struct sigaction sa_new;
+
+    sa_new.sa_handler = sig_handler_sigint;
+    sigemptyset(&sa_new.sa_mask);
+    sa_new.sa_flags = 0;
+
+    sigaction(SIGINT, &sa_new, &sa_old);
+
+    while(1) {
+    	sleep(1);
+
+	if (count == 3) {
+	    printf("exit...\n");
+	    break;
+	}
+    }
 
     return(EXIT_SUCCESS);
 }
 
+static void sig_handler_sigint(int signo)
+{
+    ++count;
+    write(1, " SIGINT captured\n", 17);
+}
