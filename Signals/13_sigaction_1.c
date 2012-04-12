@@ -28,8 +28,6 @@ Nota: Si e' gia' superato un limite della signal(), ovvero la restituzione
       In pratica il parametro 'old_act' consente di recuperare lo stato del 
       gestore originale nel momento in cui si installa quello nuovo.
 
-Struttura sigaction
--------------------
 I puntatori del secondo e terzo parametro fanno riferimento alla struttura 
 'sigaction', che specifica le caratteristiche dell'azione associata al segnale:
 
@@ -50,21 +48,43 @@ deve essere considerato.
 
 - sa_flags, consente di impostare diversi valori, flag per l'appunto, che 
             possono modificare il processo di gestione dei segnali:
-	    - SA_INTERRUPT
-	    - SA_NOCLDSTOP
-	    - SA_NOCLDWAIT
-	    - SA_NODEFER
-	    - SA_ONSTACK
-	    - SA_RESETHAND
-	    - SA_RESTART
-	    - SA_SIGINFO, se si vuole utilizzare un signal-handler in forma
-	                  estesa mediante 'sa_sigaction' invece di 'sa_handler'
 
-Struttura siginfo_t
--------------------
-E' possibile utilizzare due tipi di signal-handler, uno mediante sa_sigaction,
-l'altro mediante sa_handler, il primo e' molto piu' complesso poiche' consente
+	    - SA_INTERRUPT, le system-call interrotte da questo segnale non 
+	                    ripartono automaticamente;
+	    
+	    - SA_NOCLDSTOP, se il segnale e' SIGCHLD allora non deve essere
+	                    notificato quando il processo figlio viene fermato
+			    da uno dei segnali SIGSTOP, SIGTTIN e SIGTTOU;
+	    
+	    - SA_NOCLDWAIT, se il segnale e' SIGCHLD previene la creazione di
+	                    processi zombie nel sistema allorquando il figlio
+			    del processo chiamante termina;
+
+	    - SA_NODEFER  , Sinonimo di SA_NOMASK
+	    - SA_NOMASK   , Fa in modo di evitare che il segnale corrente possa
+	                    essere bloccato nel corso dell'esecuzione del 
+			    gestore;
+	    
+	    - SA_ONSTACK  , Stack alternativo per l'esecuzione del gestore;
+
+	    - SA_RESETHAND, Sinonimo di SA_ONESHOT
+	    - SA_ONESHOT  , Riporta l'azione relativa al segnale al valore 
+	                    di default a gestore avviato. Riproduce il
+			    comportamento della semantica inaffidabile;
+
+	    - SA_RESTART  , Riavvia automaticamente le slow system call quando
+                            vengono interrotte dal segnale. Riproduce il 
+			    comportamento standard BSD;
+
+	    - SA_SIGINFO, se si vuole utilizzare un signal-handler in forma
+	                  estesa mediante 'sa_sigaction' invece di 'sa_handler'.
+
+E' possibile utilizzare due tipi di signal-handler, uno mediante 'sa_sigaction',
+l'altro mediante 'sa_handler', il primo e' molto piu' complesso poiche' consente
 di ottenere diverse informazioni aggiuntive grazie alla struttura siginfo_t.
+
+struct siginfo {
+};
 
 Nota: La funzione signal() utilizza sa_handler.
 
