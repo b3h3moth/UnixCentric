@@ -13,10 +13,9 @@ int main(int argc, char *argv[], char *envp[])
 {
    char stringa[] = "UNIX Programming with POSIX";
    /* La memset puo' essere utilizzata, ad esempio, per azzerare un array, 
-	* tuttavia c'e' una sottile considerazione da porre in essere: se
-    * utilizzo uno zero - numero - , la stringa sara' effettivamente 
-	* azzerata, ma se altrimenti utilizzo il carattere 0 l'array sara' 
-	* rimpito di tanti zeri. */
+   tuttavia c'e' una sottile considerazione da porre in essere: 
+   se si utilizza il numero 0 la stringa sara' effettivamente azzerata, se 
+   invece si utilizza il carattere 0 l'array sara' riempito di tanti zeri. */
    int n_zero = 0;
    char c_zero = '0';
    int size = strlen(stringa);
