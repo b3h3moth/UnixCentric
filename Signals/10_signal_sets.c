@@ -7,7 +7,7 @@
 /*
 Insieme di segnali o "Signal set"[1]
 ------------------------------------
-Per evitare le problematiche relative della gestione inaffidabile dei segnali
+Per evitare le problematiche relative alla gestione inaffidabile dei segnali
 POSIX ha realizzato una nuova interfaccia che consente una gestione ed un 
 controllo molto piu' accurato; in particolare e' stato introdotto il tipo di 
 dato 'sigset_t' "signal set" o insieme di segnali, mediante il quale si possono
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
     sigemptyset(&test_set);
 
 
-    /* Si aggiungono un paio di segnali all'insieme precedentemente creato */
+    /* Si aggiunge un segnale all'insieme precedentemente creato */
     sigaddset(&test_set, SIGUSR1);
 
     if (sigismember(&test_set, SIGUSR1))
