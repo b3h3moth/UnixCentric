@@ -94,17 +94,17 @@ int main(int argc, char *argv[]) {
     scopi personali, SIGINT invece e' un segnale di terminazione corrispondente
     ai tasti ^C. */
     if (signal(SIGUSR1, signal_handler) == SIG_ERR) {
-    	fprintf(stderr, "Err.(%s), cant' catch SIGUSR1\n", strerror(errno));
+    	fprintf(stderr, "Err.(%s), can't catch SIGUSR1\n", strerror(errno));
 	exit(EXIT_FAILURE);
     }
 
     if (signal(SIGUSR2, signal_handler) == SIG_ERR) {
-    	fprintf(stderr, "Err.(%s), cant' catch SIGUSR2\n", strerror(errno));
+    	fprintf(stderr, "Err.(%s), can't catch SIGUSR2\n", strerror(errno));
 	exit(EXIT_FAILURE);
     }
 
     if (signal(SIGINT, signal_handler) == SIG_ERR) {
-    	fprintf(stderr, "Err.(%s), cant' catch SIGINT\n", strerror(errno));
+    	fprintf(stderr, "Err.(%s), can't catch SIGINT\n", strerror(errno));
 	exit(EXIT_FAILURE);
     }
 
@@ -121,7 +121,7 @@ static void signal_handler(int signum)
 
     	/* Reinstalla l'azione di default per il segnale SIGUSR1 */
 	if (signal(SIGUSR1, SIG_DFL) == SIG_ERR) {
-	    fprintf(stderr, "Err.(%s), cant' catch SIGUSR1\n", strerror(errno));
+	    fprintf(stderr, "Err.(%s), can't catch SIGUSR1\n", strerror(errno));
 	    exit(EXIT_FAILURE);
 	}
     	
