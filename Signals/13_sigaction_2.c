@@ -50,4 +50,3 @@ static void sig_handler_usr2(int sig, siginfo_t *siginfo, void *context)
     int pid = (int)siginfo->si_pid;
     printf("SIGUSR2 %d ", pid);
 }
-
