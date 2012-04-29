@@ -6,10 +6,12 @@
 #include <signal.h>
 
 /*
-La "signal mask" o "maschera del segnale" e' l'insieme dei segnali che il
-processo sta bloccando; un processo puo' sia esaminare la propria signal mask
-sia modificarla oppure puo' eseguire entrambe le operazioni mediante la 
-funzione sigprocmask().
+La "signal mask" o "maschera del segnale" e' l'insieme dei segnali bloccati,
+molto utili quando e' necessario proteggere una sezione di codice, inibendo
+per l'appunto l'esecuzione di taluni segnali.
+
+Un processo puo' sia esaminare la propria signal mask sia modificarla oppure 
+puo' eseguire entrambe le operazioni mediante la funzione sigprocmask().
 
 HEADER    : <signal.h>
 PROTOTYPE : int sigprocmask(int how, const sigset_t *set, sigset_t *oldset);

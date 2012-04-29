@@ -6,6 +6,8 @@
 #include <signal.h>
 
 /*
+Talvolta e' necessario esaminare i segnali pendenti.
+
 HEADER    : <signal.h>
 PROTOTYPE : int sigpending(sigset_t *set);
 SEMANTICS : La funzione sigpending() consente di ricavare i segnali pendenti
