@@ -14,7 +14,7 @@ RETURNS  : 0 in caso di successo, -1 in caso di errore.
 --------------------------------------------------------------------------------
 stat() consente di acquisire svariate informazioni inerenti un file, ovvero
 tutti quei dati che sono conservati nell'inode; in realta' la peculiarita' di
-ottenere specifiche informazioni sui file e' proptia della famiglia di funzioni
+ottenere specifiche informazioni sui file e' propria della famiglia di funzioni
 stat che comprende anche fstat() e lstat().
 
 La struttura stat puo' dipendere dall'implementazione, il kernel Linux tuttavia
