@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 #define MAX_BUF 1024
 
@@ -36,12 +37,12 @@ In sostanza la funzione pipe() non fa altro che chiedere al kernel la creazione
 di un canale o buffer di comunicazione, per cui puo' essere considerata come un
 file a cui si accede in lettura e scrittura.
 
-La write() aggiunge dati sulla pipe.
-La read() legge i dati dalla pipe, togliendoli da essa.
+La write() aggiunge dati sulla pipe; la read() legge i dati dalla pipe, 
+togliendoli da essa.
 */
 
 
-/* Si utilizza una pipe per l'invio di informazioni dal processo figlio al 
+/* Si utilizza una pipe per l'invio di un messaggio dal processo figlio al 
 processo padre. */
 
 int main(int argc, char *argv[]) {
@@ -49,7 +50,8 @@ int main(int argc, char *argv[]) {
     pid_t pid;
     char buffer[MAX_BUF];
 
-    /* Si apre una pipe */
+    /* In caso di esito positivo si aprira' una pipe, in cui fd[0] potra' essere
+    utilizzato per la lettura e fd[1] per la scrittura. */
     if (pipe(fd) < 0) {
         fprintf(stderr, "Err.: %d pipe - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
