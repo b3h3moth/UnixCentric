@@ -4,6 +4,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define MAX_BUF 1024
+
 /*
 La pipe crea un flusso di comunicazione unidirezionale half-duplex, per cui un
 processo scrive - mediante write() -  e un altro processo legge - mediante 
@@ -34,8 +36,8 @@ In sostanza la funzione pipe() non fa altro che chiedere al kernel la creazione
 di un canale o buffer di comunicazione, per cui puo' essere considerata come un
 file a cui si accede in lettura e scrittura.
 
-La write() aggiunge dati sulla pipe
-La read() legge i dati dalla pipe, togliendoli da essa
+La write() aggiunge dati sulla pipe.
+La read() legge i dati dalla pipe, togliendoli da essa.
 */
 
 
@@ -43,7 +45,42 @@ La read() legge i dati dalla pipe, togliendoli da essa
 processo padre. */
 
 int main(int argc, char *argv[]) {
+    int n, fd[2];
+    pid_t pid;
+    char buffer[MAX_BUF];
 
+    /* Si apre una pipe */
+    if (pipe(fd) < 0) {
+        fprintf(stderr, "Err.: %d pipe - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    /* Si crea un processo figlio mediante la chiamata fork() */
+    if ((pid = fork()) < 0) {
+        fprintf(stderr, "Err.: %d fork() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    } else if (pid > 0) { 
+        /* Il processo padre chiude anzitutto l'end point in lettura */
+        close(fd[0]);
+        
+        /* dopodiche' scrive nella pipe  */
+        write(fd[1], "IPC - messaggio inviato mediante pipe\n", 38);
+    } else {
+        /* Il processo figlio chiude l'end point in scrittura */
+        close(fd[1]);
+        
+        /* dopodiche' legge i dati scritti dal processo padre nella pipe e 
+        mediante una successiva write() li invia allo standard output */
+        if ((n = read(fd[0], buffer, MAX_BUF)) < 0) {
+            fprintf(stderr, "Err.: %d read() - %s\n", errno, strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+
+        if (write(STDOUT_FILENO, buffer, n) < 0) {
+            fprintf(stderr, "Err.: %d write() - %s\n", errno, strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+    }
     
     return(EXIT_SUCCESS);
 }
