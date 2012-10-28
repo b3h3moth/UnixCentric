@@ -33,6 +33,9 @@ RETURNS   : 0 in caso di successo, -1 in caso di errore
 In sostanza la funzione pipe() non fa altro che chiedere al kernel la creazione
 di un canale o buffer di comunicazione, per cui puo' essere considerata come un
 file a cui si accede in lettura e scrittura.
+
+La write() aggiunge dati sulla pipe
+La read() legge i dati dalla pipe, togliendoli da essa
 */
 
 
@@ -40,6 +43,7 @@ file a cui si accede in lettura e scrittura.
 processo padre. */
 
 int main(int argc, char *argv[]) {
+
     
     return(EXIT_SUCCESS);
 }
