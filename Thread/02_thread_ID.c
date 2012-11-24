@@ -21,6 +21,8 @@ per i processi, e' un intero non negativo.
 
 La funzione per ottenere l'ID del Thread e' pthread_self().
 
+Nota: Non c'e' un modo portabile per ottenere il Thread-ID.
+
 HEADER    : <pthread.h>
 PROTOTYPE : pthread_t pthread_self(void);
 SEMANTICS : Ritorna il Thread ID del thread chiamante
