@@ -5,9 +5,7 @@
 #include <unistd.h>
 
 /*
-Thread addizionali possono essere creati mediante la funzione pthread_create();
-da notare che il tipo di dato dei thread e' definito come pthread_t, un intero
-non negativo simile all'analogo pid_t relativo pero' ai processi.
+Thread addizionali possono essere creati mediante la funzione pthread_create():
 
 HEADER    : <pthread.h>
 PROTOTYPE : int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
@@ -28,5 +26,3 @@ RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
-       #include <pthread.h>
-
