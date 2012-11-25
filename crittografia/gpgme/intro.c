@@ -11,7 +11,6 @@ int main(int argc, char *argv[]) {
     gpgme_check_version(NULL);
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
 
-    printf("%s\n", test);
 
     return(EXIT_SUCCESS);
 }
