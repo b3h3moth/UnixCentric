@@ -39,8 +39,8 @@ int main() {
       che anche il thread sara' terminato. In questo caso la funzione stampa
       semplicemente un messaggio;
     - Il quarto parametro e' l'argomento passato alla funzione, e' possibile
-      inviare una quantita' arbitraria di dati, in questo caso si utilizza una
-      semplice stringa.
+      inviare una quantita' arbitraria di dati mediante una struttura, nel
+      caso specifico tuttavia l'argomento e' una semplice stringa.
 
     Il nuovo thread creato inizia la propria esecuzione dall'indirizzo della
     funzione, nel caso specifico da thr_func.
