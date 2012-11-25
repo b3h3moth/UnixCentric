@@ -31,11 +31,11 @@ RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 void *thr_func(void *arg);
 
 int main() {
-    pthread_t new_thr;
+    pthread_t thrID;
     char str[] = "POSIX thread";
 
     /* Si invoca la funzione pthread_create() per creare un nuovo thread:
-    - Il primo parametro e' un puntatore a new_thr;
+    - Il primo parametro e' un puntatore a thrID;
     - il secondo parametro e' definito NULL, per cui saranno utilizzati gli
       attributi di default;
     - Il terzo paramero thr_func() e' la funzione che il thread eseguira' 
@@ -54,7 +54,7 @@ int main() {
     corrisponde comunque ad un singolo thread, definito peraltro "thread 
     principale", per cui mediante la funzione pthread_create() si sarebbe creato
     il secondo. */
-    if ((pthread_create(&new_thr, NULL, thr_func, str)) != 0) {
+    if ((pthread_create(&thrID, NULL, thr_func, str)) != 0) {
         fprintf(stderr, "Err. pthread_create() %s\n", strerror(errno));
         exit(EXIT_SUCCESS);
     }

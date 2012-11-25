@@ -13,9 +13,9 @@ void *thr_func(void *arg);
 sistema,  nonche' l'indirizzo sia del nuovo thread sia del thread principale. */
 int main() {
     int thr_err;
-    pthread_t new_thr_id; 
+    pthread_t thrID; 
 
-    if ((thr_err = pthread_create(&new_thr_id, NULL, thr_func, NULL)) != 0) {
+    if ((thr_err = pthread_create(&thrID, NULL, thr_func, NULL)) != 0) {
         fprintf(stderr, "Err. pthread_create() (%s)\n", strerror(errno));
         exit(EXIT_SUCCESS);
     }
@@ -26,7 +26,7 @@ int main() {
     /* Da notare che il Thread-ID del nuovo thread e' collocato nel primo
     paramentro della funzione. Tale dato e' accessibile dal main thread ma non
     dal nuovo thread, dato a cui esso peraltro si riferisce.  */
-    printf("\nDal thread principale, TID %lu del nuovo thread\n", new_thr_id);
+    printf("\nDal thread principale, TID %lu del nuovo thread\n", thrID);
 
     return(EXIT_SUCCESS);
 }
