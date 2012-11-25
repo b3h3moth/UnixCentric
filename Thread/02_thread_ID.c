@@ -12,7 +12,8 @@ sistema - quindi ID di sistema -, mentre il TID ha valenza solo nell'ambito del
 processo all'interno del quale il thread e' stato creato. 
 
 Nota: Per ottenere il TID di sistema e' necessario utilizzaare la funzione 
-      syscall(SYS_gettid).
+      syscall(SYS_gettid); in tal modo il Thread-ID sara' visibile mediante
+      il classico comando unix ps -L.
 
 Tipo di dato
 ------------
