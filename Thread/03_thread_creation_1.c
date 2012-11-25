@@ -57,8 +57,7 @@ int main() {
     
     /* Non vi e' alcuna garanzia che il nuovo thread creato venga eseguito per
     primo, per cui c'e' bisogno di sleep() senza di essa infatti il processo 
-    potrebbe uscire prima che il nuovo thread possa essere eseguito.
-    */
+    potrebbe uscire prima che il nuovo thread possa essere eseguito. */
     sleep(1);
 
     printf("Main thread\n");
