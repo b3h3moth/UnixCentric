@@ -6,6 +6,10 @@
 #include <pthread.h>
 
 /*
+I thread sono detti anche "leightweight process" processi leggeri, in virtu' del
+fatto che sono particolari 'sottoprocessi' senza un vero e proprio spazio di 
+indirizzamento, in quanto utilizzano quello del processo chiamante.
+
 Thread addizionali possono essere creati mediante la funzione pthread_create():
 
 HEADER    : <pthread.h>
