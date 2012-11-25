@@ -44,17 +44,21 @@ int main() {
 
     Il nuovo thread creato inizia la propria esecuzione dall'indirizzo della
     funzione, nel caso specifico da thr_func.
-    */
+    
+    Da notare che se non fosse stato creato un nuovo thread il programma 
+    sarebbe stato composto da un singolo thread; vale a dire che ogni programma 
+    corrisponde comunque ad un singolo thread, definito peraltro "thread 
+    principale", per cui mediante la funzione pthread_create() si sarebbe creato
+    il secondo. */
     if ((pthread_create(&new_thr, NULL, thr_func, str)) != 0) {
         fprintf(stderr, "Err. pthread_create() %s\n", strerror(errno));
         exit(EXIT_SUCCESS);
     }
-    /* NOTA: 
-    Da notare che se non fosse stato creato un nuovo thread il programma 
-    sarebbe stato composto comunque da un singolo thread, poiche' ogni programma
-    corrisponde ad un thread, detto anche "thread principale", per cui mediante
-    la funzione pthread_create() si sarebbe creato secondo. */
-
+    
+    /* Non vi e' alcuna garanzia che il nuovo thread creato venga eseguito per
+    primo, per cui c'e' bisogno di sleep() senza di essa infatti il processo 
+    potrebbe uscire prima che il nuovo thread possa essere eseguito.
+    */
     sleep(1);
 
     printf("Main thread\n");
