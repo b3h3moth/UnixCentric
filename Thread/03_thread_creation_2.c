@@ -16,7 +16,7 @@ int main() {
     pthread_t thrID; 
 
     if ((thr_err = pthread_create(&thrID, NULL, thr_func, NULL)) != 0) {
-        fprintf(stderr, "Err. pthread_create() (%s)\n", strerror(errno));
+        fprintf(stderr, "Err. pthread_create() (%s)\n", strerror(thr_err));
         exit(EXIT_SUCCESS);
     }
 
