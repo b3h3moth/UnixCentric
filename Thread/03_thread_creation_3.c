@@ -29,7 +29,7 @@ int main(int argc, char *argv[], char *envp[])
     }
     
     while(val < MAX_VAL) {
-      printf("Sono nel main: %d\n", val++);
+      printf("  Sono nel main: %d (%lu)\n", val++, pthread_self());
       sleep(1);
    }
 
@@ -39,10 +39,10 @@ int main(int argc, char *argv[], char *envp[])
 
 void *print(void *arg)
 {
-   while(1) {
-      printf("Sono nel thread: %d\n", val++);
-      sleep(1);
-   }
-
-   return((void*)0);
+    while(1) {
+        printf("Sono nel thread: %d (%lu)\n", val++, pthread_self());
+        sleep(1);
+    }
+    
+    return((void*)0);
 }
