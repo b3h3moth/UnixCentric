@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
    pthread_attr_init(&attr);
 
    for (i=0; i<NUM_THREADS; i++) {
-      printf("main here. Creating thread %d0", i);
+      printf("main here. Creating thread %d0\n", i);
       status = pthread_create(&threads[i], &attr, print_hello_world, (void *)i);
 
       if (status != 0) {
@@ -34,6 +34,6 @@ void *print_hello_world(void *tid)
 {
    /*int i = (int)tid;*/
    /* Stampa l'ID del thread ed esce */
-   printf("Hello World from thread %d0", (int)tid);
+   printf("Hello World from thread %d0\n", (int)tid);
    pthread_exit(NULL);
 }
