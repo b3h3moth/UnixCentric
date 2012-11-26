@@ -5,44 +5,22 @@
 #include <pthread.h>
 #include <unistd.h>
 
-#define MAX_VAL 10
+/* 
+HEADER    : <pthread.h>
+PROTOTYPE : int pthread_join(pthread_t thread, void **retval);
+SEMANTICS : La funzione pthread_join() attende la terminazione del thread 
+            specificato dal primo argomento 'thread', in retval sara' salvato
+            il valore di ritorno del thread terminato.
+RETURNS   : 0 in caso di successo, numero di errore in caso di errore
+--------------------------------------------------------------------------------
+*/
 
-static int val = 0;
-
-void *print(void *arg);
-
-/* Si mostra come lo scheduler esegue alternativamente i due thread del 
-programma. */
-int main(int argc, char *argv[], char *envp[])
-{
+int main(int argc, char *argv[], char *envp[]) {
     pthread_t thrID;
     int err;
     
     err = pthread_create(&thrID, NULL, &print, NULL);
-    
-    /* Un altro modo per verificare il valore di ritorno della funzione e' di
-    utilizzare direttamente la variabile, dopo l'assegnamento. Personalmente
-    preferisco inserire tutto insieme come negli esempi precedenti. */
-    if (err != 0) {
-        fprintf(stderr, "Err. pthread_create(): %s\n", strerror(err));
-        exit(EXIT_FAILURE);
-    }
-    
-    while(val < MAX_VAL) {
-      printf("  Sono nel main: %d (%lu)\n", val++, pthread_self());
-      sleep(1);
-   }
 
 
    return(EXIT_SUCCESS);
-}
-
-void *print(void *arg)
-{
-    while(1) {
-        printf("Sono nel thread: %d (%lu)\n", val++, pthread_self());
-        sleep(1);
-    }
-    
-    return((void*)0);
 }
