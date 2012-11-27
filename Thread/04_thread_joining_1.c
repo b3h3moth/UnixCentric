@@ -58,6 +58,8 @@ int main(int argc, char *argv[], char *envp[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* Lo stato di uscita di un thread puo' essere ottenuto da un altro thread 
+    mediante la funzione thread_join(), invocata precedentemente. */
     printf("Valore di ritorno del thread (%lu) : '%d'\n", thrID, (int)thr_ret);
 
     return(EXIT_SUCCESS);
