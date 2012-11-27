@@ -33,6 +33,7 @@ void *thr_func(void *arg);
 int main(int argc, char *argv[], char *envp[]) {
     pthread_t thrID;
     int thr_err;
+    void *thr_ret;
     
     if ((thr_err = pthread_create(&thrID, NULL, &thr_func, NULL)) != 0) {
         fprintf(stderr, "Err. pthread_create() (%s)\n", strerror(thr_err));
@@ -47,11 +48,17 @@ int main(int argc, char *argv[], char *envp[]) {
     in sostanza tale chiamata manda in sleep() il main() in attesa che la 
     funzione thr_func() possa essere completamente eseguita, e non appena cio'
     accadra' pthread_join() ritornera' e il programma avra' nuovamente un solo
-    thread. */
-    if (pthread_join(thrID, NULL) != 0) {
+    thread. 
+    
+    Il primo argomento della funzione si riferisce al thread da attendere, il
+    secondo argomento invece riguarda il valore di ritorno del thread,
+    rispettivamente 'thrID' e 'thr_ret'. */
+    if (pthread_join(thrID, &thr_ret) != 0) {
         fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(thr_err));
         exit(EXIT_FAILURE);
     }
+
+    printf("Valore di ritorno del thread (%lu) : '%d'\n", thrID, (int)thr_ret);
 
     return(EXIT_SUCCESS);
 }
