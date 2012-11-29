@@ -30,39 +30,37 @@ RETURNS   : Questa funzione non ritorna
 --------------------------------------------------------------------------------
 */
 
-void *thr_func(void *arg);
+void *thr_func(void *thr_num);
 
 int main(void) {
     pthread_t thr[MAX_THREAD];
     int i, thr_err;
 
     /* Si provvede alla creazione di MAX_THREAD thread */
-    for (i=0; i<=MAX_THREAD; i++) {
+    for (i=0; i<MAX_THREAD; i++) {
         
-        printf("thread %d: ", i);
-        
-        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, NULL)) != 0) {
+        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, (void*)i)) != 0) {
             fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
             exit(EXIT_FAILURE);
         }
     }
 
-    for (i=0; i<=MAX_THREAD; i++) {
+    for (i=0; i<MAX_THREAD; i++) {
         if (pthread_join(thr[i], NULL) != 0) {
             fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
     }
-
     
     return(EXIT_SUCCESS);
 }
 
-void *thr_func(void *arg)
+void *thr_func(void *thr_num)
 {
     pthread_t tid = pthread_self();
 
-    printf("TID %lu - Address 0x%x\n", tid, (unsigned int)pthread_self());
+    printf("thread '%d' - TID %lu - Address 0x%x\n", 
+            (int)thr_num, tid, (unsigned int)pthread_self());
 
     pthread_exit((void*)0);
 }
