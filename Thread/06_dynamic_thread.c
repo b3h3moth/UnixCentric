@@ -8,6 +8,7 @@
 
 void *thr_func(void *thr_num);
 
+/* Il programma crea dinamicamente il numero di thread passati come argomento */
 int main(int argc, char *argv[]) {
     int i, thr_err, n_thr;
 
