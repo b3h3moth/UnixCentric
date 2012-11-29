@@ -54,7 +54,7 @@ int main(int argc, char *argv[], char *envp[]) {
     secondo argomento invece riguarda il valore di ritorno del thread,
     rispettivamente 'thrID' e 'thr_ret'. */
     if (pthread_join(thrID, &thr_ret) != 0) {
-        fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(thr_err));
+        fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
