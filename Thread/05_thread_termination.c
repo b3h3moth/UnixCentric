@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#define MAX_THREAD 5
+
 /* Se un thread all'interno di un processo dovesse invocare exit(), _Exit(), 
 oppure _exit(), l'intero processo sarebbe terminato, e questo non va bene
 perche' thread e processi dovrebbero essere indipendenti per cio' che concerne
@@ -29,7 +31,37 @@ RETURNS   : Questa funzione non ritorna
 --------------------------------------------------------------------------------
 */
 
+void *thr_func(void *arg);
+
 int main(void) {
+    pthread_t thr[MAX_THREAD];
+    int i, thr_err;
+
+    /* Si provvede alla creazione di MAX_THREAD thread */
+    for (i=0; i<MAX_THREAD; i++) {
+        
+        printf("Creazione thread %d: ", i);
+        
+        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, (void*)i)) != 0) {
+            fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
+            exit(EXIT_FAILURE);
+        }
+
+        if (pthread_join(thr[i], NULL) != 0) {
+            fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    pthread_exit(NULL);
     
     return(EXIT_SUCCESS);
+}
+
+void *thr_func(void *arg)
+{
+    pthread_t tid = pthread_self();
+    printf("Thread '%d' - TID %lu - Address %x\n", 
+            (int*)arg, tid, pthread_self());
+
 }
