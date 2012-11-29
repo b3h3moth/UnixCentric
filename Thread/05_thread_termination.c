@@ -3,6 +3,8 @@
 #include <errno.h>
 #include <string.h>
 #include <pthread.h>
+#include <unistd.h>
+#include <sys/syscall.h>
 
 #define MAX_THREAD 5
 
@@ -57,10 +59,15 @@ int main(void) {
 
 void *thr_func(void *thr_num)
 {
-    pthread_t tid = pthread_self();
+    pthread_t tid;
+
+    if ((tid = syscall(SYS_gettid)) == -1) { 
+        fprintf(stderr, "Err. syscall() %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     printf("thread '%d' - TID %lu - Address 0x%x\n", 
-            (int)thr_num, tid, (unsigned int)pthread_self());
+            (int)thr_num, tid, (unsigned int)tid);
 
     pthread_exit((void*)0);
 }
