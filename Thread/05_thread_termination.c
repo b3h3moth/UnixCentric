@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include <unistd.h>
 #include <pthread.h>
 
 #define MAX_THREAD 5
@@ -38,22 +37,23 @@ int main(void) {
     int i, thr_err;
 
     /* Si provvede alla creazione di MAX_THREAD thread */
-    for (i=0; i<MAX_THREAD; i++) {
+    for (i=0; i<=MAX_THREAD; i++) {
         
-        printf("Creazione thread %d: ", i);
+        printf("thread %d: ", i);
         
-        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, (void*)i)) != 0) {
+        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, NULL)) != 0) {
             fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
             exit(EXIT_FAILURE);
         }
+    }
 
+    for (i=0; i<=MAX_THREAD; i++) {
         if (pthread_join(thr[i], NULL) != 0) {
             fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
     }
 
-    pthread_exit(NULL);
     
     return(EXIT_SUCCESS);
 }
@@ -61,7 +61,8 @@ int main(void) {
 void *thr_func(void *arg)
 {
     pthread_t tid = pthread_self();
-    printf("Thread '%d' - TID %lu - Address %x\n", 
-            (int*)arg, tid, pthread_self());
 
+    printf("TID %lu - Address 0x%x\n", tid, (unsigned int)pthread_self());
+
+    pthread_exit((void*)0);
 }
