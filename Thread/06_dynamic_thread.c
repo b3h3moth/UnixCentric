@@ -6,9 +6,13 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 
+/* variabile globale condivisa tra i thread */
+int global_var = 10;
+
 void *thr_func(void *thr_num);
 
-/* Il programma crea dinamicamente il numero di thread passati come argomento */
+/* Il programma riceve come argomento il numero di thread da creare
+dinamicamente. */
 int main(int argc, char *argv[]) {
     int i, thr_err, n_thr;
 
@@ -35,6 +39,7 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
     }
+
     
     return(EXIT_SUCCESS);
 }
@@ -42,13 +47,16 @@ int main(int argc, char *argv[]) {
 void *thr_func(void *thr_num)
 {
     pthread_t tid;
+    global_var++;
 
     if ((tid = syscall(SYS_gettid)) == -1) { 
         fprintf(stderr, "Err. syscall() %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    printf("thread - TID %lu - Address 0x%x\n", tid, (unsigned int)tid);
+    printf("thread - TID %lu - Address 0x%x - ", tid, (unsigned int)tid);
+
+    printf("Variabile globale: %d\n", global_var);
 
     pthread_exit((void*)0);
 }
