@@ -4,7 +4,30 @@
 #include <string.h>
 #include <unistd.h>
 
-/* Per verificare se il sistema supporta i thread vi sono due strade:
+/* I Thread sono stati standardizzati nel 1995, IEEE POSIX 1003.1c ne specifica
+l'interfaccia di programmazione - (API - Application Program Interface) -, i
+thread POSIX vanno sotto il nome di Pthreads, ossia POSIX threads.
+
+Le API possono essere classificate in:
+- Thread management     funzioni per creare, eliminare, terminare e attendere 
+                        thread, in pratica la gestione;
+- Mutex                 funzioni per la gestione della mutua esclusione, ossia 
+                        la sincronizzazione semplice.
+- Condition variables   funzioni a supporto della sincronizzazione basata sul
+                        settaggio di specifiche variabili, dette di condizione.
+
+Gli identificatori della libreria Pthread hanno adottato il suffisso pthread_ 
+che contraddistingue ciascun nome di funzione, inoltre vi sono ulteriori 
+differenziazioni sui nomi stessi delle fuznioni:
+- pthread_              gestione dei thread in generale;
+- pthread_attr_         gestione relative alla proprieta' dei thread;
+- pthread_mutex_        gestione della mutua esclusione;
+- pthread_mutexattr_    proprieta' delle strutture per la mutua esclusione;
+- pthread_cond_         gestione delle variabili di condizione;
+- pthread_condattr_     proprieta' delle variabili di condizione;
+- pthread_key_          dati speciali dei thread.
+
+Per verificare se il sistema supporta i thread vi sono due strade:
 
 1 - a compile-time, utilizzando le direttive al preprocessore per la 
     compilazione condizionale, nel caso specifico la macro _POSIX_THREADS; 
@@ -15,7 +38,7 @@ int main(void) {
     long res;
 
 #ifdef _POSIX_THREADS
-    printf ("POSIX.1c pthreads supportati\n");
+    printf ("IEEE POSIX 1003.1c \"pthreads\" supportati\n");
 #endif
 
     if ((res = sysconf(_SC_THREADS)) == -1) {

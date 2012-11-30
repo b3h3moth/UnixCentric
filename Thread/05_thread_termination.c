@@ -69,5 +69,6 @@ void *thr_func(void *thr_num)
     printf("thread '%d' - TID %lu - Address 0x%x\n", 
             (int)thr_num, tid, (unsigned int)tid);
 
+    /* La funzione pthread_exit() termina il thread chiamante */
     pthread_exit((void*)0);
 }
