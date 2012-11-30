@@ -52,7 +52,12 @@ int main(int argc, char *argv[], char *envp[]) {
     
     Il primo argomento della funzione si riferisce al thread da attendere, il
     secondo argomento invece riguarda il valore di ritorno del thread,
-    rispettivamente 'thrID' e 'thr_ret'. */
+    rispettivamente 'thrID' e 'thr_ret'. 
+    
+    La funzione pthread_join() e' estremamente importante, ogni nuovo thread
+    dovrebbe passare attraverso tale funzione per poi essere ricongiunta al 
+    thread principale, anche perche' se cio' non accadesse diminuirebbe il 
+    numero massimo di thread a disposizione del sistema. */
     if (pthread_join(thrID, &thr_ret) != 0) {
         fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(errno));
         exit(EXIT_FAILURE);
