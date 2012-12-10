@@ -16,9 +16,10 @@ void *thr_func2(void *arg);
 
 void *thr_func(void *thr_num);
 
-/* Il programma mostra l'utilizzo di variabili allocate sullo stack usate come
-argomento della funzione pthread_exit() e come lo stack del secondo thread 
-venga sovrascritto dallo stack del primo thread. */
+/* Il programma mostra il problema che puo' capitare alle variabili allocate 
+sullo stack usate come argomento della funzione pthread_exit(), e come lo stack
+del secondo thread venga sovrascritto dallo stack del primo thread; la soluzione
+potrebbe essere l'allocazione dinamica della struttura con malloc. */
 int main(void) {
     pthread_t thrID1, thrID2;
     int thr_err;
@@ -62,14 +63,16 @@ void print_data(const char *str, const struct data *fp)
 
 void *thr_func1(void *arg)
 {
-    struct data data = {1,2,3,4};
+    struct data data = {100, 200, 300, 400};
     print_data("thread 1:\n", &data);
 
+    /* In questa occasione vi e' la sovrascrittura della struttura */
     pthread_exit((void *)&data);
 }
 
 void *thr_func2(void *arg)
 {
     printf("thread 2: ");
+
     pthread_exit((void *)0);
 }
