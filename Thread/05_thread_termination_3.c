@@ -8,6 +8,7 @@
 
 struct data {
     int var_a, var_b, var_c, var_d;
+    char *str_1, *str_2, *str_3, *str_4;
 };
 
 void print_data(const char *str, const struct data *fp);
@@ -54,16 +55,17 @@ int main(void) {
 void print_data(const char *str, const struct data *fp)
 {
     printf(str);
-    printf("    struttura: 0x%x\n", (unsigned)fp);
-    printf("               data.var_a = %d\n", fp->var_a);
-    printf("               data.var_b = %d\n", fp->var_b);
-    printf("               data.var_c = %d\n", fp->var_c);
-    printf("               data.var_d = %d\n", fp->var_d);
+    printf("struttura: 0x%x\n", (unsigned)fp);
+    printf("    data.var_a = %d - data.str_1 = %s\n", fp->var_a, fp->str_1);
+    printf("    data.var_b = %d - data.str_2 = %s\n", fp->var_b, fp->str_2);
+    printf("    data.var_c = %d - data.str_3 = %s\n", fp->var_c, fp->str_3);
+    printf("    data.var_d = %d - data.str_4 = %s\n", fp->var_d, fp->str_4);
 }
 
 void *thr_func1(void *arg)
 {
-    struct data data = {100, 200, 300, 400};
+    struct data data = {100, 200, 300, 400, "Thread", "Programming", "on Unix",
+        "System"};
     print_data("thread 1:\n", &data);
 
     /* In questa occasione vi e' la sovrascrittura della struttura */
