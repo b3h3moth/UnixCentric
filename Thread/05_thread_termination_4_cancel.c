@@ -16,35 +16,35 @@ SEMANTICS : La funzione pthread_cancel() consente al thread corrente di
             cancellare il thread indentificato da 'tid'.
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
-Nota: E' come se fosse invocata la funzione pthread_exit(PTHREAD_CANCELED);
+Nota: E' come se fosse invocata la funzione pthread_exit(PTHREAD_CANCELED),
+      inoltre la funzione pthread_cancel() non attende la terminazione del 
+      thread, poiche' non si tratta di un vero e proprio 'ordine' ma piuttosto
+      di una richiesta.
 */
 
-void *thr_func(void *thr_num);
+void *thr_func(void *arg);
 
 int main(void) {
-    pthread_t thr[MAX_THREAD];
-    int i, thr_err;
-
-    /* Si provvede alla creazione di MAX_THREAD thread */
-    for (i=0; i<MAX_THREAD; i++) {
-        
-        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, (void*)i)) != 0) {
-            fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
-            exit(EXIT_FAILURE);
-        }
+    pthread_t thrID1, thrID2;
+    int thr_err;
+    
+    
+    if ((thr_err = pthread_create(&thrID1,NULL, thr_func, NULL)) != 0) {
+        fprintf(stderr, "Err. pthread_create()  %s\n", strerror(thr_err));
+        exit(EXIT_FAILURE);
     }
 
-    for (i=0; i<MAX_THREAD; i++) {
-        if (pthread_join(thr[i], NULL) != 0) {
-            fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
-            exit(EXIT_FAILURE);
-        }
+    pthread_cancel(thrID1);
+    
+    if (pthread_join(thrID1, NULL) != 0) {
+        fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
     }
     
     return(EXIT_SUCCESS);
 }
 
-void *thr_func(void *thr_num)
+void *thr_func(void *arg)
 {
     pthread_t tid;
 
@@ -53,9 +53,6 @@ void *thr_func(void *thr_num)
         exit(EXIT_FAILURE);
     }
 
-    printf("thread '%d' - TID %lu - Address 0x%x\n", 
-            (int)thr_num, tid, (unsigned int)tid);
+    printf("thread TID %lu \n", (unsigned int)tid);
 
-    /* La funzione pthread_exit() termina il thread chiamante */
-    pthread_exit((void*)0);
 }

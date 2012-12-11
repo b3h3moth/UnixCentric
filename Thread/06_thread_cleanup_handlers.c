@@ -20,7 +20,6 @@ SEMANTICS : La funzione pthread_cleanup_push() registra la funzione di cleanup
             2 - come risposta ad una richiesta di cancellazione;
             3 - una chiamata a pthread_cleanup_pop(), con argomento non zero,
                 nel caso specifico 'execute'.
-
 RETURNS   : Questa funzione non ritorna
 --------------------------------------------------------------------------------
 */

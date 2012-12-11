@@ -32,6 +32,7 @@ void *thr_func(void *arg);
 
 int main() {
     pthread_t thrID;
+    int thr_err;
     char str[] = "POSIX thread";
 
     /* Si invoca la funzione pthread_create() per creare un nuovo thread:
@@ -53,9 +54,13 @@ int main() {
     sarebbe stato composto da un singolo thread; vale a dire che ogni programma 
     corrisponde comunque ad un singolo thread, definito peraltro "thread 
     principale", per cui mediante la funzione pthread_create() si sarebbe creato
-    il secondo. */
-    if ((pthread_create(&thrID, NULL, thr_func, str)) != 0) {
-        fprintf(stderr, "Err. pthread_create() %s\n", strerror(errno));
+    il secondo. 
+    
+    Gli errori, come accennato nell'esempio sul supporto[1], conviene gestirli
+    senza variabili esterne, utilizzando il valore restituito dalle funzioni,
+    nel caso specifico 'thr_err'. */
+    if ((thr_err = pthread_create(&thrID, NULL, thr_func, str)) != 0) {
+        fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
         exit(EXIT_SUCCESS);
     }
     
@@ -74,4 +79,6 @@ void *thr_func(void *arg)
     printf("New Thread: %s\n", arg);
 }
 
-/* COMPILAZIONE: $ gcc programma.c -lpthread */
+/* COMPILAZIONE: $ gcc programma.c -lpthread 
+
+[1] Programma relativo al supporto dei POSIX THREADS: 01_threads_support.c */
