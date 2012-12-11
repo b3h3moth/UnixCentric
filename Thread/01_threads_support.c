@@ -27,6 +27,13 @@ differenziazioni sui nomi stessi delle fuznioni:
 - pthread_condattr_     proprieta' delle variabili di condizione;
 - pthread_key_          dati speciali dei thread.
 
+Gestione degli errori
+---------------------
+Poiche' i thread condividono la memoria, e' altamente consigliato di non
+utilizzare una variabile globale come 'errno' per la gestione degli errori, ma
+piuttosto di adoperare il codice d'errore restituito da ciascuna funzione della
+famiglia POSIX THREADS.
+
 Per verificare se il sistema supporta i thread vi sono due strade:
 
 1 - a compile-time, utilizzando le direttive al preprocessore per la 
