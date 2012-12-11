@@ -16,6 +16,7 @@ SEMANTICS : La funzione pthread_cancel() consente al thread corrente di
             cancellare il thread indentificato da 'tid'.
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
+Nota: E' come se fosse invocata la funzione pthread_exit(PTHREAD_CANCELED);
 */
 
 void *thr_func(void *thr_num);
