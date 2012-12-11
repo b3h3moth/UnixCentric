@@ -48,8 +48,8 @@ int main(void) {
     }
 
     for (i=0; i<MAX_THREAD; i++) {
-        if (pthread_join(thr[i], NULL) != 0) {
-            fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
+        if ((thr_err = pthread_join(thr[i], NULL)) != 0) {
+            fprintf(stderr, "Err. pthread_join() %s\n", strerror(thr_err));
             exit(EXIT_FAILURE);
         }
     }

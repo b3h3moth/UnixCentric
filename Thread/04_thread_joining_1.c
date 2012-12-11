@@ -58,8 +58,8 @@ int main(int argc, char *argv[], char *envp[]) {
     dovrebbe passare attraverso tale funzione per poi essere ricongiunta al 
     thread principale, anche perche' se cio' non accadesse diminuirebbe il 
     numero massimo di thread a disposizione del sistema. */
-    if (pthread_join(thrID, &thr_ret) != 0) {
-        fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(errno));
+    if ((thr_err = pthread_join(thrID, &thr_ret)) != 0) {
+        fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(thr_err));
         exit(EXIT_FAILURE);
     }
 

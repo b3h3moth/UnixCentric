@@ -24,7 +24,7 @@ int main(void) {
     
     /* Si sarebbe ottenuto il medesimo risultato con:
     'int *thr_ret' e '(void *)&thr_ret' come argomento della funzione. */
-    if (pthread_join(thrID, &thr_ret) != 0) {
+    if ((thr_err = pthread_join(thrID, &thr_ret)) != 0) {
         fprintf(stderr, "Err. pthread_join() (%s)\n", strerror(thr_err));
         exit(EXIT_FAILURE);
     }
