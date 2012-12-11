@@ -22,37 +22,8 @@ Nota: E' come se fosse invocata la funzione pthread_exit(PTHREAD_CANCELED),
       di una richiesta.
 */
 
-void *thr_func(void *arg);
 
 int main(void) {
-    pthread_t thrID1, thrID2;
-    int thr_err;
-    
-    
-    if ((thr_err = pthread_create(&thrID1,NULL, thr_func, NULL)) != 0) {
-        fprintf(stderr, "Err. pthread_create()  %s\n", strerror(thr_err));
-        exit(EXIT_FAILURE);
-    }
-
-    pthread_cancel(thrID1);
-    
-    if (pthread_join(thrID1, NULL) != 0) {
-        fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
     
     return(EXIT_SUCCESS);
-}
-
-void *thr_func(void *arg)
-{
-    pthread_t tid;
-
-    if ((tid = syscall(SYS_gettid)) == -1) { 
-        fprintf(stderr, "Err. syscall() %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-
-    printf("thread TID %lu \n", (unsigned int)tid);
-
 }
