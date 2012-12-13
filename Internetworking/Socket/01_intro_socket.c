@@ -4,10 +4,10 @@
 #include <netdb.h>
 
 /*
-Un socket e' un'interfaccia all'infrastruttura di comunicazione che il kernel di
-un sistema operativo mette a disposizione dei processi per accedere ai servizi 
-del livello di trasporto dello stack ISO/OSI; un socket puo' assumere due
-modalita' di funzionamento:
+Un socket e' un'interfaccia verso l'infrastruttura di comunicazione che il 
+kernel mette a disposizione dei processi per accedere ai servizi del livello di
+trasporto dello stack ISO/OSI; un socket puo' assumere due modalita' di 
+funzionamento:
 1 - connesso    , in relazione diretta con un altro socket, stabilendo un
                   rapporto mittente/destinazione permanente.
 2 - non connesso, invia messaggi ad un indirizzo di destinazione in rete.
