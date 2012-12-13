@@ -5,20 +5,21 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-/* Differeni architetture possono utilizzare differenti metodi di byte-ordering,
-come e' noto i processori che supportano il big-endian conservano il byte piu'
+/* Differenti architetture possono utilizzare differenti metodi di byte-ordering
+, come e' noto i processori che supportano il big-endian conservano il byte piu'
 significativo nell'indirizzo piu' basso, mentre i processori con supporto
-little-endian piazzano nell'indirizzo piu' basso  il byte meno significativo.
+little-endian piazzano nell'indirizzo piu' basso il byte meno significativo.
 
 Questo potrebbe generare, come e' ovvio, parecchia confusione quando e' 
 necessaria una comunicazione tra macchine con architetture differenti; per
-evitare questo genere di problemi l'interfaccia socket specifica uno standard
-byte-ordering chiamato network byte order, implementato come big-endian.
+evitare questo genere di problemi l'interfaccia dei socket specifica uno 
+standard byte-ordering chiamato network byte order, implementato peraltro come 
+big-endian.
 
-Tutte le comunicazioni di rete pertanto dovrebbero essere big-endian.
+Nota: Secondo logica tutte le comunicazioni di rete dovrebbero essere big-endian
 
-Le socket forniscono una serie di macro utili alla conversione da host 
-byte-order a network byte-order e vicevera, esse sono:
+I socket forniscono una serie di macro utili alla conversione da host byte-order
+a network byte-order e viceversa, esse sono:
 (h = host, n = network, l = long, s = short)
 
 HEADER    : <arpa/inet.h>
