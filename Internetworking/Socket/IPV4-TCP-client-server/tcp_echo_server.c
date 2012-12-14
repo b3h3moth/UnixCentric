@@ -8,14 +8,33 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
+/* Implementazione di un echo server TCP per IPV4 
+
+Compilare client e server:
+--------------------------
+$ gcc tcp_client.c -o client
+$ gcc tcp_echo_server.c -o server
+
+Eseguire il server, anche in background:
+----------------------------------------
+$ ./server 3999 &
+[1] 7052
+
+Provare l'echoing e le risposte del server eseguento il client:
+---------------------------------------------------------------
+$ ./client 10.0.0.13 "Unix network programming" 3999
+handling client 10.0.0.13/40059
+Ricevuti: Unix network programming
+*/
+
 #define BUF_SIZE 512
 
 /* Il numero massimo di richiese in attesa */
 static const int MAX_PENDING_REQUEST = 5;
 
+/* Funzione per la gestione del client TCP */
 void Handle_TCP_Client(int client_sock);
 
-/* Implementazione di un echo server TCP per IPV4 */
 
 int main(int argc, char *argv[]) {
     int server_sock;                        /* Socket del server */
