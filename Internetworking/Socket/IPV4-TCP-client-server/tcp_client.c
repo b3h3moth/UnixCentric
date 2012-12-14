@@ -106,7 +106,8 @@ int main(int argc, char *argv[]) {
         /* Si calcola il totale dei byte ricevuti */
         total_byte_receveid += num_bytes;
         
-        /* Si aggiunge il carattere nullo di terminazione stringa */
+        /* Si aggiunge il carattere nullo di terminazione stringa, per poter
+        essere gestita successivamente dalla funzione fputs() */
         buf[num_bytes] = '\0';
         
         /* Si stampa sullo stdout la stringa ottenuta */
