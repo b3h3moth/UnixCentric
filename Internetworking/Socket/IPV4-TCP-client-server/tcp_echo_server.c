@@ -76,8 +76,10 @@ int main(int argc, char *argv[]) {
                     ntohs(client_address.sin_port));
         } else
             puts("Non e' possibile connettersi al client");
-        
 
+        /* -------------  IN FASE DI SCRITTURA ----------- */
+        Handle_TCP_Client(client_sock);
+    }
 
     return(EXIT_SUCCESS);
 }
