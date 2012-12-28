@@ -9,7 +9,7 @@
 /* Un thread puo' predisporre la chiamata di talune funzioni alla chiusura del 
 thread stesso, il funzionamento e' molto simile alla funzione atexit[1]; tali
 funzioni sono chiamate "thread cleanup handlers", sono collocate sullo stack
-per cui saranno eseguite in ordine inverso rispetto alla collocazione.
+per cui saranno eseguite in ordine inverso rispetto all'invocazione.
 
 HEADER    : <pthread.h>
 PROTOTYPE : void pthread_cleanup_push(void (*routine)(void*), void *arg);
@@ -18,49 +18,92 @@ SEMANTICS : La funzione pthread_cleanup_push() registra la funzione di cleanup
             'routine' che sara' invocata con argomento 'arg' in seguito a:
             1 - una chiamata alla funzione pthread_exit();
             2 - come risposta ad una richiesta di cancellazione;
-            3 - una chiamata a pthread_cleanup_pop(), con argomento non zero,
-                nel caso specifico 'execute'.
-RETURNS   : Questa funzione non ritorna
+            3 - una chiamata a pthread_cleanup_pop() con argomento non zero.
+                'execute' dev'essere diverso da zero, altrimenti la funzione di
+                cleanup non sara' invocata.
+            La funzione pthread_cleanup_pop() rimuove la connessione stabilita
+            dalla funzione pthread_cleanup_push().
+RETURNS   : Le funzioni non ritornano
 --------------------------------------------------------------------------------
 */
 
-void *thr_func(void *thr_num);
+void *thr_func1(void *arg);
+void *thr_func2(void *arg);
+void cleanup(void *arg);
 
 int main(void) {
-    pthread_t thr[MAX_THREAD];
-    int i, thr_err;
-
-    /* Si provvede alla creazione di MAX_THREAD thread */
-    for (i=0; i<MAX_THREAD; i++) {
-        
-        if ((thr_err = pthread_create(&thr[i],NULL, thr_func, (void*)i)) != 0) {
-            fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
-            exit(EXIT_FAILURE);
-        }
+    pthread_t thrID1, thrID2;
+    int thr_err;
+    void *thr_ret = 0;
+    
+    /* Creazione del primo thread */
+    if ((thr_err = pthread_create(&thrID1,NULL, thr_func1, (void*)1)) != 0) {
+        fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
+        exit(EXIT_FAILURE);
     }
 
-    for (i=0; i<MAX_THREAD; i++) {
-        if (pthread_join(thr[i], NULL) != 0) {
-            fprintf(stderr, "Err. pthread_join() %s\n", strerror(errno));
-            exit(EXIT_FAILURE);
-        }
+    /* Creazione del secondo thread */
+    if ((thr_err = pthread_create(&thrID2,NULL, thr_func2, (void*)1)) != 0) {
+        fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_err));
+        exit(EXIT_FAILURE);
     }
+
+    /* Joining del primo thread */
+    if ((thr_err = pthread_join(thrID1, &thr_ret)) != 0) {
+        fprintf(stderr, "Err. pthread_join() 1 - %s\n", strerror(thr_err));
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Thread 1 exit code: %d\n", (int)thr_ret);
+
+    /* Joining del secondo thread */
+    if ((thr_err = pthread_join(thrID2, &thr_ret)) != 0) {
+        fprintf(stderr, "Err. pthread_join() 1 - %s\n", strerror(thr_err));
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Thread 2 exit code: %d\n", (int)thr_ret);
     
     return(EXIT_SUCCESS);
 }
 
-void *thr_func(void *thr_num)
+void *thr_func1(void *arg)
 {
-    pthread_t tid;
+    printf("Start Thread 1 \'ThrID1\'\n");
 
-    if ((tid = syscall(SYS_gettid)) == -1) { 
-        fprintf(stderr, "Err. syscall() %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
+    pthread_cleanup_push(cleanup, "thread 1 first handler");
+    pthread_cleanup_push(cleanup, "thread 1 second handler");
 
-    printf("thread '%d' - TID %lu - Address 0x%x\n", 
-            (int)thr_num, tid, (unsigned int)tid);
+    printf("Thread 1 \'ThrID1\' - push complete\n");
 
-    /* La funzione pthread_exit() termina il thread chiamante */
-    pthread_exit((void*)0);
+    if (arg) 
+        return((void*)1);
+
+    pthread_cleanup_pop(0);
+    pthread_cleanup_pop(0);
+    
+    return((void*)1);
+}
+
+void *thr_func2(void *arg)
+{
+    printf("Start Thread 2 \'ThrID2\'\n");
+
+    pthread_cleanup_push(cleanup, "thread 2 first handler");
+    pthread_cleanup_push(cleanup, "thread 2 second handler");
+
+    printf("Thread 1 \'ThrID2\' - push complete\n");
+
+    if (arg) 
+        pthread_exit((void*)2);
+
+    pthread_cleanup_pop(0);
+    pthread_cleanup_pop(0);
+    
+    pthread_exit((void*)2);
+}
+    
+void cleanup(void *arg)
+{
+    printf("Cleanup: %s\n", (char*)arg);
 }
