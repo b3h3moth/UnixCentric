@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/socket.h>
 #include <netdb.h> 
 
@@ -20,7 +21,7 @@ int main(int argc, char *argv[]) {
     
     if (argc < 2) {
     	fprintf(stderr, "Uso: %s <protocollo>\n", argv[0]);
-	return(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
     }
     
     /* getprotobyname() restituisce un puntatore ad una struttura protoent
@@ -28,8 +29,8 @@ int main(int argc, char *argv[]) {
     proto_info = getprotobyname(argv[1]);
     
     if (proto_info == NULL) {
-    	perror("getprotobyname:");
-	return(EXIT_FAILURE);
+    	fprintf(stderr, "Err. getprotobyname()\n");
+	exit(EXIT_FAILURE);
     }
     
     printf("Informazioni circa il protocollo:\n");
@@ -42,8 +43,8 @@ int main(int argc, char *argv[]) {
     skt = socket(dominio, tipo, protocollo);
     
     if (skt < 0) {
-    	perror("socket");
-	return(EXIT_FAILURE);
+    	fprintf(stderr, "Err. socket()\n");
+	exit(EXIT_FAILURE);
     }
     
     return(EXIT_SUCCESS);
