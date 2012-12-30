@@ -3,6 +3,27 @@
 #include <netinet/in.h>	
 #include <netdb.h>
 
+/* La funzione gethostbyname() resituisce un puntatore alla struttura hostent,
+gia' allocata in memoria:
+
+struct hostent {
+    char    *name;
+    char    **aliases;
+    int     h_addrtype;
+    int     h_length;
+    char    **h_addr_list;
+};
+
+HEADER    : <netdb.h>
+PROTOTYPE : struct hostent *gethostbyname(const char *name);
+SEMANTICS : La funzione gethostbyname() restituisce un puntatore alla struttura
+            hostent, contenente informazioni utili sull'host 'name'.
+RETURNS   : Un puntatore alla struttura hostent in caso di successo, o NULL in
+            caso di errore
+--------------------------------------------------------------------------------
+Tale funzione e' considerata obsoleta, si consiglia l'utilizzo di getaddrinfo()
+e getnameinfo().
+*/
 
 int main(int argc, char *argv[]) {
     int i;
