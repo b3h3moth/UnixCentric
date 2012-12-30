@@ -2,8 +2,27 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <sys/socket.h>
 #include <netdb.h> 
+#include <sys/socket.h>
+
+/* La funzione getprotobyname() restituisce un puntatore ad una struttura 
+protoent contenente campi con informazioni inerenti il protocollo, la lista con
+tali informazioni e' collocata in /etc/protocols.
+
+struct protoent {
+    char    *p_name;        il nome ufficiale del protocollo
+    char    **p_aliases;    lista di alias
+    int     p_proto;        numero del protocollo
+}
+
+HEADER    : <netdb.h>
+PROTOTYPE : struct protoent *getprotobyname(const char *name);
+SEMANTICS : La funzione getrpcbyname() ritorna una struttura protoent contenente
+            alcune voci sul protocollo definito da 'name'.
+RETURNS   : Un puntatore alla struttura protoent in caso di successo, o NULL in
+            caso di errore
+--------------------------------------------------------------------------------
+*/
 
 /* Il programma riceve un parametro da utilizzare con getprotobyname(), se tale
 parametro corrisponde ad un protocollo valido saranno restituite alcune
@@ -25,15 +44,6 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
     }
     
-    /* getprotobyname() restituisce un puntatore ad una struttura protoent
-    contenente campi con informazioni inerenti il protocollo, la lista con
-    tali informazioni e' collocata in /etc/protocols.
-
-    struct protoent {
-        char    *p_name;        il nome ufficiale del protocollo
-        char    **p_aliases;    lista di alias
-        int     p_proto;        numero del protocollo
-    } */
     
     if ((proto_info = getprotobyname(argv[1])) == NULL) {
         fprintf(stderr, "Err. getprotobyname()\n");
