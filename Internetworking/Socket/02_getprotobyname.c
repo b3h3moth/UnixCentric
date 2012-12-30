@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     int tipo = SOCK_DGRAM;
     int protocollo = 0;
     
-    /* la socket */
+    /* socket */
     int skt;
     
     /* Informazioni sul protocollo */
