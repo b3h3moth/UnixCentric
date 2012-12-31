@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <netdb.h>
+#include <arpa/inet.h>
 #include <sys/socket.h>
 
 /* Quando si crea un socket non si specificano indirizzi, la funzione infatti ha
@@ -61,6 +63,10 @@ int main(void) {
     ind_trasporto.sin_family = dominio;
     ind_trasporto.sin_addr.s_addr = indirizzo;
     ind_trasporto.sin_port = htons(porta);
+
+    printf("\t%u\t%u\t%u\n", ind_trasporto.sin_family, 
+                         ind_trasporto.sin_addr.s_addr,
+                         ind_trasporto.sin_port);
 
     return(EXIT_SUCCESS);
 }
