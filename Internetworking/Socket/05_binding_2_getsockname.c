@@ -7,8 +7,8 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 
-#define PORT 7000
-#define SEC 30
+#define PORT 0
+#define SEC  30
 
 /* Per capire a quale indirizzo di trasporto e' associato un socket, e'
 possibile utilizzare la funzione getsockname():
@@ -26,8 +26,10 @@ RETURNS   : 0 in caso di successo, -1 in caso di errore
 /* Il programma associa un socket ad una porta e ne stampa il numero  */
 int main(int argc, char *argv[]) {
     struct sockaddr_in address;     /* Ipv4 internet address */
+    struct sockaddr_in local_addr;  
     struct protoent *pr;            
     int sock;
+    unsigned int len = sizeof(local_addr);
 
     if (argc != 2) {
         fprintf(stderr, "Uso: %s <protocollo>\n", argv[0]);
@@ -51,6 +53,9 @@ int main(int argc, char *argv[]) {
     INADDR_ANY.  */
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
+
+    /* Si pone la porta a 0 per far si che il binding avvenga alla prima porta
+    disponibile */
     address.sin_port = htons(PORT);
 
     if (bind(sock, (void*)&address, sizeof(address)) < 0) {
@@ -58,9 +63,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    if (getsockname(sock, (void*)&local_addr, &len) < 0) {
+        fprintf(stderr, "Err. getsockname() - %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    /* Si stampa l'indirizzo, non prima di averlo convertito mediante ntohs() */
+    printf("Porta allocata: %d\n", ntohs(local_addr.sin_port));
+
     sleep(SEC);
 
     return(EXIT_SUCCESS);
 }
-
-/* Utilizzando netstat si potra' verificare l'allocazione del socket */
