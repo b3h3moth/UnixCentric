@@ -4,7 +4,7 @@
 #include <netdb.h>
 
 /* La funzione gethostbyname() resituisce un puntatore alla struttura hostent,
-gia' allocata in memoria:
+gia' allocata in memoria, con diverse voci inerenti l'hostname:
 
 struct hostent {
     char    *name;
