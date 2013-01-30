@@ -36,10 +36,32 @@ tuttavia rende l'idea perfettamente) gerarchici e strutturati, con coppie
 "nome = valore". 
 
 Il valore puo' essere uno dei seguenti tipi di dato:
-- Uno scalare;
-- Un array;
-- Un gruppo, che consiste in una collezione di impostazioni;
-- Una lista, ossia una sequenza di valori di ciascun tipo.
+- Uno scalare, se e' inserito tra doppi apici sara' una stringa, 
+               altrimenti sara' trattato come un intero a 64 bit, 
+               un floating-point o un boolean;
+
+
+- Un array,    se e' inserito tra parentesi quadre con ciascun elemento 
+               separato da una virgola;
+
+- Un gruppo,   consiste in una collezione di settings;
+
+- Una lista,   sequenza di valori di qualunque tipo, inserita tra parentesi e
+               ciascun elemento separato da una virgola.
+
+Settings
+nome = valore ;
+nome : valore;
+
+Gruppi
+{settings ... }
+
+Array
+[valore, valore ... ]
+
+Liste
+(valore, valore ...)
+
 
 Esempio (negozio, libreria, libri, etc, sono le impostazioni):
 
