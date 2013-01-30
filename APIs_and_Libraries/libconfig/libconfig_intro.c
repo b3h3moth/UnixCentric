@@ -60,9 +60,6 @@ Array
 Liste
 (valore, valore ...)
 
-
-Esempio (negozio, libreria, libri, etc, sono le impostazioni):
-
 ---------- 8< ---------- 
 business = 1.0;
 
@@ -130,13 +127,13 @@ int main(int argc, char *argv[]) {
 
     /* Si verifica l'esistenza di un un valore booleano */
     if (config_lookup_bool(&cfg, "prova", &boolean_value))
-            printf("boolean_value: %s\n", boolean_value ? "Yes" : "No");
+            printf("valore booleano: %s\n", boolean_value ? "Yes" : "No");
     else
         printf("boolean_value is non defined\n");
 
-    /* Ricezione stringa, corrispondente a 'filename' */
+    /* Ricezione di una stringa */
     if (config_lookup_string(&cfg, "filename", &str1))
-        printf("File type:: %s\n", str1);
+        printf("   Tipo di file: %s\n", str1);
     else
         printf("No filename setting config file\n");
 
@@ -145,21 +142,39 @@ int main(int argc, char *argv[]) {
     if (setting != NULL) {
         /* Legge  stringa */
         if (config_setting_lookup_string(setting, "host", &str2))
-            printf("          Host: %s\n", str2);
+            printf("           Host: %s\n", str2);
         else
             printf("No host\n");
 
         if (config_setting_lookup_string(setting, "arch", &str2))
-            printf("  Architettura: %s\n", str2);
+            printf("   Architettura: %s\n", str2);
         else
             printf("No arch\n");
         
         if (config_setting_lookup_float(setting, "kernel", &ker))
-            printf("Kernel version: %f\n", ker);
+            printf(" Kernel version: %f\n", ker);
         else
             printf("No kernel\n");
     }
 
+    setting = config_lookup(&cfg, "negozio.libri");
+    if (setting != NULL) {
+        /* Legge  stringa */
+        if (config_setting_lookup_string(setting, "titolo", &str2))
+            printf("         Titolo: %s\n", str2);
+        else
+            printf("Niene pizza oggi\n");
+    }
+
+    // Quando si lavora con liste o con array si utilizza l'indicizzazione */
+    setting = config_lookup(&cfg, "negozio.pizzeria.pizze_da_asporto.[1]");
+    if (setting != NULL) {
+        /* Legge  stringa */
+        if (config_setting_lookup_string(setting, "nome", &str2))
+            printf("          Pizza: %s\n", str2);
+        else
+            printf("NO PARAMMMM\n");
+    }
 
 
     return(EXIT_SUCCESS);
