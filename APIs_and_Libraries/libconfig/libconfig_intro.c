@@ -30,14 +30,13 @@ File di configurazione
 ----------------------
 Il file di configurazione per la lettura e la scrittura consiste in gruppi di 
 settings (in italiano combinazioni o impostazioni, il termine in inglese 
-tuttavia rende l'idea perfettamente) gerarchici e strutturati, con coppie 
+tuttavia rende meglio l'idea) gerarchici e strutturati, con coppie 
 "nome = valore". 
 
 Il valore puo' essere uno dei seguenti tipi di dato:
 - Uno scalare, se e' inserito tra doppi apici sara' una stringa, 
                altrimenti sara' trattato come un intero a 64 bit, 
                un floating-point o un boolean;
-
 
 - Un array,    se e' inserito tra parentesi quadre con ciascun elemento 
                separato da una virgola;
@@ -163,7 +162,7 @@ int main(int argc, char *argv[]) {
         if (config_setting_lookup_string(setting, "titolo", &str2))
             printf("         Titolo: %s\n", str2);
         else
-            printf("Niene pizza oggi\n");
+            printf("No titolo\n");
     }
 
     // Quando si lavora con liste o con array si utilizza l'indicizzazione */
@@ -173,7 +172,7 @@ int main(int argc, char *argv[]) {
         if (config_setting_lookup_string(setting, "nome", &str2))
             printf("          Pizza: %s\n", str2);
         else
-            printf("NO PARAMMMM\n");
+            printf("No nome\n");
     }
 
 
