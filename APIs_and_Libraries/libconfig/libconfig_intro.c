@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
-#include <string.h>
 #include <libconfig.h>
 
 /* La libreria "libconfig" serve per leggere e scrivere file di configurazione
@@ -66,14 +64,13 @@ Liste
 Esempio (negozio, libreria, libri, etc, sono le impostazioni):
 
 ---------- 8< ---------- 
-
 business = 1.0;
 
-negozio
+negozio =
 {
-    libreria
+    libreria =
     {
-        libri 
+        libri =
         {
             titolo = "Libconfig programming tutorial";
             autore = "B3h3m0th";
@@ -81,17 +78,17 @@ negozio
         };
     };
 
-    pizzeria
+    pizzeria =
     {
-        pizze_da_asporto
-        {
+        pizze_da_asporto =
+        (
             { nome = "margherita";
-              prezzo = 4.00; }
+              prezzo = 4.00; },
             { nome = "capricciosa";
-              prezzo = 4.50; }
+              prezzo = 4.50; },
             { nome = "4 stagioni";
               prezzo = 5.00; }
-        };
+        );
     };
 };
 ---------- 8< ---------- 
@@ -103,8 +100,67 @@ perche' e' un elemento di una lista o di un array, si utilizza il relaivo indice
 tra parentesi quadre, ad esempio "negozio.pizzeria.pizze_da_asporto.[2].nome" 
 indica il terzo elemento, ossia la pizza "4 stagioni".
 
+Libconfig prevede tre tipi di commenti:
+- In stile C,       * / ....  / * 
+- In stile C++,     //
+- Stile classico,   #
+
 */
 
 int main(int argc, char *argv[]) {
+    config_t cfg;
+    config_setting_t *setting;
+    const char *base = NULL, *str1, *str2;
+    int count, n, boolean_value;
+    double ker;
+    char *config_file_name = "test.cfg";
+
+    /* Inizializzazione */
+    config_init(&cfg);
+
+    if (!config_read_file(&cfg, config_file_name)) {
+        fprintf(stderr, "%d - %s\n",
+                config_error_line(&cfg),
+                config_error_text(&cfg));
+
+        config_destroy(&cfg);
+
+        return(EXIT_FAILURE);
+    }
+
+    /* Si verifica l'esistenza di un un valore booleano */
+    if (config_lookup_bool(&cfg, "prova", &boolean_value))
+            printf("boolean_value: %s\n", boolean_value ? "Yes" : "No");
+    else
+        printf("boolean_value is non defined\n");
+
+    /* Ricezione stringa, corrispondente a 'filename' */
+    if (config_lookup_string(&cfg, "filename", &str1))
+        printf("File type:: %s\n", str1);
+    else
+        printf("No filename setting config file\n");
+
+    setting = config_lookup(&cfg, "rete");
+
+    if (setting != NULL) {
+        /* Legge  stringa */
+        if (config_setting_lookup_string(setting, "host", &str2))
+            printf("          Host: %s\n", str2);
+        else
+            printf("No host\n");
+
+        if (config_setting_lookup_string(setting, "arch", &str2))
+            printf("  Architettura: %s\n", str2);
+        else
+            printf("No arch\n");
+        
+        if (config_setting_lookup_float(setting, "kernel", &ker))
+            printf("Kernel version: %f\n", ker);
+        else
+            printf("No kernel\n");
+    }
+
+
+
     return(EXIT_SUCCESS);
 }
