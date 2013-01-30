@@ -31,8 +31,9 @@ da usare.
 File di configurazione
 ----------------------
 Il file di configurazione per la lettura e la scrittura consiste in gruppi di 
-impostazioni (settings) gerarchici e strutturati, nei quali si 
-associano coppie nome/valore. 
+settings (in italiano combinazioni o impostazioni, il termine in inglese 
+tuttavia rende l'idea perfettamente) gerarchici e strutturati, con coppie 
+"nome = valore". 
 
 Il valore puo' essere uno dei seguenti tipi di dato:
 - Uno scalare;
@@ -41,6 +42,10 @@ Il valore puo' essere uno dei seguenti tipi di dato:
 - Una lista, ossia una sequenza di valori di ciascun tipo.
 
 Esempio (negozio, libreria, libri, etc, sono le impostazioni):
+
+---------- 8< ---------- 
+
+business = 1.0;
 
 negozio
 {
@@ -67,11 +72,14 @@ negozio
         };
     };
 };
--------------------------------------------------------------------------------
+---------- 8< ---------- 
 
-Un path identifica ciascuna impostazione, e' espresso dalla sequenza dei nomi
-iniziando dall'alto; ad esempio il path di autore e' :
-negozio.libreria.libri.autore
+Un path identifica ciascun setting, ed e' espresso dalla sequenza dei nomi
+iniziando dall'alto fino a raggiungere il corrispondente; ad esempio il path di 
+autore e' "negozio.libreria.libri.autore", se invece un setting e' privo di nome
+perche' e' un elemento di una lista o di un array, si utilizza il relaivo indice
+tra parentesi quadre, ad esempio "negozio.pizzeria.pizze_da_asporto.[2].nome" 
+indica il terzo elemento, ossia la pizza "4 stagioni".
 
 */
 
