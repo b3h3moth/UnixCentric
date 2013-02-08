@@ -23,7 +23,7 @@ SEMANTICS : La funzione pthread_create() prende 4 argomenti:
               di un puntatore a funzione che prende un puntatore a void e
               restituisce un puntatore a void;
             - void *arg, sono gli eventuali argomenti da passare, qualora non
-              si volessero passare argomenti, sara' sufficiente inserire NULL.
+              si volessero passare argomenti sara' sufficiente inserire NULL.
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
 */

@@ -17,8 +17,8 @@ Nota: Per ottenere il TID di sistema e' necessario utilizzaare la funzione
 
 Tipo di dato
 ------------
-Anche i thread hanno il proprio tipo di dato, pthread_t, anch'esso, come pid_t
-per i processi, e' un intero non negativo.
+Anche i thread hanno il proprio tipo di dato, ovvero pthread_t, che al pari di 
+pid_t dei processi, indica un intero non negativo.
 
 La funzione per ottenere l'ID del Thread e' pthread_self().
 

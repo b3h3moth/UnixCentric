@@ -38,9 +38,9 @@ void print_id(const char *str)
     pthread_t tid;
     int stid;
 
-    pid = getpid();             /* PID del processo */
-    tid = pthread_self();       /* Thred-ID di libreria */
-    stid = syscall(SYS_gettid); /* Thread-ID di sistema, assegnato dal OS */
+    pid = getpid();             /* Process-ID del processo */
+    tid = pthread_self();       /*  Thread-ID di libreria */
+    stid = syscall(SYS_gettid); /*  Thread-ID di sistema, assegnato dal OS */
 
     /* Come si notera' dall'output, il risultato sara' il medesimo PID, poiche'
     ovviamente si tratta dello stesso processo, e TID differenti, poiche'
