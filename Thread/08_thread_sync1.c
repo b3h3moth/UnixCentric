@@ -16,7 +16,10 @@ inconsistente, perche' il thread in sola lettura leggerebbe prima un valore e
 poi un altro. Vi dev'essere coerenza per ciascun thread.
 
 Per risolvere il problema si deve disporre di un meccanismo di lock, che
-consenta ad un thread per volta la modifica dei dati.
+consenta ad un thread per volta l'accesso alla variabile, in pratica vi deve
+essere sincronizzazione.
+
+La gestione della consistenza dei dati e' fondamentale
 
 HEADER    : 
 PROTOTYPE : 
