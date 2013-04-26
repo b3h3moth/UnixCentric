@@ -19,7 +19,12 @@ Per risolvere il problema si deve disporre di un meccanismo di lock, che
 consenta ad un thread per volta l'accesso alla variabile, in pratica vi deve
 essere sincronizzazione.
 
-La gestione della consistenza dei dati e' fondamentale
+Mutua esclusione
+----------------
+I dati possono essere protetti assicurandosi che solo un thread per volta abbia
+l'accesso ai dati, il meccanismo adoperato e' la mutua esclusione 'mutex', che 
+consente di operare un lock sulla risorsa condivisa e di rilasciarlo 'unlock' a
+lavori ultimati.
 
 HEADER    : 
 PROTOTYPE : 
