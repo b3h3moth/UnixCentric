@@ -18,7 +18,7 @@ Le API possono essere classificate in:
 
 Gli identificatori della libreria Pthread hanno adottato il suffisso pthread_ 
 che contraddistingue ciascun nome di funzione, inoltre vi sono ulteriori 
-differenziazioni sui nomi stessi delle fuznioni:
+differenziazioni sui nomi stessi delle funzioni:
 - pthread_              gestione dei thread in generale;
 - pthread_attr_         gestione relative alla proprieta' dei thread;
 - pthread_mutex_        gestione della mutua esclusione;
