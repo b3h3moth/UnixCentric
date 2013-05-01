@@ -14,8 +14,7 @@ interno del medesimo  processo.
 
 void write_msg(int fd[]);
 void read_msg(int fd[]);
-void add_tail_blank(char *str);
-void cut_tail_blank(char *str);
+void remove_return(char *str);
 
 int main(int argc, char *argv[]) {
     int status;
@@ -46,10 +45,11 @@ void write_msg(int fd[])
 
     for (i=0; i<3; i++) {
         printf("msg[%d] = ", i);
-        scanf("%s", buf);
+        /*scanf("%s", buf);*/
+        fgets(buf, MAX_MSG_LEN, stdin);
 
         /* Aggiunge gli spazi bianchi */
-        add_tail_blank(buf);
+        remove_return(buf);
 
         /* Scrittura nella pipe */
         if (write(fd[1], buf, MAX_MSG_LEN) != MAX_MSG_LEN) {
@@ -70,30 +70,18 @@ void read_msg(int fd[])
             exit(EXIT_FAILURE);
         }
 
-        cut_tail_blank(buf);
         printf("messaggio[%d] = %s\n", i, buf);
     }
 
 }
 
-/* La funzione add_tail_blank() elimina gli spazi bianchi */
-void add_tail_blank(char *str)
+/* La funzione remove_return() elimina gli spazi bianchi */
+void remove_return(char *str)
 {
     int i;
 
-    for (i=MAX_MSG_LEN-1; i>=0; i--) {
-        if (str[i] != ' ')
-            str[i+1] = '\0'; /* carattere di terminazione stringa */
+    for (i=strlen(str); i>=0; i--) {
+        if (str[i] == '\n')
+            str[i] = '\0'; /* carattere di terminazione stringa */
     }
-
-    str[i] = '\0';
-}
-
-/* La funzione cut_tail_blank() elimna gli spazi bianchi */
-void cut_tail_blank(char *str)
-{
-    while(strlen(str) < MAX_MSG_LEN)
-        strcat(str, " ");
-    
-    str[MAX_MSG_LEN] = '\0';
 }
