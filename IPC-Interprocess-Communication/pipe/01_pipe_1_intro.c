@@ -43,7 +43,8 @@ togliendoli da essa.
 
 
 /* Si utilizza una pipe per l'invio di un messaggio dal processo padre al
-processo figlio, ossia il padre scrive e il figlio legge e stampa in output. */
+processo figlio, ossia il padre scrive e il figlio legge e stampa in output; si
+travva di una pipe unidirezionale. */
 
 int main(int argc, char *argv[]) {
     int n, fd[2];
