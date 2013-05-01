@@ -9,7 +9,7 @@
 
 /* Si procede alla creazione di una pipe il cui compito e' il trasferimento di
 messaggi - stringhe ottenute in input di lunghezza massima predefinita - all'
-interno del medesimo processo.
+interno del medesimo  processo.
 */
 
 void write_msg(int fd[]);
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     /* Creazione della pipe */
     if ( (status = pipe(fd)) < 0) {
-        fprintf(stderr, "Err.: %d pipe() - %s\n", errno, srerror(errno));
+        fprintf(stderr, "Err.: %d pipe() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
@@ -45,14 +45,14 @@ void write_msg(int fd[])
     char buf[MAX_BUF];
 
     for (i=0; i<3; i++) {
-        printf("msg[%d] =", i);
+        printf("msg[%d] = ", i);
         scanf("%s", buf);
 
         /* Aggiunge gli spazi bianchi */
         add_tail_blank(buf);
 
         /* Scrittura nella pipe */
-        if (write(fd[0], buf, MAX_MSG_LEN) != MAX_MSG_LEN) {
+        if (write(fd[1], buf, MAX_MSG_LEN) != MAX_MSG_LEN) {
             fprintf(stderr, "Err.: %d write() - %s\n", errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
@@ -65,13 +65,13 @@ void read_msg(int fd[])
     char buf[MAX_BUF];
 
     for (i=0; i<3; i++) {
-        if (read(pipe(fd[0], buf, MAX_MSG_LEN) <= 0) {
+        if (read(fd[0], buf, MAX_MSG_LEN) <= 0) {
             fprintf(stderr, "Err.: %d read() %s\n", errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
 
-        cut_tail_blank(msg9);
-        printf("messaggio[%d] = %s\n", i, msg);
+        cut_tail_blank(buf);
+        printf("messaggio[%d] = %s\n", i, buf);
     }
 
 }
@@ -93,7 +93,7 @@ void add_tail_blank(char *str)
 void cut_tail_blank(char *str)
 {
     while(strlen(str) < MAX_MSG_LEN)
-        stracat(str, " ");
+        strcat(str, " ");
     
     str[MAX_MSG_LEN] = '\0';
 }
