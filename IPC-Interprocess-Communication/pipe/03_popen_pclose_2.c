@@ -2,30 +2,33 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <unistd.h> /* Per STDOUT_FILENO */
 
-#define MAXBUF		256
+#define MAX_BUF     512
+
+/* Sara' eseguito mediante una pipe il comando fornito da 'cmd' e copiato sullo
+standard output. */
 
 int main(int argc, char *argv[])
 {
-   char *cp;
-   char buf[MAXBUF];
-   FILE *p = popen(cp="ps f","r");
+   char *cmd = "ps ajf";
+   char buf[MAX_BUF];
+   FILE *fpipe; 
 
-   if (!p) {
-      fprintf(stderr, "%s: Opening pipe(%s) for read\n", strerror(errno), cp);
+   if (!(fpipe = popen(cmd, "r"))) {
+      fprintf(stderr, "Err.: %d popen() - %s\n", errno, strerror(errno));
       return 13;
    }
 
-   /* read the output of tyhe pipe */
-   while ( fgets(buf, sizeof buf, p) != 0) 
+
+   /* Legge l'output del comando fornito mediante la pipe */
+   while (fgets(buf, MAX_BUF, fpipe) != 0) 
       fputs(buf, stdout);
-   pause(10);
 
-   if (pclose(p)) {
-      fprintf(stderr, "%s: pclose()\n", strerror(errno));
-      return 13;
+   if (pclose(fpipe)) {
+      fprintf(stderr, "Err.: %d - pclose() %s\n", errno, strerror(errno));
+      return(EXIT_SUCCESS);
    }
-
 
    return(EXIT_SUCCESS);
 }
