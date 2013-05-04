@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 
 #define PAGER "${PAGER:-less}"
 #define MAX_BUF 512
