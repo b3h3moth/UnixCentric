@@ -19,7 +19,7 @@ Nota: POSIX.1 consente anche la creazione di pipe bidirezionali, full duplex,
 
 Le pipe possono essere utilizzate solo da processi che hanno antenati in comune,
 generalmente viene creata da un processo che successivamente eseguira' una 
-chiamata a fork(), per cui la pipe sara' utlizzata per la comunicazione tra il 
+chiamata a fork(), per cui la pipe sara' utilizzata per la comunicazione tra il 
 processo padre e il processo figlio.
 
 Per creare una pipe si utilizza la sistem call pipe().
@@ -44,7 +44,7 @@ togliendoli da essa.
 
 /* Si utilizza una pipe per l'invio di un messaggio dal processo padre al
 processo figlio, ossia il padre scrive e il figlio legge e stampa in output; si
-travva di una pipe unidirezionale. */
+tratta di una pipe unidirezionale. */
 
 int main(int argc, char *argv[]) {
     int n, fd[2];
