@@ -9,6 +9,10 @@
 /* Il lavoro fatto dalla funzione pipe() viene svolto interamente dalle funzioni
 popen() e pclose().
 
+La funzione popen() e' molto simile alla fopen(), la differenza sostanziale e'
+che il primo parametro dev'essere un comando eseguibile dalla shell, invece di
+un pathname, il secondo parametro invece si occupa delle regolarizzazione della
+pipe in lettura 'r' o in scrittura 'w'.
 
 HEADER    : <stdio.h>
 PROTOTYPE : FILE *popen(const char *cmdstring, const char *type);
