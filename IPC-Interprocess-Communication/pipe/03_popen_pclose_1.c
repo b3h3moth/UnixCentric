@@ -12,7 +12,9 @@ popen() e pclose().
 La funzione popen() e' molto simile alla fopen(), la differenza sostanziale e'
 che il primo parametro dev'essere un comando eseguibile dalla shell, invece di
 un pathname, il secondo parametro  si occupa delle regolarizzazione della
-pipe in lettura 'r' o in scrittura 'w'.
+pipe in lettura 'r' o in scrittura 'w'; oltre a questa differenziazione la
+pipe puo' essere letta e scritta con come se fosse un file e con le funzioni
+della libreria dello Standard I/O.
 
 HEADER    : <stdio.h>
 PROTOTYPE : FILE *popen(const char *cmdstring, const char *type);
@@ -24,8 +26,9 @@ SEMANTICS : La funzione popen() lavora in questa maniera:
               'cmdstring', primo parametro della popen();
             - Il parametro 'type' puo' essere 'r' o 'w', lettura e scrittura
               rispettivamente.
-RETURNS   : Un puntatore in caso di successo, NULL in caso di errore
+RETURNS   : Un puntatore a FILE in caso di successo, NULL in caso di errore
 --------------------------------------------------------------------------------
+ 
 */
 
 int main(int argc, char *argv[]) {
