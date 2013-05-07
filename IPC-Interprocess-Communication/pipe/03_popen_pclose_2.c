@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include <unistd.h> /* Per STDOUT_FILENO */
 
 #define MAX_BUF     512
 
