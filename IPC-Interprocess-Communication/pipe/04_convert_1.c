@@ -5,7 +5,14 @@
 #include <unistd.h>
 
 /* Il programma converte caratteri maiuscoli in minuscoli, sara' utilizzato da
-un altro programma nella pipe; compilarlo come: gcc  main.c -o convert */
+un altro programma nella pipe.
+
+Affinche' l'altro programma lo riconosca e lo faccia partire deve essere
+compilato con l'opzione -o di gcc per l'attribuzione del nome all'eseguibile.
+
+gcc fileprincipale.c -o convers
+*/
+ 
 
 int main(void) {
     int c;

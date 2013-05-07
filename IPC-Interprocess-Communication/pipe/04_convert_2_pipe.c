@@ -7,7 +7,7 @@
 
 #define MAX_BUF 512
 
-/* Il programma invoca un altro programma - convert -mediante una pipe, che 
+/* Il programma invoca un altro programma - convers -mediante una pipe, che 
 utilizzera' per la conversione di caratteri */
    
 int main(int argc, char *argv[]) {
@@ -15,13 +15,13 @@ int main(int argc, char *argv[]) {
     FILE *fp;
 
     /* Apertura della pipe e invocazione del programma convert */
-    if ((fp = popen("convert", "r")) == NULL) {
+    if ((fp = popen("./convers", "r")) == NULL) {
         fprintf(stderr, "Err.: %d popen() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    for ( ; ; ) {
-        fputs("> ", stdout);
+    while (1) {
+        fputs("shell> ", stdout);
         fflush(stdout);
 
         /* Lettura dalla pipe */
