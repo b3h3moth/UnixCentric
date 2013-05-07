@@ -1,21 +1,4 @@
 ################################################################################
-REVISIONE IN CORSO
-################################################################################
-Le sezioni (quasi) complete e revisionate sono:
-- IO Unbuffered (parziale, solo gli esempi);
-- Files and Directories;
-- IO Standard Library;
-- System data files and information;
-- Process Control;
-- Process Relationships.
-
-In corso:
-- Signals.
-
-Lo scopo e' di rendere ciascuna sezione estremamente ricca di contenuti e 
-soprattutto di codice.
-
-################################################################################
  INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
 ################################################################################
 Il progetto Learning-<Programming Language> mira a realizzare un manuale 
