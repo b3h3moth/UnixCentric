@@ -4,6 +4,9 @@
 #include <string.h>
 #include <unistd.h>
 
+/* Il programma converte caratteri maiuscoli in minuscoli, sara' utilizzato da
+un altro programma nella pipe; compilarlo come: gcc  main.c -o convert */
+
 int main(void) {
     int c;
 
