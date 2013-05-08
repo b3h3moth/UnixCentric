@@ -15,7 +15,7 @@ stringa dalla pipe stessa e la stampa in otput. */
 int main(int argc, char *argv[]) {
     int pi_fd[2]; 
     char buf[MAX_BUF];
-    ssize_t numRead;
+    ssize_t nread;
 
     if (argc != 2 || strcmp(argv[1], "--help") == 0) {
         fprintf(stderr, "Uso: %s <stringa>\n", argv[0]);
@@ -43,18 +43,16 @@ int main(int argc, char *argv[]) {
             
             /* Lettura dei dati dalla pipe e stampa sullo stdout */
             for (;;) {
-                numRead = read(pi_fd[0], buf, MAX_BUF);
-                
-                if (numRead == -1) {
+                if ((nread = read(pi_fd[0], buf, MAX_BUF)) == -1) {
                     fprintf(stderr, "Err.: %d read() - %s\n", 
                             errno, strerror(errno));
                     exit(EXIT_FAILURE);
                 }
                 
-                if (numRead == 0)
+                if (nread == 0)
                     break;
                 
-                if (write(STDOUT_FILENO, buf, numRead) != numRead) {
+                if (write(STDOUT_FILENO, buf, nread) != nread) {
                     fprintf(stderr, "Err.: %d write() - %s\n", 
                             errno, strerror(errno));
                     exit(EXIT_FAILURE);
