@@ -59,6 +59,7 @@ void write_msg(int fd[])
     }
 }
 
+/* La funzione read_msg() si occupa della lettura dei messaggi dalla pipe */
 void read_msg(int fd[])
 {
     int i;
