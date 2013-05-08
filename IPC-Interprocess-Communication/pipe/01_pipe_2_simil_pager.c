@@ -5,13 +5,14 @@
 #include <unistd.h>
 #include <wait.h>
 
+#define DEFAULT_PAGER   "/bin/less"
+#define MAX_LINE        512
+
 /* Stampa l'output una pagina per volta, invocando il pager preferito
 dall'utente. si utilizzera' una pipe per redirigere l'output direttamente al
 pager. */
 
 /* I pager piu' utilizzati in ambiente UNIX sono less, pager e more. */
-#define DEFAULT_PAGER   "/bin/less"
-#define MAX_LINE        512
 
 int main(int argc, char *argv[]) {
     int n, fd[2];
