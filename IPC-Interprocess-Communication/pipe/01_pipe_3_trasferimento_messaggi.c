@@ -15,7 +15,7 @@ interno del medesimo  processo.
 
 void write_msg(int fd[]);
 void read_msg(int fd[]);
-void remove_return(char *str);
+void set_last_char(char *str);
 
 int main(int argc, char *argv[]) {
     int status;
@@ -29,9 +29,11 @@ int main(int argc, char *argv[]) {
 
     /* scrive il messaggio nella pipe */
     write_msg(fd);
+
     /* legge messaggio dalla pipe */
     read_msg(fd);
 
+    /* Chiusura dei file descriptor della pipe */
     close(fd[0]);
     close(fd[1]);
 
@@ -50,7 +52,7 @@ void write_msg(int fd[])
         fgets(buf, MAX_MSG_LEN, stdin);
 
         /* Rimozione '\n' e aggiunta del terminatore stringa '\n' finale */
-        remove_return(buf);
+        set_last_char(buf);
 
         /* Scrittura nella pipe */
         if (write(fd[1], buf, MAX_MSG_LEN) != MAX_MSG_LEN) {
@@ -77,9 +79,9 @@ void read_msg(int fd[])
 
 }
 
-/* La funzione remove_return() elimina il carattere '\n' finale inserendo il
+/* La funzione set_last_char() elimina il carattere '\n' finale inserendo il
 carattere di terminazione stringa '\0' */
-void remove_return(char *str)
+void set_last_char(char *str)
 {
     int i;
 
