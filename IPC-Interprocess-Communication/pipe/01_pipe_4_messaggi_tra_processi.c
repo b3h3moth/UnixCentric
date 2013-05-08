@@ -7,10 +7,10 @@
 
 #define MAX_BUF 10
 
-/* Il programma crea una pipe, dopo, mediante una fork, viene creato un
-processo figlio; il processo padre scrive nella pipe una stringa recevuta in
-input, dopodiche' il processo figlio legge la medesima stringa dalla pipe
-stessa e la stampa in otput. */
+/* Il programma principale (padre) crea una pipe e subito dopo crea anche un 
+nuovo processo (figlio) lanciando una fork; il processo padre scrive nella pipe
+una stringa recevuta in input, dopodiche' il processo figlio legge la medesima 
+stringa dalla pipe stessa e la stampa in otput. */
 
 int main(int argc, char *argv[]) {
     int pi_fd[2]; 
