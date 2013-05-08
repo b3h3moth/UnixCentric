@@ -47,7 +47,7 @@ void write_msg(int fd[])
     char buf[MAX_BUF];
 
     for (i=0; i<MAX_MSG_NUM; i++) {
-        printf("msg[%d] = ", i);
+        printf("write - msg[%d] = ", i);
         /*scanf("%s", buf);*/
         fgets(buf, MAX_MSG_LEN, stdin);
 
@@ -68,13 +68,13 @@ void read_msg(int fd[])
     int i;
     char buf[MAX_BUF];
 
-    for (i=0; i<3; i++) {
+    for (i=0; i<MAX_MSG_NUM; i++) {
         if (read(fd[0], buf, MAX_MSG_LEN) <= 0) {
             fprintf(stderr, "Err.: %d read() %s\n", errno, strerror(errno));
             exit(EXIT_FAILURE);
         }
 
-        printf("messaggio[%d] = %s\n", i, buf);
+        printf("read - msg[%d] = %s\n", i, buf);
     }
 
 }
