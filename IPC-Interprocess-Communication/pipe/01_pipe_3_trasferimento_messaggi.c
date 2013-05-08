@@ -44,12 +44,12 @@ void write_msg(int fd[])
     int i;
     char buf[MAX_BUF];
 
-    for (i=0; i<MAX_MSG; i++) {
+    for (i=0; i<MAX_MSG_NUM; i++) {
         printf("msg[%d] = ", i);
         /*scanf("%s", buf);*/
         fgets(buf, MAX_MSG_LEN, stdin);
 
-        /* Aggiunge gli spazi bianchi */
+        /* Rimozione '\n' e aggiunta del terminatore stringa '\n' finale */
         remove_return(buf);
 
         /* Scrittura nella pipe */
@@ -77,7 +77,8 @@ void read_msg(int fd[])
 
 }
 
-/* La funzione remove_return() elimina gli spazi bianchi */
+/* La funzione remove_return() elimina il carattere '\n' finale inserendo il
+carattere di terminazione stringa '\0' */
 void remove_return(char *str)
 {
     int i;
