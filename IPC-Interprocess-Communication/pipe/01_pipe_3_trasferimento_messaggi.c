@@ -4,8 +4,9 @@
 #include <string.h>
 #include <unistd.h>
 
-#define MAX_BUF 256
+#define MAX_BUF     256
 #define MAX_MSG_LEN 72
+#define MAX_MSG_NUM 3
 
 /* Si procede alla creazione di una pipe il cui compito e' il trasferimento di
 messaggi - stringhe ottenute in input di lunghezza massima predefinita - all'
@@ -43,7 +44,7 @@ void write_msg(int fd[])
     int i;
     char buf[MAX_BUF];
 
-    for (i=0; i<3; i++) {
+    for (i=0; i<MAX_MSG; i++) {
         printf("msg[%d] = ", i);
         /*scanf("%s", buf);*/
         fgets(buf, MAX_MSG_LEN, stdin);
