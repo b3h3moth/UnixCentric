@@ -26,7 +26,11 @@ SEMANTICS : La funzione pthread_create() prende 4 argomenti:
               si volessero passare argomenti sara' sufficiente inserire NULL.
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
-Nota: La creazione di thread e' 10 volte piu' veloce della creazione di processi
+Nota: I thread in Linux sono implementati da clone(), i processi invece da 
+fork(); e' molto interessante notare che la creazione di thread e' ben 10 volte
+piu' veloce della creazione di processi, perche' nella fork() si "perde tempo"
+alla duplicazione degli attributi del parent process, mentre invece nella
+creazione di thread vi e' condivisione delle risorse.
 */
 
 void *thr_func(void *arg);
