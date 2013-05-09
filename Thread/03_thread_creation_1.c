@@ -26,6 +26,7 @@ SEMANTICS : La funzione pthread_create() prende 4 argomenti:
               si volessero passare argomenti sara' sufficiente inserire NULL.
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
+Nota: La creazione di thread e' 10 volte piu' veloce della creazione di processi
 */
 
 void *thr_func(void *arg);
