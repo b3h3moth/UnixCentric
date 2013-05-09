@@ -7,7 +7,7 @@
 
 /*
 I thread sono detti anche "leightweight process" processi leggeri, in virtu' del
-fatto che sono particolari 'sottoprocessi' senza un vero e proprio spazio di 
+fatto che sono particolari 'sotto-processi' senza un vero e proprio spazio di 
 indirizzamento, in quanto utilizzano quello del processo chiamante.
 
 Thread addizionali possono essere creati mediante la funzione pthread_create():
@@ -44,7 +44,7 @@ int main() {
     - Il primo parametro e' un puntatore a thrID;
     - il secondo parametro e' definito NULL, per cui saranno utilizzati gli
       attributi di default;
-    - Il terzo paramero thr_func() e' la funzione che il thread eseguira' 
+    - Il terzo parametro thr_func() e' la funzione che il thread eseguira' 
       allorquando sara' avviato, non appena la funzione terminera' vorra' dire
       che anche il thread sara' terminato. In questo caso la funzione stampa
       semplicemente un messaggio;
