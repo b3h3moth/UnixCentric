@@ -12,11 +12,11 @@ Le API possono essere classificate in:
 - Thread management     funzioni per creare, eliminare, terminare e attendere 
                         thread, in pratica la gestione;
 - Mutex                 funzioni per la gestione della mutua esclusione, ossia 
-                        la sincronizzazione semplice.
+                        la sincronizzazione semplice;
 - Condition variables   funzioni a supporto della sincronizzazione basata sul
                         settaggio di specifiche variabili, dette di condizione.
 
-Gli identificatori della libreria Pthread hanno adottato il suffisso pthread_ 
+Gli identificatori della libreria Pthreads hanno adottato il suffisso pthread_ 
 che contraddistingue ciascun nome di funzione, inoltre vi sono ulteriori 
 differenziazioni sui nomi stessi delle funzioni:
 - pthread_              gestione dei thread in generale;
@@ -40,6 +40,9 @@ Per verificare se il sistema supporta i thread vi sono due strade:
     compilazione condizionale, nel caso specifico la macro _POSIX_THREADS; 
 
 2 - a run-time, mediante la funzione sysconf e la costante _SC_THREADS. */
+
+/* Il programma verifica se il sistema supporta i thread mediante ambedue le
+strade */
 
 int main(void) {
     long res;
