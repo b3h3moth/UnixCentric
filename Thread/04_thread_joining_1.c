@@ -43,7 +43,7 @@ int main(int argc, char *argv[], char *envp[]) {
     printf("Main Thread: %lu\n", pthread_self());
     
     /* Negli esempi precedenti e' stata inserita una sleep() per consentire
-    l'esecuzione di entrambi i thread, ora invece si una la funzione 
+    l'esecuzione di entrambi i thread, ora invece si usa la funzione 
     pthread_join() per far si che il main attenda l'esecuzione del nuovo thread;
     in sostanza tale chiamata manda in sleep() il main() in attesa che la 
     funzione thr_func() possa essere completamente eseguita, e non appena cio'
