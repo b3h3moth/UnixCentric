@@ -18,13 +18,13 @@ int main(int argc, char *argv[], char *envp[])
    if (argc != 2)
    {
       fprintf(stderr, "Usage: %s <integer value>\n", argv[0]);
-      exit(-1);
+      exit(EXIT_FAILURE);
    }
    
    if (atoi(argv[1]) < 0)
    {
       fprintf(stderr, "%d deve essere >= 0\n", atoi(argv[1]));
-      exit(-1);
+      exit(EXIT_FAILURE);
    }
 
    /* Reperisce gli attributi predefiniti */
