@@ -5,6 +5,7 @@
 
 /* Questo dato e' condiviso dai thread */
 int sum;
+
 /* Il thread */
 void *runner(void *param);
 
@@ -12,25 +13,26 @@ int main(int argc, char *argv[], char *envp[])
 {
    /* Identificatore del thread */
    pthread_t tid;
+   
    /* insieme di attributi del thread */
    pthread_attr_t attr;
 
-   if (argc != 2)
-   {
+   if (argc != 2) {
       fprintf(stderr, "Usage: %s <integer value>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
    
-   if (atoi(argv[1]) < 0)
-   {
+   if (atoi(argv[1]) < 0){
       fprintf(stderr, "%d deve essere >= 0\n", atoi(argv[1]));
       exit(EXIT_FAILURE);
    }
 
    /* Reperisce gli attributi predefiniti */
    pthread_attr_init(&attr);
+
    /* Crea il thread */
    pthread_create(&tid, &attr, &runner, argv[1]);
+   
    /* Attende la terminazione del thread 
     * simile ad una wait concettualmente, oserei dire*/
    pthread_join(tid, NULL);
