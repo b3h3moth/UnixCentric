@@ -6,12 +6,12 @@
 #include <pthread.h>
 
 /* Per verificare se due thread sono gli stessi si usa la funzione
-pthread_equal()
+pthread_equal(), che confronta ciascun thread-ID.
 
 HEADER    : <pthread.h>  
-PROTOTYPE : int pthread_equal(pthread_t t1, pthread_t t2);
-SEMANTICS : La funzione pthread_equal() serve per verificare se il thread-ID t1 e'
-            uguale o diverso dal thread-ID t2.
+PROTOTYPE : int pthread_equal(pthread_t tid1, pthread_t tid2);
+SEMANTICS : La funzione pthread_equal() serve per verificare se il thread-ID
+            tid1 e' uguale o diverso dal thread-ID tid2.
 RETURNS   : Non 0 se t1 e t2 sono uguali, 0 altrimenti
 */
 
