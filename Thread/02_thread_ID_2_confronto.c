@@ -29,10 +29,10 @@ int main() {
     
     sleep(1);
 
-    printf("Thread principale %u\n", main_thrID);
+    printf("Thread principale: %u\n", main_thrID);
 
     if (pthread_equal(thrID, main_thrID) == 0) 
-        printf("I Thread sono diversi");
+        printf("\nI Thread sono diversi");
 
     return(EXIT_SUCCESS);
 }
@@ -41,5 +41,5 @@ void *thr_func(void *arg)
 {
     pthread_t TID = pthread_self();
 
-    printf("Nuovo thread: %u\n", TID);
+    printf("     Nuovo thread: %u\n", TID);
 }
