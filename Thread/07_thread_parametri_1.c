@@ -18,6 +18,8 @@ argomento della funzione pthread_create().
 
 void *thr_func(void *thr_id);
 
+/* Passaggio di un intero a ciascun thread, che identifica un puntatore ad un
+array di 'stringhe' */
 int main(int argc, char *argv[]) {
     pthread_t thread[MAX_THREAD];
     int *msgs[MAX_THREAD];
