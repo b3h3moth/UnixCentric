@@ -16,7 +16,7 @@ inserire i vari argomenti, infine passare un puntatore all'intera struttura come
 argomento della funzione pthread_create().
 */
 
-void *thr_func(void *thr_id);
+void *thr_func(void *arg);
 
 /* Passaggio di un intero a ciascun thread, che identifica un puntatore ad un
 array di 'stringhe' */
@@ -40,8 +40,10 @@ int main(int argc, char *argv[]) {
         msgs[i] = (int *)malloc(sizeof(int));
         *msgs[i] = i;
 
-        printf("Creazione thread: %d\n", i);
+        printf("Creazione thread: %d -> ", i);
 
+        /* Il passaggio di argomenti in questo caso riguarda un array di
+        interi, un valore per volta naturalmente */
         thr_ret = pthread_create(&thread[i], NULL, thr_func, (void *)msgs[i]);
         if (thr_ret != 0) {
             fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_ret));
@@ -57,13 +59,15 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
-void *thr_func(void *thr_id)
+/* La funzione thr_func() riceve un intero dal main thread e stampa il relativo
+messaggio dell'array di stringhe */
+void *thr_func(void *arg)
 {
     sleep(1);
 
     int *p_id, n_msg;
 
-    p_id = (int *) thr_id;
+    p_id = (int *) arg;
     n_msg = *p_id;
 
     printf("Thread %d: %s\n", n_msg, msg[n_msg]);
