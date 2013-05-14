@@ -27,7 +27,7 @@ int main(int argc, char *argv[], char *envp[])  {
         exit(EXIT_FAILURE);
     }
     
-    /* Crea il thread */
+    /* Creazione del thread e passaggio del parametro */
     if ((thr_ret = pthread_create(&tid, NULL, &thr_fun, argv[1])) != 0) {
         fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_ret));
         exit(EXIT_FAILURE);
