@@ -13,7 +13,7 @@ oppure _exit(), l'intero processo sarebbe terminato, e questo non va bene
 perche' thread e processi dovrebbero essere indipendenti per cio' che concerne
 lo stato di uscita.
 
-I thread comtemplano un meccanismo di terminazaione meno invasivo rispetto alle
+I thread contemplano un meccanismo di terminazione meno invasivo rispetto alle
 funzioni precedenti, supportano infatti tre modalita' di terminazione del loro 
 flusso di esecuzione, senza peraltro terminare anche il processo:
 
