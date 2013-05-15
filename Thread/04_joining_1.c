@@ -8,14 +8,14 @@
 #define MAX_VALUE 5
 
 /* La funzione pthread_join() si comporta come se fosse una funzione della 
-famiglia wait(), concenttualmente intendo, nel senso che se il main() dovvesse 
+famiglia wait(), concettualmente intendo, nel senso che se il main() dovesse 
 terminare prima del thread, le strutture dati del thread sarebbero deallocate 
 con il thread stesso ancora in esecuzione, per cui e' necessario un meccanismo 
 che consenta di far attendere al main() la terminazione del thread.
 
-Il compito della funzione pthread_join() e' di terminare il thread corrente fino
-a quando il thread specificato non cessa l'esecuzione, essa inoltre unifica due
-thread in un unico thread, e' come se il nuovo ramo di esecuzione fosse 
+Il compito della funzione pthread_join() e' di far attendere il thread corrente
+fino a quando il thread specificato non cessi l'esecuzione, essa inoltre unifica
+due thread in un unico thread, e' come se il nuovo ramo di esecuzione fosse 
 nuovamente riunito nel ramo principale, questo meccanismo e' estremamente 
 importante.
 
