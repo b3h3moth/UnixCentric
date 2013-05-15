@@ -26,7 +26,9 @@ istanza. */
 int main(int argc, char *argv[]) {
     pthread_t thread[MAX_THREAD];
     int *msgs[MAX_THREAD];
-    int thr_ret, i, sum = 0;
+    int thr_ret, i, sum;
+
+    sum = 0;
 
     msg[0] = "Assembly programming";
     msg[1] = "C++ Programming";
@@ -40,7 +42,7 @@ int main(int argc, char *argv[]) {
     msg[9] = "Network programming";
 
     for (i=0; i<MAX_THREAD; i++) {
-        sum = sum +i;
+        sum = sum + i;
         tdata_arr[i].tid = i;
         tdata_arr[i].sum = sum;
         tdata_arr[i].message = msg[i];
@@ -71,15 +73,16 @@ void *thr_func(void *arg)
 {
     sleep(1);
 
-    int taskid, sum;
-    char *hello_msg;
+    int ttid, tsum;
+    char *tmsg;
     struct tdata *my_data;
 
     my_data = (struct tdata *)arg;
-    taskid = my_data->sum;
-    hello_msg = my_data->message;
+    ttid = my_data->tid;
+    tmsg = my_data->message;
+    tsum = my_data->sum;
 
-    printf("Thread %d: %s sum=%d\n", taskid, hello_msg, sum);
+    printf("Index: %2d - Msg: %20s - Somma = %3d\n", ttid, tmsg, tsum);
 
     pthread_exit(NULL);
 }
