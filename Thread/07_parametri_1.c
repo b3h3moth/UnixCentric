@@ -14,6 +14,9 @@ in cui non ci sono particolari avvertenze, se invece gli argomenti dovessero
 essere piu' d'uno si dovrebbe creare una struttura e all'interno della quale 
 inserire i vari argomenti, infine passare un puntatore all'intera struttura come
 argomento della funzione pthread_create().
+
+Ciascun parametro inviato al thread deve essere passato per riferimento e 
+castato mediante (void *)
 */
 
 void *thr_func(void *arg);
@@ -43,7 +46,7 @@ int main(int argc, char *argv[]) {
         printf("Creazione thread: %d -> ", i);
 
         /* Il passaggio di argomenti in questo caso riguarda un array di
-        interi, un valore per volta naturalmente */
+        interi, un valore per volta naturalmento; da notare il cast (void *) */
         thr_ret = pthread_create(&thread[i], NULL, thr_func, (void *)msgs[i]);
         if (thr_ret != 0) {
             fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_ret));
