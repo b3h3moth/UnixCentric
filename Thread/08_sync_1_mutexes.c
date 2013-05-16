@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
+#include <unistd.h>
 #include <pthread.h>
 
 /* Allorquando si lavora con thread multipli si possono verificare dei casi in
@@ -51,11 +53,57 @@ pthread_mutex_unlock() rispettivamente:
 HEADER    : <pthread.h>
 PROTOTYPE : int pthread_mutex_lock(pthread_mutex_t *mutex);
             int pthread_mutex_unlock(pthread_mutex_t *mutex);
-SEMANTICS : 
+SEMANTICS : La funzione pthread_mutex_lock() blocca 'mutex';
+            La funzione pthread_mutex_unlock() sblocca 'mutex';
 RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
 */
 
+void *thr_func(void *arg);
+
+static int globvar = 0;
+/* Inizializzazione statica mutex */
+static pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+
 int main(int argc, char *argv[]) {
+    int nloop;
+    int thr_ret, i;
+    pthread_t thrID1, thrID2, thrID3;
+
+    if (argc != 2) {
+        fprintf(stderr, "Uso: %s <num threads>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    nloop = atoi(argv[1]);
+    
+    if ((thr_ret = pthread_create(&thrID1, NULL, thr_func, &nloop)) != 0) {
+        fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_ret));
+        exit(EXIT_FAILURE);
+    }
+    
+    if ((thr_ret = pthread_join(thrID1, NULL)) != 0) {
+        fprintf(stderr, "Err. pthread_join() %s\n", strerror(thr_ret));
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Variabile globale: %d\n", globvar);
+
     return(EXIT_SUCCESS);
+}
+
+void *thr_func(void *arg) 
+{
+    int tot_loops = *((int *)arg);
+    int temp, i;
+
+    for (i=0; i<tot_loops; i++) {
+        pthread_mutex_lock(&mtx);
+        temp = globvar;
+        temp++;
+        globvar = temp;
+        pthread_mutex_unlock(&mtx);
+    }
+
+    return(NULL);
 }
