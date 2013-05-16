@@ -24,9 +24,26 @@ essere sincronizzazione.
 Mutex (Mutual exclusion - Mutua esclusione)
 -------------------------------------------
 I dati possono essere protetti assicurandosi che solo un thread per volta possa
-avere l'accesso per la modifica di una variabile, il meccanismo adoperato e' la
-'mutex', che consente di operare un lock sulla risorsa condivisa e di 
-rilasciarlo 'unlock' ad operazione ultimata.
+avere l'accesso per la modifica di una risorsa condivisa, a tale scopo si usano
+sono i 'mutex', che consentono di operare un lock sulla risorsa condivisa e di 
+rilasciarla 'unlock' ad operazione ultimata. 
+
+Un mutex e' una variabile di tipo pthread_mutex_t.
+
+Quando un thread blocca 'lock' un mutex diviene il proprietario di quel mutex e
+solo il proprietario stesso protra' sbloccarlo, gli alri thread che tenteranno 
+di usare la risorsa condivisa la troveranno bloccata e andranno in sleep fino a
+quando la risorsa non sara' stata sbloccata, ossia ad 'unlock' avvenuto. 
+
+Un mutex puo' essere allocato sia staticamente sia dinamicamente, per cui prima
+di essere utilizzato deve essere allocato; l'inizializzazione di un mutex 
+allocato staticamente puo' essere effettuata assegnando 
+PTHREAD_MUTEX_INITIALIZER ad una variabile mutex:
+
+pthread_mutex_t mutex_var = PTHREAD_MUTEX_INITIALIZER;
+
+Per l'inizializzazione di un mutex allocato dinamicamente si una invece la
+funzione pthread_mutex_init().
 
 HEADER    : 
 PROTOTYPE : 
