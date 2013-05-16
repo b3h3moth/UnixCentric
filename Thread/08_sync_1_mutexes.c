@@ -45,10 +45,14 @@ pthread_mutex_t mutex_var = PTHREAD_MUTEX_INITIALIZER;
 Per l'inizializzazione di un mutex allocato dinamicamente si una invece la
 funzione pthread_mutex_init().
 
-HEADER    : 
-PROTOTYPE : 
+Per il 'lock' e 'unlock' di un mutex si usano le funzioni pthread_mutex_lock() e
+pthread_mutex_unlock() rispettivamente:
+
+HEADER    : <pthread.h>
+PROTOTYPE : int pthread_mutex_lock(pthread_mutex_t *mutex);
+            int pthread_mutex_unlock(pthread_mutex_t *mutex);
 SEMANTICS : 
-RETURNS   : 0 in caso di successo, -1 in caso di errore
+RETURNS   : 0 in caso di successo, numero di errore in caso di errore
 --------------------------------------------------------------------------------
 */
 
