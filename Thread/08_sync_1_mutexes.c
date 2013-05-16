@@ -21,12 +21,12 @@ Per risolvere il problema si deve disporre di un meccanismo di lock, che
 consenta ad un thread per volta l'accesso alla variabile, in pratica vi deve
 essere sincronizzazione.
 
-Mutua esclusione
-----------------
-I dati possono essere protetti assicurandosi che solo un thread per volta abbia
-l'accesso ai dati, il meccanismo adoperato e' la mutua esclusione 'mutex', che 
-consente di operare un lock sulla risorsa condivisa e di rilasciarlo 'unlock' a
-lavori ultimati.
+Mutex (Mutual exclusion - Mutua esclusione)
+-------------------------------------------
+I dati possono essere protetti assicurandosi che solo un thread per volta possa
+avere l'accesso per la modifica di una variabile, il meccanismo adoperato e' la
+'mutex', che consente di operare un lock sulla risorsa condivisa e di 
+rilasciarlo 'unlock' ad operazione ultimata.
 
 HEADER    : 
 PROTOTYPE : 
