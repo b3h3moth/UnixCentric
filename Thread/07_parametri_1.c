@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
         printf("Creazione thread: %d -> ", i);
 
         /* Il passaggio di argomenti in questo caso riguarda un array di
-        interi, un valore per volta naturalmento; da notare il cast (void *) */
+        interi, un valore per volta naturalmente; da notare il cast (void *) */
         thr_ret = pthread_create(&thread[i], NULL, thr_func, (void *)msgs[i]);
         if (thr_ret != 0) {
             fprintf(stderr, "Err. pthread_create() %s\n", strerror(thr_ret));
