@@ -33,7 +33,7 @@ rilasciarla 'unlock' ad operazione ultimata.
 Un mutex e' una variabile di tipo pthread_mutex_t.
 
 Quando un thread blocca 'lock' un mutex diviene il proprietario di quel mutex e
-solo il proprietario stesso protra' sbloccarlo, gli alri thread che tenteranno 
+solo il proprietario stesso potra' sbloccarlo, gli altri thread che tenteranno 
 di usare la risorsa condivisa la troveranno bloccata e andranno in sleep fino a
 quando la risorsa non sara' stata sbloccata, ossia ad 'unlock' avvenuto. 
 
