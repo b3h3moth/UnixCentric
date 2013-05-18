@@ -39,7 +39,8 @@ int main(void) {
     /* TID della libreria POSIX pthreads */
     tid = pthread_self();
 
-    /* TID di sistema, assegnato dal Sistema Operativo */
+    /* TID di sistema, assegnato dal Sistema Operativo (assolutamente non
+    portabile) */
     if ((stid = syscall(SYS_gettid)) == -1) {
         fprintf(stderr, "Err.(%d) - syscall; %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
