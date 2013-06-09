@@ -4,7 +4,10 @@
 int main(void) {
     /* Una variabile puntatore contiene l'indirizzo di una locazione di memoria,
     se dichiarata globale o statica sara' inizializzata a NULL all'avvio del
-    programma. */
+    programma. 
+    
+    La grandezza di un puntatore dipende dalla macchina (32bit, 64bit) e dal
+    compilatore. */
     int n = 0;
     int *ptr = &n;
 
