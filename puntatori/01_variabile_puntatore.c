@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* Una variabile puntatore contiene l'indirizzo di una locazione di memoria
-    */
+    /* Una variabile puntatore contiene l'indirizzo di una locazione di memoria,
+    se dichiarata globale o statica sara' inizializzata a NULL all'avvio del
+    programma. */
     int n = 0;
     int *ptr = &n;
 
