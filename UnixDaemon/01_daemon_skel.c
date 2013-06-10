@@ -15,6 +15,6 @@ eseguiti in background.
 I sistemi operativi UNIX, sia BSD sia SystemV, utilizzano specifici demoni per
 la gestione di ogni sorta di caratteristica del sistema.*/
 
-int main(int argc, char *argv[]) {
+int main(void) {
     return(EXIT_SUCCESS);
 }
