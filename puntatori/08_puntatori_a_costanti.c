@@ -2,7 +2,9 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* E' perfettamente lecito definire un puntatore a costante */
+    /* Puntatore a costante (Pointer to a costant)
+       -------------------------------------------
+    E' perfettamente lecito definire un puntatore a costante */
     int num = 327;
     int *ptr;
     const int cnum = 89;
@@ -36,6 +38,25 @@ int main(void) {
     - Puo' essere dereferenziato in sola lettura;
     - Non puo' essere dereferenziato per la modifica del valore.
     */
+
+    /* Costante puntatore (Constant pointer)
+       ------------------------------------- 
+    E' possibile definire costanti puntatore a non costanti, in questo caso
+    il puntatore non puo' essere sostituito ma il valore dereferenziato puo'
+    essere modificato.  */
+    int num_int = 2000;
+    int *const ptrc = &num_int;
+
+    printf("%d\n", *ptrc);
+    *ptrc = 2013;   /* lecito */
+    printf("%d\n", *ptrc);
+
+    /* Regole per la costante puntatore 'ptrc':
+    - Deve essere inizializzato con una variabile non costante;
+    - Non puo' essere modificato;
+    - Il valore dereferenziato puo' essere modificato.
+    */
+
     
     return(EXIT_SUCCESS);
 }
