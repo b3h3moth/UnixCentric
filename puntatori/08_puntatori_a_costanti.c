@@ -2,11 +2,13 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* E' perfettamene lecito definire un puntatore a costante */
+    /* E' perfettamente lecito definire un puntatore a costante */
     int num = 327;
     int *ptr;
     const int cnum = 89;
-    const int *cptr;    /* Puntatore a costante di tipo intero */
+    const int *cptr;    /* Puntatore a costante di tipo intero; da notare che 
+                           l'ordine non e' importante, l'istruzione int const *p
+                           e' del tutto equivalente a const int *p. */
 
     /* Si assegna l'indirizzo della variabile intera num a ptr */
     ptr = &num;
