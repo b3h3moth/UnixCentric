@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #include <sys/resource.h>
 
-/* I demoni sono processi che godono di una vita media sensibilimente maggiore 
-rispetto agli alri processi, solitamente sono eseguiti subito dopo la fase di 
+/* I demoni sono processi che godono di una vita media sensibilmente maggiore 
+rispetto agli altri processi, solitamente sono eseguiti subito dopo la fase di 
 boostrap e chiusi nella fase di shutdown del sistema, una delle caratteristiche
 tipiche di un demone e' l'assenza del terminale di controllo, per cui sono 
 eseguiti in background. 
