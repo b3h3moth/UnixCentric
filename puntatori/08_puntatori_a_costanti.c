@@ -3,7 +3,7 @@
 
 int main(void) {
     /* Puntatore a costante (Pointer to a costant)
-       -------------------------------------------
+       <const int *ptr>---------------------------
     E' perfettamente lecito definire un puntatore a costante */
     int num = 327;
     int *ptr;
@@ -39,8 +39,8 @@ int main(void) {
     - Non puo' essere dereferenziato per la modifica del valore.
     */
 
-    /* Costante puntatore (Constant pointer)
-       ------------------------------------- 
+    /* Costante puntatore (Constant pointer) 
+    <int *const ptr>------------------------
     E' possibile definire costanti puntatore a non costanti, in questo caso
     il puntatore non puo' essere sostituito ma il valore dereferenziato puo'
     essere modificato.  */
@@ -57,6 +57,21 @@ int main(void) {
     - Il valore dereferenziato puo' essere modificato.
     */
 
+    /* Costante puntatore a costante (Costant pointer to costant)
+       <const int *const ptr>------------------------------------
+    In questo caso non e' possibile ne' sostituire il puntatore ne' modificare
+    il valore dereferenziato. */
+    int numint = 111;
+    const int val = 222;
     
+    /* L'assegnazione deve essere fatta in fase di dichiarazione del puntatore 
+    altrimenti si incorrerebbe in un errore del compilatore allorquando si 
+    tentera' di assegnare un indirizzo di memoria in una fase successiva, questo
+    perche' si tenterebbe di assegnare un valore ad una variabile read only. */
+    const int *const ptr_cst = &val;
+    const int *const ptr_cst2 = &num;   /* lecito, anche se non costante */
+
+    printf("%d - %d\n", *ptr_cst, *ptr_cst2);
+
     return(EXIT_SUCCESS);
 }
