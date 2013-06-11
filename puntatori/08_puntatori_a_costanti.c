@@ -3,8 +3,10 @@
 
 int main(void) {
     /* Puntatore a costante (Pointer to a costant)
-       <const int *ptr>---------------------------
+    es: <const int *ptr>
+    ----------------------------------------------------------------------------
     E' perfettamente lecito definire un puntatore a costante */
+    puts("Puntatore a costante");
     int num = 327;
     int *ptr;
     const int cnum = 89;
@@ -40,10 +42,12 @@ int main(void) {
     */
 
     /* Costante puntatore (Constant pointer) 
-    <int *const ptr>------------------------
+    es: <int *const ptr>
+    ----------------------------------------------------------------------------
     E' possibile definire costanti puntatore a non costanti, in questo caso
     il puntatore non puo' essere sostituito ma il valore dereferenziato puo'
     essere modificato.  */
+    puts("Costante puntatore");
     int num_int = 2000;
     int *const ptrc = &num_int;
 
@@ -58,9 +62,11 @@ int main(void) {
     */
 
     /* Costante puntatore a costante (Costant pointer to costant)
-       <const int *const ptr>------------------------------------
+    es:   <const int *const ptr>
+    
     In questo caso non e' possibile ne' sostituire il puntatore ne' modificare
     il valore dereferenziato. */
+    puts("Costante puntatore a costante");
     int numint = 111;
     const int val = 222;
     
@@ -72,6 +78,17 @@ int main(void) {
     const int *const ptr_cst2 = &num;   /* lecito, anche se non costante */
 
     printf("%d - %d\n", *ptr_cst, *ptr_cst2);
+
+    /* Puntatore a: costante puntatore a costante (Pointer to: costant pointer 
+    to costant) <const int * const * ptr>
+    ----------------------------------------------------------------------------
+    */
+    puts("Puntatore a: costante puntatore a costante");
+    const int *const ptrcst = &val;
+    const int *const *ptrpc = &ptrcst;
+
+    printf("%d\n", *ptrcst);
+    printf("%d\n", **ptrpc);
 
     return(EXIT_SUCCESS);
 }
