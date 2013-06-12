@@ -19,7 +19,7 @@ la gestione di ogni sorta di caratteristica del sistema.*/
 void daemonize(const char *cmd);
 
 int main(void) {
-    daemonize("ls -l");
+    daemonize("demonazzi");
 
     return(EXIT_SUCCESS);
 }
@@ -27,29 +27,37 @@ int main(void) {
 void daemonize(const char *cmd)
 {
     int                 i, fd0, fd1, fd2;
-    pid_t               pid;
+    pid_t               pid, sid;
     struct rlimit       rl;
     struct sigaction    sa;
 
-    /* Pulizia della maschera di creazione dei file */
+    /* cambia il file mode mask */
     umask(0);
 
-    /* Numero massimo di file descriptors */
+    /* Numero massimo di file descriptors 
     if (getrlimit(RLIMIT_NOFILE, &rl) < 0) {
        puts("errore");
        exit(-1);
     }
+    */
 
    /* Diventa leader di sessione */
    if ((pid = fork()) < 0) {
       puts("errore fork");
-         exit(-1);
-   } else if (pid != 0) /* Parent process */
-      exit(0);
+      exit(-1);
+   } 
    
-   setsid(); 
+   /* Si chiude il parent process */
+   if (pid != 0)
+      return(0);
+   
+   /* Si crea una nuova sessione */
+   if ((sid = setsid()) < 0) {
+      puts("erreo setsid");
+      exit(-1);
+   } 
 
-   /* Si evita il terminale di controllo  */
+/* Si evita il terminale di controllo  
    sa.sa_handler = SIG_IGN;
    sigemptyset(&sa.sa_mask);
    sa.sa_flags = 0;
@@ -61,8 +69,9 @@ void daemonize(const char *cmd)
    if ((pid = fork()) < 0) {
       puts("errore fork");
          exit(-1);
-   } else if (pid != 0) /* Parent process */
+   } else if (pid != 0)
       exit(0);
+*/
 
    /* Si cambia la directory corrente con l'attuale */
    if (chdir("/") < 0) {
@@ -70,11 +79,12 @@ void daemonize(const char *cmd)
        exit(-1);
    }
   
-   /* Si chiudono tutti i fd aperti*/
+/* Si chiudono tutti i fd aperti
    if (rl.rlim_max == RLIM_INFINITY)
        rl.rlim_max = 1024;
    for(i=0; i<rl.rlim_max; i++)
        close(i);
+*/
 
    /* Si attaccano i fd 0,1,2 a /dev/null */
    fd0 = open("/dev/null", O_RDWR);
