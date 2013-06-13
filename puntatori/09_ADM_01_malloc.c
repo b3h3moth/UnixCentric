@@ -17,6 +17,8 @@ SEMANTICS : La funzione malloc alloca 'size' byte di memoria sullo heap.
 RETURNS   : L'indirizzo della locazione di memoria piu' bassa del blocco di 
             memoria allocato in caso di successo, NULL in caso di errore.
 --------------------------------------------------------------------------------
+La massima grandezza del blocco di memoria allocabile mediante la funzione
+malloc() dipende dall'architettura su cui si sta lavorando.
 */
 
 int main(int argc, char *argv[]) {
@@ -42,5 +44,15 @@ int main(int argc, char *argv[]) {
     ptrn = (int*)malloc(N * sizeof(int));
     free(ptrn); /* Rilascio della memoria */
 
+    /* Variabili statiche e globali non permettono l'uso di malloc(), tuttavia
+    la soluzione con le variabili statiche potrebbe essere la suddivisione della
+    dichiarazione dall'inizializzazione:    
+    static int *p;
+    p = (int*)malloc(sizeof(int));
+
+    L'istruzione di seguito invece produrrebbe un errore:
+    static int *p  = (int*)malloc(sizeof(int));
+    */
+    
     return(EXIT_SUCCESS);
 }
