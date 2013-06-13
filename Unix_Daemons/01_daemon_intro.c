@@ -2,10 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include <syslog.h>
-#include <fcntl.h>
-#include <sys/resource.h>
-#include <signal.h>
+#include <unistd.h>
 
 /* I demoni sono processi che godono di una vita media sensibilmente maggiore 
 rispetto agli altri processi, solitamente sono eseguiti subito dopo la fase di 
@@ -21,24 +18,48 @@ Nota: Un demone in esecuzione puo' essere riconosciuto, talvolta, dal carattere
 I sistemi operativi UNIX utilizzano specifici demoni per la gestione di ogni 
 sorta di caratteristica del sistema e sono scritti seguendo regole ben 
 definite:
+
+- Creazione di un processo e chiusura del padre (fork);
+- Settaggio della maschera di creazione di file e directory (umask);
+- Creazione di una sessione (setsid);
+- Cambiamento della working directory (chdir);
+- Chiusura di tutti i file descriptor;
+- Apertura del log per la scrittura;
+
 */
 
-void daemonize(const char *cmd);
+void daemonize(void);
 
 int main(void) {
-    daemonize("demonazzi");
+    daemonize();
 
     return(EXIT_SUCCESS);
 }
 
-void daemonize(const char *cmd)
+void daemonize(void)
 {
-    int                 i, fd0, fd1, fd2;
-    pid_t               pid, sid;
-    struct rlimit       rl;
-    struct sigaction    sa;
+    pid_t pid;
 
-    /* cambia il file mode mask */
+    /* Si provvede alla creazione di un nuovo processo, il padre tuttavia sara'
+    subito terminato in modo tale da lasciare in esecuzione solo e soltanto il
+    processo figlio. */
+
+    if ((pid = fork()) < 0)
+        exit(EXIT_FAILURE);
+
+    if (pid > 0) 
+        exit(EXIT_SUCCESS);
+
+    /* Se il programma prosegue a questo punto e' in esecuzione solo il 
+    processo figlio, ed e' proprio cio' che si desidera nei demoni. */
+
+    /* Quando un utente crea un file o una directory, essi sono settati con i
+    permessi di default, tali permessi tuttavia possono essere modificati 
+    mediante la maschera di creazione dei file (file mode creation mask).
+    
+    Per cio' che concerne un demone e' assolutamente necessario poter leggere
+    e scrivere sui file, per cui impostando il valore di umask a 0 si avra' 
+    l'accesso completo alle risorse (file e directory) da parte del demone. */
     umask(0);
 
     /* Numero massimo di file descriptors 
