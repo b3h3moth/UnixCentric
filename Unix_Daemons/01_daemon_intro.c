@@ -9,12 +9,19 @@
 
 /* I demoni sono processi che godono di una vita media sensibilmente maggiore 
 rispetto agli altri processi, solitamente sono eseguiti subito dopo la fase di 
-boostrap e chiusi nella fase di shutdown del sistema, una delle caratteristiche
-tipiche di un demone e' l'assenza del terminale di controllo, per cui sono 
-eseguiti in background. 
+boostrap del sistema e terminati nella fase di shutdown del sistema stesso; una
+tra le caratteristiche tipiche di un demone e' l'assenza del terminale di 
+controllo, per cui e' eseguito in background e senza interazione con l'utente.
 
-I sistemi operativi UNIX, sia BSD sia SystemV, utilizzano specifici demoni per
-la gestione di ogni sorta di caratteristica del sistema.*/
+Nota: Un demone in esecuzione puo' essere riconosciuto, talvolta, dal carattere
+      finale 'd', ad esempio tipici demoni sono sshd, acpid, rsyslogd, httpd, ma
+      anche cron, portmap, etc. Il comando 'ps axj' puo' essere utile in tal 
+      senso.
+
+I sistemi operativi UNIX utilizzano specifici demoni per la gestione di ogni 
+sorta di caratteristica del sistema e sono scritti seguendo regole ben 
+definite:
+*/
 
 void daemonize(const char *cmd);
 
