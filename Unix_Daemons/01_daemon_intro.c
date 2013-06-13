@@ -55,7 +55,7 @@ void daemonize(void)
         exit(EXIT_SUCCESS);
 
     /* A questo punto del programma dovrebbe essere in esecuzione solo il 
-    processo figlio, cosi come si prevede bei demoni. */
+    processo figlio, cosi come si prevede nei demoni. */
 
     /* Quando un utente crea un file o una directory, essi sono settati con i
     permessi di default, tali permessi tuttavia possono essere modificati 
@@ -113,7 +113,8 @@ void daemonize(void)
        sleep(30);
    }
 
-   /* Lo scheletro di un demone unix e' completo, si rimanda al codice dei
+   /* Lo scheletro di un demone unix e' quasicompleto, si rimanda al codice dei
    successivi sorgenti di questa sezione per la creazione di un demone piu'
-   dettagliato. */
+   dettagliato che preveda la gestione dei segnali e una piu' accurata gestione
+   del log.*/
 }
