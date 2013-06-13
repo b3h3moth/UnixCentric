@@ -49,7 +49,7 @@ void daemonize(const char *cmd)
    
    /* Si chiude il parent process */
    if (pid != 0)
-      return(0);
+      exit(0);
    
    /* Si crea una nuova sessione */
    if ((sid = setsid()) < 0) {
