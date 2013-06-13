@@ -43,7 +43,8 @@ int main(int argc, char **argv, char **envp) {
 
    printf("\nInizializzazione nuovi elementi del vettore\n");
    for (c=tmp; c<n; c++) {
-      printf("Inserire un valore per l'elemento '%d' del vettore: ", ((tmp++)+1));
+      printf("Inserire un valore per l'elemento '%d' del vettore: ", 
+              ((tmp++)+1));
       scanf("%d", &vettore[c]);
    }
 
