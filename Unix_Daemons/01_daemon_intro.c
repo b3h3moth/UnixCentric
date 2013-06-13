@@ -4,6 +4,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <syslog.h>
+#include <fcntl.h>
 
 /* I demoni sono processi che godono di una vita media sensibilmente maggiore 
 rispetto agli altri processi, solitamente sono eseguiti subito dopo la fase di 
@@ -40,18 +42,7 @@ int main(void) {
 void daemonize(void)
 {
     pid_t pid, sid;
-
-    /* Si provvede ad una verifica iniziale, ovvero se la funzione getppid()
-    restituira' 1 vorra' dire che il PPID del programma in esecuzione sara'
-    init con PID 1 per l'appunto, e quindi si potra' proseguire tranquillamente,
-    questo perche' ciascun demone ha come genitore proprio init. E' una sorta
-    di verifica iniziale. */
-    
-    if (getppid() == 1) {
-        puts("init");
-        return;
-    } else
-        puts("ahi ahi ani");
+    int fd0, fd1, fd2;
 
     /* E' necessario creare un nuovo processo, il padre tuttavia sara' subito 
     terminato in modo tale da lasciare in esecuzione solo e soltanto il processo
@@ -83,67 +74,46 @@ void daemonize(void)
     diventera' leader della nuova sessione. */
 
     if ((sid = setsid()) < 0) {
-        fprintf(stderr, "Err. %d setsid() %s\n", errno, strerror(errno));
+        /* log */
         exit(EXIT_FAILURE);
     }
 
-    /* Numero massimo di file descriptors 
-    if (getrlimit(RLIMIT_NOFILE, &rl) < 0) {
-       puts("errore");
-       exit(-1);
-    }
-    */
-
-   /* Diventa leader di sessione */
-   /* Si crea una nuova sessione
-   if ((sid = setsid()) < 0) {
-      puts("erreo setsid");
-      exit(-1);
-   } 
-   */
-
-/* Si evita il terminale di controllo  
-   sa.sa_handler = SIG_IGN;
-   sigemptyset(&sa.sa_mask);
-   sa.sa_flags = 0;
-
-   if (sigaction(SIGHUP, &sa, NULL) < 0) {
-       puts("sigaction error");
-       exit(-1);
-   }
-   if ((pid = fork()) < 0) {
-      puts("errore fork");
-         exit(-1);
-   } else if (pid != 0)
-      exit(0);
-*/
-
-   /* Si cambia la directory corrente con l'attuale
+   /* Si cambia la directory di lavoro corrente */
    if (chdir("/") < 0) {
-       puts("chdir error");
-       exit(-1);
+       /* log */
+       exit(EXIT_FAILURE);
    }
-   */
-  
-/* Si chiudono tutti i fd aperti
-   if (rl.rlim_max == RLIM_INFINITY)
-       rl.rlim_max = 1024;
-   for(i=0; i<rl.rlim_max; i++)
-       close(i);
-*/
 
-   /* Si attaccano i fd 0,1,2 a /dev/null
+   /* Chiusura di tutti gli standard file descriptor (stdin, stdout, stderr),
+   da ricordare che un demone non dispone del terminale di controllo, per cui
+   i file descriptor devono essere disabilitati. */
+   close(STDIN_FILENO);
+   close(STDOUT_FILENO);
+   close(STDERR_FILENO);
+
+   /* Si attaccano i file descriptor 0,1,2 a /dev/null  */
    fd0 = open("/dev/null", O_RDWR);
-   fd1 = dup(0);
+   fd1 = dup(0); /* La funzione dup() duplica un file descriptor */
    fd2 = dup(0);
-   */
 
-   /* Si inizializza il file di log
-   openlog(cmd, LOG_CONS, LOG_DAEMON);
+   /* Si inizializza il file di log; si faccia attenzione a questo passaggio,
+   per avere informazioni sullo stato del demone si potra' leggere il file
+   di log /var/log/syslog.  */
+   openlog("demone: ", LOG_CONS, LOG_DAEMON);
    if (fd0 != 0 || fd1 != 1 || fd2 != 2) {
        syslog(LOG_ERR, "fd inaspettato %d %d %d", fd0, fd1, fd2);
-       exit(1);
+       exit(EXIT_FAILURE);
    }
-   */
 
+   /* Specializzazione del demone */
+   while (1) {
+       /* Ogni 30 secondi apparira' sul terminale un messaggio inviato da 
+       syslog, il cui messaggio sara' scritto anche su /var/log/syslog.*/
+       syslog(LOG_USER, "Messaggio del demone");
+       sleep(30);
+   }
+
+   /* Lo scheletro di un demone unix e' completo, si rimanda al codice dei
+   successivi sorgenti di questa sezione per la creazione di un demone piu'
+   dettagliato. */
 }
