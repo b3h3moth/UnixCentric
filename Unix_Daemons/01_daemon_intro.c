@@ -109,7 +109,7 @@ void daemonize(void)
    while (1) {
        /* Ogni 30 secondi apparira' sul terminale un messaggio inviato da 
        syslog, il cui messaggio sara' scritto anche su /var/log/syslog.*/
-       syslog(LOG_USER, "Messaggio del demone");
+       syslog(LOG_DAEMON, "Messaggio del demone");
        sleep(30);
    }
 
