@@ -99,7 +99,7 @@ void daemonize(void)
    /* Si inizializza il file di log; si faccia attenzione a questo passaggio,
    per avere informazioni sullo stato del demone si potra' leggere il file
    di log /var/log/syslog.  */
-   openlog("demone: ", LOG_CONS, LOG_DAEMON);
+   openlog("demone: ", LOG_PID, LOG_DAEMON);
    if (fd0 != 0 || fd1 != 1 || fd2 != 2) {
        syslog(LOG_ERR, "fd inaspettato %d %d %d", fd0, fd1, fd2);
        exit(EXIT_FAILURE);
@@ -110,7 +110,7 @@ void daemonize(void)
        /* Ogni 30 secondi apparira' sul terminale un messaggio inviato da 
        syslog, il cui messaggio sara' scritto anche su /var/log/syslog.*/
        syslog(LOG_DAEMON, "Messaggio del demone");
-       sleep(30);
+       sleep(60);
    }
 
    /* Lo scheletro di un demone unix e' quasicompleto, si rimanda al codice dei
