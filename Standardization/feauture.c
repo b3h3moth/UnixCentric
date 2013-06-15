@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <unistd.h>
 
-int main (int argc, char *argv[])
-{
+int main (void) {
+
 #ifdef _POSIX_SOURCE
   printf ("_POSIX_SOURCE defined\n");
 #endif
@@ -65,6 +64,9 @@ int main (int argc, char *argv[])
   printf ("_FORTIFY_SOURCE defined\n");
 #endif
 
-
-  exit (EXIT_SUCCESS);
+#ifdef _POSIX_JOB_CONTROL
+  printf ("_POSIX_JOB_CONTROL defined: %d\n", _POSIX_JOB_CONTROL);
+#endif
+  
+  exit(EXIT_SUCCESS);
 }
