@@ -43,15 +43,6 @@ Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
 
-Le directory sono state denominate seguendo il percorso didattico della bibbia 
-del C, "Linguaggio C", di Kernighan & Ritchie - d'ora in poi K&R -, alcuni 
-argomenti tuttavia sono stati aggiunti, per cui oltre al normale content di K&R
-sono state e saranno realizzate ulteriore sezioni; si e' optato per questa
-scelta, sia per avere quella chiarezza "universalmente riconosciuta" rispetto ai
-contenuti, sia per omaggiare Kernighan & Ritchie stessi, due tra le figure piu'
-importanti dell'Informatica del XX secolo, in particolare per cio' che concerne
-il mondo dei sistemi operativi UNIX like.
-
 ##############################################################################
 INFO
 ##############################################################################
