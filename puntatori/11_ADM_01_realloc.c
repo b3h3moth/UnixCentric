@@ -2,10 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
- * Si utilizza l'allocazione dinamica della memoria, prima per la cosruzione di
- * un vettore con malloc, poi per il suo ampliamento, con realloc.
- */
+/* Si utilizza l'allocazione dinamica della memoria, dapprima per la costruzione
+di un vettore con malloc, poi per il suo ampliamento, con realloc. */
 
 int main(int argc, char **argv, char **envp) {
    int n, new_alloc, tmp = 0;
