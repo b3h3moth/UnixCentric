@@ -48,16 +48,13 @@ void daemonize(void)
 
     /* E' necessario creare un nuovo processo, il padre tuttavia sara' subito 
     terminato in modo tale da lasciare in esecuzione solo e soltanto il processo
-    figlio. */
+    figlio che in tal modo, essendo orfano, sara' ereditato da init. */
 
     if ((pid = fork()) < 0)
         exit(EXIT_FAILURE);
 
     if (pid > 0) 
         exit(EXIT_SUCCESS);
-
-    /* A questo punto del programma dovrebbe essere in esecuzione solo il 
-    processo figlio, cosi come si prevede nei demoni. */
 
     /* Quando un utente crea un file o una directory, essi sono settati con i
     permessi di default, tali permessi tuttavia possono essere modificati 
@@ -115,7 +112,7 @@ void daemonize(void)
        sleep(60);
    }
 
-   /* Lo scheletro di un demone unix e' quasicompleto, si rimanda al codice dei
+   /* Lo scheletro di un demone unix e' quasi completo, si rimanda al codice dei
    successivi sorgenti di questa sezione per la creazione di un demone piu'
    dettagliato che preveda la gestione dei segnali e una piu' accurata gestione
    del log.*/
