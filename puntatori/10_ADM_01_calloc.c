@@ -2,29 +2,34 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *allocMemory(char *buf, int size);
+/* La funzione calloc() alloca un blocco di memoria per un array sullo heap e, 
+diversamente dalla malloc(), setta ciascun elemento a 0.
 
-int main(void)
-{
-	char def_string[] = "C language programming";
-	char *buffer;
-	int size = strlen(def_string)+1;
+HEADER    : <stdlib.h>
+PROTOTYPE : void *calloc(size_t num_elem, size_t size);
+SEMANTICS : La funzione calloc() alloca memoria per un array di 'num_elem' 
+            elementi, ciascuno di dimensione 'size'. Se 'num_elem' o 'size' e' 
+            zero la funzione ritorna NULL.
+RETURNS   : Un puntatore alla memoria allocata in caso di successo, NULL in caso
+            di errore
+--------------------------------------------------------------------------------
+Poiche' alloca elementi contigui di memoria, inizialmente fu pensata proprio
+per gli array, da notare tuttavia che richiede piu' tempo di una malloc().
+*/
 
-	buffer = allocMemory(buffer, size);
-	strcpy(buffer, def_string);
+int main(void) {
+    /* Si provvede ora ad allocare 40 byte di memoria */
+    int i;
+    const int tot_elem = 10;
+    int *ptr = calloc(tot_elem, sizeof(int));
 
-        /* Si imposta il carattere di fine stringa */
-	buffer[--size] = '\0';
+    /* Sono stati allocati 40 byte (10 * 4 byte), il risultato e' un array dove
+    ciascun eleemento e' settato a 0. */
+    for (i=0; i<tot_elem; i++)
+        printf("%p = %d\n", (void *)&ptr[i], ptr[i]);
 
-	printf("strlen(default string): %d - %s\n", size, def_string);
-	printf("    strlen(new string): %d - %s\n", strlen(buffer), buffer);
-	
-	return(EXIT_SUCCESS);
-}
+    /* Come si potra' ben notare anche in output, la relazione tra array e'
+    puntatori e' molto molto stretta */
 
-/* Ritorna l'indirizzo di memoria di grandezza utile a contenere esattamente un 
-vettore di caratteri di <size> dimensioni */
-char *allocMemory(char *buf, int size)
-{
-    return buf = calloc(size,  sizeof(char));
+    exit(EXIT_SUCCESS);
 }
