@@ -42,7 +42,7 @@ L'ultimo processo di un gruppo di processi ha due alternative:
 
 La funzione deputata a far si che un processo possa creare un nuovo gruppo 
 di processi o che possa entrare in un gruppo di processi esistente e' setpgid(),
-tuttavia e' bene ricordate che un processo puo' settare solo il PGID proprio e
+tuttavia e' bene ricordare che un processo puo' settare solo il PGID proprio e
 dei processi figli, nell'ultimo caso solo dopo una chiamata ad una delle 
 funzioni della famiglia exec.
 

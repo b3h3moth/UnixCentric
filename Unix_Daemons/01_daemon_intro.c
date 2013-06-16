@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <syslog.h>
 #include <fcntl.h>
+#include <sys/resource.h>
 
 /* I demoni sono processi che godono di una vita media sensibilmente maggiore 
 rispetto agli altri processi, solitamente sono eseguiti subito dopo la fase di 
@@ -27,6 +28,7 @@ definite:
 - Creazione di una nuova sessione per il processo figlio (setsid);
 - Cambiamento della working directory (chdir);
 - Chiusura di tutti i file descriptor;
+- Redirezione dei file descriptor verso /dev/null;
 - Gestione del log (syslog);
 
 */
@@ -91,10 +93,10 @@ void daemonize(void)
    close(STDOUT_FILENO);
    close(STDERR_FILENO);
 
-   /* Si attaccano i file descriptor 0,1,2 a /dev/null  */
+   /* Redirezione dei file descriptor 0,1,2 verso /dev/null  */
    fd0 = open("/dev/null", O_RDWR);
-   fd1 = dup(0); /* La funzione dup() duplica un file descriptor */
-   fd2 = dup(0);
+   fd1 = dup(fd0); /* La funzione dup() duplica un file descriptor */
+   fd2 = dup(fd1);
 
    /* Si inizializza il file di log; si faccia attenzione a questo passaggio,
    per avere informazioni sullo stato del demone si potra' leggere il file
