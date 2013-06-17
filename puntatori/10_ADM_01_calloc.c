@@ -24,7 +24,12 @@ int main(void) {
     int *ptr = calloc(tot_elem, sizeof(int));
 
     /* Sono stati allocati 40 byte (10 * 4 byte), il risultato e' un array dove
-    ciascun eleemento e' settato a 0. */
+    ciascun eleemento e' settato a 0; lo stesso risultato si sarebbe potuto
+    ottenere con malloc() e memset():
+    
+    int *ptr = malloc(tot_elem * sizeof(int));  
+    memset(ptr, 0, tot_elem * sizeof(int));     
+    */
     for (i=0; i<tot_elem; i++)
         printf("%p = %d\n", (void *)&ptr[i], ptr[i]);
 
