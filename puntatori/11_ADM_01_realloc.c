@@ -1,57 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <string.h>
 
-/* Si utilizza l'allocazione dinamica della memoria, dapprima per la costruzione
-di un vettore con malloc, poi per il suo ampliamento, con realloc. */
+/* Talvolta e' necessario incrementare o decrementare la memoria assegnata ad
+un puntatore, la funzione predisposta a questo scopo e' realloc().
 
-int main(int argc, char **argv, char **envp) {
-   int n, new_alloc, tmp = 0;
-   int c;
-   int *vettore;
+HEADER    : <stdlib.h>
+PROTOTYPE : void *realloc(void *ptr, size_t size);
+SEMANTICS : La funzione realloc() modifica il blocco di memoria puntato da 'ptr'
+            al valore 'size'
+RETURNS   : Un puntatore al nuovo blocco di memoria in caso di successo, NULL in
+            caso di errore.
+--------------------------------------------------------------------------------
+- Se la richiesta di memoria sara' minore rispetto alla memoria correntemente
+  allocata, quella in eccesso andra' sullo heap, senza però nessuna garanzia di
+  pulizia;
 
-   printf("Inserire lunghezza vettore: \n");
-   scanf("%d", &n);
+- Se la richiesta di memoria sara' maggiore rispetto alla memoria correntemente
+  allocata, sara' allocata la memoria necessaria partendo dalla locazione 
+  successiva rispetto al blocco allocato, oppure la nuova memoria sara' allocata
+  in una nuova regione sullo heap, copiando  il blocco vecchio;
 
-   vettore = malloc(n * sizeof(int)); /* Oppure avrei potuto utilizzare
-   					 vettore = calloc(n, sizeof(int)); 
-				      */
+- Se 'size' sara' 0 e il 'ptr' diverso da NULL, sara' equivalente a free(ptr);
 
-   for (c = 0; c < n; c++) {
-      printf("Inserire un valore per l'elemento '%d' del vettore: ", c+1);
-      scanf("%d", &vettore[c]);
-   }
+- Se 'ptr' sara' NULL, la chiamata sara' equivalente a malloc(size);
+*/
 
-   for (c = n-1; c >= 0; c--) {
-      printf("vettore[%d] = %d\n", c+1, vettore[c]);
-   }
+int main(int argc, char *argv[]) {
+    /* Si provvede ad allocare delle stringhe */
+    char *str1;
+    char *str2;
 
-   printf("\nRIALLOCAZIONE: AMPLIAMENTO DEL VETTORE\n"
-   	  " -> Inserire un intero : ");
-   scanf("%d", &new_alloc);
+    str1 = (char*) malloc(16);
+    strcpy(str1, "0123456789AB");
 
-   printf("\nVettore originario : \"%2d\" elementi\n", n);
-   printf("Vettore ampliato   : \"%2d\" elementi\n", n+new_alloc);
+    str2 = realloc(str1, 8);
 
-   if (new_alloc > 0) {
-      tmp = n;
-      n += new_alloc;
-      vettore = realloc(vettore, (n * sizeof(int)));
-   }
+    printf("str1 value: %p [%s]\n", str1, str1);
+    printf("str2 value: %p [%s]\n", str2, str2);
 
-   printf("\nInizializzazione nuovi elementi del vettore\n");
-   for (c=tmp; c<n; c++) {
-      printf("Inserire un valore per l'elemento '%d' del vettore: ", 
-              ((tmp++)+1));
-      scanf("%d", &vettore[c]);
-   }
-
-   printf("\n");
-
-   for(c = n-1; c >= 0; --c) {
-      printf("vettore[%d] = %d\n", c+1, vettore[c]);
-   }
-
-   free(vettore);
-   return(EXIT_SUCCESS);
+    return(EXIT_SUCCESS);
 }
