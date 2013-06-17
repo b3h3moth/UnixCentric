@@ -13,14 +13,15 @@ SEMANTICS : La funzione realloc() modifica il blocco di memoria puntato da 'ptr'
 RETURNS   : Un puntatore al nuovo blocco di memoria in caso di successo, NULL in
             caso di errore.
 --------------------------------------------------------------------------------
-- Se la richiesta di memoria sara' minore rispetto alla memoria correntemente
-  allocata, quella in eccesso andra' sullo heap, senza però nessuna garanzia di
-  pulizia;
+- Se la richiesta di memoria fosse minore rispetto alla memoria correntemente
+  allocata, quella in eccesso sarebbe restituita allo heap, senza però nessuna 
+  garanzia di pulizia, ossia il contenuto delle locazioni di memoria 
+  resterebbe immutato;
 
-- Se la richiesta di memoria sara' maggiore rispetto alla memoria correntemente
-  allocata, sara' allocata la memoria necessaria partendo dalla locazione 
-  successiva rispetto al blocco allocato, oppure la nuova memoria sara' allocata
-  in una nuova regione sullo heap, copiando  il blocco vecchio;
+- Se la richiesta di memoria fosse maggiore rispetto alla memoria correntemente
+  allocata, sarebbe allocata la memoria necessaria partendo dalla locazione 
+  successiva rispetto al blocco allocato, oppure la nuova memoria sarebbe 
+  allocata in una nuova regione sullo heap, copiando  il blocco vecchio;
 
 - Se 'size' sara' 0 e il 'ptr' diverso da NULL, sara' equivalente a free(ptr);
 
@@ -28,17 +29,23 @@ RETURNS   : Un puntatore al nuovo blocco di memoria in caso di successo, NULL in
 */
 
 int main(int argc, char *argv[]) {
-    /* Si provvede ad allocare delle stringhe */
-    char *str1;
-    char *str2;
+    /* richiesta di memoria minore rispetto alla memoria correntemente 
+    allocata */
+    char *email;
+    char *backup;
 
-    str1 = (char*) malloc(16);
-    strcpy(str1, "0123456789AB");
+    /* Si allocano 30 byte ma se ne utilizzano solo 23 */
+    email = (char*) malloc(30);
+    strcpy(email, "behemoth@autistici.org");   /* 23 byte compreso '\0' */
 
-    str2 = realloc(str1, 8);
+    /* Si allocano solo 15 byte */
+    backup = realloc(email, 15);
 
-    printf("str1 value: %p [%s]\n", str1, str1);
-    printf("str2 value: %p [%s]\n", str2, str2);
+    /* Come si potra' evincere dall'output, sara' riutilizzato il blocco
+    originario contenuto compreso non modificato, la stringa inoltre sara' ben
+    maggiore di 15 byte */
+    printf("e-mail value: %p [%s]\n", email, email);
+    printf("backup value: %p [%s]\n", backup, backup);
 
     return(EXIT_SUCCESS);
 }

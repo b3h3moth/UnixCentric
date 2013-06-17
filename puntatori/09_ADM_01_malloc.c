@@ -53,6 +53,6 @@ int main(int argc, char *argv[]) {
     L'istruzione di seguito invece produrrebbe un errore:
     static int *p  = (int*)malloc(sizeof(int));
     */
-    
+
     return(EXIT_SUCCESS);
 }
