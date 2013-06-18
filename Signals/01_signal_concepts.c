@@ -13,13 +13,13 @@ consentono la gestione di eventi asincroni; i segnali sono standard POSIX.1.
 Tutti i segnali, definiti nell'header <signal.h>[1], hanno un nome specifico, le
 prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIG; 
 ogni nome definisce una costante il cui valore indica un intero positivo, il
-"signal number" - numero del segnale.
+"signal number" o numero del segnale.
 
 Per verificare il numero totale dei segnali disponibili e' possibile utilizzare
 la macro NSIG.
 
 Nota: Non vi e' un "signal number" 0, POSIX.1 lo definisce in questo ambito come
-      "null signal", segnale nullo. E' consigliabile, anche per la portabilita',
+      "null signal" o segnale nullo. E' consigliabile per la portabilita'
       utilizzare sempre i nomi associati ai segnali e non i corrispettivi valori
       numerici, questo perche' i valori numerici possono variare, anche
       sensibilmente, rispetto alle varie implementazioni del sistema[2].
@@ -103,7 +103,7 @@ Unix System Signals
 -------------------
 I sistemi GNU/Linux supportano i segnali standard elencati di seguito, diversi
 numeri di segnale tuttavia dipendono dall'architettura, per cui nel campo valore
-e' indicato solo il valore corrispondente alle architettture i386, ppc e sh[2].
+e' indicato solo il valore corrispondente alle architetture i386, ppc e sh[2].
 
 Ciascun segnale ha una disposizione attuale, che determina come si comporta il 
 processo quando il segnale viene recapitato, le  voci  nella colonna "Azione" 
