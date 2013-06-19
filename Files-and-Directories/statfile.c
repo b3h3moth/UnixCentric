@@ -10,6 +10,27 @@
 
 #define TIME_STRING_BUF 50
 
+char *timeString(time_t t, char * buf);
+int fileStats(const char * file);
+
+/* Il programma fornisce tutte le informazioni sul file fornito come argomento,
+tali informazioni saranno ottenute mediante la funzione lstat(). */
+
+int main(int argc, char *argv[]) {
+    int i;
+    int rc = 0;
+
+    /* Sara' invocata la funzione fileStats() per ciascun argomento,
+    presumibilmente un filename */
+    for (i=1; i<argc; i++) {
+        rc |= fileStats(argv[i]);
+        
+        if ((argc - i) > 1) 
+            printf("\n");
+    }
+    return rc;
+}
+
 char *timeString(time_t t, char * buf) {
     struct tm * local;
     
@@ -18,8 +39,6 @@ char *timeString(time_t t, char * buf) {
     return buf;
 }
 
-/* Il programma fornisce tutte le informazioni sul file fornito come argomento,
-le informazioni saranno ottenute mediante lstat(). */
 
 int fileStats(const char * file) {
     struct stat statbuf;
@@ -50,17 +69,3 @@ int fileStats(const char * file) {
     return 0;
 }
 
-int main(int argc, char *argv[]) {
-    int i;
-    int rc = 0;
-
-    /* Sara' invocata la funzione fileStats() per ciascun argomento,
-    presumibilmente un file, passato come argomento */
-    for (i=1; i<argc; i++) {
-        rc |= fileStats(argv[i]);
-        
-        if ((argc - i) > 1) 
-            printf("\n");
-    }
-    return rc;
-}
