@@ -10,12 +10,16 @@ int main(int argc, char **argv, char **envp) {
    int c;
    int *vettore;
 
-   printf("Inserire lunghezza vettore: \n");
-   scanf("%d", &n);
-   atoi(n);
-   vettore = malloc(n * sizeof(int)); /* Oppure avrei potuto utilizzare
-   					 vettore = calloc(n, sizeof(int)); 
-				      */
+   printf("Creazione di un vettore di interi [1-9]\n"
+          "Inserire lunghezza del vettore: ");
+   
+   if (scanf("%1d", &n) != 0) {
+       vettore = malloc(n * sizeof(int)); 
+       /* Oppure avrei potuto utilizzare: vettore = calloc(n, sizeof(int)); */
+   } else {
+       fprintf(stderr, "Err. il tipo dev'essere intero, riprova\n");
+       exit(EXIT_FAILURE);
+   }
 
    for (c = 0; c < n; c++) {
       printf("Inserire un valore per l'elemento '%d' del vettore: ", c+1);
@@ -28,16 +32,20 @@ int main(int argc, char **argv, char **envp) {
 
    printf("\nRIALLOCAZIONE: AMPLIAMENTO DEL VETTORE\n"
    	  " -> Inserire un intero : ");
-   scanf("%d", &new_alloc);
+   if (scanf("%1d", &new_alloc) != 0) {
+      if (new_alloc > 0) {
+          tmp = n;
+          n += new_alloc;
+          vettore = realloc(vettore, (n * sizeof(int)));
+      }
+   } else {
+       fprintf(stderr, "Err. il tipo dev'essere intero, riprova\n");
+       exit(EXIT_FAILURE);
+   }
 
    printf("\nVettore originario : \"%2d\" elementi\n", n);
    printf("Vettore ampliato   : \"%2d\" elementi\n", n+new_alloc);
 
-   if (new_alloc > 0) {
-      tmp = n;
-      n += new_alloc;
-      vettore = realloc(vettore, (n * sizeof(int)));
-   }
 
    printf("\nInizializzazione nuovi elementi del vettore\n");
    for (c=tmp; c<n; c++) {
