@@ -13,10 +13,10 @@ PROTOTYPE : void free(void *ptr);
 SEMANTICS : La funzione free() rilascia lo spazio di memoria puntato da 'ptr'.
 RETURNS   : Non ritorna alcun valore.
 --------------------------------------------------------------------------------
-Se alla funzione free() gli si dovesse passare NULL, non succedera' alcunche';
+Se alla funzione free() gli si dovesse passare NULL, non succedera' alcunche',
 inoltre dereferenziare un puntatore appena rilasciato portera' a comportamenti
-indefiniti, per cui sarebbe consigliato assegnare NULL a un punatore 
-rilasciato, tale tecnica evita problemi di "dangling pointers".
+indefiniti, per cui sarebbe lecito assegnare NULL al puntatore rilasciato, tale
+tecnica peraltro eviterebbe problemi di "dangling pointers".
 */
 
 int main(void) {
