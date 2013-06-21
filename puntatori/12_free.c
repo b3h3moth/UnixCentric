@@ -19,7 +19,12 @@ indefiniti, per cui sarebbe lecito assegnare NULL al puntatore rilasciato, tale
 tecnica peraltro eviterebbe problemi di "dangling pointers".
 
 Dangling pointer: Un puntatore che e' stato rilasciato ma che referenzia ancora
-                  la memoria precedentente allocata.
+                  la memoria precedentente allocata, esso infatti punta ad un
+                  oggetto non valido, che porterebbe a:
+                  - un comportamento indefinito qualora vi si accedesse;
+                  - segmentation fault;
+                  - potenziali rischi per la sicurezza.
+                 
 */
 
 int main(void) {
