@@ -24,7 +24,6 @@ Dangling pointer: Un puntatore che e' stato rilasciato ma che referenzia ancora
                   - un comportamento indefinito qualora vi si accedesse;
                   - segmentation fault;
                   - potenziali rischi per la sicurezza.
-                 
 */
 
 int main(void) {
@@ -40,6 +39,16 @@ int main(void) {
     /* Si assegna NULL al puntatore rilasciato per evitare comportamenti
     indefiniti in futuro */
     ptr = NULL;
+
+    /* Comportamento inaspettato, il puntatore p2 punta ad un indirizzo di 
+    memoria precedentemente rilasciato */
+    int *p1, *p2;
+    p1 = (int*) malloc(sizeof(int));
+    *p1 = 100;
+    p2 = p1;
+    free(p1); 
+    *p2 = 100;
+    printf("p2 = %d\n", *p2);
 
     return(EXIT_SUCCESS);
 }
