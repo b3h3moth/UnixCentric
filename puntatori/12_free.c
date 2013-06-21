@@ -17,6 +17,9 @@ Se alla funzione free() gli si dovesse passare NULL, non succedera' alcunche',
 inoltre dereferenziare un puntatore appena rilasciato portera' a comportamenti
 indefiniti, per cui sarebbe lecito assegnare NULL al puntatore rilasciato, tale
 tecnica peraltro eviterebbe problemi di "dangling pointers".
+
+Dangling pointer: Un puntatore che e' stato rilasciato ma che referenzia ancora
+                  la memoria precedentente allocata.
 */
 
 int main(void) {
