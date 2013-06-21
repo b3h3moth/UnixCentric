@@ -16,7 +16,7 @@ RETURNS   : Non ritorna alcun valore.
 Se alla funzione free() gli si dovesse passare NULL, non succedera' alcunche';
 inoltre dereferenziare un puntatore appena rilasciato portera' a comportamenti
 indefiniti, per cui sarebbe consigliato assegnare NULL a un punatore 
-rilasciato.
+rilasciato, tale tecnica evita problemi di "dangling pointers".
 */
 
 int main(void) {
