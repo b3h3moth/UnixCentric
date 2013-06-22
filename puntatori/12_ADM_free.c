@@ -20,7 +20,8 @@ tecnica peraltro eviterebbe problemi di "dangling pointers".
 
 Dangling pointer: Un puntatore che e' stato rilasciato ma che referenzia ancora
                   la memoria precedentente allocata, esso infatti punta ad un
-                  oggetto non valido, che porterebbe a:
+                  oggetto non valido.
+                  Un dangling pointer potrebbe essere causa di:
                   - un comportamento indefinito qualora vi si accedesse;
                   - segmentation fault;
                   - potenziali rischi per la sicurezza.
