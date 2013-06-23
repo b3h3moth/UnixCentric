@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     
     if (proto_info == NULL) {
     	perror("getprotobyname");
-	return -1;
+	return(EXIT_FAILURE);
     }
     
     /* Si utilizza il campo della struttura protoent p_proto per ricavare il
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     
     if (skt < 0) {
     	perror("socket");
-	return -1;
+	return(EXIT_FAILURE);
     }
     
     return(EXIT_SUCCESS);
