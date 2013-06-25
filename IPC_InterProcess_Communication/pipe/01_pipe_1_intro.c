@@ -52,7 +52,11 @@ int main(int argc, char *argv[]) {
     char buffer[MAX_BUF];
 
     /* In caso di esito positivo si aprira' una pipe, in cui fd[0] potra' essere
-    utilizzato per la lettura e fd[1] per la scrittura. */
+    utilizzato per la lettura e fd[1] per la scrittura. 
+    
+    Nota: In questo contesto la chiamata della pipe deve essere precedente alla
+          a quella della fork(), altrimenti si potrebbe incorrere ad un 
+          risultato non previsto. */
     if (pipe(fd) < 0) {
         fprintf(stderr, "Err.: %d pipe() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
