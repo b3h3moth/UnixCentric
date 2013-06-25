@@ -10,9 +10,8 @@ un altro programma nella pipe.
 Affinche' l'altro programma lo riconosca e lo faccia partire deve essere
 compilato con l'opzione -o di gcc per l'attribuzione del nome all'eseguibile.
 
-gcc fileprincipale.c -o convers
+gcc 03_convert_1.c -o convers
 */
- 
 
 int main(void) {
     int c;

@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
       return 13;
    }
 
-
    /* Legge l'output del comando fornito mediante la pipe */
    while (fgets(buf, MAX_BUF, fpipe) != 0) 
       fputs(buf, stdout);

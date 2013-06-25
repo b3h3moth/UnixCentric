@@ -7,7 +7,7 @@
 
 #define MAX_BUF 512
 
-/* Il programma invoca un altro programma - convers -mediante una pipe, che 
+/* Il programma invoca un altro programma - convers - mediante una pipe, che 
 utilizzera' per la conversione di caratteri */
    
 int main(int argc, char *argv[]) {
