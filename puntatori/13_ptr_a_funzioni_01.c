@@ -20,8 +20,12 @@ int main(void) {
     void (*vec[MAX_MENU])(int) = {voce1, voce2, voce3};
 
     printf("> Menu'[0,1,2] - 3 per uscire: ");
+    scanf("%1d", &choice);
+
     while (choice >= 0 && choice < 3) {
         (*vec[choice])(choice);
+        printf("> Menu'[0,1,2] - 3 per uscire: ");
+        scanf("%1d", &choice);
     }
 
     return(EXIT_SUCCESS);
