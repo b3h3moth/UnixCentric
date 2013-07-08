@@ -6,8 +6,8 @@
 /* Ogni funzione e' una voce del menu', accettano un argomento di tipo intero e
 restituisce void. */
 void voce1(int x);
-void voce2(int y);
-void voce3(int z);
+void voce2(int x);
+void voce3(int x);
 
 /* I puntatori a funzione sono utilizzati spesso per fornire menu', all'interno
 dei quali ciascuna opzione corrisponde ad una funzione, che peraltro sono
@@ -19,10 +19,10 @@ int main(void) {
     /* Inizializzazione di un vettore di 3 puntatori a funzione */
     void (*vec[MAX_MENU])(int) = {voce1, voce2, voce3};
 
-    printf("> Menu'[0,1,2] - 3 per uscire: ");
+    printf("> Menu'[0,1,2] (altro per uscire) ");
     scanf("%1d", &choice);
 
-    while (choice >= 0 && choice < 3) {
+    while (choice >= 0 && choice <=2) {
         (*vec[choice])(choice);
         printf("> Menu'[0,1,2] - 3 per uscire: ");
         scanf("%1d", &choice);
