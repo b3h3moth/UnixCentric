@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 10
+#define MAX_SIZE 20
 
 void bubble(int work[], const int size, int (*compare)(int x, int y));
 int ascending(int x, int y);
@@ -14,32 +14,30 @@ int main(void) {
     1 ascendente, 2 discendente, e variabile contatore*/
     int order, i;
 
-    int vec[MAX_SIZE] = {2, 23,5,76,34,8,16,78,34,10};
+    int vec[MAX_SIZE] = {2,23,5,76,34,8,16,78,39,10,19,7,87,73,4,11,82,49,0,1};
 
     printf("> Scegli il tipo di ordinamento (1 ascendente - 2 discentente): ");
     scanf("%1d", &order);
 
-    printf("Dati dell'array nell'ordine iniziale:\n");
+    printf("\nDati dell'array nell'ordine iniziale:\n");
     for(i=0; i<MAX_SIZE; i++)
         printf("%4d", vec[i]);
 
     /* ordine ascendente */
     if (order == 1) {
         bubble(vec, MAX_SIZE, ascending);
-        printf("\nDati ordinati in modo ascendente\n");
+        printf("\n\nDati ordinati in modo ascendente:\n");
     } else if (order == 2) {
         bubble(vec, MAX_SIZE, descending);
-        printf("\nDati ordinati in modo discendente\n");
+        printf("\n\nDati ordinati in modo discendente:\n");
     } else {
-        printf("\n>>> Err: Le opzioni sono 1 e 2\n");
+        printf("\n\n>>> Err: Le opzioni sono 1 e 2\n");
         exit(EXIT_FAILURE);
     }
 
     /* Visualizzazione del verrore ordinato */
     for (i=0; i<MAX_SIZE; i++)
         printf("%4d", vec[i]);
-
-    printf("\n");
 
     return(EXIT_SUCCESS);
 }
