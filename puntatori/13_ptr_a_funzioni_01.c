@@ -14,8 +14,29 @@ dei quali ciascuna opzione corrisponde ad una funzione, che peraltro sono
 inserite in un vettore di puntatori a funzione. */
 
 int main(void) {
+    int choice;
+
     /* Inizializzazione di un vettore di 3 puntatori a funzione */
     void (*vec[MAX_MENU])(int) = {voce1, voce2, voce3};
 
+    printf("> Menu'[0,1,2] - 3 per uscire: ");
+    while (choice >= 0 && choice < 3) {
+        (*vec[choice])(choice);
+    }
+
     return(EXIT_SUCCESS);
+}
+void voce1(int x)
+{
+    printf("voce1: %d\n", x);
+}
+
+void voce2(int x)
+{
+    printf("voce2: %d\n", x);
+}
+
+void voce3(int x)
+{
+    printf("voce3: %d\n", x);
 }
