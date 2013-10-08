@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/stat.h>
 
 /* Una fifo o altrimenti detta 'named pipe' - pipe con nome - a differenza di 
@@ -21,6 +22,15 @@ RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 */
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    pid_t pid;
+
+    /* Si verifica che vi sia un argomento fornito al programma */
+    if (argc != 2) {
+        fprintf(stderr, "Uso: %s fifoname\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+
     return(EXIT_SUCCESS);
 }
