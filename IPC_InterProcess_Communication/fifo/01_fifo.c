@@ -8,6 +8,9 @@
 #define BUF_SIZE    256
 #define PERMS   (S_IRUSR | S_IWUSR)
 
+fifo_child(const char *file_name, const char *str);
+fifo_parent(const char *file_name);
+
 /* Una fifo o altrimenti detta 'named pipe' - pipe con nome - a differenza di 
 una pipe e' identificata mediante un nome, gode di permessi specifici ed e' 
 vista a tutti gli effetti come fosse un file, per cui le  comuni funzioni per 
@@ -25,6 +28,9 @@ RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 */
 
+/* Il programma crea un file speciale fifo o named pipe, specificando il
+pathname come primo e unico argomento, dopodiche' il processo figlio scrivera'
+sulla pipe e il processo padre leggera' il contenuto. */
 
 int main(int argc, char *argv[]) {
     pid_t pid;
@@ -35,7 +41,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Creazione della FIFO o named pipe */
+    /* Creazione del file speciale FIFO o named pipe */
     if (mkfifo(argv[1], PERMS) == -1) { 
         fprintf(stderr, "Err: %d mkfifo()\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
@@ -49,14 +55,18 @@ int main(int argc, char *argv[]) {
 
     if (pid == 0)
         /* Processo figlio: si occupa di scrivere */
-        return fifo_child("Scrittura del processo figlio sulla FIFO");
+        return fifo_child(argv[1], "Scrittura del processo figlio sulla FIFO");
     else
         /* Processo padre */
         return fifo_parent(argv[1]);
 
-
-        
-
-
     return(EXIT_SUCCESS);
+}
+
+fifo_child(const char *file_name, const char *str)
+{
+}
+
+fifo_parent(const char *file_name)
+{
 }
