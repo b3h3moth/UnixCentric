@@ -10,13 +10,13 @@ vista a tutti gli effetti come fosse un file, per cui le  comuni funzioni per
 l'I/O di basso livello non bufferizzato come open o read  possono essere 
 utilizzate.
 
-Creare una fifo e' come creare un file e puo' essere utilizzata da processi 
-differenti.
+Creare una fifo e' come creare un file - in realta' la definizione corretta e'
+file speciale - e puo' essere utilizzata da processi differenti.
 
 HEADER    : <sys/stat.h>
 PROTOTYPE : int mkfifo(const char *pathname, mode_t mode);
-SEMANTICS : La funzione mkfifo() crea il file 'pathname' con modalita' di 
-            accesso definite da 'mode'.
+SEMANTICS : La funzione mkfifo() crea la FIFO, corrispondente al file speciale
+            indicato da 'pathname' con modalita' di accesso definite da 'mode'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 */
