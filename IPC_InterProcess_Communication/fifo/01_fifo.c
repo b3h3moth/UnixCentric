@@ -76,7 +76,7 @@ int fifo_child(const char *fifo_name, const char *id_str)
             (long)getpid(), fifo_name);
 
     while ((fd = open(fifo_name, O_WRONLY)) == -1) {
-        fprintf(stderr, "Err: %d open()\n", errno, strerror(errno));
+        fprintf(stderr, "[%ld]Err: %d open() FIFO scrittura\n", (long)getpid());
         exit(EXIT_FAILURE);
     }
 
@@ -95,7 +95,7 @@ int fifo_child(const char *fifo_name, const char *id_str)
 
     /* Si scrive 'buf' sulla FIFO */
     if ((rval = write(fd, buf, str_size)) != str_size) {
-        fprintf(stderr, "[%ld ]Err: scrittura pipe\n", (long)getpid());
+        fprintf(stderr, "[%ld]Err: scrittura pipe\n", (long)getpid());
         exit(EXIT_FAILURE);
     }
 
@@ -111,4 +111,24 @@ fifo_parent(const char *fifo_name)
     char buf[BUF_SIZE];
     int fd, rval;
     ssize_t str_size;
+
+    fprintf(stderr, "[%ld]: (processo padre) apertura FIFO %s...", 
+            (long)getpid(), fifo_name);
+
+    while ((fd = open(fifo_name, O_RDONLY)) == -1) {
+        fprintf(stderr, "[%ld]Err: %d open() FIFO lettura\n", (long)getpid());
+        exit(EXIT_FAILURE);
+    }
+
+    fprintf(stderr, "[%ld]: lettura...", (long)getpid());
+
+    /* Lettura */
+    if ((rval = read(fd, buf, BUF_SIZE)) == -1) {
+        fprintf(stderr, "[%ld ]Err: lettura dalla pipe\n", (long)getpid());
+        exit(EXIT_FAILURE);
+    }
+    
+    fprintf(stderr, "[%ld] lettura %.*s\n", (long)getpid(), rval, buf);
+
+    return(EXIT_SUCCESS);
 }
