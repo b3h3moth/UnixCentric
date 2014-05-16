@@ -128,7 +128,7 @@ int main(int argc, char *argv[]) {
     if (config_lookup_bool(&cfg, "prova", &boolean_value))
             printf("valore booleano: %s\n", boolean_value ? "Yes" : "No");
     else
-        printf("boolean_value is non defined\n");
+        printf("boolean_value is not defined\n");
 
     /* Ricezione di una stringa */
     if (config_lookup_string(&cfg, "filename", &str1))
