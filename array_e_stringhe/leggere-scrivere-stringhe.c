@@ -54,8 +54,9 @@ int main(int argc, char *argv[], char *envp[])
     * svariate parole.
     *
     * Meglio la gets() per leggere righe intere, o ancor meglio fgets();
-    * la gets() legge fino a quando incontro un a \n sul cammino, scartandolo
-    * peraltro e inserendo al suo posto un null \0.
+    * la gets() legge fino a quando incontra il carattere di newline '\n' nel 
+    * cammino, scartandolo peraltro e inserendo al suo posto il carattere
+    * nullo '\0'.
     */
    char str1[STR_LEN+1];
    char str2[STR_LEN+1];
