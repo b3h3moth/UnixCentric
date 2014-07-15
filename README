@@ -45,7 +45,8 @@ $ gcc -g main.c  -Wall -W -D_GNU_SOURCE -pedantic
 
 La versione di GCC utilizzata e' la seguente:
 - gcc (Debian 4.4.5-2) 4.4.5 (old)
-- gcc (Debian 4.4.5-8) 4.4.5 
+- gcc (Debian 4.4.5-8) 4.4.5 (old)
+- gcc (Debian 4.9.0-7) 4.9.0
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
