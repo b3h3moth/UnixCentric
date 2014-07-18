@@ -1,7 +1,7 @@
 # INTRODUZIONE AL PROGETTO LEARNING-'PL'
 
 
->Il progetto Learning-'Programming Language' mira a realizzare un manuale 
+Il progetto Learning-'Programming Language' mira a realizzare un manuale 
 code oriented su alcuni dei linguaggi di programmazione maggiormente 
 utilizzati sui sistemi operativi UNIX, in particolare con kernel Linux e BSD.
 
@@ -77,4 +77,4 @@ Qualora si volesse comunicare mediante crittografia a chiave pubblica:
 La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
 chiavi pubbliche, ad esempio pgp.mit.edu
 
-<address>Luca Suriano a.k.a. b3h3m0th</address>
+`Luca Suriano a.k.a. behemoth`
