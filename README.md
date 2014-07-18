@@ -1,21 +1,21 @@
-################################################################################
- INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
-################################################################################
-Il progetto Learning-<Programming Language> mira a realizzare un manuale 
+# INTRODUZIONE AL PROGETTO LEARNING-'PL'
+
+
+> Il progetto Learning-'Programming Language' mira a realizzare un manuale 
 code oriented su alcuni dei linguaggi di programmazione maggiormente 
 utilizzati sui sistemi operativi UNIX, in particolare con kernel Linux e BSD.
 
-Per code oriented si intende anzitutto immediata operativita', nel senso che
+> Per code oriented si intende anzitutto immediata operativita', nel senso che
 non ci saranno pagine da sfogliare ma solo e soprattutto righe di codice da
 leggere ed interpretare, commenti mirati inoltre saranno inseriti all'interno
 del codice stesso laddove ce ne fosse bisogno.
 
-I libri talvolta si perdono in inutili dettagli, tralasciando troppo spesso
-il codice, L-<PL> invece si pone l'obiettivo di fare il lavoro opposto, e
+> I libri talvolta si perdono in inutili dettagli, tralasciando troppo spesso
+il codice, L-'PL' invece si pone l'obiettivo di fare il lavoro opposto, e
 rendere al codice la giusta collocazione che merita, ossia di primo attore
 indiscusso.
 
-Oltre alle regole fondamentali di ciascun linguaggio di programmazione, 
+> Oltre alle regole fondamentali di ciascun linguaggio di programmazione, 
 indipendentemente dal paradigma utilizzato, si prestera' particolare 
 attenzione alle tecniche per scrivere codice di qualita' e sicuro.
 
