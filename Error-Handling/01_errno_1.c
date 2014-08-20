@@ -13,8 +13,7 @@
  le system call adottano dei valori generici atti ad indicare lo stato di
  errore, ossia '-1', 'NULL' ed 'EOF', ma in questi casi si comprende solo 
  l'occorrenza di un errore, ignorandone del tutto la natura; il compito della
- variabile 'errno', associata a specifiche macro definite in errno.h, e' proprio
- quello di fornire il tipo di errore occorso.
+ variabile 'errno', associata a specifiche macro definite in errno.h, e' di fornire il tipo di errore occorso.
 
  Come accennato pocanzi, diverse macro che indicano la specificita' di ciascun
  codice di errore sono definite in <errno.h>, esse iniziano con il carattere E
