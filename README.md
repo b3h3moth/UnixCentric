@@ -26,8 +26,9 @@ con il linguaggio C++ e il paradigma procedurale con il linguaggio C-ANSI.
 Infine un ulteriore repository sara' dedicato alla programmazione di sistema
 su sistemi operativi UNIX con kernel Linux.
 
-Per cio' che concerne la programmazione su sistemi UNIX, sara' adottato lo
-standard POSIX.1 e la Single Unix Specification.
+Per cio' che concerne la programmazione su sistemi UNIX, si cerchera' di
+rendere il codice conforme a SUSv3 (Single Unix Specification) e POSIX.1-2001,
+con riferimenti al nuovo SUSv4 e POSIX.1-2008.
 
 
 ## LEARNING-'Linux Programming' - Programmazione di sistema (GNU/Linux)
@@ -66,6 +67,7 @@ nonche' co-autore del linguaggio C, Dennis Ritchie.
 
 Dedico questo modesto lavoro, con un senso di profonda gratitudine per tutto 
 cio' che ci hanno lasciato, a Richard Stevens e Dennis Ritchie.
+
 
 ### INFO
 Per commenti, info e quant'altro: `behemoth _at_ autistici _dot_ org`
