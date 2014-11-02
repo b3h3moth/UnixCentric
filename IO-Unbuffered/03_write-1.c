@@ -19,7 +19,7 @@ int main(void)
    printf("\n");
 
    /*
-    Un'ulteriore esempio con  una espressione condizionale per verificare la
+    Un ulteriore esempio con  una espressione condizionale per verificare la
     correttezza della buf in output, o meglio, del vettore di caratteri.
    */
    if (write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)
