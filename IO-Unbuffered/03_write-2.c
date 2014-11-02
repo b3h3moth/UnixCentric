@@ -5,7 +5,7 @@
 #include <string.h>
 #include <errno.h>
 
-#define DIMBUF 1024
+#define DIMBUF 2048
 
 int main(int argc, char *argv[], char *envp[])
 {
