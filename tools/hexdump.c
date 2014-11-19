@@ -17,6 +17,10 @@ int main (int argc, char* argv[]) {
     size_t bytes_read;
     int i;
     
+    if (argc == 1) {
+        fprintf(stderr,"Usage: %s <filename>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
         
     /* Open the file for reading.  */
     int fd = open (argv[1], O_RDONLY);
