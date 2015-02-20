@@ -16,7 +16,11 @@ int main(int argc, char *argv[]) {
     char BUF[BUF_SIZE];
 
     /* Il file sara' creato, o per lo meno dovrebbe esserlo, con i seguenti
-    permessi: rw-rw-rw (0666) */
+    permessi: rw-rw-rw (0666).
+
+    Solo uno tra O_RDWR, O_RDONLY e O_WRONLY dovrebbe essre specificato in
+    flags. */
+
     file_flags = O_RDWR | O_CREAT | O_EXCL | O_TRUNC;
     file_perms = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
