@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     flags; inoltre se O_CREAT non e' stato inserito gli eventuali permessi
     saranno ignorati, nel caso specifico 'file_perms'.  */
 
-    file_flags = O_WRONLY | O_CREAT | O_TRUNC;
+    file_flags = O_RDWR | O_CREAT | O_TRUNC;
     file_perms = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
     if (argc != 2) {
