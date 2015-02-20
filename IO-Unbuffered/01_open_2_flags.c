@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/stat.h>
 
 #ifndef BUF_SIZE
 #define BUF_SIZE 1024
@@ -14,8 +15,9 @@ int main(int argc, char *argv[]) {
     mode_t file_perms;
     char BUF[BUF_SIZE];
 
-    /* Il file sara' creato con i seguenti permessi: rw-rw-rw (0666) */
-    file_flags = O_CREAT | O_RDWR | O_TRUNC;
+    /* Il file sara' creato, o per lo meno dovrebbe esserlo, con i seguenti
+    permessi: rw-rw-rw (0666) */
+    file_flags = O_RDWR | O_CREAT | O_EXCL | O_TRUNC;
     file_perms = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
     if (argc != 2) {
