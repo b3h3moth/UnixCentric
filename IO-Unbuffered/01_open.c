@@ -6,10 +6,10 @@
 #include <string.h>
 
 /*
-Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le 
-varie routine (open, read, write, lseek, close, etc...) sono chiamate dirette 
+Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le
+varie routine (open, read, write, lseek, close, etc...) sono chiamate dirette
 al sistema operativo e pertanto gestite dal Kernel stesso, inoltre l'accesso
-in lettura e in scrittura sul disco comporta un  "semplice" trasferimento di 
+in lettura e in scrittura sul disco comporta un  "semplice" trasferimento di
 byte, naturalmente senza formattazione.
 
 L'I/O Unbuffered non e' standard ISO C, bensi' standard POSIX 1., nonche'
@@ -17,14 +17,14 @@ Single Unix Specification.
 
 HEADER    : <fcntl.h>
 PROTOTYPE : int open(const char *pathname, int oflag, ...  mode_t mode);
-SEMANTICS : La funzione open() apre o crea il file definito in 'pathname', 
-            secondo la modalita' indicata da 'oflags' ed eventualmente con i 
+SEMANTICS : La funzione open() apre o crea il file definito in 'pathname',
+            secondo la modalita' indicata da 'oflags' ed eventualmente con i
 	    permessi 'mode'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 Allorquando si apre un file, il kernel rilascia un file descriptor al processo,
 ossia un intero non negativo che identifica un file aperto; nei sistemi UNIX ad
-ogni processo sono associati 3 file descriptor: standard input 0, standard 
+ogni processo sono associati 3 file descriptor: standard input 0, standard
 output 1, standard error 2.
 
 POISX peraltro ne specifica anche le costanti simboliche in:
@@ -33,23 +33,23 @@ POISX peraltro ne specifica anche le costanti simboliche in:
 - standard error  = 2 = STDERR_FILENO;
 
 Nota: per cio' che concerne la shell, lo standard input corrisponde ai dati
-      ricevuti mediante tastiera, lo standard output e lo standard error 
+      ricevuti mediante tastiera, lo standard output e lo standard error
       corrispondono ai dati inviati al terminale.
 
 Per poter iniziare a lavorare con un file e' necessario per prima cosa aprirlo,
-la open() ha questo compito, ed e' peraltro anche il momento in cui che sono 
+la open() ha questo compito, ed e' peraltro anche il momento in cui sono
 associati ad esso i 3 file descriptor di default; volendo essere ancor piu'
 precisi la open() alloca il file, lo inserisce nella file table e crea il
 riferimento nella struttura files_struct del processo.
 
-Nota: Il valore di 'oflag' e' ottenuto mediante un OR aritmetico tra le 
-      varie costanti simboliche, allorquando i bit costituiscono un file status
+Nota: Il valore di 'oflag' e' ottenuto mediante un OR aritmetico tra le
+      varie costanti simboliche, quando i bit costituiscono un file status
       flag.
 
 Il comportamento della funzione open() e le diverse modalita' con cui un file
-puo' essere aperto sono definiti dal valore di 'oflag', il cui contenuto e' 
-ottenuto come maschera binaria in cui ciascun bit ha un significato ben 
-preciso. 
+puo' essere aperto sono definite dal valore di 'oflag', il cui contenuto e'
+ottenuto come maschera binaria in cui ciascun bit ha un significato ben
+preciso.
 
 I bit che caratterizzano le costanti simboliche sono suddivisi in tre categorie:
 
@@ -84,7 +84,7 @@ I bit che caratterizzano le costanti simboliche sono suddivisi in tre categorie:
                 blocchera' all'arrivo di tutti i dati sull'hardware sottostante;
 - O_DSYNC     - Apre il file per l'I/O sincrono. Qualsiasi scrittura di dati si
                 blocchera' alla conferma dell'arrivo sull'hardware sottostante.
-*/  
+*/
 
 int main(int argc, char *argv[]) {
    int fd;
@@ -95,13 +95,13 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
-   
-   /* 
+
+   /*
     Si chiude subito il canale di comunicazione stabilito con il kernel, senza
     eseguire alcuna operazione aggiuntiva
    */
    close(fd);
-   
+
    /* Esempio di utilizzo di due costanti simboliche in relazione tra loro;
    nel caso specifico se il file e' gia' presente sul filesystem la funzione
    open() ritorna un errore EEXIST */
