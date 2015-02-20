@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <errno.h>
 #include <string.h>
 
@@ -11,7 +12,6 @@
 int main(int argc, char *argv[]) {
     int input_fd, file_flags;
     mode_t file_perms;
-    char BUF[BUF_SIZE];
 
     /* Il file sara' creato, o per lo meno dovrebbe esserlo, con i seguenti
     permessi: rw-rw-rw (0666).
