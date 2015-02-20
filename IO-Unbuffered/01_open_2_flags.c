@@ -5,10 +5,6 @@
 #include <errno.h>
 #include <string.h>
 
-#ifndef BUF_SIZE
-#define BUF_SIZE 1024
-#endif
-
 int main(int argc, char *argv[]) {
     int input_fd, file_flags;
     mode_t file_perms;
