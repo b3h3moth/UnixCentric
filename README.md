@@ -58,7 +58,7 @@ come ad esempio gli autotools.
 
 I nomi delle directory sono stati denominati seguendo i capitoli dello _Stevens_
 "_Advanced Programming in the UNIX Environment 2nd_", tuttavia sia il codice 
-sorgente sia il testo e' scritto da zero, totalmente nuovo, non mancano 
+sorgente sia il testo e' stato critto da zero, totalmente nuovo, non mancano 
 tuttavia continui riferimenti allo Stevens, la si consideri come una dedica 
 verso uno dei piu' illustri informatici del XX secolo, UNIX guru inimitabile.
 
