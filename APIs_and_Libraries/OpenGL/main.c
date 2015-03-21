@@ -1,5 +1,6 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
+#include <stdio.h>
 
 /*
 How to run source code on unix systems, for Debian GNU/Linux there are few
@@ -46,5 +47,5 @@ int main (int argc, char **argv)
   glutDisplayFunc (renderFunction);
   glutMainLoop ();
 
-  return 0;
+  return(EXIT_SUCCESS);
 }
