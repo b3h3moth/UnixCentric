@@ -3,7 +3,6 @@
 #include <complex.h> /* Standard library of complex numbers */
 
 int main() {
-
     double complex z1 = 1.0 + 3.0 * I;
     double complex z2 = 1.0 - 4.0 * I;
 
@@ -26,5 +25,5 @@ int main() {
     double complex conjugate = conj(z1);
     printf("The conjugate of Z1 = %.2f %+.2fi\n", creal(conjugate), cimag(conjugate));
 
-    return 0;
+    return(EXIT_SUCCESS);
 }
