@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
     delta =  (pow(b, 2) - (4 * a * c));
     printf("DELTA: %g\n", delta);
 
-    x1 = (-b + sqrt(delta)) / (2 * a * c);
-    x2 = (-b - sqrt(delta)) / (2 * a * c);
+    x1 = (-b + sqrt(delta)) / (2 * a);
+    x2 = (-b - sqrt(delta)) / (2 * a);
 
     printf("x1: %g\nx2: %g\n", x1, x2);
     return(EXIT_SUCCESS);
