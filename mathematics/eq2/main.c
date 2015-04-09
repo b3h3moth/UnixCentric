@@ -41,3 +41,6 @@ int main(int argc, char *argv[]) {
     printf("x1: %f\nx2: %f\n", x1, x2);
     return(EXIT_SUCCESS);
 }
+
+/* it's a simply and small example without engineering, just for relaxing
+there are many things that doesn't works */
