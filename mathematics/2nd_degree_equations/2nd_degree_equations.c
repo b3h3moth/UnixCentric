@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[]) {
     double a,b,c, x1, x2 = 0;
-    double delta = 0;
+    double delta, sum, product = 0;
 
     if (argc != 4) {
         fprintf(stderr, "Usage: %s <+/-num1><+/-num2><+/-num3>\n", argv[0]);
@@ -31,9 +31,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Equation is: ((%.0lfx²) + (%.0lfx) + (%.0lf) = 0)\n", a,b,c);
+    printf("Equation is:\n\t((%.0lfx²) + (%.0lfx) + (%.0lf) = 0)\n", a,b,c);
     delta = (pow(b, 2) - (4 * a * c));
-    printf("DELTA (discriminant): %.0lf\n", delta);
+    printf("Delta (discriminant):\n\t%.0lf\n", delta);
 
     if (delta > 0) {
         x1 = (-b + sqrt(delta)) / (2 * a);
@@ -45,6 +45,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("x1: %.0lf\nx2: %.0lf\n", x1, x2);
+    printf("Solutions are:\n\tx1: %.0lf\n\tx2: %.0lf\n", x1, x2);
+
+
     return(EXIT_SUCCESS);
 }
