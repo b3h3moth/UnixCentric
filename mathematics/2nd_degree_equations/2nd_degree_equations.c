@@ -47,6 +47,12 @@ int main(int argc, char *argv[]) {
 
     printf("Solutions are:\n\tx1: %.0lf\n\tx2: %.0lf\n", x1, x2);
 
+    sum = -b / a;
+    product = c / a;
+
+    printf("Sum (x1+x2):\n\t%.0lf\nProduct (x1*x2):\n\t%.0lf\n", sum, product);
+
+
 
     return(EXIT_SUCCESS);
 }
