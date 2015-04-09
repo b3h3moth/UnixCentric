@@ -31,14 +31,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf ("a: %f\nb: %f\nc: %f\n", a,b,c);
-    delta =  (pow(b, 2) - 4 * a * c);
-    printf("delta (b^2 -4ac) : %f\n", delta);
+    printf ("Equation is: (%gx² + %gx + %g = 0)\n", a,b,c);
+    delta =  (pow(b, 2) - (4 * a * c));
+    printf("DELTA: %g\n", delta);
 
     x1 = (-b + sqrt(delta)) / (2 * a * c);
     x2 = (-b - sqrt(delta)) / (2 * a * c);
 
-    printf("x1: %f\nx2: %f\n", x1, x2);
+    printf("x1: %g\nx2: %g\n", x1, x2);
     return(EXIT_SUCCESS);
 }
 
