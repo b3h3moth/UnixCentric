@@ -31,16 +31,20 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf ("Equation is: (%gx² + %gx + %g = 0)\n", a,b,c);
+    printf ("Equation is: (%lfx² + %lfx + %lf = 0)\n", a,b,c);
     delta =  (pow(b, 2) - (4 * a * c));
-    printf("DELTA: %g\n", delta);
+    printf("DELTA: %lf\n", delta);
 
-    x1 = (-b + sqrt(delta)) / (2 * a);
-    x2 = (-b - sqrt(delta)) / (2 * a);
+    if (delta > 0) {
+        x1 = (-b + sqrt(delta)) / (2 * a);
+        x2 = (-b - sqrt(delta)) / (2 * a);
+    } else if (delta = 0)
+        x1 = x2 = -b / (2*a);
+    else {
+        fprintf(stderr, "(delta < 0) Equation is irrisolvible. Bye!\n");
+        exit(EXIT_FAILURE);
+    }
 
-    printf("x1: %g\nx2: %g\n", x1, x2);
+    printf("x1: %lf\nx2: %lf\n", x1, x2);
     return(EXIT_SUCCESS);
 }
-
-/* it's a simply and small example without engineering, just for relaxing
-there are many things that doesn't works */
