@@ -10,7 +10,8 @@ You can compile with -lm:
 $ prg.c -lm
 */
 
-double verify_argument(char *data);
+/* convert_arg() convert argument to double */
+double convert_arg(char *data);
 
 int main(int argc, char *argv[]) {
     double a,b,c = 0;
@@ -22,9 +23,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    a = verify_argument(argv[1]);
-    b = verify_argument(argv[2]);
-    c = verify_argument(argv[3]);
+    a = convert_arg(argv[1]);
+    b = convert_arg(argv[2]);
+    c = convert_arg(argv[3]);
 
     printf("Equation is:\n\t((%.0lfx²) + (%.0lfx) + (%.0lf) = 0)\n", a,b,c);
     delta = (pow(b, 2) - (4 * a * c));
@@ -55,7 +56,7 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
-double verify_argument(char *data) {
+double convert_arg(char *data) {
     double temp;
 
     if ((temp = strtol(data, NULL, 10)) == 0 ) {
