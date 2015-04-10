@@ -5,7 +5,11 @@
 #include <math.h>
 
 
-/* how to solve 2nd degree equation (it's also called quadratic equation) */
+/*
+how to solve 2nd degree equation (quadratic equation)
+You can compile with -lm:
+$ prg.c -lm
+*/
 
 int main(int argc, char *argv[]) {
     double a,b,c = 0;
