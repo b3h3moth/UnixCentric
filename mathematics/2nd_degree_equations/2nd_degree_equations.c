@@ -5,7 +5,7 @@
 #include <math.h>
 
 
-/* how to solve 2nd degree equation (it's also calledquadratic equation) */
+/* how to solve 2nd degree equation (it's also called quadratic equation) */
 
 int main(int argc, char *argv[]) {
     double a,b,c, x1, x2 = 0;
