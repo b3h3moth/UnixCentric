@@ -4,12 +4,13 @@
 #include <string.h>
 #include <math.h>
 
-
 /*
 how to solve 2nd degree equation (quadratic equation)
 You can compile with -lm:
 $ prg.c -lm
 */
+
+double verify_argument(char *data);
 
 int main(int argc, char *argv[]) {
     double a,b,c = 0;
@@ -21,20 +22,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    if ((a = strtol(argv[1], NULL, 10)) == 0 ) {
-        fprintf(stderr, "Err.: a argument %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-
-    if ((b = strtol(argv[2], NULL, 10)) == 0 ) {
-        fprintf(stderr, "Err.: b argument %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-
-    if ((c = strtol(argv[3], NULL, 10)) == 0 ) {
-        fprintf(stderr, "Err.: c argument %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
+    a = verify_argument(argv[1]);
+    b = verify_argument(argv[2]);
+    c = verify_argument(argv[3]);
 
     printf("Equation is:\n\t((%.0lfx²) + (%.0lfx) + (%.0lf) = 0)\n", a,b,c);
     delta = (pow(b, 2) - (4 * a * c));
@@ -62,7 +52,16 @@ int main(int argc, char *argv[]) {
 
     printf("Sum (x1+x2):\n\t%.0lf\nProduct (x1*x2):\n\t%.0lf\n", sum, product);
 
-
-
     return(EXIT_SUCCESS);
+}
+
+double verify_argument(char *data) {
+    double temp;
+
+    if ((temp = strtol(data, NULL, 10)) == 0 ) {
+        fprintf(stderr, "Err.: %.lf argument %s\n", temp, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    return temp;
 }
