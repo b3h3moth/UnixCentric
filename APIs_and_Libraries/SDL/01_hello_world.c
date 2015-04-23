@@ -3,12 +3,12 @@
 #include <SDL/SDL.h>
 
 int main(int argc, char *argv[]) {
-    // Start SDL
-    SDL_Init(SDL_INIT_EVERYTHING);
-
     // Image
     SDL_Surface *image = NULL;
     SDL_Surface *screen = NULL;
+
+    / Start SDL
+    SDL_Init(SDL_INIT_EVERYTHING);
 
     // Setup screen
     screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
