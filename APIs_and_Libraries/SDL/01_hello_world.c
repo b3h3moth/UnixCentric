@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     SDL_Surface *image = NULL;
     SDL_Surface *screen = NULL;
 
-    / Start SDL
+    // Start SDL
     SDL_Init(SDL_INIT_EVERYTHING);
 
     // Setup screen
