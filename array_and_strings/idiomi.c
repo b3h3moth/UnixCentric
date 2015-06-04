@@ -41,7 +41,7 @@ char *my_strcat(char *s1, const char *s2)
 
    while (*p)
       p++;
-   while (*p++ = *s2++)
+   while ( (*p++ = *s2++) )
       ;
    /*
     * L'dioma per la copia e'
