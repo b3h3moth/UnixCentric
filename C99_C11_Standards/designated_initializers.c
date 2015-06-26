@@ -5,7 +5,7 @@
 
 int main(void) {
 
-    int numbers[MAX_ARR] = {
+    double numbers[MAX_ARR] = {
         [1] = 1.5,
         [3] = 1.E+2,
         [5] = 3.3,
@@ -14,7 +14,7 @@ int main(void) {
     };
 
     for (size_t i=0; i<MAX_ARR; i++) 
-        printf("%zu:%g\n", i, (long double)numbers[i]);
+        printf("%zu:%g\n", i, numbers[i]);
 
     return(EXIT_SUCCESS);
 }
