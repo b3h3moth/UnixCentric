@@ -18,3 +18,9 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+
+/* Compile the program:
+
+   $ c99 -Wall file.c -lm
+
+*/
