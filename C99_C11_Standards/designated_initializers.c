@@ -21,6 +21,7 @@ int main(void) {
 
 /* Compile the program:
 
-   $ c99 -Wall file.c -lm
+$ c99 -Wall -lm file.c
+$ clang -Wall -lm file.c
 
 */
