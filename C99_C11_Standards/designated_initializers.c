@@ -7,14 +7,14 @@ int main(void) {
 
     int numbers[MAX_ARR] = {
         [1] = 1.5,
-        [3] = 20,
-        [5] = 4.E+21,
-        [7] = 800,
-        [9] = .82370,
+        [3] = 1.E+2,
+        [5] = 3.3,
+        [7] = 800.98,
+        [9] = 7890.9,
     };
 
-    for (size_t i=0; i<MAX_ARR; i++)
-        printf("elem: %d\n", numbers[i]);
+    for (size_t i=0; i<MAX_ARR; i++) 
+        printf("%zu:%g\n", i, (long double)numbers[i]);
 
     return(EXIT_SUCCESS);
 }
