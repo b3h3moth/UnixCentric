@@ -14,5 +14,7 @@ int main(int argc, char *argv[]) {
         list = list->next;
     }
 
+    g_list_free(list);
+
     return(EXIT_SUCCESS);
 }
