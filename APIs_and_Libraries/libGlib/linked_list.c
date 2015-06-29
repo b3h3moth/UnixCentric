@@ -17,6 +17,7 @@ GSList *list;
 int main(int argc, char *argv[]) {
     char list_element_a[MAX_BUF];
     char list_element_b[MAX_BUF];
+    char list_element_c[MAX_BUF];
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <string>\n", argv[0]);
@@ -33,6 +34,10 @@ int main(int argc, char *argv[]) {
     get_new_list_element(list_element_b, MAX_BUF);
     /* Add a new element into the list at the given position */
     list = g_slist_insert(list, list_element_b, 1);
+
+    get_new_list_element(list_element_c, MAX_BUF);
+    /* Add a new node before 'last' */
+    list = g_slist_insert_before(list, g_slist_last(list), list_element_c);
 
     /* Print out every element of the list */
     while (list != NULL) {
@@ -53,7 +58,7 @@ void get_new_list_element(char new_elem[], int len) {
 
     printf("Please give new element for list: ");
 
-    if ( (fgets(new_elem, MAX_BUF+1, stdin)) == NULL) {
+    if ( (fgets(new_elem, len+1, stdin)) == NULL) {
         fprintf(stderr, "Err. getting string %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
