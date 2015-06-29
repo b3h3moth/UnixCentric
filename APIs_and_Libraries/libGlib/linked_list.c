@@ -5,13 +5,15 @@
 GList *list;
 
 int main(int argc, char *argv[]) {
+    
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <string>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-
-
+    
+    /* Add an element to list */
     list = g_list_append(list, argv[1]);
+
     list = g_list_append(list, "second");
     list = g_list_append(list, "third");
 
