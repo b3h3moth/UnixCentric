@@ -10,9 +10,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("%d\n", argc);
 
-    list = g_list_append(list, "first");
+    list = g_list_append(list, argv[1]);
     list = g_list_append(list, "second");
     list = g_list_append(list, "third");
 
