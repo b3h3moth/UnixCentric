@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <glib-2.0/glib.h>
 
 #define MAX_BUF 25
@@ -21,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     printf("Please give new element for list: ");
     if ( (fgets(new_element, MAX_BUF+1, stdin)) == NULL) {
-        fprintf(stderr, "Err. getting string\n");
+        fprintf(stderr, "Err. getting string %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
