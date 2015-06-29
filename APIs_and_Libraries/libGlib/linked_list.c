@@ -46,3 +46,9 @@ int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
+/* 
+How to compile the program:
+gcc -Wall linked_list.c $(pkg-config --cflags --libs glib-2.0)
+
+pkg-config is essential to get the right informations about library
+*/
