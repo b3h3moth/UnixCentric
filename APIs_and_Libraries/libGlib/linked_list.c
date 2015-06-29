@@ -3,7 +3,7 @@
 #include <string.h>
 #include <glib-2.0/glib.h>
 
-#define MAX_BUF 50
+#define MAX_BUF 25
 
 GList *list;
 
