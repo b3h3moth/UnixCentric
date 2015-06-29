@@ -11,26 +11,25 @@ GList *list;
 void get_new_list_element(char new_elem[], int len);
 
 int main(int argc, char *argv[]) {
-    char new_element[MAX_BUF];
-    char new_elem[MAX_BUF];
-    int i=0;
+    char list_element_b[MAX_BUF];
+    char list_element_a[MAX_BUF];
+    char list_element_c[MAX_BUF];
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <string>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    char test[MAX_BUF];
-    get_new_list_element(test, MAX_BUF);
+    get_new_list_element(list_element_c, MAX_BUF);
 
     /* Add a new element on the end of the list */
     list = g_list_append(list, argv[1]);
 
     /* Add a new element on the start of the list */
-    list = g_list_prepend(list, new_element);
+    list = g_list_prepend(list, list_element_b);
 
     /* Add a new element into the list at the given position */
-    list = g_list_insert(list, test, 1);
+    list = g_list_insert(list, list_element_c, 1);
 
     /* Print out every element of the list */
     while (list != NULL) {
