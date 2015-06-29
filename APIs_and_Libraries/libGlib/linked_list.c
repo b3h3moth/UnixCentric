@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
     list = g_list_prepend(list, new_element);
     list = g_list_append(list, "third");
 
+    /* Print out every element of the list */
     while (list != NULL) {
         printf("%s\n", (char *)list->data);
         list = list->next;
