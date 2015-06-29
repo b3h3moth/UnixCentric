@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-
     /* Check for newline and remove it from the string */
     for (i=0; i<strlen(new_element); i++) {
         if (new_element[i] == '\n')
@@ -42,6 +41,7 @@ int main(int argc, char *argv[]) {
         list = list->next;
     }
 
+    /* Free GList memory */
     g_list_free(list);
 
     return(EXIT_SUCCESS);
