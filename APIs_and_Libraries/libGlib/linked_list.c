@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
     printf("Please give new element for list: ");
     fgets(new_element, MAX_BUF+1, stdin);
 
+    /* Check for newline and remove it from the string */
     for (i=0; i<strlen(new_element); i++) {
         if (new_element[i] == '\n')
             new_element[i] = '\0';
