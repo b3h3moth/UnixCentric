@@ -7,7 +7,10 @@ GList *list;
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
+
+    printf("%d\n", argc);
 
     list = g_list_append(list, "first");
     list = g_list_append(list, "second");
