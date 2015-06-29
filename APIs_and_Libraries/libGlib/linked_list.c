@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     
-    /* Add an element to list */
+    /* Add a new element on the end of the list */
     list = g_list_append(list, argv[1]);
 
     printf("Please give new element for list: ");
