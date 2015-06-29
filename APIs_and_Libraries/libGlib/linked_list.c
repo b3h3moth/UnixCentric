@@ -26,11 +26,10 @@ int main(int argc, char *argv[]) {
     /* Add a new element on the end of the list */
     list = g_list_append(list, argv[1]);
 
-
     /* Add a new element on the start of the list */
     list = g_list_prepend(list, new_element);
 
-    
+    /* Add a new element into the list at the given position */
     list = g_list_insert(list, test, 1);
 
     /* Print out every element of the list */
