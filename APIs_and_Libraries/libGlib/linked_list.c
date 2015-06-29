@@ -6,9 +6,13 @@
 
 #define MAX_BUF 25
 
-GList *list;
+/* Singly-Linked Lists
+ * Linked lists that can be iterated in one direction */
 
+/* Function prototypes */
 void get_new_list_element(char new_elem[], int len);
+
+GSList *list;
 
 int main(int argc, char *argv[]) {
     char list_element_a[MAX_BUF];
@@ -20,15 +24,15 @@ int main(int argc, char *argv[]) {
     }
 
     /* Add a new element on the end of the list */
-    list = g_list_append(list, argv[1]);
+    list = g_slist_append(list, argv[1]);
 
     get_new_list_element(list_element_a, MAX_BUF);
     /* Add a new element on the start of the list */
-    list = g_list_prepend(list, list_element_a);
+    list = g_slist_prepend(list, list_element_a);
 
     get_new_list_element(list_element_b, MAX_BUF);
     /* Add a new element into the list at the given position */
-    list = g_list_insert(list, list_element_b, 1);
+    list = g_slist_insert(list, list_element_b, 1);
 
     /* Print out every element of the list */
     while (list != NULL) {
@@ -39,7 +43,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Free GList memory */
-    g_list_free(list);
+    g_slist_free(list);
 
     return(EXIT_SUCCESS);
 }
