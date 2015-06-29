@@ -20,7 +20,11 @@ int main(int argc, char *argv[]) {
     list = g_list_append(list, argv[1]);
 
     printf("Please give new element for list: ");
-    fgets(new_element, MAX_BUF+1, stdin);
+    if ( (fgets(new_element, MAX_BUF+1, stdin)) == NULL) {
+        fprintf(stderr, "Err. getting string\n");
+        exit(EXIT_FAILURE);
+    }
+
 
     /* Check for newline and remove it from the string */
     for (i=0; i<strlen(new_element); i++) {
