@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     char list_element_a[MAX_BUF];
     char list_element_b[MAX_BUF];
     char list_element_c[MAX_BUF];
+    static int position = 1;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <string>\n", argv[0]);
@@ -41,7 +42,6 @@ int main(int argc, char *argv[]) {
 
     /* Print out every element of the list */
     while (list != NULL) {
-        static int position = 1;
         printf("%d: %s\n", position, (char *)list->data);
         list = list->next;
         position++;
