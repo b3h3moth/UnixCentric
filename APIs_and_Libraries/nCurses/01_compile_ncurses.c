@@ -7,11 +7,16 @@
 To compile program linking ncurses library: 
 $ gcc program.c -lncurses */
 
+/* Skeleton of typical ncurses program */
 int main(void) {
-    initscr();
-    addstr("To compile program: gcc program.c -lncurses");
-    refresh();
-    getch();
+    
+    /* nCurses initialization */
+    initscr(); 
+
+    /* ... source code goes here ... */
+
+    /* close nCurses */
     endwin();
+    
     return(EXIT_SUCCESS);
 }
