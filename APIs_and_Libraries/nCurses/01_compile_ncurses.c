@@ -15,7 +15,7 @@ int main(void) {
 
     /* ... source code goes here ... */
 
-    /* close nCurses */
+    /* nCurses closing */
     endwin();
     
     return(EXIT_SUCCESS);
