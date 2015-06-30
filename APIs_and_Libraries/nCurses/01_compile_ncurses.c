@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 
-int main(int argc, char *argv[]) {
+/* First of all include <ncurses.h> header.
+
+To compile program linking ncurses library: 
+$ gcc program.c -lncurses */
+
+int main(void) {
+    initscr();
+    addstr("To compile program: gcc program.c -lncurses");
+    endwin();
     return(EXIT_SUCCESS);
 }
