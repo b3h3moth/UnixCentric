@@ -10,7 +10,7 @@ $ gcc program.c -lncurses */
 /* Skeleton of typical ncurses program */
 int main(void) {
     
-    /* nCurses initialization */
+    /* nCurses initialization, it creates both 'stdscr' and 'curstr' */
     initscr(); 
 
     /* ... source code goes here ... */
