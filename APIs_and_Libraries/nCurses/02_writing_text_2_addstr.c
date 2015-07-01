@@ -14,7 +14,7 @@ int main(void) {
     addstr(address);
     addstr(msg_to_text);
 
-    /* Update the screen */
+    /* Update the screen. Only now the strings get displayed */
     refresh();
 
     /* Wait until the user types something */
