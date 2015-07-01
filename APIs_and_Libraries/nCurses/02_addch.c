@@ -6,7 +6,7 @@
 'curscr' */
 
 int main(void) {
-    char address[] = "San lorenzo avenue";
+    char address[] = "San lorenzo avenue (type something to exit)";
     char *pstr;
     pstr  = address;
 
