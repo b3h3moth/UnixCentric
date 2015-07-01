@@ -2,15 +2,18 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
+/* It writes a string (one characters at time) on the current string */
+
 int main(void) {
-    char string[] = "Writing nCurses program";
+    char address[] = "San lorenzo avenue";
     char *pstr;
-    pstr  = string;
+    pstr  = address;
 
     initscr();
 
+    /* Loop the string 'address' and writes each character on the string 
+    with addch() function */
     while(*pstr) {
-        /* addch() writes characters on the current screen, curstr */
         addch(*pstr);
         pstr++;
     }
