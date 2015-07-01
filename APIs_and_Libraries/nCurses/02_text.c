@@ -4,6 +4,7 @@
 
 int main(void) {
     initscr();
+    refresh();
     endwin();
     exit(EXIT_SUCCESS);
 }
