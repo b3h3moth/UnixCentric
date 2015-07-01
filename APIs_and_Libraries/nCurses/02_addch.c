@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-/* It writes a string (one characters at time) on the current string */
+/* It writes a string (one characters at time) on the current screen 
+'curscr' */
 
 int main(void) {
     char address[] = "San lorenzo avenue";
@@ -11,7 +12,7 @@ int main(void) {
 
     initscr();
 
-    /* Loop the string 'address' and writes each character on the string 
+    /* Loop the string 'address' and writes each character of the string
     with addch() function */
     while(*pstr) {
         addch(*pstr);
