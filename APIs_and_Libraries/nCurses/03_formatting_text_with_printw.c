@@ -8,10 +8,13 @@ function. */
 int main(void) {
     char version[] = "5.7";
     char os_name[] = "OpenBSD";
+    size_t day = 1;
+    size_t month = 6;
+    size_t year = 2015;
     
     initscr();
-    printw("%s OS\n", os_name);
-    printw("version number is: %s", version);
+    printw("%s %s", os_name, version);
+    printw(" - last update: %zu/%zu/%zu", month, day, year);
     refresh();
     getch();
 
