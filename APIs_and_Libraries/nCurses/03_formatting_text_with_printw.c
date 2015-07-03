@@ -2,20 +2,16 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-/* First of all include <ncurses.h> header.
-
-To compile program linking ncurses library: 
-$ gcc program.c -lncurses */
-
-/* Skeleton of typical ncurses program */
 int main(void) {
+    size_t version = 5.7;
+    char os_name[] = "OpenBSD";
     
-    /* nCurses initialization, it creates both 'stdscr' and 'curstr' */
-    initscr(); 
+    initscr();
+    printw("%s OS\n", os_name);
+    printw("version number is: %zu", version);
+    refresh();
+    getch();
 
-    /* ... source code goes here ... */
-
-    /* nCurses closing */
     endwin();
     
     return(EXIT_SUCCESS);
