@@ -8,6 +8,10 @@ int main(void) {
     char firstname[MAX_STR];
     char lastname[MAX_STR];
 
+    /* getstr() get an input and save it into a buffer, in this case firstname
+    and lastname. 
+    
+    Note For security reasons is better to use getnstr() function instead */
     initscr();
     addstr("Firstname: ");
     refresh();
@@ -16,6 +20,7 @@ int main(void) {
     addstr("Lastname: ");
     refresh();
     getstr(lastname);
+
 
     printw("Hi, %s, %s\n", firstname, lastname);
     refresh();
