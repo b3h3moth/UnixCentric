@@ -9,6 +9,7 @@ int main(void) {
     addstr("Please type x to quit");
     refresh();
 
+    /* getch() returns a single character from the console */
     while( (ch = getch()) != 'x') {
         printw("\ntyped: %c\n", ch);
     }
