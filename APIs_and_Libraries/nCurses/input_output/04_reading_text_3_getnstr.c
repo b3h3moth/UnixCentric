@@ -15,11 +15,11 @@ int main(void) {
     initscr();
     addstr("Firstname: ");
     refresh();
-    getnstr(firstname, MAX_STR);
+    getnstr(firstname, MAX_STR-1);
 
     addstr("Lastname: ");
     refresh();
-    getnstr(lastname, MAX_STR);
+    getnstr(lastname, MAX_STR-1);
 
 
     printw("Hi, %s, %s\n", firstname, lastname);
