@@ -11,6 +11,11 @@ int main(void) {
     addstr("nCurses library is a good way to learn UNIX programming\n");
     attrset(0);
     addstr("nCurses library is a good way to learn UNIX programming\n");
+    
+    /* attroff() turns off the named attributes without turning any other 
+    attributes on or off. */
+    attroff(A_BOLD);
+    
     refresh();
     getch();
 
