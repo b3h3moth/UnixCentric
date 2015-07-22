@@ -5,11 +5,14 @@
 int main(void) {
     initscr();
 
+
     /* attron() turns on the named attributes without affecting any others */
-    attron(A_BOLD);
+    attron(A_UNDERLINE);
+
+    addstr("Text formatting with style\n");
 
     /* attrset() sets the current attributes of the given window */
-    attrset(A_UNDERLINE);
+    attrset(A_BOLD);
     
     addstr("nCurses library is a good way to learn UNIX programming\n");
     
