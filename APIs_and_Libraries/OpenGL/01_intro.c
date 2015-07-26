@@ -19,7 +19,7 @@ $ sudo apt-get install freeglut3 freeglut3-dev binutils cmake libglew-dev g++ \
 mesa-common-dev build-essential libglm-dev
 
 4) compile files with:
-$ g++ file.c -lglut -lGL -lGLEW -lGLU -o file
+$ gcc file.c -lglut -lGL -lGLEW -lGLU -o file
 */
 
 void renderFunction ()
