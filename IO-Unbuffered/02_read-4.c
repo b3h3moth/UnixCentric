@@ -3,17 +3,20 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
-#include <netdb.h>
-#include <sys/socket.h>
 
-/*
-HEADER    : 
-PROTOTYPE : 
-SEMANTICS : 
-RETURNS   : 0 in caso di successo, -1 in caso di errore
---------------------------------------------------------------------------------
-*/
+#define MAX_BUF 30
 
-int main(int argc, char *argv[]) {
+/* Read input data and print out them */
+
+int main(void) {
+    char buf[MAX_BUF + 1]; /* Remember to add the newline */
+    
+    if (read(STDIN_FILENO, buf, MAX_BUF) == -1) {
+        fprintf(stderr, "Err. reading file: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Data: %s\n", buf);
+
     return(EXIT_SUCCESS);
 }
