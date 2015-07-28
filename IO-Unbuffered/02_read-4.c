@@ -6,13 +6,13 @@
 
 #define MAX_BUF 30
 
-/* Read input data and print out them */
+/* Leggere dati da input mediante read() e stamparli in output  */
 
 int main(void) {
-    char buf[MAX_BUF + 1];  /* Remember to add the newline */
-    ssize_t num_read;       /* ssize_t is the right choice for portability */
+    char buf[MAX_BUF + 1];  /* E' necessario riservare spazio per la newline */
+    ssize_t num_read;       /* Si usa ssize_t per la portabilita' */
     
-    if (read(STDIN_FILENO, buf, MAX_BUF) == -1) {
+    if ((num_read = read(STDIN_FILENO, buf, MAX_BUF)) == -1) {
         fprintf(stderr, "Err. reading file: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
