@@ -36,21 +36,29 @@ con riferimenti al nuovo SUSv4 e POSIX.1-2008.
 Il presente repository riguarda la programmazione di sistema su sistemi
 operativi UNIX con kernel Linux, pertanto è stato contrassegnato come L-LP.
 
-Ciascun sorgente potra' essere compilato mediante il compilatore GCC:
+Ciascun sorgente potra' essere compilato mediante GCC e clang
 
 `$ gcc main.c -o main`
+`$ clang main.c -o main`
 
 Tuttavia, se si volesse compilare con maggiore accortezza, sia per l'eventuale
-debug sia per avere a disposizione maggiori informazioni in caso di errore, 
-si possono utilizzare i seguenti parametri:
+debug sia per avere a disposizione maggiori informazioni in caso di errore ma
+anche e sopratutto per l'ottimizzazione del codice, si possono utilizzare i 
+seguenti parametri:
 
-`$ gcc -g main.c  -Wall -W -D_GNU_SOURCE -pedantic`
+`$ gcc   -g main.c -Wall -W -D_GNU_SOURCE -pedantic`
+`$ clang -g main.c -Wall -W -D_GNU_SOURCE -pedantic`
 
-La versione di GCC utilizzata e' la seguente:
+### Le versioni dei compilatori adoperati:
 
-* gcc (Debian 4.4.5-2) 4.4.5 (old)
-* gcc (Debian 4.4.5-8) 4.4.5 (old)
-* gcc (Debian 4.9.0-7) 4.9.0
+* gcc (Debian 4.4.5-2)  4.4.5 (old)     PPC  32bit
+* gcc (Debian 4.4.5-8)  4.4.5 (old)     PPC  32bit
+* gcc (Debian 4.6.3-14) 4.6.3           PPC  32bit
+* gcc (Debian 4.9.0-7)  4.9.0 (old)     i386 32bit
+* gcc (Debian 4.9.3-2)  4.9.3           i386 32bit
+
+* clang version 3.0-6.2                 PPC  32bit
+* clang version 3.5.2-1                 i386 32bit
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
