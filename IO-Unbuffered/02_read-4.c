@@ -17,6 +17,10 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    /* Si aggiunge il null byte terminator di fine stringa */
+    buf[num_read] = '\0'; 
+
+    /* Ora si possono stampare i dati ricevuti in input */
     printf("Data: %s\n", buf);
 
     return(EXIT_SUCCESS);
