@@ -32,7 +32,7 @@ int main(int argc, char *argv[], char *envp[])
 
    /* Calcola l'offset ad inizio del file */
    if (lseek(fd1, 0, SEEK_SET ) == -1) {
-      fprintf(stderr, "Err. seek\n");
+      fprintf(stderr, "Err. lseek()\n");
       exit(EXIT_FAILURE);
    }
 
