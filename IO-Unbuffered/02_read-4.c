@@ -9,7 +9,8 @@
 /* Read input data and print out them */
 
 int main(void) {
-    char buf[MAX_BUF + 1]; /* Remember to add the newline */
+    char buf[MAX_BUF + 1];  /* Remember to add the newline */
+    ssize_t num_read;       /* ssize_t is the right choice for portability */
     
     if (read(STDIN_FILENO, buf, MAX_BUF) == -1) {
         fprintf(stderr, "Err. reading file: %s\n", strerror(errno));
