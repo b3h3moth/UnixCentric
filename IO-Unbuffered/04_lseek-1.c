@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include <string.h> 
 
-#define MAX_BUF 32
+#define MAX_BUF 128
 #define PERMS 0644
 
 /*
@@ -19,6 +19,7 @@ int main(int argc, char *argv[], char *envp[])
    char *input_file = "/etc/passwd";
    char *output_file = "passwd.txt";
    char buf[MAX_BUF];
+   int n;
 
    if ( (fd1 = open(input_file, O_RDONLY)) < 0) {
       printf("Err. apertura %s\n", input_file);
@@ -30,22 +31,18 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   /* Calcola l'offset ad inizio del file */
-   if (lseek(fd1, 10, SEEK_END ) == -1) {
-      fprintf(stderr, "Err. lseek()\n");
-      exit(EXIT_FAILURE);
-   }
 
    /* 
     Legge MAX_BUF byte da 'input_file' e li copia successivamente con la
     write in 'output_file'; si lavora un byte per volta. 
    */
-   if (read(fd1, &buf, MAX_BUF) < 0) {
+   if ((n=read(fd1, &buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read\n");
       exit(EXIT_FAILURE);
    }
 
-   if (write(fd2, &buf, sizeof(buf)) < 0) {
+   lseek(fd1, 32, SEEK_SET );
+   if (write(fd2, &buf, n) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
    }
