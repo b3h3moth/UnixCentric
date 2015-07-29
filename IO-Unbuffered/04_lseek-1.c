@@ -23,7 +23,7 @@ RETURNS   : L'offset in caso di successo, -1 in caso di errore
 /* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
 aggiornato di OFFSET bytes rispetto all'inizio - in pratica rimuovera' la prima
 riga che nel mio file corrisponde a OFFSET byte -, da questo punto si copiera'
-tutto il contenuto sul file 'output_file'.
+tutto il contenuto da OFFSET fino alla fine sul file 'output_file'.
 */
 
 int main(int argc, char *argv[]) {
