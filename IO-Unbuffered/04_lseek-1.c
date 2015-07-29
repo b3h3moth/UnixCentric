@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include <string.h> 
 
-#define MAX_BUF 32
+#define MAX_BUF 1024
 #define PERMS 0644
 
 /*
@@ -19,7 +19,7 @@ int main(int argc, char *argv[], char *envp[])
    char *input_file = "/etc/passwd";
    char *output_file = "passwd.txt";
    char buf[MAX_BUF];
-   int n;
+   ssize_t num_read;
 
    if ( (fd1 = open(input_file, O_RDONLY)) < 0) {
       printf("Err. apertura %s\n", input_file);
@@ -41,7 +41,8 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   lseek(fd1, 32, SEEK_SET );
+   lseek(fd1, 16, SEEK_SET );
+   lseek(fd2, 16, SEEK_SET );
    if (write(fd2, &buf, n) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
