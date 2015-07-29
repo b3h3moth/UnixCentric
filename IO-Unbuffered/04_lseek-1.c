@@ -9,14 +9,24 @@
 #define PERMS       0644
 #define OFFSET      32
 
+/*
+HEADER    : <unistd.h>
+PROTOTYPE : off_t lseek(int fildes, off_t offset, int whence);
+SEMANTICS : La funzione lseek() aggiorna il file-offset mediante il file
+            descriptor 'fildes' in accordo col valore di 'offset' espresso in
+            byte e il punto di partenza definito da specifici valori, tra cui
+            SEEK_SET, SEEK_CUR, SEEK_END
+RETURNS   : L'offset in caso di successo, -1 in caso di errore
+-------------------------------------------------------------------------------
+*/
+
 /* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
 aggiornato di OFFSET bytes rispetto all'inizio - in pratica rimuovera' la prima
 riga che nel mio file corrisponde a OFFSET byte -, da questo punto si copiera'
 tutto il contenuto sul file 'output_file'.
 */
 
-int main(int argc, char *argv[], char *envp[])
-{
+int main(int argc, char *argv[]) {
    int fd1, fd2;
    char *input_file = "/etc/passwd";
    char *output_file = "new_passwd.txt";
