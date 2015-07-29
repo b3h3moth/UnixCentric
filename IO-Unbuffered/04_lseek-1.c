@@ -4,13 +4,12 @@
 #include <unistd.h> 
 #include <string.h> 
 
-#define MAX_BUF 1024
-#define PERMS 0644
+#define MAX_BUF     1024
+#define PERMS       0644
 
-/*
-Legge il contenuto del file 'input_file' e copia MAX_BUF byte in 'output_file';
-mediante la lseek si individua l'offset da cui copiare, ossia l'inizio del
-file.
+/* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
+aggiornato di 70 bytes rispetto all'inizio, da questo punto si copiera' tutto
+il contenuto sul fil 'output_file'.
 */
 
 int main(int argc, char *argv[], char *envp[])
@@ -31,19 +30,19 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-
    /* 
     Legge MAX_BUF byte da 'input_file' e li copia successivamente con la
     write in 'output_file'; si lavora un byte per volta. 
    */
-   if ((n=read(fd1, &buf, MAX_BUF)) < 0) {
+   lseek(fd1, 70, SEEK_SET );
+   
+   if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read\n");
       exit(EXIT_FAILURE);
    }
 
-   lseek(fd1, 16, SEEK_SET );
    lseek(fd2, 16, SEEK_SET );
-   if (write(fd2, &buf, n) < 0) {
+   if (write(fd2, &buf, num_read) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
    }
