@@ -6,11 +6,12 @@
 
 #define MAX_BUF     1024
 #define PERMS       0644
-#define NEW_OFFSET  140
+#define OFFSET      32
 
 /* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
-aggiornato di NEW_OFFSET bytes rispetto all'inizio, da questo punto si copiera'
-tutto il contenuto sul fil 'output_file'.
+aggiornato di OFFSET bytes rispetto all'inizio - in pratica rimuovera' la prima
+riga che nel mio file corrisponde a OFFSET byte -, da questo punto si copiera'
+tutto il contenuto sul file 'output_file'.
 */
 
 int main(int argc, char *argv[], char *envp[])
@@ -26,23 +27,28 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   /* Il file-offset del file in lettura e' ora aggiornato al byte 70 */
-   lseek(fd1, NEW_OFFSET, SEEK_SET);
-
-   /* Legge input_file dal byte NEW_OFFSET */
-   if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
-      fprintf(stderr, "Err. read\n");
-      exit(EXIT_FAILURE);
-   }
-
    if ( (fd2 = open(output_file, O_RDWR | O_CREAT, PERMS)) < 0) {
       printf("Err. apertura %s\n", input_file);
       exit(EXIT_FAILURE);
    }
 
-   /* Scrittura del file di output output_file.
-   La copia riguarda il file di input dall'offset NEW_OFFSET naturalmente */
-   if (write(fd2, &buf, num_read) < 0) {
+   /* Il file-offset del file in lettura e' ora aggiornato al byte 70 */
+   if (lseek(fd1, OFFSET, SEEK_SET) == -1) {
+      printf("Err. lseek()\n");
+      exit(EXIT_FAILURE);
+   }
+
+   /* Legge input_file dal byte OFFSET */
+   if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
+      fprintf(stderr, "Err. read\n");
+      exit(EXIT_FAILURE);
+   }
+
+   /* Scrittura del file 'output_file'.
+   La copia riguarda il file di input dall'offset OFFSET, poiche' si sono 
+   eliminati dei bytes il valore della write() deve essere aggiornato di
+   conseguenza */
+   if (write(fd2, &buf, (MAX_BUF - OFFSET)) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
    }
