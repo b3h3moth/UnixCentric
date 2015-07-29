@@ -36,13 +36,14 @@ int main(int argc, char *argv[], char *envp[])
       fprintf(stderr, "Err. lseek()\n");
       exit(EXIT_FAILURE);
    }
-   
-   
+
+   /* Legge input_file dal byte NEW_OFFSET */
    if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read\n");
       exit(EXIT_FAILURE);
    }
 
+   
    if (write(fd2, &buf, num_read) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
