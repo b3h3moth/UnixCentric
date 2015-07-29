@@ -31,10 +31,7 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   /* 
-    Legge MAX_BUF byte da 'input_file' e li copia successivamente con la
-    write in 'output_file'; si lavora un byte per volta. 
-   */
+   /* Il file-offset del file in lettura e' ora aggiornato al byte 70 */
    lseek(fd1, 70, SEEK_SET );
    
    if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
@@ -42,7 +39,6 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   lseek(fd2, 16, SEEK_SET );
    if (write(fd2, &buf, num_read) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
