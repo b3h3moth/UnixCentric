@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <fcntl.h>  
 #include <unistd.h> 
-#include <string.h> 
+#include <string.h>
 
-#define MAX_BUF     1024
+/* I byte del file /etc/passwd su questa macchina, Debian GNU/Linux powerpc */
+#define MAX_BUF     1322
 #define PERMS       0644
 #define OFFSET      32
 
