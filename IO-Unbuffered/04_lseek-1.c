@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include <string.h> 
 
-#define MAX_BUF 128
+#define MAX_BUF 32
 #define PERMS 0644
 
 /*
