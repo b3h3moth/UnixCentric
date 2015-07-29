@@ -32,7 +32,11 @@ int main(int argc, char *argv[], char *envp[])
    }
 
    /* Il file-offset del file in lettura e' ora aggiornato al byte 70 */
-   lseek(fd1, 70, SEEK_SET );
+   if (lseek(fd1, 70, SEEK_SET) == -1) {
+      fprintf(stderr, "Err. lseek()\n");
+      exit(EXIT_FAILURE);
+   }
+   
    
    if ((num_read = read(fd1, &buf, MAX_BUF)) < 0) {
       fprintf(stderr, "Err. read\n");
