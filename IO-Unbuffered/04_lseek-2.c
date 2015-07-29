@@ -55,7 +55,8 @@ int main(int argc, char* argv[])
   }
 
   while ( (ret = read(fd1, &buffer, sizeof(buffer))) )
-     printf("%s: %d byte\nConteneuto dopo la sostituzione = %s", filename, ret, buffer);
+     printf("%s: %d byte\nConteneuto dopo la sostituzione = %s", 
+             filename, ret, buffer);
 
   close(fd1);
 
