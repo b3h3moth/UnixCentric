@@ -17,7 +17,7 @@ int main(int argc, char *argv[], char *envp[])
 {
    int fd1, fd2;
    char *input_file = "/etc/passwd";
-   char *output_file = "passwd.txt";
+   char *output_file = "new_passwd.txt";
    char buf[MAX_BUF];
    ssize_t num_read;
 
