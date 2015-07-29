@@ -43,7 +43,8 @@ int main(int argc, char *argv[], char *envp[])
       exit(EXIT_FAILURE);
    }
 
-   
+   /* Scrittura del file di output output_file.
+   La copia riguarda il file di input dall'offset NEW_OFFSET naturalmente */
    if (write(fd2, &buf, num_read) < 0) {
       fprintf(stderr, "Err. write\n");
       exit(EXIT_FAILURE);
