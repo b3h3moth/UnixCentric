@@ -6,6 +6,7 @@
 
 #define MAX_BUF     1024
 #define PERMS       0644
+#define NEW_OFFSET  70
 
 /* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
 aggiornato di 70 bytes rispetto all'inizio, da questo punto si copiera' tutto
