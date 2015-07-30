@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
   con il null-byte terminator, carattere di fine stringa */
   cur_offset = lseek(fd1, -1, SEEK_END);
   printf("%d\n",cur_offset);
-  if (write (fd1, "\0", 2) < 0) {
+  if (write (fd1, "\0", 1) < 0) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
   }
@@ -60,12 +60,16 @@ int main(int argc, char* argv[])
    Si apre nuovamente il file con la stringa corretta al suo interno
   */
   if ((fd1 = open(filename, O_RDONLY)) < 0) {
-     fprintf(stderr, "Err. read file\n");
+     fprintf(stderr, "Err. open file\n");
      exit(EXIT_FAILURE);
   }
 
-  while ( (num_read = read(fd1, &buffer, sizeof(buffer))) )
-     printf(" After: %s\nFile: %s\nbyte: %d", buffer, filename, num_read);
+  if ( (num_read = read(fd1, &buffer, sizeof(buffer))) == -1 ) {
+     fprintf(stderr, "Err. read file\n");
+     exit(EXIT_FAILURE);
+  }
+  
+  printf(" After: %s\nFile: %s\nbyte: %d", buffer, filename, num_read);
 
   close(fd1);
 
