@@ -10,10 +10,11 @@
 
 int main(int argc, char* argv[])
 {
-  int fd1, ret;
+  int fd1, num_read;
   char buffer[] = "Advanced Programming in the XXXX Environment.\n";
   char *filename = "test.txt";
   char sub_string[] = "UNIX";
+  int cur_offset;
 
   if ( (fd1 = open(filename, O_RDWR | O_CREAT, PERMS)) == -1) {
      fprintf(stderr, "Err. open file %s\n", filename);
@@ -46,16 +47,15 @@ int main(int argc, char* argv[])
 
   /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
   con il null-byte terminator, carattere di fine stringa */
-  int cur_offset;
   cur_offset = lseek(fd1, -1, SEEK_END);
   printf("%d\n",cur_offset);
-  if (write (fd1, "\0", 1) < 0) {
+  if (write (fd1, "\0", 2) < 0) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
   }
   
   close(fd1);
-  
+ 
   /*
    Si apre nuovamente il file con la stringa corretta al suo interno
   */
@@ -64,8 +64,8 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
 
-  while ( (ret = read(fd1, &buffer, sizeof(buffer))) )
-     printf("After: %s\nFile: %s\nbyte: %d", buffer, filename, ret);
+  while ( (num_read = read(fd1, &buffer, sizeof(buffer))) )
+     printf(" After: %s\nFile: %s\nbyte: %d", buffer, filename, num_read);
 
   close(fd1);
 
