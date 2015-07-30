@@ -42,13 +42,15 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
 
-  /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
-  con il null-byte terminator, carattere di fine stringa */
-  if (lseek(fd1, -8, SEEK_END) == -1) {
+  /* Si aggiorna il file-offset portandolo esattamente sul carattere di 
+  newline */
+  if (lseek(fd1, -2, SEEK_END) == -1) {
      fprintf(stderr, "Err. lseek(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
 
+  /* Si sostituisce il carattere di newline '\n' alla fine della stringa
+  con il null-byte terminator, carattere di fine stringa */
   if (write (fd1, "\0", 1) == -1) {
      fprintf(stderr, "Err. write(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
