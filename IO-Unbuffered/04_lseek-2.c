@@ -22,9 +22,7 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
 
-  /*
-   scrive il contenuto di buffer nel file 'filename' 
-  */
+  /* scrive il contenuto di buffer nel file 'filename' */
   if (write(fd1, &buffer, sizeof(buffer)) == -1) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
@@ -32,10 +30,8 @@ int main(int argc, char* argv[])
 
   printf("Before: %s (%d byte)", buffer, strlen(buffer));
 
-  /*
-   Sostituzione della stringa XXXX all'interno del file 'filename' con 
-   'sub_string', iniziando dall'offset OFFSET 
-  */
+  /* Sostituzione della stringa XXXX all'interno del file 'filename' con 
+   'sub_string', iniziando dall'offset OFFSET */
   if (lseek(fd1, OFFSET, SEEK_SET) == -1) {
      fprintf(stderr, "Err. seek file\n");
      exit(EXIT_FAILURE);
@@ -60,9 +56,7 @@ int main(int argc, char* argv[])
   
   close(fd1);
  
-  /*
-   Si apre nuovamente il file con la stringa corretta al suo interno
-  */
+  /* Si apre nuovamente il file con la stringa corretta al suo interno */
   if ((fd1 = open(filename, O_RDONLY)) == -1) {
      fprintf(stderr, "Err. open file\n");
      exit(EXIT_FAILURE);
