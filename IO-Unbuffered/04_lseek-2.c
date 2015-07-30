@@ -11,7 +11,7 @@
 int main(int argc, char* argv[])
 {
   int fd1, ret;
-  char buffer[] = "Advanced Programming in the XXXX environment\n";
+  char buffer[] = "Advanced Programming in the XXXX Environment.\n";
   char *filename = "test.txt";
   char sub_string[] = "UNIX";
 
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
 
-  printf("Contenuto iniziale del file: %s\n", buffer);
+  printf("Before: %s", buffer);
 
   /*
    Sostituzione della stringa XXXX all'interno del file 'filename' con 
@@ -40,6 +40,16 @@ int main(int argc, char* argv[])
   }
   
   if (write (fd1, sub_string, 4) < 0) {
+     fprintf(stderr, "Err. write file\n");
+     exit(EXIT_FAILURE);
+  }
+
+  /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
+  con il null-byte terminator, carattere di fine stringa */
+  int cur_offset;
+  cur_offset = lseek(fd1, -1, SEEK_END);
+  printf("%d\n",cur_offset);
+  if (write (fd1, "\0", 1) < 0) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
   }
@@ -55,8 +65,7 @@ int main(int argc, char* argv[])
   }
 
   while ( (ret = read(fd1, &buffer, sizeof(buffer))) )
-     printf("%s: %d byte\nConteneuto dopo la sostituzione = %s", 
-             filename, ret, buffer);
+     printf("After: %s\nFile: %s\nbyte: %d", buffer, filename, ret);
 
   close(fd1);
 
