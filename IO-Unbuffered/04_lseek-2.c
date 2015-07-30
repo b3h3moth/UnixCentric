@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
 
 #define PERMS 0644
 #define OFFSET 28
@@ -14,7 +15,6 @@ int main(int argc, char* argv[])
   char buffer[] = "Advanced Programming in the XXXX Environment.\n";
   char *filename = "test.txt";
   char sub_string[] = "UNIX";
-  int cur_offset;
 
   if ( (fd1 = open(filename, O_RDWR | O_CREAT, PERMS)) == -1) {
      fprintf(stderr, "Err. open file %s\n", filename);
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
 
-  printf("Before: %s", buffer);
+  printf("Before: %s (%d byte)", buffer, strlen(buffer));
 
   /*
    Sostituzione della stringa XXXX all'interno del file 'filename' con 
@@ -47,8 +47,7 @@ int main(int argc, char* argv[])
 
   /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
   con il null-byte terminator, carattere di fine stringa */
-  cur_offset = lseek(fd1, -1, SEEK_END);
-  printf("%d\n",cur_offset);
+  lseek(fd1, strlen(buffer)-1, SEEK_SET);
   if (write (fd1, "\0", 1) < 0) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
@@ -69,7 +68,7 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
   
-  printf(" After: %s\nFile: %s\nbyte: %d", buffer, filename, num_read);
+  printf(" After: %s (%d byte)", buffer, strlen(buffer));
 
   close(fd1);
 
