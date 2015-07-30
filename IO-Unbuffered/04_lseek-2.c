@@ -69,7 +69,15 @@ int main(int argc, char* argv[])
      exit(EXIT_FAILURE);
   }
   
-  printf("(%d byte)  After: %s", strlen(buffer), buffer);
+  printf("(%d byte)  After: ", strlen(buffer));
+ 
+  /* Chiamata necessaria per 'pulire' il buffer prima della scrittura */
+  fflush(stdout);
+  
+  if (write(STDOUT_FILENO, buffer, num_read) == -1) {
+     fprintf(stderr, "Err. write(): %s\n", strerror(errno));
+     exit(EXIT_FAILURE);
+  }
 
   close(fd1);
 
