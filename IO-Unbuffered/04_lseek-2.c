@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <errno.h>
 
 #define PERMS 0644
 #define OFFSET 28
@@ -47,7 +48,11 @@ int main(int argc, char* argv[])
 
   /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
   con il null-byte terminator, carattere di fine stringa */
-  lseek(fd1, strlen(buffer)-1, SEEK_SET);
+  if (lseek(fd1, -8, SEEK_END) == -1) {
+     fprintf(stderr, "Err.(%d) lseek(): %s\n", errno, strerror(errno));
+     exit(EXIT_FAILURE);
+  }
+
   if (write (fd1, "\0", 1) < 0) {
      fprintf(stderr, "Err. write file\n");
      exit(EXIT_FAILURE);
