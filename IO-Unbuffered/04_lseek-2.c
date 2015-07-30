@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 #define PERMS 0644
-#define SEEK_POS 28
+#define OFFSET 28
 
 /* Modifica alcuni caratteri della stringa buffer[] */
 
@@ -32,9 +32,9 @@ int main(int argc, char* argv[])
 
   /*
    Sostituzione della stringa XXXX all'interno del file 'filename' con 
-   'sub_string', iniziando dall'offset SEEK_POS 
+   'sub_string', iniziando dall'offset OFFSET 
   */
-  if (lseek(fd1, SEEK_POS, SEEK_SET) < 0) {
+  if (lseek(fd1, OFFSET, SEEK_SET) < 0) {
      fprintf(stderr, "Err. seek file\n");
      exit(EXIT_FAILURE);
   }
