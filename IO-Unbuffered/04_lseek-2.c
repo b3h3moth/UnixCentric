@@ -18,39 +18,39 @@ int main(int argc, char* argv[])
   char sub_string[] = "UNIX";
 
   if ( (fd1 = open(filename, O_RDWR | O_CREAT, PERMS)) == -1) {
-     fprintf(stderr, "Err.(%d) open() %s\n", errno, strerror(errno));
+     fprintf(stderr, "Err. open(%s): %s\n", filename, strerror(errno));
      exit(EXIT_FAILURE);
   }
 
   /* scrive il contenuto di buffer nel file 'filename' */
   if (write(fd1, &buffer, sizeof(buffer)) == -1) {
-     fprintf(stderr, "Err. write file\n");
+     fprintf(stderr, "Err. write(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
 
-  printf("Before: %s (%d byte)", buffer, strlen(buffer));
+  printf("(%d byte) Before: %s", strlen(buffer), buffer);
 
   /* Sostituzione della stringa XXXX all'interno del file 'filename' con 
    'sub_string', iniziando dall'offset OFFSET */
   if (lseek(fd1, OFFSET, SEEK_SET) == -1) {
-     fprintf(stderr, "Err. seek file\n");
+     fprintf(stderr, "Err. lseek(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
   
   if (write (fd1, sub_string, 4) == -1) {
-     fprintf(stderr, "Err. write file\n");
+     fprintf(stderr, "Err. write(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
 
   /* Ora si sostituisce il carattere di newline '\n' alla fine della stringa
   con il null-byte terminator, carattere di fine stringa */
   if (lseek(fd1, -8, SEEK_END) == -1) {
-     fprintf(stderr, "Err.(%d) lseek(): %s\n", errno, strerror(errno));
+     fprintf(stderr, "Err. lseek(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
 
   if (write (fd1, "\0", 1) == -1) {
-     fprintf(stderr, "Err. write file\n");
+     fprintf(stderr, "Err. write(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
   
@@ -58,16 +58,16 @@ int main(int argc, char* argv[])
  
   /* Si apre nuovamente il file con la stringa corretta al suo interno */
   if ((fd1 = open(filename, O_RDONLY)) == -1) {
-     fprintf(stderr, "Err. open file\n");
+     fprintf(stderr, "Err. open(%s): %s\n", filename, strerror(errno));
      exit(EXIT_FAILURE);
   }
 
   if ( (num_read = read(fd1, &buffer, sizeof(buffer))) == -1 ) {
-     fprintf(stderr, "Err. read file\n");
+     fprintf(stderr, "Err. read(): %s\n", strerror(errno));
      exit(EXIT_FAILURE);
   }
   
-  printf("(%d byte) After: %s", strlen(buffer), buffer);
+  printf("(%d byte)  After: %s", strlen(buffer), buffer);
 
   close(fd1);
 
