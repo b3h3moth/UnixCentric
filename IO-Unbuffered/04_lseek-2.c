@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   char sub_string[] = "UNIX";
 
   if ( (fd1 = open(filename, O_RDWR | O_CREAT, PERMS)) == -1) {
-     fprintf(stderr, "Err. open file %s\n", filename);
+     fprintf(stderr, "Err.(%d) open() %s\n", errno, strerror(errno));
      exit(EXIT_FAILURE);
   }
 
