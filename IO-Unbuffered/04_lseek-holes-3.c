@@ -4,6 +4,8 @@
 #include <string.h>
 #include <fcntl.h>
 
+#define FILE_PERMS (S_IRUSR | S_IWUSR |S_IRGRP | S_IWGRP |S_IROTH | S_IWOTH)
+
 int main(int argc, char *argv[]) {
     int fd;     /* File descriptor */
 
@@ -14,8 +16,7 @@ int main(int argc, char *argv[]) {
 
     /* Apri un file in lettura/scrittura, se non esiste e' necessario crearlo,
     dovra' essere settato con i permessi impostati a rw-rw-rw */
-    if ((fd = open(argv[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | \
-                                              S_IROTH | S_IWOTH)) == -1) {
+    if ((fd = open(argv[1], O_RDWR | O_CREAT, FILE_PERMS)) == -1) {
         fprintf(stderr, "Err. open(%s): %s\n", argv[1], strerror(errno));
         exit(EXIT_FAILURE);
     }
