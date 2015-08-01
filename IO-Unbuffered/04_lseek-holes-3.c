@@ -7,7 +7,8 @@
 #define FILE_PERMS (S_IRUSR | S_IWUSR |S_IRGRP | S_IWGRP |S_IROTH | S_IWOTH)
 
 int main(int argc, char *argv[]) {
-    int fd;     /* File descriptor */
+    int fd, p;      /* File descriptor, parametro */
+    size_t len;
 
     if (argc < 3 || strncmp(argv[1], "--help", 6)  == 0) {
         fprintf(stderr, "Usage: %s <filename> [r|R|w!s]\n", argv[0]);
@@ -20,6 +21,14 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. open(%s): %s\n", argv[1], strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    for (p=2; p<argc; p++) {
+        switch(argv[p][0]) {
+            /* Visualizza il file-offset corrente in byte, in testo */
+            case 'r': 
+            /* Visualizza il file-offset corrente in byte, in esadecimale */
+            case 'R':
+
 
     return(EXIT_SUCCESS);
 }
