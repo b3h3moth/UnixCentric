@@ -36,6 +36,11 @@ int main(int argc, char *argv[]) {
 }
 
 void my_sum(int num, ...) {
+    /* Conta gli argomenti */
+    int arg;
+    /* Somma gli argomenti */
+    double sum;
+    /* Lista degli argomenti */
     va_list ap;
 
     va_start(ap, num);
