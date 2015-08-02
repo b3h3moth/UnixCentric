@@ -8,7 +8,7 @@ utilizzati sui sistemi operativi UNIX con kernel Linux.
 Per code oriented si intende anzitutto immediata operativita', nel senso che
 non ci saranno pagine da sfogliare ma solo e soprattutto righe di codice da
 leggere ed interpretare, commenti mirati inoltre saranno inseriti all'interno
-del codice stesso laddove ce ne sia bisogno.
+del codice stesso laddove ce ne fosse bisogno.
 
 I libri talvolta si perdono in inutili dettagli, tralasciando troppo spesso
 il codice, L-<PL> invece si pone l'obiettivo di fare il lavoro opposto, e
@@ -24,20 +24,25 @@ di programmazione e due linguaggi specifici; il paradigma Object Oriented
 con il linguaggio C++ e il paradigma procedurale con il linguaggio C.
 
 Infine un ulteriore repository sara' dedicato alla programmazione di sistema
-su sistemi operativi UNIX con kernel Linux.
+su sistemi operativi unix-like con kernel Linux e un altro ancora interamente 
+incentrato sul magnifico linguaggio Perl, che nei sistemi operativi unix-like 
+trova il suo habitat ideale.
 
 ##############################################################################
- LEARNING-<C> - Paradigma procedurale, Linguaggio C
+ LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99)
 ##############################################################################
 Il presente repository riguarda il paradigma procedurale, presentato mediante
 il linguaggio di programmazione C-ANSI (C99), pertanto è stato contrassegnato
 come L-C.
 
-Ciascun sorgente potra' essere compilato mediante il compilatore GCC:
-$ gcc main.c -o main
+Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
+con il comilatore Clang (LLVM);
+$ gcc   main.c -o main
+$ clang main.c -o main
 
 Oppure, se si vuole maggiore dettaglio:
 $ gcc -o main main.c -g -ansi -Wall -pedantic
+$ clang -o main main.c -g -ansi -Wall -pedantic
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
@@ -53,4 +58,3 @@ KeyID = 0xE83F9FBB
 
 La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
 chiavi pubbliche.
-
