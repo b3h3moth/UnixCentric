@@ -27,10 +27,10 @@ int main(int argc, char *argv[]) {
     double y = 30.5;
     double z = 40.5;
 
-    printf();
-    printf();
-    printf();
-    printf();
+    printf("w            = %f\n", my_sum() );
+    printf("w + x        = %f\n", my_sum() );
+    printf("x + x + y    = %f\n", my_sum() );
+    printf("x + x + y  z = %f\n", my_sum() );
 
     return(EXIT_SUCCESS);
 }
