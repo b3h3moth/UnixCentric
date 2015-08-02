@@ -30,27 +30,30 @@ int main(int argc, char *argv[]) {
     double y = 30.5;
     double z = 40.5;
 
-    printf("w            = %f\n", my_sum() );
-    printf("w + x        = %f\n", my_sum() );
-    printf("x + x + y    = %f\n", my_sum() );
-    printf("x + x + y  z = %f\n", my_sum() );
+    printf("w            = %f\n", my_sum(1, w));
+    printf("w + x        = %f\n", my_sum(2, w, x));
+    printf("x + x + y    = %f\n", my_sum(3, w, x, y));
+    printf("x + x + y  z = %f\n", my_sum(4, w, x, y, z));
 
     return(EXIT_SUCCESS);
 }
 
-void my_sum(int num, ...) {
+double my_sum(int n, ...) {
     /* Conta gli argomenti */
     int arg;
     /* Somma gli argomenti */
-    double sum;
+    double sum = 0.0;
     /* Lista degli argomenti */
     va_list ap;
 
     /* Inizializzazione della lista degli argomenti */
     va_start(ap, n);
 
+    for (arg=0; arg<n; ++arg)
+        sum += va_arg(ap, double);
+
+    /* Chiusura della lista di argomenti */
     va_end(ap);
 
     return(sum);
 }
-
