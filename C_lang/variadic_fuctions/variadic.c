@@ -19,18 +19,23 @@ Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
 - va_copy().
 */
 
-void printout(int num, ...);
+void my_sum(int n, ...);
 
 int main(int argc, char *argv[]) {
-    printout(0);
-    printout(1, "STR");
-    printout(2, "STR", "STR2");
-    printout(3, "STR", "STR2", 2015);
+    double w = 10.5;
+    double x = 20.5;
+    double y = 30.5;
+    double z = 40.5;
+
+    printf();
+    printf();
+    printf();
+    printf();
 
     return(EXIT_SUCCESS);
 }
 
-void printout(int num, ...) {
+void my_sum(int num, ...) {
     va_list ap;
 
     va_start(ap, num);
