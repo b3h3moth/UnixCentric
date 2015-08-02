@@ -19,8 +19,9 @@ Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
 - va_copy().
 */
 
-/* Prototipo, l'ellissi come ultimo argomento indica che si tratta di una 
-variadic function */
+/* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
+parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
+argomento indica che si tratta di una 'variadic function' */
 void my_sum(int n, ...);
 
 int main(int argc, char *argv[]) {
