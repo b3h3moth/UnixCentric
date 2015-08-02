@@ -19,6 +19,8 @@ Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
 - va_copy().
 */
 
+/* Prototipo, l'ellissi come ultimo argomento indica che si tratta di una 
+variadic function */
 void my_sum(int n, ...);
 
 int main(int argc, char *argv[]) {
@@ -45,7 +47,6 @@ void my_sum(int num, ...) {
 
     /* Inizializzazione della lista degli argomenti */
     va_start(ap, n);
-
 
     va_end(ap);
 
