@@ -43,16 +43,12 @@ void my_sum(int num, ...) {
     /* Lista degli argomenti */
     va_list ap;
 
-    va_start(ap, num);
+    /* Inizializzazione della lista degli argomenti */
+    va_start(ap, n);
 
-    if (num >= 1)
-        printf("%s", va_arg(ap, char *));
-    if (num >= 2)
-        printf("%s", va_arg(ap, char *));
-    if (num >= 3)
-        printf("%d", va_arg(ap, int));
-    printf("\n");
 
     va_end(ap);
+
+    return(sum);
 }
 
