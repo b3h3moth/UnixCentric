@@ -22,7 +22,7 @@ Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
 /* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
 parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
 argomento indica che si tratta di una 'variadic function' */
-void my_sum(int n, ...);
+double my_sum(int n, ...);
 
 int main(int argc, char *argv[]) {
     double w = 10.5;
