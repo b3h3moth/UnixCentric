@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NAME	30
-#define MAX_STR		100
+#define MAX_NAME	10
+#define MAX_STR		20
 
 struct name {
    char first[MAX_NAME];
