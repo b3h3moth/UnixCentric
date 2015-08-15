@@ -1,5 +1,5 @@
-#ifndef STRUCTURE
-#define STRUCTURE
+#ifndef STRUCTURE_01
+#define STRUCTURE_01
 
 #define MAX_STR 10
 
