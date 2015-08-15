@@ -9,10 +9,13 @@ struct RGB_color {
 
 int main(void) {
 
-    /* Inizializza la struttura, ora sara' anche creato lo spazio di memoria
-    necessario a contenere la variabile struct 'black' */
+    /* Dichiara ed inizializza la struttura subito dopo la definizione. 
+    Sara' anche creato lo spazio di memoria necessario a contenere la 
+    variabile struct 'black' */
     struct RGB_color black = {0, 0, 0};
 
+    /* Prima dichiara la variabile struct white, dopodiche' ciascun membro
+    sara' inizializzato */
     struct RGB_color white;
     white.set_red = 255;
     white.set_green = 255;
