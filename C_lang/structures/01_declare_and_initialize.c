@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-struct RGB_color {
-    int set_red;
-    int set_green;
-    int set_blu;
-};
+#include "RGB_color.h" /* Si include la definizione della struttura */
 
 int main(void) {
 
