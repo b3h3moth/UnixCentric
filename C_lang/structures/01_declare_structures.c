@@ -8,6 +8,7 @@ struct RGB_color {
 };
 
 int main(void) {
+    struct RGB_color black = {0, 0, 0};
 
     return(EXIT_SUCCESS);
 }
