@@ -36,6 +36,8 @@ int main(void) {
                                              la stringa; un carattere in più
                                              per il null character finale */
 
+    // Si stampa in output il contenuto delle strutture
+    // I commenti col doppio slash sono accettati da -std=c99 in poi
     printf("%s: RGB(%i,%i,%i)\n", black.set_name, black.set_red, \
                                   black.set_green, black.set_blu);
 
