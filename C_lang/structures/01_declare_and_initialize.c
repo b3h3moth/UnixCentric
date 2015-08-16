@@ -25,16 +25,20 @@ int main(void) {
                                 .set_blu   = 0,\
                                 .set_name  = "giallo" };
 
-    Prima dichiara la variabile struct white, dopodiche' ciascun membro
-    sara' inizializzato */
+    Dichiara la variabile struct white, dopodiche' ciascun membro sara' 
+    inizializzato */
     struct RGB_color white;
+
     white.set_red = 255;
     white.set_green = 255;
     white.set_blu = 255;
-    strncpy(white.set_name, "bianco", 7);
+    strncpy(white.set_name, "bianco", 7); /* E' un vettore, non basta inserire 
+                                             la stringa; un carattere in più
+                                             per il null character finale */
 
     printf("%s: RGB(%i,%i,%i)\n", black.set_name, black.set_red, \
                                   black.set_green, black.set_blu);
+
     printf("%s: RGB(%i,%i,%i)\n", white.set_name, white.set_red, \
                                   white.set_green, white.set_blu);
 
