@@ -31,7 +31,12 @@ int main(void) {
     white.set_red = 255;
     white.set_green = 255;
     white.set_blu = 255;
-    strncpy(white.set_name, "bianco", 6);
+    strncpy(white.set_name, "bianco", 7);
+
+    printf("%s: RGB(%i,%i,%i)\n", black.set_name, black.set_red, \
+                                  black.set_green, black.set_blu);
+    printf("%s: RGB(%i,%i,%i)\n", white.set_name, white.set_red, \
+                                  white.set_green, white.set_blu);
 
     return(EXIT_SUCCESS);
 }
