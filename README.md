@@ -41,8 +41,8 @@ $ gcc   main.c -o main
 $ clang main.c -o main
 
 Oppure, se si vuole maggiore dettaglio:
-$ gcc -o main main.c -g -ansi -Wall -pedantic
-$ clang -o main main.c -g -ansi -Wall -pedantic
+$ gcc -o main main.c -g -ansi -Wall -pedantic -std=c99|c11
+$ clang -o main main.c -g -ansi -Wall -pedantic -std=c99|c11
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
