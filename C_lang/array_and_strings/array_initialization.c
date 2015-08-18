@@ -25,14 +25,23 @@ int main(void) {
     int vector_e[SIZE] = { };
 
     // Dallo standard C99 vi sono i 'designated initializers', che permettono
-    // di indicare esplicitamente gli elementi del vettore da inizializzare
+    // di indicare esplicitamente gli elementi del vettore da inizializzare.
+    // Vale la regola che il successivo elemento da inizializzare sara' quello
+    // che seguira' l'ultimo elemento inizializzato.
+    
+    // Attenzione perche' ci possono essere alcune sovrascrizioni prima del
+    // risultato finale
     int vector_f[SIZE] = { 
+        [7] = 77, 
         1, 
-        [9] = 8, 
         [1] = 10, 
-        4, 5, 
-        [7] = 778, 
-        8, 9, 7, 5};
+        [5] = 50,
+        8, 9
+    };
+
+    // Risutltato finale
+    for (int i=0; i<SIZE; i++)
+        printf("[%d] = %d\n", i ,vector_f[i]);
 
     return(EXIT_SUCCESS);
 }
