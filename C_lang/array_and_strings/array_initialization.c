@@ -24,7 +24,15 @@ int main(void) {
     // warning: ISO C forbids empty initializer braces
     int vector_e[SIZE] = { };
 
-
+    // Dallo standard C99 vi sono i 'designated initializers', che permettono
+    // di indicare esplicitamente gli elementi del vettore da inizializzare
+    int vector_f[SIZE] = { 
+        1, 
+        [9] = 8, 
+        [1] = 10, 
+        4, 5, 
+        [7] = 778, 
+        8, 9, 7, 5};
 
     return(EXIT_SUCCESS);
 }
