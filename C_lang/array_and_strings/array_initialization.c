@@ -7,5 +7,11 @@ int main(void) {
 
     // I primi 5 elelmenti sono inizializzati, il resto sara' posto a 0
     int vector_a[SIZE] = {10, 20, 30, 40, 50};
+
+    // Un elemento in piu', warning
+    // warning: excess elements in array initializer
+    int vector_b[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110};
+
+
     return(EXIT_SUCCESS);
 }
