@@ -18,9 +18,13 @@ int main(void) {
 
     printf("%d\n", first);
 
+    /* Con -std=c89 si avra'il seguente warning:
+    warning: ISO C90 forbids mixed declarations and code [-Wpedantic] */
     int second = 20;
     printf("%d\n", second);
 
+    /* Con -std=c89 si avra'il seguente error:
+    error: for loop initial declarations are only allowed in C99 or C11 mode */
     for (int i=0; i<first; i++)
         printf("%d ", i);
 
