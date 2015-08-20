@@ -15,6 +15,7 @@ int main(int argc, char *argv[], char *envp[])
    return(EXIT_SUCCESS);
 }
 
+/* Clacola la lunghezza della stringa */
 int my_strlen(const char *s)
 {
    const char *p = s;
@@ -35,6 +36,7 @@ int my_strlen(const char *s)
    return s - p;
 }
 
+/* Concatenazione di due stringhe */
 char *my_strcat(char *s1, const char *s2)
 {
    char *p = s1;
