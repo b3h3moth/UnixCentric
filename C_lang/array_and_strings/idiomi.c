@@ -1,18 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int my_strlen(const char *s);
 char *my_strcat(char *s1, const char *s2);
-char *my_strdup(char *s);
+void my_strcpy(char *dest, const char *src);
 
 int main(int argc, char *argv[], char *envp[])
 {
    char str[] = "C Language Programming ";
    char str2[] = "Kernighan and Ritchie";
+   char *str3 = malloc(strlen(str) + 1);
 
    printf("len: %d\n", my_strlen(str));
+
    my_strcat(str, str2);
    printf("%s\n", str);
+   
+   my_strcpy(str3, str);
+   printf("%s\n", str3);
 
    return(EXIT_SUCCESS);
 }
@@ -55,14 +61,7 @@ char *my_strcat(char *s1, const char *s2)
 }
 
 /* Copia di una stringa */
-char *my_strdup(char *s) 
+void my_strcpy(char *dest, const char *src)
 {
-    char *p;
-
-    p = malloc(my_strlen(s) + 1);
-
-    while (s)
-        *p++ = *s++;
-
-    return p;
+    while (*dest++ = *src++);
 }
