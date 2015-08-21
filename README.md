@@ -29,10 +29,10 @@ incentrato sul magnifico linguaggio Perl, che nei sistemi operativi unix-like
 trova il suo habitat ideale.
 
 ##############################################################################
- LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99)
+ LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99, C11)
 ##############################################################################
 Il presente repository riguarda il paradigma procedurale, presentato mediante
-il linguaggio di programmazione C-ANSI (C99), pertanto è stato contrassegnato
+il linguaggio di programmazione C-ANSI (C99, C11);  è stato contrassegnato
 come L-C.
 
 Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
