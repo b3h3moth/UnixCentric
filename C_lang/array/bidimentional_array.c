@@ -8,7 +8,8 @@ int main(void) {
 
     // Array bidimensionale e' sinonimo di matrice
     // Dichiarazione di una matrice di tipo intero
-    int matrix_a[ROWS][COLS];
+    // Inizializzazione a 0 di ciascun elemento
+    int matrix_a[ROWS][COLS] = { {0} };
 
     // Inizializzazione contestualmente alla dichiarazione
     // Valgono comunque le regole per i vettori
@@ -17,6 +18,8 @@ int main(void) {
 
     // Accesso agli elementi
     int num = matrix_b[0][1]; // Si assegna 20
+
+    
 
     return(EXIT_SUCCESS);
 }
