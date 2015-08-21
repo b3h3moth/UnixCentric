@@ -17,5 +17,10 @@ int main(int argc, char *argv[]) {
     // Alloca lo spazio necessario per contenere la stringa da copiare
     bkp_copy = malloc(defstr_size + 1);
 
+    // Inserisce il 'null terminator character' alla fine della stringa
+    bkp_copy[defstr_size] = '\0';
+
+
+       
     return(EXIT_SUCCESS);
 }
