@@ -24,6 +24,10 @@ int main(int argc, char *argv[]) {
        a far pountare il puntatore di 'appoggio' all'inizio della stringa da
        copiare */
     ptr = &default_string[0];
-    
+    int i=0;
+    while (*ptr != '\0')
+        bkp_copy[i++] = *ptr++;
+
+
     return(EXIT_SUCCESS);
 }
