@@ -15,7 +15,8 @@ int main(void) {
     int matrix_b[ROWS][COLS] = { {10, 20, 30},
                                  {40, 50, 60} };
 
-
+    // Accesso agli elementi
+    int num = matrix_b[0][1]; // Si assegna 20
 
     return(EXIT_SUCCESS);
 }
