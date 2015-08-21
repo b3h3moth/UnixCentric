@@ -9,5 +9,10 @@ int main(int argc, char *argv[]) {
     char *bkp_copy = NULL;
 
     // Conta il numero dei caratteri della stringa
+    while ( *ptr++ != '\0')
+        defstr_size++;
+
+    printf("Size of the default string: %d\n", defstr_size);
+
     return(EXIT_SUCCESS);
 }
