@@ -19,7 +19,7 @@ int main(void) {
     // Accesso agli elementi
     int num = matrix_b[0][1]; // Si assegna 20
 
-    
+    printf("num: %d\n", num);
 
     return(EXIT_SUCCESS);
 }
