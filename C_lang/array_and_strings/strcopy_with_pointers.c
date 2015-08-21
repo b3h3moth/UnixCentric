@@ -14,5 +14,8 @@ int main(int argc, char *argv[]) {
 
     printf("Size of the default string: %d\n", defstr_size);
 
+    // Alloca lo spazio necessario per contenere la stringa da copiare
+    bkp_copy = malloc(defstr_size + 1);
+
     return(EXIT_SUCCESS);
 }
