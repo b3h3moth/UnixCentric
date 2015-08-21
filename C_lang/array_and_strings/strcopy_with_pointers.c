@@ -20,7 +20,10 @@ int main(int argc, char *argv[]) {
     // Inserisce il 'null terminator character' alla fine della stringa
     bkp_copy[defstr_size] = '\0';
 
-
-       
+    /* Copia ciascun carattere di una stringa nell'altra, facendo attenzione a
+       a far pountare il puntatore di 'appoggio' all'inizio della stringa da
+       copiare */
+    ptr = &default_string[0];
+    
     return(EXIT_SUCCESS);
 }
