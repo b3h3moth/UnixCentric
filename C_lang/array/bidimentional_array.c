@@ -21,5 +21,8 @@ int main(void) {
 
     printf("num: %d\n", num);
 
+    // Visualizzazione elementi della matrice
+
+
     return(EXIT_SUCCESS);
 }
