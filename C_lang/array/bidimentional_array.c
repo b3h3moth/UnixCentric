@@ -22,7 +22,12 @@ int main(void) {
     printf("num: %d\n", num);
 
     // Visualizzazione elementi della matrice
-
+    for (int i=0; i<ROWS; i++) {
+        printf("ROW[%d] : ", i);
+        for (int y=0; y<COLS; y++)
+            printf("%d | ", matrix_b[i][y]);
+        printf("\n");
+    }
 
     return(EXIT_SUCCESS);
 }
