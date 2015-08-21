@@ -29,7 +29,7 @@ int main(void) {
     }                   /* Gioco l'aritmetica dei puntatori, nello specifico si
                            sta chiedendo il numero di elementi tra ptr e 
                            array_int, che sarebbe in effetti la differenza dei
-                           due puntatori diviso il dimensione di un elemento,
+                           due puntatori diviso la dimensione di un elemento,
                            che nel caso specifico e' 4Byte. */
 
     return(EXIT_SUCCESS);
