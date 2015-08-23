@@ -16,10 +16,11 @@ void show_bytes(byte_pointer start, int len) {
     printf("\n");
 }
 
-int main(void) {
-    byte_pointer test = "test";
+void show_int(int x) {
+    show_bytes((byte_pointer) &x, sizeof(int));
+}
 
-    show_bytes(test, 4);
+int main(void) {
 
     return(EXIT_SUCCESS);
 }
