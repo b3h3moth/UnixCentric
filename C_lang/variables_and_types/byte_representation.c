@@ -30,6 +30,15 @@ void show_pointer(void *x) {
 }
 
 int main(void) {
+    char str[] = "007 James Bond";
+    int var_int = 30;
+    float var_flt = 10.1;
+    void *ptr = (int*)1;
+
+    show_bytes((byte_pointer)str, strlen(str));
+    show_int(var_int);
+    show_float(var_flt);
+    show_pointer(ptr);
 
     return(EXIT_SUCCESS);
 }
