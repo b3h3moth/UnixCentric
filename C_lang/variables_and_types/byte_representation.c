@@ -8,7 +8,7 @@
 
 typedef unsigned char *byte_pointer;
 
-// Fornisce la sequanza di byte di 'start'
+// Fornisce l'indirizzo della sequanza di byte di 'start'
 void show_bytes(byte_pointer start, int len) {
     int i;
     for (i=0; i<len; i++)
@@ -17,6 +17,9 @@ void show_bytes(byte_pointer start, int len) {
 }
 
 int main(void) {
-    
+    byte_pointer test = "test";
+
+    show_bytes(test, 4);
+
     return(EXIT_SUCCESS);
 }
