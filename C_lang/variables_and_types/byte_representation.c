@@ -12,9 +12,9 @@ typedef unsigned char *byte_pointer;
 void show_bytes(byte_pointer start, int len) {
     int i;
     for (i=0; i<len; i++) {
-        printf(" %.2x", start[i]);
+        printf("%.2x ", start[i]);
     }
-    printf(" (%d byte)\n", len);
+    printf("(%d byte)\n", len);
 }
 
 void show_int(int x) {
@@ -37,8 +37,9 @@ int main(void) {
     byte_pointer varp = (byte_pointer) &val;
     int num = 3510593;
     int flt = 3510593.0;
-    char str[] = "123456789";
-    const char *s = "abcdefghijklmnopqrstuvwyxz";
+    char ascii_num[] = "123456789";
+    const char *ascii_upper = "abcdefghijklmnopqrstuvwyxz";
+    const char *ascii_lower = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
 
     show_int(var_int);
     show_float(var_flt);
@@ -56,10 +57,11 @@ int main(void) {
     con 0x3x, dove x sta per 1,2,3,4,5,6,7,8,9).
     
        In esadeciamale le lettere vanno dalla 'a' 0x61, alla 'z' 0x7a, e
-    dalla 'A' 0x alla Z 0x; inoltre non fa differenza l'utilizzo di maiuscole 
-    o minuscole. */
-    show_bytes((byte_pointer)str, strlen(str)+1);
-    show_bytes((byte_pointer)s, strlen(s)+1);
+    dalla 'A' 0x41 alla 'Z' 0x5a; inoltre non fa differenza l'utilizzo delle
+    maiuscole o delle minuscole. */
+    show_bytes((byte_pointer)ascii_num, strlen(ascii_num)+1);
+    show_bytes((byte_pointer)ascii_upper, strlen(ascii_upper)+1);
+    show_bytes((byte_pointer)ascii_lower, strlen(ascii_lower)+1);
 
     return(EXIT_SUCCESS);
 }
