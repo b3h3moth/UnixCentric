@@ -30,7 +30,7 @@ void show_pointer(void *x) {
 }
 
 int main(void) {
-    char str[] = "007 James Bond";
+    char str[] = "12345";
     int var_int = 12345;
     float var_flt = 12345.0;
     void *ptr = (int*)12345;
@@ -39,7 +39,7 @@ int main(void) {
     int num = 3510593;
     int flt = 3510593.0;
 
-    show_bytes((byte_pointer)str, strlen(str));
+    show_bytes((byte_pointer)str, strlen(str)+1);
     show_int(var_int);
     show_float(var_flt);
     show_pointer(ptr);
@@ -51,5 +51,6 @@ int main(void) {
 
     show_int(num);
     show_float(flt);
+
     return(EXIT_SUCCESS);
 }
