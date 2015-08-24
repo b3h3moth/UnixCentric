@@ -34,11 +34,22 @@ int main(void) {
     int var_int = 12345;
     float var_flt = 12345.0;
     void *ptr = (int*)12345;
+    int val = 0x87654321;
+    byte_pointer varp = (byte_pointer) &val;
+    int num = 3510593;
+    int flt = 3510593.0;
 
     show_bytes((byte_pointer)str, strlen(str));
     show_int(var_int);
     show_float(var_flt);
     show_pointer(ptr);
 
+    show_bytes(varp, 1);
+    show_bytes(varp, 2);
+    show_bytes(varp, 3);
+    show_bytes(varp, 4);
+
+    show_int(num);
+    show_float(flt);
     return(EXIT_SUCCESS);
 }
