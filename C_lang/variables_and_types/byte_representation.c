@@ -3,7 +3,7 @@
 #include <string.h>
 /*
     Lo scopo del programma e' di fornire la 'byte representation' di differenti
-    programmi oggetto 
+    tipi di dato, nello specifico char, int, float e void *.
 */
 
 typedef unsigned char *byte_pointer;
