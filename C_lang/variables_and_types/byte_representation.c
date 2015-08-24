@@ -30,7 +30,6 @@ void show_pointer(void *x) {
 }
 
 int main(void) {
-    char str[] = "12345";
     int var_int = 12345;
     float var_flt = 12345.0;
     void *ptr = (int*)12345;
@@ -38,8 +37,9 @@ int main(void) {
     byte_pointer varp = (byte_pointer) &val;
     int num = 3510593;
     int flt = 3510593.0;
+    char str[] = "123456789";
+    const char *s = "abcdefghijklmnopqrstuvwyxz";
 
-    show_bytes((byte_pointer)str, strlen(str)+1);
     show_int(var_int);
     show_float(var_flt);
     show_pointer(ptr);
@@ -51,6 +51,15 @@ int main(void) {
 
     show_int(num);
     show_float(flt);
+
+    /* Da notare che l'unita' decimale 'x' e' rappresentata in esadecimale
+    con 0x3x, dove x sta per 1,2,3,4,5,6,7,8,9).
+    
+       In esadeciamale le lettere vanno dalla 'a' 0x61, alla 'z' 0x7a, e
+    dalla 'A' 0x alla Z 0x; inoltre non fa differenza l'utilizzo di maiuscole 
+    o minuscole. */
+    show_bytes((byte_pointer)str, strlen(str)+1);
+    show_bytes((byte_pointer)s, strlen(s)+1);
 
     return(EXIT_SUCCESS);
 }
