@@ -7,7 +7,10 @@
 
 /* Un array con piu' di due dimensioni puo' essere visto come  una sorta di
 pila di tabelle o pagine una sopra l'altra; la prima dimensione indica la 
-pagina la seconda e la terza sono le righe e le colonne. */
+pagina la seconda e la terza sono le righe e le colonne. 
+
+In memoria invece sara' un lungo array, ciascun elemento logico successivo
+al precedente. */
 
 int main(void) {
 
