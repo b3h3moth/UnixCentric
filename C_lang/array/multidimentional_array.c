@@ -14,7 +14,17 @@ int main(void) {
     /* Array multidimensionale, tridimensionale
     Una pila di 3 tabelle/pagine, ciscuna di esse formata da 3 righe e 4 
     colonne, in totale conterra' 24 elementi. */
-    int array[NUM_PAGES][NUM_ROWS][NUM_COLS];
+    int array[NUM_PAGES][NUM_ROWS][NUM_COLS] = {
+        { // Pagina 1
+            {1, 2, 3, 4},    // Riga 1
+            {5, 6, 7, 8},    // Riga 2
+            {9, 10, 11, 12}, // Riga 3
+        },
+        { // pagina 2
+            {13, 14}, // Riga 1
+            {15, 16}, // Riga 2
+        }
+    };
 
 
 
