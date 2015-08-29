@@ -13,8 +13,9 @@ int main(void) {
 
     /* Array multidimensionale, tridimensionale
     Una pila di 3 tabelle/pagine, ciscuna di esse formata da 3 righe e 4 
-    colonne */
+    colonne, in totale conterra' 24 elementi. */
     int array[NUM_PAGES][NUM_ROWS][NUM_COLS];
+
 
 
     return(EXIT_SUCCESS);
