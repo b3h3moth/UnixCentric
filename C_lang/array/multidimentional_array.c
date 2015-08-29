@@ -27,8 +27,15 @@ int main(void) {
          // Pagina 3 tutto a 0 di default
     };
 
-
-
+    for (int i=0; i<NUM_PAGES; i++) { // Indice pagina
+        printf("PAGE %d: ", i);
+        for (int y=0; y<NUM_ROWS; y++) { // Indice riga
+            for (int j=0; j<NUM_COLS; j++) { // Indice colonna
+                printf("%2d, ", array[i][y][j]);
+            }
+        }
+        printf("\n");
+    }
 
     return(EXIT_SUCCESS);
 }
