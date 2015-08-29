@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_PAGES 2
+#define NUM_PAGES 3
 #define NUM_ROWS 3
 #define NUM_COLS 4
 
@@ -20,11 +20,13 @@ int main(void) {
             {5, 6, 7, 8},    // Riga 2
             {9, 10, 11, 12}, // Riga 3
         },
-        { // pagina 2
-            {13, 14}, // Riga 1
-            {15, 16}, // Riga 2
-        }
+        { // Pagina 2
+            {13, 14}, // Riga 1 - i restanti elementi a 0
+            {15, 16}, // Riga 2 - i restanti elementi a 0
+        },
+         // Pagina 3 tutto a 0 di default
     };
+
 
 
 
