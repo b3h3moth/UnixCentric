@@ -3,6 +3,7 @@
 ### List of arguments covered
 
 * Array
+* Bitwise operators
 * Functions
 * Pointers
 * Structures and Unions
