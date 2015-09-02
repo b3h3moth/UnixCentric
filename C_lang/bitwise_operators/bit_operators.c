@@ -11,8 +11,6 @@ int main(void) {
     int and_num = num_a & num_b;
     int or_num = num_a | num_b;
     int xor_num = num_a ^ num_b;
-    int a = 10;
-    int b = 20;
 
     printf("(NOT) ~num(0x%x) = 0x%x\n", num, not_num);
     printf("(AND) num_a(0x%x) & num_b(0x%x) = 0x%x\n", num_a, num_b, and_num);
@@ -24,11 +22,4 @@ int main(void) {
     printf(" after swapping - a = %d, b = %d\n", a, b);
 
     return(EXIT_SUCCESS);
-}
-
-// Working with XOR and change each value
-void bit_swap(int *x, int *y) {
-    *y = *x ^ *y;
-    *x = *x ^ *y;
-    *y = *x ^ *y;
 }
