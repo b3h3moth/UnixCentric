@@ -35,7 +35,9 @@ int main(void) {
     // Bitwise exclusive OR, XOR (Operatore OR bit per bit esclusivo o XOR)
     // Confronta i bit dei due operandi
     // True (1) solo se un operando e' 1 (true) e l'altro e' 0 (false)
-    unsigned char res_xor_1 = num_b ^ num_c;
+    unsigned char res_xor_1 = num_a ^ num_b;
+    unsigned char res_xor_2 = num_b ^ num_c;
+    unsigned char res_xor_3 = num_c ^ num_a;
 
     printf("One's complement operator ( ~ )\n");
     printf("  ~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
@@ -52,8 +54,10 @@ int main(void) {
     printf("%3d | %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_or_2, res_or_2);
     printf("%3d | %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_or_3, res_or_3);
 
-    printf("\nBitwise exclusvie OR, or XOR ( | )\n");
-    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_xor_1, res_xor_1);
+    printf("\nBitwise exclusvie OR, or XOR ( ^ )\n");
+    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_xor_1, res_xor_1);
+    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_xor_2, res_xor_2);
+    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_xor_3, res_xor_3);
 
     return(EXIT_SUCCESS);
 }
