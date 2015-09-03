@@ -18,12 +18,15 @@ int main(void) {
     // &
     // Bitwise AND (Operatore AND bit per bit)
     // Confronta i bit dei due operandi
-    // Il risultato e' 1 (true) se entrambi gli operando valgono 1
+    // Il risultato e' 1 (true) se entrambi gli operando sono true (1)
     unsigned char res_and_1 = num_a & num_b;
     unsigned char res_and_2 = num_b & num_c;
     unsigned char res_and_3 = num_a & num_c;
 
-
+    // |
+    // Bitwise inclusive OR (Operatore OR bit per bit inclusivo
+    // Confronta i bit dei due operandi
+    // Sempre true (1) tranne se i due operandi sono false (0)
     unsigned char or_num = num_b | num_c; 
     unsigned char xor_num = num_b ^ num_c;
 
@@ -37,7 +40,9 @@ int main(void) {
     printf("%d & %3d = %d (hex: 0x%x)\n", num_b, num_c, res_and_2, res_and_2);
     printf(" %d & %3d = %d (hex: 0x%x)\n", num_a, num_c, res_and_3, res_and_3);
     
-    printf(" (OR) %d | %d = %d - hex.0x%x\n", num_b, num_c, or_num, or_num);
+    printf("\nBitwise AND ( & )\n");
+    printf("%d | %d = %d - hex.0x%x\n", num_b, num_c, or_num, or_num);
+
     printf("(XOR) %d ^ %d = %d - hex.0x%x\n", num_b, num_c, xor_num, xor_num);
 
     return(EXIT_SUCCESS);
