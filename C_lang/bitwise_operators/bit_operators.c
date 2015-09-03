@@ -27,11 +27,13 @@ int main(void) {
     unsigned char or_num = num_b | num_c; 
     unsigned char xor_num = num_b ^ num_c;
 
+    printf("One's complement operator ~\n---------------------------\n");
     printf("  ~%d = %d - hex.0x%x\n", num_a, res_not_a, res_not_a);
     printf(" ~%d = %d - hex.0x%x\n", num_b, res_not_b, res_not_b);
     printf("~%d = %d - hex.0x%x\n", num_c, res_not_c, res_not_c);
 
-    printf("(AND) %d & %d = %d - hex.0x%x\n", num_b, num_c, res_and_1, res_and_1);
+    printf("%d & %d = %d - hex.0x%x\n", num_b, num_c, res_and_1, res_and_1);
+    
     printf(" (OR) %d | %d = %d - hex.0x%x\n", num_b, num_c, or_num, or_num);
     printf("(XOR) %d ^ %d = %d - hex.0x%x\n", num_b, num_c, xor_num, xor_num);
 
