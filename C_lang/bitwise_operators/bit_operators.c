@@ -10,11 +10,15 @@ int main(void) {
 
     // ~
     // One's complement operator (Operatore di completamento a uno)
-    // inverte tutti i bit dell'operando su cui agisce
+    // Inverte tutti i bit dell'operando su cui agisce
     unsigned char res_not_a = ~num_a; // binario 11111110
     unsigned char res_not_b = ~num_b; // binario 11110101
     unsigned char res_not_c = ~num_c; // binario 10011011
 
+    // &
+    // Bitwise AND (Operatore AND bit per bit)
+    // Confronta i bit dei due operandi
+    // Il risultato e' 1 (true) se entrambi gli operando valgono 1.
     unsigned char and_num = num_a & num_b;
     unsigned char or_num = num_b | num_c; 
     unsigned char xor_num = num_b ^ num_c;
