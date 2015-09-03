@@ -39,14 +39,14 @@ int main(void) {
     printf("~%d = %d (hex: 0x%x)\n", num_c, res_not_c, res_not_c);
 
     printf("\nBitwise AND ( & )\n");
-    printf(" %d & %3d = %d (hex: 0x%x)\n", num_a, num_b, res_and_1, res_and_1);
-    printf("%d & %3d = %d (hex: 0x%x)\n", num_b, num_c, res_and_2, res_and_2);
-    printf(" %d & %3d = %d (hex: 0x%x)\n", num_a, num_c, res_and_3, res_and_3);
+    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_and_1, res_and_1);
+    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_and_2, res_and_2);
+    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_and_3, res_and_3);
     
     printf("\nBitwise inclusvie OR ( | )\n");
-    printf("%d | %d = %d (hex: 0x%x)\n", num_b, num_c, res_or_1, res_or_1);
-    printf("%d | %d = %d (hex: 0x%x)\n", num_b, num_b, res_or_2, res_or_2);
-    printf("%d | %d = %d (hex: 0x%x)\n", num_c, num_a, res_or_3, res_or_3);
+    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_or_1, res_or_1);
+    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_or_2, res_or_2);
+    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_or_3, res_or_3);
 
     printf("(XOR) %d ^ %d = %d - hex.0x%x\n", num_b, num_c, xres_or_1, xres_or_1);
 
