@@ -4,16 +4,16 @@
 void bit_swap(int *x, int *y);
 
 int main(void) {
-    unsigned char num_a = 1;    // binario 00000001
-    unsigned char num_b = 10;   // binario 00001010
-    unsigned char num_c = 100;  // binario 01100100
+    unsigned char num_a = 31; // binario 00011111 - esadecimale 0x1F
+    unsigned char num_b = 10; // binario 00001010 - esadecimale 0x0A
+    unsigned char num_c = 73; // binario 01001001 - esadecimale 0x49
 
     // ~
     // One's complement operator (Operatore di completamento a uno)
     // Inverte tutti i bit dell'operando su cui agisce
-    unsigned char res_not_a = ~num_a; // binario 11111110
-    unsigned char res_not_b = ~num_b; // binario 11110101
-    unsigned char res_not_c = ~num_c; // binario 10011011
+    unsigned char res_not_a = ~num_a;
+    unsigned char res_not_b = ~num_b;
+    unsigned char res_not_c = ~num_c;
 
     // &
     // Bitwise AND (Operatore AND bit per bit)
@@ -40,8 +40,8 @@ int main(void) {
     unsigned char res_xor_3 = num_c ^ num_a;
 
     printf("One's complement operator ( ~ )\n");
-    printf("  ~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
-    printf(" ~%d = %d (hex: 0x%x)\n", num_b, res_not_b, res_not_b);
+    printf("~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
+    printf("~%d = %d (hex: 0x%x)\n", num_b, res_not_b, res_not_b);
     printf("~%d = %d (hex: 0x%x)\n", num_c, res_not_c, res_not_c);
 
     printf("\nBitwise AND ( & )\n");
