@@ -8,12 +8,13 @@ void bit_swap(int *x, int *y);
 void reverse_array(int array[], int size);
 
 int main(void) {
-    int my_array[5] = {1,2,3,4,5};
+    int numbers_a[EVEN_SIZE] = {1,2,3,4,5,6,7,9,10};
+    int  numbers_b[ODD_SIZE] = {1,2,3,4,5,6,7,9};
 
-    reverse_array(my_array, 5);
+    reverse_array(numbers_a, 5);
 
     for (int i=0; i<5; i++)
-        printf("%d ", my_array[i]);
+        printf("%d ", numbers_a[i]);
 
     return(EXIT_SUCCESS);
 }
