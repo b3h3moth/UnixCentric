@@ -12,13 +12,20 @@ che ci si aspetterebbe, nell'invocare la funzione reverse_array() con un numero
 di elementi prima pari poi dispari */
 
 int main(void) {
-    int numbers_a[EVEN_SIZE] = {1,2,3,4,5,6,7,9,10};
-    int  numbers_b[ODD_SIZE] = {1,2,3,4,5,6,7,9};
+    int numbers_a[EVEN_SIZE] = {1,2,3,4,5,6,7,8,9,10};
+    int  numbers_b[ODD_SIZE] = {1,2,3,4,5,6,7,8,9};
 
-    reverse_array(numbers_a, 5);
+    printf("Call function with EVEN_SIZE number of elements\n");
+    reverse_array(numbers_a, EVEN_SIZE);
 
-    for (int i=0; i<5; i++)
+    for (int i=0; i<EVEN_SIZE; i++)
         printf("%d ", numbers_a[i]);
+
+    printf("\n\nCall function with ODD_SIZE number of elements\n");
+    reverse_array(numbers_b, ODD_SIZE);
+
+    for (int y=0; y<ODD_SIZE; y++)
+        printf("%d ", numbers_b[y]);
 
     return(EXIT_SUCCESS);
 }
