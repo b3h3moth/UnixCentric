@@ -50,6 +50,8 @@ void bit_swap(int *x, int *y) {
 void reverse_array(int array[], int size) {
     int first, last;
 
+    /* Per evitare che la XOR imposti a 0 il valore di mezzo e' sufficiente
+    cambiare 'first <= last' con 'first < last' */
     for (first = 0, last = size -1; first <= last; first++, last--)
         bit_swap(&array[first], &array[last]);
 }
