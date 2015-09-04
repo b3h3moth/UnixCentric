@@ -15,3 +15,10 @@ void bit_swap(int *x, int *y) {
     *x = *x ^ *y;
     *y = *x ^ *y;
 }
+
+void reverse_array(int array[], int size) {
+    int first, last;
+
+    for (first = 0, last = size -1; first <= last; first++, last--)
+        bit_swap(&array[first], &array[last]);
+}
