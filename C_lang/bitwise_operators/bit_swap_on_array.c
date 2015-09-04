@@ -27,6 +27,9 @@ int main(void) {
     for (int y=0; y<ODD_SIZE; y++)
         printf("%d ", numbers_b[y]);
 
+    /* Come si potra' notare dall'output l'elemento di mezzo sara' 
+    inizializzato a 0, allorquando il numero degli elementi dell'array fosse 
+    impostato con un numero dispari */
     return(EXIT_SUCCESS);
 }
 
