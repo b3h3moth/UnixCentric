@@ -5,6 +5,9 @@ void bit_swap(int *x, int *y);
 void reverse_array(int array[], int size);
 
 int main(void) {
+    int my_array[10] = {1,2,3,4,5,6,7,8,9,10};
+
+    reverse_array(my_array, 10);
 
     return(EXIT_SUCCESS);
 }
