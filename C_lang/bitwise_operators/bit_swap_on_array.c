@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 void bit_swap(int *x, int *y);
+void reverse_array(int array[], int size);
 
 int main(void) {
 
