@@ -1,13 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define EVEN_SIZE 10    // Array con un numero pari di elementi
+#define ODD_SIZE   9    // Array con un numero dispari di elementi
+
 void bit_swap(int *x, int *y);
 void reverse_array(int array[], int size);
 
 int main(void) {
-    int my_array[10] = {1,2,3,4,5,6,7,8,9,10};
+    int my_array[5] = {1,2,3,4,5};
 
-    reverse_array(my_array, 10);
+    reverse_array(my_array, 5);
+
+    for (int i=0; i<5; i++)
+        printf("%d ", my_array[i]);
 
     return(EXIT_SUCCESS);
 }
