@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void bit_swap(int *x, int *y);
-
 int main(void) {
     unsigned char num_a = 31; // binario 00011111 - esadecimale 0x1F
     unsigned char num_b = 10; // binario 00001010 - esadecimale 0x0A
