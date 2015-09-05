@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_STR 20
+#define MAX_STR 10
 #define ARRAY_SIZE 8
 
 int main(int argc, char *argv[])
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
                                 "marte", "urano", "terra"};
 
    for (int j=0; j<ARRAY_SIZE-1; j++) 
-      printf("A: %d:%9s (%d byte)\n", j, planets[j], strlen(planets[j]));
+      printf("A: %d:%100s (%d byte)\n", j, planets[j], strlen(planets[j]));
 
 
    /* più efficiente  poiche' non si spreca spazio, ciascun puntatore puntera'
@@ -31,24 +31,24 @@ int main(int argc, char *argv[])
                                 "marte", "urano", "terra"};
 
    for (int i=0; i<ARRAY_SIZE-1; i++) 
-      printf("B: %d:%9s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
+      printf("B: %d:%10s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
 
    int dim;
    printf("Grandezza del vettore: ");
    scanf("%d", &dim);
-   char *test[dim];
+   char *dyn_planets[dim];
    char temp[MAX_STR];
 
    /* Creazione dinamica di un vettore di stringhe */
    for (int i=0; i<dim; i++) { 
       printf("inserisci il pianeta '%d': ", i);
-      scanf("%20s", temp);
-      test[i] = malloc(strlen(temp) * sizeof(char));
-      strcpy(test[i], temp);
+      scanf("%10s", temp);
+      dyn_planets[i] = malloc(strlen(temp) * sizeof(char));
+      strcpy(dyn_planets[i], temp);
    }
 
-   for(int i=0; i<dim; i++)
-      printf("%s %d\n", test[i], strlen(test[i]));
+   for(int y=0; y<dim; y++)
+      printf("B: %d:%10s (%d byte)\n", y, dyn_planets[y], strlen(dyn_planets[y]));
 
    return(EXIT_SUCCESS);
 }
