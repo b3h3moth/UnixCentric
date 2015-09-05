@@ -5,9 +5,9 @@
 #include <string.h>
 
 /* I byte del file /etc/passwd su questa macchina, Debian GNU/Linux powerpc */
-#define MAX_BUF     1322
+#define MAX_BUF     1413
 #define PERMS       0644
-#define OFFSET      32
+#define OFFSET      32 // La prima riga elininata
 
 /*
 HEADER    : <unistd.h>
