@@ -24,6 +24,10 @@ RETURNS   : L'offset in caso di successo, -1 in caso di errore
 aggiornato di OFFSET bytes rispetto all'inizio - in pratica rimuovera' la prima
 riga che nel mio file corrisponde a OFFSET byte -, da questo punto si copiera'
 tutto il contenuto da OFFSET fino alla fine sul file 'output_file'.
+
+Nota: Per calcolare i byte della prima riga del file /etc/passwd ho eseguito
+$ head -n 1 /etc/passwd | wc -c
+32
 */
 
 int main(int argc, char *argv[]) {
