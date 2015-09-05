@@ -18,13 +18,17 @@ int main(int argc, char *argv[])
     * hanno nomi sufficientemente lunghi, per il resto ci sarà spreco di
     * spazio
     */
-   char planets[][ARRAY_SIZE] = { "plutone", "nettuno", "giove", "mercurio",
-                                  "marte", "urano", "terra"};
+   char planets[][ARRAY_SIZE] = {"plutone", "nettuno", "giove", "mercurio", 
+                                "marte", "urano", "terra"};
+
+   for (int j=0; j<ARRAY_SIZE-1; j++) 
+      printf("A: %d:%9s (%d byte)\n", j, planets[j], strlen(planets[j]));
+
 
    /* più efficiente  poiche' non si spreca spazio, ciascun puntatore puntera'
 	* ad una stringa con dimensioni differenti l'un l'altra */
    char *pianeti[ARRAY_SIZE] = {"plutone", "nettuno", "giove", "mercurio", 
-                                "marte","urano","terra"};
+                                "marte", "urano", "terra"};
 
    for (int i=0; i<ARRAY_SIZE-1; i++) 
       printf("B: %d:%9s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
@@ -37,8 +41,8 @@ int main(int argc, char *argv[])
 
    /* Creazione dinamica di un vettore di stringhe */
    for (int i=0; i<dim; i++) { 
-      printf("inserisci la squadra '%d': ", i);
-      scanf("%s", temp);
+      printf("inserisci il pianeta '%d': ", i);
+      scanf("%20s", temp);
       test[i] = malloc(strlen(temp) * sizeof(char));
       strcpy(test[i], temp);
    }
