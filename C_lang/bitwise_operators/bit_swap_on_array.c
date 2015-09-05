@@ -33,9 +33,9 @@ int main(void) {
     
     L'elemento di mezzo viene impostato a 0 perche' nella funzione si trova
     la seguente dichiarazione: 'first <= last'; per cui l'elemento di mezzo,
-    ossia il medesimo valore sia per 'first' sia per 'last', sara' inviato alla
-    bit_swap(), la quale eseguira' uno XOR su di essi, producendo come
-    risultato 0 */
+    ossia il medesimo valore sia per 'first' sia per 'last', nel caso specifico
+    la stessa locazione di memoria, sara' inviato alla bit_swap(), la quale 
+    eseguira' uno XOR su di essi, producendo come risultato 0 */
     
     return(EXIT_SUCCESS);
 }
