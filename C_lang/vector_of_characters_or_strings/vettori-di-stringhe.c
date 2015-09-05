@@ -7,31 +7,29 @@
 
 int main(int argc, char *argv[])
 {
-   /*
-    * E' possibile omettere il numero di righe poichè sara automaticamente
-    * determinato dal numero degli elementi presenti; però è necessario inserire
-    * il numero delle colonne, in questo caso 8, nei casi in cui la stringa di
-    * caratteri dovesse risultare di minor lunghezza, al resto delle celle sarà
-    * inserito il carattere nullo '\0'.
-    *
-    * C'è però un problema evidente, e cioè che solo 3 stringhe di caratteri
-    * hanno nomi sufficientemente lunghi, per il resto ci sarà spreco di
-    * spazio
-    */
+   /* E' possibile omettere il numero di righe poichè sara automaticamente
+   determinato dal numero degli elementi presenti, è necessario invece inserire
+   il numero delle colonne, in questo caso ARRAY_SIZE. 
+   
+   Nei casi in cui la stringa di caratteri dovesse risultare di minor 
+   lunghezza rispetto a MAX_STR, al resto delle celle sarà inserito il 
+   'null character, vale a dire '\0'.
+   
+   C'è però un problema evidente, ovver solo 3 stringhe di caratteri
+   hanno nomi sufficientemente lunghi, per il resto ci sarà spreco di spazio.
+   */
    char planets[][ARRAY_SIZE] = {"plutone", "nettuno", "giove", "mercurio", 
                                 "marte", "urano", "terra"};
 
-   for (int j=0; j<ARRAY_SIZE-1; j++) 
-      printf("A: %d:%100s (%d byte)\n", j, planets[j], strlen(planets[j]));
-
-
-   /* più efficiente  poiche' non si spreca spazio, ciascun puntatore puntera'
-	* ad una stringa con dimensioni differenti l'un l'altra */
+   /* Per ovviare allo spreco di byte, come nel caso precedente, ed essere
+   anche piu' efficienti, e' consigliabile implementare un puntatore ad un
+   array di stringhe, dove ciascuna stringa sara' esattamente delle dimensioni
+   richieste. */
    char *pianeti[ARRAY_SIZE] = {"plutone", "nettuno", "giove", "mercurio", 
                                 "marte", "urano", "terra"};
 
    for (int i=0; i<ARRAY_SIZE-1; i++) 
-      printf("B: %d:%10s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
+      printf("A: %d:%10s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
 
    int dim;
    printf("Grandezza del vettore: ");
