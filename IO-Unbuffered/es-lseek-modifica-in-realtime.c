@@ -53,7 +53,7 @@ int main(int argc, char *argv[], char *envp[])
     * numero complessivo dei byte stessi.
     */
 
-   system("clear");
+   system("tput reset");
    for (i=0; i< (strlen(s_frase)-1); i++)
       printf("byte %2d %c\n", i, s_frase[i]);
    printf("Tot. byte: %d\n\n", (strlen(s_frase)-1) );
