@@ -43,10 +43,13 @@ int main(int argc, char *argv[])
    }
    
    /*
-    Se si aprisse il file 'filename', si notera' la presenza di un buco tra le
-    due stringhe, ancor meglio se lo si aprisse mediante 'od', con cui si 
-    vedrebbe chiaramente anche l'azzeramento di tutti i byte tra le due 
-    stringhe, per azzeramento si intende posti a zero.
+    Se si aprisse il file 'filename' si notera' la presenza di un buco (hole)
+    tra le due stringhe - ancor meglio sarebbe se lo si aprisse mediante 'od'
+    o con un qualsivoglia editor in grado di leggere file grezzi e in diversi 
+    formati, quali l'esadecimale, l'ottale o il binario - e il relativo
+    azzeramento di ciascun byte tra le due stringhe. Per azzeramento si intende
+    byte posti a zero.
+    
     $ od -c hole.txt
    */
 
