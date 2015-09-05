@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
                                 "marte","urano","terra"};
 
    for (int i=0; i<ARRAY_SIZE-1; i++) 
-      printf("B: %d:%10s\n", i, pianeti[i]);
+      printf("B: %d:%9s (%d byte)\n", i, pianeti[i], strlen(pianeti[i]));
 
    int dim;
    printf("Grandezza del vettore: ");
