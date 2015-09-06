@@ -47,7 +47,7 @@ int main(void) {
     // sono indicati dall'operando di destra
     unsigned char res_lf_1 = num_a << BIT_1; // 00011111 << 1 = 00111110
     unsigned char res_lf_2 = num_b << BIT_2; // 00001010 << 2 = 00101000
-    unsigned char res_lf_3 = num_c << BIT_3; // 01001001 << 3 = 01001000
+    unsigned int res_lf_3 = num_c << BIT_3; // 01001001 << 3 = 01001000
 
     // >>
     // Right shift operator (Operatore di scorrimento a destra)
@@ -86,5 +86,6 @@ int main(void) {
     printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_a, BIT_1, res_rt_1, res_rt_1);
     printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_rt_2, res_rt_2);
     printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_rt_3, res_rt_3);
+
     return(EXIT_SUCCESS);
 }
