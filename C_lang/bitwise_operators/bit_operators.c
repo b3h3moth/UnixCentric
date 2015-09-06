@@ -45,9 +45,9 @@ int main(void) {
     // Left shift operator (Operatore di scorrimento a sinistra)
     // Permette di spostare i bit dell'operando di sinistra di tanti elementi
     // quanti sono stati indicati dall'operando di destra
-    unsigned char res_lf_1 = num_a << BIT_1; 
-    unsigned char res_lf_2 = num_b << BIT_2; 
-    unsigned char res_lf_3 = num_c << BIT_3;
+    unsigned char res_lf_1 = num_a << BIT_1; // 00011111 << 1 = 00111110
+    unsigned char res_lf_2 = num_b << BIT_2; // 00001010 << 2 = 00101000
+    unsigned char res_lf_3 = num_c << BIT_3; // 01001001 << 3 = 01001000
 
     printf("One's complement operator ( ~ )\n");
     printf("~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
