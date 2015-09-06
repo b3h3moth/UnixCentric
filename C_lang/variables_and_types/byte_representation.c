@@ -38,8 +38,8 @@ int main(void) {
     int num = 3510593;
     int flt = 3510593.0;
     char ascii_num[] = "123456789";
-    const char *ascii_upper = "abcdefghijklmnopqrstuvwyxz";
-    const char *ascii_lower = "ABCDEFGHIJKLMNOPQRSTUVWYXZ";
+    const char *ascii_upper = "abcdefghijklmnop";
+    const char *ascii_lower = "ABCDEFGHIJKLMNOP";
 
     show_int(var_int);
     show_float(var_flt);
