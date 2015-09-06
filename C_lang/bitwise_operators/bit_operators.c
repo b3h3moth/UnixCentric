@@ -51,13 +51,16 @@ int main(void) {
 
     // >>
     // Right shift operator (Operatore di scorrimento a destra)
-    // Permette di spostare i bit dell'operando di destra di tanti bit quanti 
-    // sono indicati dall'operando di sinistra
+    // Permette di spostare i bit dell'operando di sinistra di tanti bit quanti 
+    // sono indicati dall'operando di destra
+    unsigned char res_rt_1 = num_a >> BIT_1; // 00011111 >> 1 = 00001111
+    unsigned char res_rt_2 = num_b >> BIT_2; // 00001010 >> 2 = 00000010
+    unsigned char res_rt_3 = num_c >> BIT_3; // 01001001 >> 3 = 00001001
 
     printf("One's complement operator ( ~ )\n");
-    printf("~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
-    printf("~%d = %d (hex: 0x%x)\n", num_b, res_not_b, res_not_b);
-    printf("~%d = %d (hex: 0x%x)\n", num_c, res_not_c, res_not_c);
+    printf(" ~%d = %3d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
+    printf(" ~%d = %3d (hex: 0x%x)\n", num_b, res_not_b, res_not_b);
+    printf(" ~%d = %3d (hex: 0x%x)\n", num_c, res_not_c, res_not_c);
 
     printf("\nBitwise AND ( & )\n");
     printf("%3d & %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_and_1, res_and_1);
@@ -79,5 +82,9 @@ int main(void) {
     printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_lf_2, res_lf_2);
     printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_lf_3, res_lf_3);
 
+    printf("\nRight shift operator ( >> )\n");
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_a, BIT_1, res_rt_1, res_rt_1);
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_rt_2, res_rt_2);
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_rt_3, res_rt_3);
     return(EXIT_SUCCESS);
 }
