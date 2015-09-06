@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define BIT_1   1
+#define BIT_2   2
+#define BIT_3   3
+
 int main(void) {
     unsigned char num_a = 31; // binario 00011111 - esadecimale 0x1F
     unsigned char num_b = 10; // binario 00001010 - esadecimale 0x0A
@@ -41,6 +45,9 @@ int main(void) {
     // Left shift operator (Operatore di scorrimento a sinistra)
     // Permette di spostare i bit dell'operando di sinistra di tanti elementi
     // quanti sono stati indicati dall'operando di destra
+    unsigned char res_lf_1 = num_a << BIT_1; 
+    unsigned char res_lf_2 = num_b << BIT_2; 
+    unsigned char res_lf_3 = num_c << BIT_3;
 
     printf("One's complement operator ( ~ )\n");
     printf("~%d = %d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
@@ -61,6 +68,11 @@ int main(void) {
     printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_xor_1, res_xor_1);
     printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_xor_2, res_xor_2);
     printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_xor_3, res_xor_3);
+
+    printf("\nLeft shift operator ( << )\n");
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_a, BIT_1, res_lf_1, res_lf_1);
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_lf_2, res_lf_2);
+    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_lf_3, res_lf_3);
 
     return(EXIT_SUCCESS);
 }
