@@ -7,6 +7,9 @@
 * Functions
 * Pointers
 * Structures and Unions
-* Variables and types
+* Data types (focused on integer representations)
 * Variadic Functions
 * Vector of characters (strings)
+* Stuff
+  * variable declarations in C99, C11
+  * width precision when using printf (%.*s)
