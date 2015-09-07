@@ -11,7 +11,7 @@ int main(void) {
     unsigned char num_c = 73; // binario 01001001 - esadecimale 0x49
 
     // ~
-    // One's complement operator (Operatore di completamento a uno)
+    // One's complement operator (Operatore di complemento a uno)
     // Inverte tutti i bit dell'operando su cui agisce
     unsigned char res_not_a = ~num_a;
     unsigned char res_not_b = ~num_b;
