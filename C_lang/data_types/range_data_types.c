@@ -4,7 +4,7 @@
 // It prints the typical range for C integral data types
 
 int main(void) {
-    char *data_types[] = { "char", "unsigned char", "short", "unsigned shirt",
+    char *data_types[] = { "char", "unsigned char", "short", "unsigned short",
                            "int", "unsigned int", "long", "unsigned long",
                            "long long", "unsigned long long" };
 
