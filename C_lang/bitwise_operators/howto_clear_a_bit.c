@@ -9,7 +9,7 @@ int main(void) {
     unsigned short num = 0xEE; // 0000000011101110 &    (dec. 238)
     num &= ~0x0040;            // 1111111110111111 =    
                                // 0000000010101110      (dec. 174)
-    printf("0x%x &= ~0x%x - 0x%x\n", 0xEE, 0x40, num);
+    printf("0x%X &= ~0x%X - 0x%X\n", 0xEE, 0x40, num);
 
     return(EXIT_SUCCESS);
 }
