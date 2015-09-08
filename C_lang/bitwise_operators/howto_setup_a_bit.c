@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* Settare un bit
+    /* Settare un bit (or |)
     Modifica del bit numero 7 di una variabile di tipo 'unsigned short' da 16
     bit */
     unsigned short num1 = 0x0030; // 0000000000110000 |   (dec. 48)
