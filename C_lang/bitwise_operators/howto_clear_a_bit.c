@@ -3,9 +3,9 @@
 
 int main(void) {
     /* Azzerare un bit
-    Azzeramento del bit numero 6 della variabile 'num' di tipo 'unsigned short'
-    da 16 bit, mediante un AND e una maschera con il bit nella posizione 6 
-    impostato a 0 e i restanti bit a 1. */
+    Azzeramento del bit numero 6 della variabile 'num1' di tipo
+    'unsigned short' da 16 bit, mediante un AND e una maschera con il bit
+    nella posizione 6 impostato a 0 e i restanti bit a 1. */
     unsigned short num1 = 0xEE; // 0000000011101110 &    (dec. 238)
     num1 &= ~0x0040;            // 1111111110111111 =    
                                 // 0000000010101110      (dec. 174)
