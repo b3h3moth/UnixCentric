@@ -3,6 +3,9 @@
 ### List of arguments covered
 
 * Array
+  * monodimensional
+  * bidimensional
+  * multidimensional
 * Bitwise operators
 * Functions
 * Pointers
