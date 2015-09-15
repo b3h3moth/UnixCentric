@@ -11,9 +11,13 @@ int main(void) {
     
     unsigned int bit_res1 = num1 & num2;
     unsigned int log_res1 = num1 && num2;
+    unsigned int bit_res2 = num1 | num2;
+    unsigned int log_res2 = num1 || num2;
 
     printf("(bitwise) 0x%x & 0x%x = 0x%x\n", num1, num2, bit_res1);
     printf("(logical) 0x%x && 0x%x = 0x%x\n", num1, num2, log_res1);
+    printf("(bitwise) 0x%x | 0x%x = 0x%x\n", num1, num2, bit_res2);
+    printf("(logical) 0x%x || 0x%x = 0x%x\n", num1, num2, log_res2);
 
     return(EXIT_SUCCESS);
 }
