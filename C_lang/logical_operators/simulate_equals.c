@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int main(void) {
-    unsigned int num1 = 0x20;
-    unsigned int num2 = 0x30;
-    unsigned int num3 = 32;
+    unsigned int num1 = 0x20;   // 32 decimale
+    unsigned int num2 = 0x30;   
+    unsigned int num3 = 32;     // 0x20 hex
 
     if (!(num1 ^ num2))
         printf("0x%x and 0x%x are equals\n", num1, num2);
