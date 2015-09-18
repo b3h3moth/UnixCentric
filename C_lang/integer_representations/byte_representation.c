@@ -1,19 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/*
-    Lo scopo del programma e' di fornire la 'byte representation' di differenti
-    tipi di dato, nello specifico char, int, float e void *.
-*/
+
+/* Lo scopo del programma e' di fornire la 'byte representation' di differenti
+tipi di dato, nello specifico char, int, float e void */
 
 typedef unsigned char *byte_pointer;
 
 // Fornisce ciascun byte in esadecimale
 void show_bytes(byte_pointer start, int len) {
     int i;
+
     for (i=0; i<len; i++) {
         printf("%.2x ", start[i]);
     }
+
     printf("(%d byte)\n", len);
 }
 
@@ -55,7 +56,7 @@ int main(void) {
 
     /* Da notare che l'unita' decimale 'x' e' rappresentata in esadecimale
     con 0x3x, dove x sta per 1,2,3,4,5,6,7,8,9).
-    
+
        In esadeciamale le lettere vanno dalla 'a' 0x61, alla 'z' 0x7a, e
     dalla 'A' 0x41 alla 'Z' 0x5a; inoltre non fa differenza l'utilizzo delle
     maiuscole o delle minuscole. */
