@@ -16,10 +16,10 @@ int main(int argc, char *argv[]) {
     char *pass;
 
     printf("salt: ");
-    scanf("%s", salt);
+    scanf("%12s", salt);
 
     printf("password: ");
-    scanf("%s", password);
+    scanf("%256s", password);
     
     if ((pass = crypt(password, salt)) == NULL) {
         fprintf(stderr, "Err. when (en)crypt password\n");
