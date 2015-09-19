@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. when (en)crypt password\n");
         exit(EXIT_FAILURE);
     } else
-        printf("Encrypt '%s' : %s\n", password, pass);
+        printf("Encrypt '%s'(%s)\n", password, pass);
 
     return(EXIT_SUCCESS);
 }
