@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <crypt.h>
 
 #define MAX_STR  256
 #define MAX_SALT 12
@@ -12,14 +13,19 @@ Encryption Standard.
 int main(int argc, char *argv[]) {
     char password[MAX_STR];
     char salt[MAX_SALT];
+    char *pass;
 
     printf("salt: ");
     scanf("%s", salt);
 
     printf("password: ");
     scanf("%s", password);
-
-    printf("Encrypt '%s' : '%s'\n", password, crypt(password, salt));
+    
+    if ((pass = crypt(password, salt)) == NULL) {
+        fprintf(stderr, "Err. when (en)crypt password\n");
+        exit(EXIT_FAILURE);
+    } else
+        printf("Encrypt '%s' : %s\n", password, pass);
 
     return(EXIT_SUCCESS);
 }
