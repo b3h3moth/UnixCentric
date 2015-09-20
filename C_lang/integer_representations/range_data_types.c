@@ -30,7 +30,9 @@ int main(void) {
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[5], sizeof(int), INT_MIN, INT_MAX);
 
-    printf("%19s -%2d byte\n", data_types[6], sizeof(unsigned int));
+    printf("%19s -%2d byte - MIN=0 | MAX=%ud\n", 
+            data_types[6], sizeof(unsigned int), UINT_MAX);
+
     printf("%19s -%2d byte\n", data_types[7], sizeof(long));
     printf("%19s -%2d byte\n", data_types[8], sizeof(unsigned long));
     printf("%19s -%2d byte\n", data_types[9], sizeof(long long));
