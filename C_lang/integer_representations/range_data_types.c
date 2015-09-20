@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
-// It prints the typical width for C integral data types
+// It prints the typical range for C integral data types
 
 int main(void) {
     char *data_types[] = { "char", "unsigned char", "short", "unsigned short",
                            "int", "unsigned int", "long", "unsigned long",
                            "long long", "unsigned long long" };
 
-    printf("Width for C data types\n");
-    printf("%19s -%2d byte\n", data_types[0], sizeof(char));
+    printf("Byte and range for each C data types\n");
+    printf("%19s -%2d byte - MIN = %d | MAX = %d\n", 
+            data_types[0], sizeof(char), CHAR_MIN, CHAR_MAX);
     printf("%19s -%2d byte\n", data_types[1], sizeof(unsigned char));
     printf("%19s -%2d byte\n", data_types[2], sizeof(short));
     printf("%19s -%2d byte\n", data_types[3], sizeof(unsigned short));
