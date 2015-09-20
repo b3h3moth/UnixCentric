@@ -39,7 +39,9 @@ int main(void) {
     printf("%19s -%2d byte - MIN=0 | MAX=%lu\n", 
             data_types[8], sizeof(unsigned long), ULONG_MAX);
     
-    printf("%19s -%2d byte\n", data_types[9], sizeof(long long));
+    printf("%19s -%2d byte - MIN=%lld | MAX=%lld\n", 
+            data_types[9], sizeof(long long), LLONG_MIN, LLONG_MAX);
+
     printf("%19s -%2d byte\n", data_types[10], sizeof(unsigned long long));
 
     return(EXIT_SUCCESS);
