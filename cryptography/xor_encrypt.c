@@ -17,3 +17,11 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+
+/* 
+Encrypt file.txt:
+$ ./a.out < file.txt > new_file.txt
+
+Decrypt new_file.txt:
+$ ./a.out  < new_file.txt
+*/
