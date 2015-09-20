@@ -24,7 +24,9 @@ int main(void) {
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[3], sizeof(short), SHRT_MIN, SHRT_MAX);
 
-    printf("%19s -%2d byte\n", data_types[4], sizeof(unsigned short));
+    printf("%19s -%2d byte - MIN=0 | MAX=%d\n", 
+            data_types[4], sizeof(unsigned short), USHRT_MAX);
+
     printf("%19s -%2d byte\n", data_types[5], sizeof(int));
     printf("%19s -%2d byte\n", data_types[6], sizeof(unsigned int));
     printf("%19s -%2d byte\n", data_types[7], sizeof(long));
