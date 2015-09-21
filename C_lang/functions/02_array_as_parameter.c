@@ -7,6 +7,13 @@
 int sum(int data[], int length);
 
 int main(void) {
+    int my_data[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
+    // Chiamata della funzione, con l'array - monodimensionale in questo caso.
+    int res = sum(my_data, SIZE);
+
+    printf("Sum is: %d\n", res);
+
     return(EXIT_SUCCESS);
 }
 
