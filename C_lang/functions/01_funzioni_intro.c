@@ -39,7 +39,8 @@ main (int argc, char *argv[])
    *   specificato il tipo void;
    * - Le funzioni non prevedono la restituzione di vettori;
    * - (C89) Se si dovesse omettere il tipo-restituito sara' utilizzato il
-   *   tipo di default <int>, in (C99) non e' prevista tale circostanza.
+   *   tipo di default <int>, in (C99) non e' prevista tale circostanza, ovvero
+   *   deve sempre essere inserito il tipo restituito.
    * 
    * nome-funzione, e' il nome della funzione, c'e' ampia liberta' in tal 
    * senso, tuttavia e' sempre meglio utilizzare nomi autoesplicativi che
