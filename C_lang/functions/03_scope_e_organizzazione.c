@@ -161,7 +161,7 @@ int Somma(int n)
 }
 
 /* Sviluppata per comprendere il comportamento di una variabile locale
- * dichiarata statici */
+ * dichiarata statica */
 int Incrementa()
 {
 	static int i;
