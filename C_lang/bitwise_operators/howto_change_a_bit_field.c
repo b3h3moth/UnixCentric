@@ -10,7 +10,7 @@ int main(void) {
                                      bitwise OR '|', quindi le parentesi in
                                      questo caso non sono necessarie, tuttavia
                                      inserirle per migliorare la leggibilita'
-                                     non sarebbe affatto un reato */
+                                     sarebbe una buona idea  */
     printf("(dec.) %d - (hex) 0x%x\n", num, num);
 
     return(EXIT_SUCCESS);
