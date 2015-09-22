@@ -11,9 +11,11 @@ int main(void) {
         new_char = original_char ^ KEY_BASE;
 
         if (isprint(original_char) && isprint(new_char))
-            putchar(new_char);
+            //putchar(new_char);
+            printf("%c", new_char);
         else
-            putchar(original_char);
+            //putchar(original_char);
+            printf("%c", original_char);
     }
 
     return(EXIT_SUCCESS);
