@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define KEY_BASE '0'
+#define KEY '\\'
 
 int main(void) {
     int original_char, new_char;
 
     while((original_char = getchar()) != EOF) {
-        new_char = original_char ^ KEY_BASE; // XOR between 0 and character
+        new_char = original_char ^ KEY; // XOR between 0 and KEYBASE
 
         if (isprint(original_char) && isprint(new_char))
             //putchar(new_char);
