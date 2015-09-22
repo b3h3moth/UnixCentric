@@ -61,12 +61,6 @@ utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione,
 come ad esempio gli autotools.
 
 ##############################################################################
-INFO
+ CONTACT
 ##############################################################################
-Per commenti, info e quant'altro: <behemoth _at_ autistici _dot_ org >
-
-Qualora si volesse comunicare mediante crittografia a chiave pubblica:          
-KeyID = 0xE83F9FBB                                                  
-
-La chiave pubblica e' reperibile in uno dei server adibiti alla gestione delle
-chiavi pubbliche.
+<behemoth _at_ autistici _dot_ org > | https://keybase.io/behemoth
