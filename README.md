@@ -41,8 +41,11 @@ $ gcc   main.c -o main
 $ clang main.c -o main
 
 Oppure, se si vuole maggiore dettaglio:
-$ gcc -o main main.c -g -ansi -Wall -pedantic -std=c99|c11
-$ clang -o main main.c -g -ansi -Wall -pedantic -std=c99|c11
+$ gcc   -o main main.c -g -Wall -pedantic -std=c99|c11
+$ clang -o main main.c -g -Wall -pedantic -std=c99|c11
+
+Nota: L'opzione -ansi e' equivalente a -std=c90 per il C ed a -std=c++98 per il
+      C++.
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
