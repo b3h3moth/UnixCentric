@@ -32,8 +32,17 @@ trova il suo habitat ideale.
  LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99, C11)
 ##############################################################################
 Il presente repository riguarda il paradigma procedurale, presentato mediante
-il linguaggio di programmazione C-ANSI (C99, C11);  è stato contrassegnato
+il linguaggio di programmazione C-ANSI (c99, c11);  è stato contrassegnato
 come L-C.
+
+I programmi saranno tutti compilati utilizzando i seguenti standard:
+- iso9899:1999, -std=c99 
+- iso9899:2011, -std=c11 (sperimentale e incompleto in GCC, dalla versione 4.7)
+
+Saranno utilizzate diverse architetture per testare gli esempi: 
+- PPC 32 bit (big endian)
+- x86 32 bit (little endian)
+- amd64 64 bit (little endian)
 
 Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
 con il comilatore Clang (LLVM);
@@ -41,11 +50,11 @@ $ gcc   main.c -o main
 $ clang main.c -o main
 
 Oppure, se si vuole maggiore dettaglio:
-$ gcc   -o main main.c -g -Wall -pedantic -std=c99|c11
-$ clang -o main main.c -g -Wall -pedantic -std=c99|c11
+$ gcc   -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11
+$ clang -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11
 
 Nota: L'opzione -ansi e' equivalente a -std=c90 per il C ed a -std=c++98 per il
-      C++.
+      C++. Inoltre -std=c90 e' equivalente a -std=c89.
 
 Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
