@@ -11,7 +11,7 @@ int main(void) {
                                      questo caso non sono necessarie, tuttavia
                                      inserirle per migliorare la leggibilita'
                                      sarebbe una buona idea  */
-    printf("(dec.) %d - (hex) 0x%x\n", num, num);
+    printf("(dec.) %d - (hex) %#x\n", num, num);
 
     return(EXIT_SUCCESS);
 }

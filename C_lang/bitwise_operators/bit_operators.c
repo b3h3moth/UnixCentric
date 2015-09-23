@@ -65,36 +65,36 @@ int main(void) {
     printf("I'm working on unsigned char (1 byte: 8 bit)\n\n");
 
     printf("One's complement operator ( ~ )\n");
-    printf(" ~%d = %3d (hex: 0x%x)\n", num_a, res_not_a, res_not_a);
-    printf(" ~%d = %3d (hex: 0x%x)\n", num_b, res_not_b, res_not_b);
-    printf(" ~%d = %3d (hex: 0x%x)\n", num_c, res_not_c, res_not_c);
+    printf(" ~%d = %3d (hex: %#x)\n", num_a, res_not_a, res_not_a);
+    printf(" ~%d = %3d (hex: %#x)\n", num_b, res_not_b, res_not_b);
+    printf(" ~%d = %3d (hex: %#x)\n", num_c, res_not_c, res_not_c);
 
     printf("\nBitwise AND ( & )\n");
-    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_and_1, res_and_1);
-    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_and_2, res_and_2);
-    printf("%3d & %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_and_3, res_and_3);
+    printf("%3d & %3d = %3d (hex: %#x)\n", num_a, num_b, res_and_1, res_and_1);
+    printf("%3d & %3d = %3d (hex: %#x)\n", num_b, num_c, res_and_2, res_and_2);
+    printf("%3d & %3d = %3d (hex: %#x)\n", num_c, num_a, res_and_3, res_and_3);
     
     printf("\nBitwise inclusvie OR ( | )\n");
-    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_or_1, res_or_1);
-    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_or_2, res_or_2);
-    printf("%3d | %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_or_3, res_or_3);
+    printf("%3d | %3d = %3d (hex: %#x)\n", num_a, num_b, res_or_1, res_or_1);
+    printf("%3d | %3d = %3d (hex: %#x)\n", num_b, num_c, res_or_2, res_or_2);
+    printf("%3d | %3d = %3d (hex: %#x)\n", num_c, num_a, res_or_3, res_or_3);
 
     printf("\nBitwise exclusvie OR, or XOR ( ^ )\n");
-    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_a, num_b, res_xor_1, res_xor_1);
-    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_b, num_c, res_xor_2, res_xor_2);
-    printf("%3d ^ %3d = %3d (hex: 0x%x)\n", num_c, num_a, res_xor_3, res_xor_3);
+    printf("%3d ^ %3d = %3d (hex: %#x)\n", num_a, num_b, res_xor_1, res_xor_1);
+    printf("%3d ^ %3d = %3d (hex: %#x)\n", num_b, num_c, res_xor_2, res_xor_2);
+    printf("%3d ^ %3d = %3d (hex: %#x)\n", num_c, num_a, res_xor_3, res_xor_3);
 
     printf("\nLeft shift operator ( << )\n");
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_a, BIT_1, res_lf_1, res_lf_1);
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_lf_2, res_lf_2);
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_lf_3, res_lf_3);
-    printf("%3d <<%3d = %3d (hex: 0x%x) - unsigned int (4 byte: 32 bit)\n", \
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_a, BIT_1, res_lf_1, res_lf_1);
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_b, BIT_2, res_lf_2, res_lf_2);
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_c, BIT_3, res_lf_3, res_lf_3);
+    printf("%3d <<%3d = %3d (hex: %#x) - unsigned int (4 byte: 32 bit)\n", \
             num_c, BIT_3, res_lf_4, res_lf_4);
 
     printf("\nRight shift operator ( >> )\n");
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_a, BIT_1, res_rt_1, res_rt_1);
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_b, BIT_2, res_rt_2, res_rt_2);
-    printf("%3d <<%3d = %3d (hex: 0x%x)\n", num_c, BIT_3, res_rt_3, res_rt_3);
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_a, BIT_1, res_rt_1, res_rt_1);
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_b, BIT_2, res_rt_2, res_rt_2);
+    printf("%3d <<%3d = %3d (hex: %#x)\n", num_c, BIT_3, res_rt_3, res_rt_3);
 
     return(EXIT_SUCCESS);
 }

@@ -17,7 +17,7 @@ int main(void) {
 
     num2 |= 1 << i;
     
-    printf("0x%X |= %d << %d - 0x%x\n", 0x00, 1, i, num2);
+    printf("%#x |= %d << %d - %#x\n", 0x00, 1, i, num2);
 
     return(EXIT_SUCCESS);
 }

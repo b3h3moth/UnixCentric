@@ -9,7 +9,7 @@ int main(void) {
     unsigned short num1 = 0xEE; // 0000000011101110 &    (dec. 238)
     num1 &= ~0x0040;            // 1111111110111111 =    
                                 // 0000000010101110      (dec. 174)
-    printf("0x%X &= ~0x%X - 0x%X\n", 0xEE, 0x40, num1);
+    printf("%#x &= ~%#x - %#x\n", 0xEE, 0x40, num1);
 
     // Oppure con uno shift-left, azzerando il bit 'i'esimo.
     unsigned short num2 = 0xEE;
@@ -17,7 +17,7 @@ int main(void) {
 
     num2 &= ~(1 << i);
 
-    printf("0x%X &= ~(%d << %d) - 0x%X\n", 0xEE, 1, i, num2);
+    printf("%#x &= ~(%d << %d) - %#x\n", 0xEE, 1, i, num2);
 
     return(EXIT_SUCCESS);
 }

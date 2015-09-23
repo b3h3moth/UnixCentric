@@ -12,7 +12,7 @@ int main(void) {
     // num3 recupera i bit 4,5,6 mediante shift, e vale 00000010, 0x02
     unsigned int num3 = (num1 >> 4) & 0x07;
  
-    printf("num1:0x%X num2:0x%X num3:0x%X\n", num1, num2, num3);
+    printf("num1:%#x num2:%#x num3:%#x\n", num1, num2, num3);
 
     return(EXIT_SUCCESS);
 }
