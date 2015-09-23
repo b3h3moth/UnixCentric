@@ -8,8 +8,8 @@
 /* Prototipo
 L'array multidimensionale, sia nel prototipo sia nella dichiarazione della 
 funzione deve essere inserito col doppio operatore di subscript [][]. 
-La dimensione delle righe puo' essere omessa, mentre quella delle colonne e' 
-obbligatoria */
+La regola generale dice che la prima dimensione puo' essere omessa, mentre 
+quelle successive sono obbligatorie */
 
 int find(int data[][COLS], int rows);
 
