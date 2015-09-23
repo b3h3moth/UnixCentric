@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
- /* 
-  * MACRO SEMPLICI
-  */
+// MACRO SEMPLICI
 #define STR_LEN 32
 #define MEM_ERR "Errore nell'utilizzo della stringa"
 #define CR	'\0'
@@ -11,9 +9,7 @@
 #define END 	}
 #define ETC 	"Etc...."
 
- /* 
-  * MACRO PARAMETRICHE
-  */
+// MACRO PARAMETRICHE
 #define MAX(x,y)	((x)>(y)?(x):(y))
 #define PRINT_INT(n)	printf("%d\n", n);
 
