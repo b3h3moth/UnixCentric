@@ -13,19 +13,24 @@ funzione deve essere inserito col doppio operatore di subscript [][]. La regola
 generale dice che la prima dimensione puo' essere omessa, mentre quelle 
 successive sono obbligatorie */
 
-int main(void) {
+int main(int argc, char *argv[]) {
     int data[ROWS][COLS] = {
         {10, 20, 30}, 
         {40, 50, 60},
         {70, 80, 90}
     };
 
-    int result = find_elem(data, 8);
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <number>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    int result = find_elem(data, atoi(argv[1]));
 
     if (result == -1)
         printf("Not found\n");
     else
-        printf("%d\n", result);
+        printf("Found '%d'\n", result);
 
     return(EXIT_SUCCESS);
 }
