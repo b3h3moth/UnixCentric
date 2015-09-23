@@ -13,7 +13,13 @@ dimensione */
 
 int main(void) {
 
-    int res = sum( ((int []){10,20,30,40,50}, SIZE );
+    // L'invocazione di un array letterale contestualmente inizializzazto
+    int res = sum( (int []){10,20,30,40,50}, SIZE );
+
+    /* L'utilita' dell'utilizzo di un letterale composto va ricercata nella
+    possibilita' di non sprecare memoria dichiarando un array da utilizzare
+    una sola volta, cosi facendo invece si ottimizza e al contempo riduce il
+    codice da scrivere */
 
     printf("Sum is: %d\n", res);
 
