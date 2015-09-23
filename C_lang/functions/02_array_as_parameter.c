@@ -3,7 +3,7 @@
 
 #define SIZE    10
 
-// Prototipo della funzione.
+// Prototipo
 int sum(int data[], int length);
 
 /* L'array, sia nel prototipo sia nella dichiarazione della funzione,
@@ -13,8 +13,7 @@ invece non e' invece obbligatoria, tuttavia necessaria */
 int main(void) {
     int my_data[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
-    // Chiamata della funzione, con l'array - monodimensionale in questo caso.
-    // L'operatore di subscript non e' necessario.
+    // Nell'invocazione della funzione l'operatore di subscript si puo' omettere
     int res = sum(my_data, SIZE);
 
     printf("Sum is: %d\n", res);
