@@ -8,7 +8,7 @@ numero arbitrario di parametri si indica nel prototipo con l'ellissi "..." e
 deve sempre seguire obbligatoriamente un parametro fisso.
 
 L'header di riferimento e' <stdarg.h> che contiene una serie di utilities per 
-la standardizzazione sulll'uso delle funzioni con un numero arbitrario di 
+la standardizzazione dell'utilizzo delle funzioni con un numero arbitrario di 
 parametri.
 
 Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
@@ -17,6 +17,9 @@ Le utilities fornite da <stdarg.h> (dipendenti dal sisistema utilizzato):
 - va_arg();
 - va_end();
 - va_copy().
+
+Esse in realta' sono delle macro che si comportano come funzioni, ovvero che
+accettano argomenti (function-like macro).
 */
 
 /* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
