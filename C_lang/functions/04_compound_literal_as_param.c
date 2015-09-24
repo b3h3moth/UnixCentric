@@ -6,10 +6,11 @@
 // Prototipo
 int sum(int data[], int length);
 
-/* I letterali composti (compound literals) dal c99 possono essere utilizzati
-anche con gli array. Sono array senza identificatore, all'interno di parentesi
-tonde vi e' il tipo di dato seguito da parentesi quadre indicanti la 
-dimensione. 
+/* Dal c99 sono stati introdotti i letterali composti (compound literals)
+utilizzabili con gli array. 
+
+Sono array senza identificatore, all'interno di parentesi tonde vi e' il tipo
+di dato seguito da parentesi quadre indicanti la dimensione.
 
 In generale le regola dei letterali composti prevede il tipo di dato all'
 interno di parentesi tonde, seguito da parentesi graffe dedicate all'
