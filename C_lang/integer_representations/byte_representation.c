@@ -41,6 +41,8 @@ int main(void) {
     char ascii_num[] = "123456789";
     const char *ascii_upper = "abcdefghijklmnop";
     const char *ascii_lower = "ABCDEFGHIJKLMNOP";
+    short var_sho = 12345;
+    short neg_var_sho = -var_sho;
 
     show_int(var_int);
     show_float(var_flt);
@@ -63,6 +65,11 @@ int main(void) {
     show_bytes((byte_pointer)ascii_num, strlen(ascii_num)+1);
     show_bytes((byte_pointer)ascii_upper, strlen(ascii_upper)+1);
     show_bytes((byte_pointer)ascii_lower, strlen(ascii_lower)+1);
+
+    /* Rappresentazione di 12345 in complemento a due, prima il 'positivo'
+    poi il suo negativo. E' molto interessante verificare la conversione */
+    show_bytes((byte_pointer) &var_sho, sizeof(short));
+    show_bytes((byte_pointer) &neg_var_sho, sizeof(short));
 
     return(EXIT_SUCCESS);
 }
