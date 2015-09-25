@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int main(void) {
-    /* Convertire un numero negativo in un 'unsigned' potrebbe dare come
+    /* Casting short [int], unsigned short
+    Convertire un numero negativo in un 'unsigned' potrebbe dare come
     risultato 0, tuttavia per quanto riguarda le conversioni si deve sempre
     considerare la rappresentazione dei singoli bit */
 
     /* 'short int' oppure semplicemente 'short' e' un tipo di dato da 2 byte, 
     ovvero 16 bit. */
-    short val = -12345;
+    short val1 = -12345;
 
     /* Casting di un numero negativo di tipo 'short' in un 'unsigned short',
     entrambi di 2 byte ma con valori minimi e massimi differenti */
-    unsigned short uval = (unsigned short) val;
+    unsigned short cast_val1 = (unsigned short) val1;
 
     /* Il risultato sara':
 
@@ -23,7 +25,12 @@ int main(void) {
     lasciando immutata la raoppresentazione in complemento a due dei bit.
     */
 
-    printf("val=%d\nuval=%d\n", val, uval);
+    printf("val1=%d\ncast_val1=%d\n", val1, cast_val1);
+
+    /* Casting unsigned [int], int */
+    unsigned val2 = 4294967295U;    // UINT_MAX
+    int cast_val2 = (int) val2;
+    printf("val2=%u\ncast_val2=%d\n", val2, cast_val2);
 
     return(EXIT_SUCCESS);
 }
