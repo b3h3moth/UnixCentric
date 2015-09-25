@@ -27,9 +27,14 @@ int main(void) {
 
     printf("val1=%d\tcast_val1=%d\n", val1, cast_val1);
 
-    /* Casting unsigned [int], int */
+    // Casting unsigned [int], int 
     unsigned val2 = 4294967295U;    // UINT_MAX
     int cast_val2 = (int) val2;
+    /* Su una macchina con una word a 32 bit, il valore massimo per il tipo
+    'unsigned' e' 4294967295U (0xFFFFFFFF) il cast a 'int' in complemento a
+    due risulta essere -1, ossia (0xFFFFFFFF), per cui anche in questo caso 
+    cambia il valore numerico ma i bit restano gli stessi. */
+
     printf("val2=%u\tcast_val2=%d\n", val2, cast_val2);
 
     return(EXIT_SUCCESS);
