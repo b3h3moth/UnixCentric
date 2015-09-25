@@ -25,12 +25,12 @@ int main(void) {
     lasciando immutata la raoppresentazione in complemento a due dei bit.
     */
 
-    printf("val1=%d\ncast_val1=%d\n", val1, cast_val1);
+    printf("val1=%d\tcast_val1=%d\n", val1, cast_val1);
 
     /* Casting unsigned [int], int */
     unsigned val2 = 4294967295U;    // UINT_MAX
     int cast_val2 = (int) val2;
-    printf("val2=%u\ncast_val2=%d\n", val2, cast_val2);
+    printf("val2=%u\tcast_val2=%d\n", val2, cast_val2);
 
     return(EXIT_SUCCESS);
 }
