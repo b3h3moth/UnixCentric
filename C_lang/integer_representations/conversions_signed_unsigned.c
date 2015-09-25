@@ -3,8 +3,8 @@
 
 int main(void) {
     /* Convertire un numero negativo in un 'unsigned' potrebbe dare come
-    risultato 0, per quanto riguarda le conversioni ci si deve sempre basare
-    sulla rappresentazione dei singoli bit. */
+    risultato 0, tuttavia per quanto riguarda le conversioni si deve sempre
+    considerare la rappresentazione dei singoli bit */
 
     /* 'short int' oppure semplicemente 'short' e' un tipo di dato da 2 byte, 
     ovvero 16 bit. */
