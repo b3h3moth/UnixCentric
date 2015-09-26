@@ -19,17 +19,18 @@ int main(void) {
     /* Inizializzazione di un vettore di 3 puntatori a funzione */
     void (*vec[MAX_MENU])(int) = {voce1, voce2, voce3};
 
-    printf("> Menu'[0,1,2] (altro per uscire) ");
+    printf("> Menu'[1,2,3] (altro per uscire) ");
     scanf("%1d", &choice);
 
     while (choice >= 0 && choice <=2) {
         (*vec[choice])(choice);
-        printf("> Menu'[0,1,2] - 3 per uscire: ");
+        printf("> Menu'[1,2,3] - altro per uscire: ");
         scanf("%1d", &choice);
     }
 
     return(EXIT_SUCCESS);
 }
+
 void voce1(int x)
 {
     printf("voce1: %d\n", x);

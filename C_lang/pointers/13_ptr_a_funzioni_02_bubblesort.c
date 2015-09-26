@@ -8,7 +8,7 @@ int ascending(int x, int y);
 int descending(int x, int y);
 void swap(int *elem1, int *elem2);
 
-/* Scopo: Il programma ordina in maniera ascendente o discente un vettore */
+/* Il programma ordina in maniera ascendente o discendente un vettore */
 int main(void) {
     /* valore per definire il modo di ordinamento, 
     1 ascendente, 2 discendente, e variabile contatore*/
@@ -50,8 +50,10 @@ void bubble(int work[], const int size, int (*compare)(int x, int y))
 
     /* Si contano i passaggi */
     for (pass = 1; pass<size; pass++) {
+
         /* si controllano i confronti per ciascun passaggio */
         for (count = 0; count<size-1; count++) {
+            
             /* scambia elementi adiacenti se non sono in ordine */
             if ((*compare)(work[count], work[count+1])) {
                 swap (&work[count], &work[count+1]);
