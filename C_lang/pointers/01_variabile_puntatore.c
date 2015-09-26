@@ -2,18 +2,20 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* Una variabile puntatore contiene l'indirizzo di una locazione di memoria,
-    se dichiarata globale o statica sara' inizializzata a NULL all'avvio del
-    programma. 
+    /* Un puntatore e' un indirizzo e una variabile puntatore e' una variabile
+    in grado di memorizzare un indirizzo o locazione di memoria.
     
-    La grandezza di un puntatore dipende dalla macchina (32bit, 64bit) e dal
-    compilatore. */
+    La grandezza di un puntatore dipende dall'architettura della macchina 
+    (32bit, 64bit) e di conseguenza dal tipo di dato con cui e' stato 
+    dichiarato.  */
     int n = 0;
-    int *ptr = &n;
+    int *ptr = &n; /* ptr e' una variabile puntatore in grado di puntare ad
+                      oggetti di tipo intero */
+                        
 
-    /* ptr e' una variabile puntatore ad un intero 
+    printf("*ptr is %d byte\n", sizeof(ptr));
 
-    Nota: Si consiglia di leggere le dichiarazioni di puntatori da destra a
+    /* Nota: E' buona norma leggere le dichiarazioni di puntatori da destra a
     sinistra. */
 
     return(EXIT_SUCCESS);
