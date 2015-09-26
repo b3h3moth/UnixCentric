@@ -10,8 +10,7 @@ int main(void) {
     dichiarato.  */
     int n = 0;
     int *ptr = &n; /* ptr e' una variabile puntatore in grado di puntare ad
-                      oggetti di tipo intero */
-                        
+                      oggetti di tipo 'int' */
 
     printf("*ptr is %d byte\n", sizeof(ptr));
 
