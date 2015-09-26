@@ -4,7 +4,7 @@
 #define MAX_MENU 3
 
 /* Ogni funzione e' una voce del menu', accettano un argomento di tipo intero e
-restituisce void. */
+restituiscono void. */
 void voce1(int x);
 void voce2(int x);
 void voce3(int x);
