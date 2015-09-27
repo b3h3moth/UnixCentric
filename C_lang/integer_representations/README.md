@@ -2,5 +2,7 @@
 
 ### Bibliography (articles, book's chapter, etc.)
 
-* C, A Modern Approach (5th edition, 2008, W.W. Norton & Company)
-  * Chapter 5; Types (c99)
+* From **C, A Modern Approach**, (`5th ed. 2008`)
+  * Full Chapter 5 `Types` (c99)
+* From **Computer organization and Design: The Hardware/Software Interface** (`3rd ed. 2005`)
+  * 3.2 `Signed and Unsigned numbers`
