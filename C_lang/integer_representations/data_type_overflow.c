@@ -13,7 +13,8 @@ int main(void) {
     Zero, uno o cento non fa differenza, sara' superato il limite massimo
     (overflow) consentito da quel tipo di dato, per cui sia il compilatore GCC
     sia il compilatore Clang (LLVM) troncheranno il valore della variabile
-    impostandolo 0, il tutto condito da un messaggio di warning sullo stdout.*/
+    impostandolo a 0, il tutto condito da un messaggio di warning sullo 
+    stdout.*/
     unsigned short us_num2 = 65536;
     unsigned short us_num3 = us_num1 + 1;
 
