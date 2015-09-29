@@ -8,7 +8,7 @@ int sum(int data[], int length);
 
 /* L'array, sia nel prototipo sia nella dichiarazione della funzione,
 dev'essere inserito con l'operatore di subscript [], la lunghezza dello stesso
-invece non e' invece obbligatoria, tuttavia necessaria */
+invece non e' obbligatoria, tuttavia necessaria */
 
 int main(void) {
     int my_data[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
