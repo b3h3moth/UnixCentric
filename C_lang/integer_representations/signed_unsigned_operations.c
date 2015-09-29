@@ -19,5 +19,13 @@ int main(void) {
     Tale comportamento, in accoppiata con gli operatori relazionali >,<, puo'
     portare a risultati non propriamente prevedibili. */
 
+    int sval1 = -1;
+    unsigned uval2 = 0u;
+
+    if (sval1 < uval2)
+        printf("%u < %d (true)", (unsigned)sval1, uval2);
+    else
+        printf("%u < %d (False)", (unsigned)sval1, uval2);
+
     return(EXIT_SUCCESS);
 }
