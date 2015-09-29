@@ -21,6 +21,7 @@ int main(void) {
     Tale comportamento, in accoppiata con gli operatori relazionali >,<, puo'
     portare a risultati non propriamente prevedibili. */
 
+    // Test 1
     int sval1 = -1;
     unsigned uval1 = 0u;
 
@@ -33,14 +34,23 @@ int main(void) {
     else
         printf("%u < %u (false:0)\n", (unsigned)sval1, uval1);
 
-
-    signed int sval2 = -2147483647-1;
+    // Test 2
+    int sval2 = -2147483647-1;
     unsigned uval2 = 2147483647U;
 
     if (uval2 > sval2)
         printf("true:1\n");
     else
         printf("%u > %u (false:0)\n", uval2, (unsigned)sval2);
+
+    // Test 3
+    int sval3 = 2147483647;
+    int uval3 = (int) 2147483648U;
+
+    if (sval3 > uval3)
+        printf("%d > %d (true:1)\n", sval3, uval3);
+    else
+        printf("false:0\n");
 
     return(EXIT_SUCCESS);
 }
