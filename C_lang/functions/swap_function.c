@@ -15,10 +15,10 @@ int main(void) {
     return (EXIT_SUCCESS);
 }
 
-/* La funzione swap() scambia i valori delle variabili w, z, passate come
+/* La funzione swap() scambia i valori delle variabili j, k passate come
 parametro */
-void swap(int *w, int *z){
-    int tmp = *w;
-    *w = *z;
-    *z = tmp;
+void swap(int *j, int *k){
+    int tmp = *j;
+    *j = *k;
+    *k = tmp;
 }
