@@ -4,11 +4,12 @@
 int main(void) {
     /* Generalmente un 'int', su una macchina two's complement, e' dichiarato
     signed di default */
-    int val1 = -1; // signed di default
-    unsigned val2 = -1;
 
-    printf("  signed val1: %d %x %u\n", val1, val1, val1);
-    printf("unsigned val2: %d %x %u\n", val2, val2, val2);
+    int val1 = -1; // signed di default
+
+    // Aggiungendo tuttavia 'U' o 'u' al suffisso si crea invece un 'unsigned'
+    int val2 = 1234u;
+    int val3 = 0x5678U;
 
     return(EXIT_SUCCESS);
 }
