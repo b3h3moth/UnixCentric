@@ -22,16 +22,25 @@ int main(void) {
     portare a risultati non propriamente prevedibili. */
 
     int sval1 = -1;
-    unsigned uval2 = 0u;
+    unsigned uval1 = 0u;
 
     /* Poiche' uno dei due operandi e' 'unsigned' sara' eseguito un casting
     sull'operando 'signed', che convertito in 'unsigned' assumera' il valore di
     4294967295, pertanto il risultato del confronto sara' false */
 
-    if (sval1 < uval2)
-        printf("true");
+    if (sval1 < uval1)
+        printf("true:1\n");
     else
-        printf("%u < %d (False)", (unsigned)sval1, uval2);
+        printf("%u < %u (false:0)\n", (unsigned)sval1, uval1);
+
+
+    signed int sval2 = -2147483647-1;
+    unsigned uval2 = 2147483647U;
+
+    if (uval2 > sval2)
+        printf("true:1\n");
+    else
+        printf("%u > %u (false:0)\n", uval2, (unsigned)sval2);
 
     return(EXIT_SUCCESS);
 }
