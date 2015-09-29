@@ -2,12 +2,11 @@
 #include <stdlib.h>
 
 int main(void) {
-    /* Un puntatore e' un indirizzo e una variabile puntatore e' una variabile
+    /* Un puntatore e' un indirizzo; una variabile puntatore e' una variabile
     in grado di memorizzare un indirizzo o locazione di memoria.
     
     La grandezza di un puntatore dipende dall'architettura della macchina 
-    (32bit, 64bit) e di conseguenza dal tipo di dato con cui e' stato 
-    dichiarato.  */
+    (32bit, 64bit) e dal tipo di dato con cui e' stato dichiarato.  */
     int n = 0;
     int *ptr = &n; /* ptr e' una variabile puntatore in grado di puntare ad
                       oggetti di tipo 'int' */
