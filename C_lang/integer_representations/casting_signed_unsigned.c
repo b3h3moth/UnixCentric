@@ -3,7 +3,7 @@
 #include <limits.h>
 
 int main(void) {
-    /* Casting short [int], unsigned short
+    /* Casting short [int], unsigned short [int]
     Convertire un numero negativo in un 'unsigned' potrebbe dare come
     risultato 0, tuttavia per quanto riguarda le conversioni si deve sempre
     considerare la rappresentazione dei singoli bit */
@@ -21,7 +21,7 @@ int main(void) {
     val = -12345 (binario: 1110001111110011)
     uval = 53191 (binario: 1110001111110011)
     
-    Il casting da short [int] ad 'unsigned short' cambia il valore numerico 
+    Il casting da short [int] ad 'unsigned short' modifica il valore numerico 
     lasciando immutata la raoppresentazione in complemento a due dei bit.
     */
 
@@ -31,11 +31,15 @@ int main(void) {
     unsigned val2 = 4294967295U;    // UINT_MAX
     int cast_val2 = (int) val2;
     /* Su una macchina con una word a 32 bit, il valore massimo per il tipo
-    'unsigned' e' 4294967295U (0xFFFFFFFF) il cast a 'int' in complemento a
+    'unsigned' e' 4294967295U (0xFFFFFFFF) e il cast a 'int' in complemento a
     due risulta essere -1, ossia (0xFFFFFFFF), per cui anche in questo caso 
-    cambia il valore numerico ma i bit restano gli stessi. */
+    vi e' una modifica al valore numerico ma i bit restano i medesimi */
 
     printf("val2=%u\tcast_val2=%d\n", val2, cast_val2);
+
+    /* Per concludere, la regola vuole che il casting di numeri 'signed' e
+    'unsigned' con la stessa word size, il valore numerico cambi ma la
+    rappresentazione interna dei bit resti immutata */
 
     return(EXIT_SUCCESS);
 }
