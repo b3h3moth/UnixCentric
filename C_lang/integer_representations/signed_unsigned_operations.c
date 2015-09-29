@@ -14,7 +14,10 @@ int main(void) {
     /* Se in una operazione vi sono due operandi, uno dei quali 'signed' e
     l'altro 'unsigned', il C eseguira' implicitamente un cast sull'operando
     'signed' rendendolo 'unsigned', dopodiche' l'operazione sara' eseguita
-    come fosse su numeri 'unsigned' */
+    come fosse su numeri 'unsigned.
+    
+    Tale comportamento, in accoppiata con gli operatori relazionali >,<, puo'
+    portare a risultati non propriamente prevedibili. */
 
     return(EXIT_SUCCESS);
 }
