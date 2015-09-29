@@ -21,11 +21,13 @@ int main(void) {
     Tale comportamento, in accoppiata con gli operatori relazionali >,<, puo'
     portare a risultati non propriamente prevedibili. */
 
-    int sval1 = -1; // Casting ad unsigned, diventa 4294967295
+    int sval1 = -1;
     unsigned uval2 = 0u;
 
-    /* Uno dei due operandi e' unsigned, sull'altro sara' eseguito un casting
-    ad unsigned, per cui il confronto sara' false */
+    /* Poiche' uno dei due operandi e' 'unsigned' sara' eseguito un casting
+    sull'operando 'signed', che convertito in 'unsigned' assumera' il valore di
+    4294967295, pertanto il risultato del confronto sara' false */
+
     if (sval1 < uval2)
         printf("true");
     else
