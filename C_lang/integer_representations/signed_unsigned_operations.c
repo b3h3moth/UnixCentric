@@ -11,6 +11,8 @@ int main(void) {
     int val2 = 1234u;
     int val3 = 0x5678U;
 
+    printf("signed:%d, unsigned:%u, unsigned:%#x\n", val1, val2, val3);
+
     /* Se in una operazione vi sono due operandi, uno dei quali 'signed' e
     l'altro 'unsigned', il C eseguira' implicitamente un cast sull'operando
     'signed' rendendolo 'unsigned', dopodiche' l'operazione sara' eseguita
