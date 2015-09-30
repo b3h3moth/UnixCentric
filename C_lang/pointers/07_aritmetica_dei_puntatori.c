@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 
     /* Confronto tra punatori 
        ---------------------- 
-    Il confronto avviene tra indirizzi di memoria, 0 false, 1 true */
+    Il confronto avviene tra indirizzi di memoria, (0 false - 1 true) */
     printf("\nConfronto tra puntatori\n");
     printf("[%p] > [%p] = %d\n", (void *)pt0, (void *)pt1, pt0 > pt1);
     printf("[%p] < [%p] = %d\n", (void *)pt0, (void *)pt1, pt0 < pt1);
