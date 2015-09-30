@@ -21,5 +21,6 @@ int main(void) {
     // Sinonimi
     printf("%p - %p\n", (void *)&data[4], (void *)(data +4));
 
+    // Regola aurea: Puntatori ed array non sono la stessa cosa
     return(EXIT_SUCCESS);
 }
