@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "show_bytes.h"
 
 // Returns each byte in hexadecimal format
