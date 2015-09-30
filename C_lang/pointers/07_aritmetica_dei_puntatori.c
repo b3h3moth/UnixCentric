@@ -50,11 +50,9 @@ int main(int argc, char *argv[]) {
        -------------------------------*/
     printf("Sottrazione  puntatori\n");
     int data[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-    int x = 2;
-    int y = 4;
-    int *pt0 = &data[x];
-    int *pt1 = &data[y];
-    int *pt2 = &data[0];
+    int *pt0 = &data[2];
+    int *pt1 = &data[4];
+    int *pt2 = &data[6];
 
     /* Il tipo di dato per esprimere la differenza tra puntatori si esprime 
     con ptrdiff_t definito in <stddef.h> e lo specificatpre di formato
