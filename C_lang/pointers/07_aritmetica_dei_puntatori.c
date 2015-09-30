@@ -63,14 +63,20 @@ int main(int argc, char *argv[]) {
 
     /* Confronto tra punatori 
        ---------------------- 
-    Si lavora sul confronto tra gli indici dell'array - 0 false, 1 true */
+    Il confronto avviene tra indirizzi di memoria, 0 false, 1 true */
     printf("\nConfronto tra puntatori\n");
-    printf("pt0 > pt1 : %d\n", pt0 > pt1);
-    printf("pt0 < pt1 : %d\n", pt0 < pt1);
-    printf("pt2 > pt1 : %d\n", pt2 > pt1);
-    printf("pt2 < pt1 : %d\n", pt2 < pt1);
-    printf("pt0 > pt2 : %d\n", pt0 > pt1);
-    printf("pt0 < pt2 : %d\n", pt0 < pt1);
+    printf("[%p] > [%p] = %d\n", (void *)pt0, (void *)pt1, pt0 > pt1);
+    printf("[%p] < [%p] = %d\n", (void *)pt0, (void *)pt1, pt0 < pt1);
+    printf("[%p] > [%p] = %d\n", (void *)pt1, (void *)pt2, pt1 > pt2);
+    printf("[%p] < [%p] = %d\n", (void *)pt1, (void *)pt2, pt1 < pt2);
+    printf("[%p] == [%p] = %d\n", (void *)pt1, (void *)(pt2-2), pt1 < pt2-2);
+
+    // Utilizzo del tipo di dato _Bool per salvare il risultato del contronto
+    _Bool result1 = (pt0 == pt2);
+    _Bool result2 = (pt0 == pt2-4);
+
+    printf("result1 = %d\n", result1);
+    printf("result2 = %d\n", result2);
 
     return(EXIT_SUCCESS);
 }
