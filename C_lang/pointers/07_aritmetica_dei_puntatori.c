@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 int main(int argc, char *argv[]) {
     /* Quando si lavora con l'aritmetica dei puntatori si deve sempre tenere a
@@ -21,21 +22,21 @@ int main(int argc, char *argv[]) {
                        caso il puntatore puntera' all'inizio del vettore,
                        ossia al primo elemento */
 
-    printf("%d %p <-- indirizzo iniziale del vettore\n", *ptr, ptr);
+    printf("%d %p <-- indirizzo iniziale del vettore\n", *ptr, (void *)ptr);
     ptr++;                  /* 4 byte avanti */
-    printf("%d %p\n", *ptr, ptr);
+    printf("%d %p\n", *ptr, (void *)ptr);
     ptr += 1;               /* 4 byte avanti */
-    printf("%d %p\n", *ptr, ptr);
+    printf("%d %p\n", *ptr, (void *)ptr);
 
   
     int v[] = {1,2,3};
     int *p = v;
     p += 3; /* Il puntatore ora punta a se stesso */
-    printf("\n%p v[3]\n%p p", &v[3], p);
+    printf("\n%p v[3]\n%p p\n", (void *)&v[3], (void *)p);
 
     /* Sottrarre un intero da un puntatore 
        -----------------------------------*/
-    printf("\n\nSottrazione tra intero e puntatore\n");
+    printf("Sottrazione tra intero e puntatore\n");
     int vect[] = {12, 56, 78};
     int *pt = vect + 2; /* Si fa puntatore all'ultimo elemento del vettore */
 
@@ -47,12 +48,20 @@ int main(int argc, char *argv[]) {
 
     /* Sottrarre puntatore a puntatore 
        -------------------------------*/
-    printf("\n\nSottrazione  puntatori\n");
-    int *pt0 = vect;
-    int *pt1 = vect + 1;
-    int *pt2 = vect + 2;
+    printf("Sottrazione  puntatori\n");
+    int data[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int x = 2;
+    int y = 4;
+    int *pt0 = &data[x];
+    int *pt1 = &data[y];
+    int *pt2 = &data[0];
 
-    printf("%d\n%d\n%d\n", pt2-pt0, pt2-pt1, pt0-pt1);
+    /* Il tipo di dato per esprimere la differenza tra puntatori si esprime 
+    con ptrdiff_t definito in <stddef.h> e lo specificatpre di formato
+    utilizzabile mediante la printf() e' %td */
+    ptrdiff_t res1 = pt0 - pt1;
+    ptrdiff_t res2 = pt2 - pt0;
+    printf("%td\t%td\n", res1, res2);
 
     /* Confronto tra punatori 
        ---------------------- 
