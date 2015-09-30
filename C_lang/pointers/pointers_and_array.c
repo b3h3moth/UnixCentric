@@ -8,6 +8,8 @@ int main(void) {
     int *ptr_arr1 = data;     // 'data' contiene l'indirizzo del primo elemento
     int *ptr_arr2 = &data[0]; // Si rende esplicito il concetto sopra espresso
 
+    /* Lo scostamento di seguito spostera' il puntatore avanti di 4 locazioni,
+    per cui 16 byte, poiche' si tratta di un 'int' a 32 bit (4 byte) */
     ptr_arr1 += 4;  // punta al quinto elemento dell'array
     printf("%d\n", *ptr_arr1);  // Stampa il valore del quinto elemento
 
