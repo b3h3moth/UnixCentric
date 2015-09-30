@@ -18,5 +18,8 @@ int main(void) {
     puntatore */
     printf("%d\n", *(data + 8)); // Stampa il nono elemento dell'array
 
+    // Sinonimi
+    printf("%p - %p\n", (void *)&data[4], (void *)(data +4));
+
     return(EXIT_SUCCESS);
 }
