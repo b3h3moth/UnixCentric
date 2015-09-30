@@ -13,5 +13,10 @@ int main(void) {
     ptr_arr1 += 4;  // punta al quinto elemento dell'array
     printf("%d\n", *ptr_arr1);  // Stampa il valore del quinto elemento
 
+    /* Essendo data un puntatore al primo elemento dell'array, e' possibile
+    stampare o lavorare con l'i-esimo elemento dello stesso come fosse un
+    puntatore */
+    printf("%d\n", *(data + 8)); // Stampa il nono elemento dell'array
+
     return(EXIT_SUCCESS);
 }
