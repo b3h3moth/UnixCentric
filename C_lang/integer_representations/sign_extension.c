@@ -10,7 +10,8 @@ int main(void) {
     short val1 = -12345;        // short 2 byte
     unsigned short val2 = val1; // unsigned short 2 byte
     int val3 = val1;            // int 4 byte
-    long long val4 = val1;      // long long 8 byte
+    unsigned val4 = val2;       // unsigned int 4 byte
+    long long val5 = val1;      // long long 8 byte
 
     printf("(val1=%d)\t", val1);
     show_bytes((byte_pointer) &val1, sizeof(short));
@@ -21,8 +22,11 @@ int main(void) {
     printf("(val3=%d)\t", val3);
     show_bytes((byte_pointer) &val3, sizeof(int));
 
-    printf("(val4=%lld)\t", val4);
-    show_bytes((byte_pointer) &val4, sizeof(long long));
+    printf("(val4=%d)\t", val4);
+    show_bytes((byte_pointer) &val4, sizeof(unsigned));
+
+    printf("(val5=%lld)\t", val5);
+    show_bytes((byte_pointer) &val5, sizeof(long long));
 
     return(EXIT_SUCCESS);
 }
