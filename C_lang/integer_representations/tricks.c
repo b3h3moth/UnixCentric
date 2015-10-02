@@ -10,7 +10,13 @@ int main(void) {
    
     /* I numeri rappresentabili su un calcolatore sono finiti, per cui
     sommando uno al valore massimo e' come se si chiudesse il cerchio dei 
-    postivi per aprire nuovamente i negativi */
+    postivi per aprire nuovamente i negativi, ma il concetto fondamentale e'
+    che il calcolatore lavora coi numeri binari, pertanto:
+
+    0111 1111 1111 1111 1111 1111 1111 1111 +        2147483647 +
+                                          1 =                 1 =
+    1000 0000 0000 0000 0000 0000 0000 0000         -2147483648        */
+    
     printf("max_int = %d\tmin_int = %d\n", max_int, min_int);
 
     return(EXIT_SUCCESS);
