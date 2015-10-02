@@ -19,10 +19,13 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+
 int foo(unsigned word) {
+    // bit gestiti logicamente
     return (int) ((word << 24) >> 24);
 }
 
 int bar(unsigned word) {
+    // bit gestiti aritmeticamente
     return ((int) word << 24) >> 24;
 }
