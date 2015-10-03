@@ -19,7 +19,7 @@ int main(void) {
     puntatore */
     printf("%d\n", *(data + 8)); // Stampa il nono elemento dell'array
 
-    // Stampare gli indirizzi di memoria, le seguenti istruzioni sono sinonimi
+    // Stampa gli indirizzi di memoria, le seguenti istruzioni sono equivalenti
     printf("%p - %p\n", (void *)&data[4], (void *)(data +4));
 
     // Regola aurea: Puntatori ed array non sono la stessa cosa
