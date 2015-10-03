@@ -10,7 +10,7 @@ int main(void) {
                            "unsigned long", "long long", 
                            "unsigned long long" };
 
-    printf("Byte and range for each C data types\n");
+    printf("Byte and range for each C data type\n");
 
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[0], sizeof(char), CHAR_MIN, CHAR_MAX);
