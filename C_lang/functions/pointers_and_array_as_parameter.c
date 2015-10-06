@@ -33,6 +33,8 @@ int sum(int data[], int len) {
 
     int res = *data;
 
+    /* Somma, mediante l'aritmetica dei puntatori, di ciascun elemento 
+    dell'array */
     for (int *p = data +1; p < data + len; p++)
         res += *p;
     
