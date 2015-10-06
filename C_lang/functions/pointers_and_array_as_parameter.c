@@ -16,7 +16,9 @@ int sum(int *, int len);
 */
 
 int main(void) {
-    int list_of_numbers[SIZE] = {10, 20, 30, 40, 50};
+    int list_of_numbers[] = {10, 20, 30, 40, 50};
+
+    printf("(main) array size: %zu byte\n", sizeof(list_of_numbers) );
 
     return(EXIT_SUCCESS);
 }
