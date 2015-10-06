@@ -18,12 +18,23 @@ int sum(int *, int len);
 int main(void) {
     int list_of_numbers[] = {10, 20, 30, 40, 50};
 
-    printf("(main) array size: %zu byte\n", sizeof(list_of_numbers) );
+    printf("[main()] array size: %zu byte\n", sizeof(list_of_numbers) );
+
+    int result = sum(list_of_numbers, SIZE);
+
+    printf("sum of each array element: %d\n", result);
 
     return(EXIT_SUCCESS);
 }
 
 // La funzione sum(), somma ciascune elemento del vettore
 int sum(int data[], int len) {
-    return;
+    printf("[ sum()] array size: %zu byte\n", sizeof(data) );
+
+    int res = *data;
+
+    for (int *p = data +1; p < data + len; p++)
+        res += *p;
+    
+    return res;
 }
