@@ -33,9 +33,20 @@ int sum(int data[], int len) {
 
     int res = *data;
 
-    /* Somma, mediante l'aritmetica dei puntatori, di ciascun elemento 
-    dell'array */
-    for (int *p = data +1; p < data + len; p++)
+    /* Il for-loop somma mediante l'aritmetica dei puntatori ciascun elemento
+    dell'array. 
+    
+    Da notare che *p punta al secondo elemento dell'array nel ciclo for, perchè
+    con l'istruzione precedente e' stato gia' aggiunto il valore del primo 
+    elemento dell'array. 
+    
+    Per farlo puntare al primo elemento sarebbe stato necessario dichiarare 
+    static il risultato e correggere il loop, ovvero:
+    static int res;
+    for (int *p = data; p < data + len; p++) 
+    */
+    
+    for (int *p = data + 1; p < data + len; p++)
         res += *p;
     
     return res;
