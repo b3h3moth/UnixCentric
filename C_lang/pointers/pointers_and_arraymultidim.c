@@ -32,5 +32,6 @@ int main(void) {
 
     // Ritorna l'indirizzo dell'elemento 0
     printf("      *&data: %p\n", (void *)*&data);
+    
     return(EXIT_SUCCESS);
 }
