@@ -7,10 +7,8 @@ int main(void) {
         {40, 50, 60},
     };
 
-    int *p = *&data;
-
     // Puntano entrambi al primo elemento dell'array di 3 elementi
-    printf("       data: %p\n", (void *)data);
+    printf("       data: %p\n", (void *)data, *&data);
     printf("   &data[0]: %p\n", (void *)&data[0]);
 
     // Puntano entrambi all'indirizzo dell'elemento 0 dell'array
@@ -20,5 +18,7 @@ int main(void) {
     // Punta all'array, l'indirizzo iniziale
     printf("      &data: %p\n", (void *)&data);
 
+    // Puntatore a un array di 3 elementi
+    printf("     *&data: %p\n", (void *)*&data);
     return(EXIT_SUCCESS);
 }
