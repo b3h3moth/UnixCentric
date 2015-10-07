@@ -6,7 +6,7 @@ int main(void) {
     In questo caso si recuperano i 3 bit meno significativi, ovvero 0,1,2 */
     unsigned int num1 = 0xAF; // 10101111
 
-    // num2 reecupera i 3 bit meso significativi e vale 00000111, 0x07
+    // num2 reecupera i 3 bit meno significativi e vale 00000111, 0x07
     unsigned int num2 = num1 & 0x07;
 
     // num3 recupera i bit 4,5,6 mediante shift, e vale 00000010, 0x02
