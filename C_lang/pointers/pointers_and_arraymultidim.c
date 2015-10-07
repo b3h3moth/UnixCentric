@@ -7,9 +7,14 @@ int main(void) {
         {40, 50, 60},
     };
 
-    // Puntano al primo elemento dell'array
-    printf("    data: %p\n", (void *)data);
-    printf("&data[0]: %p\n", (void *)&data[0]);
+    // Puntano entrambi al primo elemento dell'array di 3 elementi
+    printf("       data: %p\n", (void *)data);
+    printf("   &data[0]: %p\n", (void *)&data[0]);
+
+    // Puntano entrambi all'indirizzo dell'elemento 0 dell'array
+    printf("    data[0]: %p\n", (void *)data[0]);
+    printf("&data[0][0]: %p\n", (void *)&data[0][0]);
+
 
     return(EXIT_SUCCESS);
 }
