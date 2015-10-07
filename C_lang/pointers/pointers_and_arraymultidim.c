@@ -7,18 +7,24 @@ int main(void) {
         {40, 50, 60},
     };
 
-    // Puntano entrambi al primo elemento dell'array di 3 elementi
-    printf("       data: %p\n", (void *)data, *&data);
+    // Entrambi ritornano l'indirizzo dell'elemento 0
+    printf("       data: %p\n", (void *)data);
     printf("   &data[0]: %p\n", (void *)&data[0]);
 
-    // Puntano entrambi all'indirizzo dell'elemento 0 dell'array
+    // Ritorna l'indirizzo dell'elemento 0
     printf("    data[0]: %p\n", (void *)data[0]);
+
+    // Ritorna l'indirizzo dell'elemento [0][0]
     printf("&data[0][0]: %p\n", (void *)&data[0][0]);
 
-    // Punta all'array, l'indirizzo iniziale
+    // Ritorna l'indirizzo iniziale dell'array
     printf("      &data: %p\n", (void *)&data);
 
-    // Puntatore a un array di 3 elementi
-    printf("     *&data: %p\n", (void *)*&data);
+    // Entrambi puntano all'indirizzo 0
+    printf("      *data: %p\n", (void *)*data);
+    printf("  *&data[0]: %p\n", (void *)*&data[0]);
+
+    // Ritorna il valore del primo elemento, [0][0]
+    printf("   *data[0]: %d\n", *data[0]);
     return(EXIT_SUCCESS);
 }
