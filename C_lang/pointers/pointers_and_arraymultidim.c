@@ -29,5 +29,8 @@ int main(void) {
 
     // Ritorna il valore del primo elemento, [0][0]
     printf("*&data[0][0]: %d\n", *&data[0][0]);
+
+    // Ritorna l'indirizzo dell'elemento 0
+    printf("      *&data: %p\n", (void *)*&data);
     return(EXIT_SUCCESS);
 }
