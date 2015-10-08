@@ -22,8 +22,8 @@ int main(void) {
     printf("%#x\n", num1);
     printf("%#x\n", num2);
     printf("%#x\n", num3);
-    printf("%#x %d\n", num4, num4);
-    printf("%#x %d\n", num5, num5);
+    printf("%#x %10d\n", num4, num4);
+    printf("%#x %10d\n", num5, num5);
 
     return(EXIT_SUCCESS);
 }
