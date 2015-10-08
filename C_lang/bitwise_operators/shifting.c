@@ -30,6 +30,9 @@ int main(void) {
     unsigned val1 = 1;
     unsigned val2 = 2;
 
+    /* Le parentesi dovrebbero essere sempre inserite qualora l'istruzione non
+    risultasse leggibile, ma anche per evitare i messaggi di warnings del 
+    compilatore, come nei casi a seguire */
     unsigned res1 = val1 << val2 >> 1;  // (val1 << val2) >> 1
     unsigned res2 = val1 << 1 + 2 << 3; // (val1 << (1 + 2)) << 3
     unsigned res3 = val1 + val2 << 12 * val1 >> val2; 
