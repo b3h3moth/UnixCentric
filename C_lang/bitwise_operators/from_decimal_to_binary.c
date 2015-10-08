@@ -11,13 +11,14 @@ int main(void) {
     printf("%d byte - %d bit\n", size, bit_val);
 
     for (int i=0; i<bit_val; i++) {
-        if (i == 8 || i==16 || i==24)
-            printf(" ");
         if (val & (1 << i))
             printf("1");
         else
             printf("0");
 
+        // Stampa a gruppi di 8 bit
+        if (i % CHAR_BIT == 0 && i != 0)
+            printf(" ");
     }
 
     return(EXIT_SUCCESS);
