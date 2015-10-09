@@ -2,8 +2,12 @@
 #include <stdlib.h>
 #include <limits.h> // to get CHAR_BIT, or 8
 
-int main(void) {
-    int val = 1;
+int main(int argc, char *argv[]) {
+    
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <decimal_number>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
     int size = sizeof(val);
     int bit_val = size * CHAR_BIT;
