@@ -14,9 +14,9 @@ int main(void) {
 int pack_char(char cha, char chb, char chc, char chd) {
     int integer_val = cha;
 
-    integer_val =<< CHAR_BIT | chb;
-    integer_val =<< CHAR_BIT | chc;
-    integer_val =<< CHAR_BIT | chd;
+    integer_val = (integer_val << CHAR_BIT) | chb;
+    integer_val = (integer_val << CHAR_BIT) | chc;
+    integer_val = (integer_val << CHAR_BIT) | chd;
 
     return integer_val;
 }
