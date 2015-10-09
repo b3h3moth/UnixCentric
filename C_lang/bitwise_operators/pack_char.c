@@ -9,8 +9,8 @@ int pack_char(char cha, char chb, char chc, char chd);
 void print_bit(int val);
 
 int main(void) {
-    printf("abcd= ");
-    print_bit(pack_char('l', 'u', 'c', 'a'));
+    printf("h,a,c,k = ");
+    print_bit(pack_char('h', 'a', 'c', 'k'));
 
     return(EXIT_SUCCESS);
 }
@@ -29,8 +29,6 @@ void print_bit(int val) {
     int size = sizeof(val);
     int bit_val = size * CHAR_BIT;
     int mask = 1 << (bit_val - 1); // Work on Most Significant Bit
-
-    printf("%d byte - %d bit\n", size, bit_val);
 
     for (int i=1; i<=bit_val; ++i) {
 
