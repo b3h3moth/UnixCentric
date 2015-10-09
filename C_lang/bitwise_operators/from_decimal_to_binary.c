@@ -16,8 +16,7 @@ int main(int argc, char *argv[]) {
     int val = strtol(argv[1], NULL, 10);
 
     // Check for various possible errors
-    if ((errno == ERANGE && (val == LONG_MAX || val == LONG_MIN)) \
-                         || (errno != 0 && val == 0)) {
+    if ((errno == ERANGE) || (errno != 0 && val == 0)) {
         perror("strtol()");
         exit(EXIT_FAILURE);
     }
