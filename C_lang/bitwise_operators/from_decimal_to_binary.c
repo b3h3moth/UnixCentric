@@ -9,6 +9,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    int val = strtol(argv[1], NULL, 10);
+
     int size = sizeof(val);
     int bit_val = size * CHAR_BIT;
     int mask = 1 << (bit_val - 1); // Work on Most Significant Bit
