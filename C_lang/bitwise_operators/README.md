@@ -2,4 +2,12 @@
 
 ### List of arguments covered
 
-* bit operators: ~, &, |, ^, <<, >>
+* logical operators
+  * ~ - one's complement
+  * & - bitwise AND
+  * | - inclusive OR
+  * ^ - exclusive OR
+* shift operators
+  * << - left-shift
+  * >> - right-shift
+* bit mask
