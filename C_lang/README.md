@@ -7,10 +7,14 @@
   * bidimensional
   * multidimensional
 * Bitwise operators
+* Logical operators
 * Functions
 * Pointers
 * Structures and Unions
-* Data types (focused on integer representations)
+* Representing and manipulating information
+  * integer representations
+  * integer arithmetic
+  * addressing and byte ordering
 * Vector of characters (strings)
 * Stuff
   * variable declarations in C99, C11
