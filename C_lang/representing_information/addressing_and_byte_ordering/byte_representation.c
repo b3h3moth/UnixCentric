@@ -23,6 +23,9 @@ int main(void) {
     const char *ascii_lower = "ABCDEFGHIJKLMNOP";
     short var_sho = 12345;
     short neg_var_sho = -var_sho;
+    double val_db = 12345;
+    long val_lg = 12345;
+
 
     show_int(var_int);
     show_float(var_flt);
@@ -47,9 +50,14 @@ int main(void) {
     show_bytes((byte_pointer)ascii_lower, strlen(ascii_lower)+1);
 
     /* Rappresentazione di 12345 in complemento a due, prima il 'positivo'
-    poi il suo negativo. E' molto interessante verificare la conversione */
+    poi il suo negativo. E' molto interessante verificare la conversione,
+    si lavora col tipo 'short' */
     show_bytes((byte_pointer) &var_sho, sizeof(short));
     show_bytes((byte_pointer) &neg_var_sho, sizeof(short));
+
+    /* Rappresentazione dei tipi di dato float e double */
+    show_double(val_db);
+    show_long(val_lg);
 
     return(EXIT_SUCCESS);
 }
