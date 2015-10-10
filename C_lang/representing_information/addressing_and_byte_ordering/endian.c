@@ -1,10 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <endian.h>
 
 // Prototipo funzione
 int endian(void);
 
 int main(void) {
+    if (endian())
+        printf("little-endian: %d\n", __LITTLE_ENDIAN);
+    else
+        printf("big-endian: %d\n", __BIG_ENDIAN);
+
     return(EXIT_SUCCESS);
 }
 
