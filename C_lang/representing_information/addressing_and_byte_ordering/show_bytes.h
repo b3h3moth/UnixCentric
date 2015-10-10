@@ -4,8 +4,11 @@
 typedef unsigned char *byte_pointer;
 
 void show_bytes(byte_pointer start, int len);
-void show_int(int x);
-void show_float(float x);
-void show_pointer(void *x);
+void show_int(int data);
+void show_float(float data);
+void show_pointer(void *data);
+void show_short(short data);
+void show_double(double data);
+void show_long(long data);
 
 #endif
