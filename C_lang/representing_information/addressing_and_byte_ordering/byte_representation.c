@@ -23,6 +23,7 @@ int main(void) {
     short neg_var_sho = -var_sho;
     double val_db = 12345.0;
     long val_lg = 12345;
+    long long val_llg = 12345;
 
     printf("int(%d) %d byte\n", var_int, sizeof(int));
     show_int(var_int);
@@ -34,6 +35,8 @@ int main(void) {
     show_double(val_db);
     printf("long(%.ld) %d byte\n", val_lg, sizeof(long));
     show_long(val_lg);
+    printf("long long(%.lld) %d byte\n", val_llg, sizeof(long long));
+    show_long_long(val_llg);
 
     printf("\npointer(%#x) from %d to %d byte\n", val, 1, 4);
     show_bytes(varp, 1);

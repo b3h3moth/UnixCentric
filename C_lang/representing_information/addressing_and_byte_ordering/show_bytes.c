@@ -44,3 +44,9 @@ void show_long(long data) {
     // printf("[%ld:   long] - ", data);
     show_bytes((byte_pointer) &data, sizeof(long));
 }
+
+// Show 'long' data type
+void show_long_long(long long data) {
+    // printf("[%ld:   long] - ", data);
+    show_bytes((byte_pointer) &data, sizeof(long long));
+}

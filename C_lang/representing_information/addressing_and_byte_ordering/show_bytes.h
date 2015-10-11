@@ -10,5 +10,6 @@ void show_pointer(void *data);
 void show_short(short data);
 void show_double(double data);
 void show_long(long data);
+void show_long_long(long long data);
 
 #endif
