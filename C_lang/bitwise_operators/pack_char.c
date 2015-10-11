@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
 
 /* Lo scopo del programma e' di inserire 4 caratteri da un byte ciascuno in un
 intero da 32 bit, ovvero 4 byte */
 
 int pack_char(char cha, char chb, char chc, char chd);
 void print_bit(int val);
+int pack(char str[]);
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
@@ -15,8 +17,8 @@ int main(int argc, char *argv[]) {
     }
 
     printf("%8c %8c %8c %8c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
-    print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
-
+    puts("");
+    print_bit(pack(argv[1]));
     return(EXIT_SUCCESS);
 }
 
@@ -28,6 +30,15 @@ int pack_char(char cha, char chb, char chc, char chd) {
     integer_val = (integer_val << CHAR_BIT) | chd;
 
     return integer_val;
+}
+
+int pack_char_compact(char str[]) {
+    int val = str[0];
+
+    for (int i=0; i<strlen(str); i++)
+        val = (val << CHAR_BIT) | str[i];
+
+    return val;
 }
 
 void print_bit(int val) {
