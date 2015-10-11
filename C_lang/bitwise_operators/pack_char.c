@@ -7,24 +7,34 @@
 intero da 32 bit, ovvero 4 byte */
 
 int pack_char(char cha, char chb, char chc, char chd);
+int pack_char_compact(char str[]);
 void print_bit(int val);
-int pack(char str[]);
 
 int main(int argc, char *argv[]) {
-    if (argc < 2) {
+
+    if ( (argc < 2) || (strlen(argv[1]) > 4) ) {
         fprintf(stderr, "Usage: %s <4 characters>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    printf("%8c %8c %8c %8c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
-    puts("");
-    print_bit(pack(argv[1]));
+    // Stampa un carattere alla volta la stringa ottenuta come argomento
+    printf("%8c%9c%9c%9c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
+    
+    print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
+    printf("\n");
+    print_bit(pack_char_compact(argv[1]));
+
     return(EXIT_SUCCESS);
 }
 
+/* La funzione pack_char() salva esattamente 4 caratteri da 1 byte ciascuno 
+in un intero da 4 byte */
 int pack_char(char cha, char chb, char chc, char chd) {
+    // Salva il primo carattere negli ultimi 8 bit meno significativi
     int integer_val = cha;
 
+    /* Scorrimento a sinistra (left-shift) di CHAR_BIT (8 bit) degli ultimi 
+    8 bit meno significativi, dopodiche' salva il nuovo carattere */
     integer_val = (integer_val << CHAR_BIT) | chb;
     integer_val = (integer_val << CHAR_BIT) | chc;
     integer_val = (integer_val << CHAR_BIT) | chd;
@@ -32,6 +42,7 @@ int pack_char(char cha, char chb, char chc, char chd) {
     return integer_val;
 }
 
+// Versione compatta della funzione pach_char() 
 int pack_char_compact(char str[]) {
     int val = str[0];
 
