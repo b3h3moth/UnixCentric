@@ -14,8 +14,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("h,a,c,k = ");
-    print_bit(pack_char('h', 'a', 'c', 'k'));
+    printf("%8c %8c %8c %8c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
+    print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
 
     return(EXIT_SUCCESS);
 }
