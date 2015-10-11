@@ -33,12 +33,12 @@ void print_bit(int val) {
     for (int i=1; i<=bit_val; ++i) {
 
         // Print 0 if MSB (Most Significant Bit) is 0, 1 otherwise
-        (val & mask) == 0 ? printf("0") : printf("1");
+        putchar((val & mask) == 0 ? ('0') : ('1'));
 
         val <<= 1;
 
         // Print 8 bit then add a space
         if ((i % 8 == 0) && (i != 0))
-            printf(" ");
+            putchar(' ');
     }
 }
