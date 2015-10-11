@@ -25,17 +25,17 @@ int main(void) {
     long val_lg = 12345;
     long long val_llg = 12345;
 
-    printf("int(%d) %d byte\n", var_int, sizeof(int));
+    printf("int(%d) %u byte\n", var_int, sizeof(int));
     show_int(var_int);
-    printf("float(%.1f) %d byte\n", var_flt, sizeof(float));
+    printf("float(%.1f) %u byte\n", var_flt, sizeof(float));
     show_float(var_flt);
-    printf("pointer(%d) %d byte\n", (int)ptr, sizeof(void *));
+    printf("pointer(%d) %u byte\n", (int)ptr, sizeof(void *));
     show_pointer(ptr);
-    printf("double(%.1f) %d byte\n", val_db, sizeof(double));
+    printf("double(%.1f) %u byte\n", val_db, sizeof(double));
     show_double(val_db);
-    printf("long(%.ld) %d byte\n", val_lg, sizeof(long));
+    printf("long(%.ld) %u byte\n", val_lg, sizeof(long));
     show_long(val_lg);
-    printf("long long(%.lld) %d byte\n", val_llg, sizeof(long long));
+    printf("long long(%.lld) %u byte\n", val_llg, sizeof(long long));
     show_long_long(val_llg);
 
     printf("\npointer(%#x) from %d to %d byte\n", val, 1, 4);
@@ -44,9 +44,9 @@ int main(void) {
     show_bytes(varp, 3);
     show_bytes(varp, 4);
 
-    printf("\nint(%d) %d byte\n", num, sizeof(int));
+    printf("\nint(%d) %u byte\n", num, sizeof(int));
     show_int(num);
-    printf("int(%.1f) %d byte\n", (float)flt, sizeof(int));
+    printf("int(%.1f) %u byte\n", (float)flt, sizeof(int));
     show_float(flt);
 
     /* Da notare che l'unita' decimale 'x' e' rappresentata in esadecimale
