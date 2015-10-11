@@ -8,7 +8,12 @@ intero da 32 bit, ovvero 4 byte */
 int pack_char(char cha, char chb, char chc, char chd);
 void print_bit(int val);
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <4 characters>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     printf("h,a,c,k = ");
     print_bit(pack_char('h', 'a', 'c', 'k'));
 
