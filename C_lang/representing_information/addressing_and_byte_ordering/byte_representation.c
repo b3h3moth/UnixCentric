@@ -5,9 +5,6 @@
 
 /* Lo scopo del programma e' di fornire la 'byte representation' di differenti
 tipi di dato, nello specifico char, int, float e void.
-
-show_bytes.h include le dichiarazioni (prototipi) delle funzioni
-show_bytes.c contiene le definizioni delle funzioni
 */
 
 int main(void) {
@@ -61,3 +58,10 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+/* How to compile:
+$ gcc   -std=c11 -Wall -pedantic byte_representation.c show_bytes.c
+$ clang -std=c11 -Wall -pedantic byte_representation.c show_bytes.c
+
+- show_bytes.h include le dichiarazioni (prototipi) delle funzioni
+- show_bytes.c contiene le definizioni delle funzioni
+*/
