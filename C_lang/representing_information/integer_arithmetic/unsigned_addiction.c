@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Lo scopo del programma e' di verificare la correttezza della somma
+algebrica tra due valori unsigned in complemento a due */
+
 int check_overflow(unsigned x, unsigned y);
 
 int main(void) {
