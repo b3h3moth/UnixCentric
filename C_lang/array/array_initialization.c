@@ -5,7 +5,7 @@
 
 int main(void) {
 
-    // Il vettore e' inizializzato col numero degli inizializzatori
+    // Il vettore e' inizializzato contestualmente alla dichiarazione
     // In questo caso si tratta di un vettore di 5 elementi
     int vector_a[] = {10, 20, 30, 40, 50};
 
