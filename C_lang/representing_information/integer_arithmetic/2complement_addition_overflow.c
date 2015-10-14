@@ -28,16 +28,12 @@ int main(void) {
 int check_overflow(int x, int y) {
     int sum = x + y;
 
+    return (INT_MAX <= sum || sum < INT_MIN);
+
+/* Just another method
     int negative_overflow = x < 0 && y < 0 && sum >= 0;
     int positive_overflow = x >= 0 && y >= 0 && sum < 0;
 
     return !negative_overflow && !positive_overflow;
-    /*
-    if (INT_MAX <= sum)
-        return 0;
-    else if ( sum < INT_MIN)
-        return 0;
-    else 
-        return 1;
-    */
+*/
 }
