@@ -9,15 +9,18 @@ overflow, sia positivo sia negativo */
 int check_overflow(int x, int y);
 
 int main(void) {
-    int val1 = 2147483647;
+    int val1 = 2147483646;
     int val2 = 1;
     int val3 = 2;
 
     printf("MAX_INT: %11d\n", INT_MAX);
     printf("MIN_INT: %11d\n", INT_MIN);
 
-    if (check_overflow(val1, val2))
-        printf("%d + %d = %d\n", val1, val2, 1);
+    int res1 = check_overflow(val1, val2);
+    printf("%d + %d = %d (res: %d\n", val1, val2, val1+val2, res1);
+
+    int res2 = check_overflow(val1, val3);
+    printf("%d + %d = %d (res: %d - overflow)\n", val1, val3, val1+val3, res2);
 
     return(EXIT_SUCCESS);
 }
@@ -30,9 +33,9 @@ int check_overflow(int x, int y) {
 
     return !negative_overflow && !positive_overflow;
     /*
-    if (INT_MAX <= x + y)
+    if (INT_MAX <= sum)
         return 0;
-    else if ( x + y < INT_MIN)
+    else if ( sum < INT_MIN)
         return 0;
     else 
         return 1;
