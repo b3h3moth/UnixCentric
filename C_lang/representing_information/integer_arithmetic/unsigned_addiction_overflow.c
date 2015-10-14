@@ -23,7 +23,8 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// Returna 1 se gli argomenti possono essere sommati senza overlow
+/* Ritorna 1 se la somma degli operandi e' corretta
+   Ritorna 0 se si verifica un overflow */
 int unsigned_check_overflow(unsigned x, unsigned y) {
     unsigned sum = x + y;
 
