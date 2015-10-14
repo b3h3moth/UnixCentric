@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /* Lo scopo del programma e' di verificare la correttezza della somma
-algebrica tra due valori unsigned in complemento a due */
+algebrica tra due valori unsigned in complemento a due, e di conseguenza
+se il risultato della somma dovesse procurare un overflow. */
 
 int check_overflow(unsigned x, unsigned y);
 
