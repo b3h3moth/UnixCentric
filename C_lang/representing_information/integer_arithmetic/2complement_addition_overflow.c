@@ -7,6 +7,7 @@ tra due valori in complemento a due, e quindi di segnalare un eventuale
 overflow, sia positivo sia negativo */
 
 int check_overflow(int x, int y);
+int sum(int x, int y);
 
 int main(void) {
     int val1 = 2147483646;
@@ -36,4 +37,7 @@ int check_overflow(int x, int y) {
 
     return !negative_overflow && !positive_overflow;
 */
+}
+
+int sum(int x, int y) {
 }
