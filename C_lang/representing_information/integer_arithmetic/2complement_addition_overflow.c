@@ -18,10 +18,10 @@ int main(void) {
     printf("MIN_INT: %11d\n", INT_MIN);
 
     int res1 = check_overflow(val1, val2);
-    printf("%d + %d = %d (res: %d\n", val1, val2, val1+val2, res1);
+    printf("%d + %d = %d (returns: %d)\n", val1, val2, val1+val2, res1);
 
     int res2 = check_overflow(val1, val3);
-    printf("%d + %d = %d (res: %d - overflow)\n", val1, val3, val1+val3, res2);
+    printf("%d + %d = %d (resturns: %d - overflow)\n", val1, val3, val1+val3, res2);
 
     return(EXIT_SUCCESS);
 }
@@ -40,4 +40,5 @@ int check_overflow(int x, int y) {
 }
 
 int sum(int x, int y) {
+    return (!check_overflow(x, y));
 }
