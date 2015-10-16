@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     // Salva la stringa di 4 byte in un intero
     value = pack_char_compact(argv[1]);
 
-    printf("\n\nGet a byte from a integer value \'%d\'\n", value);
+    printf("\n\nGet a byte from the integer value: \'%d\'\n", value);
     printf("Which byte do you want to extract? 0, 1, 2, 3: ");
 
     scanf("%1d", &byte_position);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. Byte position must be between 0 and 4.\n");
         exit(EXIT_FAILURE);
     }
-    printf("The second byte is: %c\n", unpack_char(value, 1));
+    printf("The %d byte is: %c\n", byte_position, unpack_char(value, byte_position));
 
     return(EXIT_SUCCESS);
 }
