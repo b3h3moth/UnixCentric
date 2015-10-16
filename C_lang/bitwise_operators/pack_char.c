@@ -26,9 +26,12 @@ int main(int argc, char *argv[]) {
     // print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
     // printf("\n");
 
+    // Stampa l'intero `char by char`
     print_bit(pack_char_compact(argv[1]));
 
-    int value = pack_char('c', 'h', 'a', 'r');
+    // Salva la stringa di 4 byte in un intero
+    int value = pack_char_compact(argv[1]);
+
     printf("unpack integer, get the second byte: ");
     printf("The second byte is: %c\n", unpack_char(value, 1));
 
