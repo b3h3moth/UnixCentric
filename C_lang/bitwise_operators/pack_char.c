@@ -27,6 +27,9 @@ int main(int argc, char *argv[]) {
     printf("\n");
     print_bit(pack_char_compact(argv[1]));
 
+    int value = pack_char('c', 'h', 'a', 'r');
+    printf("unpack integer, get the second byte: ");
+    printf("The second byte is: %c\n", unpack_char(
     return(EXIT_SUCCESS);
 }
 
