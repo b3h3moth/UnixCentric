@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 
     // Stampa un carattere alla volta la stringa ottenuta come argomento
     printf("%8c%9c%9c%9c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
+    printf("byte%4d byte%4d byte%4d byte%4d\n", 3,2,1,0);
     
     // print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
     // printf("\n");
