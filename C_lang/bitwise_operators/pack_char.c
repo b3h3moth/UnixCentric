@@ -23,13 +23,15 @@ int main(int argc, char *argv[]) {
     // Stampa un carattere alla volta la stringa ottenuta come argomento
     printf("%8c%9c%9c%9c\n", argv[1][0], argv[1][1], argv[1][2], argv[1][3]);
     
-    print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
-    printf("\n");
+    // print_bit(pack_char(argv[1][0], argv[1][1], argv[1][2], argv[1][3]));
+    // printf("\n");
+
     print_bit(pack_char_compact(argv[1]));
 
     int value = pack_char('c', 'h', 'a', 'r');
     printf("unpack integer, get the second byte: ");
-    printf("The second byte is: %c\n", unpack_char(
+    printf("The second byte is: %c\n", unpack_char(value, 1));
+
     return(EXIT_SUCCESS);
 }
 
