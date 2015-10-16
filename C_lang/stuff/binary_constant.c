@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Una costante binaria puo' essere scritta in GCC utilizzando il prefisso 
-'0b' oppure '0B' */
+/* Warning: Binary integer literals are a GNU extension
+
+Una costante binaria puo' essere scritta utilizzando il prefisso 
+'0b' oppure '0B', non e' tuttavia parte di alcuno standard */
 
 int main(void) {
     int x = 0B00000001; // 1
