@@ -4,10 +4,14 @@
 #include <string.h>
 
 /* Lo scopo del programma e' di inserire 4 caratteri da un byte ciascuno in un
-intero da 32 bit, ovvero 4 byte */
+intero da 32 bit, ovvero 4 byte mediante la funzione pack_char(), dopodiche'
+eseguire l'azione opposta mediante la funzione unpack_char(), ovvero estrarre
+un byte */
 
 int pack_char(char cha, char chb, char chc, char chd);
 int pack_char_compact(char str[]);
+char unpack(int x, int y);
+
 void print_bit(int val);
 
 int main(int argc, char *argv[]) {
