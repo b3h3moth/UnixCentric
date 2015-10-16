@@ -14,6 +14,7 @@ char unpack_char(int integer, int character);
 void print_bit(int val);
 
 int main(int argc, char *argv[]) {
+    int value, byte_position;
 
     if ( (argc < 2) || (strlen(argv[1]) > 4) ) {
         fprintf(stderr, "Usage: %s <4 characters>\n", argv[0]);
@@ -30,9 +31,17 @@ int main(int argc, char *argv[]) {
     print_bit(pack_char_compact(argv[1]));
 
     // Salva la stringa di 4 byte in un intero
-    int value = pack_char_compact(argv[1]);
+    value = pack_char_compact(argv[1]);
 
-    printf("unpack integer, get the second byte: ");
+    printf("\n\nGet a byte from a integer value \'%d\'\n", value);
+    printf("Which byte do you want to extract? 0, 1, 2, 3: ");
+
+    scanf("%1d", &byte_position);
+
+    if (byte_position >= 4 || byte_position < 0) {
+        fprintf(stderr, "Err. Byte position must be between 0 and 4.\n");
+        exit(EXIT_FAILURE);
+    }
     printf("The second byte is: %c\n", unpack_char(value, 1));
 
     return(EXIT_SUCCESS);
