@@ -5,13 +5,12 @@
 
 /* Lo scopo del programma e' di inserire 4 caratteri da un byte ciascuno in un
 intero da 32 bit, ovvero 4 byte mediante la funzione pack_char(), dopodiche'
-eseguire l'azione opposta mediante la funzione unpack_char(), ovvero estrarre
+eseguire l'azione opposta mediante la funzione unpack_char_char(), ovvero estrarre
 un byte */
 
 int pack_char(char cha, char chb, char chc, char chd);
 int pack_char_compact(char str[]);
-char unpack(int x, int y);
-
+char unpack_char(int integer, int character);
 void print_bit(int val);
 
 int main(int argc, char *argv[]) {
@@ -54,6 +53,25 @@ int pack_char_compact(char str[]) {
         val = (val << CHAR_BIT) | str[i];
 
     return val;
+}
+
+// La funzione unpack_char() scompatta un byte da int
+char unpack_char(int stored_integer, int byte_to_get) {
+    int      size = byte_to_get * CHAR_BIT;  // byte_to_get = 0,1,2,3
+    unsigned mask = 255; // 00000000 00000000 00000000 11111111
+
+    /* Scorrimento a sinistra (left-shift) di 'size' bit (0,8,16 o 24), ovvero
+    gli 8 bit del byte meno significativo, in modo tale da eseguire 
+    successivamente lo scompattamento */
+    mask <<= size;
+
+    /* Ritorna il byte indicato da byte_to_get
+    Anzitutto si recupera un valore da un campo di bit mediante una maschera,
+    dopodiche' il byte risultante sara' spostato con uno scorrimento a destra 
+    (right-shift) negli ultimi 8 bit e, poiche' il tipo di dato di ritorno
+    della funzione e' un char, tali bit (1 byte) sono esattamente cio' che 
+    serve */
+    return ((stored_integer & mask) >> size);
 }
 
 void print_bit(int val) {
