@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Warning: Binary integer literals are a GNU extension
+// Warning: Binary integer literals are a GNU extension
 
-Una costante binaria puo' essere scritta utilizzando il prefisso 
-'0b' oppure '0B', non e' tuttavia parte di alcuno standard */
 
 int main(void) {
+
+    /* Una costante binaria puo' essere scritta utilizzando il prefisso
+    '0b' oppure '0B', tuttavia non e' parte integrante dello standard. 
+    
+    Sia GCC sia Clang lo supportano*/
+    
     int val1 = 0B00000001; // 1
     int val2 = 0b00000010; // 2
     int total = val1 + val2;
