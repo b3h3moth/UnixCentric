@@ -13,7 +13,7 @@ extern char *optarg;
 Il puntatore optarg referenzia l'indirizzo all'interno del quale e' collocato
 il parametro relativo all'opzione in fase di elaborazione.
 
-extern int opitnd;
+extern int optind;
 ------------------
 La funzione getopt() incrementa il valore di optind di volta in volta che
 sono elaborate tutte le opzioni presenti nelle successive chiamate; di
@@ -73,8 +73,8 @@ L'uso della getopt() appare ora piuttosto evidente, tutto sta nel richiamarla
 in un ciclo fino a quando non restiuisce il valore -1, che identifica il caso
 in cui non ci sono piu' opzioni.
 
-Se non si inserisce un parametro ad una opzione che lo richiede, la funzione 
-getopt() restituisce ':'.
+Se non si inserisse un parametro a un'opzione che lo richieda, la funzione 
+getopt() restituirebbe ':'.
 */
 
 int main (int argc, char *argv[]) {
