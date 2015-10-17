@@ -28,7 +28,7 @@ int main (int argc, char* argv[]) {
         bytes_read = read (fd, buffer, sizeof (buffer));
         
         /* Print the offset in the file. */
-        printf ("0x%06x : ", offset);
+        printf ("%#06x : ", offset);
         
         for (i = 0; i < bytes_read; ++i)
             printf ("%02x ", buffer[i]);
