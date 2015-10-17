@@ -1,9 +1,3 @@
-/*
- * hexadecimal dump.
- *
- * Usage: ./a.out <file>
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -22,7 +16,7 @@ int main (int argc, char* argv[]) {
         exit(EXIT_FAILURE);
     }
         
-    /* Open the file for reading.  */
+    // Open the file for reading
     int fd = open (argv[1], O_RDONLY);
     
     do {
