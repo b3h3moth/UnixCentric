@@ -27,7 +27,7 @@ int main (int argc, char* argv[]) {
     do {
         bytes_read = read (fd, buffer, sizeof (buffer));
         
-        /* Print the offset in the file. */
+        // Stampa l'offset
         printf ("%#06x : ", offset);
         
         for (i = 0; i < bytes_read; ++i)
