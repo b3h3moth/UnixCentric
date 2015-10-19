@@ -7,12 +7,17 @@ int main(void) {
     int val1 = 900000000;
     int val2 = 2;
 
-    int result = check_overflow(val1, val2);
+    int result1 = check_overflow(val1, val2);
 
-    if (result)
+    if (result1)
         printf("%d * %d = %d\n", val1, val2, val1*val2);
     else
-        printf("Err. %d - overflow\n", result);
+        printf("Err. %d - overflow\n", result1);
+
+    if (result1)
+        printf("%d * %d = %d\n", val1, val2, val1*val2);
+    else
+        printf("Err. %d - overflow\n", result1);
 
     return(EXIT_SUCCESS);
 }
