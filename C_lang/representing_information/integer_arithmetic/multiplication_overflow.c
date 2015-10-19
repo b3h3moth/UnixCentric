@@ -6,7 +6,7 @@ int check_overflow(int x, int y);
 int main(void) {
     int val1 = 900000000;
     int val2 = 2;
-    int val3 = 3;
+    int val3 = val2 + 1;
 
     int result1 = check_overflow(val1, val2);
     int result2 = check_overflow(val1, val3);
