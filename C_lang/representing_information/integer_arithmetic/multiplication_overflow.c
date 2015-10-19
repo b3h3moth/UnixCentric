@@ -8,24 +8,24 @@ int main(void) {
     int val2 = 2;
     int val3 = val2 + 1;
 
-    int result1 = check_overflow(val1, val2);
-    int result2 = check_overflow(val1, val3);
+    int res1 = check_overflow(val1, val2);
+    int res2 = check_overflow(val1, val3);
 
-    if (result1)
+    if (res1)
         printf("%d * %d = %d\n", val1, val2, val1*val2);
     else
-        printf("Err. %d - overflow\n", result1);
+        printf("%d * %d = %d (Err: Integer Overflow)\n", val1, val2, val1*val2);
 
-    if (result2)
+    if (res2)
         printf("%d * %d = %d\n", val1, val3, val1*val3);
     else
-        printf("Err. %d - overflow\n", result2);
+        printf("%d * %d = %d (Err: Integer Overflow)\n", val1, val3, val1*val3);
 
     return(EXIT_SUCCESS);
 }
 
 int check_overflow(int x, int y) {
-    int res = x * y;
+    int tot = x * y;
 
-    return !x || res/x == y;
+    return !x || tot/x == y;
 }
