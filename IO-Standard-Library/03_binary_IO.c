@@ -41,7 +41,7 @@ int main(void) {
       {5, "Linux", 1991}
    };
 
-   unix_systems new_item, *unix_os_lists = &new_item;
+   unix_systems new_item, *unix_list = &new_item;
    num_list_elem = sizeof(list_unix_os) / sizeof(unix_systems);
 
    if ((fp = fopen(binary_file,"w+")) == NULL) {
@@ -63,15 +63,15 @@ int main(void) {
    /* Consente la lettura dall'inizio del file */
    rewind(fp);
    
-   printf("  version  year\n");
+   printf("  Version  year\n");
+
+   /* Get and print unix OS list from file */
    for (i=0; i<num_list_elem; i++) {
-     fread(unix_os_lists, sizeof(unix_systems), 1, fp);
-     
-     printf("%-2d%-9s%-4d\n",
-     	   unix_os_lists->num,
-	   unix_os_lists->name,
-	   unix_os_lists->year);
+     fread(unix_list, sizeof(unix_systems), 1, fp);
+     printf("%-2d%-9s%-4d\n", unix_list->num, unix_list->name, unix_list->year);
    }
+
+   fclose(fp);
 
    return(EXIT_SUCCESS);
 }
