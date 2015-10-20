@@ -42,7 +42,7 @@ I programmi saranno tutti compilati utilizzando i seguenti standard:
 Saranno utilizzate diverse architetture per testare gli esempi: 
 - PPC 32 bit (big endian)
 - x86 32 bit (little endian)
-- amd64 64 bit (little endian)
+- x86 64 bit (little endian)
 
 Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
 con il comilatore Clang (LLVM);
