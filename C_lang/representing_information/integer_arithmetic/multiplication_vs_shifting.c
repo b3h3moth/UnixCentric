@@ -10,10 +10,11 @@ int main(void) {
     int val2 = 8;
 
     int res1 = val1 * val2;
-    int res2 = (2 << 3) + (2 << 3);
+    int res2 = (2 << 3) + (2 << 3); // 32
+    int res3 = (2 << 4);            // 32
 
     printf("%d * %d = %d\n", val1, val2, res1);
-    printf("%d + %d = %d\n", (2 << 3), (2 << 3), res2);
+    printf("%d + %d = %d - %d\n", (2 << 3), (2 << 3), res2, res3);
 
     return(EXIT_SUCCESS);
 }
