@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+
 signed short multiplication_8bit(signed char m, signed char r);
 
 int main(void) {
+    signed int val1 = 7;
+    signed int val2 = 8;
+
+    signed short result = multiplication_8bit(val1, val2);
+
+    printf("%d * %d = %d\n", val1, val2, result);
+
     return(EXIT_SUCCESS);
 }
 
@@ -15,20 +23,20 @@ signed short multiplication_8bit(signed char m, signed char r) {
 
     A = m << 9;
     S = (-m) << 9;
-    P (r & 0xFF) << 1;
+    P = (r & 0xFF) << 1;
 
     for (i=0; i<CHAR_BIT; i++) {
         switch ( P & 3) {
             case 1:     // 01
-                p += A;
+                P += A;
                 break;
             case 2:     // 10
-                p += S;
+                P += S;
                 break;
             default:    // 11 oppure 00
                 break;
         }
-        p >>= 1;
+        P >>= 1;
     }
     return P >> 1;
 }
