@@ -39,14 +39,16 @@ overflow, ritorna 1 nel caso la somma fosse corretta */
 int check_overflow(int x, int y) {
     int sum = x + y;
 
-    return (INT_MAX <= sum || sum < INT_MIN);
+    /* Just another method
+    return (INT_MAX <= sum || sum < INT_MIN); */
 
-/* Just another method
     int negative_overflow = x < 0 && y < 0 && sum >= 0;
     int positive_overflow = x >= 0 && y >= 0 && sum < 0;
 
+    /* Se si sommano due numeri dello stesso segno, allora si ha overflow se e 
+    solo se il risultato ha segno opposto */
+
     return !negative_overflow && !positive_overflow;
-*/
 }
 
 /* La funzione sum() ritorna 1 nel caso la somma fosse corretta, ritorna 0
