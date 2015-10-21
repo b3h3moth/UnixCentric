@@ -5,8 +5,8 @@
 signed short multiplication_8bit(signed char m, signed char r);
 
 int main(void) {
-    signed int val1 = 7;
-    signed int val2 = 8;
+    signed int val1 = -19;
+    signed int val2 = -8;
 
     signed short result = multiplication_8bit(val1, val2);
 
