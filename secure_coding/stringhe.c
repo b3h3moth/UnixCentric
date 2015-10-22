@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_string_str_len_citygth(const char str[], int size);
+int get_strlen(const char str[], int size);
 
 int main(int argc, char *argv[]) {
     const char italian_city[10] = "torino";
     const char football_team[] = "juventus";
 
-    int str_len_city = get_string_str_len_citygth(italian_city, 10);
-    int str_len_team = get_string_str_len_citygth(football_team, 10;
+    int str_len_city = get_strlen(italian_city, 10);
+    int str_len_team = get_strlen(football_team, 10;
 
     printf("str_len_city: %d\nstr_len_team: %d\n", str_len_city, str_len_team);
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 }
 
 // Calcola la str_len_teamghezza della stringa 'str'
-int get_string_str_len_citygth(const char str[], int size) {
+int get_strlen(const char str[], int size) {
     int i;
     int str_size = 0;
 
