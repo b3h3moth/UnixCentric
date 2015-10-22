@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define STR_SIZE    20
+
 int get_strlen(const char str[], int size);
 
 int main(int argc, char *argv[]) {
-    const char italian_city[10] = "torino";
-    const char football_team[] = "juventus";
+    const char basket_team[STR_SIZE] = "Los Angeles Lakers";
+    const char football_team[]       = "Juventus";
 
-    int str_len_city = get_strlen(italian_city, 10);
-    int str_len_team = get_strlen(football_team, 10;
+    int len_bteam = get_strlen(basket_team, STR_SIZE);
+    int len_fteam = get_strlen(football_team, STR_SIZE);
 
-    printf("str_len_city: %d\nstr_len_team: %d\n", str_len_city, str_len_team);
+    printf("%20s (%2d byte)\n", basket_team, len_bteam);
+    printf("%20s (%2d byte)\n", football_team, len_fteam);
 
     return(EXIT_SUCCESS);
 }
 
 // Calcola la str_len_teamghezza della stringa 'str'
 int get_strlen(const char str[], int size) {
-    int i;
     int str_size = 0;
 
-    for (i=0; i<size; i++) {
-        if (a[i] == '\0')
+    for (int i=0; i<size; i++) {
+        if (str[i] == '\0')
             break;
         str_size++;
     }
 
     return str_size;
 }
-
