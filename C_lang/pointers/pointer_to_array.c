@@ -13,5 +13,9 @@ int main(void) {
     printf(" football_team[0]: %p\n", (void *)football_team[0]);
     printf("       ptr_to_ptr: %p\n", (void *)*ptr_to_ptr);
 
+    printf("      Dereference:\n");
+    printf("              ptr: %s\n", ptr);
+    printf("       ptr_to_ptr: %s\n", *ptr_to_ptr);
+
     return(EXIT_SUCCESS);
 }
