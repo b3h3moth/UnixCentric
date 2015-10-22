@@ -8,8 +8,9 @@ int main(void) {
     char *ptr = football_team[0];
     char **ptr_to_ptr = &ptr;
 
+    printf("Memory address of:\n");
     printf("              ptr: %p\n", ptr);
-    printf("&football_team[0]: %p\n", (void *)football_team[0]);
+    printf(" football_team[0]: %p\n", (void *)football_team[0]);
     printf("       ptr_to_ptr: %p\n", (void *)*ptr_to_ptr);
 
     return(EXIT_SUCCESS);
