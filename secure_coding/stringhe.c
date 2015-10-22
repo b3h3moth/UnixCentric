@@ -1,44 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int len_array(const char a[], int l);
+int get_string_str_len_citygth(const char str[], int size);
 
 int main(int argc, char *argv[]) {
-    const char str1[10] = "roma";
-    const char str2[] = "napoli";
+    const char italian_city[10] = "torino";
+    const char football_team[] = "juventus";
 
-    int len = len_array(str1, 10);
-    int lun = len_array(str2, 10);
+    int str_len_city = get_string_str_len_citygth(italian_city, 10);
+    int str_len_team = get_string_str_len_citygth(football_team, 10;
 
-    printf("len: %d\nlun: %d\n", len, lun);
-
-/*
-    for (i=0; i<10; i++) {
-        if (str1[i] == '\0')
-            break;
-        len++;
-    }
-
-    for (j=0; j<10; j++) {
-        if (str2[j] == '\0')
-            break;
-        lun++;
-    }
-*/
+    printf("str_len_city: %d\nstr_len_team: %d\n", str_len_city, str_len_team);
 
     return(EXIT_SUCCESS);
 }
 
-int len_array(const char a[], int l) {
+// Calcola la str_len_teamghezza della stringa 'str'
+int get_string_str_len_citygth(const char str[], int size) {
     int i;
-    int lun = 0;
+    int str_size = 0;
 
-    for (i=0; i<l; i++) {
+    for (i=0; i<size; i++) {
         if (a[i] == '\0')
             break;
-        lun++;
+        str_size++;
     }
 
-    return lun;
+    return str_size;
 }
 
