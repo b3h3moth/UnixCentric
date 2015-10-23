@@ -5,9 +5,9 @@ int main(void) {
     int number = 10;
     int *ptr = &number;
 
-    /* L'operatore di indirezione applicato a un puntatore produce il contenuto
-    della locazione di memoria a cui il puntatore punta, che generalmente
-    equivale ad accedere al valore della variabile puntata */
+    /* L'operatore di indirezione (o dereference) applicato a un puntatore 
+    produce il contenuto della locazione di memoria a cui il puntatore punta,
+    che generalmente equivale ad accedere al valore della variabile puntata */
 
     printf("number: %d\n", number);
     printf("   ptr: %d\n", *ptr);
