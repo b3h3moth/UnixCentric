@@ -5,20 +5,22 @@ int main(void) {
     int n = 10;
     int *ptr = &n;
 
-    /* L'operatore di dereferenziazione ritorna il valore puntato dalla 
-    variabile puntatore. */
+    /* L'operatore di indirezione applicato a un puntatore produce il contenuto
+    della locazione di memoria a cui il puntatore punta, che generalmente
+    equivale ad accedere al valore della variabile puntata */
 
-    printf("dereferenziazione di ptr: %d\n", *ptr);
+    printf("*ptr: %d\n", *ptr);
 
-    /* Il valore di ritorno dell'operatore di dereferenziazione puo' essere
+    /* Il valore di ritorno dell'operatore di indirezione puo' essere
     assegnato ad un lvalue. */
 
-    *ptr = 150; 
+    int val = *ptr;
+    printf("val: %d\n", val);
 
-    /* In questo peraltro si va a modificare direttamente l'indirizzo di memoria
-    puntato da ptr. */
-
-    printf("valore di n: %d\n", n);
+    /* Un puntatore nel corso del programma puo' puntare verso altri indirizzi
+    o valori */
+    *ptr = 150;
+    printf("*ptr: %d\n", *ptr);
 
     return(EXIT_SUCCESS);
 }
