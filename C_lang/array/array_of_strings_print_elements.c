@@ -3,7 +3,7 @@
 #include <string.h>
 
 /*
- * Visualizzare gli elementi di un vettore di stringhe
+ * Visualizzare gli elementi di un puntatore a un vettore di stringhe
  */
 
 int main(int argc, char *argv[])
