@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 3
-
 int main(void) {
-    float data[SIZE] = {1.1, 2.2, 3.3}, *ptr;
+    float data[] = {1.1, 2.2, 3.3}, *ptr;
     
     ptr = &data[0]; 
     // Istruzione equivalente: ptr = data;
