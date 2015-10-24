@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int main(void) {
-    int data[][3] = {
+    
+    int data[][3] = {   // Equivalente a data[2][3]
         {10, 20, 30},
         {40, 50, 60},
     };
