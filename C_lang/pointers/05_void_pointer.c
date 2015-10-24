@@ -10,25 +10,26 @@ int main(void) {
 
     int n = 10;
     int *ptr = &n;
+    int *p;
 
-    printf(" Valore di ptr: %p\n", ptr);
+    printf("   n: %p\n", (void *)&n);
+    printf(" ptr: %p\n", (void *)ptr);
 
     /* Al puntatore a void vptr si assegna il puntatore ad intero ptr */
     void *vptr = ptr;
 
-    /* Si casta per tornare (indietro) al valore del puntatore originale */
-    ptr = (int *)vptr;
-
-    printf(" Valore di ptr: %p\n", ptr);
+    printf("vptr: %p\n", vptr);
     
-    /* La dereferenziazione non e' consentita, in caso di compilazione ci sara'
-    un errore del compilatore:
-
-    printf("Valore di vptr: %p\n", *vptr);
-                                   
-    warning: dereferencing ‘void *’ pointer [enabled by default]
-    error: invalid use of void expression
+    /* printf(" Valore di ptr: %d\n", *vptr);
+    
+    La dereferenziazione non e' consentita, in caso di compilazione ci sara'
+    un errore del compilatore, 'error: invalid use of void expression'.
     */
+
+    p = vptr;
+
+    printf("   p: %p\n", (void *)p);
+    printf("   p: %d\n", *p);
 
     return(EXIT_SUCCESS);
 }
