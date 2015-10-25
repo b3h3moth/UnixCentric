@@ -17,5 +17,12 @@ int main(void) {
         printf("%5d\n", num);
     }
 
+    unsigned int number = 66880;
+    unsigned int result = number >> 4;  // 66880/16
+
+    printf("\n%d\n", number);
+    printf("%d >> %d = %d\n", number, 4, result);
+    printf("%d  * %d = %d\n", result, 16, result*16);
+
     return(EXIT_SUCCESS);
 }
