@@ -24,5 +24,9 @@ int main(void) {
     printf("%d >> %d = %d\n", number, 4, result);
     printf("%d  * %d = %d\n", result, 16, result*16);
 
+    /* Per una variabile 'var' di tipo unsigned, l'espressione:
+    var >> n
+    e' equivalente a x / 2^n, ovvero la potenza di due elevato alla 'n'
+    */
     return(EXIT_SUCCESS);
 }
