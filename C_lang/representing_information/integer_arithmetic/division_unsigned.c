@@ -3,9 +3,9 @@
 
 int main(void) {
     /* Si sta considerando la divisione di un numero di tipo unsigned per una
-    potenza del 2, si intende dimostrare che se il left-shift equivale a
-    moltiplicare per due, allora il right-shift corrisponde alla divisione
-    per due */
+    potenza del 2, si intende dimostrare che se il left-shift equivale a - 
+    in alcuni casi - moltiplicare per una potenza del due, allora il 
+    right-shift corrisponde alla divisione per una potenza del due */
 
     unsigned int num = 32768;
 
