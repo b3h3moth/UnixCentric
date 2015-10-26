@@ -13,7 +13,7 @@ int main(void) {
     int resx = (val << 3) + (val << 2) + (val << 1);
     printf("%d\n", resx);
 
-    // The total is 9 (3*3)
+    // The total is 3
     int resy = (val << 1) + val;
     printf("%d\n", resy);
 
