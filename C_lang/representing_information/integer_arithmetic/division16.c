@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define DIV 16
+
 int div16(int num);
 
 int main(void) {
-    const int val = 165;
+    // Ciascun numero relativo intero sara' diviso per DIV
+    const int numbers[] = {165,-165,48,-48,32,-32,197,-197,1,-1,0,234,-234};
+    const int elem_of_numbers = sizeof(numbers) / sizeof(numbers[0]);
 
-    printf("%d / %d = %d\n", val, 16, div16(val));
+    for(int i=0; i<elem_of_numbers; i++)
+        printf("%5d / %2d = %3d\n", numbers[i], DIV, div16(numbers[i]));
 
     return(EXIT_SUCCESS);
 }
 
-// Ritorna il risultato della divisione num / 16
+// Ritorna il risultato della divisione num / DIV
 int div16(int num) {
     /* bias puo' essere:
     '0'  se (num >= 0);
