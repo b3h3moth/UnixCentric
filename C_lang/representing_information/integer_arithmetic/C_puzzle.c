@@ -5,9 +5,10 @@
 int main(void) {
     int val1 = INT_MIN;
 
-    if (val1 > 0) || (val1 -1 < 0)
+    if ( (val1 > 0) || (val1 -1 < 0) )
         printf("true\n");
     else
-        printf("false\n");
+        printf("false; %d - 1 = %d\n", INT_MIN, INT_MIN-1); // integer overflow
+
     return(EXIT_SUCCESS);
 }
