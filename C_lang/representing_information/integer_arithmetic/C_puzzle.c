@@ -10,5 +10,7 @@ int main(void) {
     else
         printf("false; %d - 1 = %d\n", INT_MIN, INT_MIN-1); // integer overflow
 
+    if ( (val1 & 7) != 7 || (val1<<29 < 0) )
+        printf("true\n");
     return(EXIT_SUCCESS);
 }
