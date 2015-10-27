@@ -5,13 +5,13 @@ int get_most_significant_byte(int num);
 
 int main(void) {
     int numbers[] = {0xFFEEEEEE, 0xE1234567, 0x87654321, 0xAC00BC01,
-                     0x0FAABBCC, 0x57894232, 0xD1678992, 0xEF00FFFF };
+                     0x1FAABBCC, 0x57894232, 0xD1678992, 0xEF00FFFF };
 
     unsigned int elem_of_numbers = sizeof(numbers) / sizeof(numbers[0]);
 
     for (int i=0; i<elem_of_numbers; i++) {
         int msb = get_most_significant_byte(numbers[i]);
-        printf("MSB of %#x = %#x(%d)\n", numbers[i], msb, msb);
+        printf("MSB of %#X = %#X(%d)\n", numbers[i], msb, msb);
     }
 
     return(EXIT_SUCCESS);
