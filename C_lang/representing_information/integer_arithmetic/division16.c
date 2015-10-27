@@ -13,6 +13,10 @@ int main(void) {
 
 // Ritorna il risultato della divisione num / 16
 int div16(int num) {
+    /* bias puo' essere:
+    '0'  se (num >= 0);
+    '15' se  (num < 0);
+    */
     int bias = (num >> 31) & 0xF;
     return (num + bias) >> 4;
 }
