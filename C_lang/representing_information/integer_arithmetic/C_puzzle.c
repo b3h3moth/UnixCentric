@@ -20,12 +20,17 @@ int main(void) {
     if ((val2 * val2) >= 0)
         printf("true\n");
     else
-        printf("false; %d(%#x) * %d(%#x) = %d(%#x)\n", val2, val2, val2, val2, \
-                res2, res2);
+        printf("false; %d(%#x) * %d(%#x) = %d(%#x)\n", \
+                val2, val2, val2, val2, res2, res2);
 
     // Se val2 è un non-negativo allora -val2 e' un non-positivo
     if ( (val2 < 0) || (-val2 <= 0) )
         printf("true\n");
+
+    if ( (val1 > 0) || (val1 >= 0) )
+        printf("true\n");
+    else
+        printf("false; (%d > 0) || (%d >= 0)\n", val1, val1);
 
     return(EXIT_SUCCESS);
 }
