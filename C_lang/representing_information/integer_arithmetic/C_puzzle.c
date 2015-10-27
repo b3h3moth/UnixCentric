@@ -27,6 +27,7 @@ int main(void) {
     if ( (val2 < 0) || (-val2 <= 0) )
         printf("true\n");
 
+    // Se val1 e' un numero negativo, sono entrambi negataivi, 
     if ( (val1 > 0) || (val1 >= 0) )
         printf("true\n");
     else
