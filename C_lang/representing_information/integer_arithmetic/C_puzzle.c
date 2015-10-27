@@ -12,5 +12,15 @@ int main(void) {
 
     if ( (val1 & 7) != 7 || (val1<<29 < 0) )
         printf("true\n");
+
+    // 65535 = 0xFFFF, x*x = -131071, 0xFFFE0001
+    int val2 = 65535;
+    int res2 = val2*val2;
+
+    if ((val2 * val2) >= 0)
+        printf("true\n");
+    else
+        printf("false; %d(%#x) * %d(%#x) = %d(%#x)\n", val2,val2,val2,val2,res2,res2);
+
     return(EXIT_SUCCESS);
 }
