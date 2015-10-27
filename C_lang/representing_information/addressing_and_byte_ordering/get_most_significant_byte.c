@@ -4,10 +4,10 @@
 int get_most_significant_byte(int num);
 
 int main(void) {
-    int number = 12345;
+    int number = 0xFF000000;
 
     int msb = get_most_significant_byte(number);
-    printf("MSB od %d = %d\n", number, msb);
+    printf("MSB of %#x = %#x(%d)\n", number, msb, msb);
 
     return(EXIT_SUCCESS);
 }
