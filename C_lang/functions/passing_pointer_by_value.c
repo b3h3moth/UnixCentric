@@ -12,11 +12,11 @@ int main(void) {
 
     /* Lo specificatore di formato %p stampa l'indirizzo di memoria del
     puntatore in formato esadecimale. */
-    printf("Address before function: %p: %d\n", (void *)p, *p);
+    printf("Address before foo() function: %p: %d\n", (void *)p, *p);
 
     foo(p);
 
-    printf(" Address after function: %p: %d\n", (void *)p, *p);
+    printf(" Address after foo() function: %p: %d\n", (void *)p, *p);
 
     /* In entrambi i casi la printf() ha visualizzato il medesimo indirizzo,
     pertanto il passaggio dei parametri e' per value, anche se si tratta di
@@ -28,4 +28,5 @@ int main(void) {
 void foo(int *ptr) {
     int val = 10;
     ptr = &val;
+    printf("Address of 'ptr' inside foo(): %p: %d\n", (void *)ptr, *ptr);
 }
