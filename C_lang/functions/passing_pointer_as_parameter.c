@@ -8,15 +8,19 @@ int main(void) {
     int *ptr = &val;
 
     /* Il puntatore 'ptr' passato come argomento alla funzione 'sum()'
-    contiene l'indirizzo della variabile 'val', pertanto si modifichera'
+    contiene l'indirizzo della variabile 'val', pertanto andra' a modificare
     il valore della variabile stessa.
     
-    I  puntatori sono lvalue, e come tali sono oggetti di assegnamento */
+    I  puntatori sono lvalue, e come tali sono oggetti di assegnamento. */
+
     sum(ptr, 3);
     printf("%d\n", val);
 
-    /* Oppure si sarebbe potuto passare alla funzione l'indirizzo della
-    variabile 'val', ottenendo il medesimo risultato */
+    /* Si sarebbe potuto passare alla funzione l'indirizzo della variabile 
+    'val', ottenendo il medesimo risultato. */
+
+    sum(&val, 10);
+    printf("%d\n", val);
 
     return(EXIT_SUCCESS);
 }
