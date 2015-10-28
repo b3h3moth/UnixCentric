@@ -27,7 +27,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// La funzione sum(), somma ciascune elemento del vettore
+// La funzione sum(), somma ciascun elemento del vettore
 int sum(int data[], int len) {
     printf("[ sum()] array size: %zu byte\n", sizeof(data) );
 
