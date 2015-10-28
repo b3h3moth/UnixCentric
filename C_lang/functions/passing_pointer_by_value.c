@@ -4,18 +4,19 @@
 void foo(int *ptr);
 
 int main(void) {
-    /* In C il passaggio dei parametri avviene sempre per valore, poi se per
-    mezzo dei puntatori tale regola possa essere aggirata o meno e' un altro 
-    discorso. */
+    /* In C il passaggio dei parametri avviene sempre per valore (by value), 
+    poi se per mezzo dei puntatori tale regola possa essere aggirata dando 
+    una sorta parvenza di passaggio by reference e' tutt'altro discorso, ma
+    non cambia di una virgola il concetto di fondo, ovvero by value. */
     int num = 20;
     int *p = &num;
 
-    /* Lo specificatore di formato %p stampa l'indirizzo di memoria del
-    puntatore in formato esadecimale. */
+    // Stampa l'indirizzo della variabile 'num' puntata da 'p'
     printf("Address before foo() function: %p: %d\n", (void *)p, *p);
 
     foo(p);
 
+    // Stampa l'indirizzo della variabile 'num' puntata da 'p'
     printf(" Address after foo() function: %p: %d\n", (void *)p, *p);
 
     /* In entrambi i casi la printf() ha visualizzato il medesimo indirizzo,
@@ -26,7 +27,14 @@ int main(void) {
 }
 
 void foo(int *ptr) {
+    /* Al puntatore 'ptr' si assegna l'indirizzo della variabile 'val', 
+    inoltre si modifica il valore della variabile stessa; tali istruzioni 
+    non riguardano ne' il valore di 'num' ne' tantomento il suo indirizzo, 
+    dimostrando il fatto che il passaggio dei parametri avviene by value. */
     int val = 10;
     ptr = &val;
+    *ptr = 30;
+
+    // Stampa l'indirizzo della variabile 'val' puntata da 'ptr'
     printf("Address of 'ptr' inside foo(): %p: %d\n", (void *)ptr, *ptr);
 }
