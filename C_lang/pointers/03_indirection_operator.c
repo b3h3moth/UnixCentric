@@ -27,5 +27,9 @@ int main(void) {
     printf("   ptr: %d\n", *ptr);
     printf("number: %d\n", number);
 
+    // Equivalente a: var = number
+    int var = *&number;
+    printf("   var: %d\n", var);
+
     return(EXIT_SUCCESS);
 }
