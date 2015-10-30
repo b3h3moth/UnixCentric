@@ -30,3 +30,9 @@ int sum(const int vec[], int size) {
 
     return tmp;
 }
+
+/* Un Compound literal mi fa pensare ai tipi di dato anonimi del Perl, sono
+molto interessanti; a parer mio con qualche accorgimento in piu' potranno
+divenire anche estremamente utili. 
+
+Al momento trovano una collocazione come argomenti di funzione. */
