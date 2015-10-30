@@ -38,8 +38,7 @@ int main(int argc, char *argv[]) {
     p += 3; /* Il puntatore ora punta a se stesso */
     printf("\n%p v[3]\n%p p\n", (void *)&v[3], (void *)p);
 
-    /* Sottrarre un intero da un puntatore 
-       -----------------------------------*/
+    // Sottrarre un intero da un puntatore 
     printf("Sottrazione tra intero e puntatore\n");
     int vect[] = {12, 56, 78};
     int *pt = vect + 2; /* Si fa puntatore all'ultimo elemento del vettore */
@@ -50,9 +49,8 @@ int main(int argc, char *argv[]) {
     pt -= 1;                /* 4 byte indietro */
     printf("%d\n", *pt);
 
-    /* Sottrarre puntatore a puntatore 
-       -------------------------------*/
-    printf("Sottrazione  puntatori\n");
+    // Sottrarre un puntatore a un puntatore 
+    printf("Sottrazione puntatori\n");
     int data[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
     int *pt0 = &data[2];
     int *pt1 = &data[4];
