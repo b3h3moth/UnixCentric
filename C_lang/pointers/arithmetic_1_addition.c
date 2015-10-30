@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
 
 // Array length
 #define SIZE 10
 
-int main(int argc, char *argv[]) {
+int main(void) {
     /* Quando si lavora con l'aritmetica dei puntatori si deve sempre tenere a
     mente la grandezza di ciascun tipo di dato:
     
