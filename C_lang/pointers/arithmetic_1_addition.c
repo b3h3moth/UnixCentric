@@ -4,6 +4,8 @@
 // Array length
 #define SIZE 10
 
+// Somma di un intero ad un puntatore
+
 int main(void) {
     /* Quando si lavora con l'aritmetica dei puntatori si deve sempre tenere a
     mente la grandezza di ciascun tipo di dato:
@@ -24,7 +26,6 @@ int main(void) {
     relazionali, ma non e' un'operazione aritmetica in senso stretto.
     */
 
-    // Sommare un intero a un puntatore
     int vec[SIZE] = {98, 16, 24, 10, 87, 28, 93, 11, 54, 92};
     int *ptr = vec;
 

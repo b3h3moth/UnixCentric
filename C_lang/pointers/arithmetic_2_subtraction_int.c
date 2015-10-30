@@ -4,9 +4,11 @@
 // Array length
 #define SIZE 10
 
+// Sottrazione di un intero da un puntatore
+
 int main(void) {
-    // Sottrarre un intero a un puntatore
     int vec[SIZE] = {98, 16, 24, 10, 87, 28, 93, 11, 54, 92};
+    // Il puntatore *ptr punta all'ultimo elemento dell'array
     int *ptr = &vec[SIZE-1];
 
     printf("            Array: ");
