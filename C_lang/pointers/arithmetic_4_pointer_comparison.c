@@ -4,7 +4,7 @@
 // Array length
 #define SIZE 10
 
-// Confronto tra puntatori mediante gli operatori relazionali
+// Confronto tra puntatori mediante operatori relazionali e di uguaglianza
 
 int main(void) {
     int vec[SIZE] = {98, 16, 24, 10, 87, 28, 93, 11, 54, 92};
