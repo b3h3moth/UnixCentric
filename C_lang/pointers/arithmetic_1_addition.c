@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+// Array length
+#define SIZE 10
+
 int main(int argc, char *argv[]) {
     /* Quando si lavora con l'aritmetica dei puntatori si deve sempre tenere a
     mente la grandezza di ciascun tipo di dato:
@@ -22,24 +25,23 @@ int main(int argc, char *argv[]) {
     relazionali, ma non e' un'operazione aritmetica in senso stretto.
     */
 
-    // Sommare un intero a un puntatore 
-    printf("Somma\n");
-    int vec[] = {98, 16, 24};
-    int *ptr = vec; /* Non serve l'operatore di indirizzo perche' in questo
-                       caso il puntatore puntera' all'inizio del vettore,
-                       ossia al primo elemento */
+    // Sommare un intero a un puntatore
+    int vec[SIZE] = {98, 16, 24, 10, 87, 28, 93, 11, 54, 92};
+    int *ptr = vec;
 
-    printf("%d %p <-- indirizzo iniziale del vettore\n", *ptr, (void *)ptr);
+    printf("            Array: ");
+    for (int i=0; i<sizeof(vec)/sizeof(vec[0]); i++)
+        printf("%d, ", vec[i]); 
+
+    printf("\nAddress of vector: %d %p \n", *ptr, (void *)ptr);
+
     ptr++;                  /* 4 byte avanti */
-    printf("%d %p\n", *ptr, (void *)ptr);
+    printf("ptr + %d (%2d byte): %d %p\n", 1, 4, *ptr, (void *)ptr);
+    
     ptr += 1;               /* 4 byte avanti */
-    printf("%d %p\n", *ptr, (void *)ptr);
+    printf("ptr + %d (%2d byte): %d %p\n", 1, 4, *ptr, (void *)ptr);
 
-  
-    int v[] = {1,2,3};
-    int *p = v;
-    p += 3; /* Il puntatore ora punta a se stesso */
-    printf("\n%p v[3]\n%p p\n", (void *)&v[3], (void *)p);
+    printf("ptr + %d (%2d byte): %d %p\n", 4, 16, *(ptr+4), (void *)(ptr+4));
 
     return(EXIT_SUCCESS);
 }
