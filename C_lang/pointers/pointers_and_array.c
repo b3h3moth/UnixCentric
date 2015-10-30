@@ -38,11 +38,6 @@ int main(void) {
 
     for (ptr1 = &data[0]; ptr1 < &data[SIZE]; ptr1++)
         printf("%.1f, ", *ptr1);
-
-    printf("\n");
     
-    /* Operatore di indirezione (Indirection operator *) e 
-    Operatore di incremento  (Increment operator ++) con i puntatori */
-
     return(EXIT_SUCCESS);
 }
