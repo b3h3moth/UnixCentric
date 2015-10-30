@@ -39,5 +39,14 @@ int main(void) {
     for (ptr1 = &data[0]; ptr1 < &data[SIZE]; ptr1++)
         printf("%.1f, ", *ptr1);
     
+    printf("\n");
+    
+    // Ancor piu' efficiente
+
+    ptr1 = &data[0];
+
+    while (ptr1 < &data[SIZE])
+        printf("%.1f, ", *ptr1++);
+
     return(EXIT_SUCCESS);
 }
