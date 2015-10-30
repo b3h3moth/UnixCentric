@@ -12,10 +12,14 @@ int main(int argc, char *argv[]) {
     long    8 byte
     float   4 byte
     double  8 byte
+
+    Le operazioni permesse sono:
+    - La somma di un intero a un puntatore;
+    - La sottrazione da un puntatore di un intero;
+    - La sottrazione da un puntatore di un puntatore.
     */
 
-    /* Sommare un intero a un puntatore 
-       --------------------------------*/
+    // Sommare un intero a un puntatore 
     printf("Somma\n");
     int vec[] = {98, 16, 24};
     int *ptr = vec; /* Non serve l'operatore di indirizzo perche' in questo
