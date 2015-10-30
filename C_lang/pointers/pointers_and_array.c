@@ -28,17 +28,18 @@ int main(void) {
     printf("*(&data[1]): %f\n", *(&data[2]));
     printf("  *(ptr +1): %f\n", *(data + 2));
 
+    printf("\n");
 
     /* Sebbene l'elemento SIZE non esista - gli elementi del vettore sono
     SIZE -1 - e' perfettamente lecito e anche sicuro utilizzare
-    p < &data[SIZE] */
+    ptr1 < &data[SIZE] */
     
-    float *p;
+    float *ptr1;
+
+    for (ptr1 = &data[0]; ptr1 < &data[SIZE]; ptr1++)
+        printf("%.1f, ", *ptr1);
+
     printf("\n");
-
-    for (p = &data[0]; p < &data[SIZE]; p++)
-        printf("%.1f, ", *p);
-
     
     /* Operatore di indirezione (Indirection operator *) e 
     Operatore di incremento  (Increment operator ++) con i puntatori */
