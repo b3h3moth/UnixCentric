@@ -40,6 +40,8 @@ int main(void) {
    
     int *ptr;
 
+    /* Stampa ciascun elemento dell'array, il ciclo for e' gestito ovviamente
+    solo mediante puntatori */
     for (ptr = &data[0][0]; ptr <= &data[ROWS-1][COLS-1]; ptr++)
         printf("%d, ", *ptr);
 
