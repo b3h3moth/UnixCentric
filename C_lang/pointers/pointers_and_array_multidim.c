@@ -37,13 +37,20 @@ int main(void) {
 
     // Stampa il valore del secondo elemento del secondo sottoarray [1][1]
     printf("*(*(data+1)+1): %d\n", *(*(data + 1) + 1) );
-   
+  
+    printf("\n Array elements:\n");
     int *ptr;
+    unsigned short new_line = 1;
 
     /* Stampa ciascun elemento dell'array, il ciclo for e' gestito ovviamente
     solo mediante puntatori */
-    for (ptr = &data[0][0]; ptr <= &data[ROWS-1][COLS-1]; ptr++)
+    for (ptr = &data[0][0]; ptr <= &data[ROWS-1][COLS-1]; ptr++, new_line++) {
         printf("%d, ", *ptr);
+
+        // Just a trick to get a new-line for each row
+        if (new_line % COLS == 0)
+            printf("\n");
+    }
 
     return(EXIT_SUCCESS);
 }
