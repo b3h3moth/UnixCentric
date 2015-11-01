@@ -30,8 +30,8 @@ int main(void) {
 
     printf("\n");
 
-    /* Sebbene l'elemento SIZE non esista - gli elementi del vettore sono
-    SIZE -1 - e' perfettamente lecito e anche sicuro utilizzare
+    /* Sebbene l'elemento data[SIZE] non esista - gli elementi del vettore
+    sono SIZE-1 - e' perfettamente lecito e anche sicuro utilizzare
     ptr1 < &data[SIZE] */
     
     float *ptr1;
