@@ -19,7 +19,6 @@ show_bytes.o: show_bytes.c show_bytes.h
 zero_extension.o: expanding_bit_1_zero_extension.c show_bytes.h
 	$(CC) $(CFLAGS) -c expanding_bit_1_zero_extension.c
 
-
 sign_extension.o: expanding_bit_2_sign_extension.c show_bytes.h
 	$(CC) $(CFLAGS) -c expanding_bit_2_sign_extension.c
 
