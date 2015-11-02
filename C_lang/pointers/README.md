@@ -10,3 +10,4 @@
 * Dynamic Memory Allocation 
 * Pointer to function
 * Pointer to pointer
+* Pointer to void
