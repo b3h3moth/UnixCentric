@@ -45,12 +45,27 @@ wild side");
    estrapolare caratteri */
 
    char ch1, ch2, ch3, ch4, ch5;
-   ch1 = "abcdefghilmnop"[7]; 
-   ch2 = "abcdefghilmnop"[4]; 
-   ch3 = "abcdefghilmnop"[9]; 
-   ch4 = "abcdefghilmnop"[9]; 
-   ch5 = "abcdefghilmnop"[12]; 
+
+   ch1 = "abcdefghijklmnopqrstuvwxyz"[7];   // Si estrapola il carattere 'h'
+   ch2 = "abcdefghijklmnopqrstuvwxyz"[4];   // Si estrapola il caratteri 'e'
+   ch3 = "abcdefghijklmnopqrstuvwxyz"[11];  // Si estrapola il caratteri 'l'
+   ch4 = "abcdefghijklmnopqrstuvwxyz"[11];  // Si estrapola il caratteri 'l'
+   ch5 = "abcdefghijklmnopqrstuvwxyz"[14];  // Si estrapola il caratteri 'o'
+   
    printf("5 - %c%c%c%c%c\n", ch1,ch2,ch3,ch4,ch5);
+
+   // Stessa operazione, utilizzando una stringa
+   char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+
+   char ch6,ch7,ch8,ch9,ch10;
+   
+   ch6  = alphabet[7];  // Si estrapola il carattere 'h'
+   ch7  = alphabet[4];  // Si estrapola il caratteri 'e'
+   ch8  = alphabet[11]; // Si estrapola il caratteri 'l'
+   ch9  = alphabet[11]; // Si estrapola il caratteri 'l'
+   ch10 = alphabet[14]; // Si estrapola il caratteri 'o'
+   
+   printf("6 - %c%c%c%c%c\n", ch6,ch7,ch8,ch9,ch10);
 
    return(EXIT_SUCCESS);
 }
