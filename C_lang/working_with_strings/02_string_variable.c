@@ -53,27 +53,27 @@ int main(int argc, char *argv[], char *envp[])
        --------------------------------------------
     Il primo tratta vett come un vettore, il secondo tratta ptr come un
     puntatore, per cui in qualsiasi funzione le potremmo utilizattzare entrambe,
-    tuttavia questo non vuol dire che siano intercambiabili. */
-	
-	char vett[] = "March 31";
-	char *ptr = "March 31";
-   
-    /* In vett ogni carattere può essere modificato come in un vettore, poiche' è
-	lo e'; nel secondo caso invece, si tratta di una stringa letterale, 
+    tuttavia questo non vuol dire che siano intercambiabili.
+    
+    In vett ogni carattere può essere modificato come in un vettore, poiche'
+    lo e'; nel secondo caso invece, si tratta di una stringa letterale, 
 	pertanto i caratteri non possono essere modificati, tuttavia nel corso del
 	programma ptr puo' esser fatto puntare ad altre zone di memoria.
     
-    Mediante la seguente istruzione:
-    char *p;
-    
-    si dichiara un puntatore a char, il compilatore alloca lo spazio per 
+    char *p; dichiara un puntatore a char, il compilatore alloca lo spazio per
 	contenere un puntatore a char e non per una stringa, e del resto come 
 	potrebbe? E' possibile tuttavia far sì che il puntatore p punti ad una 
     stringa */
-    char  *p;
-    p = first_string;
+	
+	char vett[] = "Carl Mark";
+	char *ptr = "Unknow";
+    ptr = vett;
 
-	printf("%s\n", p);
+    vett[8] = 'x'; // Correzione della stringa, rimpiazzando il carattere
+
+    printf("%s\n", vett);
+	printf("%s\n", ptr);
+   
 
    return(EXIT_SUCCESS);
 }
