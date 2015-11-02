@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 int main(int argc, char *argv[], char *envp[]) {
-   // corretto si ma in output  andrebbe anche lo spazio
+    /* Una stringa letterale (literal string) e' una sequenza di caratteri
+    racchiusa tra doppi apici */
+   
+   // L'istruzione e' corretta ma in output andrebbero anche gli spazi
    printf("1 - Take a walk \
    	 on the \
 	 wild side");
@@ -18,8 +22,9 @@ wild side");
 	 "wild side\n");
 
    /* Allorquando il compilatore deve allocare spazio per una stringa letterale
-   alloca precisamente la dimensione della stringa n + 1 byte, quel byte
-   aggiuntivo è un 'null character' i cui bit sono tutti a impostati zero.
+   alloca precisamente la dimensione della stringa + 1 byte, quel byte
+   aggiuntivo è il 'null character' - caratttere di terminazione di stringa - 
+   i cui 8 bit sono tutti a impostati zero.
    
    Il compilatore pertanto tratta la stringa letterale come se fosse un
    vettore, gestendola come un 'char *', puntatore a char.
