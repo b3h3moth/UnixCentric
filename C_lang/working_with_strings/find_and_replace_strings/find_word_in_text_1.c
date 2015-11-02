@@ -17,7 +17,7 @@ char *string_replace(char *original, char *pattern, char *replacement)
   static char buffer[4096];
   char *p_tmp;
 
-  /* Se non vi sono corrispondenze sara' ritornata la stringa patterninale */
+  /* Se non vi sono corrispondenze sara' ritornata la stringa originale */
   if(!(p_tmp = strstr(original, pattern)))  
     return original;
 
