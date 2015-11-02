@@ -52,5 +52,10 @@ int main(void) {
             printf("\n");
     }
 
+    printf("\n Row elements:\n");
+    // Stampa solo gli elementi della prima riga
+    for (ptr = data[0]; ptr<data[0] + COLS; ptr++)
+        printf("%d, ", *ptr);
+
     return(EXIT_SUCCESS);
 }
