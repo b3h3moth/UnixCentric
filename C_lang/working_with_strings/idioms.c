@@ -63,5 +63,6 @@ char *my_strcat(char *s1, const char *s2)
 /* Copia di una stringa */
 void my_strcpy(char *dest, const char *src)
 {
-    while (*dest++ = *src++);
+    while ((*dest++ = *src++) != 0)
+        ;
 }
