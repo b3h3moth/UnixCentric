@@ -5,8 +5,8 @@
 
 /* Lo scopo del programma e' di inserire 4 caratteri da un byte ciascuno in un
 intero da 32 bit, ovvero 4 byte mediante la funzione pack_char(), dopodiche'
-eseguire l'azione opposta mediante la funzione unpack_char_char(), ovvero estrarre
-un byte */
+eseguire l'azione opposta mediante la funzione unpack_char_char(), ovvero
+estrarre un byte */
 
 int pack_char(char cha, char chb, char chc, char chd);
 int pack_char_compact(char str[]);
@@ -64,8 +64,7 @@ int pack_char(char cha, char chb, char chc, char chd) {
 }
 
 // Versione compatta della funzione pach_char() 
-int pack_char_compact(char str[]) {
-    int val = str[0];
+int pack_char_compact(char str[]) {   int val = str[0];
 
     for (int i=0; i<strlen(str); i++)
         val = (val << CHAR_BIT) | str[i];
