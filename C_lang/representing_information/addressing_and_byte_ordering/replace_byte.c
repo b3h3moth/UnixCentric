@@ -8,11 +8,13 @@ unsigned replace_byte(unsigned def_num, int byte_pos, char new_byte) {
 }
 
 int main(void) {
-    unsigned default_number = 0x11223344;
-    char value = 0xDD;
-    unsigned result = replace_byte(default_number, 2, value);
+    unsigned default_number = 0x11111111;
+    char value = 0xEF;
 
-    printf("%#x\n", result);
+    for (int i=0; i<4; i++) {
+        unsigned result = replace_byte(default_number, i, value);
+        printf("%#x\n", result);
+    }
 
     return(EXIT_SUCCESS);
 }
