@@ -20,14 +20,14 @@ int main(void) {
     printf("write key: ");
     scanf("%hu", &key);
     
-    // Una chiave da 8 bit comprende '2^8' chiavi diverse, ovvero 256
+    // Una chiave da 8 bit comprende '2^8 -1' chiavi diverse, ovvero 255
     key = (key % 256);
 
     xor_char_by_char(string, key);
-    printf(" encrypted string: %s", string);
+    printf(" encrypted string: %s\n", string);
 
     xor_char_by_char(string, key);
-    printf("dencrypted string: %s", string);
+    printf("dencrypted string: %s\n", string);
     
     return(EXIT_SUCCESS);
 }
