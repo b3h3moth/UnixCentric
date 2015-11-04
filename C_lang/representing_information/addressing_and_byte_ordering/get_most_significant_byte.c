@@ -17,7 +17,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-/* La funzione get_most_significant_byte() recuper il byte piu' significativo
+/* La funzione get_most_significant_byte() recupera il byte piu' significativo
 di 'num' */
 int get_most_significant_byte(int num) {
     // left-shift di word - 8
