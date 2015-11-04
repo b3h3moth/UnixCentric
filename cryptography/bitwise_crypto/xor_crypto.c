@@ -4,6 +4,9 @@
 
 #define KEY '\\'
 
+/* Lo scopo del programma e' di eseguire uno XOR con una chiave su ciascun 
+carattere di una stringa o di un file */
+
 int main(void) {
     int original_char, new_char;
 
