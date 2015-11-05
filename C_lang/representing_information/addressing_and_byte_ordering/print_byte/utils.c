@@ -41,7 +41,13 @@ static void print_bit_char(unsigned char character) {
 
     for (bit=1; bit<= CHAR_BIT; ++bit) {
         fputc( ((character & mask) == 0) ? '0' : '1', stdout);
-        character <<=  1;
+        
+        /* Due sono le soluzioni, o uno right-shift di un bit sulla mask 
+        oppure un left-shift di un bit sul carattere, in tal caso pero' il 
+        carattere sarebbe modificato, per cui si ritiene essere piu' corretto
+        e sicuro un right-shift sulla mask */
+
+        mask >>= 1;
     }
 }
 
