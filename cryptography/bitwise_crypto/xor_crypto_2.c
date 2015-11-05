@@ -20,7 +20,8 @@ int main(void) {
     printf("write key (integer 1,...,256): ");
     scanf("%hu", &key);
     
-    // Una chiave da 8 bit comprende '2^8 -1' chiavi diverse, ovvero 255
+    /* Una chiave da 8 bit comprende '2^8 -1' chiavi diverse, ovvero 255, si
+    esclude naturalmente la chiave con tutti i bit impostati a 0 */
     key = (key % 256);
 
     xor_char_by_char(string, key);
