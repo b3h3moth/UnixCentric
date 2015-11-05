@@ -3,11 +3,11 @@
 ### List of arguments covered
 
 * logical operators
-  * ~ - one's complement
   * & - bitwise AND
   * | - inclusive OR
-  * ^ - exclusive OR
+  * ^ - exclusive OR (XOR)
 * shift operators
   * << - left-shift
   * >> - right-shift
+* ~ - one's complement
 * bit mask
