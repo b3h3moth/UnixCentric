@@ -33,6 +33,21 @@ extern void print_bit(unsigned char *ptr, unsigned int size) {
     fputc('\n', stdout);
 }
 
+extern void print_byte(unsigned char *ptr, unsigned int size) {
+    unsigned char *first_character;
+    int            ch;
+
+    first_character = FIRST_CHAR(ptr, size);
+
+    for (ch=1; ch<=size; ++ch) {
+        printf("%2x", *first_character);
+        fputc(' ', stdout);
+        NEXT_CHAR(first_character);
+    }
+
+    fputc('\n', stdout);
+}
+
 static void print_bit_char(unsigned char character) {
     int           bit;
     unsigned char mask = 1;   // mask = 00000001
