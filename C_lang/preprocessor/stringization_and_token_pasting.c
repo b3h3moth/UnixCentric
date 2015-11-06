@@ -5,7 +5,7 @@
 
 /* Le definizioni di macro possono contenere due operatori speciali:
 - '#'  converte un argomento in una stringa, da cui 'stringization';
-- '##' compatta insieme due token 
+- '##' compatta/incolla assieme due token, da cui 'token pasting';
 */
 int main(void) {
     char ch = 'z';
