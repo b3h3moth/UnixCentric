@@ -4,13 +4,20 @@
 #include "utils.h"
 
 int main(void) {
-    char c = 'A';
-    int num = 123456;
+    char list_of_char[] = {'a','b','c'};
+    int list_of_int[] = {123456, 234567, 891234};
 
-    print_bit( (unsigned char *)&c, sizeof(char));
-    print_byte( (unsigned char *)&c, sizeof(char));
+    printf("Characters: \n");
+    for (int i=0; i<3; i++) {
+        print_bit((unsigned char *)&list_of_char[i], sizeof(char));
+        print_byte((unsigned char *)&list_of_char[i], sizeof(char));
+    }
 
-    print_bit( (unsigned char *)&num, sizeof(int));
-    print_byte( (unsigned char *)&num, sizeof(int));
+    printf("Integers:\n");
+    for (int i=0; i<3; i++) {
+        print_bit((unsigned char *)&list_of_int[i], sizeof(int));
+        print_byte((unsigned char *)&list_of_int[i], sizeof(int));
+    }
+
     return(EXIT_SUCCESS);
 }

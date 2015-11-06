@@ -40,7 +40,7 @@ extern void print_byte(unsigned char *ptr, unsigned int size) {
     first_character = FIRST_CHAR(ptr, size);
 
     for (ch=1; ch<=size; ++ch) {
-        printf("%2x", *first_character);
+        printf("%.2x", *first_character);
         fputc(' ', stdout);
         NEXT_CHAR(first_character);
     }
