@@ -17,8 +17,8 @@ int main(void) {
         fwrite(public_key, 1, read, stdout);
     }
 
-    // Create surface (400x600 px) and cairo context
-    surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 400, 600);
+    // Create surface (600x800 px) and cairo context
+    surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 600, 800);
     cc = cairo_create(surface);
 
     // Draw in white
@@ -28,11 +28,11 @@ int main(void) {
     cairo_select_font_face(cc, "Sans", CAIRO_FONT_SLANT_NORMAL, \
                                        CAIRO_FONT_WEIGHT_NORMAL);
     // Set font-size
-    cairo_set_font_size(cc, 20);
+    cairo_set_font_size(cc, 15);
 
     // Move to 10.0, 10.0 position and drawing text
-    cairo_move_to(cc, 10.0, 10.0);
-    cairo_show_text(cc, "hello");
+    cairo_move_to(cc, 1.0, 1.0);
+    cairo_show_text(cc, "Hacking on Planet Earth");
 
     // Create png image
     cairo_surface_write_to_png(surface, "fingerpring.png");
