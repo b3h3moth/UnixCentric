@@ -16,9 +16,6 @@ int main(void) {
     surface = cairo_image_surface_create(CAIRO_FORMAT_RGB24, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    // Settaggio del source al color bianco
-    cairo_set_source_rgb(cr, 0.0, 0.70, 0.0);
-
     // Setta il font-type
     cairo_select_font_face(cr, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
                                        CAIRO_FONT_WEIGHT_BOLD);
@@ -26,15 +23,22 @@ int main(void) {
     cairo_set_font_size(cr, F_SIZE);
     
     // Si sposta alla posizione specificata per scrivere il testo
+    // Settaggio del source al color verde
+    // Scrittura del testo
+    cairo_set_source_rgb(cr, 0.0, 0.70, 0.0);
     cairo_move_to(cr, 20.0, 20.0);
     cairo_show_text(cr, "PNG image");
 
-    cairo_move_to(cr, 20.0, 100.0);
+    /* 80 pixel piu' in basso rispetto alla posizione precedente, relativa 
+    all'asse y. Settaggio del source al color bianco. Scrittura del testo */
     cairo_set_source_rgb(cr, 1, 1, 1);
+    cairo_move_to(cr, 20.0, 100.0);
     cairo_show_text(cr, "created with");
 
+    /* 100 pixel piu' in basso rispetto alla posizione precedente, relativa 
+    all'asse y. Settaggio del source al color rosso. Scrittura del testo */
     cairo_move_to(cr, 20.0, 180.0);
-    cairo_set_source_rgb(cr, 0.7, 0.2, 0.0);
+    cairo_set_source_rgb(cr, 0.70, 0.0, 0.0);
     cairo_show_text(cr, "Cairo 2D graphic library");
 
     // Crea l'immagine PNG
