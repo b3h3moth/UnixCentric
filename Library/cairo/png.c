@@ -3,35 +3,39 @@
 #include <string.h>
 #include <cairo/cairo.h>
 
-#define SIZE 2048
+#define WIDTH   300
+#define HEIGHT  200
+#define POS_X   15.0
+#define POS_Y   15.0
+#define F_SIZE  14
 
 int main(void) {
     cairo_surface_t *surface;
     cairo_t *cc;
     char image_name[] = "image.png";
 
-    // Create surface (600x800 px) and cairo context
-    surface = cairo_image_surface_create(CAIRO_FORMAT_RGB24, 300, 300);
+    // Crea una surface di WIDTH x HEIGHT px e il cairo context
+    surface = cairo_image_surface_create(CAIRO_FORMAT_RGB24, WIDTH, HEIGHT);
     cc = cairo_create(surface);
 
-    // Draw in black
-    cairo_set_source_rgb(cc, 1.0, 1.0, 1.0);
+    // Settaggio del source al color bianco
+    cairo_set_source_rgb(cc, 1, 1, 1);
 
-    // Set font-type
+    // Setta il font-type
     cairo_select_font_face(cc, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
                                        CAIRO_FONT_WEIGHT_BOLD);
-    // Set font-size
-    cairo_set_font_size(cc, 15);
+    // Setta il font-size a F_SIZE
+    cairo_set_font_size(cc, F_SIZE);
     
-    // Move to 10.0, 10.0 position and drawing text
-    cairo_move_to(cc, 15.0, 15.0);
+    // Si sposta alla posizione POS_X, POS_Y per scrivere il testo
+    cairo_move_to(cc, POS_X, POS_Y);
     cairo_show_text(cc, "Cairo 2D library");
 
-    // Create png image
+    // Crea l'immagine PNG
     cairo_surface_write_to_png(surface, image_name);
     printf("Image created: %s\n", image_name);
 
-    // Clean and destroy resources
+    // Pulizia degli oggetti creati, rimozione di context e di surface.
     cairo_destroy(cc);
     cairo_surface_destroy(surface);
 
