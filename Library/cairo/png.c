@@ -11,11 +11,11 @@ int main(void) {
     char image_name[] = "image.png";
 
     // Create surface (600x800 px) and cairo context
-    surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 300, 300);
+    surface = cairo_image_surface_create(CAIRO_FORMAT_RGB24, 300, 300);
     cc = cairo_create(surface);
 
     // Draw in black
-    cairo_set_source_rgb(cc, 0, 0, 0);
+    cairo_set_source_rgb(cc, 1.0, 1.0, 1.0);
 
     // Set font-type
     cairo_select_font_face(cc, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
