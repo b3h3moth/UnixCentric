@@ -1,7 +1,7 @@
 ## Cairo is a 2D graphics library
 
-First of all install the cairo library: `libcairo2-dev`, then add the proper
-header to work with the library: `#include <cairo/cairo.h>`
+First of all install the cairo library on GNU/Linux Debian-like systems
+`libcairo2-dev`, then add the proper header: `#include <cairo/cairo.h>`
 
 ### How to compile 
 
