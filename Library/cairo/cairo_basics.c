@@ -6,16 +6,18 @@
 #define HEIGHT  150
 
 int main(void) {
-    // Context con una surface di 800x600 px e RGB con Alpha channel
-    cairo_t         *cr_object;
+    /* Quando si lavora con Cairo, per prima cosa e' necessario creare un
+    Cairo context, che contiene tutti i parametri inerenti la grafica, dalla
+    lunghezza della linea al colore, alla superficie su cui disegnare, etc., */
+    cairo_t         *cr;
     cairo_surface_t *surface;
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
-    cr_object = cairo_create(surface);
+    cr = cairo_create(surface);
 
     // ...
 
     // Rimozione dell'oggetto creato
-    cairo_destroy(cr_object);
+    cairo_destroy(cr);
 
     return(EXIT_SUCCESS);
 }
