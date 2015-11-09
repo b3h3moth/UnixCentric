@@ -15,7 +15,7 @@ int main(void) {
     La surface invece e' di tipo 'cairo_surface_t'
     
     Ci sono diversi tipi di surface, una per ogni formato supportato da Cairo,
-    nel caso specifico si e' optato per una surface da 150 x 150 px, con 
+    nel caso specifico si e' optato per una surface da WIDTH x HEIGHT px, con
     32 bit/px, colore RGB e Alpha */
 
     cairo_t         *cr;
