@@ -7,12 +7,16 @@
 #define HEIGHT  200
 #define F_SIZE  18
 
+/* Creazione di una immagine in formato PNG con scritte di colore verde, 
+bianco e rosso. Il file risultante sara' image.png */
+
 int main(void) {
     cairo_surface_t *surface;
     cairo_t *cr;
     char image_name[] = "image.png";
 
-    // Crea una surface di WIDTH x HEIGHT px e il cairo context
+    /* Creazione del Cairo context, con una surface di WIDTH x HEIGHT px, con
+    24 bit/px colore RGB */
     surface = cairo_image_surface_create(CAIRO_FORMAT_RGB24, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
@@ -22,9 +26,8 @@ int main(void) {
     // Setta il font-size a F_SIZE
     cairo_set_font_size(cr, F_SIZE);
     
-    // Si sposta alla posizione specificata per scrivere il testo
-    // Settaggio del source al color verde
-    // Scrittura del testo
+    /* Spostamento alla posizione specificata per scrivere il testo. Settaggio
+    del source al color verde. Scrittura del testo */
     cairo_set_source_rgb(cr, 0.0, 0.70, 0.0);
     cairo_move_to(cr, 20.0, 20.0);
     cairo_show_text(cr, "PNG image");
@@ -45,7 +48,7 @@ int main(void) {
     cairo_surface_write_to_png(surface, image_name);
     printf("Image created: %s\n", image_name);
 
-    // Pulizia degli oggetti creati, rimozione di context e di surface.
+    // Pulizia e rimozione del context (l'oggetto Cairo)
     cairo_destroy(cr);
     cairo_surface_destroy(surface);
 
