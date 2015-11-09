@@ -18,7 +18,7 @@ int main(void) {
 
     // Rimozione del context, ovvero dell'oggetto Cairo
     cairo_destroy(cr);
-    cairo_surface_destroy(surface)
+    cairo_surface_destroy(surface);
 
     return(EXIT_SUCCESS);
 }
