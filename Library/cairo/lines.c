@@ -5,20 +5,33 @@
 #define WIDTH   250
 #define HEIGHT  250
 
+/* Mediante una serie di linee orizzontali, verticali ed oblique sara' creata
+una sorta di ragnatela */
+
 int main(void) {
     cairo_t         *cr;
     cairo_surface_t *surface;
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    /* Setta la source del colore indicato (black) da R,G,B con il grado di
-    opacita' Alpha settato a 1.0, ovvero equivalente a:
-    cairo_set_source_rgb(cr, 0, 0, 0); */
+    // Setta la source di color black
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-
-    cairo_move_to(cr, 120, 0);
-    cairo_line_to(cr, 120, 250);
     cairo_set_line_width(cr, 10.0);
+
+    cairo_move_to(cr, 250, 250);
+    cairo_line_to(cr, 0, 0);
+
+    cairo_move_to(cr, 250, 0);
+    cairo_line_to(cr, 0, 250);
+
+    cairo_move_to(cr, 250, 125);
+    cairo_line_to(cr, 0, 125);
+    
+    cairo_move_to(cr, 250, 125);
+    cairo_line_to(cr, 0, 125);
+
+    cairo_move_to(cr, 125, 250);
+    cairo_line_to(cr, 125, 0);
 
     cairo_stroke(cr);
 
