@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <cairo/cairo.h>
 
-#define WIDTH   150
-#define HEIGHT  150
+#define WIDTH   250
+#define HEIGHT  250
 
 int main(void) {
     /* Quando si lavora con Cairo, per prima cosa e' necessario creare il
@@ -23,7 +23,10 @@ int main(void) {
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    // ... 
+    // ...
+
+    // Salvataggio del file, PNG
+    cairo_surface_write_to_png(surface, image_name);
 
     // Rimozione del context, ovvero dell'oggetto Cairo
     cairo_destroy(cr);
