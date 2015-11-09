@@ -7,14 +7,14 @@
 
 int main(void) {
     /* Quando si lavora con Cairo, per prima cosa e' necessario creare un
-    Cairo context, che contiene tutti i parametri inerenti la grafica, dalla
-    lunghezza della linea al colore, alla superficie su cui disegnare, etc., */
+    Cairo context, che contiene tutti i parametri inerenti la grafica, dallo
+    spessore della linea al colore, alla superficie su cui disegnare , etc., */
     cairo_t         *cr;
     cairo_surface_t *surface;
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    // ...
+    // ... 
 
     // Rimozione del context, ovvero dell'oggetto Cairo
     cairo_destroy(cr);
