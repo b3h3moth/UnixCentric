@@ -5,6 +5,8 @@
 #define WIDTH   250
 #define HEIGHT  250
 
+// Il disegno di una linea orizzontale al centro dell'immagine
+
 int main(void) {
     cairo_t         *cr;
     cairo_surface_t *surface;
@@ -16,8 +18,11 @@ int main(void) {
     cairo_set_source_rgb(cr, 0, 0, 0); */
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
 
+    // Le coordinate di partenza
     cairo_move_to(cr, 120, 0);
+    // Le coordinate di arrivo della linea
     cairo_line_to(cr, 120, 250);
+    // Spessore della linea
     cairo_set_line_width(cr, 10.0);
 
     cairo_stroke(cr);
