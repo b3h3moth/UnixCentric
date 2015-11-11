@@ -36,6 +36,12 @@ int main(void) {
     cairo_line_to(cr, 280, 0);
     cairo_stroke(cr);
 
+    // Linee orizzontali nere
+    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
+    cairo_move_to(cr, 20, 300);
+    cairo_line_to(cr, 340, 300);
+    cairo_stroke(cr);
+
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "image.png");
 
