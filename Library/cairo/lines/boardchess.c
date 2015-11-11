@@ -36,7 +36,6 @@ int main(void) {
     cairo_line_to(cr, 280, 0);
     cairo_stroke(cr);
 
-
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "image.png");
 
