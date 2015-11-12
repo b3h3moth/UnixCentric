@@ -13,7 +13,7 @@
 int main(int argc, char **argv) {
     char input_text[STR_SIZE];
     FILE *fp;
-    float position;
+    float pos_x = 10.0, pos_y = 20.0;
     char pdf_file[] = "file.pdf";
     
     cairo_surface_t *surface;
@@ -25,9 +25,6 @@ int main(int argc, char **argv) {
     cairo_select_font_face (cr, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
                                         CAIRO_FONT_WEIGHT_NORMAL);
     cairo_set_font_size (cr, 14.0);
-    
-    // Posizione iniziale del testo
-    position = 50.0;
 
     if ((fp = fopen("text.txt", "r")) == NULL) {
         fprintf(stderr, "Err: fopen(), %s\n", strerror(errno));
@@ -37,17 +34,19 @@ int main(int argc, char **argv) {
     while (fgets(input_text, sizeof(input_text), fp) != NULL) {
         int len = strlen(input_text) - 1;
         
-        // Se si giugne alla fine del file, inserire il null-character
+        /* Se l'ultimo carattere del testo ricevuto in input dovesse essere un
+        carattere di new-line, sara' rimpiazzato col null-character */
         if (input_text[len] == '\n')
             input_text[len] = 0;
         
         //printf("\x0a %s", input_text);
         printf("%s\n", input_text);
-        
-        cairo_move_to(cr, 8.0, position);
+       
+        // Scrive il testo 
+        cairo_move_to(cr, pos_x, pos_y);
         cairo_show_text(cr, input_text);
         
-        position += 8;
+        pos_y += 20;
     }
     
     fclose(fp);
