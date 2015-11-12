@@ -20,12 +20,11 @@ int main(int argc, char **argv) {
     cairo_t *cr;
     surface = cairo_pdf_surface_create(pdf_file, WIDTH, HEIGHT);
     cr = cairo_create(surface);
-    
 
     cairo_set_source_rgb(cr, 0, 0, 0);
-    cairo_select_font_face (cr, "Sans", CAIRO_FONT_SLANT_NORMAL, \
+    cairo_select_font_face (cr, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
                                         CAIRO_FONT_WEIGHT_NORMAL);
-    cairo_set_font_size (cr, 5.0);
+    cairo_set_font_size (cr, 14.0);
     
     // Posizione iniziale del testo
     position = 50.0;
