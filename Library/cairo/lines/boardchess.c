@@ -102,6 +102,26 @@ int main(void) {
         cairo_fill(cr);
         s += 80;
     }
+
+    // Quadrati neri
+    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
+    cairo_set_line_width(cr, 0.0);
+    static int q=60; 
+    for (int i=0; i<4; i++) {
+        cairo_rectangle(cr, q, 280, 40, 40);
+        cairo_fill(cr);
+        q += 80;
+    }
+
+    // Quadrati bianchi
+    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
+    cairo_set_line_width(cr, 0.0);
+    static int t=20; 
+    for (int i=0; i<4; i++) {
+        cairo_rectangle(cr, t, 280, 40, 40);
+        cairo_fill(cr);
+        t += 80;
+    }
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "image.png");
 
