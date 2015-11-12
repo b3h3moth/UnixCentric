@@ -64,6 +64,6 @@ come ad esempio gli autotools.
 
 <hr />
 
-<address>Luca Suriano a.k.a. Behemoth: `<behemoth _at_ autistici _dot_ org>`</address>
+<address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>`</address>
 
 <url>`https://keybase.io/behemoth`</url>
