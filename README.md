@@ -1,6 +1,5 @@
-##############################################################################
- INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
-##############################################################################
+## INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
+
 Il progetto Learning-<Programming Language> mira a realizzare un manuale 
 code oriented su alcuni dei linguaggi di programmazione maggiormente 
 utilizzati sui sistemi operativi UNIX con kernel Linux.
@@ -28,9 +27,8 @@ su sistemi operativi unix-like con kernel Linux e un altro ancora interamente
 incentrato sul magnifico linguaggio Perl, che nei sistemi operativi unix-like 
 trova il suo habitat ideale.
 
-##############################################################################
- LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99, C11)
-##############################################################################
+### LEARNING-<C> - Paradigma procedurale (imperativo), Linguaggio C (c99, C11)
+
 Il presente repository riguarda il paradigma procedurale, presentato mediante
 il linguaggio di programmazione C-ANSI (c99, c11);  è stato contrassegnato
 come L-C.
@@ -46,12 +44,12 @@ Saranno utilizzate diverse architetture per testare gli esempi:
 
 Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
 con il comilatore Clang (LLVM);
-$ gcc   main.c -o main
-$ clang main.c -o main
+$ `gcc   main.c -o main`
+$ `clang main.c -o main`
 
 Oppure, se si vuole maggiore dettaglio:
-$ gcc   -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11
-$ clang -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11
+$ `gcc   -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11`
+$ `clang -o main main.c -g -Wall -pedantic -std=c90 | c99 | c11`
 
 Nota: L'opzione -ansi e' equivalente a -std=c90 per il C ed a -std=c++98 per il
       C++. Inoltre -std=c90 e' equivalente a -std=c89.
@@ -60,7 +58,5 @@ Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
 
-##############################################################################
- CONTACT
-##############################################################################
-<behemoth _at_ autistici _dot_ org > | https://keybase.io/behemoth
+``<behemoth _at_ autistici _dot_ org>``
+``https://keybase.io/behemoth``
