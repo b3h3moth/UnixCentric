@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <cairo/cairo.h>
 #include <cairo/cairo-pdf.h>
 
-// Formato A4 con 72 dpi (bassa risoluzione)
-#define WIDTH       595
-#define HEIGHT      842
+// Formato A5 con 72 dpi
+#define WIDTH       420
+#define HEIGHT      595
 #define STR_SIZE    200 // Max string size
 
 int main(int argc, char **argv) {
-    float position;
-    char str[200];
+    char input_text[STR_SIZE];
     FILE *fp;
+    float position;
     char pdf_file[] = "file.pdf";
     
     cairo_surface_t *surface;
@@ -34,16 +35,20 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
   
-    while (fgets(str, sizeof(str), fp) != NULL) {
-        int len = strlen(str)-1;
+    while (fgets(input_text, sizeof(input_text), fp) != NULL) {
+        int len = strlen(input_text) - 1;
         
-        if(str[len] == '\n') str[len] = 0;
-        printf("\x0a %s", str);
+        // Se si giugne alla fine del file, inserire il null-character
+        if (input_text[len] == '\n')
+            input_text[len] = 0;
+        
+        //printf("\x0a %s", input_text);
+        printf("%s\n", input_text);
         
         cairo_move_to(cr, 8.0, position);
-        cairo_show_text(cr, str);
+        cairo_show_text(cr, input_text);
         
-        position+=8;
+        position += 8;
     }
     
     fclose(fp);
