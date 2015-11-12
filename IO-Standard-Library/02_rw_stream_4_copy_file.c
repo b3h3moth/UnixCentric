@@ -58,7 +58,6 @@ void remove_new_line(char buf[], int size)
       if (buf[i] == '\n')
       	 buf[i] = '\0';
    }
-}
 
 /* Apre un file in lettura o in scrittura */
 FILE *open_file(char *new_file, char *mode)
