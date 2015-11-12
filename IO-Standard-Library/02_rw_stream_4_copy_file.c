@@ -33,10 +33,10 @@ int main(int argc, char *argv[]) {
    fp_out = open_file(str_to, "w");
 
    while (fgets(buf_line, MAX_LINE, fp_in) != NULL) {
-      if (fputs(buf_line, fp_out) == EOF) {
-      	 fprintf(stderr,"Err(%d) - %s: %s\n", errno, strerror(errno), buf_line);
-	 exit(EOF);
-      }
+       if (fputs(buf_line, fp_out) == EOF) {
+           fprintf(stderr,"Err: fputs(), %s: %s\n", strerror(errno), buf_line);
+           exit(EXIT_FAILURE);
+       }
    }
 
    fclose(fp_in);
