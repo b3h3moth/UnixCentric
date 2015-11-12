@@ -1,4 +1,4 @@
-## INTRODUZIONE AL PROGETTO LEARNING-<Programming Language>
+## INTRODUZIONE AL PROGETTO LEARNING-\<Programming Language\>
 
 Il progetto Learning-<Programming Language> mira a realizzare un manuale 
 code oriented su alcuni dei linguaggi di programmazione maggiormente 
