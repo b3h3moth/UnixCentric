@@ -46,11 +46,13 @@ Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
 con il comilatore Clang (LLVM):
 
 $ ``gcc   main.c -o main``
+
 $ ``clang main.c -o main``
 
 Oppure, se si vuole maggiore dettaglio:
 
 $ ``gcc   -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
+
 $ ``clang -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 
 Nota: L'opzione `-ansi` e' equivalente a `-std=c90` per il C ed a `-std=c++98` per il
@@ -60,5 +62,8 @@ Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
 utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
 come ad esempio gli autotools.
 
-<address>`<behemoth _at_ autistici _dot_ org>`</address>
+<hr />
+
+<address>Luca Suriano a.k.a. Behemoth: `<behemoth _at_ autistici _dot_ org>`</address>
+
 <url>`https://keybase.io/behemoth`</url>
