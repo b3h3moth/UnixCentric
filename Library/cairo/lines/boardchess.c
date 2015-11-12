@@ -44,7 +44,7 @@ int main(void) {
     cairo_line_to(cr, 340, 300);
     cairo_stroke(cr);
 */
-    cairo_set_source_rgba(cr, 1.0, 1.8, 1.0, 1.0);
+    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
     cairo_set_line_width(cr, 0.0);
     static int j=20; 
     for (int i=0; i<4; i++) {
