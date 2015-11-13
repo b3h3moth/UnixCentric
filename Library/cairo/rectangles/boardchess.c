@@ -45,6 +45,12 @@ int main(void) {
     cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
     draw_squares(cr, 40, 120);
 
+    // 5° riga di quadrati bianchi
+    draw_squares(cr, 0, 160);
+    // 5° riga di quadrati neri
+    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
+    draw_squares(cr, 40, 160);
+
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "boardchess.png");
 
