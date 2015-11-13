@@ -51,6 +51,25 @@ int main(void) {
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
     draw_squares(cr, 40, 160);
 
+    // 6° riga di quadrati neri
+    draw_squares(cr, 0, 200);
+    // 6° riga di quadrati bianchi
+    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
+    draw_squares(cr, 40, 200);
+
+    // 7° riga di quadrati bianchi
+    draw_squares(cr, 0, 240);
+    // 7° riga di quadrati neri
+    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
+    draw_squares(cr, 40, 240);
+    
+    // 8° riga di quadrati neri
+    draw_squares(cr, 0, 280);
+    // 8° riga di quadrati bianchi
+    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
+    draw_squares(cr, 40, 280);
+
+
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "boardchess.png");
 
