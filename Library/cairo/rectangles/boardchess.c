@@ -17,7 +17,7 @@ int main(void) {
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    // Spessore delle linee
+    // Spessore del tratteggio
     cairo_set_line_width(cr, 0.0);
 
     // 1° riga di quadrati bianchi
