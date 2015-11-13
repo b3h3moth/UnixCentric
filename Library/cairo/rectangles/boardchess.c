@@ -23,9 +23,15 @@ int main(void) {
     // 1° riga di quadrati bianchi
     cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
     draw_squares(cr, 0, 0);
-    // 1° riga di quadrati bianchi
+    // 1° riga di quadrati neri
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
     draw_squares(cr, 40, 0);
+
+    // 2° riga di quadrati neri
+    draw_squares(cr, 0, 40);
+    // 2° riga di quadrati bianchi
+    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
+    draw_squares(cr, 40, 40);
 
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "boardchess.png");
