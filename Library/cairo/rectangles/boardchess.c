@@ -2,10 +2,14 @@
 #include <stdlib.h>
 #include <cairo/cairo.h>
 
-#define WIDTH   360
-#define HEIGHT  360
+#define WIDTH           320
+#define HEIGHT          320
+#define SQUARE_WIDTH    40
+#define SQUARE_HEIGHT   40
 
-// Il disegno di una linea verticale al centro dell'immagine
+// Lo scopo del programma e' di disegnare una scacchiera
+
+void draw_squares(cairo_t *cr, int rect_x, int rect_y);
 
 int main(void) {
     cairo_t         *cr;
@@ -13,121 +17,30 @@ int main(void) {
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-   
     // Spessore delle linee
-    cairo_set_line_width(cr, 280.0);
+    cairo_set_line_width(cr, 0.0);
 
-    // Linee bianche
+    // 1° riga di quadrati bianchi
     cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-    cairo_move_to(cr, 200, 360);
-    cairo_line_to(cr, 200, 0);
-    cairo_stroke(cr);
-
-    cairo_set_line_width(cr, 40.0);
-
-    // Linee nere
+    draw_squares(cr, 0, 0);
+    // 1° riga di quadrati bianchi
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    cairo_move_to(cr, 40, 360);
-    cairo_line_to(cr, 40, 0);
-    cairo_move_to(cr, 120, 360);
-    cairo_line_to(cr, 120, 0);
-    cairo_move_to(cr, 200, 360);
-    cairo_line_to(cr, 200, 0);
-    cairo_move_to(cr, 280, 360);
-    cairo_line_to(cr, 280, 0);
-    cairo_stroke(cr);
+    draw_squares(cr, 40, 0);
 
-    /*
-    // Linee orizzontali nere
-    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    cairo_move_to(cr, 20, 300);
-    cairo_line_to(cr, 340, 300);
-    cairo_stroke(cr);
-*/
-    // Quadrati bianchi
-    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int j=20; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, j, 40, 40, 40);
-        cairo_fill(cr);
-        j += 80;
-    }
-    
-    // Quadrati neri
-    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    static int x=60; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, x, 40, 40, 40);
-        cairo_fill(cr);
-        x += 80;
-    }
-
-    // Quadrati neri
-    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int y=60; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, y, 120, 40, 40);
-        cairo_fill(cr);
-        y += 80;
-    }
-
-    // Quadrati bianchi
-    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int z=20; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, z, 120, 40, 40);
-        cairo_fill(cr);
-        z += 80;
-    }
-
-    // Quadrati neri
-    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int w=60; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, w, 200, 40, 40);
-        cairo_fill(cr);
-        w += 80;
-    }
-
-    // Quadrati bianchi
-    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int s=20; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, s, 200, 40, 40);
-        cairo_fill(cr);
-        s += 80;
-    }
-
-    // Quadrati neri
-    cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int q=60; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, q, 280, 40, 40);
-        cairo_fill(cr);
-        q += 80;
-    }
-
-    // Quadrati bianchi
-    cairo_set_source_rgba(cr, 1.0, 1.0, 1.0, 1.0);
-    cairo_set_line_width(cr, 0.0);
-    static int t=20; 
-    for (int i=0; i<4; i++) {
-        cairo_rectangle(cr, t, 280, 40, 40);
-        cairo_fill(cr);
-        t += 80;
-    }
     // Salvataggio del file, PNG
-    cairo_surface_write_to_png(surface, "image.png");
+    cairo_surface_write_to_png(surface, "boardchess.png");
 
     // Rimozione del context, ovvero dell'oggetto Cairo
     cairo_destroy(cr);
     cairo_surface_destroy(surface);
 
     return(EXIT_SUCCESS);
+}
+
+void draw_squares(cairo_t *cr, int rect_x, int rect_y) {
+    for (int i=0; i<4; i++) {
+        cairo_rectangle(cr, rect_x, rect_y, SQUARE_WIDTH, SQUARE_HEIGHT);
+        cairo_fill(cr);
+        rect_x += 80;
+    }
 }
