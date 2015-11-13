@@ -5,16 +5,21 @@
 #include <cairo/cairo.h>
 #include <cairo/cairo-pdf.h>
 
-// Formato A5 con 72 dpi
-#define WIDTH       420
-#define HEIGHT      595
-#define STR_SIZE    200 // Max string size
+// Formato A4 con 72 dpi
+#define WIDTH       595
+#define HEIGHT      842
+#define STR_SIZE    200
 
-int main(int argc, char **argv) {
+/* Il programma riceve in input un file, nel caso specifico 
+e' il sorgente '.c' del programma stesso, e lo salva in 
+una pagina A4 in formato pdf */
+
+int main(void) {
     char input_text[STR_SIZE];
     FILE *fp;
     float pos_x = 10.0, pos_y = 20.0;
     char pdf_file[] = "file.pdf";
+    int i;
     
     cairo_surface_t *surface;
     cairo_t *cr;
@@ -24,29 +29,28 @@ int main(int argc, char **argv) {
     cairo_set_source_rgb(cr, 0, 0, 0);
     cairo_select_font_face (cr, "Monospace", CAIRO_FONT_SLANT_NORMAL, \
                                         CAIRO_FONT_WEIGHT_NORMAL);
-    cairo_set_font_size (cr, 14.0);
+    cairo_set_font_size (cr, 9.0);
 
-    if ((fp = fopen("text.txt", "r")) == NULL) {
+    if ((fp = fopen("txt_to_pdf.c", "r")) == NULL) {
         fprintf(stderr, "Err: fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
   
-    while (fgets(input_text, sizeof(input_text), fp) != NULL) {
+    while (fgets(input_text, STR_SIZE, fp) != NULL) {
         int len = strlen(input_text) - 1;
+
+        // Sostituzione di ciascuna new-line con un null-character
+        for (i=0; i<len; i++) {
+            if (input_text[i] == '\n')
+                input_text[i] = '\0';
+        }
         
-        /* Se l'ultimo carattere del testo ricevuto in input dovesse essere un
-        carattere di new-line, sara' rimpiazzato col null-character */
-        if (input_text[len] == '\n')
-            input_text[len] = 0;
-        
-        //printf("\x0a %s", input_text);
-        printf("%s\n", input_text);
-       
-        // Scrive il testo 
+        // Scrittura del testo
         cairo_move_to(cr, pos_x, pos_y);
         cairo_show_text(cr, input_text);
-        
-        pos_y += 20;
+
+        // Spazio tra le righe
+        pos_y += 12;
     }
     
     fclose(fp);
