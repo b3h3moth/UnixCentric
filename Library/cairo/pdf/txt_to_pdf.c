@@ -66,4 +66,7 @@ il testo, poiche' e' il team di sviluppo stesso ad affermare che
 sono state create come una sorta di giocattolo utile essenzialmente
 per le demo, ma non adatte sulle applicazioni finali. 
 Si consiglia l'utilizzo della libreria Pango, specifica per il testo,
-che peraltro si integra alla perfezione con Cairo. */
+che peraltro si integra alla perfezione con Cairo. 
+
+Ho potuto notare che con stringhe di lunghezze superiori ai 100 caratteri ci
+sono degli enormi problemi di formattazione.*/
