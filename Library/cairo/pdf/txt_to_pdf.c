@@ -18,7 +18,7 @@ int main(void) {
     char input_text[STR_SIZE];
     FILE *fp;
     float pos_x = 10.0, pos_y = 20.0;
-    char pdf_file[] = "file.pdf";
+    char pdf_file[] = "txt_to_pdf.pdf";
     int i;
     
     cairo_surface_t *surface;
