@@ -16,7 +16,7 @@ int main(void) {
     width = MagickGetImageWidth(mw);
     height = MagickGetImageWidth(mw);
 
-    // Check underflow
+    // Check underflow if the dimensions of the image is too much small
     if ((width /= 2) < 1)
         width = 1;
 
