@@ -12,11 +12,11 @@ int main(int argc, char *argv[]) {
     mw = NewMagickWand();
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <image path>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <jpg image>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    // Apprend the "rsz-" prefix to each resized image
+    // Append "rsz-" prefix to the resized image
     char *default_image = basename(argv[1]);
     char *resized_image = malloc(strlen(argv[1]) + 4);
     strcpy(resized_image, "rsz-");
@@ -29,7 +29,9 @@ int main(int argc, char *argv[]) {
     width = MagickGetImageWidth(mw);
     height = MagickGetImageWidth(mw);
 
-    // Check underflow if the dimensions of the image is too much small
+    printf("(%dx%d):'%s'\n", width, height, default_image);
+
+    // Check underflow if the dimensions of the image are too much small
     if ((width /= 2) < 1)
         width = 1;
 
@@ -40,10 +42,11 @@ int main(int argc, char *argv[]) {
     MagickResizeImage(mw, width, height, LanczosFilter, 1);
 
     // Set the compression quality
-    MagickSetImageCompressionQuality(mw, 95);
+    MagickSetImageCompressionQuality(mw, 65);
 
     // Write the new image
-    MagickWriteImage(mw, resized_image);
+    if (MagickWriteImage(mw, resized_image))
+        printf("(%dx%d):'%s'\n", width, height, resized_image);
 
     // Clean up
     if (mw)
