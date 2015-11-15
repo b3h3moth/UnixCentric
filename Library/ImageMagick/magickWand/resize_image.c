@@ -1,16 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <libgen.h>
 #include <ImageMagick-6/wand/MagickWand.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
     int width, height;
     MagickWand *mw = NULL;
 
     MagickWandGenesis();
     mw = NewMagickWand();
 
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <image path>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    // Apprend the "rsz-" prefix to each resized image
+    char *default_image = basename(argv[1]);
+    char *resized_image = malloc(strlen(argv[1]) + 4);
+    strcpy(resized_image, "rsz-");
+    strcat(resized_image, default_image);
+
     // Read the image
-    MagickReadImage(mw, "image.jpg");
+    MagickReadImage(mw, argv[1]);
    
     // Get original image width/height
     width = MagickGetImageWidth(mw);
@@ -30,7 +43,7 @@ int main(void) {
     MagickSetImageCompressionQuality(mw, 95);
 
     // Write the new image
-    MagickWriteImage(mw, "resized_image.jpg");
+    MagickWriteImage(mw, resized_image);
 
     // Clean up
     if (mw)
