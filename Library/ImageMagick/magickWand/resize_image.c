@@ -16,6 +16,7 @@ int main(void) {
     width = MagickGetImageWidth(mw);
     height = MagickGetImageWidth(mw);
 
+    // Check underflow
     if ((width /= 2) < 1)
         width = 1;
 
@@ -28,6 +29,14 @@ int main(void) {
     // Set the compression quality
     MagickSetImageCompressionQuality(mw, 95);
 
+    // Write the new image
+    MagickWriteImage(mw, "resized_image.jpg");
+
+    // Clean up
+    if (mw)
+       mw = DestroyMagickWand(mw);
+
+    MagickWandTerminus();
 
     return(EXIT_SUCCESS);
 }
