@@ -11,7 +11,7 @@ int main(void) {
     int val2 = 1234u;
     int val3 = 0x5678U;
 
-    printf("signed:%d, unsigned:%u, unsigned:%#x\n", val1, val2, val3);
+    printf("A: signed:%d, unsigned:%u, unsigned:%#x\n", val1, val2, val3);
 
     /* Se in una operazione vi sono due operandi, uno dei quali 'signed' e
     l'altro 'unsigned', il C eseguira' implicitamente un cast sull'operando
@@ -30,27 +30,27 @@ int main(void) {
     4294967295, pertanto il risultato del confronto sara' false */
 
     if (sval1 < uval1)
-        printf("true:1\n");
+        printf("true:0\n");
     else
-        printf("%u < %u (false:0)\n", (unsigned)sval1, uval1);
+        printf("B: (%10u < %-11u) = false:1\n", (unsigned)sval1, uval1);
 
     // Test 2
     int sval2 = -2147483647-1;
     unsigned uval2 = 2147483647U;
 
     if (uval2 > sval2)
-        printf("true:1\n");
+        printf("true:0\n");
     else
-        printf("%u > %u (false:0)\n", uval2, (unsigned)sval2);
+        printf("C: (%10u > %11u) = false:1\n", uval2, (unsigned)sval2);
 
     // Test 3
     int sval3 = 2147483647;
     int uval3 = (int) 2147483648U;
 
     if (sval3 > uval3)
-        printf("%d > %d (true:1)\n", sval3, uval3);
+        printf("D: (%10d > %11d) = true:0\n", sval3, uval3);
     else
-        printf("false:0\n");
+        printf("false:1\n");
 
     return(EXIT_SUCCESS);
 }
