@@ -22,7 +22,7 @@ int main(void) {
     uval = 53191 (binario: 1110001111110011)
     
     Il casting da short [int] ad 'unsigned short' modifica il valore numerico 
-    lasciando immutata la raoppresentazione in complemento a due dei bit.
+    lasciando immutata la rappresentazione in complemento a due dei bit.
     */
 
     printf("val1=%d\tcast_val1=%d\n", val1, cast_val1);
@@ -30,6 +30,7 @@ int main(void) {
     // Casting unsigned [int], int 
     unsigned val2 = 4294967295U;    // UINT_MAX
     int cast_val2 = (int) val2;
+
     /* Su una macchina con una word a 32 bit, il valore massimo per il tipo
     'unsigned' e' 4294967295U (0xFFFFFFFF) e il cast a 'int' in complemento a
     due risulta essere -1, ossia (0xFFFFFFFF), per cui anche in questo caso 
