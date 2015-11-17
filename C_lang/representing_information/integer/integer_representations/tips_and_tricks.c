@@ -10,7 +10,7 @@ int main(void) {
    
     /* I numeri rappresentabili su un calcolatore sono finiti, per cui
     sommando uno al valore massimo e' come se si chiudesse il cerchio dei 
-    postivi per aprire nuovamente i quello dei negativi, ma il concetto 
+    postivi per aprire nuovamente quello dei negativi, ma il concetto 
     fondamentale e'che il calcolatore lavora coi numeri binari, pertanto:
 
     0111 1111 1111 1111 1111 1111 1111 1111 +        2147483647 +
