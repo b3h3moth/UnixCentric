@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-/* The purpose of this program is to find the sign of a number, the result 
+/* The program's purpose is to find the sign of a number, the result 
 goes into 'result' variable.
 Positive is +1, Negative is -1 */
 
