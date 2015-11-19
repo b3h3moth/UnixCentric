@@ -1,5 +1,5 @@
-#ifndef STRUCTURE_01
-#define STRUCTURE_01
+#ifndef RGB_COLOR
+#define RGB_COLOR
 
 #define MAX_STR 10
 
