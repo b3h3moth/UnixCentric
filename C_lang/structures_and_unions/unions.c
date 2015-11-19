@@ -23,5 +23,7 @@ int main(void) {
     
     printf("%d\n%d\n%li\n", vec[0].srt_type, vec[1].int_type, vec[2].l_type);
 
+    printf("%d byte\n", sizeof(IntegerFamily));
+
     return(EXIT_SUCCESS);
 }
