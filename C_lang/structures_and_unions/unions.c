@@ -5,7 +5,12 @@
 composite. Lo scopo del programma infatti e' di realizzare un vettore i cui
 membri saranno interi di diverso peso. */
 
-union%
+typedef union {
+    short srt_type;
+    int int_type;
+    long l_type;
+} IntegerFamily;
+
 int main(void) {
     return(EXIT_SUCCESS);
 }
