@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "struct_01.h" /* Si include la definizione della struttura */
+#include "rgb_color.h" /* Si include la definizione della struttura */
 
 int main(void) {
 
