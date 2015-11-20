@@ -18,6 +18,18 @@ occupa di qualificare il puntatore stesso e non l'oggetto cui ptr punta */
 void f(int *x, int *y, int *restrict p);
 
 int main(void) {
+    int val1 = 100;
+    int val2 = 200;
+
+    f(&val1, &val2, &val1);
+    printf("Result: %d, %d\n", val1, val2);
+
+    // Reset values
+    val1 = 50;
+    val2 = 75;
+
+    f(&val1, &val2, &val1);
+    printf("Result: %d, %d\n", val1, val2);
 
     return(EXIT_SUCCESS);
 }
