@@ -4,8 +4,10 @@
 #include "rgb_color.h" /* Si include la definizione della struttura */
 
 int main(void) {
+    /* Una struttura (structure) e' caratterizzata da un insieme eterogeneo
+    di elementi collocati sequenzialmente in memoria.
 
-    /* Dichiara ed inizializza la struttura subito dopo la definizione. 
+    Si dichiara ed inizializza la struttura subito dopo la definizione. 
     Sara' anche creato lo spazio di memoria necessario a contenere la 
     variabile struct 'black:
     
