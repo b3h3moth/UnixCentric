@@ -15,29 +15,14 @@ accessibile in taluni casi, quali:
 restrict deve essere posto prima dell'identificatore del puntatore, poiche' si
 occupa di qualificare il puntatore stesso e non l'oggetto cui ptr punta */
 
-int f(int * restrict p1, int * restrict *p2);
+void f(int *x, int *y, int *restrict p);
 
 int main(void) {
-    int * restrict px;
-    int * restrict py;
-
-    px = malloc(sizeof(int));
-    *px = 10;
-    py = px;
-
-    printf("%d\n", *px);
-
-    // In questo caso si puo' verificare un comportamento indefinito
-    *py = 20;
-
-    printf("%d\n", *py);
 
     return(EXIT_SUCCESS);
 }
 
-int f(int * restrict p1, int * restrict *p2) {
-    *p1 = 100;
-    *p2 = 200;
-
-    return *p1 + *p2;
+void f(int *x, int *y, int *restrict p) {
+    *x += *p;
+    *y += *p;
 }
