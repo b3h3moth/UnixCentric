@@ -5,7 +5,9 @@
 
 int main(void) {
     /* Una struttura (structure) e' caratterizzata da un insieme eterogeneo
-    di elementi collocati sequenzialmente in memoria.
+    di elementi collocati sequenzialmente in memoria. Allorquando si dichiara
+    non viene allocata memoria, cio' sara' fatto solo con la dichiarazione
+    contestuale o successiva di una variabile del suo tipo.
 
     Si dichiara ed inizializza la struttura subito dopo la definizione. 
     Sara' anche creato lo spazio di memoria necessario a contenere la 
