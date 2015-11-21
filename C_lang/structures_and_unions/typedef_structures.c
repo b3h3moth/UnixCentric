@@ -9,10 +9,10 @@ typedef struct {
     char sub_title[MAX_BUF];        // 20 byte +
     char author_name[MAX_BUF];      // 20 byte +
     char author_surname[MAX_BUF];   // 20 byte +
-    unsigned int year;              //  4 byte +
-    unsigned int ID;                //  4 byte = 88 byte
-} Book;                             
-
+    unsigned short year;            //  4 byte +
+    unsigned int ID;                //  4 byte +
+} Book;                             //  2 byte per l'allineamento corretto)
+                                    // tot. 88 byte
 // Alias al tipo di dato
 typedef Book book;
 
