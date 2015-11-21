@@ -13,7 +13,9 @@ accessibile in taluni casi, quali:
 - con ptr che punti a una variabile con nome.
 
 restrict deve essere posto prima dell'identificatore del puntatore, poiche' si
-occupa di qualificare il puntatore stesso e non l'oggetto cui ptr punta */
+occupa di qualificare il puntatore stesso e non l'oggetto cui ptr punta.
+
+restrict consente l'ottimizzazione.*/
 
 void f(int *x, int *y, int *restrict p);
 
