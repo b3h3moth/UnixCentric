@@ -4,7 +4,7 @@
 #include <errno.h>
 #include <time.h>
 
-void print_bit(unsigned int bit_size, unsigned int bit_field) {
+void print_bit(unsigned int bit_size, unsigned int bit_field);
 
 /* Un membro di una struct o di una union puo' essere dichiarato come un campo
 di bit (bitfield), inoltre:
@@ -51,8 +51,15 @@ int main(void) {
     today.month = lt->tm_mon;
     today.year = 1900 + lt->tm_year;
 
-    printf("Today's date is: %d ", today.day);
+    printf("Today's date is:\n");
+    
+    printf("%5s: %d - binary: ", "Day", today.day);
     print_bit(5, today.day);
+
+    fputc('\n', stdout);
+    
+    printf("%5s: %d - binary: ", "Month", today.month);
+    print_bit(5, today.month);
 
     return(EXIT_SUCCESS);
 }
