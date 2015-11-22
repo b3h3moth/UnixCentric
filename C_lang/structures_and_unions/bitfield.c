@@ -53,13 +53,18 @@ int main(void) {
 
     printf("Today's date is:\n");
     
-    printf("%5s: %d - binary: ", "Day", today.day);
+    printf("%5s: %4d - binary: ", "Day", today.day);
     print_bit(5, today.day);
 
     fputc('\n', stdout);
     
-    printf("%5s: %d - binary: ", "Month", today.month);
-    print_bit(5, today.month);
+    printf("%5s: %4d - binary: ", "Month", today.month);
+    print_bit(4, today.month);
+
+    fputc('\n', stdout);
+    
+    printf("%5s: %4d - binary: ", "Year", today.year);
+    print_bit(11, today.year);
 
     return(EXIT_SUCCESS);
 }
@@ -70,7 +75,5 @@ void print_bit(unsigned int bit_size, unsigned int bit_field) {
     for (int i=1; i<=bit_size; ++i) {
         fputc((bit_field & mask) == 0 ? '0': '1', stdout);
         bit_field <<= 1;
-        if ((i % 8 == 0) && (i != 0))
-            fputc(' ', stdout);
     }
 }
