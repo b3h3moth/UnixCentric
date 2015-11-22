@@ -24,16 +24,35 @@ Ci sono anche delle restrizioni:
 
 typedef struct {
     /* Campo per salvare il giorno su 5 bit.
-    Gli interi disponibili sono 2^5, ovvero da 0 a 31 */
-    unsigned int day: 5;    
+    Gli interi disponibili sono 2^5, ovvero da 0 a 31.
+    I giorni vanno da 1 a 31, per cui e' perfetto. */
+    unsigned int day: 5;
+
     /* Campo per salvare il mese su 4 bit.
-    Gli interi disponibili sono 2^4, ovvero da 0 a 16 */
+    Gli interi disponibili sono 2^4, ovvero da 0 a 16.
+    I mesi vanno da 1 a 12, avanzano 4 bit. */
     unsigned int month: 4;
+    
     /* Campo per salvare l'anno su 11 bit.
-    Gli interi disponibili sono 2^11, ovvero da 0 a 2048, fino al 2048  */
+    Gli interi disponibili sono 2^11, ovvero da 0 a 2048.
+    Siamo nel 2015, e fino al 2048 c'e' tempo.  */
     unsigned int year: 11;
-    unsigned int :13;
+    
+    /* Campo per salvare l'ora su 5 bit.
+    Gli interi disponibili sono 2^5, ovvero da 0 a 31.
+    Le ore vanno da 1 a 24, avanzano 7 bit.  */
+    unsigned int hour: 5;
+    
+    /* Campo per salvare i minuti su 4 bit.
+    Gli interi disponibili sono 2^6, ovvero da 0 a 64.
+    I minuti vanno da 0 a 60, avanzano 4 bit. */
+    unsigned int min: 6;
+
 } Date;
+
+/* Il nuovo tipo Date e' caratterizzato da 5 campi di bit dal peso complessivo
+di 30 bit, tuttavia il compilatore allochera' 32 bit per allinearla alla 
+word dell'architettura. */
 
 int main(void) {
     time_t t;
