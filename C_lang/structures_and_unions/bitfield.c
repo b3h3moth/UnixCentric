@@ -72,7 +72,7 @@ int main(void) {
     today.hour  = lt->tm_hour;
     today.min   = lt->tm_min;
 
-    printf("Today's date is:\n");
+    printf("Today's date is with 'Date' structure of bitfields:\n");
     
     printf("[%6s] %6s: %4d - binary( ", "5 bit", "Day", today.day);
     print_bit(5, today.day);
@@ -93,6 +93,8 @@ int main(void) {
     printf("[%6s] %6s: %4d - binary( ", "6 bit", "Minute", today.min);
     print_bit(6, today.min);
     printf(" )\n");
+
+    printf("Sizeof(Date): %d byte\n", sizeof(today));
 
     return(EXIT_SUCCESS);
 }
