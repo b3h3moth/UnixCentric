@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <time.h>
 
 /* Un membro di una struct o di una union puo' essere dichiarato come un campo
@@ -28,12 +30,26 @@ typedef struct {
     /* Campo per salvare l'anno su 11 bit.
     Gli interi disponibili sono 2^11, ovvero da 0 a 2048, fino al 2048  */
     unsigned int year: 11;
-} Datte;
+    unsigned int :13;
+} Date;
 
 int main(void) {
-    Date date;
+    time_t t;
+    struct tm *lt;
+    Date today;
+    
+    if ((t = time(NULL)) < 0) {
+        fprintf(stderr,"Err.(%s) getting time\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
-    date.day = 
-    printf("%d\n", sizeof(date));
+    lt = gmtime(&t);
+
+    today.day = lt->tm_mday;
+    today.month = lt->tm_mon;
+    today.year = 1900 + lt->tm_year;
+
+    printf("Today's date is: %d/%d/%d\n", today.day, today.month, today.year);
+
     return(EXIT_SUCCESS);
 }
