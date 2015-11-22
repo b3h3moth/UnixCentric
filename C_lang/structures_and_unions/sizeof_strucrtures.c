@@ -11,8 +11,9 @@ struct st {
 allochera' per l'intera struttura 24 byte, ben 14 byte in piu'. Perche'?
 
 Il compilatore alloca la memoria necessaria a contenere ciascun membro, ma in 
-caso di non allineamento fara' riferimento al tipo piu' grande dei membri, in
-questo caso un double da 8 byte. 
+caso di non allineamento - ciascun membro deve poter essere acceduto mediante
+un indirizzo multiplo della sua massima dimensione - fara' riferimento al tipo 
+piu' grande dei membri, in questo caso un double da 8 byte.
 
 Pertanto la memoria allocata nel caso specifico e':
 8 byte per un char   +
