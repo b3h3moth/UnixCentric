@@ -66,9 +66,11 @@ int main(void) {
 
     lt = gmtime(&t);
 
-    today.day = lt->tm_mday;
+    today.day   = lt->tm_mday;
     today.month = lt->tm_mon;
-    today.year = 1900 + lt->tm_year;
+    today.year  = 1900 + lt->tm_year;
+    today.hour  = lt->tm_hour;
+    today.min   = lt->tm_min;
 
     printf("Today's date is:\n");
     
@@ -84,6 +86,11 @@ int main(void) {
     
     printf("%5s: %4d - binary: ", "Year", today.year);
     print_bit(11, today.year);
+
+    fputc('\n', stdout);
+    
+    printf("%5s: %4d - binary: ", "Hour:", today.hour);
+    print_bit(5, today.hour);
 
     return(EXIT_SUCCESS);
 }
