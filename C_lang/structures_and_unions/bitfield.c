@@ -74,23 +74,28 @@ int main(void) {
 
     printf("Today's date is:\n");
     
-    printf("%5s: %4d - binary: ", "Day", today.day);
+    printf("%6s: %4d - binary: ", "Day", today.day);
     print_bit(5, today.day);
 
     fputc('\n', stdout);
     
-    printf("%5s: %4d - binary: ", "Month", today.month);
+    printf("%6s: %4d - binary: ", "Month", today.month);
     print_bit(4, today.month);
 
     fputc('\n', stdout);
     
-    printf("%5s: %4d - binary: ", "Year", today.year);
+    printf("%6s: %4d - binary: ", "Year", today.year);
     print_bit(11, today.year);
 
     fputc('\n', stdout);
     
-    printf("%5s: %4d - binary: ", "Hour:", today.hour);
+    printf("%6s: %4d - binary: ", "Hour", today.hour);
     print_bit(5, today.hour);
+
+    fputc('\n', stdout);
+    
+    printf("%6s: %4d - binary: ", "Minute", today.min);
+    print_bit(6, today.min);
 
     return(EXIT_SUCCESS);
 }
