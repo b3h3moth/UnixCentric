@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <time.h>
 
+void print_bit(unsigned int bit_size, unsigned int bit_field) {
+
 /* Un membro di una struct o di una union puo' essere dichiarato come un campo
 di bit (bitfield), inoltre:
 - i tipi di dato associabili devono essere 'int' oppure 'unsigned int';
@@ -49,7 +51,19 @@ int main(void) {
     today.month = lt->tm_mon;
     today.year = 1900 + lt->tm_year;
 
-    printf("Today's date is: %d/%d/%d\n", today.day, today.month, today.year);
+    printf("Today's date is: %d ", today.day);
+    print_bit(5, today.day);
 
     return(EXIT_SUCCESS);
+}
+
+void print_bit(unsigned int bit_size, unsigned int bit_field) {
+    int mask = 1 << (bit_size - 1); // Work on Most Significant Bit
+
+    for (int i=1; i<=bit_size; ++i) {
+        fputc((bit_field & mask) == 0 ? '0': '1', stdout);
+        bit_field <<= 1;
+        if ((i % 8 == 0) && (i != 0))
+            fputc(' ', stdout);
+    }
 }
