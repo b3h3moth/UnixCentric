@@ -8,7 +8,10 @@ void print_bit(unsigned int bit_size, unsigned int bit_field);
 
 /* Un membro di una struct puo' essere dichiarato come un campo 
 di bit (bit field), inoltre:
-- i tipi di dato associabili devono essere 'int' oppure 'unsigned int';
+- i tipi di dato associabili devono essere 'int', 'unsigned int' e 
+  'signed int', ma sebbene 'int' e 'signed int' siano equivalenti e'
+  preferibile adoperare solo e soltanto 'signed int' o 'unsigned int', per la 
+  portabilita';
 - dal c99 (iso9899:1999) e' consentito anche il tipo di dato _Bool;
 - il peso massimo consentito equivale al numero di bit della word;
 - a seconda della macchina il compilatore assegna i bit da destra a sinistra
