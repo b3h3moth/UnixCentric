@@ -6,8 +6,8 @@
 
 void print_bit(unsigned int bit_size, unsigned int bit_field);
 
-/* Un membro di una struct o di una union puo' essere dichiarato come un campo
-di bit (bitfield), inoltre:
+/* Un membro di una struct puo' essere dichiarato come un campo 
+di bit (bit field), inoltre:
 - i tipi di dato associabili devono essere 'int' oppure 'unsigned int';
 - dal c99 (iso9899:1999) e' consentito anche il tipo di dato _Bool;
 - il peso massimo consentito equivale al numero di bit della word;
@@ -20,6 +20,9 @@ Ci sono anche delle restrizioni:
 - non sono consentiti campi di bit di array;
 - l'operatore indirizzo & (address of) non e' consentito sui campi di bit, per
   cui un puntatore non puo' indirizzare uno di essi.
+
+Il compilatore raggruppa i campi di bit all'interno di una word, che nel caso
+specifico equivale a 32 bit.
 */
 
 typedef struct {
