@@ -5,6 +5,7 @@
 
 $ gcc -std=c11 -Wall -pedantic -DNUM file.c
 $ gcc -std=c11 -Wall -pedantic -DNUM=10 file.c
+$ gcc -std=c11 -Wall -pedantic -DNUM="10" file.c
 
 */
 int main(void) {
