@@ -64,6 +64,6 @@ int main(void) {
 /* E' consigliabile tuttavia non utilizzare le API di Cairo inerenti
 il testo, poiche' e' il team di sviluppo stesso ad affermare che 
 sono state create come una sorta di giocattolo utile essenzialmente
-per le demo, ma non adatte sulle applicazioni finali. 
+per le demo, ma non adatte alle applicazioni finali. 
 Si consiglia l'utilizzo della libreria Pango, specifica per il testo,
 che peraltro si integra alla perfezione con Cairo. */
