@@ -19,7 +19,7 @@ int main(void) {
     cairo_set_source_rgba(cr, 0.0, 0.0, 0.0, 1.0);
 
     // Le coordinate di partenza
-    cairo_move_to(cr, 120, 0);
+    cairo_move_to(cr, 0, 120);
     // Le coordinate di arrivo della linea
     cairo_line_to(cr, 120, 250);
     // Spessore della linea
