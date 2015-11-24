@@ -21,7 +21,7 @@ int main(void) {
     // Le coordinate di partenza
     cairo_move_to(cr, 0, 120);
     // Le coordinate di arrivo della linea
-    cairo_line_to(cr, 120, 250);
+    cairo_line_to(cr, 250, 120);
     // Spessore della linea
     cairo_set_line_width(cr, 10.0);
 
