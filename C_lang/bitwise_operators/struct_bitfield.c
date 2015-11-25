@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Nuovo tipo word_bytes che definisce i 4 byte di una word da 32 bit
+// Nuovo tipo 'word_bytes' che definisce i 4 byte di una word da 32 bit
 typedef struct {
     unsigned byte0: 8;
     unsigned byte1: 8;
@@ -9,7 +9,7 @@ typedef struct {
     unsigned byte3: 8;
 } word_bytes;
 
-// Nuovo tipo word_bit che definisce i 32 bit di una word
+// Nuovo tipo 'word_bit' che definisce i 32 bit di una word
 typedef struct {
     unsigned  bit0: 1,  bit1: 1,  bit2: 1,  bit3: 1,  bit4: 1,  bit5: 1,   \
               bit6: 1,  bit7: 1,  bit8: 1,  bit9: 1, bit10: 1, bit11: 1,   \
@@ -18,6 +18,13 @@ typedef struct {
              bit24: 1, bit25: 1, bit26: 1, bit27: 1, bit28: 1, bit29: 1,   \
              bit30: 1, bit31: 1;
 } word_bit;
+
+// Nuovo tipo 'word' che definisce una parola da 4 byte (32 bit)
+typedef union {
+    int         integer;
+    word_bit    bit;
+    word_bytes  byte;
+} word;
 
 int main(void) {
     return(EXIT_SUCCESS);
