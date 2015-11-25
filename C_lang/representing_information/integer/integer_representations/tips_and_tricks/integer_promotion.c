@@ -10,5 +10,14 @@ int main(void) {
 
     printf("Result is: %d\n", val);
 
+    /* Nella rappresentazione in complemento a due il range di numeri 
+    rapppresentabili dell'unsigned char va da 0 a 255, mentre per il 
+    signed char va da -128 a + 127, per cui nel caso specifico:
+
+    uch = 0xFF = 255 = 0x000000FF
+     ch = 0xFF =  -1 = 0xFFFFFFFF
+
+    Il risultato naturalmente e' false, 1. */
+
     return(EXIT_SUCCESS);
 }
