@@ -30,6 +30,9 @@ typedef union {
 // Prototipo della funzione print_bit()
 void print_bit(int num);
 
+/* Lo scopo del programma e' di verificare l'accesso a bit, byte e word e 
+allo stesso tempo modificarne il contenuto */
+
 int main(void) {
     // Settaggio di tutti e 32 i bit a 0
     Word word = {0};
