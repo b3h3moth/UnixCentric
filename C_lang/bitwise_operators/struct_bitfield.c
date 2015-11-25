@@ -31,8 +31,29 @@ typedef union {
 void print_bit(int num);
 
 int main(void) {
+    // Settaggio di tutti e 32 i bit a 0
     Word word = {0};
 
+    // Si procede alla modifica dei bit necessari a formare l'intero 255
+    printf("Set the last eight bit to get an integer: 255\n");
+    
+    word.bit.bit24 = word.bit.bit25 = word.bit.bit26 = word.bit.bit27 = \
+                     word.bit.bit28 = word.bit.bit29 = word.bit.bit30 = \
+                     word.bit.bit31 = 1;
+    print_bit(word.integer);
+
+    // Al fine di ottenere l'intero 255, lo si salva nell'ultimo byte
+    printf("\n\nSet the last byte to get integer: 15\n");
+
+    word.byte.byte3 = 255;
+    print_bit(word.integer);
+
+    // Si salva il valore direttamente nell'intero
+    printf("\n\nSet the integer value: 255\n");
+    
+    word.integer = 255;
+    print_bit(word.integer);
+    
     return(EXIT_SUCCESS);
 }
 
@@ -41,8 +62,8 @@ void print_bit(int num) {
     int bit_size = sizeof(int) * CHAR_BIT;
     int mask = 1 << (bit_size -1);
 
-    for (int i=0; i<=bit_size; i++) {
-        fputc((((num & mask) == 0) ? '0', : '1'), stdout);
+    for (int i=1; i<=bit_size; i++) {
+        (num & mask) == 0 ? fputc('0',stdout) : fputc('1', stdout);
 
         num <<= 1;
 
