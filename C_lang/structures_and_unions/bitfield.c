@@ -16,8 +16,9 @@ di bit (bit field), inoltre:
 - il peso massimo consentito equivale al numero di bit della word;
 - a seconda della macchina il compilatore assegna i bit da destra a sinistra
   (Little-endian) o da sinistra a destra (Big-endian);
-- sono consentiti campi di bit impostati a zero;
-- sono consentiti campi di bit privi di identificatore.
+- sono consentiti campi di bit impostati a zero per, utili per l'allinemento;
+- sono consentiti campi di bit privi di identificatore, utili per 
+  l'allinemento.
 
 Ci sono anche delle restrizioni:
 - non sono consentiti campi di bit di array;

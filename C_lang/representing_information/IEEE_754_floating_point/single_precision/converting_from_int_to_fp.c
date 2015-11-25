@@ -5,5 +5,7 @@
 single precision (IEEE 754) number */
 
 int main(void) {
+    int number = 12345;
+
     return(EXIT_SUCCESS);
 }
