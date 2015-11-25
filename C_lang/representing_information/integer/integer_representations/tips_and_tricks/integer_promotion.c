@@ -12,7 +12,8 @@ int main(void) {
 
     /* Nella rappresentazione in complemento a due il range di numeri 
     rapppresentabili dell'unsigned char va da 0 a 255, mentre per il 
-    signed char va da -128 a + 127, per cui nel caso specifico:
+    signed char va da -128 a + 127, per cui il risultato della conversione
+    ad int e':
 
     uch = 0xFF = 255 = 0x000000FF
      ch = 0xFF =  -1 = 0xFFFFFFFF
