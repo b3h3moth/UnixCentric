@@ -34,8 +34,8 @@ int main(void) {
     // Settaggio di tutti e 32 i bit a 0
     Word word = {0};
 
-    // Si procede alla modifica dei bit necessari a formare l'intero 255
-    printf("Set the last eight bit to get an integer: 255\n");
+    // Settaggio degli ultimi 8 bit necessari a formare l'intero 255
+    printf("Set the last eight bit to get an integer: '255'\n");
     
     word.bit.bit24 = word.bit.bit25 = word.bit.bit26 = word.bit.bit27 = \
                      word.bit.bit28 = word.bit.bit29 = word.bit.bit30 = \
@@ -43,13 +43,13 @@ int main(void) {
     print_bit(word.integer);
 
     // Al fine di ottenere l'intero 255, lo si salva nell'ultimo byte
-    printf("\n\nSet the last byte to get integer: 15\n");
+    printf("\n\nSet the last byte to get integer: '255'\n");
 
     word.byte.byte3 = 255;
     print_bit(word.integer);
 
-    // Si salva il valore direttamente nell'intero
-    printf("\n\nSet the integer value: 255\n");
+    // Si salva il valore 255 direttamente nell'intero
+    printf("\n\nSet the integer value: '255'\n");
     
     word.integer = 255;
     print_bit(word.integer);
