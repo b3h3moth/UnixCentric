@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 // Nuovo tipo 'word_bytes' che definisce i 4 byte di una word da 32 bit
 typedef struct {
@@ -24,8 +25,29 @@ typedef union {
     int         integer;
     word_bit    bit;
     word_bytes  byte;
-} word;
+} Word;
+
+// Prototipo della funzione print_bit()
+void print_bit(int num);
 
 int main(void) {
+    Word word = {0};
+
     return(EXIT_SUCCESS);
+}
+
+// La funzione print_bit() stampa ciascun bit dell'intero 'num'
+void print_bit(int num) {
+    int bit_size = sizeof(int) * CHAR_BIT;
+    int mask = 1 << (bit_size -1);
+
+    for (int i=0; i<=bit_size; i++) {
+        fputc((((num & mask) == 0) ? '0', : '1'), stdout);
+
+        num <<= 1;
+
+        // Uno spazio ogni 8 bit
+        if (i % CHAR_BIT == 0 && i < bit_size)
+            fputc(' ', stdout);
+    }
 }
