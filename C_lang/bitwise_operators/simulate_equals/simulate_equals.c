@@ -6,6 +6,10 @@ int main(void) {
     unsigned int num2 = 0x30;   
     unsigned int num3 = 32;     // 0x20 hex
 
+    /* XOR ^ corrisponde a "diverso" (Not Equals), mentre !^ XNOR (NOT XOR)
+    corrisponde a "uguale" (Equals). Si ottiene questo risultato perche' 
+    una XOR su due valori uguali ritorna una sequenza di zero, ovvero false, 
+    per cui utilizzando XNOR si otterra' la corretta simulazione. */
     
     if (!(num1 ^ num2))
         printf("%#x and %#x are equals\n", num1, num2);
