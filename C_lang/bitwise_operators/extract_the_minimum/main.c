@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//  The program's purpose is to extract the minimum value from two integers
+
 int main(void) {
     int val1 = 567;
     int val2 = 987;
