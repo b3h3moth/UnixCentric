@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* The program's purpose is to extract the maximum value from two integers
+
 int main(void) {
     int val1 = 229;
     int val2 = 281;
