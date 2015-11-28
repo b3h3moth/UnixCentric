@@ -23,7 +23,7 @@ int main(void) {
     surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, WIDTH, HEIGHT);
     cr = cairo_create(surface);
 
-    // ...
+    // Corpo del programma
 
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, image_name);
