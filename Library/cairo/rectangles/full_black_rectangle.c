@@ -5,7 +5,7 @@
 #define WIDTH           320
 #define HEIGHT          320
 
-// Lo scopo del programma e' di disegnare una scacchiera
+// Lo scopo del programma e' di disegnare un rettangolo nero
 
 void draw_squares(cairo_t *cr, int rect_x, int rect_y);
 
@@ -20,9 +20,9 @@ int main(void) {
     // Spessore del tratteggio
     cairo_set_line_width(cr, 0.0);
 
+    // Disegna e riempie il rettangolo
     cairo_rectangle(cr, 40, 40, 240, 240);
     cairo_fill(cr);
-
 
     // Salvataggio del file, PNG
     cairo_surface_write_to_png(surface, "black_rectangle.png");
