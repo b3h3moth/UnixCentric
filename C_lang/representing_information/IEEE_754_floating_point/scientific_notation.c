@@ -15,7 +15,7 @@ int main(void) {
     Il linguaggio C utilizza un formato ben preciso in tal senso, una E -
     maiuscola o minuscola - prima dell'esponente, indicante per l'appunto
     il valore esponenziale, che puo' essere sia positivo sia negativo.  */
-    float const avogadro = 6e23;
+    double const avogadro = 6e23;
 
     /* Nella printf e' possibile utilizzare lo specificatore di conversione
     (conversion specifier) 'e', che stampa un floating point nella forma
