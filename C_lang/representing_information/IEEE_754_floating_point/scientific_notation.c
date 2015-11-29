@@ -21,6 +21,11 @@ int main(void) {
     (conversion specifier) 'e', che stampa un floating point nella forma
     standard */
     printf("%e\n", avogadro);
-    
+   
+    // Naturalmente anche gli esponenti negativi sono concessi
+    float const behemoth = 31337e-3;
+    printf("%e\n", behemoth);
+    printf("%g\n", behemoth);
+
     return(EXIT_SUCCESS);
 }
