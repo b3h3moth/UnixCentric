@@ -9,12 +9,15 @@ int main(void) {
     particolarmente efficace nella rappresentazione compatta di numeri o molto
     grandi o molto piccoli
 
-    La costante di Avogadro ad esempio e' 6,022 x 10^23, molto piu' comodo di
-    602200000000000000000000000.
+    La costante di Avogadro ad esempio e' all'incirca 6 x 10^23, molto piu'
+    comodo di 600000000000000000000000.
 
     Il linguaggio C utilizza un formato ben preciso in tal senso, una E -
-    maiuscola o minuscola - prima dell'esponente. */
+    maiuscola o minuscola - prima dell'esponente, indicante per l'appunto
+    il valore esponenziale, che puo' essere sia positivo sia negativo.  */
     float const avogadro = 6.022e23;
+
+    printf("%f\n", avogadro);
     
     return(EXIT_SUCCESS);
 }
