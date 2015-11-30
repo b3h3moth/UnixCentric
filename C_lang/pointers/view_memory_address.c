@@ -33,13 +33,19 @@ int main(void) {
         for (i=0; i<ADDR_RANGE && i<nbyte; i++)
             printf("%.2x ", *(ptr +i));
 
+        // Nel caso di un numero minore di byte da visualizzare
+        for(; i<ADDR_RANGE; i++)
+            fputc(' ', stdout);
+        fputc(' ', stdout);
+
+        // Stampa dei soli caratteri 'stampabili', altrimenti '.'
         for (i=0; i<10 && i<nbyte; i++) {
             BYTE ch = *(ptr +i);
             if (!isprint(ch))
                 ch = '.';
             printf("%c", ch);
         }
-        printf("\n");
+        fputc('\n', stdout);
         ptr += 10;
     }
 
