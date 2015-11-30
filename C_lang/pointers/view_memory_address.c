@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+#define ADDR_RANGE  10
+
 typedef unsigned char BYTE;
 
 int main(void) {
@@ -21,19 +23,15 @@ int main(void) {
     printf("How many bytes: ");
     scanf("%d", &nbyte);
 
-    printf("%10s %20s %20s\n", "Address", "Byte", "Characters");
+    printf("\n%10s %29s %10s\n", "Address", "Byte", "Characters");
 
     ptr = (BYTE *) addr;
 
     for (; nbyte > 0; nbyte -= 10) {
         printf("%#8x ", (unsigned int) ptr);
 
-        for (i=0; i<10 && i<nbyte; i++)
+        for (i=0; i<ADDR_RANGE && i<nbyte; i++)
             printf("%.2x ", *(ptr +i));
-
-        for (; i<10; i++)
-            printf(" ");
-        printf(" ");
 
         for (i=0; i<10 && i<nbyte; i++) {
             BYTE ch = *(ptr +i);
