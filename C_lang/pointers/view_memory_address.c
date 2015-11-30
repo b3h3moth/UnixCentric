@@ -36,7 +36,7 @@ int main(void) {
         /* Nel caso di un numero minore di byte da visualizzare saranno
         inseriti gli spazi sino a raggiungere il numero prefissato */
         for(; i<ADDR_RANGE; i++)
-            fputc(' ', stdout);
+            printf("   ");
         fputc(' ', stdout);
 
         // Stampa dei soli caratteri 'stampabili', altrimenti '.'
