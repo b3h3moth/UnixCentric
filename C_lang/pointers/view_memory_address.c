@@ -34,18 +34,21 @@ int main(void) {
             printf("%.2x ", *(ptr +i));
 
         /* Nel caso di un numero minore di byte da visualizzare saranno
-        inseriti gli spazi sino a raggiungere il numero prefissato */
+        inseriti tre spazi sino a raggiungere il numero prefissato */
         for(; i<ADDR_RANGE; i++)
             printf("   ");
         fputc(' ', stdout);
 
-        // Stampa dei soli caratteri 'stampabili', altrimenti '.'
+        // Stampa soltanti i caratteri 'stampabili', altrimenti '.'
         for (i=0; i<10 && i<nbyte; i++) {
             BYTE ch = *(ptr +i);
             if (!isprint(ch))
                 ch = '.';
             printf("%c", ch);
         }
+
+        /* Ritorno a capo della riga, dopodiche' si procede verso i prossimi
+        10 byte */
         fputc('\n', stdout);
         ptr += 10;
     }
