@@ -28,12 +28,13 @@ int main(void) {
     ptr = (BYTE *) addr;
 
     for (; nbyte > 0; nbyte -= 10) {
-        printf("%#8x ", (unsigned int) ptr);
+        printf("%#10x ", (unsigned int) ptr);
 
         for (i=0; i<ADDR_RANGE && i<nbyte; i++)
             printf("%.2x ", *(ptr +i));
 
-        // Nel caso di un numero minore di byte da visualizzare
+        /* Nel caso di un numero minore di byte da visualizzare saranno
+        inseriti gli spazi sino a raggiungere il numero prefissato */
         for(; i<ADDR_RANGE; i++)
             fputc(' ', stdout);
         fputc(' ', stdout);
