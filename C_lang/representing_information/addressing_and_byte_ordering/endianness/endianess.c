@@ -15,11 +15,14 @@ file, un vettore char da 4 byte, un int da 4 byte e un altro vettore char da 4
 byte, per un totale di 12 byte. Dopo aver lanciato l'eseguibile, sul file 
 risultante dovra' essere eseguito un hexdump, in modo tale da verificare 
 l'allinemento dei byte.
+
+$ ./a.
 */
 
 int main(void) {
     FILE *fp;
     char *filename = "data.txt";
+    unsigned int data_size = sizeof(data);
 
     // Copia la stringa "xxx" nel membro data.str1
     strcpy(data.str1, "xxx");
@@ -33,6 +36,10 @@ int main(void) {
         fwrite(&data, sizeof(data), 1, fp);
         fclose(fp);
     }
+
+    printf("struct 'data'(%d byte) written into: '%s'\n", data_size, filename);
+    fputs("please check byte ordering incoving an hexdump\n", stdout);
+    printf("'hexdump %s' or 'hd %s'\n", filename, filename);
 
     return(EXIT_SUCCESS);
 }
