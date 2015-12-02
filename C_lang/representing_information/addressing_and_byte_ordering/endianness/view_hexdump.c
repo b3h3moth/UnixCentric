@@ -49,13 +49,27 @@ int main(void) {
 
 /* Su un PPC Big-Endian 32bit il risultato di un hexdump sarebbe:
 
-$ hd data.txt
-00000000  61 62 63 00 12 ab cd ef  78 79 7a 00              |xxx.....yyy.|
+00000000  61 62 63 00 12 ab cd ef 78 79 7a 00              |abc.....xyz.|
 0000000c
 
-Seppur molto breve, l'hexdump del file data.txt fornisce diverse informazioni,
-anzitutto che si sta utilizzando una macchina con un byte-ordering Big-endian,
-poiche' ciascun byte e' scritto da sinistra a destra, ovvero il MSB (Most
-Significant Byte) corrisponde al 61 (a), mentre LSB (Least Significant Byte)
-corrispinde al byte 7a (z).
+- byte-ordering Big-endian;
+- il valore del MSB (most significant byte) e' 0x61;
+- il MSB sta sull'indirizzo piu' basso;
+- gli altri byte decrescono in ordine di importanza;
+- la lettura in esadecimale va da sinistra a destra;
+- il valore del LSB (least significant byte) e' 0x00;
+- il LSB sta sull'indirizzo piu' alto;
+
+Su un x86-32 Little-Endian 32bit il risultato di un hexdump sarebbe:
+
+00000000  61 62 63 00 ef cd ab 12  78 79 7a 00              |abc.....xyz.|
+0000000c
+
+- byte-ordering Little-endian;
+- il valore del LSB (least significant byte) e' 0x61;
+- il LSB sta sull'indirizzo piu' basso;
+- gli altri byte aumentano in ordine di importanza;
+- la lettura in esadecimale va da destra a sinistra;
+- il valore del MSB (most significant byte) e' 0x00;
+- il MSB sta sull'indirizzo piu' alto;
 */
