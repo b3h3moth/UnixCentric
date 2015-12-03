@@ -10,9 +10,9 @@ int main(void) {
 
     printf("Result is: %d\n", val);
 
-    /* Nella rappresentazione in complemento a due del tipo di dato 
-    'unsigned char' e' strutturato mediante un intervallo di valori compreso 
-    tra 0 a 255, mentre per il tipo di dato 'signed char' l'intervallo e' 
+    /* Nella rappresentazione in complemento a due il tipo di dato 
+    'unsigned char' gode di un intervallo di valori compreso tra 0 a 255, 
+    mentre il tipo di dato 'signed char' o 'char' ha un intervallo
     compreso tra -128 e 127. 
     
     Il risultato della promozione di entrambi i tipi su citati in 'int' e'
