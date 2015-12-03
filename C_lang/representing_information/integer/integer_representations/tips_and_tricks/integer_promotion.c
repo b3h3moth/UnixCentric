@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int main(void) {
+    // Il tipo di dato 'char' e' definito di default come un 'unsigned char'
     char uch = 0xFF;
     signed char ch = 0xFF;
 
