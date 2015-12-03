@@ -2,13 +2,16 @@
 #include <stdlib.h>
 
 int main(void) {
-    unsigned char uch = 0xFF;
-    char ch = 0xFF;
+    char uch = 0xFF;
+    signed char ch = 0xFF;
 
     // Which is the result? Are you sure?
     int val = (uch == ch);
 
     printf("Result is: %d\n", val);
+
+    printf("(unsigned) char 0x%08x\n", uch);
+    printf("    signed char 0x%08x\n", ch);
 
     /* Nella rappresentazione in complemento a due il tipo di dato 
     'unsigned char' gode di un intervallo di valori compreso tra 0 a 255, 
