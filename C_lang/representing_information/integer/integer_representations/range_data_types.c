@@ -5,7 +5,7 @@
 // It prints the typical range for C integer data types
 
 int main(void) {
-    char *data_types[] = { "(unsigned) char", "unsigned char", "signed char",\
+    char *data_types[] = { "char", "unsigned char", "signed char",\
                            "short", "unsigned short", "int", "unsigned int", \
                            "long", "unsigned long", "long long",             \
                            "unsigned long long" };
@@ -13,16 +13,20 @@ int main(void) {
     fputs("It prints the typical range for C integer data types.\n"
           "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
+    // char
     printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
             data_types[0], sizeof(char), CHAR_BIT, "CHAR_MIN", CHAR_MIN, 
             "CHAR_MAX", CHAR_MAX);
 
+    // unsigned char
     printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
             data_types[1], sizeof(unsigned char), CHAR_BIT, "", 0,
             "UCHAR_MAX", UCHAR_MAX);
     
-    printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
-            data_types[2], sizeof(signed char), SCHAR_MIN, SCHAR_MAX);
+    // signed char
+    printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
+            data_types[2], sizeof(signed char), CHAR_BIT, "SCHAR_MIN", 0,
+            "SCHAR_MAX", SCHAR_MAX);
 
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[3], sizeof(short), SHRT_MIN, SHRT_MAX);
