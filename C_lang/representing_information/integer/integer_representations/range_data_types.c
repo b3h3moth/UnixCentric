@@ -53,8 +53,10 @@ int main(void) {
             data_types[7], sizeof(long), 
             CHAR_BIT*8, "LONG_MIN", LONG_MIN, "LONG_MAX", LONG_MAX);
 
-    printf("%19s -%2d byte - MIN=0 | MAX=%lu\n", 
-            data_types[8], sizeof(unsigned long), ULONG_MAX);
+    // unsigned long
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%11lu\n\n", 
+            data_types[7], sizeof(long), 
+            CHAR_BIT*8, "", 0, "ULONG_MAX", ULONG_MAX);
     
     printf("%19s -%2d byte - MIN=%lld | MAX=%lld\n\n", 
             data_types[9], sizeof(long long), LLONG_MIN, LLONG_MAX);
