@@ -35,19 +35,18 @@ int main(void) {
 
     // unsigned short
     printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
-            data_types[2], sizeof(short), 
+            data_types[2], sizeof(unsigned short), 
             CHAR_BIT*2, "", 0, "USHRT_MAX", USHRT_MAX);
 
     // (signed) int
     printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
-            data_types[2], sizeof(short), 
+            data_types[2], sizeof(int), 
             CHAR_BIT*4, "INT_MIN", INT_MIN, "INT_MAX", INT_MAX);
 
-    printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
-            data_types[5], sizeof(int), INT_MIN, INT_MAX);
-
-    printf("%19s -%2d byte - MIN=0 | MAX=%ud\n", 
-            data_types[6], sizeof(unsigned int), UINT_MAX);
+    // unsigned int
+    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11u\n", 
+            data_types[2], sizeof(unsigned int), 
+            CHAR_BIT*4, "", 0, "UINT_MAX", UINT_MAX);
 
     printf("%19s -%2d byte - MIN=%ld | MAX=%ld\n", 
             data_types[7], sizeof(long), LONG_MIN, LONG_MAX);
