@@ -14,19 +14,24 @@ int main(void) {
           "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
     // char
-    printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
-            data_types[0], sizeof(char), CHAR_BIT, "CHAR_MIN", CHAR_MIN, 
-            "CHAR_MAX", CHAR_MAX);
+    printf("%19s (%d byte:%2d bit) %10s:'%10d' %10s:'%10d'\n", 
+            data_types[0], sizeof(char), 
+            CHAR_BIT, "CHAR_MIN", CHAR_MIN, "CHAR_MAX", CHAR_MAX);
 
     // unsigned char
-    printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
-            data_types[1], sizeof(unsigned char), CHAR_BIT, "", 0,
-            "UCHAR_MAX", UCHAR_MAX);
+    printf("%19s (%d byte:%2d bit) %10s:'%10d' %10s:'%10d'\n", 
+            data_types[1], sizeof(unsigned char), 
+            CHAR_BIT, "", 0, "UCHAR_MAX", UCHAR_MAX);
     
     // signed char
-    printf("%19s (%d byte:%d bit) %10s:'%d' %10s:'%d'\n", 
-            data_types[2], sizeof(signed char), CHAR_BIT, "SCHAR_MIN", 0,
-            "SCHAR_MAX", SCHAR_MAX);
+    printf("%19s (%d byte:%2d bit) %10s:'%10d' %10s:'%10d'\n", 
+            data_types[2], sizeof(signed char), 
+            CHAR_BIT, "SCHAR_MIN", SCHAR_MIN, "SCHAR_MAX", SCHAR_MAX);
+
+    // (signed) short
+    printf("%19s (%d byte:%2d bit) %10s:'%10d' %10s:'%10d'\n", 
+            data_types[2], sizeof(short), 
+            CHAR_BIT*2, "SHRT_MIN", SHRT_MIN, "SHRT_MAX", SHRT_MAX);
 
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[3], sizeof(short), SHRT_MIN, SHRT_MAX);
