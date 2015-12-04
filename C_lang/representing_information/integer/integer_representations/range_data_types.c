@@ -14,47 +14,47 @@ int main(void) {
           "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
     // char
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
             data_types[0], sizeof(char), 
             CHAR_BIT, "CHAR_MIN", CHAR_MIN, "CHAR_MAX", CHAR_MAX);
 
     // unsigned char
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
             data_types[1], sizeof(unsigned char), 
             CHAR_BIT, "", 0, "UCHAR_MAX", UCHAR_MAX);
     
     // signed char
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
             data_types[2], sizeof(signed char), 
             CHAR_BIT, "SCHAR_MIN", SCHAR_MIN, "SCHAR_MAX", SCHAR_MAX);
 
     // (signed) short
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
-            data_types[2], sizeof(short), 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
+            data_types[3], sizeof(short), 
             CHAR_BIT*2, "SHRT_MIN", SHRT_MIN, "SHRT_MAX", SHRT_MAX);
 
     // unsigned short
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
-            data_types[2], sizeof(unsigned short), 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
+            data_types[4], sizeof(unsigned short), 
             CHAR_BIT*2, "", 0, "USHRT_MAX", USHRT_MAX);
 
     // (signed) int
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11d\n", 
-            data_types[2], sizeof(int), 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%-22d\n\n", 
+            data_types[5], sizeof(int), 
             CHAR_BIT*4, "INT_MIN", INT_MIN, "INT_MAX", INT_MAX);
 
     // unsigned int
-    printf("%19s (%d byte:%2d bit) %10s:%11d %10s:%11u\n", 
-            data_types[2], sizeof(unsigned int), 
+    printf("%19s (%d byte:%2d bit)\n%10s:%-22d %10s:%11ud\n\n", 
+            data_types[6], sizeof(unsigned int), 
             CHAR_BIT*4, "", 0, "UINT_MAX", UINT_MAX);
 
-    printf("%19s -%2d byte - MIN=%ld | MAX=%ld\n", 
+    printf("%19s -%2d byte - MIN=%ld | MAX=%ld\n\n", 
             data_types[7], sizeof(long), LONG_MIN, LONG_MAX);
 
     printf("%19s -%2d byte - MIN=0 | MAX=%lu\n", 
             data_types[8], sizeof(unsigned long), ULONG_MAX);
     
-    printf("%19s -%2d byte - MIN=%lld | MAX=%lld\n", 
+    printf("%19s -%2d byte - MIN=%lld | MAX=%lld\n\n", 
             data_types[9], sizeof(long long), LLONG_MIN, LLONG_MAX);
 
     printf("%19s -%2d byte - MIN=0| MAX=%llu\n", 
