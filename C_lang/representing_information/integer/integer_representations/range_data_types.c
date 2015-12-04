@@ -5,9 +5,9 @@
 // It prints the typical range for C integer data types
 
 int main(void) {
-    char *data_types[] = { "char", "unsigned char", "signed char", "short", 
-                           "unsigned short", "int", "unsigned int", "long", 
-                           "unsigned long", "long long", 
+    char *data_types[] = { "(signed) char", "unsigned char", "signed char", \
+                           "short", "unsigned short", "int", "unsigned int",\
+                           "long", "unsigned long", "long long", \
                            "unsigned long long" };
 
     fputs("It prints the typical range for C integer data types\n\n", stdout);
