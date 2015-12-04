@@ -33,11 +33,11 @@ int main(void) {
             data_types[2], sizeof(short), 
             CHAR_BIT*2, "SHRT_MIN", SHRT_MIN, "SHRT_MAX", SHRT_MAX);
 
-    printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
-            data_types[3], sizeof(short), SHRT_MIN, SHRT_MAX);
+    // unsigned short
+    printf("%19s (%d byte:%2d bit) %10s:'%10d' %10s:'%10d'\n", 
+            data_types[2], sizeof(short), 
+            CHAR_BIT*2, "", 0, "USHRT_MAX", USHRT_MAX);
 
-    printf("%19s -%2d byte - MIN=0 | MAX=%d\n", 
-            data_types[4], sizeof(unsigned short), USHRT_MAX);
 
     printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
             data_types[5], sizeof(int), INT_MIN, INT_MAX);
