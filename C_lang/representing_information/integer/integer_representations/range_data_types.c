@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-// It prints the typical range for C integral data types
+// It prints the typical range for C integer data types
 
 int main(void) {
     char *data_types[] = { "char", "unsigned char", "signed char", "short", 
@@ -10,9 +10,9 @@ int main(void) {
                            "unsigned long", "long long", 
                            "unsigned long long" };
 
-    printf("Byte and range for each C data type\n");
+    fputs("It prints the typical range for C integer data types\n\n", stdout);
 
-    printf("%19s -%2d byte - MIN=%d | MAX=%d\n", 
+    printf("%19s(%d byte) - from CHAR_MIN '%d' to CHAR_MAX '%d'\n", 
             data_types[0], sizeof(char), CHAR_MIN, CHAR_MAX);
 
     printf("%19s -%2d byte - MIN=0 | MAX=%d\n", 
