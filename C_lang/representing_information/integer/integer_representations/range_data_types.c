@@ -5,15 +5,16 @@
 // It prints the typical range for C integer data types
 
 int main(void) {
-    char *data_types[] = { "(signed) char", "unsigned char", "signed char", \
-                           "short", "unsigned short", "int", "unsigned int",\
-                           "long", "unsigned long", "long long", \
+    char *data_types[] = { "(unsigned) char", "unsigned char", "signed char",\
+                           "short", "unsigned short", "int", "unsigned int", \
+                           "long", "unsigned long", "long long",             \
                            "unsigned long long" };
 
-    fputs("It prints the typical range for C integer data types\n\n", stdout);
+    fputs("It prints the typical range for C integer data types.\n"
+          "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
-    printf("%19s(%d byte) - from CHAR_MIN '%d' to CHAR_MAX '%d'\n", 
-            data_types[0], sizeof(char), CHAR_MIN, CHAR_MAX);
+    printf("%19s (%d byte:%d bit) CHAR_MIN:'%d' CHAR_MAX:'%d'\n", 
+            data_types[0], sizeof(char), CHAR_BIT, CHAR_MIN, CHAR_MAX);
 
     printf("%19s -%2d byte - MIN=0 | MAX=%d\n", 
             data_types[1], sizeof(unsigned char), UCHAR_MAX);
