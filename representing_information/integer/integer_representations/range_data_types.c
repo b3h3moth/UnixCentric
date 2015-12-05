@@ -26,20 +26,20 @@ int main(void) {
             SCHAR_MIN, "SCHAR_MIN", "SCHAR_MAX", SCHAR_MAX);
 
     // (signed) short
-    printf("%10s:%-22d %10s:%-22d\n", 
+    printf("%22d %-10s | %10s %-22d\n", 
             "SHRT_MIN", SHRT_MIN, "SHRT_MAX", SHRT_MAX);
 
     // unsigned short
     printf("%10s:%-22d %10s:%-22d\n", 
-            "", 0, "USHRT_MAX", USHRT_MAX);
+            0, "min", "USHRT_MAX", USHRT_MAX);
 
     // (signed) int
     printf("%10s:%-22d %10s:%-22d\n", 
-            "INT_MIN", INT_MIN, "INT_MAX", INT_MAX);
+            INT_MIN, "INT_MIN", "INT_MAX", INT_MAX);
 
     // unsigned int
-    printf("%10s:%-22d %10s:%11ud\n", 
-            "", 0, "UINT_MAX", UINT_MAX);
+    printf("%10s:%-22d %10s:%-22u\n", 
+            0, "min", "UINT_MAX", UINT_MAX);
 
     // (signed) long
     printf("%10s:%-22ld %10s:%11ld\n", 
