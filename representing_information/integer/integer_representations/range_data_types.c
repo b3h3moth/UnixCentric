@@ -14,7 +14,9 @@ int main(void) {
           "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
     for (int i=0; i<sizeof(data_types)/sizeof(data_types[0]); i++)
-        printf("%d %s\n", i+1, data_types[i]);
+        printf("[%2d] %18s\n", i+1, data_types[i]);
+
+    fputc('\n', stdout);
 
     // char
     printf("[ 1] %21d %-9s | %10s %-22d\n", 
