@@ -50,8 +50,8 @@ int main(void) {
             0, "min", "ULONG_MAX", ULONG_MAX);
     
     // (signed) long long
-    printf("%10s:%-22lld %10s:%11lld\n", 
-            "LLONG_MIN", LLONG_MIN, "LLONG_MAX", LLONG_MAX);
+    printf("%22lld %-10s | %10s %-22lld\n", 
+            LLONG_MIN, "LLONG_MIN", "LLONG_MAX", LLONG_MAX);
 
     // unsigned long
     printf("%10s:%-22d %10s:%11llu\n",
