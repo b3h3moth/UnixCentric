@@ -27,14 +27,14 @@ int main(void) {
 
     // (signed) short
     printf("%22d %-10s | %10s %-22d\n", 
-            "SHRT_MIN", SHRT_MIN, "SHRT_MAX", SHRT_MAX);
+            SHRT_MIN, "SHRT_MIN", "SHRT_MAX", SHRT_MAX);
 
     // unsigned short
-    printf("%10s:%-22d %10s:%-22d\n", 
+    printf("%22d %-10s | %10s %-22d\n", 
             0, "min", "USHRT_MAX", USHRT_MAX);
 
     // (signed) int
-    printf("%10s:%-22d %10s:%-22d\n", 
+    printf("%22d %-10s | %10s %-22d\n", 
             INT_MIN, "INT_MIN", "INT_MAX", INT_MAX);
 
     // unsigned int
