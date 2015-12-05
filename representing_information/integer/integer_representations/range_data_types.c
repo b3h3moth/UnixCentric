@@ -38,7 +38,7 @@ int main(void) {
             INT_MIN, "INT_MIN", "INT_MAX", INT_MAX);
 
     // unsigned int
-    printf("%10s:%-22d %10s:%-22u\n", 
+    printf("%22d %-10s | %10s %-22u\n", 
             0, "min", "UINT_MAX", UINT_MAX);
 
     // (signed) long
