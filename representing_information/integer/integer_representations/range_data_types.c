@@ -14,16 +14,16 @@ int main(void) {
           "min/max macro are defined inside <limits.h> header.\n\n", stdout);
 
     // char
-    printf("%22d:%10s %10s:%-22d\n", 
+    printf("%22d %-10s | %10s %-22d\n", 
             CHAR_MIN, "CHAR_MIN", "CHAR_MAX", CHAR_MAX);
 
     // unsigned char
-    printf("%10s:%-22d %10s:%-22d\n", 
-            "", 0, "UCHAR_MAX", UCHAR_MAX);
+    printf("%22d %-10s | %10s %-22d\n", 
+            0, "min", "UCHAR_MAX", UCHAR_MAX);
     
     // signed char
-    printf("%10s:%-22d %10s:%-22d\n", 
-            "SCHAR_MIN", SCHAR_MIN, "SCHAR_MAX", SCHAR_MAX);
+    printf("%22d %-10s %10s:%-22d\n", 
+            SCHAR_MIN, "SCHAR_MIN", "SCHAR_MAX", SCHAR_MAX);
 
     // (signed) short
     printf("%10s:%-22d %10s:%-22d\n", 
