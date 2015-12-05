@@ -22,7 +22,7 @@ int main(void) {
             0, "min", "UCHAR_MAX", UCHAR_MAX);
     
     // signed char
-    printf("%22d %-10s %10s:%-22d\n", 
+    printf("%22d %-10s | %10s %-22d\n", 
             SCHAR_MIN, "SCHAR_MIN", "SCHAR_MAX", SCHAR_MAX);
 
     // (signed) short
