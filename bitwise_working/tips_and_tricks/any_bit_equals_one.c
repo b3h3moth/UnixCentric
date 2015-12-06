@@ -5,10 +5,10 @@ int main(void) {
     int val = -1;
     int mask = -1; // 11111111 11111111 11111111 11111111
     
-    // if any bit of 'val' is 1, returns is one
+    // if any bit of 'val' is 1, returns one
     int result = !(val ^ mask);
     
-    printf("%d\n", result);
+    printf("result: %d\n", result);
 
     return(EXIT_SUCCESS);
 }
