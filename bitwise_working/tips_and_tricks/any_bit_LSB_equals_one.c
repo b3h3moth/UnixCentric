@@ -6,7 +6,7 @@ int main(void) {
     int mask = 0xFF;      // 00000000 00000000 00000000 11111111
     
     // if any bit in the LSB (Least Significant Byte) of 'val' is 1, returns 1
-    int result = !((val<<24) ^ (mask<<24));
+    int result = !(~val & mask);
     
     printf("result: %d\n", result);
 
