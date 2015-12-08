@@ -4,14 +4,14 @@
 #include <errno.h>
 
 int main(int argc, char *argv[]) {
-    
+
     if (argc < 2) {
-        fprintf(stderr, "Usage: %s <decimal_number>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <(signed) integer>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-    
+
     errno = 0;
-    
+
     // To convert the initial part of the string/parameter to integer
     int val = strtol(argv[1], NULL, 10);
 
