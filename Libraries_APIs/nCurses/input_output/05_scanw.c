@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ncurses.h>
+
 #define MAX_STR 20
 
 int main(void) {
@@ -11,10 +12,10 @@ int main(void) {
 
     /* scanw() is analogous to the scanf() functions family. */
 
-    printw("Please your firstname: ");
+    printw("Firstname: ");
     scanw("%s", firstname);
 
-    printw("Please your lastname: ");
+    printw("Lastname: ");
     scanw("%s", lastname);
     
     printw("Hi %s %s\n", firstname, lastname);
