@@ -9,7 +9,7 @@ int main(void) {
     // if any bit of 'val' is 0, returns 0
     int result = !(val & mask);
     
-    // Logical operator '!' detects whetever there is any nonzero bit in a word
+    // Logical operator '!' detects whether there is any nonzero bit in a word
     int res = !!~val;
 
     assert(result == 1);
