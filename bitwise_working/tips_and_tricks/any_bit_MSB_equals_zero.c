@@ -10,9 +10,14 @@ int main(void) {
     // if any bit in the MSB (Most Significant Byte) of 'val' is 0, returns 1
     int result = !(val & (mask << CHAR_BIT * 3));
 
+    // Logical operator '!' detects whether there is any nonzero bit in a word
+    int res = !(~val & mask);
+
     assert(result == 1);
+    assert(res == 1);
     
     printf("result: %d\n", result);
+    printf("result: %d\n", res);
 
     return(EXIT_SUCCESS);
 }
