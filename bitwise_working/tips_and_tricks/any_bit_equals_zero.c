@@ -8,10 +8,15 @@ int main(void) {
     
     // if any bit of 'val' is 0, returns 0
     int result = !(val & mask);
+    
+    // Logical operator '!' detects whetever there is any nonzero bit in a word
+    int res = !!~val;
 
     assert(result == 1);
+    assert(res == 1);
     
     printf("result: %d\n", result);
+    printf("result: %d\n", res);
 
     return(EXIT_SUCCESS);
 }
