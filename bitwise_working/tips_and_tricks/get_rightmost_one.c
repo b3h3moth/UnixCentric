@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_rightmost_one_bit(int value);
+int get_rightmost_one_bit(unsigned value);
 
 int main(void) {
     int values[] = { 0xFF, 0xA, 0x14, 0x0100, 0xABC, 0x6600, 0x0200};
@@ -14,7 +14,7 @@ int main(void) {
 }
 
 /* Thi get_rightmost_one_bit() function returns the rightmost 1 bit within
-a integer 'int' value */
-int get_rightmost_one_bit(int value) {
+an integer 'int' value */
+int get_rightmost_one_bit(unsigned value) {
     return (value & -value);
 }
