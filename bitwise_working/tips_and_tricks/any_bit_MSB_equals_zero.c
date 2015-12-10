@@ -11,10 +11,10 @@ int main(void) {
     int result = !(val & (mask << CHAR_BIT * 3));
 
     // Logical operator '!' detects whether there is any nonzero bit in a word
-    int res = !(~val & mask);
+    int res = !!(~val & mask);
 
     assert(result == 1);
-    assert(res == 1);
+    assert(res == 0);
     
     printf("result: %d\n", result);
     printf("result: %d\n", res);
