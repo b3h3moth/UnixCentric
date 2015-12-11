@@ -58,34 +58,33 @@ int main(int argc, char *argv[]) {
         printf("byte %2d %c\n", i, str_default[i]);
     
     printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
+    
+    printf("From which byte do you want to modify: ");
+    scanf("%ld", &offset);
+    printf("How many bytes: ");
+    scanf("%d", &len_newstr);
+    printf("Write a string to replace: ");
+    scanf("%s", str_new);
 
-   printf("- Indicare il byte da cui si deve modificare: ");
-   scanf("%ld", &offset);
-   printf("- Indicare da quanti byte e' composta la nuova parola: ");
-   scanf("%d", &len_newstr);
-   printf("- Inserire la nuova parola: ");
-   scanf("%s", str_new);
+    /* Si alloca lo spazio necessario per contenere la stringa originale,
+    dopodiche' la si copia e per finire si aggiunge la modifica */
+    str_temp = calloc(strlen(str_default), sizeof(char));
+    strcpy(str_temp, str_default);
 
-   /* Alloco lo spazio necessario per contenere la stringa originale,
-    * dopodiche' la copio e per finire si aggiunge la modifica */
-   str_temp = calloc(strlen(str_default), sizeof(char));
-   strcpy(str_temp, str_default);
+    for (i=offset; i<strlen(str_default)-1; i++) {
+        str_temp[i] = str_new[n];
+        n++;
+    }
 
-   for (i=offset; i<strlen(str_default)-1; i++)
-   {
-      str_temp[i] = str_new[n];
-      n++;
-   }
+    /* Si modifica il descrittore di riferimento f1 */
+    lseek(fd1, offset, SEEK_SET);
 
-   /* Si modifica il descrittore di riferimento f1 */
-   lseek(fd1, offset, SEEK_SET);
+    /* Si scrive partendo dal punto definito dal lseek precedendte */
+    write(fd1, str_new, len_newstr);
+    close(fd1);
 
-   /* Si scrive partendo dal punto definito dal lseek precedendte */
-   write(fd1, str_new, len_newstr);
-   close(fd1);
-
-   printf("[originale]: %s\n", str_default);
-   printf("[ modifica]: %s\n", str_temp);
-
-   return(EXIT_SUCCESS);
+    printf("[default string]: %s", str_default);
+    printf("[    new string]: %s", str_temp);
+    
+    return(EXIT_SUCCESS);
 }
