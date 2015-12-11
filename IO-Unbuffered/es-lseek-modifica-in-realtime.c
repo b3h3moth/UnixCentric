@@ -11,9 +11,11 @@
 
 /* Il programma riceve una stringa in input, tale stringa viene salvata in un 
 file anch'esso definito dall'utente, dopodiche' la stringa viene proposta in 
-outputed eventualmente modificata via lseek. */
-int main(int argc, char *argv[]){
-   int fd1, i;
+output ed eventualmente modificata mediante lseek() inserendo la posizione del
+byte dal quale modificare e la grandezza della nuova stringa da inserire.  */
+
+int main(int argc, char *argv[]) {
+    int fd1, i;
    char f_input[MAXFILE];
    char s_frase[MAXSTR];
    char *s_temp;
