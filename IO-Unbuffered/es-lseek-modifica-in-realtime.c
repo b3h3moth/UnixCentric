@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>  
@@ -8,6 +7,8 @@
 #define MAX_LEN_FILENAME	16
 #define MAX_BUF	            256
 #define PERMS	            0755
+
+void print_file_content(char *file_name);
 
 /* Il programma riceve una stringa in input, tale stringa viene salvata in un 
 file anch'esso definito dall'utente, dopodiche' la stringa viene proposta in 
@@ -81,6 +82,25 @@ int main(int argc, char *argv[]) {
     // Si scrive partendo dall'offset definito dalla chiamata a lseek()
     write(fd1, str_new, len_newstr);
     close(fd1);
+
+    printf("original text: %s", str_default);
+    fputs("replaced text: ", stdout);
+    print_file_content(filename);
     
     return(EXIT_SUCCESS);
+}
+
+void print_file_content(char *file_name) {
+    FILE *fp;
+    int c;
+
+    if ((fp = fopen(file_name, "r")) == NULL) {
+        fprintf(stderr, "Err. opening filename %s\n", file_name);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((c = fgetc(fp)) != EOF)
+        fputc(c, stdout);
+
+    fclose(fp);
 }
