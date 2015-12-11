@@ -26,32 +26,32 @@ int main(int argc, char *argv[]) {
     
     printf("Please, write a default string: \n");
     
-    /* Si acsuisisce in input la stringa 'str_default' con cui lavorare */
+    // Si acsuisisce in input la stringa 'str_default' con cui lavorare
     fgets(str_default, MAXSTR, stdin);
     
-    /* Il nome del file all'interno del quale salvare la stringa iniziale */
+    // Il nome del file all'interno del quale salvare la stringa iniziale
     printf("Please, the filename to store string: ");
     scanf("%s", str_input);
     
-    /* Si salva il file pocanzi inserito in input */
+    // Si salva il file pocanzi inserito in input
     if ( (fd1 = open(str_input, O_RDWR | O_CREAT, PERMS)) == -1) {
         fprintf(stderr, "Err. when opening file %s\n", str_input);
         exit(EXIT_FAILURE);
     }
     
-    /* Scrittura della stringa 'str_default' nel file */
+    // Scrittura della stringa 'str_default' nel file
     write(fd1, str_default, strlen(str_default));
-
-   /* Si e' conclusa la prima parte del programma, ho il file
-    * registrato e la frase, ora non mi resta che verificare la 
-    * correttezza della frase ed eventualmente modificarla; per
-    * far cio' e' necessario vedere la frase carattere per carattere;
-    * il ciclo seguente pertanto presentera' sul terminale l'intera
-    * frase compresa del riferimento ad ogni byte, nonche' del
-    * numero complessivo dei byte stessi.
-    */
-
-   system("tput reset");
+    
+    /* Si e' conclusa la fase preparatoria del programma, ora non resta che 
+    verificare la correttezza della stringa iniziale 'str_default' ed 
+    eventualmente modificarla; per far cio' e' necessario visualizzare la 
+    stringa carattere per carattere.
+    
+    Il ciclo seguente stampera' sullo stdout l'intera stringa, di fianco ad 
+    ogni carattere ci sara' il corrispettivo byte. */
+    
+    // Nei sistemi unix resetta il terminale
+    system("tput reset");
    for (i=0; i< (strlen(str_default)-1); i++)
       printf("byte %2d %c\n", i, str_default[i]);
    printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
