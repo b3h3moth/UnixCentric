@@ -49,7 +49,7 @@ int main (int argc, char **argv) {
         }
     }
 
-  /* all ok here */
+  /* close file descriptor */
   close (fd);
   return(EXIT_SUCCESS);
 }
