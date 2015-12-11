@@ -23,13 +23,13 @@ int main(int argc, char *argv[]) {
     int len_newstr;
     char str_new[MAX_BUF];
     
-    printf("Please, write a default string: \n");
+    fputs("Please, write a default string: \n", stdout);
     
     // Si acsuisisce in input la stringa 'str_default' con cui lavorare
     fgets(str_default, MAX_BUF, stdin);
     
     // Il nome del file all'interno del quale salvare la stringa iniziale
-    printf("Please, the filename to store string: ");
+    fputs("Please, the filename to store string: ", stdout);
     scanf("%s", filename);
     
     // Si salva il file pocanzi inserito in input
@@ -58,11 +58,11 @@ int main(int argc, char *argv[]) {
     
     printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
     
-    printf("From which byte do you want to modify: ");
+    fputs("From which byte do you want to modify: ", stdout);
     scanf("%u", &offset);
-    printf("How many bytes: ");
+    fputs("How many bytes: ", stdout);
     scanf("%d", &len_newstr);
-    printf("Write a %d long string to replace: ", len_newstr);
+    printf("Write a %d byte string to replace: ", len_newstr);
     scanf("%s", str_new);
 
     /* Si alloca lo spazio necessario per contenere la stringa originale,
