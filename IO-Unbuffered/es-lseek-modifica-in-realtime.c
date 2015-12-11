@@ -52,9 +52,12 @@ int main(int argc, char *argv[]) {
     
     // Nei sistemi unix resetta il terminale
     system("tput reset");
-   for (i=0; i< (strlen(str_default)-1); i++)
-      printf("byte %2d %c\n", i, str_default[i]);
-   printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
+    
+    // Stampa ciascun carattere e relativo byte
+    for (i=0; i< (strlen(str_default)-1); i++)
+        printf("byte %2d %c\n", i, str_default[i]);
+    
+    printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
 
    printf("- Indicare il byte da cui si deve modificare: ");
    scanf("%ld", &offset);
