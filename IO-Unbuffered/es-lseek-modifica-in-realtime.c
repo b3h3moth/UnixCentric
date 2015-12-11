@@ -5,9 +5,9 @@
 #include <unistd.h>
 #include <string.h>
 
-#define MAXFILE	16
-#define MAXSTR	256
-#define PERMS	0755
+#define MAX_LEN_FILENAME	16
+#define MAX_BUF	            256
+#define PERMS	            0755
 
 /* Il programma riceve una stringa in input, tale stringa viene salvata in un 
 file anch'esso definito dall'utente, dopodiche' la stringa viene proposta in 
@@ -15,27 +15,26 @@ output ed eventualmente modificata mediante lseek() inserendo la posizione del
 byte dal quale modificare e la grandezza della nuova stringa da inserire.  */
 
 int main(int argc, char *argv[]) {
-    int fd1, i;
-    char str_input[MAXFILE];
-    char str_default[MAXSTR];
+    int fd1, i, n = 0;
+    char filename[MAX_LEN_FILENAME];
+    char str_default[MAX_BUF];
     char *str_temp;
-    long offset;
+    unsigned int offset;
     int len_newstr;
-    int n = 0;
-    char str_new[MAXSTR];
+    char str_new[MAX_BUF];
     
     printf("Please, write a default string: \n");
     
     // Si acsuisisce in input la stringa 'str_default' con cui lavorare
-    fgets(str_default, MAXSTR, stdin);
+    fgets(str_default, MAX_BUF, stdin);
     
     // Il nome del file all'interno del quale salvare la stringa iniziale
     printf("Please, the filename to store string: ");
-    scanf("%s", str_input);
+    scanf("%s", filename);
     
     // Si salva il file pocanzi inserito in input
-    if ( (fd1 = open(str_input, O_RDWR | O_CREAT, PERMS)) == -1) {
-        fprintf(stderr, "Err. when opening file %s\n", str_input);
+    if ( (fd1 = open(filename, O_RDWR | O_CREAT, PERMS)) == -1) {
+        fprintf(stderr, "Err. when opening file %s\n", filename);
         exit(EXIT_FAILURE);
     }
     
@@ -60,10 +59,10 @@ int main(int argc, char *argv[]) {
     printf("Tot. byte: %d\n\n", (strlen(str_default)-1) );
     
     printf("From which byte do you want to modify: ");
-    scanf("%ld", &offset);
+    scanf("%u", &offset);
     printf("How many bytes: ");
     scanf("%d", &len_newstr);
-    printf("Write a string to replace: ");
+    printf("Write a %d long string to replace: ", len_newstr);
     scanf("%s", str_new);
 
     /* Si alloca lo spazio necessario per contenere la stringa originale,
@@ -76,15 +75,12 @@ int main(int argc, char *argv[]) {
         n++;
     }
 
-    /* Si modifica il descrittore di riferimento f1 */
+    // Si modifica il descrittore di riferimento fd1
     lseek(fd1, offset, SEEK_SET);
 
-    /* Si scrive partendo dal punto definito dal lseek precedendte */
+    // Si scrive partendo dall'offset definito dalla chiamata a lseek()
     write(fd1, str_new, len_newstr);
     close(fd1);
-
-    printf("[default string]: %s", str_default);
-    printf("[    new string]: %s", str_temp);
     
     return(EXIT_SUCCESS);
 }
