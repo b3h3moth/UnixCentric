@@ -3,11 +3,12 @@
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 #define FILE_PERMS (S_IRUSR | S_IWUSR |S_IRGRP | S_IWGRP |S_IROTH | S_IWOTH)
 
 int main(int argc, char *argv[]) {
-    int fd, p;      // File descriptor, parametro
+    int fd, i;      // File descriptor, parametro
     size_t len;
     ssize_t num_read, num_written;
     char *buf;
@@ -23,8 +24,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    for (p = 2; p < argc; p++) {
-        switch(argv[p][0]) {
+    for (i=2; i<argc; i++) {
+        switch(argv[i][0]) {
             // Visualizza il file-offset corrente in byte, in testo
             case 'r': 
             // Visualizza il file-offset corrente in byte, in esadecimale
@@ -44,9 +45,9 @@ int main(int argc, char *argv[]) {
                 }
 
                 if (num_read == 0) {
-                    printf("%s: EOF\n", argv[p]);
+                    printf("%s: EOF\n", argv[i]);
                 } else {
-                    printf("%s: ", argv[p]);
+                    printf("%s: ", argv[i]);
 
 
     return(EXIT_SUCCESS);
