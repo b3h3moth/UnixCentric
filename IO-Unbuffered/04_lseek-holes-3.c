@@ -3,12 +3,13 @@
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <ctype.h>
 
 #define FILE_PERMS (S_IRUSR | S_IWUSR |S_IRGRP | S_IWGRP |S_IROTH | S_IWOTH)
 
 int main(int argc, char *argv[]) {
-    int fd, i;      // File descriptor, parametro
+    int fd, i, j;
     size_t len;
     ssize_t num_read, num_written;
     char *buf;
@@ -50,6 +51,22 @@ int main(int argc, char *argv[]) {
                 } else {
                     printf("%s: ", argv[i]);
 
+                    for (j=0; j<num_read; j++) {
+                        if (argv[i][0] == 'r')
+                            printf("%c", isprint((unsigned char) \
+                                        buf[j]) ? buf[j] : '?');
+                        else
+                            printf("%02x ", (unsigned int) buf[j]);
+                    }
+                    printf("\n");
+                }
+
+                free(buf);
+                break;
+            default:
+                printf("aio\n");
+        }
+    }
 
     return(EXIT_SUCCESS);
 }
