@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     size_t len;
     ssize_t num_read, num_written;
     char *buf;
+    off_t offset;
 
     if (argc < 3 || strncmp(argv[1], "--help", 6)  == 0) {
         fprintf(stderr, "Usage: %s <filename> [r|R|w!s]\n", argv[0]);
@@ -29,6 +30,7 @@ int main(int argc, char *argv[]) {
 
     for (i=2; i<argc; i++) {
         switch(argv[i][0]) {
+
             // Visualizza il file-offset corrente in byte, in testo
             case 'r': 
             // Visualizza il file-offset corrente in byte, in esadecimale
@@ -65,6 +67,28 @@ int main(int argc, char *argv[]) {
 
                 free(buf);
                 break;
+            
+            case 'w':
+                num_written = write(fd, &argv[i][1], strlen(&argv[i][1]));
+
+                if (num_written == -1) {
+                    fprintf(stderr, "Err. write()\n");
+                    exit(EXIT_FAILURE);
+                }
+
+                printf("%s: wrote %ld bytes\n", argv[i], (long)num_written);
+                break;
+            case 's':
+                offset = atoi(argv[1]);
+                
+                if (lseek(fd, offset, SEEK_SET) == -1) {
+                    fprintf(stderr, "Err. lseek()\n");
+                    exit(EXIT_FAILURE);
+                }
+                
+                printf("%s: seek succeeded\n", argv[i]);
+                break;
+
             default:
                 printf("aio\n");
         }
