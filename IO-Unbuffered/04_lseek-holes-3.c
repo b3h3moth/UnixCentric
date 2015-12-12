@@ -3,8 +3,10 @@
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>
-#include <sys/stat.h>
 #include <ctype.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 #define FILE_PERMS (S_IRUSR | S_IWUSR |S_IRGRP | S_IWGRP |S_IROTH | S_IWOTH)
 
@@ -32,7 +34,7 @@ int main(int argc, char *argv[]) {
             // Visualizza il file-offset corrente in byte, in esadecimale
             case 'R':
                 // lunghezza del buffer
-                len = atoi(argv[1], NULL, 10);
+                len = atoi(argv[1]);
                 
                 // Allocazione della memoria per il buffer
                 if ((buf = malloc(len)) == NULL) {
