@@ -39,6 +39,7 @@ int main(int argc, char *argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
+                // Lettura del file
                 if ((num_read = read(fd, buf, len)) == -1) {
                     fprintf(stderr, "Err. read()\n");
                     exit(EXIT_FAILURE);
