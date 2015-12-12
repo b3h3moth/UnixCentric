@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
     ssize_t num_read, num_written;
     char *buf;
 
-
     if (argc < 3 || strncmp(argv[1], "--help", 6)  == 0) {
         fprintf(stderr, "Usage: %s <filename> [r|R|w!s]\n", argv[0]);
         exit(EXIT_FAILURE);
@@ -38,6 +37,16 @@ int main(int argc, char *argv[]) {
                     fprintf(stderr, "Err. malloc()\n");
                     exit(EXIT_FAILURE);
                 }
+
+                if ((num_read = read(fd, buf, len)) == -1) {
+                    fprintf(stderr, "Err. read()\n");
+                    exit(EXIT_FAILURE);
+                }
+
+                if (num_read == 0) {
+                    printf("%s: EOF\n", argv[p]);
+                } else {
+                    printf("%s: ", argv[p]);
 
 
     return(EXIT_SUCCESS);
