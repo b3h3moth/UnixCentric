@@ -5,7 +5,11 @@
 rendere esplicito il valore che rappresenta l'ampiezza del vettore.
 
 L'ampiezza deve essere dichiarata per prima 'length', e successivamente il 
-vettore associato alla propria ampiezza 'data[length]' */
+vettore associato alla propria ampiezza 'data[length]'.
+
+Oppure l'equivalente: 
+int sum(int length, int data[*]);
+*/
 int sum(int length, int data[length]);
 
 int main(void) {
