@@ -79,3 +79,4 @@ int main(int argc, char *argv[]) {
 
     exit(EXIT_SUCCESS);
 }
+// from getopt 3 man pages
