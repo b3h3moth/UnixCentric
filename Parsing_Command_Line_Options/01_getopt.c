@@ -30,8 +30,8 @@ funzione getopt() fara' stampare su stderr un messaggio con l'opzione
 corretta. Se invcece la variabile opterr risulta falsa, ossia impostata a 0,
 non ci saranno messaggi di errore, pur avendo elaborato un'opzione non
 valida. In tal modo si puo' controllare in maniera molto efficiente se
-inserire un messaggio di errore e su quale stream inviarlo, pertanto
-impostando opterr a 0 non saranno inviati messaggi d'errore.
+inserire un messaggio di errore e su quale stream inviarlo, invece impostando 
+opterr a 0 non saranno inviati messaggi d'errore.
 
 extern int optopt;
 -------------------
@@ -40,14 +40,13 @@ riconosciuta.
 
 extern int getopt(int argc, char *const *argv, const char *shortopts);
 ----------------------------------------------------------------------
-Il primo parametro argc contiene il numero totale dei parametri conenuti
-nell'array argv[]; il secondo parametro argv e' un array di puntatori a
-stringa, contiene le opzioni ed i parametri inseriti; il terzo ed ultimo
-parametro shortopts, e' un puntatore a stringa, che in un certo senso
-gestisce l'intera operazione della getopt(), poiche' determina quali sono le
-opzioni valide e quali accettano parametri propri. Esemplificando si potrebbe
-affermare che shortopts contiene l'interfaccia del programma.
-
+Il primo parametro argc contiene il numero totale dei parametri contenuti in 
+argv[]; il secondo parametro argv e' un array di puntatori a stringa, contiene
+le opzioni ed i parametri inseriti; il terzo ed ultimo parametro shortopts e' 
+un puntatore a stringa, che in un certo senso gestisce l'intera operazione 
+della getopt(), poiche' determina quali sono le opzioni valide e quali 
+accettano parametri propri. Esemplificando si potrebbe affermare che shortopts 
+contiene l'interfaccia del programma.
 
 Come lavora la funzione getopt()
 -----------------------------------------------------------------------------
