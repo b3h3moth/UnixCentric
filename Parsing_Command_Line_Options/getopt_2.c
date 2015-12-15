@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
                 flags = 1;
                 break;
 	        case 't':
-	            nsecs = atoi(optarg);
+	            nsecs = strtol(optarg, NULL, 10);
 	            tfnd = 1;
 	            break;
             case '?':
