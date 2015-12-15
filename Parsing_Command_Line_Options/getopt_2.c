@@ -7,12 +7,12 @@ int main(int argc, char *argv[]) {
     int nsecs, tfnd, flags; 
     nsecs = tfnd = flags = opterr = 0; 
 
-    while ((opt = getopt(argc, argv, "nm:")) != -1) {
+    while ((opt = getopt(argc, argv, "nt:")) != -1) {
         switch (opt) {
             case 'n':
                 flags = 1;
                 break;
-	        case 'm':
+	        case 't':
 	            nsecs = atoi(optarg);
 	            tfnd = 1;
 	            break;
@@ -20,12 +20,12 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "Option '%s' unknow\n", argv[optind-1]);
                 break;
 	        default:
-                fprintf(stderr, "Usage: %s [-n nsecs] [-m] name\n", argv[0]);
+                fprintf(stderr, "Usage: %s [-s nsecs] [-m] name\n", argv[0]);
                 exit(EXIT_FAILURE);
         }
     }
 
-    printf("flags=%d; tfnd=%d; optind=%d\n", flags, tfnd, optind);
+    printf("flags = %d; tfnd = %d; optind = %d\n", flags, tfnd, optind);
 
     if (optind >= argc) {
         fprintf(stderr, "Expected argument after options\n");
@@ -37,4 +37,5 @@ int main(int argc, char *argv[]) {
     exit(EXIT_SUCCESS);
 }
 
-// from getopt() 3 man pages
+/* from getopt() 3 man pages
+added '?' default invalid option */
