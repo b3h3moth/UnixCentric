@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
     int opt;
     int nsecs, tfnd, flags; 
-    nsecs = tfnd = flags = 0; 
+    nsecs = tfnd = flags = opterr = 0; 
 
     while ((opt = getopt(argc, argv, "nm:")) != -1) {
         switch (opt) {
@@ -16,6 +16,9 @@ int main(int argc, char *argv[]) {
 	            nsecs = atoi(optarg);
 	            tfnd = 1;
 	            break;
+            case '?':
+                fprintf(stderr, "Option '%s' unknow\n", argv[optind-1]);
+                break;
 	        default:
                 fprintf(stderr, "Usage: %s [-n nsecs] [-m] name\n", argv[0]);
                 exit(EXIT_FAILURE);
