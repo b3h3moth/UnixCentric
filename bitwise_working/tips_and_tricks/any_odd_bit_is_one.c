@@ -6,11 +6,12 @@
 int any_odd_is_one(unsigned val);
 
 int main(void) {
-    int num[] = { 0xA, 0xF, 0x5, 0x8, 0xFF, 0x9a };
+    int num[] = { 0xFF, 0xA, 0x14, 0x0100, 0xABC, 0x6600, 0x0200 };
 
-
-    if ( any_odd_is_one(num) )
-        printf("Any odd bit of %#x is one\n", num);
+    for (int i=0; i<SIZE; i++) {
+        if ( any_odd_is_one(num[i]) )
+            printf("Any odd bit of %#4x is one\n", num[i]);
+    }
 
     return(EXIT_SUCCESS);
 }
@@ -19,5 +20,5 @@ int main(void) {
 variable equals 1, 0 otherwise */
 int any_odd_is_one(unsigned val) {
     // 0xaaaaaaaa = 10101010101010101010101010101010
-    return (val & 0xaaaaaaaa); //
+    return (val & 0xaaaaaaaa) != 0; //
 }
