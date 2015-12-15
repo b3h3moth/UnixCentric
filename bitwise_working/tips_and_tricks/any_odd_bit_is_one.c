@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SIZE    (sizeof(num) / sizeof(num[0]))
 
 int any_odd_is_one(unsigned val);
 
