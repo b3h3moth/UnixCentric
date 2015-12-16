@@ -1,43 +1,32 @@
-### INTRODUZIONE AL PROGETTO LEARNING-\<Programming Language\>
+### bit a bit
 
-Il progetto Learning-\<Programming Language\> mira a realizzare un manuale 
-code oriented su alcuni dei linguaggi di programmazione maggiormente 
-utilizzati sui sistemi operativi UNIX con kernel Linux.
+From bitwise operators to bitwise Hacks on integer and floating point data 
+types.
 
-Per code oriented si intende anzitutto immediata operativita', nel senso che
-non ci saranno pagine da sfogliare ma solo e soprattutto righe di codice da
-leggere ed interpretare, commenti mirati inoltre saranno inseriti all'interno
-del codice stesso laddove ce ne fosse bisogno.
+### Libraries and API's
 
-I libri talvolta si perdono in inutili dettagli, tralasciando troppo spesso
-il codice, L-\<PL\> invece si pone l'obiettivo di fare il lavoro opposto, e
-rendere al codice la giusta collocazione che merita, ossia di primo attore
-indiscusso.
+There are a lot of libraries for every day use; graphics, cryptography, 
+serialization, nCurses, database and so on.
 
-Oltre alle regole fondamentali di ciascun linguaggio di programmazione, 
-indipendentemente dal paradigma utilizzato, si prestera' particolare 
-attenzione alle tecniche per scrivere codice di qualita' e sicuro.
+### Representing information
 
-Al momento della stesura di questo documento sono stati scelti due paradigmi
-di programmazione e due linguaggi specifici; il paradigma Object Oriented 
-con il linguaggio C++ e il paradigma procedurale con il linguaggio C.
+How computer really works: integer representations, integer arithmetic,
+floating point (IEEE 754 single and double precision)
 
-Infine un ulteriore repository sara' dedicato alla programmazione di sistema
-su sistemi operativi unix-like con kernel Linux e un altro ancora interamente 
-incentrato sul magnifico linguaggio Perl, che nei sistemi operativi unix-like 
-trova il suo habitat naturale
+### The language
 
-### LEARNING-C - Paradigma procedurale (imperativo), Standard ISO (c99, c11)
+A lot of articles on the C language programming, C99 and C11 standards.
 
-Il presente repository riguarda il paradigma procedurale, presentato mediante
-il linguaggio di programmazione C-ANSI (c99, c11);  è stato contrassegnato
-come L-C.
+#### How to compile programs
 
 I programmi saranno tutti compilati utilizzando i seguenti standard:
+
 - `iso9899:1999`, ``-std=c99``
+
 - `iso9899:2011`, ``-std=c11`` (sperimentale e incompleto in GCC, dalla versione 4.7)
 
 Saranno utilizzate diverse architetture per testare gli esempi: 
+
 - `PPC 32 bit` (big endian)
 - `x86 32 bit` (little endian)
 - `x86 64 bit` (little endian)
@@ -57,10 +46,6 @@ $ ``clang -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 
 Nota: L'opzione `-ansi` e' equivalente a `-std=c90` per il C ed a `-std=c++98` per il
       C++. Inoltre `-std=c90` e' equivalente a `-std=c89`.
-
-Allorquando si iniziera' a lavorare con progetti di medie dimensioni si
-utilizzeranno ulteriori tecniche e soprattutto nuovi tool per la compilazione, 
-come ad esempio gli autotools.
 
 <hr />
 
