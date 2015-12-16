@@ -32,3 +32,9 @@ trova il suo habitat naturale
 Il presente repository riguarda il paradigma procedurale, presentato mediante
 il linguaggio di programmazione C-ANSI (c99, c11);  è stato contrassegnato
 come L-C.
+
+### Stato dell'opera
+
+* Learning C
+* Learning C++
+* Learning Perl
