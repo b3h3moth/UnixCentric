@@ -7,4 +7,8 @@
 * Mysql Library;
 * nCurses Library;
 * SDL Library;
-* SQLite Library.
+* SQLite Library;
+* On Cryptography
+  * GPGme;
+  * OpenSSL;
+  * crypt().
