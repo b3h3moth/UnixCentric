@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Con una word di 32 bit, il compilatore allochera' 32 bit, su architettura
-Big-endian i bit saranno allineati da sinistra verso destro, per cui il bit
-piu' significativo sara' a sinistra, che corrispondera' al primo bit del campo
-'day */
+/* Con una word di 32 bit il compilatore allochera' 32 bit. Su architettura
+Big-endian i bit saranno allineati da sinistra verso destra, per cui il bit
+piu' significativo sara' a sinistra, equivalente al primo bit del campo 'day' 
+*/
 struct date {
     unsigned int day: 5;
     unsigned int month: 4;
