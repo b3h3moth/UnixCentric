@@ -3,10 +3,10 @@
 
 #define MAX_SIZE    3
 
-/* Una 'union' condivide la sintassi delle 'struct', la differenza sostanziale
+/* Le 'union' seguono la sintassi delle 'struct', la differenza sostanziale
 risiede nel fatto che, a differenza delle 'struct', i membri delle 'union' 
-condividono la memoria, il compilatore infatti allora memoria sufficiente per 
-contenere il membro col maggior peso. 
+condividono la memoria, il compilatore infatti alloca memoria sufficiente per 
+contenere il membro col maggior peso.
 
 Nel caso specifico vi e' uno 'short' da 2 byte, un 'int' da 4 byte e un 'long'
 da 4 byte, sara' pertanto allocata una porzione di memoria di 4 byte.
@@ -20,10 +20,11 @@ typedef union {
 
 /* Il tipo di dato union e' perfetto per la creazione di strutture dati
 composite. Lo scopo del programma infatti e' di realizzare un vettore i cui
-membri saranno interi di diverso peso. */
+membri saranno interi di diverso tipo. */
 
 int main(void) {
-    // Un vettore conterra' diversi tipi di dato
+    /* Dichiarazione del vettore di tipo 'IntegerFamily', i cui membri possono
+    essere di tipo 'short', 'int' e 'long'. */
     IntegerFamily vec[MAX_SIZE];
 
     vec[0].srt_type = 30000;
