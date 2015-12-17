@@ -14,9 +14,9 @@ di bit (bit field), inoltre:
   portabilita';
 - dal c99 (iso9899:1999) e' consentito anche il tipo di dato _Bool;
 - il peso massimo consentito equivale al numero di bit della word;
-- a seconda della macchina il compilatore assegna i bit da destra a sinistra
+- a seconda della macchina il compilatore assegnera' i bit da destra a sinistra
   (Little-endian) o da sinistra a destra (Big-endian);
-- sono consentiti campi di bit impostati a zero per, utili per l'allinemento;
+- sono consentiti campi di bit impostati a zero, utili per l'allinemento;
 - sono consentiti campi di bit privi di identificatore, utili per 
   l'allinemento.
 
