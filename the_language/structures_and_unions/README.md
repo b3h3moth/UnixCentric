@@ -6,4 +6,5 @@
 * New type with typedef;
 * Pointer to nested structures;
 * Unions;
-* Bit fields.
+* Bit fields;
+* vector of structures.
