@@ -6,7 +6,14 @@ struct postal_code {
     int code;
 };
 
+
 int main(void) {
-    const struct   
+    // Inizializzazione del vettore di struttore
+    const struct postal_code italia_pc[] = {
+        {"Campobasso",  86100},
+        {"Roma",    10100},
+        {"Torino",  10110}
+    };
+
     return(EXIT_SUCCESS);
 }
