@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define VEC_SIZE(x)    (sizeof(x)/sizeof(x[0]))
+
 struct unix_systems {
     char *os_name;
     int year;
@@ -16,6 +18,10 @@ int main(void) {
         {"NetBSD",  1992},      {"Sun OS", 1981},
         {"Minix",   1987},      {"SCO Unix", 1983}
     };
+
+    for (int i=0; i<VEC_SIZE(list_of_unix_os); i++) {
+        ;
+    }
 
     return(EXIT_SUCCESS);
 }
