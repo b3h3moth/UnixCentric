@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct postal_code {
-    char *country;
-    int code;
+struct unix_systems {
+    char *os_name;
+    int year;
 };
-
 
 int main(void) {
     // Inizializzazione del vettore di struttore
-    const struct postal_code italia_pc[] = {
-        {"Campobasso",  86100},
-        {"Roma",    10100},
-        {"Torino",  10110}
+    const struct unix_systems list_of_unix_os[] = {
+        {"OpenBSD",  1994},     {"FreeBSD",    1992},
+        {"Linux",  1991},       {"HP/UX",  1995},
+        {"AIX",  1994},         {"Open Solaris",  2005},
+        {"UnixWare",  1992},    {"Mac OS X",  2000},
+        {"NetBSD",  1992},      {"Sun OS", 1981},
+        {"Minix",   1987},      {"SCO Unix", 1983}
     };
 
     return(EXIT_SUCCESS);
