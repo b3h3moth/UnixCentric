@@ -20,7 +20,9 @@ int main(void) {
     };
 
     for (int i=0; i<VEC_SIZE(list_of_unix_os); i++) {
-        ;
+        printf("%12s ", list_of_unix_os[i].os_name);
+        printf("%4d circa", list_of_unix_os[i].year);
+        fputc('\n', stdout);
     }
 
     return(EXIT_SUCCESS);
