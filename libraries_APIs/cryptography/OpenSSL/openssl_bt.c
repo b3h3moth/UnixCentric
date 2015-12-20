@@ -3,8 +3,8 @@
 #include <string.h>
 #include <openssl/evp.h>
 
-/* On Debian GNU/Linux and its derivatives install libssl-dev package, then
-compile with:
+/* On Debian GNU/Linux and its derivatives you need to install 'libssl-dev'
+package, then compile with:
 
 $ gcc program.c -lcrypto -o prog
 
