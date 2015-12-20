@@ -3,10 +3,12 @@
 #include <string.h>
 #include <openssl/evp.h>
 
-/* Compila con:
-$ gcc bt.c -lcrypto 
+/* On Debian GNU/Linux and its derivatives install libssl-dev package, then
+compile with:
 
-Genere le chiavi, visibili mediante key e iv.
+$ gcc program.c -lcrypto -o prog
+
+The program's purpose is to produce the keys.
 */
 
 
@@ -53,4 +55,3 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
-/* Su debian GNU/Linux ho dovuto installare il pacchetto libssl-dev */
