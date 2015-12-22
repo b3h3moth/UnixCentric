@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
     */
 
     /* Allocazione di N interi */
-    int *ptrn, i;
+    int *ptrn;
     ptrn = (int*)malloc(N * sizeof(int));
     free(ptrn); /* Rilascio della memoria */
 
