@@ -10,40 +10,42 @@ sara' sizeof(char) * N; da non dimenticare di aggiungere un byte per il
 carattere di fine stringa \0. */
 
 char *concat(const char *str1, const char *str2);
-void freeMemory(char *block);
+void free_memory(char *block);
 
 int main(void) {
-   char *full_string = concat("Learning"," c-ansi (c11)");
+    char *first_string = "Learning ";
+    char *second_string = "c11 language programming";
 
-   printf("%s\n", full_string);
-   
-   freeMemory(full_string);
-
-   return(EXIT_SUCCESS);
+    char *full_string = concat(first_string, second_string);
+    
+    printf("%s\n", full_string);
+    
+    free_memory(full_string);
+    return(EXIT_SUCCESS);
 }
 
 /* La funzione concat() concatena due stringhe */
-char *concat(const char *str1, const char *str2)
-{
-   char *result;
+char *concat(const char *str1, const char *str2) {
+    char *result;
 
-   result = malloc(strlen(str1) + strlen(str2) +1);
+    result = malloc(strlen(str1) + strlen(str2) +1);
 
-   if (result == NULL) {
-      fprintf(stderr, "Err.:%d - malloc() %s\n", errno, strerror(errno));
-      exit(EXIT_FAILURE);
-   }
+    if (result == NULL) {
+       fprintf(stderr, "Err.:%d - malloc() %s\n", errno, strerror(errno));
+       exit(EXIT_FAILURE);
+    }
 
-   strcpy(result, str1);
-   strcat(result, str2);
+    // Copia la stringa str1 in result
+    strcpy(result, str1);
+    // Concatena la stringa str2 dopo l'ultimo carattere di result
+    strcat(result, str2);
 
-   return result;
+    return result;
 }
 
 /* Libera la memoria occupata dalle stringhe concatenate */
-void freeMemory(char *block)
-{
-   printf("-- set the memory free\n");
-   free(block);
-   block = NULL;
+void free_memory(char *block) {
+    printf("-- set the memory free\n");
+    free(block);
+    block = NULL;
 }
