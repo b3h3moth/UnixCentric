@@ -14,8 +14,8 @@ Nota: L'allocazione dinamica della memoria o dynamic memory allocation e' una
       differente. 
 
 La funzione malloc() alloca un blocco di memoria sullo heap, il numero di byte
-da allocare e' indicato dall'unico argomento, in caso di esito negativo sara'
-restituito NULL.
+da allocare e' indicato dall'unico argomento 'size', in caso di esito negativo
+sara' restituito NULL.
 
 HEADER    : <stdlib.h>
 PROTOTYPE : void *malloc(size_t size);
@@ -30,24 +30,45 @@ malloc() dipende dall'architettura su cui si sta lavorando.
 int main(int argc, char *argv[]) {
     /* Allocazione di un intero */
     int *ptr;
-    ptr = (int*)malloc(sizeof(int));  
-    *ptr = 100;
+
+    // Allocazione e verifica
+    if ((ptr = malloc(sizeof(int))) == NULL) {
+        fprintf(stderr, "Err. line:%d failed memory allocation\n", __LINE__-1);
+        exit(EXIT_FAILURE);
+    }
+
+    *ptr = 1973;
+
+    printf("Value of the integer allocated with malloc(): %d\n", *ptr);
+
     free(ptr);   /* Rilascio della memoria */
 
-    /* 4 byte per un intero, utilizzare sizeof() rende il codice portabile; le
-    seguenti istruzioni sono del tutto equivalenti, il blocco di memoria 
+    /* Sono stati utilizzati 4 byte per un intero, la sizeof() rende il codice
+    portabile.
+    
+    Le seguenti istruzioni sono del tutto equivalenti, il blocco di memoria 
     allocato sullo heap sara' sempre di 4 byte.
 
     int size1 = sizeof(int);
     int size2 = 4;
     
-    ptr = (int*)malloc(size1);
-    ptr = (int*)malloc(size2);
+    ptr = malloc(size1);
+    ptr = malloc(size2);
     */
 
-    /* Allocazione di N interi */
+    /* Allocazione di un blocco di N interi*/
     int *ptrn;
-    ptrn = (int*)malloc(N * sizeof(int));
+    
+    if ((ptrn = malloc(N * sizeof(int))) == NULL) {
+        fprintf(stderr, "Err. line:%d failed memory allocation\n", __LINE__-1);
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i=0; i<N; i++) {
+        ptrn[i] = i;
+        printf("%d\n", ptrn[i]);
+    }
+
     free(ptrn); /* Rilascio della memoria */
 
     /* Variabili statiche e globali non permettono l'uso di malloc(), tuttavia
