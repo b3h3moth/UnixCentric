@@ -32,10 +32,14 @@ int main(int argc, char *argv[]) {
     int *ptr;
 
     // Allocazione e verifica
-    if ((ptr = malloc(sizeof(int))) == NULL) {
+    if ((ptr = (int *)malloc(sizeof(int))) == NULL) {
         fprintf(stderr, "Err. line:%d failed memory allocation\n", __LINE__-1);
         exit(EXIT_FAILURE);
     }
+
+    /* Poichè la funzione malloc() ritorna (void*), ovvero l'indirizzo della 
+    memoria allocata, bisogna specializzare la funzione stessa mediante un
+    casting, nel caso specifico (int*). */
 
     *ptr = 1973;
 
@@ -59,7 +63,7 @@ int main(int argc, char *argv[]) {
     /* Allocazione di un blocco di N interi*/
     int *ptrn;
     
-    if ((ptrn = malloc(N * sizeof(int))) == NULL) {
+    if ((ptrn = (int *)malloc(N * sizeof(int))) == NULL) {
         fprintf(stderr, "Err. line:%d failed memory allocation\n", __LINE__-1);
         exit(EXIT_FAILURE);
     }
