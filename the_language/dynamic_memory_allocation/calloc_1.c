@@ -29,7 +29,8 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
     
-    /* Lo stesso risultato si sarebbe potuto ottenere con malloc() e memset():
+    /* Si sarebbe potuto ottenere un risultato simile mediante malloc() e 
+    memset():
     
     int *ptr = malloc(tot_elem * sizeof(int));  
     memset(ptr, 0, tot_elem * sizeof(int));     
