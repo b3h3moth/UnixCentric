@@ -1,4 +1,13 @@
-### bit a bit
+### bitwise Hacks
+
+A journey among the bits:
+
+* bit operators
+* shifting
+* extract, clear and setup a bit
+* extract, clear and setup a bitfield
+* tips and tricks
+* a lot of articles on bit hacks
 
 From bitwise operators to bitwise Hacks on integer and floating point data 
 types.
@@ -10,8 +19,17 @@ serialization, nCurses, database and so on.
 
 ### Representing information
 
-How computer really works: integer representations, integer arithmetic,
-floating point (IEEE 754 single and double precision)
+How computer really works: 
+
+* addressing and byte ordering
+* integer representation
+  * char, short, int, long (signed and unsigned);
+  * casting and loose of information
+  * integer arithmetic
+
+* floating point (IEEE 754 single and double precision)
+  * float, double
+  * to do, at the moment is empty
 
 ### The language
 
