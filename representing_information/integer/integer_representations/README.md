@@ -11,4 +11,4 @@
   - `2.4 Signed and Unsigned Numbers`
 
 ---
-[1]: Totally focused on c11 standard
+[1]: Focused on ISO/IEC 9899:1999 (c99)
