@@ -24,7 +24,7 @@ How computer really works:
 * addressing and byte ordering
 * integer representation
   * char, short, int, long (signed and unsigned);
-  * casting and loose of information
+  * casting and information loss
   * integer arithmetic
 
 * floating point (IEEE 754 single and double precision)
