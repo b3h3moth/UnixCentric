@@ -30,9 +30,17 @@ int main(void) {
 
         read_line(msg_str, MSG_LEN);
 
-        for(i=0; i<num_remind; i++)
+        for (i=0; i<num_remind; i++)
             if (strcmp(day_str, reminders[i]) < 0)
                 break;
+
+        for (j=num_remind; j>i; j--)
+            reminders[i] = reminders[j-1];
+
+        // Alloca l'esatto numero di caratteri per il reminder
+        reminders[i] = malloc(2 + strlen(msg_str) +1);
+
+
 
     }
 
