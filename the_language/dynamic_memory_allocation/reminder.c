@@ -45,8 +45,16 @@ int main(void) {
             break;
         }
 
+        strcpy(reminders[i], day_str);
+        strcat(reminders[i], msg_str);
 
+        num_remind++;
     }
+
+    fputs("\nDay reminder\n", stdout);
+
+    for (i=0; i<num_remind; i++)
+        printf(" %s\n", reminders[i]);
 
     return(EXIT_SUCCESS);
 }
