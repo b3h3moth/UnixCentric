@@ -18,7 +18,12 @@ int main(void) {
             break;
         }
 
-        fputs("enter day and reminder"
+        fputs("enter day and reminder: ", stdout);
+        scanf("%2d", &day);
+        
+        if (day == 0)
+            break;
+    }
 
     return(EXIT_SUCCESS);
 }
