@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_REMIND  50  // numero massimo di promemoria
 #define MSG_LEN     60  // lunghezza massima dei messaggi
@@ -28,6 +29,11 @@ int main(void) {
         sprintf(day_str, "%2d", day);
 
         read_line(msg_str, MSG_LEN);
+
+        for(i=0; i<num_remind; i++)
+            if (strcmp(day_str, reminders[i]) < 0)
+                break;
+
     }
 
     return(EXIT_SUCCESS);
