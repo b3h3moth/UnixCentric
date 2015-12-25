@@ -40,6 +40,10 @@ int main(void) {
         // Alloca l'esatto numero di caratteri per il reminder
         reminders[i] = malloc(2 + strlen(msg_str) +1);
 
+        if (reminders[i] == NULL) {
+            printf("--- No space left ---\n");
+            break;
+        }
 
 
     }
