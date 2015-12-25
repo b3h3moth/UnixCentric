@@ -7,6 +7,19 @@
 int read_line(char str[], int n);
 
 int main(void) {
+    // Vettore per contenere i promemoria
+    char *reminders[MAX_REMIND];
+    char day_str[3], msg_str[MSG_LEN+1];
+    int day, i, j, num_remind = 0;
+
+    for (;;) {
+        if (num_remind == MAX_REMIND) {
+            printf("--- No space left ---\n");
+            break;
+        }
+
+        fputs("enter day and reminder"
+
     return(EXIT_SUCCESS);
 }
 
