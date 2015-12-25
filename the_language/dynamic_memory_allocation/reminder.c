@@ -23,6 +23,11 @@ int main(void) {
         
         if (day == 0)
             break;
+
+        // Copia 'day' in 'day_str'
+        sprintf(day_str, "%2d", day);
+
+        read_line(msg_str, MSG_LEN);
     }
 
     return(EXIT_SUCCESS);
