@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_REMIND  50  // numero massimo di promemoria
-#define MSG_LEN     60  // lunghezza massima dei messaggi
+#define MAX_REMIND  100  // numero massimo di promemoria
+#define MSG_LEN     255  // lunghezza massima dei messaggi
 
 int read_line(char str[], int n);
 
@@ -37,8 +37,9 @@ int main(void) {
         for (j=num_remind; j>i; j--)
             reminders[i] = reminders[j-1];
 
-        // Alloca l'esatto numero di caratteri per il reminder
-        reminders[i] = malloc(2 + strlen(msg_str) +1);
+        /* Alloca l'esatto numero di caratteri per il reminder
+        Ovvero 3 (data e spazi) piu'messaggio */
+        reminders[i] = malloc(3 + strlen(msg_str) +1);
 
         if (reminders[i] == NULL) {
             printf("--- No space left ---\n");
@@ -62,11 +63,10 @@ int main(void) {
 int read_line(char str[], int n) {
     int ch, i = 0;
 
-    while ((ch = getchar()) != '\n') {
+    while ((ch = getchar()) != '\n')
         if (i < n)
             str[i++] = ch;
         str[i] = '\0';
-    }
 
     return i;
 }
