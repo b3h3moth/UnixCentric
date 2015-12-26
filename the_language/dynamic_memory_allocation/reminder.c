@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define MAX_NOTE  100  // numero massimo di promemoria
-#define MSG_LEN     255  // lunghezza massima dei messaggi
+#define MSG_LEN   255  // lunghezza massima dei messaggi
 
 void read_line(char str[], int n);
 
