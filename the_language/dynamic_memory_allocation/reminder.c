@@ -5,7 +5,7 @@
 #define MAX_REMIND  100  // numero massimo di promemoria
 #define MSG_LEN     255  // lunghezza massima dei messaggi
 
-int read_line(char str[], int n);
+void read_line(char str[], int n);
 
 int main(void) {
     // Vettore per contenere i promemoria
@@ -60,14 +60,12 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-int read_line(char str[], int n) {
+void read_line(char str[], int n) {
     int ch, i = 0;
 
     while ((ch = getchar()) != '\n')
         if (i < n)
             str[i++] = ch;
         str[i] = '\0';
-
-    return i;
 }
 
