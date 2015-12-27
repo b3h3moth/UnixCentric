@@ -1,28 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h> /* solo C99 */
+#include <stdbool.h> // da C99
 
-
-/* Massima ampiezza dello stack */
+// Massima ampiezza dello stack
 #define STACK_SIZE 10
 
-
-/* VARIABILI ESTERNE O GLOBALI
- *
- * Vettore utilizzato per memorizzare gli elementi dello stack */
+/* variabili esterne o globali
+Vettore utilizzato per memorizzare gli elementi dello stack */
 int contenuto[STACK_SIZE];
 
-/* Indica la posizione in cima allo stack */
+// Indica la posizione in cima allo stack
 int top = 0;
 
-
-/* PROTOTIPI DELLE FUNZIONI */
+// Prototipi
 int Somma(int n);
 int Potenza(int n, int x);
 int Incrementa(void);
 int Decrementa();
 
-/* Prototipi inerenti l'implementazione dello stack */
+// Prototipi inerenti l'implementazione dello stack
 void SvuotaStack(void);
 bool StackVuoto(void);
 bool StackPieno(void);
@@ -31,74 +27,15 @@ void pop(void);
 void StampaStack(void);
 
 
-int main(int argc, char *argv[])
-{
-	int somma = 5, i;
-
-	/* VARIABILI LOCALI
-	 ***************************************************************************
-	 * Una variabile dichiarata nel corpo di una funzione e' detta come locale 
-	 * alla funzione stessa; nel caso della funzione Somma(), la variabile somma
-	 * e' una variabile locale, esse godono di specifiche proprieta':
-	 *
-	 * - Durata di memorizzazione automatica.
-	 *   Nasce e muore all'interno del blocco di una funzione, ossia la memoria
-	 *   viene allocata automaticamente al momento dell'invocazione della
-	 *   funzione e deallocata non appena la funzione termina, il suo valore
-	 *   pertanto sara' indefinito qualora si dovesse invocare nuovamente la
-	 *   funziuone;
-	 * 
-	 * - Ambito di visibilita' al livello di blocco (o scope di blocco).
-	 *   Lo scope e' quella parte del programma che puo' far riferimento alla
-	 *   variabile, ovvero i limiti entro i quali una variabile e' visibile. 
-	 *   Le variabili locali pertanto hanno scope di blocco, sono visibili solo 
-	 *   all'interno del blocco in cui sono state dichiarate, all'esterno di 
-	 *   esso peraltro possono esserci anche altre variabili con lo stesso nome,
-	 *   e non ci sara' conflitto. 
-	 *
-	 *   I parametri di una funzione hanno anch'essi scope di blocco e durata di
-	 *   memorizzazione automatica, l'unica differenza con le variabili
-	 *   dichiarate all'interno di una funzione e' che i parametri sono
-	 *   inizializzati automaticamente con il valore degli argomenti all'atto
-	 *   dell'invocazione della funzione.
-	 */
+int main(int argc, char *argv[]) {
+    int somma = 5, i;
 
 	printf("var somma scope Somma(): %d\n", Somma(somma));
 	printf(" var somma scope main(): %d\n", somma);
 
-	/* VARIABILI STATICHE LOCALI
-	 ***************************************************************************
-	 * Se si aggiunge la parola chiave static ad una variabile locale, essa non
-	 * perdera' il suo valore poiche' avra' a disposizione una locazione di
-	 * memoria per tutta la durata del programma, peraltro la durata di
-	 * memorizzazione diventera' statica.
-	 *
-	 * Lo scope naturalmente e' di blocco, poiche' e' sempre una variabile
-	 * locale.
-	 *
-	 * Come si evince dalla funzione Incrementa(), ad ogni invocazione la
-	 * variabile static avra' il valore precedentemente salvato, cio' che invece
-	 * non avviene nella funzione Decrementa().
-	 */
-
 	for (i=0; i<10; i++)
 		printf("int static i: %d - int i %d\n", Incrementa(), Decrementa());
 
-	/* VARIABILI GLOBALI (o esterne)
-	 ***************************************************************************
-	 * Le variabili esterne o globali sono dichiarate fuori dal corpo di
-	 * qualsiasi funzione:
-	 *
-	 * - Durata della memorizzazione statica.
-	 *   Si comportano esattamente come le variabili statiche locali, per cui
-	 *   la locazione di memoria assegnata ad esse sara' valida per tutta la
-	 *   durata del programma.
-	 *
-	 * - Scopo di file, ovvero una variabile globale e' visibile dal punto in
-	 *   cui e' stata dichiarata fino alla fine del file.
-	 * 
-	 * Si implementa ora uno stack (LIFO) per verificarne il comportamento.
-	 */
 	printf("Test dello stack\n");
 
 	if ( StackVuoto() ) {
@@ -121,28 +58,6 @@ int main(int argc, char *argv[])
 
 	pop(), pop(), pop(), pop();
 	StampaStack();
-
-	/* 
-	 * Da notare, infine, che l'uso delle variabili globali non e' una pratica
-	 * consigliata in seno alla programmazione C, poiche', piuttosto che
-	 * condividere variabili esterne per la comunicazione tra funzioni, e'
-	 * consigliato utilizzare per tale comunicazione i parametri delle funzioni.
-	 */
-
-	/* ORGANIZZAZIONE DI UN PROGRAMMA C
-	 ***************************************************************************
-	 * Tenendo comunque conto che un programma C di grosse dimensioni andrebbe
-	 * suddiviso in diversi file, ora si fornira' un consiglio su quale potrebbe
-	 * essere il modo corretto per organizzare un listato:
-	 *
-	 * Direttive #include 
-	 * Direttive #define
-	 * Definizioni di tipo
-	 * Dichiarazione variabili globali
-	 * Prototipi delle funzioni
-	 * Definizione del main()
-	 * Definizione delle funzioni
-	 */
 
 	return(EXIT_SUCCESS);
 }
