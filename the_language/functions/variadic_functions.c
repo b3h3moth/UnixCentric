@@ -22,9 +22,6 @@ Esse in realta' sono delle macro che si comportano come funzioni, ovvero che
 accettano argomenti (function-like macro).
 */
 
-/* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
-parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
-argomento indica che si tratta di una 'variadic function' */
 double my_sum(int n, ...);
 
 int main(int argc, char *argv[]) {
@@ -41,6 +38,9 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
+/* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
+parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
+argomento indica che si tratta di una 'variadic function' */
 double my_sum(int n, ...) {
     /* Conta gli argomenti */
     int arg;
