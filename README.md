@@ -1,27 +1,25 @@
 ### bitwise Hacks
 
-A journey among the bits:
+From bitwise operators to bitwise Hacks on integer and floating point data 
+types. A journey among the bits:
 
 * bit operators
 * shifting
 * extract, clear and setup a bit
 * extract, clear and setup a bitfield
-* tips and tricks
-* a lot of articles on bit hacks
-
-From bitwise operators to bitwise Hacks on integer and floating point data 
-types.
+* bit hacks
 
 ### Libraries and API's
 
-There are a lot of libraries for every day use; graphics, cryptography, 
-serialization, nCurses, database and so on.
+A lot of libraries for every day use; graphics, cryptography, serialization, 
+database, I/O and so on.
 
 ### Representing information
 
 How computer really works: 
 
-* addressing and byte ordering
+* addressing 
+* Byte ordering (Big-endian, Little-endian)
 * integer representation
   * char, short, int, long (signed and unsigned);
   * casting and information loss
@@ -33,30 +31,29 @@ How computer really works:
 
 ### The language
 
-A lot of articles on the C language programming, C99 and C11 standards.
+A lot of articles on C99 and C11 standards, the core of the language.
 
 #### How to compile programs
 
-I programmi saranno tutti compilati utilizzando i seguenti standard:
+The programs will be compiled with two standard:
 
 - `iso9899:1999`, ``-std=c99``
 
-- `iso9899:2011`, ``-std=c11`` (sperimentale e incompleto in GCC, dalla versione 4.7)
+- `iso9899:2011`, ``-std=c11`` (experimental and incomplete from GCC 4.7)
 
-Saranno utilizzate diverse architetture per testare gli esempi: 
+Architecture for testing code:
 
 - `PPC 32 bit` (big endian)
 - `x86 32 bit` (little endian)
 - `x86 64 bit` (little endian)
 
-Ciascun sorgente potra' essere compilato sia mediante il compilatore GCC sia
-con il comilatore Clang (LLVM):
+Each program can be compiled both gcc and clang:
 
 $ ``gcc   main.c -o main``
 
 $ ``clang main.c -o main``
 
-Oppure, se si vuole maggiore dettaglio:
+Or with more detail:
 
 $ ``gcc   -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 
