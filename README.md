@@ -62,6 +62,10 @@ $ ``clang -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 Nota: L'opzione `-ansi` e' equivalente a `-std=c90` per il C ed a `-std=c++98` per il
       C++. Inoltre `-std=c90` e' equivalente a `-std=c89`.
 
+### Bibliography
+
+* `Secure coding in C and C++` by Robert C. Seacord (`2nd, 2013, Addison Wesley`)
+
 <hr />
 
 <address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>`</address>
