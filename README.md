@@ -64,7 +64,7 @@ Note: `-ansi` option equals `-std=c90`
 
 ### Bibliography
 
-Best books to learn and improve own skills and knowledge about c language 
+The best books to learn and improve own skills and knowledge about c language 
 programming and secure coding.
 
 - **`(c89)`**
