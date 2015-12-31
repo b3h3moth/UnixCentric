@@ -67,10 +67,10 @@ Note: `-ansi` option equals `-std=c90`
 Best books to learn and improve own skills and knowledge about c language 
 programming and secure coding.
 
-- **`iso9899:1999 (c89)`**
-  * `Secure coding in C and C++` by *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
-  * `Expert C Programming: Deep C Secrets` by Peter Van Der Linden (`1994, Prentice Hall`)
-  * `The C Programming Language: ANSI C Version` by Brian Kernighan (``2nd, 1988, Prentice Hall`)
+- **iso9899:1999 (c89)**
+  * **Secure coding in C and C++** by *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
+  * `**Expert C Programming: Deep C Secrets** by *Peter Van Der Linden* (*1994, Prentice Hall*`)
+  * "`The C Programming Language: ANSI C Version`" by *Brian Kernighan* (`2nd, 1988, Prentice Hall`)
 
 
 <hr />
