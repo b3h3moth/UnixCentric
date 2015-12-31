@@ -69,7 +69,7 @@ programming and secure coding.
 
 - **iso9899:1999 (c89)**
   * **Secure coding in C and C++** by *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
-  * `**Expert C Programming: Deep C Secrets** by *Peter Van Der Linden* (*1994, Prentice Hall*`)
+  * "**`Expert C Programming: Deep C Secrets`**", *Peter Van Der Linden* (`1994, Prentice Hall`)
   * "`The C Programming Language: ANSI C Version`" by *Brian Kernighan* (`2nd, 1988, Prentice Hall`)
 
 
