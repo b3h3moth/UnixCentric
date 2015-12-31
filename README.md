@@ -72,7 +72,7 @@ programming and secure coding.
   * **Expert C Programming: Deep C Secrets**; *Peter Van Der Linden* (`1994, Prentice Hall`)
 
 - **`(c99)`**
-  * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley)
+  * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
   * **Secure coding in C and C++**; *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
 
 <hr />
