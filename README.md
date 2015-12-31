@@ -64,8 +64,12 @@ Note: `-ansi` option equals `-std=c90`
 
 ### Bibliography
 
+Best books to learn and improve own skills and knowledge about c language 
+programming and secure coding
+
 * `Secure coding in C and C++` by Robert C. Seacord (`2nd, 2013, Addison Wesley`)
 * `Expert C Programming: Deep C Secrets` by Peter Van Der Linden (`1994, Prentice Hall`)
+*
 <hr />
 
 <address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>`</address>
