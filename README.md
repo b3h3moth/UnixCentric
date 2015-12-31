@@ -59,8 +59,8 @@ $ ``gcc   -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 
 $ ``clang -o main main.c -g -Wall -pedantic -std=c99`` | oppure ``-std=c11``
 
-Nota: L'opzione `-ansi` e' equivalente a `-std=c90` per il C ed a `-std=c++98` per il
-      C++. Inoltre `-std=c90` e' equivalente a `-std=c89`.
+Note: `-ansi` option equals `-std=c90`
+      `-std=c90` option equals `-std=c89`
 
 ### Bibliography
 
