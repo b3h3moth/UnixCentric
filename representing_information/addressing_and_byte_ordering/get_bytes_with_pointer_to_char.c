@@ -1,10 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    int v, i;
-    v = 123;
-    printf("%02X %02X %02X %02X\n",
-	   *(char *) &v,
-	   *(((char *) &v) + 1),
-	   *(((char *) &v) + 2), *(((char *) &v) + 3));
-};
+int main(void) {
+    int value;
+    value = 0xAABBCCDD;
+    
+    printf("%#2x %#2x %#2x %#2x\n",
+	   *(char *) &value,
+	   *(((char *) &value) + 1),
+	   *(((char *) &value) + 2), 
+       *(((char *) &value) + 3));
+}
