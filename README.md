@@ -64,7 +64,7 @@ Note: `-ansi` option equals `-std=c90`
 
 ### Bibliography
 
-The best books to learn and improve own skills and knowledge about c language 
+The best books to learn and improve own skills and knowledge about C language 
 programming and secure coding.
 
 - **`(c89)`**
@@ -73,6 +73,7 @@ programming and secure coding.
 
 - **`(c99)`**
   * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
+  * **C Programming; A modern Approach**, *Kim N.King* (`2nd, 2008, W. W. Norton & Company`)
   * **Secure coding in C and C++**; *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
 
 <hr />
