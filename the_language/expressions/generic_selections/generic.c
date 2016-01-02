@@ -31,11 +31,41 @@ input ricevuto.
 
 Associata alle macro trova la sua collocazione preferibile. */
 
+
+#define generic_format(x)   _Generic((x),\
+int: "%d\n",                             \
+long:"%ld\n",                            \
+float:"%f\n",                            \
+double: "%f\n",                          \
+default: "I don't recognize any type")
+
+#define generic_printf(y)   printf(generic_format(y), y)
+
+#define VEC_SIZE(v)    (sizeof(v)/sizeof(v[0]))
+
+struct Element {
+    union {
+        int i;
+        long l;
+        float f;
+        double d;
+    } type;
+};
+
 int main(void) {
-   
-    printf("%s\n", _Generic (2.0, int: "int", 
-                                  double: "double", 
-                                  default: "nothing to do") );
-    
+
+    struct Element *arr = malloc(sizeof(struct Element) * 4);
+    arr[0].type.i = 10;
+    arr[1].type.l = 9876l;
+    arr[2].type.f = 4.0;
+    arr[3].type.d = 867.789;
+
+    generic_printf(arr[0].type.i);
+    generic_printf(arr[1].type.l);
+    generic_printf(arr[2].type.f);
+    generic_printf(arr[3].type.d);
+
+    free(arr);
+
     return(EXIT_SUCCESS);
 }
