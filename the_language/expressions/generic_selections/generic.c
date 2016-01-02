@@ -28,5 +28,9 @@ input ricevuto. */
 
 int main(void) {
     
+    printf("%s\n", _Generic (2.0, int: "int", 
+                                  double: "double", 
+                                  default: "nothing to do") );
+    
     return(EXIT_SUCCESS);
 }
