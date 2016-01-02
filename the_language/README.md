@@ -1,4 +1,6 @@
-## C Language (C99, C11) syntax
+## The c language
+
+The c ansi programming language (c11)
 
 ### List of arguments covered
 
@@ -6,16 +8,14 @@
   * monodimensional
   * bidimensional
   * multidimensional
-* Bitwise operators
+* Expressions
+  * Generic selections (`_Generic`)
 * Logical operators
 * Functions
+  * variadic functions
 * Pointers
 * Structures and Unions
-* Representing and manipulating information
-  * integer representations
-  * integer arithmetic
-  * addressing and byte ordering
 * Vector of characters (strings)
 * Stuff
-  * variable declarations in C99, C11
-  * width precision when using printf (%.*s)
+  * variable declarations in c11
+  * width precision when using printf()
