@@ -27,7 +27,8 @@ In pratica una "generic selection", valuta un valore in base al tipo di
 input ricevuto. */
 
 int main(void) {
-    
+   
+    // Il risultato sara' la stringa letterale "double"
     printf("%s\n", _Generic (2.0, int: "int", 
                                   double: "double", 
                                   default: "nothing to do") );
