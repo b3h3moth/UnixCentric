@@ -13,8 +13,8 @@ association-list:
     default  : assignment-expression
 -------------------------------------------------------------------------------
 L' espressione di controllo (controlling-expression) non e' valutata, piuttosto
-il suo tipo sara' comparato con i nomi dei tipi inseriti nella lista delle 
-associazioni (association-list).
+il suo tipo sara' comparato con i nomi dei tipi (type-name) inseriti nella 
+lista delle associazioni (association-list).
 
 Se il tipo dell'espressione di controllo e' compatibile con uno dei nomi di
 tipo della lista delle associazioni allora il compilatore selezionera' 
@@ -23,12 +23,16 @@ default.
 
 _Generic (2.0, int: "int", double: "double", default: "nothing to do")
 
+In tal caso la generic-selection sara' valutata come un double (2.0), per cui
+il  risultato sara' la stringa letterale "double".
+
 In pratica una "generic selection", valuta un valore in base al tipo di
-input ricevuto. */
+input ricevuto. 
+
+Associata alle macro trova la sua collocazione preferibile. */
 
 int main(void) {
    
-    // Il risultato sara' la stringa letterale "double"
     printf("%s\n", _Generic (2.0, int: "int", 
                                   double: "double", 
                                   default: "nothing to do") );
