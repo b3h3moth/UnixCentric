@@ -5,7 +5,12 @@
 #include <sys/stat.h>
 
 int main(){
-    struct stat infobuf; 
+    struct stat infobuf;
+
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
     
     if (stat("/etc/passwd", &infobuf) == -1 ) {
         fprintf(stderr, "Err. stat(): %s\n", strerror(errno));
