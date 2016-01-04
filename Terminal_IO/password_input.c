@@ -1,13 +1,13 @@
-#include	<stdio.h>
-#include	<termios.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <termios.h>
 
 /* The program's purpose is to read a password in input, each character is
 replaced by a '*'. 
 */
 
-main()
-{
-	char	b[100];
+int main(void) {
+    char	b[100];
 	int	n;
 
 	n = get_password(b, 100, '*');
