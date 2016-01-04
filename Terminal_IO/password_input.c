@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <termios.h>
 
+#define MAX_PASS 51
+
 // Prototipe
 int get_password(char buf[], int maxlen, int star);
 
@@ -10,11 +12,12 @@ replaced by a '*'.
 */
 
 int main(void) {
-    char    pass[100];
+    char    pass[MAX_PASS];
 	int	    size;
 
-	size = get_password(pass, 100, '*');
-	printf("\ntyped: '%s'(%d byte)\n", pass, size);
+    fputs("Please type your password: ", stdout);
+	size = get_password(pass, MAX_PASS, '*');
+	printf("\n'%s'(%d byte)\n", pass, size);
 
     return(EXIT_SUCCESS);
 }
@@ -26,10 +29,10 @@ int get_password(char buf[], int maxlen, int star) {
 
 	tcgetattr(0, &ttystate);
 	orig = ttystate;	
-	ttystate.c_lflag   &= ~ICANON;
-	ttystate.c_lflag   &= ~ECHO;
+	ttystate.c_lflag &= ~ICANON;
+	ttystate.c_lflag &= ~ECHO;
 	ttystate.c_cc[VMIN] = 1;	
-	tcsetattr(0,TCSANOW, &ttystate);
+	tcsetattr(0, TCSANOW, &ttystate);
 
 	while ((c = getchar()) != '\n' && c != '\r') {
 		if (pos < maxlen-1) {
