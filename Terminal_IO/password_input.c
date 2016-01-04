@@ -10,11 +10,11 @@ replaced by a '*'.
 */
 
 int main(void) {
-    char    b[100];
-	int	    n;
+    char    pass[100];
+	int	    size;
 
-	n = get_password(b, 100, '*');
-	printf("you typed in \"%s\"\n", b);
+	size = get_password(pass, 100, '*');
+	printf("\ntyped: '%s'(%d byte)\n", pass, size);
 
     return(EXIT_SUCCESS);
 }
