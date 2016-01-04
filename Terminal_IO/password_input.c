@@ -1,15 +1,9 @@
 #include	<stdio.h>
 #include	<termios.h>
 
-/*
- * password_input.c
- *
- *  purpose:	read in input with *'s in place of chars
- *		need to turn off icanon and echo and put
- *		*'s for each char read.
- *  returns	number of chars read
- *  thanks to:	mrgc (mar 2001)
- */
+/* The program's purpose is to read a password in input, each character is
+replaced by a '*'. 
+*/
 
 main()
 {
