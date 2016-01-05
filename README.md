@@ -70,6 +70,7 @@ programming and secure coding.
 - **`(c89)`**
   * **The C Programming Language: ANSI C Version**; *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
   * **Expert C Programming: Deep C Secrets**; *Peter Van Der Linden* (`1994, Prentice Hall`)
+  * **A book on C: Programming in C**; *Al Kelley*, *Ira Pohl* (`4th, 1998, Addison Wesley`)
 
 - **`(c99)`**
   * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
