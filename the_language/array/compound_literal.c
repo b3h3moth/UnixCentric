@@ -1,21 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Compound literals (Letterali composti)
+/* Compound literals (Letterali composti)
+
+Un letterale composto viene creato all'occorrenza, ovvero specificando soltanto
+gli elementi che dovra' contenere.
+
+Si realizza con:
+- Il tipo di dato tra parentesi tonde seguito o meno dal numero di elementi del
+  vettore;
+- All'interno di parentesi graffe l'inizializzazione.
+
+E' lecito utilizzare 'const' per avere un array in sola lettura.
+*/
 
 int sum(const int vec[], int size);
 
 int main(void) {
-    /* Un letterale composto viene creato alla bisogna, specificando soltanto
-    gli elementi che dovra' contenere.
-    
-    Si realizza con:
-    - Tipo di dato tra tonde seguito o meno dal numero di elementi del vettore;
-    - All'interno di graffe, gli elementi. 
-    
-    Si puo' utilizzare 'const' per avere un array in sola lettura*/
-    
+    /* Creazione di un letterale composto senza specificare il numero di 
+    elementi del vettore */
     int tot   = sum( (int []){1,2,3,4,5}, 5);
+
+    /* Creazione di un letterale composto specificando il numero di 
+    elementi del vettore */
     int total = sum( (const int [5]){1,2,3,4,5}, 5);
 
     printf("  tot: %d\n", tot);
