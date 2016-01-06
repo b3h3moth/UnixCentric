@@ -12,15 +12,15 @@ int main(void) {
     pamc.appdata_ptr = NULL;
   
     // New authentication session
-    pam_start ("su", getenv ("USER"), &pamc, &pamh);
+    pam_start ("su", getenv("USER"), &pamc, &pamh);
   
     // User authentication
     if (pam_authenticate (pamh, 0) != PAM_SUCCESS)
-        fprintf (stderr, "Authentication failed!\n");
+        fprintf (stderr, "Ops, failed Authentication.\n");
     else
-        fprintf (stderr, "Authentication OK.\n");
+        fprintf (stderr, "Authentication is ok. Hi %s\n", getenv("USER"));
   
-    /* All done.  */
+    // Clean up any allocated data structures
     pam_end (pamh, 0);
   
     return(EXIT_SUCCESS);
