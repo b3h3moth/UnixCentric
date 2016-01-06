@@ -3,11 +3,11 @@
 From bitwise operators to bitwise Hacks on integer and floating point data 
 types. A journey among the bits:
 
-* bit operators
-* shifting
-* extract, clear and setup a bit
-* extract, clear and setup a bitfield
-* bit hacks
+* bit operators;
+* shifting;
+* extract, clear and setup a bit;
+* extract, clear and setup a bitfield;
+* bit hacks.
 
 ### Libraries and API's
 
@@ -16,7 +16,7 @@ database, I/O and so on.
 
 ### Representing information
 
-How computer really works: 
+How computer really works:
 
 * addressing 
 * Byte ordering (Big-endian, Little-endian)
