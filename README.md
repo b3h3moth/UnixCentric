@@ -76,8 +76,10 @@ nonche' co-autore del linguaggio C, Dennis Ritchie.
 Dedico questo modesto lavoro, con un senso di profonda gratitudine per tutto 
 cio' che ci hanno lasciato, a Richard Stevens e Dennis Ritchie.
 
+## Biblio
 
-### INFO
+
+## INFO
 Per commenti, info e quant'altro: `behemoth _at_ autistici _dot_ org`
 
 Qualora si volesse comunicare mediante crittografia a chiave pubblica:
