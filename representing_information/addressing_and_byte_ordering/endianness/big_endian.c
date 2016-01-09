@@ -7,4 +7,9 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-int big_endian(void);
+// It returns true if the byte ordering is Big-endian
+int big_endian(void) {
+    long val = 1;
+    return !(*((char *)(&val)));
+}
+
