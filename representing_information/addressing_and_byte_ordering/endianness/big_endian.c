@@ -4,6 +4,11 @@
 int big_endian(void);
 
 int main(void) {
+    if (!big_endian())
+        fputs("Big Endian", stdout);
+    else
+        fputs("Little Endian", stdout);
+
     return(EXIT_SUCCESS);
 }
 
