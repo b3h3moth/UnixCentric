@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 int big_endian(void);
 
@@ -9,12 +10,15 @@ int main(void) {
     else
         fputs("Little Endian", stdout);
 
+    int value = !big_endian();
+    printf("%d\n", value);
+
     return(EXIT_SUCCESS);
 }
 
 // It returns true if the byte ordering is Big-endian
 int big_endian(void) {
-    long val = 1;
+    int32_t val = 1;
     return !(*((char *)(&val)));
 }
 
