@@ -10,9 +10,6 @@ int main(void) {
     else
         fputs("Little Endian", stdout);
 
-    int value = !big_endian();
-    printf("%d\n", value);
-
     return(EXIT_SUCCESS);
 }
 
