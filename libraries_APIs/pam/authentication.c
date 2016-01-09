@@ -3,6 +3,13 @@
 #include <security/pam_appl.h>
 #include <security/pam_misc.h>
 
+/* How to compile the program:
+
+$ gcc -std=c11 -Wall -pedantic -lpam -lpam_misc authentication.c
+
+The program's purpose is to authenticate the logged user.
+*/
+
 int main(void) {
     pam_handle_t* pamh;
     struct pam_conv pamc;
