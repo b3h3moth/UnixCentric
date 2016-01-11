@@ -10,6 +10,10 @@ int main(int argc, char *argv[], char *envp[])
 {
    char str[] = "C Language Programming ";
    char str2[] = "Kernighan and Ritchie";
+
+   /* In this case the idiomatic expression regards:
+   'how long the string will be'.
+   strlen() doesnt' consider the null character, so we must add one byte. */
    char *str3 = malloc(strlen(str) + 1);
 
    printf("len: %d\n", my_strlen(str));
