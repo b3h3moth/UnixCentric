@@ -10,6 +10,11 @@ nei sistemi Unix e' ampiamente utilizzata.
 
 Lo scopo della funzione e' di duplicare la stringa 'str', restituendo un
 puntatore ad essa in caso di successo.
+
+Compilazione:
+$ gcc -Wall -pedantic -std=c11 -D_GNU_SOURCE file.c
+$ gcc -Wall -pedantic -std=c99 -D_GNU_SOURCE file.c
+
 */
 
 int main(void) {
