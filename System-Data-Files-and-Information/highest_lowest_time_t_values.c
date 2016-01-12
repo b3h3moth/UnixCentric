@@ -17,7 +17,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
     
-    printf("%s\n", str_time);
+    printf("Highest value: %s\n", str_time);
 
 
     return(EXIT_SUCCESS);
