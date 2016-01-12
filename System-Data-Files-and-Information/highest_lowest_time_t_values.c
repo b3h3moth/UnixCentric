@@ -12,8 +12,8 @@ int main(void) {
     char *str_h = ctime(&highest_value);
     char *str_l = ctime(&lowest_value);
 
-    if (str_h == 0) {
-        fprintf(stderr, "Err. hightst value ctime: %s\n", strerror(errno));
+    if ((str_h == NULL) || (str_l == NULL)) {
+        fprintf(stderr, "Err. ctime() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
     
