@@ -18,17 +18,15 @@ int main(void) {
         char name[SIZE];
         char address[A_SIZE];
         char shopping_center_tel[T_SIZE];
-        int number_of_floors;
-        int number_of_store;
 
         struct {
             // dati comuni per ogni negozio
             char name[SIZE];
+            char genre[SIZE];
             int floor;
             int store_nr;
 
-            struct 
-            {
+            struct {
                 // dati comuni per ogni item
                 float price;
                 int general_item_code;
@@ -62,19 +60,15 @@ int main(void) {
         } store[NR_STORE]; // assumiamo per semplicità che vi siano solo tre negozi..
     };
 
-    // sc variabile di struttura di tipo struct Publisher
     struct Publisher sc;
 
-    // valorizzazione membri centro commerciale
-    strcpy(sc.name, "Market tal dei tali");
-    strcpy(sc.address, "Viale della resistenza Roma");
+    // Informazioni inerenti la casa editrice
+    strcpy(sc.name, "Informit Publishing");
+    strcpy(sc.address, "New York (USA)");
     strcpy(sc.shopping_center_tel, "123/4567890");
-    sc.number_of_floors = 10;
-    sc.number_of_store = NR_STORE;
 
     // valorizzazione membri di un negozio
     strcpy(sc.store[BOOK_STORE].name, "Addison Wesley");
-    sc.store[BOOK_STORE].floor = 1;
     sc.store[BOOK_STORE].store_nr = 100;
 
     // valorizzazione di un item di un negozio tra: book, clothing o computer 
