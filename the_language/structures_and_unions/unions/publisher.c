@@ -13,7 +13,7 @@
 #define COMPUTER_STORE 2
 
 int main(void) {
-    struct ShoppingCenter {
+    struct Publisher {
         // dati comuni al centro commerciale     
         char name[SIZE];
         char address[A_SIZE];
@@ -62,8 +62,8 @@ int main(void) {
         } store[NR_STORE]; // assumiamo per semplicità che vi siano solo tre negozi..
     };
 
-    // sc variabile di struttura di tipo struct ShoppingCenter
-    struct ShoppingCenter sc;
+    // sc variabile di struttura di tipo struct Publisher
+    struct Publisher sc;
 
     // valorizzazione membri centro commerciale
     strcpy(sc.name, "Market tal dei tali");
