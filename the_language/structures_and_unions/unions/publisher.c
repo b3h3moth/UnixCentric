@@ -14,13 +14,13 @@
 
 int main(void) {
     struct Publisher {
-        // dati comuni al centro commerciale     
+        // Dati condivisi inerenti la casa editrice
         char name[SIZE];
         char address[A_SIZE];
         char shopping_center_tel[T_SIZE];
 
         struct {
-            // dati comuni per ogni negozio
+            // dati condivisi inerenti il libro
             char name[SIZE];
             char genre[SIZE];
             int floor;
@@ -67,9 +67,9 @@ int main(void) {
     strcpy(sc.address, "New York (USA)");
     strcpy(sc.shopping_center_tel, "123/4567890");
 
-    // valorizzazione membri di un negozio
+    // Informazioni inerenti la casa di produzione e il genere
     strcpy(sc.store[BOOK_STORE].name, "Addison Wesley");
-    sc.store[BOOK_STORE].store_nr = 100;
+    strcpy(sc.store[BOOK_STORE].genre, "Computer Science");
 
     // valorizzazione di un item di un negozio tra: book, clothing o computer 
     sc.store[BOOK_STORE].item[0].general_item_code = 19982;
@@ -82,11 +82,11 @@ int main(void) {
     printf("%s\n%s\n%s\n", sc.name, sc.address, sc.shopping_center_tel);
     printf("-----------------------\n");
     printf("Libro: %s di %s\nPrezzo: %.2f Euro acquistabile presso"
-           "la libreria %s [piano %d]\n",
+           "la libreria %s [%s]\n",
            sc.store[BOOK_STORE].item[0].book.title, 
            sc.store[BOOK_STORE].item[0].book.author,
            sc.store[BOOK_STORE].item[0].price, sc.store[BOOK_STORE].name,
-           sc.store[BOOK_STORE].floor);
+           sc.store[BOOK_STORE].genre);
 
     return (EXIT_SUCCESS);
 }
