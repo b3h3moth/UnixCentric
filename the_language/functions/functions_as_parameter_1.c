@@ -29,7 +29,7 @@ int somma(int (*f)(int par), int start, int end)
     int ris = 0;
 
     for (val=start; val<end; val++) {
-        printf("ris = %3d + %2d\n", ris, (*f)(val));
+        printf("%3d + %2d\n", ris, (*f)(val));
         ris = ris + (*f)(val);
     }
 
