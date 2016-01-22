@@ -10,7 +10,9 @@ enum {
 unsigned int hash(char *str);
 
 int main(void) {
-    char *strings[] = { "take", "a", "walk", "on", "the", "wild", "side" };
+    char *strings[] = { "take", "a", "walk", "on", "the", "wild", "side",
+                        "song", "composed", "by", "Lou", "Reed", "and", 
+                        "Velvet", "undeground"};
     
     for (int i=0; i<VEC_SIZE(strings); i++)
         printf("hash of \'%4s\' is: %u\n", strings[i], hash(strings[i]));
