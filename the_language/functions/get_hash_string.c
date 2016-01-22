@@ -15,7 +15,7 @@ int main(void) {
                         "Velvet", "undeground"};
     
     for (int i=0; i<VEC_SIZE(strings); i++)
-        printf("hash of \'%4s\' is: %u\n", strings[i], hash(strings[i]));
+        printf("hash of \'%11s\' is: %u\n", strings[i], hash(strings[i]));
 
     return(EXIT_SUCCESS);
 }
