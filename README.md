@@ -11,7 +11,7 @@ types. A journey among the bits:
 
 ### interfaces
 
-How to set up robust interfaces in C programs.
+How to build robust interfaces in C programs.
 
 ### Libraries and API's
 
