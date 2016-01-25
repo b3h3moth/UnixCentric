@@ -9,6 +9,10 @@ types. A journey among the bits:
 * extract, clear and setup a bitfield;
 * bit hacks.
 
+### interfaces
+
+How to set up robust interfaces in C programs.
+
 ### Libraries and API's
 
 A lot of libraries for every day use; graphics, cryptography, serialization, 
