@@ -8,12 +8,10 @@ int main(int argc, char *argv[]) {
                             "Zsh scripting", "System Administration", 
                             "Newtork Administration" };
 
-    // Non e' una soluzione molto elegante questa, ne' portabile, per 
-    // calcolare il totale degli elementi dell'array di stringhe
-    unsigned int size = sizeof(unix_skills) / sizeof(*unix_skills);
+    int size = (sizeof(unix_skills) / sizeof(unix_skills[0]));
 
-    // Indica la la lunghezza del dato
     for (int i=0; i<size-1; i++)
+        // Indica la la lunghezza del dato
         printf("%.*s\n", strlen(unix_skills[i]), unix_skills[i]);
 
     return(EXIT_SUCCESS);
