@@ -1,29 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-
-#define ELEM_SIZE   10
 
 // Prototipi
-void open_file(FILE *stream, char *filename, int(*fail)(int, char*));
+void open_file(char *filename, int(*fail)(int, char*), void(*done)(char*));
 int fail(int err_num, char *arg);
-void access_granted(char *filename);
+void done(char *filename);
+
+/* Lo scopo del programma e' di creare due funzioni callback, fail() e done(),
+entrambe utilizzate come argomento della funzione open_file(). */
 
 int main(int argc, char *argv[]) {
-    FILE *fi;
-    
-    open_file(fi, argv[1], &fail);
+
+    open_file(argv[1], fail, done);
 
     return(EXIT_SUCCESS);
 }
 
-void open_file(FILE *stream, char *filename, int(*fail)(int, char*)) {
-    stream = fopen(filename, "r");
+void open_file(char *filename, int(*fail)(int, char*), void(*done)(char*)) {
+    FILE *fi;
+    fi = fopen(filename, "r");
 
-    if (stream == NULL)
+    if (fi == NULL)
         (*fail)(-1, "Opening %s file");
     else
-        (*access_granted)(filename);
+        (*done)(filename);
 }
 
 int fail(int err_num, char *arg) {
@@ -31,6 +31,6 @@ int fail(int err_num, char *arg) {
     return(err_num);
 }
 
-void access_granted(char *filename) {
+void done(char *filename) {
     fprintf(stdout, "The file \'%s\' is readable\n", filename);
 }
