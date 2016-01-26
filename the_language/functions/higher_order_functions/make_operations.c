@@ -14,6 +14,10 @@ che e' in grado di eseguire diverse operazioni tra due valori mediante la
 funzione int (*func)(int, int) passata come argomento. */
 
 int main(void) {
+
+    int (*vector_of_operations[])(int, int) = { &addition, &subtraction,
+        &multiplication, &division };
+
     return(EXIT_SUCCESS);
 }
 
@@ -26,14 +30,14 @@ int addition(int val1, int val2) {
     return (val1 + val2);
 }
 
-int subtraction(int val1, int val2);
+int subtraction(int val1, int val2) {
     return (val1 - val2);
 }
 
-int multiplication(int val1, int val2);
+int multiplication(int val1, int val2) {
     return (val1 * val2);
 }
 
-int division(int val1, int val2);
+int division(int val1, int val2) {
     return (val1 / val2);
 }
