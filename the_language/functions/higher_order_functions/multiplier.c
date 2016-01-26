@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+int somma(int (*f)(int), int start, int end);
 int moltiplica(int x);
-int somma(int (*f)(int par), int start, int end);
 
 int main(void) {
     int n = somma(moltiplica, 1, 10);
@@ -12,8 +12,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-int moltiplica(int x)
-{
+int moltiplica(int x) {
     return x * x;
 }
 
@@ -23,8 +22,7 @@ funzione 'p' che accetta il parametro 'par' e che restituisce un intero.
 - il secondo parametro e' l'intero 'start',
 - il terzo parametro e' l'intero 'end'.
 */
-int somma(int (*f)(int par), int start, int end)
-{
+int somma(int (*f)(int), int start, int end) {
     int val;
     int ris = 0;
 
