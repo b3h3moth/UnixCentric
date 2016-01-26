@@ -17,7 +17,8 @@ funzione int (*func)(int, int) passata come argomento. */
 
 int main(void) {
 
-    /* Un vettore di puntatori a funzione contenente ciascuna operazione.
+    /* Un vettore di puntatori a funzione, funzione in grado di accettare due
+    argomenti, ovvero una delle quattro operazioni.
     Poiche' della funzione serve l'indirizzo e' lecito inserire il nome della
     funzione stessa sia con 'operatore di indirizzo '&', sia senza. */
     int (*operations_list[])(int, int) = { 
