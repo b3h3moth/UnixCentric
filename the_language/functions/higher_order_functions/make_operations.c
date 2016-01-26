@@ -17,14 +17,17 @@ funzione int (*func)(int, int) passata come argomento. */
 
 int main(void) {
 
-    int (*operations_list[])(int, int) = { &addition, &subtraction,
-        &multiplication, &division };
+    /* Un vettore di puntatori a funzione contenente ciascuna operazione.
+    Poiche' della funzione serve l'indirizzo e' lecito inserire il nome della
+    funzione stessa sia con 'operatore di indirizzo '&', sia senza. */
+    int (*operations_list[])(int, int) = { 
+        &addition, &subtraction, multiplication, division };
    
-    char *operations_name[] = { "addition", "subtraction", "multiplication",
-        "division" };
+    char *operations_name[] = { 
+        "addition", "subtraction", "multiplication", "division" };
 
     for (int i=0; i<VECSIZE(operations_list); i++) {
-        printf("(%14s %d %d) = %d\n", operations_name[i], i, i, 
+        printf("(%14s %d %d) = %d\n", operations_name[i], i, i, \
                 make_operations(i, i, operations_list[i]));
     }
 
