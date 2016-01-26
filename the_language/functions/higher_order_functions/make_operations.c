@@ -17,6 +17,10 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+// Esegue una delle quattro operazioni
+int make_operations(int val1, int val2, int (*func)(int, int)) {
+    return (*func)(val1, val2);
+}
 
 int addition(int val1, int val2) {
     return (val1 + val2);
