@@ -15,7 +15,7 @@ funzione int (*func)(int, int) passata come argomento. */
 
 int main(void) {
 
-    int (*vector_of_operations[])(int, int) = { &addition, &subtraction,
+    int (*operations_list[])(int, int) = { &addition, &subtraction,
         &multiplication, &division };
 
     return(EXIT_SUCCESS);
