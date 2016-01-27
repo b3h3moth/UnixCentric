@@ -6,6 +6,7 @@ OBJS    =  main.o  stack.o
 
 $(TARGET): $(OBJS)
 	@echo "linking ..."
+	tput reset
 	@$(CC)  $^ -o $@
 
 $(OBJS): stack.h
