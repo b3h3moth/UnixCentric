@@ -31,7 +31,6 @@ int main(void) {
         printf("popped %d from st2 Stack\n", pop(st2));
 
     make_empty(st2);
-    printf("popped %d from st2 Stack\n", pop(st2));
 
     push(st2, 100);
 
