@@ -5,11 +5,14 @@
 // Linked List Stack representation
 
 struct node {
-    int data;
+    Item data;
     struct node *next;
 };
 
-static struct node *top = NULL;
+// Puntatore al primo nodo della lista 
+struct stack_type {
+    struct node *top;
+};
 
 // Stampa un messaggio qualora dovessero esserci problemi con pop() o push()
 static void terminate(const char *msg) {
@@ -17,60 +20,77 @@ static void terminate(const char *msg) {
     exit(EXIT_FAILURE);
 }
 
+// Alloca la memoria necessaria per la struttura stack_type
+Stack create() {
+    Stack s = malloc(sizeof(struct stack_type));
+
+    if (s == NULL)
+        terminate("Err. I couldn't create stack, sorry");
+
+    s->top = NULL;
+
+    return s;
+}
+
+// Rilascia la memoria dello Stack
+void destroy(Stack s) {
+    make_empty(s);
+    free(s);
+}
+
 // Svuota lo stack
-void make_empty(void) {
-    while (!is_empty())
-        pop();
+void make_empty(Stack s) {
+    while (!is_empty(s))
+        pop(s);
 }
 
 // Verifica se lo stack e' vuoto
-bool is_empty(void) {
-    return (top == NULL);
+bool is_empty(Stack s) {
+    return (s->top == NULL);
 }
 
 // Verifica se lo stack e' pieno
-bool is_full(void) {
+bool is_full(Stack s) {
     return false;
 }
 
-// Stampa ciascun elemento dello stack
-void print_stack_elements(void) {
-    struct node *temp;
-
-    if (is_empty())
-        terminate("Err: print_stack_elements() - Sorry, stack is empty");
-
-    temp = top;
-
-    while (temp) {
-        printf("%d\n", temp->data);
-        temp = temp->next;
-    }
-}
-
 // Inserisce un elemento (intero) nello stack
-void push(int val) {
+void push(Stack s, Item val) {
     struct node *temp = malloc(sizeof(struct node));
 
     if (temp == NULL)
         terminate("Err: push() - stack is full");
 
     temp->data = val;
-    temp->next = top;   // Inizialmente top e' uguale a NULL
-    top = temp;
+    temp->next = s->top; 
+    s->top = temp;
 }
 
 // Rimuove un elemento dallo stack
-int pop(void) {
+Item pop(Stack s) {
     struct node *old;
-    int val;
+    Item val;
 
-    if (is_empty())
+    if (is_empty(s))
         terminate("Err: pop() - stack is empty");
 
-    old = top;
-    val = top->data;
-    top = top->next;
+    old = s->top;
+    val = old->data;
+    s->top = old->next;
     free(old);
     return val;
+}
+
+void print_stack(Stack s) {
+    struct node *temp = malloc(sizeof(struct node));
+
+    if (is_empty(s))
+        terminate("Stack is empty");
+
+    temp = s->top;
+
+    while (temp) {
+        printf("%d\n",  temp->data);
+        temp = temp->next;
+    }
 }
