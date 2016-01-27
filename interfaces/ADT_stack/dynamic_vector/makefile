@@ -5,8 +5,7 @@ TARGET  =  stack
 OBJS    =  main.o  stack.o
 
 $(TARGET): $(OBJS)
-	@echo "linking ..."
-	tput reset
+	@echo "linking ...\n"
 	@$(CC)  $^ -o $@
 
 $(OBJS): stack.h
