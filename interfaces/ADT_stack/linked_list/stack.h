@@ -3,11 +3,15 @@
 
 #include <stdbool.h>
 
-void make_empty(void);
-bool is_empty(void);
-bool is_full(void);
-void print_stack_elements(void);
-void push(int val);
-int pop(void);
+typedef int Item;
+typedef struct stack_type *Stack;
+
+Stack create(int size);
+void destroy(Stack s);
+void make_empty(Stack s);
+bool is_empty(Stack s);
+bool is_full(Stack s);
+void push(Stack s, Item val);
+Item pop(Stack s);
 
 #endif
