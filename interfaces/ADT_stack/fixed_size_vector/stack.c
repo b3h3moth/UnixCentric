@@ -19,7 +19,7 @@ static void terminate(const char *msg) {
 
 // Alloca la memoria necessaria a contenere Stack
 Stack create(void) {
-    Stack s = malloc(sizeof(Stack));
+    Stack s = malloc(sizeof(struct stack_type));
 
     if (s == NULL)
         terminate("Err. creating Stack");
