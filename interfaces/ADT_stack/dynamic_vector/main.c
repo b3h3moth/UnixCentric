@@ -4,7 +4,7 @@
 
 int main(void) {
     Stack st1, st2;
-    int st_size = 10, val;
+    int st_size = 10;
 
     // Imposta l'ampiezza massima di entrambi gli stack a 10
     st1 = create(st_size);
@@ -15,13 +15,6 @@ int main(void) {
         push(st1, i+i);
         push(st2, i*i);
     }
-
-    val = pop(st1);
-    printf("popped %d from st1 Stack\n", val);
-    val = pop(st1);
-    printf("popped %d from st1 Stack\n", val);
-    val = pop(st2);
-    printf("popped %d from st2 Stack\n", val);
 
     destroy(st1);
 
