@@ -3,7 +3,7 @@
 
 int main(void) {
     char *country[] = { "italy", "USA", "Spain", "France", "Germany", "Iran",
-        "Denmark", "Russia", "Sweden", "China", "Japan" };
+        "Denmark", "Russia", "Sweden", "China", "Japan", "Jamaica" };
 
     /* Talvolta, ad esempio utilizzando la sizeof() per ottenere la lunghezza
     di un vettore, si potrebbe incorrere un un warning del compilatore.
@@ -23,5 +23,6 @@ int main(void) {
     /* Ancor meglio sarebbe porre il tutto in una macro parametrica:
     #define VECSIZE(x)  ((int)(sizeof(x) / sizeof(x[0])))
     */
+
     return(EXIT_SUCCESS);
 }
