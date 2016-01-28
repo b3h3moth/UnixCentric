@@ -1,18 +1,18 @@
 CC      =  cc
 CFLAGS  =  -pedantic -Wall -std=c11
-TARGET  =  execsv
+TARGET  =  csv.out
 
 OBJS    =  main.o  csv.o
 
 $(TARGET): $(OBJS)
-	@echo "linking ..."
+	@echo "linking ... $(TARGET)"
 	@$(CC)  $^ -o $@
 
 $(OBJS): csv.h
 	$(CC)  $(CFLAGS) -c  $*.c
 
 relink:
-	@echo "relinking ..."
+	@echo "relinking ... $(TARGET)"
 	@$(CC)  $(CFLAGS)  -o $(TARGET)  $(OBJS)  $(LIBS)
 
 clean:

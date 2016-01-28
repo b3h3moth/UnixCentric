@@ -8,11 +8,6 @@ extern char *csv_field(int n);
 // restituisce il numero di campi
 extern int csv_nfield(void);
 
-static void reset(void);
-static int end_of_line(FILE *fin, int c);
-static int split(void);
-static char *advquoted(char *p);
-
 // segnale di memoria esaurita
 enum { NOMEM = -2 };
 

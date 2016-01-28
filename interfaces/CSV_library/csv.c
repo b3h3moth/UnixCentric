@@ -3,6 +3,11 @@
 #include <string.h>
 #include "csv.h"
 
+static void reset(void);
+static int end_of_line(FILE *fin, int c);
+static int split(void);
+static char *advquoted(char *p);
+
 // Legge una linea dal file di input e se necessario cresce
 char *csv_getline(FILE *fin) {
     int i, c;
