@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 Getting input file for testing:
 
 $ tail -4 main.c | head -n 3 > file.csv
+$ make
 $ ./a.out < file.csv
 
 "CB", 86.25,"11/4/1998",14:39,-1234.89,876.798,+890.0, 789^2.91,
