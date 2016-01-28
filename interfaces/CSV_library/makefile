@@ -9,7 +9,7 @@ $(TARGET): $(OBJS)
 	@$(CC)  $^ -o $@
 
 $(OBJS): csv.h
-	$(CC)  $(CFLAGS)  $(INCLS)  -c  $*.c
+	$(CC)  $(CFLAGS) -c  $*.c
 
 relink:
 	@echo "relinking ..."
