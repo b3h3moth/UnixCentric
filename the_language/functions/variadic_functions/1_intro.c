@@ -44,11 +44,11 @@ int main(int argc, char *argv[]) {
 parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
 argomento indica che si tratta di una 'variadic function' */
 double my_sum(int n, ...) {
-    /* Conta gli argomenti */
+    // Conta gli argomenti
     int arg;
-    /* Somma gli argomenti */
     double sum = 0.0;
-    /* Lista degli argomenti */
+
+    // Inizializza 'ap' in modo tale che punti al primo argomento anonino
     va_list ap;
 
     /* Inizializzazione della lista degli argomenti */
