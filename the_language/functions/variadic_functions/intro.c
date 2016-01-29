@@ -52,10 +52,12 @@ double my_sum(int n, ...) {
     rierimento all'argomento variabile; 'ap' sta per 'argument pointer' */
     va_list ap;
 
-    // Inizializza 'ap' in modo tale che punti al primo argomento anonino
+    // Inizializza 'ap' in modo tale che punti al primo argomento anonimo
     va_start(ap, n);
 
-    // va_arg() ricava uno alla volta tutti gli argomenti anonimi
+    /* va_arg() ricava uno alla volta tutti gli argomenti anonimi da 
+    processare, essa inoltre modifica la variabile 'ap' in modo tale che punti
+    successivo argomento, e cosi' via */
     for (arg=0; arg<n; ++arg)
         sum += va_arg(ap, double);
 
