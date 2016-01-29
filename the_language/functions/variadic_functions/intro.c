@@ -48,7 +48,7 @@ double my_sum(int n, ...) {
     int arg;
     double sum = 0.0;
 
-    va_list ap;
+    va_list ap; // 'ap' sta per 'argument pointer'
 
     // Inizializza 'ap' in modo tale che punti al primo argomento anonino
     va_start(ap, n);
