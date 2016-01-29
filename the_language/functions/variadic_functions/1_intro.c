@@ -30,6 +30,8 @@ int main(int argc, char *argv[]) {
     double y = 30.5;
     double z = 40.5;
 
+    /* Il primo argomento indica quanti argomenti saranno utilizzati dalla 
+    funzione my_sum(), ovvero 1, 2, 3 3d infine 4 */
     printf("w            = %f\n", my_sum(1, w));
     printf("w + x        = %f\n", my_sum(2, w, x));
     printf("x + x + y    = %f\n", my_sum(3, w, x, y));
