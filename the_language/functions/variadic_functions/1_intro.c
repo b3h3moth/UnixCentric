@@ -11,12 +11,12 @@ L'header di riferimento e' <stdarg.h> che contiene una serie di utilities per
 la standardizzazione dell'utilizzo delle funzioni con un numero arbitrario di 
 parametri.
 
-Le utilities fornite da <stdarg.h> (dipendenti dal sistema utilizzato):
-- il tipo  'va_list' (typedef char *va_list);
+Le utilities fornite da <stdarg.h> - dipendenti dal sistema utilizzato - 
+lavorano con il tipo di dato 'va_list' - typedef char *va_list):
 - la macro 'va_start';
 - la macro 'va_arg';
 - la macro 'va_end';
-- la macro 'va_copy' (da c99).
+- la macro 'va_copy' (ereditato da c99).
 
 Esse in realta' sono delle macro che si comportano come funzioni, ovvero che
 accettano argomenti (function-like macro).
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     double z = 40.5;
 
     /* Il primo argomento indica quanti argomenti saranno utilizzati dalla 
-    funzione my_sum(), ovvero 1, 2, 3 3d infine 4 */
+    funzione my_sum(), ovvero 1, 2, 3 e infine 4 */
     printf("w            = %f\n", my_sum(1, w));
     printf("w + x        = %f\n", my_sum(2, w, x));
     printf("x + x + y    = %f\n", my_sum(3, w, x, y));
