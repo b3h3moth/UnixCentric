@@ -12,11 +12,11 @@ la standardizzazione dell'utilizzo delle funzioni con un numero arbitrario di
 parametri.
 
 Le utilities fornite da <stdarg.h> (dipendenti dal sistema utilizzato):
-- typedef char * va_list;
-- va_start()
-- va_arg()
-- va_end()
-- va_copy() (da c99).
+- il tipo  'va_list' (typedef char *va_list);
+- la macro 'va_start';
+- la macro 'va_arg';
+- la macro 'va_end';
+- la macro 'va_copy' (da c99).
 
 Esse in realta' sono delle macro che si comportano come funzioni, ovvero che
 accettano argomenti (function-like macro).
