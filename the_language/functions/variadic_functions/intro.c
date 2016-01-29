@@ -61,7 +61,8 @@ double my_sum(int n, ...) {
     for (arg=0; arg<n; ++arg)
         sum += va_arg(ap, double);
 
-    // Operazioni di pulizia
+    /* Operazioni di pulizia di 'ap', solitamente viene liberata la memoria
+    per consentire successive inizializzazioni */
     va_end(ap);
 
     return(sum);
