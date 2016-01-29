@@ -48,16 +48,16 @@ double my_sum(int n, ...) {
     int arg;
     double sum = 0.0;
 
-    // Inizializza 'ap' in modo tale che punti al primo argomento anonino
     va_list ap;
 
-    /* Inizializzazione della lista degli argomenti */
+    // Inizializza 'ap' in modo tale che punti al primo argomento anonino
     va_start(ap, n);
 
+    // va_arg() ricava uno alla volta tutti gli argomenti anonimi
     for (arg=0; arg<n; ++arg)
         sum += va_arg(ap, double);
 
-    /* Chiusura della lista di argomenti */
+    // Operazioni di pulizia
     va_end(ap);
 
     return(sum);
