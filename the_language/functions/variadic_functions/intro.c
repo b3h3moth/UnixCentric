@@ -32,10 +32,10 @@ int main(int argc, char *argv[]) {
 
     /* Il primo argomento indica quanti argomenti saranno utilizzati dalla 
     funzione my_sum(), ovvero 1, 2, 3 e infine 4 */
-    printf("w            = %f\n", my_sum(1, w));
-    printf("w + x        = %f\n", my_sum(2, w, x));
-    printf("x + x + y    = %f\n", my_sum(3, w, x, y));
-    printf("x + x + y  z = %f\n", my_sum(4, w, x, y, z));
+    printf("w = %f\n", my_sum(1, w));
+    printf("w + x = %f\n", my_sum(2, w, x));
+    printf("x + x + y = %f\n", my_sum(3, w, x, y));
+    printf("x + x + y + z = %f\n", my_sum(4, w, x, y, z));
 
     return(EXIT_SUCCESS);
 }
