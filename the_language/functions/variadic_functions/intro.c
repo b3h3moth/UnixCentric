@@ -22,7 +22,7 @@ Esse in realta' sono delle macro che si comportano come funzioni, ovvero che
 accettano argomenti (function-like macro).
 */
 
-double my_sum(int n, ...);
+double addition(int n, ...);
 
 int main(int argc, char *argv[]) {
     double w = 10.5;
@@ -31,22 +31,22 @@ int main(int argc, char *argv[]) {
     double z = 40.5;
 
     /* Il primo argomento indica quanti argomenti saranno utilizzati dalla 
-    funzione my_sum(), ovvero 1, 2, 3 e infine 4 */
-    printf("w = %f\n", my_sum(1, w));
-    printf("w + x = %f\n", my_sum(2, w, x));
-    printf("x + x + y = %f\n", my_sum(3, w, x, y));
-    printf("x + x + y + z = %f\n", my_sum(4, w, x, y, z));
+    funzione addition(), ovvero 1, 2, 3 e infine 4 */
+    printf("w = %f\n", addition(1, w));
+    printf("w + x = %f\n", addition(2, w, x));
+    printf("x + x + y = %f\n", addition(3, w, x, y));
+    printf("x + x + y + z = %f\n", addition(4, w, x, y, z));
 
     return(EXIT_SUCCESS);
 }
 
-/* Prototipo della funzione my_sum(), che prende un numero arbitrario di 
+/* Prototipo della funzione addition(), che prende un numero arbitrario di 
 parametri del tipo 'double' e ne restituisce la somma. L'ellissi come ultimo
 argomento indica che si tratta di una 'variadic function' */
-double my_sum(int n, ...) {
+double addition(int n, ...) {
     // Conta gli argomenti
     int arg;
-    double sum = 0.0;
+    double result = 0.0;
 
     /* La variabile 'ap' di tipo 'va_list' conterra' di volta in volta un
     rierimento all'argomento variabile; 'ap' sta per 'argument pointer' */
@@ -59,11 +59,11 @@ double my_sum(int n, ...) {
     processare, essa inoltre modifica la variabile 'ap' in modo tale che punti
     successivo argomento, e cosi' via */
     for (arg=0; arg<n; ++arg)
-        sum += va_arg(ap, double);
+        result += va_arg(ap, double);
 
     /* Operazioni di pulizia di 'ap', solitamente viene liberata la memoria
     per consentire successive inizializzazioni */
     va_end(ap);
 
-    return(sum);
+    return(result);
 }
