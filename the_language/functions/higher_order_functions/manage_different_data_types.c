@@ -2,43 +2,33 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <inttypes.h>
+#include <string.h>
 
-void func(char *data, char *arg, void(*check_error)(char *, char *));
-void check_error(char *data, char *fmt);
+void check_error(char *data, char *arg, char *format, long min, long max, void(*verify)(char *, char *, char *, int, int));
+void verify(char *data, char *arg, char *format);
 
 int main(void) {
-    func("1532", "%d", &check_error);
+
     return(EXIT_SUCCESS);
 }
 
-void func(char *data, char *arg, void(*check_error)(char *, char *)) {
-    check_error(data, arg);
+void check_error(char *data, char *arg, char *format, long min, long max, void(*verify)(char *, char *, char *, int, int)) {
+        verify(data, arg, format, min, max);
 }
 
-void check_error(char *data,char *arg) {
-    char *fmt = (void *)arg;
-
-    printf(fmt, strtol(data, NULL, 10));
-}
-
-/*
-void check_error(const char *data_type, char *value, int min, int max) {
-    printf("%lu\n", (long int)strtoimax(value, NULL, 10));
-
-    if (strtoimax(value, NULL, 10) == 0) {
-        fprintf(stderr, "0 is not a valid value, please\n");
-    } 
+void verify(char *data, char *arg, char *format) {
+    char *fmt = (void *)format;
     
-    if (strtoimax(value, NULL, 10) > max) {
+    if ((atoll(value)) > max) {
         fprintf(stderr, "[Error]: Integer Overflow on type '%s'.\n"
                 "Available numeric range: from '%d' to '%d'\n", 
                 data_type, min, max);
-    } 
-    
-    if (strtoimax(value, NULL, 10) < min) {
+        exit(EXIT_FAILURE);
+    } else if ((atoll(value)) < min) {
         fprintf(stderr, "[Error]: Integer Underflow on type '%s'.\n"
-                "Available numeric range: from '%d' to '%u'\n", 
+                "Available numeric range: from '%d' to '%d'\n", 
                 data_type, min, max);
+        exit(EXIT_FAILURE);
     }
 }
-*/
+
