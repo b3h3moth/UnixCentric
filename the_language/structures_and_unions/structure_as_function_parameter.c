@@ -16,6 +16,7 @@ int main(void) {
 
     struct point my_sp_a;
     struct point my_sp_b;
+    struct point my_sp_ab;
 
     // Inizializzazione della prima struttura my_sp_a
     my_sp_a = init(10, 20);
@@ -24,7 +25,11 @@ int main(void) {
     // Inizializzazione della seconda struttura my_sp_b
     my_sp_b = init(30, 40);
     printf("my_sp_b.x = %d, my_sp_b.y = %d\n",my_sp_b.x, my_sp_b.y);
-    
+
+    // Somma dei membri delle strutture precedenti
+    my_sp_ab = sum(my_sp_a, my_sp_b);
+    printf("my_sp_ab.x = %d, my_sp_ab.y = %d\n",my_sp_ab.x, my_sp_ab.y);
+
     return(EXIT_SUCCESS);
 }
 
