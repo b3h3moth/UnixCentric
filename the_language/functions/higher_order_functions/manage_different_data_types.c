@@ -3,22 +3,39 @@
 #include <limits.h>
 #include <inttypes.h>
 
-void func(char *data, char *arg, void(*check_error)(char *, char *));
-void check_error(char *data, char *fmt);
+enum {CHAR, UCHAR, SHORT, USHORT, INT, UINT, LONG, ULONG};
+
+union data_val {
+    char valchar;
+    short valshort;
+    int valint;
+    long valong;
+};
+
+void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *));
+void print(union data_val *d, char *fmt);
 
 int main(void) {
-    func("1532", "%d", &check_error);
+    check_error(4, "1532", "%d", &print);
     return(EXIT_SUCCESS);
 }
 
-void func(char *data, char *arg, void(*check_error)(char *, char *)) {
-    check_error(data, arg);
+void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *)) {
+    union data_val *value;
+        value->valint = atol(val);
+        printf("%d\n", value->valint);
+
+    if (data_type == INT) {
+        value->valint = atol(val);
+        printf("%d\n", value->valint);
+        print(value, arg);
+    }
 }
 
-void check_error(char *data,char *arg) {
-    char *fmt = (void *)arg;
+void print(union data_val *d, char *fmt) {
+    char *format = (void *)fmt;
 
-    printf(fmt, strtol(data, NULL, 10));
+    printf(format, d->valint);
 }
 
 /*
