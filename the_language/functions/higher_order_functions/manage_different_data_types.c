@@ -16,15 +16,18 @@ void check_error(int data_type, char *val, char *format, void(*print)(union data
 void print(union data_val *d, char *fmt);
 
 int main(void) {
-    check_error(4, "1532", "%d", &print);
+    check_error(4, "1532", " int %d\n", &print);
+    check_error(5, "-1532", "uint %u\n", &print);
     return(EXIT_SUCCESS);
 }
 
 void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *)) {
     union data_val myval;
+    myval.valint = atol(val);
 
     if (data_type == INT) {
-        myval.valint = atol(val);
+        print(&myval, format);
+    } else if (data_type == UINT) {
         print(&myval, format);
     }
 }
