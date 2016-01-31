@@ -21,7 +21,7 @@ int main(void) {
 }
 
 void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *)) {
-    union data_val *value = NULL;
+    union data_val value = val;
 
     if (data_type == INT) {
         value->valint = atol(val);
