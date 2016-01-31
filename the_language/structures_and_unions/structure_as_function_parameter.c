@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct point {
     int x;
@@ -73,4 +74,9 @@ struct point sum(struct point sp1, struct point sp2) {
 
 // Assegna ai membri della struttura puntata da *sptr valori random
 void random(struct point *sptr) {
+    // Inizializzazione del generatore di numeri (pseudo) casuali
+    srand(time(NULL));
+
+    sptr->x = rand() % 10000;     
+    sptr->y = rand() % 10000;
 }
