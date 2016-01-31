@@ -9,6 +9,7 @@ union data_val {
     char valchar;
     short valshort;
     int valint;
+    unsigned int valuint;
     long valong;
 };
 
@@ -17,22 +18,33 @@ void print(union data_val *d, char *fmt);
 
 int main(void) {
     check_error(4, "22478345693", " int %d\n", &print);
-    check_error(5, "-1532", "uint %d\n", &print);
     return(EXIT_SUCCESS);
 }
 
 void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *)) {
     union data_val myval;
-    myval.valint = atol(val);
 
     if (data_type == INT) {
-        if (myval.valint > INT_MAX) {
+        if (atol(val) > INT_MAX) {
             fprintf(stderr, "[Error]: Integer Overflow on type 'int'.\n"
                     "Available numeric range: from '%d' to '%d'\n", 
                     INT_MIN, INT_MAX);
-        }
+        } else if (myval.valint < INT_MIN) {
+            fprintf(stderr, "[Error]: Integer Undrflow on type 'int'.\n"
+                    "Available numeric range: from '%d' to '%d'\n", 
+                    INT_MIN, INT_MAX);
+        } else if (myval.valint == 0) 
+            printf("000000000000000000\n");
+        printf(format, atol(val));
+        myval.valint = atol(val);
         print(&myval, format);
     } else if (data_type == UINT) {
+        myval.valuint = atoll(val);
+        if (myval.valuint > UINT_MAX) {
+            fprintf(stderr, "[Error]: Integer Overflow on type 'int'.\n"
+                    "Available numeric range: from '%d' to '%u'\n", 
+                    0, UINT_MAX);
+        }
         print(&myval, format);
     }
 }
