@@ -13,9 +13,12 @@ struct point sum(struct point sp1, struct point sp2);
 void random(struct point *sptr);
 
 int main(void) {
+
     struct point my_sp;
+
     my_sp = init(10, 20);
-    printf("%d %d\n",my_sp.x, my_sp.y);
+    printf("my_sp.x = %d, my_sp.y = %d\n",my_sp.x, my_sp.y);
+    
     return(EXIT_SUCCESS);
 }
 
