@@ -14,10 +14,16 @@ void random(struct point *sptr);
 
 int main(void) {
 
-    struct point my_sp;
+    struct point my_sp_a;
+    struct point my_sp_b;
 
-    my_sp = init(10, 20);
-    printf("my_sp.x = %d, my_sp.y = %d\n",my_sp.x, my_sp.y);
+    // Inizializzazione della prima struttura my_sp_a
+    my_sp_a = init(10, 20);
+    printf("my_sp_a.x = %d, my_sp_a.y = %d\n",my_sp_a.x, my_sp_a.y);
+    
+    // Inizializzazione della seconda struttura my_sp_b
+    my_sp_b = init(30, 40);
+    printf("my_sp_b.x = %d, my_sp_b.y = %d\n",my_sp_b.x, my_sp_b.y);
     
     return(EXIT_SUCCESS);
 }
@@ -38,9 +44,8 @@ struct point init(int val1, int val2) {
     saranno inizializzati mediante, per l'appunto, gli inizializzatori 
     designati (designated initializers) */
 
-    return (struct point) {.x = val1, .y = val2};
+    return (struct point) {.x = val1, .y = val2, .sum = 0};
 }
-
 
 /* Somma i membri delle strutture sp1 e sp2, e restituisce il risultato sotto
 forma di struttura di tipo point */
