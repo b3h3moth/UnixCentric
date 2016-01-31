@@ -3,7 +3,7 @@
 #include <limits.h>
 #include <inttypes.h>
 
-enum {CHAR, UCHAR, SHORT, USHORT, INT, UINT, LONG, ULONG};
+enum types {CHAR, UCHAR, SHORT, USHORT, INT, UINT, LONG, ULONG};
 
 union data_val {
     char valchar;
@@ -21,9 +21,7 @@ int main(void) {
 }
 
 void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *)) {
-    union data_val *value;
-        value->valint = atol(val);
-        printf("%d\n", value->valint);
+    union data_val *value = NULL;
 
     if (data_type == INT) {
         value->valint = atol(val);
