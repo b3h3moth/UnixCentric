@@ -4,7 +4,6 @@
 struct point {
     int x;
     int y;
-    int sum;
 };
 
 // Function prototypes
@@ -49,7 +48,7 @@ struct point init(int val1, int val2) {
     saranno inizializzati mediante, per l'appunto, gli inizializzatori 
     designati (designated initializers) */
 
-    return (struct point) {.x = val1, .y = val2, .sum = 0};
+    return (struct point) {.x = val1, .y = val2};
 }
 
 /* Somma i membri delle strutture sp1 e sp2, e restituisce il risultato sotto
@@ -63,7 +62,6 @@ struct point sum(struct point sp1, struct point sp2) {
     
     temp.x = sp1.x + sp2.x;
     temp.y = sp1.y + sp2.y;
-    temp.sum = 0;
 
     return temp;
 
