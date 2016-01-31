@@ -17,6 +17,8 @@ int main(void) {
     struct point my_sp_a;
     struct point my_sp_b;
     struct point my_sp_ab;
+    struct point my_sp_rd;
+    struct point *my_sp_prd;
 
     // Inizializzazione della prima struttura my_sp_a
     my_sp_a = init(10, 20);
@@ -29,6 +31,10 @@ int main(void) {
     // Somma dei membri delle strutture precedenti
     my_sp_ab = sum(my_sp_a, my_sp_b);
     printf("my_sp_ab.x = %d, my_sp_ab.y = %d\n",my_sp_ab.x, my_sp_ab.y);
+
+    // Inizializza i membri della struttura con valori (pseudo) casuali
+    random(&my_sp_rd);
+    printf("my_sp_rd.x = %d, my_sp_rd.y = %d\n",my_sp_rd.x, my_sp_rd.y);
 
     return(EXIT_SUCCESS);
 }
@@ -77,6 +83,6 @@ void random(struct point *sptr) {
     // Inizializzazione del generatore di numeri (pseudo) casuali
     srand(time(NULL));
 
-    sptr->x = rand() % 10000;     
-    sptr->y = rand() % 10000;
+    sptr->x = rand() % 10;
+    sptr->y = rand() % 10;
 }
