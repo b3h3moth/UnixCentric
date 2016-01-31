@@ -12,7 +12,7 @@ union data_val {
     long valong;
 };
 
-void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *));
+void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *));
 void print(union data_val *d, char *fmt);
 
 int main(void) {
@@ -20,13 +20,12 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-void check_error(int data_type, char *val, char *arg, void(*print)(union data_val *, char *)) {
-    union data_val value = val;
+void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *)) {
+    union data_val myval;
 
     if (data_type == INT) {
-        value->valint = atol(val);
-        printf("%d\n", value->valint);
-        print(value, arg);
+        myval.valint = atol(val);
+        print(&myval, format);
     }
 }
 
