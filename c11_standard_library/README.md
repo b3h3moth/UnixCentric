@@ -1,0 +1,30 @@
+<assert.h>
+ <math.h>
+ <stdlib.h>
+<complex.h>
+ <setjmp.h>
+ <stdnoreturn.h>
+<ctype.h>
+ <signal.h>
+ <string.h>
+<errno.h>
+ <stdalign.h>
+ <tgmath.h>
+<fenv.h>
+ <stdarg.h>
+ <threads.h>
+<float.h>
+ <stdatomic.h>
+ <time.h>
+<inttypes.h>
+ <stdbool.h>
+ <uchar.h>
+<iso646.h>
+ <stddef.h>
+ <wchar.h>
+<limits.h>
+ <stdint.h>
+ <wctype.h>
+<locale.h>
+ <stdio.h>
+
