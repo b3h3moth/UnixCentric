@@ -1,4 +1,4 @@
-## C Standard Library (c11)
+## C Standard Library (ISO/IEC 9899:2011, aka c11)
 
 * <assert.h>        - Diagnostics
 * <complex.h>       - Complex arithmetic (since c99)
