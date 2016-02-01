@@ -21,7 +21,7 @@
 * <stdint.h>        - Integer types (since c99)
 * <stdio.h>         - Input/output
 * <stdlib.h>        - General utilities
-* <stdnoreturn.h>   - Noreturn (since c11)
+* <stdnoreturn.h>   - _Noreturn (since c11)
 * <string.h>        - String handling
 * <tgmath.h>        - Type-generic math (since c99)
 * <threads.h>       - Threads (since c11)
