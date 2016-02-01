@@ -17,7 +17,7 @@ void check_error(int data_type, char *val, char *format, void(*print)(union data
 void print(union data_val *d, char *fmt);
 
 int main(void) {
-    check_error(5, "-1", "uint %u\n", &print);
+    check_error(5, "0", "int %d\n", &print);
     return(EXIT_SUCCESS);
 }
 
@@ -39,6 +39,7 @@ void check_error(int data_type, char *val, char *format, void(*print)(union data
         print(&myval, format);
     } else if (data_type == UINT) {
         myval.valuint = atoll(val);
+        printf(format, atoll(val));
         if (myval.valuint > UINT_MAX) {
             fprintf(stderr, "[Error]: Integer Overflow on type 'int'.\n"
                     "Available numeric range: from '%d' to '%u'\n", 
@@ -55,5 +56,5 @@ void check_error(int data_type, char *val, char *format, void(*print)(union data
 void print(union data_val *d, char *fmt) {
     char *format = (void *)fmt;
 
-    printf(format, d->valint);
+    printf(format, d->valuint);
 }
