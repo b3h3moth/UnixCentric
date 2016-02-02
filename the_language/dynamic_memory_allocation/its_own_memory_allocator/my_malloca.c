@@ -1,11 +1,9 @@
-#ifndef MY_ALLOCA
-#define MY_ALLOCA
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h> // sbrk()
 #include <errno.h>
 #include <string.h>
+#include "my_alloca.h"
 
 /* my malloc (a)
 utilizza la syscall sbrk() per la manipolazione dello heap; sbrk(0) ritorna un
@@ -25,5 +23,3 @@ void *malloca(size_t size) {
         return ptr;
     }
 }
-
-#endif
