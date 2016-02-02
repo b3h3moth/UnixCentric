@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define BUF_SIZE 64
+#define BUF_SIZE 128
 #define MIN_STR_SIZE 5
 
 void get_ascii(char *name, FILE *f_in);
