@@ -7,6 +7,10 @@
 
 void get_ascii(char *name, FILE *f_in);
 
+/* Lo scopo del programma e' di elaborare un file binario in input ed 
+estrapolare da esso tutte le stringhe stampabili di dimensione compresa tra
+MIN_STR_SIZE e BUF_SIZE */
+
 int main(int argc, char *argv[]) {
     int i;
     FILE *f_in;
