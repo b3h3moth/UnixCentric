@@ -6,7 +6,25 @@
 
 void get_ascii(char *name, FILE *f_in);
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    int i;
+    FILE *f_in;
+
+    if (argc == 1) {
+        fprintf(stderr, "Usage: %s <filename/s>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    } 
+
+    for (i=1; i<argc; i++) {
+        if ((fin = fopen(argv[i], "rb")) == NULL) {
+            fprintf(stderr, "Err. open file\n");
+            exit(EXIT_FAILURE);
+        } else {
+            get_ascii(argv[i], f_in);
+            fclose(f_in);
+        }
+    }
+
     return(EXIT_SUCCESS);
 }
 
