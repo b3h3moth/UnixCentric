@@ -9,8 +9,3 @@ struct mem_block {
     int         free;
     t_mem_block next;
 };
-
-int main(void) {
-
-    return(EXIT_SUCCESS);
-}
