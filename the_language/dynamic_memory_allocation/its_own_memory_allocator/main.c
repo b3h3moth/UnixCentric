@@ -8,10 +8,16 @@ int main(void) {
     static const unsigned int size = sizeof(title);
     char *ptr;
 
-    /* Alloca 'size' byte sullo heap, dopodiche' copia e stampa la stringa */
+    // malloc(a) testing function
+    // Alloca 'size' byte sullo heap, dopodiche' copia e stampa la stringa
     ptr = malloca(size);
     strcpy(ptr, title);
     printf("%s\n", ptr);
+
+    /* Con la prima funzione per l'allocazione della memoria malloca(), non
+    puo' essere usata free() per liberare la memoria, per cui si utilizzera'
+    un semplice puntatore a NULL, ma non sara' di certo sufficiente. */
+    ptr = NULL;
 
     return(EXIT_SUCCESS);
 }
