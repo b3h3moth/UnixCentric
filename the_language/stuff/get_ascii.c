@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define BUF_SIZE 1024
 #define MIN_SIZE 10
@@ -16,7 +17,7 @@ int main(int argc, char *argv[]) {
     } 
 
     for (i=1; i<argc; i++) {
-        if ((fin = fopen(argv[i], "rb")) == NULL) {
+        if ((f_in = fopen(argv[i], "rb")) == NULL) {
             fprintf(stderr, "Err. open file\n");
             exit(EXIT_FAILURE);
         } else {
@@ -33,7 +34,7 @@ void get_ascii(char *name, FILE *f_in) {
     char buf[BUF_SIZE];
 
     do {
-        for (i=0; (c = fgetc(f_in)) != EOF) {
+        for (i=0; (c = fgetc(f_in)) != EOF; ) {
             if (!isprint(c))
                 break;
 
