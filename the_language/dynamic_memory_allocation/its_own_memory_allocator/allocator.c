@@ -11,12 +11,6 @@ struct mem_block {
 };
 
 int main(void) {
-    t_mem_block block;
-
-    // old break
-    block = sbrk(0);
-    sbrk(sizeof(struct mem_block) + 4);
-    block->size = 4;
 
     return(EXIT_SUCCESS);
 }
