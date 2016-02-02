@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define BUF_SIZE 1024
-#define MIN_SIZE 10
+#define BUF_SIZE 64
+#define MIN_STR_SIZE 5
 
 void get_ascii(char *name, FILE *f_in);
 
@@ -44,8 +44,10 @@ void get_ascii(char *name, FILE *f_in) {
                 break;
         }
 
-        // Stampa solo se e' sufficientemente lungo
-        if (i >= MIN_SIZE)
+        /* Stampa solo se la stringa ricevuta in input risulta essere
+        sufficientemente lunga; MIN_STR_SIZE infatti definisce la grandezza
+        minima delle stringhe da elaborare. */
+        if (i >= MIN_STR_SIZE)
             printf("%s:%.*s\n", name, i, buf);
     } while (c != EOF);
 }
