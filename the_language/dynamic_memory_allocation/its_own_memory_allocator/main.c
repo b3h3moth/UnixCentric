@@ -4,15 +4,14 @@
 #include "my_malloca.h"
 
 int main(void) {
-    char *title = "The Unix Programming Environment";
-    unsigned int size = sizeof(title);
+    static const char *title = "The Unix Programming Environment";
+    static const unsigned int size = sizeof(title);
     char *ptr;
 
+    /* Alloca 'size' byte sullo heap, dopodiche' copia e stampa la stringa */
     ptr = malloca(size);
-
     strcpy(ptr, title);
-
-    printf(ptr);
+    printf("%s\n", ptr);
 
     return(EXIT_SUCCESS);
 }
