@@ -53,6 +53,7 @@ t_mem_block request_heap(t_mem_block last, size_t size) {
     return block;
 }
 
+// Mediante le due funzioni precedenti, alloca la memoria necessaria
 void *my_malloc(size_t size) {
     t_mem_block block, last;
 
@@ -83,4 +84,3 @@ void *my_malloc(size_t size) {
 
     return (block + 1);
 }
-
