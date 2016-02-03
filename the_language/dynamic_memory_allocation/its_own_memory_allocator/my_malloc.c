@@ -4,10 +4,27 @@
 #include "my_malloc.h"
 
 /* L'allocazione della memoria sara' effettuata mediante una linked-list,
-base punta alla testa della lista */
-void *base = NULL;
+'base_heap' e' una variabile puntatore globale che punta alla testa della 
+lista */
 
-// Prototipi
+void *base_heap = NULL;
+
+/* Cerca un blocco di memoria libero sufficientemene grande, iniziando la 
+ricerca dall'indirizzo di base dello heap. 
+Ritorna o un puntatore al blocco di memoria libero oppure NULL. */
 t_mem_block find_block(t_mem_block *last, size_t size) {
-    ;
+    t_mem_block cur = base_heap;
+
+    while (cur && !(cur->free && cur->size >= size)) {
+        // Dopo l'esecuzione last puntera' all'ultimo blocco visitato
+        *last = cur;    
+        cur = cur->next;
+    }
+
+    return cur;
 }
+
+/* Se non si dovesse trovare un bloco libero, la memoria sara' richiesta al
+sistema operativo mediante sbrk(), aggiungendo in tal modo un nuovo blocco
+di memoria alla fine della linked-list */
+t_mem_block request_heap(t_mem_block last. size_t size) {
