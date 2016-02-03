@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "my_malloca.h"
+#include "my_malloc.h"
 
 int main(void) {
     static const char *title = "The Unix Programming Environment";
