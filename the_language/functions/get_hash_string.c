@@ -9,6 +9,9 @@ enum {
 
 unsigned int hash(char *str);
 
+/* Lo scopo del programma e' di creare una funzione hash da utilizzare con
+le stringhe */
+
 int main(void) {
     char *strings[] = { "take", "a", "walk", "on", "the", "wild", "side",
                         "song", "composed", "by", "Lou", "Reed", "and", 
