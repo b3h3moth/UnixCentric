@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef MY_ALLOC
+#define MY_ALLOC
 
-#define META_BLOCK    sizeof(struct mem_block)
+#define BLOCK_SIZE    sizeof(struct mem_block)
 
 typedef struct mem_block *t_mem_block;
 
@@ -12,6 +11,7 @@ struct mem_block {
     int         free;
 };
 
-/* L'allocazione della memoria sara' effettuata mediante una linked-list,
-base punta alla testa della lista */
-void *base = NULL;
+// Prototipi
+t_mem_block find_block(t_mem_block *last, size_t size);
+
+#endif
