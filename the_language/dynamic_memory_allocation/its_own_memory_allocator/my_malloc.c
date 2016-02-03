@@ -35,7 +35,8 @@ t_mem_block request_heap(t_mem_block last, size_t size) {
     // block ora punta a 'break', la cima dello heap
     block = sbrk(0);
 
-    // Incrementa lo heap mediante una chiamata a sbrk()
+    /* Incrementa lo heap mediante una chiamata a sbrk(), naturalmente vi e'
+    dello spazio aggiuntivo per la struttura mem_block */
     if (sbrk(META_BLOCK_SIZE + size) == (void *) - 1) {
         fprintf(stderr, "Err.(%d) sbrk() failed: %s\n", errno, strerror(errno));
         return(NULL);
@@ -51,3 +52,35 @@ t_mem_block request_heap(t_mem_block last, size_t size) {
 
     return block;
 }
+
+void *my_malloc(size_t size) {
+    t_mem_block block, last;
+
+    if (size <= 0)
+        return NULL;
+
+    if (!base_heap) {
+        // Cerca subito un blocco di memoria libero
+        block = request_heap(NULL, size);
+
+        if (!block)
+            return NULL;
+
+        base_heap = block;
+    } else {
+        last = base_heap;
+        block = find_block(&last, size);
+
+        if (!block) {
+            // La ricerca di un blocco libero e' fallita
+            block = request_heap(last, size);
+            if (!block)
+                return NULL;
+        } else
+            // Blocco libero trovato
+            block->free = 0;
+    }
+
+    return (block + 1);
+}
+

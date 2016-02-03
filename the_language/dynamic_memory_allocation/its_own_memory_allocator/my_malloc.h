@@ -14,5 +14,6 @@ struct mem_block {
 // Prototipi
 t_mem_block find_block(t_mem_block *last, size_t size);
 t_mem_block request_heap(t_mem_block last, size_t size);
+void *my_malloc(size_t size);
 
 #endif
