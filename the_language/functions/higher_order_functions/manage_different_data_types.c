@@ -13,15 +13,16 @@ union data_val {
     long valong;
 };
 
-void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *));
-void print(union data_val *d, char *fmt);
+// Function Prototypes
+void check_error(char *type, char *val, void(*print)(char *, union data_val *));
+void print(char *fmt, union data_val *d);
 
 int main(void) {
     check_error(5, "0", "int %d\n", &print);
     return(EXIT_SUCCESS);
 }
 
-void check_error(int data_type, char *val, char *format, void(*print)(union data_val *, char *)) {
+void check_error(char *type, char *val, void(*print)(char *, union data_val *)) {
     union data_val myval;
 
     if (data_type == INT) {
@@ -53,7 +54,7 @@ void check_error(int data_type, char *val, char *format, void(*print)(union data
     }
 }
 
-void print(union data_val *d, char *fmt) {
+void print(char *fmt, union data_val *d) {
     char *format = (void *)fmt;
 
     printf(format, d->valuint);
