@@ -22,6 +22,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+// testing, it doesn't work well!
 void check_error(int type, char *val, void(*print)(char *, union data_val *)) {
     union data_val value;
 
