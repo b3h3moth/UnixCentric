@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <errno.h>
 #include "my_malloc.h"
 
 /* L'allocazione della memoria sara' effettuata mediante una linked-list,
@@ -27,4 +29,25 @@ t_mem_block find_block(t_mem_block *last, size_t size) {
 /* Se non si dovesse trovare un bloco libero, la memoria sara' richiesta al
 sistema operativo mediante sbrk(), aggiungendo in tal modo un nuovo blocco
 di memoria alla fine della linked-list */
-t_mem_block request_heap(t_mem_block last. size_t size) {
+t_mem_block request_heap(t_mem_block last, size_t size) {
+    t_mem_block block;
+    
+    // block ora punta a 'break', la cima dello heap
+    block = sbrk(0);
+
+    // Incrementa lo heap mediante una chiamata a sbrk()
+    if (sbrk(META_BLOCK_SIZE + size) == (void *) - 1) {
+        fprintf(stderr, "Err.(%d) sbrk() failed: %s\n", errno, strerror(errno));
+        return(NULL);
+    }
+
+    block->size = size;
+    block->next = NULL;
+
+    if (last)
+        last->next = block;
+
+    block->free = 0;
+
+    return block;
+}
