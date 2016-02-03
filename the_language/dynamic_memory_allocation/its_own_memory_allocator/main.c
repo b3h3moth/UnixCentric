@@ -20,5 +20,10 @@ int main(void) {
     un semplice puntatore a NULL, ma non sara' di certo sufficiente. */
     ptr = NULL;
 
+    char *ptr2;
+    ptr2 = my_malloc(size);
+    strcpy(ptr2, title);
+    printf("%s\n", ptr2);
+
     return(EXIT_SUCCESS);
 }
