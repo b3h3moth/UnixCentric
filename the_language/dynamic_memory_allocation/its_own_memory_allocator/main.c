@@ -17,7 +17,8 @@ int main(void) {
 
     /* Con la prima funzione per l'allocazione della memoria malloca(), non
     puo' essere usata free() per liberare la memoria, per cui si utilizzera'
-    un semplice puntatore a NULL, ma non sara' di certo sufficiente. */
+    un semplice puntatore a NULL, ma non sara' di certo sufficiente in questo
+    caso. */
     ptr = NULL;
 
     char *ptr2;
