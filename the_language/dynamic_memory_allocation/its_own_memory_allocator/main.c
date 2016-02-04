@@ -26,6 +26,7 @@ int main(void) {
     ptr2 = my_malloc(size);
     strcpy(ptr2, title);
     printf("%s\n", ptr2);
+    my_free(ptr2);
 
     return(EXIT_SUCCESS);
 }
