@@ -1,6 +1,8 @@
 #ifndef MY_ALLOC
 #define MY_ALLOC
 
+#include <stdio.h>
+
 #define META_BLOCK_SIZE    sizeof(struct mem_block)
 
 typedef struct mem_block *t_mem_block;
