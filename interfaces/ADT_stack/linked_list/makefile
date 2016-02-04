@@ -1,15 +1,14 @@
 CC      =  cc
 CFLAGS  =  -pedantic -Wall -std=c11
-TARGET  =  stack
-
 OBJS    =  main.o  stack.o
+TARGET  =  stack
 
 $(TARGET): $(OBJS)
 	@echo "linking ..."
 	@$(CC)  $^ -o $@
 
 $(OBJS): stack.h
-	$(CC)  $(CFLAGS)  $(INCLS)  -c  $*.c
+	$(CC)  $(CFLAGS)  -c  $*.c
 
 relink:
 	@echo "relinking ..."
