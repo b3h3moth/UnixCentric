@@ -17,24 +17,21 @@ union data_val {
 void check_error(int type, char *val, void(*print)(char *, union data_val *));
 void print(char *fmt, union data_val *d);
 
-int main(void) {
-    check_error(4, "4147483648", &print);
+int main(int argc, char *argv[]) {
+
     return(EXIT_SUCCESS);
 }
 
 // testing, it doesn't work well!
 void check_error(int type, char *val, void(*print)(char *, union data_val *)) {
-    union data_val value;
+    /*
+     if type is (types)
+        check if val is > or < to MIN/MAX
+              exit/error 
+        else
+             set up and call print()
+     */
 
-    if (type == INT) {
-        value.valint = atoll(val);
-        
-        if (value.valint > INT_MAX)
-            fputs("0000000000", stdout);
-
-        print("%d\n", &value);
-    }
-        
 }
 
 void print(char *fmt, union data_val *d) {
