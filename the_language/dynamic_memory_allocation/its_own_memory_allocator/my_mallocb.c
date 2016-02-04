@@ -19,3 +19,14 @@ void init_alloc(void) {
 
     init_allocator = 1;
 }
+
+// Libera la memoria utilizzata
+void free_mem(void *first_byte) {
+    struct memory_block *block;
+
+    // backup
+    block = first_byte - sizeof(struct memory_block);
+
+    // Marca il blocco come disponibile
+    block->free = 1;
+}
