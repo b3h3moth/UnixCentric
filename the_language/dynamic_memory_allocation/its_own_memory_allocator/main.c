@@ -7,7 +7,7 @@
 
 int main(void) {
     const char *title = "The Unix Programming Environment";
-    const unsigned int size = sizeof(title);
+    const unsigned int size = strlen(title);
     char *ptr;
 
     // malloc(a) testing function
