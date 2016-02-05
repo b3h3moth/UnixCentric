@@ -15,9 +15,11 @@ va da se che incrementare sta per allocare memoria, decrementare invece sta per
 deallocare. Ritorna il valore del 'program break' in caso di esito positivo,
 -1 nel caso fallisse. La chiamata sbrk(0) restituisce la locazione corrente 
 del 'program break'.
-
 */
 
+
+/* Lo scopo del programma e' di invocare sbrk() modificando il valore del
+'program break', nel caso specifico sara' incrementato */
 
 int main(void) {
     return(EXIT_SUCCESS);
