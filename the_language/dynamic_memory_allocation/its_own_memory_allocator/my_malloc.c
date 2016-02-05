@@ -85,11 +85,15 @@ void *my_malloc(size_t size) {
     return (block + 1);
 }
 
+t_mem_block get_ptr_block(void *ptr) {
+    return (t_mem_block *)ptr - 1;
+}
+
 // Libera i blocchi di memoria utilizzati
 void my_free(void *ptr) {
     if (!ptr)
         return;
 
-    t_mem_block pblock = (t_mem_block *)ptr - 1;
+    t_mem_block pblock = get_ptr_block(ptr);
     pblock->free = 1;
 }
