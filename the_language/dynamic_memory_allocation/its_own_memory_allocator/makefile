@@ -1,22 +1,19 @@
-CC = gcc
-CFLAGS = -std=c11 -Wall -pedantic -D_BSD_SOURCE
-OBJS= main.o my_malloc.o my_malloca.o my_mallocb.o
-TARGET= mallocators
+CC      =  cc
+CFLAGS  =  -pedantic -Wall -std=c11 -D_BSD_SOURCE
+TARGET  =  my_malloc.out
+
+OBJS    =  main.o my_malloc.o my_malloca.o my_mallocb.o
 
 $(TARGET): $(OBJS)
-	$(CC) $^ -o $@
+	@echo "linking ... $(TARGET)"
+	@$(CC)  $^ -o $@
 
-main.o: main.c 
-	$(CC) $(CFLAGS) -c main.c
+$(OBJS): my_malloc.c my_malloca.c my_mallocb.c
+	$(CC)  $(CFLAGS) -c  $*.c
 
-my_malloc.o: my_malloc.c my_malloc.h
-	$(CC) $(CFLAGS) -c my_malloc.h
-
-my_malloca.o: my_malloca.c my_malloca.h
-	$(CC) $(CFLAGS) -c my_malloca.h
-
-my_mallocb.o: my_mallocb.c my_mallocb.h
-	$(CC) $(CFLAGS) -c my_mallocb.h
+relink:
+	@echo "relinking ... $(TARGET)"
+	@$(CC)  $(CFLAGS)  -o $(TARGET)  $(OBJS)  $(LIBS)
 
 clean:
 	rm -rf $(OBJS) $(TARGET)

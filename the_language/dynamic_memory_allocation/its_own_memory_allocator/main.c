@@ -22,11 +22,13 @@ int main(void) {
     caso. */
     ptr = NULL;
 
+    // my_malloc()
     char *ptr2;
     ptr2 = my_malloc(size);
     strcpy(ptr2, title);
     printf("%s\n", ptr2);
     my_free(ptr2);
+    ptr2 = NULL;
 
     return(EXIT_SUCCESS);
 }
