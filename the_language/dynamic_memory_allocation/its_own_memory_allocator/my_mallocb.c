@@ -30,3 +30,46 @@ void free_mem(void *first_byte) {
     // Marca il blocco come disponibile
     block->free = 1;
 }
+
+// Assegna tanta memoria quanta richiesta da 'size'
+void my_mallocb(size_t size) {
+    void *cur_location;
+    struct memory_block *cur_block;
+    void *location;
+    size_t fixed_size;
+
+    if (!init_allocator) {
+        init_alloc();
+    }
+
+    fixed_size = size + sizeof(struct memory_block);
+
+    location = 0;
+
+    cur_location = beginning_memory;
+
+    while (cur_location != last_address) {
+        cur_block = (struct memory_block *)cur_location;
+
+        if (cur_block->free) {
+            if (cur_block->size >= fixed_size) {
+                cur_block->free = 0;
+                location = cur_location;
+                break;
+            }
+        }
+
+        cur_location = cur_location + cur_block->size;
+    }
+
+    if (!location) {
+        sbrk(fixed_size);
+        location = last_address;
+        last_address = last_address + fixed_size;
+        cur_block = location;
+        cur_block->free = 0;
+        cur_block->size = fixed_size;
+    }
+
+    location = location + sizeof(struct memory_block);
+}
