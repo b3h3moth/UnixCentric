@@ -24,11 +24,17 @@ di salvare il suo valore prima e dopo la chiamata alla system call e infine
 stampare in output i relativi valori. */
 
 int main(void) {
-    const intptr_t size_incr = 10;
+    static const intptr_t size_incr = 10;
     void *pb_old_addr, *pb_current_addr;
 
     // Si ottiene il valore corrente del 'program 'break'
     if ( (pb_old_addr = sbrk(0)) == (void *) - 1) {
+        fprintf(stderr, "Err.(%d) sbrk(0): %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    // Si aumenta il 'program break' di 'size_incr' byte
+    if (sbrk(size_incr) == (void *) -  1)
         fprintf(stderr, "Err.(%d) sbrk(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
