@@ -6,8 +6,8 @@
 #include "my_mallocb.h"
 
 int main(void) {
-    static const char *title = "The Unix Programming Environment";
-    static const unsigned int size = sizeof(title);
+    const char *title = "The Unix Programming Environment";
+    const unsigned int size = sizeof(title);
     char *ptr;
 
     // malloc(a) testing function
