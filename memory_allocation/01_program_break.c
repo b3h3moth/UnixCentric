@@ -34,7 +34,13 @@ int main(void) {
     }
 
     // Si aumenta il 'program break' di 'size_incr' byte
-    if (sbrk(size_incr) == (void *) -  1)
+    if (sbrk(size_incr) == (void *) -  1) {
+        fprintf(stderr, "Err.(%d) sbrk(): %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    // Si ottiene nuovamente il valore corrente del 'program 'break'
+    if ( (pb_current_addr = sbrk(0)) == (void *) - 1) {
         fprintf(stderr, "Err.(%d) sbrk(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
