@@ -45,5 +45,8 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    printf("    (old) 'program break' address: %p\n", pb_old_addr);
+    printf("(current) 'program break' address: %p\n", pb_current_addr);
+
     return(EXIT_SUCCESS);
 }
