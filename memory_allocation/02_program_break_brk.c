@@ -59,5 +59,7 @@ int main(int argc, char *argv[]) {
     printf("    (old) 'program break' address: %p\n", pb_old_addr);
     printf("(current) 'program break' address: %p\n", pb_cur_addr);
 
+    printf("Allocated memory: %d byte\n", ((int)pb_cur_addr - (int)pb_old_addr));
+
     return(EXIT_SUCCESS);
 }
