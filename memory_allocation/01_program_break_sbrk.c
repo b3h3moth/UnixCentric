@@ -18,8 +18,12 @@ La syscall sbrk() consente di incrementare e/o decrementare il valore corrente
 del 'program break' mediante un offset intero specificato da 'increment'; 
 va da se che incrementare sta per allocare memoria, decrementare invece sta per
 deallocare. Ritorna il valore del 'program break' in caso di esito positivo,
-(void*)-1 nel caso fallisse. La chiamata sbrk(0) restituisce la locazione corrente 
-del 'program break'.
+(void*)-1 nel caso fallisse. La chiamata sbrk(0) restituisce la locazione
+corrente del 'program break'.
+
+Nota sulla compilazione: E' necessario aggiungere in fase di compilazione o la
+macro BSD_SOURCE oppure la macro SVID_SOURCE, altrimenti l'output si
+riempirebbe di messaggi di warning.
 */
 
 /* Lo scopo del programma e' di incrementare il 'program break' di 10 byte,
