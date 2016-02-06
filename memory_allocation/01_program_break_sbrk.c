@@ -21,9 +21,10 @@ deallocare. Ritorna il valore del 'program break' in caso di esito positivo,
 (void*)-1 nel caso fallisse. La chiamata sbrk(0) restituisce la locazione
 corrente del 'program break'.
 
-Nota sulla compilazione: E' necessario aggiungere in fase di compilazione o la
-macro BSD_SOURCE oppure la macro SVID_SOURCE, altrimenti l'output si
-riempirebbe di messaggi di warning.
+E' necessario aggiungere in fase di compilazione o la macro BSD_SOURCE oppure
+la macro SVID_SOURCE, altrimenti il programma non compilerebbe:
+$ (gcc o clang) -std=c11 -Wall -pedantic -D_BSD_SOURCE file.c
+$ (gcc o clang) -std=c11 -Wall -pedantic -D_SVID_SOURCE file.c
 */
 
 /* Lo scopo del programma e' di incrementare il 'program break' di 10 byte,
