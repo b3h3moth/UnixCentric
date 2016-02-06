@@ -8,6 +8,9 @@
 e' mediante le syscalls brk() e sbrk() che consentono la gestione e il relativo
 innalzamento del 'program break'.
 
+Nota: Il 'program break' e' la prima locazione dopo la fine del segmento BSS,
+      ovvero il segmento dei dati non inizializzati.
+
 HEADER    : <unistd.h>
 PROTOTYPE : void *sbrk (intptr_t increment);
 
