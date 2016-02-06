@@ -42,6 +42,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* Nota: poiche' 'pb_old_addr' e' un puntatore a void, punta a un tipo di
+    dato sconosciuto, nel senso che non si sa quale possa essere la sua
+    grandezza, per cui l'aritmetica dei puntatori non potra'essere eseguita - 
+    non avrebbe senso sommare un intero a un dato sconosciuto -. 
+    Per ovviare a questo inconveniente si esegue un cast sul puntatore a void,
+    si e' utilizzato il tipo di dato uint8_t, ovvero un unsigned int da 8 bit. 
+    */
+
     // Salva nuovamente il valore corrente del 'program break'
     if ((pb_cur_addr = sbrk(0)) == (void *)-1) {
         fprintf(stderr, "Err.(%d) cur sbrk(0): %s\n", errno, strerror(errno));
