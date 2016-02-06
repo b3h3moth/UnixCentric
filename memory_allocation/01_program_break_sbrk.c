@@ -14,7 +14,7 @@ Nota: Il 'program break' e' la prima locazione dopo la fine del segmento BSS,
 HEADER    : <unistd.h>
 PROTOTYPE : void *sbrk (intptr_t increment);
 
-La funzione sbrk() consente di incrementare e/o decrementare il valore corrente
+La syscall sbrk() consente di incrementare e/o decrementare il valore corrente
 del 'program break' mediante un offset intero specificato da 'increment'; 
 va da se che incrementare sta per allocare memoria, decrementare invece sta per
 deallocare. Ritorna il valore del 'program break' in caso di esito positivo,
