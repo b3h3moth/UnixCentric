@@ -6,7 +6,8 @@
 #include <stdint.h>
 
 /* Lo scopo del programma e' di scrivere la stringa "Hello World" a partire
-dall'indirizzo iniziale della heap, ovvero dal program break. */
+dall'indirizzo iniziale della heap, ovvero dal program break, dopodiche'
+stampare la stringa sia carattere per carattere sia come stringa unica. */
 
 int main(int argc, char *argv[]) {
     void *pb_old_addr, *pb_cur_addr;
