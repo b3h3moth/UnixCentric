@@ -10,7 +10,7 @@ dall'indirizzo iniziale della heap, ovvero dal program break. */
 
 int main(int argc, char *argv[]) {
     void *pb_old_addr, *pb_cur_addr;
-    intptr_t size_incr = 11;
+    intptr_t size_incr = 12;
 
     // Salva il valore corrente del 'program break'
     if ((pb_old_addr = sbrk(0)) == (void *)-1) {
@@ -41,6 +41,10 @@ int main(int argc, char *argv[]) {
     *((char *)pb_old_addr + 8) = 'r';
     *((char *)pb_old_addr + 9) = 'l';
     *((char *)pb_old_addr + 10) = 'd';
+    *((char *)pb_old_addr + 11) = '\0';
+
+    for (int i=0; i<size_incr; i++)
+        printf("%c", *((char *)pb_old_addr + i));
 
     return(EXIT_SUCCESS);
 }
