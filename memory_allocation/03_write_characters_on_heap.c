@@ -43,8 +43,12 @@ int main(int argc, char *argv[]) {
     *((char *)pb_old_addr + 10) = 'd';
     *((char *)pb_old_addr + 11) = '\0';
 
+    //  Stampa 'char by char'
     for (int i=0; i<size_incr; i++)
         printf("%c", *((char *)pb_old_addr + i));
+
+    // Stampa la fornendo come indirizzo iniziale il vecchio 'program break'
+    printf("%s\n", (char *)pb_old_addr);
 
     return(EXIT_SUCCESS);
 }
