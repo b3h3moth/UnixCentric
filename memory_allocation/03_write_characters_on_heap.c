@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Setta la stringa carattere per carattere
     *((char *)pb_old_addr) = 'H';
     *((char *)pb_old_addr + 1) = 'e';
     *((char *)pb_old_addr + 2) = 'l';
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]) {
         printf("%c", *((char *)pb_old_addr + i));
 
     // Stampa la fornendo come indirizzo iniziale il vecchio 'program break'
-    printf("%s\n", (char *)pb_old_addr);
+    printf("\n%s\n", (char *)pb_old_addr);
 
     return(EXIT_SUCCESS);
 }
