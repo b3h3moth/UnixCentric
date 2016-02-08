@@ -52,5 +52,6 @@ int main(int argc, char *argv[]) {
     // Stampa la fornendo come indirizzo iniziale il vecchio 'program break'
     printf("\n%s\n", (char *)pb_old_addr);
 
+    // E se si scrivesse oltre il limite dei size_incr?
     return(EXIT_SUCCESS);
 }
