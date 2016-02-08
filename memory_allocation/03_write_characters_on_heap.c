@@ -53,5 +53,11 @@ int main(int argc, char *argv[]) {
     printf("\n%s\n", (char *)pb_old_addr);
 
     // E se si scrivesse oltre il limite dei size_incr?
+    *((char *)pb_old_addr + 100) = 'o';
+    *((char *)pb_old_addr + 1000) = 'p';
+    *((char *)pb_old_addr + 2000) = 's';
+    *((char *)pb_old_addr + 3000) = '!';
+    *((char *)pb_old_addr + 4095) = '!';
+
     return(EXIT_SUCCESS);
 }
