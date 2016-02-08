@@ -59,5 +59,13 @@ int main(int argc, char *argv[]) {
     *((char *)pb_old_addr + 3000) = '!';
     *((char *)pb_old_addr + 4095) = '!';
 
+    /* La memoria e' suddivisa in pagine da 4096 byte e il 'program break' non
+    e' ubicato sul limite, pertanto vi saranno migliaia di indirizzi di 
+    memoria liberi pronti per essere sfruttati. Il programma corrente cosi'
+    com'e' scritto compilerebbe e sarebbe anche eseguito con successo, un
+    'segmentation fault' sarebbe occorso solo se si fosse tentato di scrivere
+    anche un solo byte oltre il limite della pagina, ovvero:
+    *((char *)pb_old_addr + 4096) = '!'; */
+    
     return(EXIT_SUCCESS);
 }
