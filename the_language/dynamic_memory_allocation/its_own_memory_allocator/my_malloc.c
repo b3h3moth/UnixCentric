@@ -86,7 +86,7 @@ void *my_malloc(size_t size) {
 }
 
 t_mem_block get_ptr_block(void *ptr) {
-    return (t_mem_block *)ptr - 1;
+    return (t_mem_block )ptr - 1;
 }
 
 // Libera i blocchi di memoria utilizzati
