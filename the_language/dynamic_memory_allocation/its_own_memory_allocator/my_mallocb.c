@@ -59,17 +59,17 @@ void my_mallocb(size_t size) {
             }
         }
 
-        cur_location = cur_location + cur_block->size;
+        cur_location = (char *)cur_location + cur_block->size;
     }
 
     if (!location) {
         sbrk(fixed_size);
         location = last_address;
-        last_address = last_address + fixed_size;
+        last_address = (char *)last_address + fixed_size;
         cur_block = location;
         cur_block->free = 0;
         cur_block->size = fixed_size;
     }
 
-    location = location + sizeof(struct memory_block);
+    location = (char *)location + sizeof(struct memory_block);
 }
