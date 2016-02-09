@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Warning: Binary integer literals are a GNU extension
-
+/* Warning: Binary integer literals are a GNU extension
+per cui non e' Standard, quindi non portabile */
 
 int main(void) {
 
