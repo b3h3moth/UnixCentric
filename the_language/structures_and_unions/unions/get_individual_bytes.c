@@ -6,12 +6,12 @@ rappresentazione sara' possibile grazie alla 'union' che consentira' di
 visualizzare un byte per volta e quindi di accertare anche l'ordinamento
 dei byte stessi della macchina. */
 
-typedef union unsigned_inspect unsigned_inspect;
-
 union unsigned_inspect {
     unsigned val;
     unsigned char bytes[sizeof(unsigned)];
 };
+
+typedef union unsigned_inspect unsigned_inspect;
 
 unsigned_inspect datatest = { .val = 0x12ABCDEF, };
 
