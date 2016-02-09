@@ -38,8 +38,7 @@ int main(void) {
                         int number_of_pages;
                     } book;
 
-                    struct // dati abbigliamento
-                    {
+                    struct { // dati abbigliamento
                         char type[ITEMS_SIZE];
                         int size;
                         char color[ITEMS_SIZE];
@@ -55,9 +54,10 @@ int main(void) {
                         _Bool integrated_video_card;
                     } computer;
                 };
-            } item[NR_ITEMS]; // assumiamo per semplicità che vi siano solo 10 item
-                              // per negozio... dimensione totale 1160 byte
-        } store[NR_STORE]; // assumiamo per semplicità che vi siano solo tre negozi..
+            
+            } item[NR_ITEMS];
+            
+        } store[NR_STORE]; 
     };
 
     struct Publisher sc;
