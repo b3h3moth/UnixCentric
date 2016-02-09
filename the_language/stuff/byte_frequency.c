@@ -5,7 +5,8 @@
 
 unsigned long count[UCHAR_MAX+1];
 
-// Lo scopo del programma e' di visualizzare la frequenza dei byte
+/* Lo scopo del programma e' di visualizzare la frequenza dei byte.
+Uso: ./a.out < file */
 
 int main(void) {
     int c;
