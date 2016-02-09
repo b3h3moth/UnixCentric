@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("%p - Current program break address (after %d byte deallocation)\n",\
-            addr_b, size_incr);
+            addr_c, size_incr);
 
     return(EXIT_SUCCESS);
 }
