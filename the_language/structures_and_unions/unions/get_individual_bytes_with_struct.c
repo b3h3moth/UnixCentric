@@ -21,10 +21,10 @@ unsigned_inspect datatest = { .val = 0xABCDEF12, };
 int main(void) {
     printf("Byte representation of unsigned value: '%#x'\n", datatest.val);
     
-    printf("%#x\n", datatest.byte.c0);
-    printf("%#x\n", datatest.byte.c1);
-    printf("%#x\n", datatest.byte.c2);
-    printf("%#x\n", datatest.byte.c3);
+    printf("byte[0]: %#x\n", datatest.byte.c0);
+    printf("byte[1]: %#x\n", datatest.byte.c1);
+    printf("byte[2]: %#x\n", datatest.byte.c2);
+    printf("byte[3]: %#x\n", datatest.byte.c3);
 
     return(EXIT_SUCCESS);
 }
