@@ -11,6 +11,8 @@ innalzamento del 'program break'.
 Nota: Il 'program break' e' la prima locazione dopo la fine del segmento BSS,
       ovvero il segmento dei dati non inizializzati.
 
+Nota: Sia brk() sia sbrk() creano allocazioni per pagine (4096 KB)
+
 HEADER    : <unistd.h>
 PROTOTYPE : void *sbrk (intptr_t increment);
 
