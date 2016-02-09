@@ -8,6 +8,7 @@ The c ansi programming language (c11)
   * monodimensional
   * bidimensional
   * multidimensional
+* Dynamic memory allocation
 * Expressions
   * Generic selections (`_Generic`)
 * Logical operators
