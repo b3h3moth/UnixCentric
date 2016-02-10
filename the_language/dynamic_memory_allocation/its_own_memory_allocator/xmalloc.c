@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
+#include <assert.h>
 #include "xmalloc.h"
 
 /* L'allocazione della memoria sara' effettuata mediante una linked-list,
@@ -95,5 +96,6 @@ void xfree(void *ptr) {
         return;
 
     t_mem_block pblock = get_ptr_block(ptr);
+    assert(pblock->free == 0);
     pblock->free = 1;
 }

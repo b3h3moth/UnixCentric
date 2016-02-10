@@ -16,8 +16,8 @@ struct mem_block {
 // Prototipi
 t_mem_block find_block(t_mem_block *last, size_t size);
 t_mem_block request_heap(t_mem_block last, size_t size);
-void *my_malloc(size_t size);
-void my_free(void *ptr);
+void *xmalloc(size_t size);
+void xfree(void *ptr);
 t_mem_block get_ptr_block(void *ptr);
 
 #endif
