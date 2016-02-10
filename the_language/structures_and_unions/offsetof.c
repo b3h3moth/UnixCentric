@@ -18,6 +18,12 @@ struct data {
     double d;
 };
 
+typedef struct data data;
+
 int main(void) {
+    /* Il primo membro della struttura, poiche' corrisponde all'indirizzo della
+    struttura stessa, dovrebbe avere offset pari a 0 */
+    printf("%d offset first member (char)\n", offsetof(data, c));
+
     return(EXIT_SUCCESS);
 }
