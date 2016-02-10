@@ -1,5 +1,5 @@
-CC      =  cc
-CFLAGS  =  -pedantic -Wall -std=c11 -D_BSD_SOURCE
+CC      =  gcc
+CFLAGS  =  -pedantic -Wall -std=c11 -D_BSD_SOURCE -g
 TARGET  =  mallocs.out
 
 OBJS    =  main.o xmalloc.o basic_malloc.o zmalloc.o

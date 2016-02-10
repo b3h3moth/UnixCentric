@@ -10,25 +10,24 @@ int main(void) {
     const unsigned int size = strlen(title);
     char *ptr;
 
-    // malloc(a) testing function
+    // basic_malloc() testing function
     // Alloca 'size' byte sullo heap, dopodiche' copia e stampa la stringa
     ptr = basic_malloc(size);
     strcpy(ptr, title);
     printf("%s\n", ptr);
 
-    /* Con la prima funzione per l'allocazione della memoria malloca(), non
-    puo' essere usata free() per liberare la memoria, per cui si utilizzera'
-    un semplice puntatore a NULL, ma non sara' di certo sufficiente in questo
-    caso. */
+    /* Con la prima funzione per l'allocazione della memoria basic_malloc(),
+    non puo' essere invocata free() per liberare la memoria, per cui si 
+    utilizza' un semplice puntatore a NULL, che peraltro dovrebbe essere una
+    buona regola dopo la deallocazione della memoria. */
     ptr = NULL;
 
-    // my_malloc()
+    // xmalloc() testing function
     char *ptr2;
-    ptr2 = (void *)xmalloc(size);
-    strcpy(ptr2, title);
+    ptr2 = xmalloc(size);
+    strncpy(ptr2, title, strlen(title)+1);
     printf("%s\n", ptr2);
     xfree(ptr2);
-    ptr2 = NULL;
 
     return(EXIT_SUCCESS);
 }
