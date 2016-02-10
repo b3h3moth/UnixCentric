@@ -25,6 +25,7 @@ int main(void) {
     struttura stessa, dovrebbe avere offset pari a 0 */
     printf("%d offset first member (char)\n", offsetof(data, c));
     printf("%d offset second member (short)\n", offsetof(data, s));
+    printf("%d offset third member (int vec[4])\n", offsetof(data, vec));
 
     return(EXIT_SUCCESS);
 }
