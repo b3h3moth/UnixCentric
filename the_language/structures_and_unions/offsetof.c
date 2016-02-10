@@ -16,6 +16,12 @@ struct data {
     int vec[4];
     float f;
     double d;
+    union {
+        int ua;
+        int ub;
+        int uc;
+        int ud;
+    } type;
 };
 
 typedef struct data data;
@@ -34,6 +40,12 @@ int main(void) {
     printf("%2d is the offset of (int vec[1])\n", offsetof(data, vec[1]));
     printf("%2d is the offset of (int vec[2])\n", offsetof(data, vec[2]));
     printf("%2d is the offset of (int vec[3])\n", offsetof(data, vec[3]));
+
+    printf("%2d is the offset of (union int ua)\n", offsetof(data, type.ua));
+    printf("%2d is the offset of (union int ub)\n", offsetof(data, type.ub));
+    printf("%2d is the offset of (union int uc)\n", offsetof(data, type.uc));
+    printf("%2d is the offset of (union int ud)\n", offsetof(data, type.ud));
+
 
     return(EXIT_SUCCESS);
 }
