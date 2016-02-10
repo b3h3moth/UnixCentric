@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "basic_malloc.h"
 #include "xmalloc.h"
-#include "ymalloc.h"
 #include "zmalloc.h"
 
 int main(void) {
@@ -12,7 +12,7 @@ int main(void) {
 
     // malloc(a) testing function
     // Alloca 'size' byte sullo heap, dopodiche' copia e stampa la stringa
-    ptr = malloca(size);
+    ptr = basic_malloc(size);
     strcpy(ptr, title);
     printf("%s\n", ptr);
 
