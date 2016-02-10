@@ -24,6 +24,7 @@ int main(void) {
     /* Il primo membro della struttura, poiche' corrisponde all'indirizzo della
     struttura stessa, dovrebbe avere offset pari a 0 */
     printf("%d offset first member (char)\n", offsetof(data, c));
+    printf("%d offset second member (short)\n", offsetof(data, s));
 
     return(EXIT_SUCCESS);
 }
