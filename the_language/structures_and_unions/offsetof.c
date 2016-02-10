@@ -23,10 +23,11 @@ typedef struct data data;
 int main(void) {
     /* Il primo membro della struttura, poiche' corrisponde all'indirizzo della
     struttura stessa, dovrebbe avere offset pari a 0 */
-    printf("%d offset first member (char c)\n", offsetof(data, c));
-    printf("%d offset second member (short s)\n", offsetof(data, s));
-    printf("%d offset third member (int vec[4])\n", offsetof(data, vec));
-    printf("%d offset fourth member (float d)\n", offsetof(data, f));
+    printf("%2d is the offset 1st member (char c)\n", offsetof(data, c));
+    printf("%2d is the offset 2nd member (short s)\n", offsetof(data, s));
+    printf("%2d is the offset 3rd member (int vec[4])\n", offsetof(data, vec));
+    printf("%2d is the offset 4th member (float f)\n", offsetof(data, f));
+    printf("%2d is the offset 5th member (double d)\n", offsetof(data, d));
 
     return(EXIT_SUCCESS);
 }
