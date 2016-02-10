@@ -29,5 +29,11 @@ int main(void) {
     printf("%2d is the offset 4th member (float f)\n", offsetof(data, f));
     printf("%2d is the offset 5th member (double d)\n", offsetof(data, d));
 
+    // Si puo' calcolare l'offset anche degli elementi di un vettore
+    printf("%2d is the offset of (int vec[0])\n", offsetof(data, vec[0]));
+    printf("%2d is the offset of (int vec[1])\n", offsetof(data, vec[1]));
+    printf("%2d is the offset of (int vec[2])\n", offsetof(data, vec[2]));
+    printf("%2d is the offset of (int vec[3])\n", offsetof(data, vec[3]));
+
     return(EXIT_SUCCESS);
 }
