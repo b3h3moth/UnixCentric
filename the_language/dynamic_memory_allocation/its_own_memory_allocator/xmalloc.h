@@ -1,5 +1,5 @@
-#ifndef MY_ALLOC
-#define MY_ALLOC
+#ifndef XMALLOC
+#define XMALLOC
 
 #include <stdio.h>
 

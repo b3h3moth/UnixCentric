@@ -1,5 +1,5 @@
-#ifndef MY_ALLOCB
-#define MY_ALLOCB
+#ifndef YMALLOC
+#define YMALLOC
 
 #include <stdio.h>
 
