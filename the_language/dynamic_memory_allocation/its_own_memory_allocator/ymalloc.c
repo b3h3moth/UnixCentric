@@ -4,7 +4,7 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
-#include "my_malloca.h"
+#include "ymalloc.h"
 
 /* my malloc (a)
 utilizza la syscall sbrk() per la manipolazione dello heap; sbrk(0) ritorna un

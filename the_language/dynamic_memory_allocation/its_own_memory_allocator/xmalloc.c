@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
-#include "my_malloc.h"
+#include "xmalloc.h"
 
 /* L'allocazione della memoria sara' effettuata mediante una linked-list,
 'base_heap' e' una variabile puntatore globale che punta alla testa della 

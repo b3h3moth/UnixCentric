@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "my_mallocb.h"
+#include "zmalloc.h"
 
 // L'allocatore e' inizializzato
 int init_allocator = 0;

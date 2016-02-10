@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "my_malloc.h"
-#include "my_malloca.h"
-#include "my_mallocb.h"
+#include "xmalloc.h"
+#include "ymalloc.h"
+#include "zmalloc.h"
 
 int main(void) {
     const char *title = "The Unix Programming Environment";
