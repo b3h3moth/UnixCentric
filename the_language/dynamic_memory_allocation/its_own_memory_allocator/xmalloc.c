@@ -26,7 +26,7 @@ t_mem_block find_block(t_mem_block *last, size_t size) {
     return cur;
 }
 
-/* Se non si dovesse trovare un bloco libero, la memoria sara' richiesta al
+/* Se non si dovesse trovare un blocco libero, la memoria sara' richiesta al
 sistema operativo mediante sbrk(), aggiungendo in tal modo un nuovo blocco
 di memoria alla fine della linked-list */
 t_mem_block request_heap(t_mem_block last, size_t size) {
@@ -54,14 +54,13 @@ t_mem_block request_heap(t_mem_block last, size_t size) {
 }
 
 // Mediante le due funzioni precedenti, alloca la memoria necessaria
-void *my_malloc(size_t size) {
+void *xmalloc(size_t size) {
     t_mem_block block, last;
 
     if (size <= 0)
         return NULL;
 
-    if (!base_heap) {
-        // Cerca subito un blocco di memoria libero
+    if (!base_heap) { // Riguarda la prima chiamata
         block = request_heap(NULL, size);
 
         if (!block)
@@ -85,12 +84,13 @@ void *my_malloc(size_t size) {
     return (block + 1);
 }
 
+// Ritorna l'indirizzo della struttura
 t_mem_block get_ptr_block(void *ptr) {
     return (t_mem_block )ptr - 1;
 }
 
 // Libera i blocchi di memoria utilizzati
-void my_free(void *ptr) {
+void xfree(void *ptr) {
     if (!ptr)
         return;
 
