@@ -67,7 +67,7 @@ int insert(void) {
         printf("Component already exists.\n");
         return;
     }
-    inventory[component_num].number = component_num;
+    inventory[num_hw_components].number = component_num;
 
     printf("Enter component name: ");
     read_line(inventory[component_num].name, MAX_LEN);
