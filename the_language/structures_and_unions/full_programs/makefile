@@ -4,7 +4,7 @@ OBJS	= main.o hardware_components.o readline.o
 TARGET  = hwcomponent.out
 
 $(TARGET):	$(OBJS)
-	$(CC) $^ -o $@
+	$(CC) $(CFLAGS) *.c -o $(TARGET)
 
 clean:
 	rm -rf $(OBJS) $(TARGET)
