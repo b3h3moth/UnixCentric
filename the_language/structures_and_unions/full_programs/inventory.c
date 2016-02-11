@@ -60,6 +60,13 @@ void search(void) {
 void print(void) {
     fputs("print\n", stdout);
 }
+
+/* Cerca un articolo nel vettore inventory, restituisce l'indice del vettore
+qualora la ricerca fosse positiva, EXIT_FAILURE altrimenti */
 int find_component(int num) {
-    fputs("find\n", stdout);
+    for (int i=0; i<num_hw_components; i++)
+        if (inventory[i].number == num)
+            return i;
+
+    return(EXIT_FAILURE);
 }
