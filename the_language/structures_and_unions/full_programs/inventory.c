@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "readline.h"
+//#include "readline.h"
 
 #define MAX_LEN 25
 #define MAX_HW 100  // Compomenti Hardware
@@ -18,12 +18,47 @@ Hardware inventory[MAX_HW];
 // Il numero dei componenti hardware memorizzati
 int num_hw_components = 0;
 
-int find(int num);
 int insert(void);
-void search(void);
 void update(void);
+void search(void);
 void print(void);
+int find_component(int num);
 
 int main(void) {
+    char code;
+
+    for (;;) {
+        printf("[i]nsert [u]pdate [s]earch] [p]rint [q]uit: ");
+
+        scanf("%c", &code);
+        
+        while (getchar() != '\n')
+            ;
+
+        switch (code) {
+            case 'i': insert(); break;
+            case 'u': update(); break;
+            case 's': search(); break;
+            case 'p': print(); break;
+            case 'q': return(EXIT_SUCCESS);
+        }
+    }
+
     return(EXIT_SUCCESS);
+}
+
+int insert(void) {
+    fputs("insert\n", stdout);
+}
+void update(void) {
+    fputs("update\n", stdout);
+}
+void search(void) {
+    fputs("search\n", stdout);
+}
+void print(void) {
+    fputs("print\n", stdout);
+}
+int find_component(int num) {
+    fputs("find\n", stdout);
 }
