@@ -42,7 +42,7 @@ int main(void) {
             case 's': search(); break;
             case 'p': print(); break;
             case 'q': return(EXIT_SUCCESS);
-            default: printf("Legal codes are [i] [u] [s] [p] [q]\n");
+            default: printf("\nLegal codes are [i] [u] [s] [p] [q]\n");
         }
     }
 
@@ -56,7 +56,7 @@ int insert(void) {
 
     if (num_hw_components == MAX_COMPONENTS) {
         printf("DB is full\n");
-        return;
+        return(1);
     }
 
     printf("Enter component number: ");
@@ -65,7 +65,7 @@ int insert(void) {
     // Verifica se un componente gia' esiste
     if (find_component(component_num) >= 0) {
         printf("Component already exists.\n");
-        return;
+        return(1);
     }
     inventory[num_hw_components].number = component_num;
 
@@ -75,7 +75,7 @@ int insert(void) {
     printf("Enter quantity: ");
     scanf("%d", &inventory[num_hw_components].on_hand);
 
-    num_hw_components++;
+    return num_hw_components++;
 }
 
 /* Verifica il numero di componente, se non esiste stampa un messaggio di 
@@ -112,8 +112,18 @@ void search(void) {
         printf("Component not found.\n");
 }
 
+// Stampa la lista dei componenti hardware
 void print(void) {
-    fputs("print\n", stdout);
+    if (num_hw_components <= 0) {
+        printf("List of hardware components is empty.\n");
+    }
+
+    for (int i=0; i<num_hw_components; i++) {
+        printf("  Component name: %d\n", inventory[i].number);
+        printf("  Component name: %s\n", inventory[i].name);
+        printf("Quantity on hand: %d\n", inventory[i].on_hand);
+        fputc('\n', stdout);
+    }
 }
 
 /* Cerca un articolo nel vettore inventory, restituisce l'indice del vettore
