@@ -1,53 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "readline.h"
+#include "hardware_components.h"
 
-#define MAX_LEN 25
-#define MAX_COMPONENTS 100  // Componenti Hardware
-
-struct hw {
-    int number;
-    char name[MAX_LEN+1];
-    int on_hand;
-}; 
-
-typedef struct hw Hardware; 
-
-Hardware dbcomponent[MAX_COMPONENTS];
+static int find_component(int num);
 
 // Il numero dei componenti hardware memorizzati
 int num_hw_components = 0;
 
-int insert(void);
-void update(void);
-void search(void);
-void print(void);
-int find_component(int num);
-
-int main(void) {
-    char code;
-
-    for (;;) {
-        printf("[i]nsert [u]pdate [s]earch] [p]rint [q]uit: ");
-        scanf(" %c", &code);
-
-        /* Salta a fine riga, consentendo una interazione col menu'
-        pulita e ben formattata */
-        while (fgetc(stdin) != '\n')
-            ;
-
-        switch (code) {
-            case 'i': insert(); break;
-            case 'u': update(); break;
-            case 's': search(); break;
-            case 'p': print(); break;
-            case 'q': return(EXIT_SUCCESS);
-            default: printf("\nLegal codes are [i] [u] [s] [p] [q]\n");
-        }
-    }
-
-    return(EXIT_SUCCESS);
-}
+// Il database dei componenti e' un vettore di strutture
+HardwareItem dbcomponent[MAX_COMPONENTS];
 
 /* Inserisce un componente nel database; nel caso fosse gia' presente nel db 
 opppure il db stesso fosse pieno restituisce un messaggio di errore */
@@ -128,7 +90,7 @@ void print(void) {
 
 /* Cerca un articolo nel vettore dbcomponent, restituisce l'indice del vettore
 qualora la ricerca fosse positiva, EXIT_FAILURE altrimenti */
-int find_component(int num) {
+static int find_component(int num) {
     for (int i=0; i<num_hw_components; i++)
         if (dbcomponent[i].number == num)
             return i;
