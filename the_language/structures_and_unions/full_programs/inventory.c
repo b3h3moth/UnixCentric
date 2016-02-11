@@ -42,6 +42,7 @@ int main(void) {
             case 's': search(); break;
             case 'p': print(); break;
             case 'q': return(EXIT_SUCCESS);
+            default: printf("Legal codes are [i] [u] [s] [p] [q]\n");
         }
     }
 
