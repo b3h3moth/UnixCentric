@@ -13,7 +13,7 @@ struct hw {
 
 typedef struct hw Hardware; 
 
-Hardware inventory[MAX_COMPONENTS];
+Hardware dbcomponent[MAX_COMPONENTS];
 
 // Il numero dei componenti hardware memorizzati
 int num_hw_components = 0;
@@ -67,13 +67,13 @@ int insert(void) {
         printf("Component already exists.\n");
         return(1);
     }
-    inventory[num_hw_components].number = component_num;
+    dbcomponent[num_hw_components].number = component_num;
 
     printf("Enter component name: ");
-    read_line(inventory[num_hw_components].name, MAX_LEN);
+    read_line(dbcomponent[num_hw_components].name, MAX_LEN);
 
     printf("Enter quantity: ");
-    scanf("%d", &inventory[num_hw_components].on_hand);
+    scanf("%d", &dbcomponent[num_hw_components].on_hand);
 
     return num_hw_components++;
 }
@@ -91,7 +91,7 @@ void update(void) {
     if (i >= 0) {
         printf("Enter quantity to change: ");
         scanf("%d", &change);
-        inventory[i].on_hand += change;
+        dbcomponent[i].on_hand += change;
     } else 
         printf("Component not found.\n");
 }
@@ -106,8 +106,8 @@ void search(void) {
     i = find_component(num);
 
     if (i >= 0) {
-        printf("  Component name: %s\n", inventory[i].name);
-        printf("Quantity on hand: %d\n", inventory[i].on_hand);
+        printf("  Component name: %s\n", dbcomponent[i].name);
+        printf("Quantity on hand: %d\n", dbcomponent[i].on_hand);
     } else
         printf("Component not found.\n");
 }
@@ -119,18 +119,18 @@ void print(void) {
     }
 
     for (int i=0; i<num_hw_components; i++) {
-        printf("  Component name: %d\n", inventory[i].number);
-        printf("  Component name: %s\n", inventory[i].name);
-        printf("Quantity on hand: %d\n", inventory[i].on_hand);
+        printf("  Component name: %d\n", dbcomponent[i].number);
+        printf("  Component name: %s\n", dbcomponent[i].name);
+        printf("Quantity on hand: %d\n", dbcomponent[i].on_hand);
         fputc('\n', stdout);
     }
 }
 
-/* Cerca un articolo nel vettore inventory, restituisce l'indice del vettore
+/* Cerca un articolo nel vettore dbcomponent, restituisce l'indice del vettore
 qualora la ricerca fosse positiva, EXIT_FAILURE altrimenti */
 int find_component(int num) {
     for (int i=0; i<num_hw_components; i++)
-        if (inventory[i].number == num)
+        if (dbcomponent[i].number == num)
             return i;
 
     return (-1);
