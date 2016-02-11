@@ -7,4 +7,4 @@ $(TARGET):	$(OBJS)
 	$(CC) $^ -o $@
 
 clean:
-	rm -rf $(OBJS) $(TARGET) 2> /dev/null
+	rm -rf $(OBJS) $(TARGET)
