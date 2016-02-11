@@ -29,10 +29,9 @@ int main(void) {
 
     for (;;) {
         printf("[i]nsert [u]pdate [s]earch] [p]rint [q]uit: ");
-
         scanf("%c", &code);
-        
-        while (getchar() != '\n')
+
+        while (fgetc(stdin) != '\n')
             ;
 
         switch (code) {
