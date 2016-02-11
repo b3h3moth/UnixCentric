@@ -31,6 +31,8 @@ int main(void) {
         printf("[i]nsert [u]pdate [s]earch] [p]rint [q]uit: ");
         scanf("%c", &code);
 
+        /* Salta a fine riga, consentendo una interazione col menu'
+        pulita e ben formattata */
         while (fgetc(stdin) != '\n')
             ;
 
