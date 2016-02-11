@@ -70,12 +70,12 @@ int insert(void) {
     inventory[num_hw_components].number = component_num;
 
     printf("Enter component name: ");
-    read_line(inventory[component_num].name, MAX_LEN);
+    read_line(inventory[num_hw_components].name, MAX_LEN);
 
     printf("Enter quantity: ");
-    scanf("%d", &inventory[component_num].on_hand);
+    scanf("%d", &inventory[num_hw_components].on_hand);
 
-    component_num++;
+    num_hw_components++;
 }
 void update(void) {
     fputs("update\n", stdout);
