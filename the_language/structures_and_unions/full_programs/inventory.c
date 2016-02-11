@@ -77,8 +77,23 @@ int insert(void) {
 
     num_hw_components++;
 }
+
+/* Verifica il numero di componente, se non esiste stampa un messaggio di 
+errore, in caso contrario modifica la quantita' disponibile */
 void update(void) {
-    fputs("update\n", stdout);
+    int i, num, change;
+
+    printf("Enter component number: ");
+    scanf("%d", &num);
+
+    i = find_component(num);
+
+    if (i >= 0) {
+        printf("Enter quantity to change: ");
+        scanf("%d", &change);
+        inventory[i].on_hand += change;
+    } else 
+        printf("Component not found.\n");
 }
 
 // Cerca un componente nel db
