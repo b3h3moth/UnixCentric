@@ -15,6 +15,15 @@ typedef struct hw Hardware;
 
 Hardware inventory[MAX_HW];
 
+// Il numero dei componenti hardware memorizzati
+int num_hw_components = 0;
+
+int find(int num);
+int insert(void);
+void search(void);
+void update(void);
+void print(void);
+
 int main(void) {
     return(EXIT_SUCCESS);
 }
