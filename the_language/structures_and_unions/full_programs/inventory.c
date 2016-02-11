@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include "readline.h"
+#include "readline.h"
 
 #define MAX_LEN 25
 #define MAX_COMPONENTS 100  // Componenti Hardware
@@ -70,7 +70,7 @@ int insert(void) {
     inventory[component_num].number = component_num;
 
     printf("Enter component name: ");
-    //read_line(inventory[component_num].name, MAX_LEN);
+    read_line(inventory[component_num].name, MAX_LEN);
 
     printf("Enter quantity: ");
     scanf("%d", &inventory[component_num].on_hand);
@@ -80,9 +80,23 @@ int insert(void) {
 void update(void) {
     fputs("update\n", stdout);
 }
+
+// Cerca un componente nel db
 void search(void) {
-    fputs("search\n", stdout);
+    int i, num;
+
+    printf("Enter component number: ");
+    scanf("%d", &num);
+
+    i = find_component(num);
+
+    if (i >= 0) {
+        printf("  Component name: %s\n", inventory[i].name);
+        printf("Quantity on hand: %d\n", inventory[i].on_hand);
+    } else
+        printf("Component not found.\n");
 }
+
 void print(void) {
     fputs("print\n", stdout);
 }
