@@ -22,7 +22,9 @@ successiva - da ricordare che una pagina e' di 4096 Kb.
 'prot' indica la protezione di memoria della mappa; 'flags' determina se la
 mappa dev'essere condivisa o privata; 'fd' riguarda la porzione di un eventuale
 file da mappare; 'offset' riguarda l'eventuale settaggio dell'offset nel file
-riferito da 'fd'- 'fd' e 'offset' sono generalmente ignorati.
+riferito da 'fd.
+
+Nota: 'fd' e 'offset' sono generalmente ignorati.
 */
 
 int main(void) {
