@@ -12,6 +12,9 @@ mmap() crea una nuova mappa di memoria nello spazio virtuale degli indirizzi
 del processo chiamante. L'indirizzo di partenza e' indicato da 'addr', mentre
 la lunghezza della mappa e' indicata da 'length'.
 
+Se 'addr' e' NULL sara' il kernel a scegliere l'indirizzo dal quale creare la
+mappa, che corrisponde peraltro alla modalita' piu' portabile per la creazione
+di una nuova mapppa.
 */
 
 int main(void) {
