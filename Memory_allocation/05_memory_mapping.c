@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/mman.h>
 
 /* L'allocazione della memoria puo' essere gestita anche mediante una mappatura
 della memoria stessa utilizzando le syscall mmap() e munmap(). 
@@ -21,8 +22,9 @@ successiva - da ricordare che una pagina e' di 4096 Kb.
 
 'prot' indica la protezione di memoria della mappa; 'flags' determina il tipo
 di mappatura, ad esempio anonima MAP_ANON, condivisa MAP_SHARED o ancora 
-privata MAP_PRIVATE; 'fd' il file descriptor di un eventuale file da mappare; 
-'offset' del file 'fd' a partire dal quale inizia la mappatura.
+privata MAP_PRIVATE; 'fd' e' il file descriptor di un eventuale file da
+mappare; 'offset' infine e' per l'appunto l'offset del file 'fd' a partire dal
+quale inizia la mappatura.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
 
