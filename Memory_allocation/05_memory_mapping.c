@@ -21,9 +21,8 @@ successiva - da ricordare che una pagina e' di 4096 Kb.
 
 'prot' indica la protezione di memoria della mappa; 'flags' determina il tipo
 di mappatura, ad esempio anonima MAP_ANON, condivisa MAP_SHARED o ancora 
-privata MAP_PRIVATE; 'fd' riguarda la porzione di un eventuale
-file da mappare; 'offset' riguarda l'eventuale settaggio dell'offset nel file
-riferito da 'fd.
+privata MAP_PRIVATE; 'fd' il file descriptor di un eventuale file da mappare; 
+'offset' del file 'fd' a partire dal quale inizia la mappatura.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
 
