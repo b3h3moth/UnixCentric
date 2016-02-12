@@ -8,6 +8,7 @@
 struct hw_item {
     int number;
     char name[MAX_LEN+1];
+    char model[MAX_LEN+1];
     int quantity;
 }; 
 
