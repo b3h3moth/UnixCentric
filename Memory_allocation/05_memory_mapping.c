@@ -19,8 +19,9 @@ kernel prendera' in considerazione tale indirizzo per posizionare la mappa; il
 kernel linux iniziera' la mappatura dalla pagina "confinante" immediatamente
 successiva - da ricordare che una pagina e' di 4096 Kb.
 
-'prot' indica la protezione di memoria della mappa; 'flags' determina se la
-mappa dev'essere condivisa o privata; 'fd' riguarda la porzione di un eventuale
+'prot' indica la protezione di memoria della mappa; 'flags' determina il tipo
+di mappatura, ad esempio anonima MAP_ANON, condivisa MAP_SHARED o ancora 
+privata MAP_PRIVATE; 'fd' riguarda la porzione di un eventuale
 file da mappare; 'offset' riguarda l'eventuale settaggio dell'offset nel file
 riferito da 'fd.
 
@@ -28,9 +29,6 @@ Nota: 'fd' e 'offset' sono generalmente ignorati.
 
 In caso di successo, ritorna un puntatore all'area mappata; in caso di errore
 restituisce MAP_FAILED, ovvero (void *)-1.
-
-La mappa puo' essere di due tipi:
-Anonima
 */
 
 int main(void) {
