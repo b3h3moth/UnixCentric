@@ -34,6 +34,9 @@ int insert(void) {
     printf("Enter component name: ");
     read_line(dbcomponent[num_hw_components].name, MAX_LEN);
 
+    printf("Enter model name: ");
+    read_line(dbcomponent[num_hw_components].model, MAX_LEN);
+
     printf("Enter quantity: ");
     scanf("%d", &dbcomponent[num_hw_components].quantity);
 
@@ -70,6 +73,7 @@ void search(void) {
     if (i >= 0) {
         printf("Component name: %s\n", dbcomponent[i].name);
         printf("      Quantity: %d\n", dbcomponent[i].quantity);
+        printf("         Model: %s\n", dbcomponent[i].model);
     } else
         printf("Component not found.\n");
 }
@@ -84,12 +88,14 @@ void print(void) {
         printf("Component name: %d\n", dbcomponent[i].number);
         printf("Component name: %s\n", dbcomponent[i].name);
         printf("      Quantity: %d\n", dbcomponent[i].quantity);
+        printf("         Model: %s\n", dbcomponent[i].model);
         fputc('\n', stdout);
     }
 }
 
 /* Cerca un articolo nel vettore dbcomponent, restituisce l'indice del vettore
-qualora la ricerca fosse positiva, EXIT_FAILURE altrimenti */
+- quindi un intero maggiore o uguale a zero - in caso di successo, 
+-1 altrimenti. */
 static int find_component(int num) {
     for (int i=0; i<num_hw_components; i++)
         if (dbcomponent[i].number == num)
