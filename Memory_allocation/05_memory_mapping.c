@@ -25,6 +25,12 @@ file da mappare; 'offset' riguarda l'eventuale settaggio dell'offset nel file
 riferito da 'fd.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
+
+In caso di successo, ritorna un puntatore all'area mappata; in caso di errore
+restituisce MAP_FAILED, ovvero (void *)-1.
+
+La mappa puo' essere di due tipi:
+Anonima
 */
 
 int main(void) {
