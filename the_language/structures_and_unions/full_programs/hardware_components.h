@@ -8,7 +8,7 @@
 struct hw_item {
     int number;
     char name[MAX_LEN+1];
-    int on_hand;
+    int quantity;
 }; 
 
 typedef struct hw_item HardwareItem; 

@@ -35,7 +35,7 @@ int insert(void) {
     read_line(dbcomponent[num_hw_components].name, MAX_LEN);
 
     printf("Enter quantity: ");
-    scanf("%d", &dbcomponent[num_hw_components].on_hand);
+    scanf("%d", &dbcomponent[num_hw_components].quantity);
 
     return num_hw_components++;
 }
@@ -53,7 +53,7 @@ void update(void) {
     if (i >= 0) {
         printf("Enter quantity to change: ");
         scanf("%d", &change);
-        dbcomponent[i].on_hand += change;
+        dbcomponent[i].quantity += change;
     } else 
         printf("Component not found.\n");
 }
@@ -68,8 +68,8 @@ void search(void) {
     i = find_component(num);
 
     if (i >= 0) {
-        printf("  Component name: %s\n", dbcomponent[i].name);
-        printf("Quantity on hand: %d\n", dbcomponent[i].on_hand);
+        printf("Component name: %s\n", dbcomponent[i].name);
+        printf("      Quantity: %d\n", dbcomponent[i].quantity);
     } else
         printf("Component not found.\n");
 }
@@ -81,9 +81,9 @@ void print(void) {
     }
 
     for (int i=0; i<num_hw_components; i++) {
-        printf("  Component name: %d\n", dbcomponent[i].number);
-        printf("  Component name: %s\n", dbcomponent[i].name);
-        printf("Quantity on hand: %d\n", dbcomponent[i].on_hand);
+        printf("Component name: %d\n", dbcomponent[i].number);
+        printf("Component name: %s\n", dbcomponent[i].name);
+        printf("      Quantity: %d\n", dbcomponent[i].quantity);
         fputc('\n', stdout);
     }
 }
