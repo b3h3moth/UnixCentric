@@ -14,7 +14,10 @@ la lunghezza della mappa e' indicata da 'length'.
 
 Se 'addr' e' NULL sara' il kernel a scegliere l'indirizzo dal quale creare la
 mappa, che corrisponde peraltro alla modalita' piu' portabile per la creazione
-di una nuova mapppa.
+di una nuova mapppa; se invece 'addr' non e' impostato a NULL allora il 
+kernel prendera' in considerazione tale indirizzo per posizionare la mappa; il
+kernel linux iniziera' la mappatura dalla pagina immediatamente successiva - 
+una pagina e' di 4096 Kb.
 */
 
 int main(void) {
