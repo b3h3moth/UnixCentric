@@ -17,7 +17,7 @@ PROTOTYPE: void *mmap(void *addr, size_t length, int prot, int flags,
 
 mmap() crea una nuova mappa di memoria nello spazio virtuale degli indirizzi
 del processo chiamante. L'indirizzo di partenza e' indicato da 'addr', mentre
-la lunghezza della mappa e' indicata da 'length'.
+'length' e' il numero di byte da mappare.
 
 Se 'addr' vale NULL sara' il kernel a scegliere l'indirizzo dal quale creare la
 mappa, che corrisponde peraltro alla modalita' piu' portabile per la creazione
@@ -26,7 +26,9 @@ kernel prendera' in considerazione tale indirizzo per posizionare la mappa; il
 kernel linux iniziera' la mappatura dalla pagina "confinante"  - da ricordare 
 che una pagina e' di 4096 Kb.
 
-'prot' indica la protezione di memoria della mappa; 'flags' determina il tipo
+'prot' indica la protezione della mappa, ovvero se i dati mappati possono
+essere letti (PROT_READ), scritti (PROT_WRITE), eseguiti (PROT_EXEC) oppure se
+non e' possibile addervi (PROT_NONE); 'flags' determina il tipo
 di mappa, ovvero se e' visibile agli altri processi mappati nella stessa 
 regione e se realizzata mediante file; 'fd' e' il file descriptor di una
 porzione di un eventuale file da mappare; 'offset' infine riguarda per 
