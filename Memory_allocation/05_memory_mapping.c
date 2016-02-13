@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 #include <sys/mman.h>
 
 /* L'allocazione della memoria puo' essere gestita anche mediante una mappatura
@@ -33,8 +35,8 @@ restituisce MAP_FAILED, ovvero (void *)-1.
 */
 
 int main(void) {
-    char *addr;
-    size_t len = 12;
+    void *addr;
+    size_t len = 1;
 
     /*
     - addr impostato a NULL, per cui sara' il kernel a determinare l'indirizzo;
@@ -44,7 +46,15 @@ int main(void) {
     - file descriptor settato a -1, quindi mappatura anonima;
     - l'offset del file impostato a 0.
     */
-    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE , -1, 0);
+    addr = (char *)mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE , -1, 0);
+    
+    if (addr == MAP_FAILED) {
+        fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    *((char *)addr) = 'a';
+    printf("%c\n", *((char *)addr) );
 
     return(EXIT_SUCCESS);
 }
