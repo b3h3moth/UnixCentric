@@ -1,5 +1,7 @@
 ### How to compile program
 
-Probably will be necessary _BSD_SOURCE if you want to get macro MAP_ANON
+With MAP_ANON and many other flags (man mmap) will be necessary _GNU_SOURCE to
+compile the program:
 
-$ gcc -std=c11 -Wall -pedantic -D_BSD_SOURCE
+$ `gcc -std=c11 -Wall -pedantic -D_GNU_SOURCE prog.c`
+$ `clang -std=c11 -Wall -pedantic -D_GNU_SOURCE prog.c`
