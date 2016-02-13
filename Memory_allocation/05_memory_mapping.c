@@ -21,10 +21,10 @@ kernel linux iniziera' la mappatura dalla pagina "confinante" immediatamente
 successiva - da ricordare che una pagina e' di 4096 Kb.
 
 'prot' indica la protezione di memoria della mappa; 'flags' determina il tipo
-di mappatura, ad esempio anonima MAP_ANON, condivisa MAP_SHARED o ancora 
-privata MAP_PRIVATE; 'fd' e' il file descriptor di un eventuale file da
-mappare; 'offset' infine e' per l'appunto l'offset del file 'fd' a partire dal
-quale inizia la mappatura.
+di mappa, ovvero se e' visibile agli altri processi mappati nella stessa 
+regione e se realizzata mediante file; 'fd' e' il file descriptor di una
+porzione di un eventuale file da mappare; 'offset' infine riguarda per 
+l'appunto l'offset del file 'fd' a partire dal quale inizia la mappatura.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
 
