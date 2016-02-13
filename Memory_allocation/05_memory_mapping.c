@@ -7,7 +7,7 @@
 /* L'allocazione della memoria puo' essere gestita anche mediante una mappatura
 della memoria stessa utilizzando le syscall mmap() e munmap(). 
 
-Una mappa o mappatura puo' essere sostanzialmente di due tipi: 
+Una mappa o mappatura (o mapping) puo' essere sostanzialmente di due tipi: 
 1) File mapping.
 2) Anonymous mapping.
 
@@ -38,6 +38,18 @@ Nota: 'fd' e 'offset' sono generalmente ignorati.
 
 In caso di successo, ritorna un puntatore all'area mappata; in caso di errore
 restituisce MAP_FAILED, ovvero (void *)-1.
+
+Nota: Riguardo l'eliminazione del mapping.
+      Allorquando un processe termina la propria esecuzione, il mapping viene
+      cancellato automaticamente, comprese eventuali modifiche salvate su 
+      disco nel caso in cui fosse stata utilizzata la protezione MAP_SHARED.
+
+HEADER   : <sys/mman.h>
+PROTOTYPE: int munmap(void *addr, size_t length);
+
+La system call munmap() elimina il mapping specificato nel range compreso 
+tra l'indirizzo 'addr' e il numero di byte 'length', comprese eventuali 
+modifiche salvate su disco
 */
 
 int main(void) {
