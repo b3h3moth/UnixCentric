@@ -33,5 +33,7 @@ restituisce MAP_FAILED, ovvero (void *)-1.
 */
 
 int main(void) {
+    int *addr;
+
     return(EXIT_SUCCESS);
 }
