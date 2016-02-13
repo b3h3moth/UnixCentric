@@ -33,7 +33,18 @@ restituisce MAP_FAILED, ovvero (void *)-1.
 */
 
 int main(void) {
-    int *addr;
+    char *addr;
+    size_t len = 12;
+
+    /*
+    - addr impostato a NULL, per cui sara' il kernel a determinare l'indirizzo;
+    - PROT_READ, PROT_WRITE, protezione impostata in lettura e scrittura;
+    - MAP_PRIVATE,           la mappa sara' privata rispetto al processo e non
+                             associata ad alcun file;
+    - file descriptor settato a -1, quindi mappatura anonima;
+    - l'offset del file impostato a 0.
+    */
+    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE , -1, 0);
 
     return(EXIT_SUCCESS);
 }
