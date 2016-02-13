@@ -55,9 +55,10 @@ mappato dovra' essere invocata specificatamente la syscall close().
 Ritorna 0 in caso di successo, -1 altrimenti.
 */
 
-int main(void) {
+int main(int argc, char *argv[]) {
     void *addr;
     size_t len = 1;
+    int fd;
 
     /*
     - addr impostato a NULL, per cui sara' il kernel a determinare l'indirizzo;
