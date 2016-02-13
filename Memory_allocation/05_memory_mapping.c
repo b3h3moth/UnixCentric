@@ -28,11 +28,11 @@ che una pagina e' di 4096 Kb.
 
 'prot' indica la protezione della mappa, ovvero se i dati mappati possono
 essere letti (PROT_READ), scritti (PROT_WRITE), eseguiti (PROT_EXEC) oppure se
-non e' possibile addervi (PROT_NONE); 'flags' determina il tipo
-di mappa, ovvero se e' visibile agli altri processi mappati nella stessa 
-regione e se realizzata mediante file; 'fd' e' il file descriptor di una
-porzione di un eventuale file da mappare; 'offset' infine riguarda per 
-l'appunto l'offset del file 'fd' a partire dal quale inizia la mappatura.
+non e' possibile addervi (PROT_NONE); 'flags' determina se i cambiamenti ai
+dati mappati siano visibili agli altri processi e le eventuali modifiche
+scritte su disco (MAP_SHARED) oppure no (MAP_PRIVATE); 'fd' e' il 
+file-descriptor del file da mappare; 'offset' infine riguarda il punto a 
+partire dal quale inizia la mappatura.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
 
