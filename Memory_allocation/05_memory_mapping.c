@@ -56,9 +56,13 @@ Ritorna 0 in caso di successo, -1 altrimenti.
 */
 
 int main(int argc, char *argv[]) {
-    void *addr;
-    size_t len = 1;
-    int fd;
+    char *addr;
+    size_t len = 4;
+
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s file\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
     /*
     - addr impostato a NULL, per cui sara' il kernel a determinare l'indirizzo;
@@ -68,7 +72,7 @@ int main(int argc, char *argv[]) {
     - file descriptor settato a -1, quindi mappatura anonima;
     - l'offset del file impostato a 0.
     */
-    addr = (char *)mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE , -1, 0);
+    addr = (char *)mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_ANON, -1, 0);
     
     if (addr == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
