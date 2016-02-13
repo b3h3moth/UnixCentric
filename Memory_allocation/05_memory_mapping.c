@@ -47,9 +47,12 @@ Nota: Riguardo l'eliminazione del mapping.
 HEADER   : <sys/mman.h>
 PROTOTYPE: int munmap(void *addr, size_t length);
 
-La system call munmap() elimina il mapping specificato nel range compreso 
-tra l'indirizzo 'addr' e il numero di byte 'length', comprese eventuali 
-modifiche salvate su disco
+Qualora si volesse eliminare il mapping manualmente, si dovra' invocare la
+system call munmap(), che elimina il mapping specificato nel range compreso 
+tra l'indirizzo 'addr' e il numero di byte 'length'. Per chiudere il file
+mappato dovra' essere invocata specificatamente la syscall close().
+
+Ritorna 0 in caso di successo, -1 altrimenti.
 */
 
 int main(void) {
