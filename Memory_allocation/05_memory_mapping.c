@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/mman.h>
+#include <fcntl.h>
 
 /* L'allocazione della memoria puo' essere gestita anche mediante una mappatura
 della memoria stessa utilizzando le syscall mmap() e munmap(). 
@@ -58,9 +59,16 @@ Ritorna 0 in caso di successo, -1 altrimenti.
 int main(int argc, char *argv[]) {
     char *addr;
     size_t len = 4;
+    int fd;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    fd = open(argv[1], O_RDONLY);
+    if (fd == -1) {
+        fprintf(stderr, "Err. (%d) fopen() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
@@ -72,7 +80,7 @@ int main(int argc, char *argv[]) {
     - file descriptor settato a -1, quindi mappatura anonima;
     - l'offset del file impostato a 0.
     */
-    addr = (char *)mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_ANON, -1, 0);
+    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
     
     if (addr == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
