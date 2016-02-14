@@ -99,9 +99,11 @@ int main(int argc, char *argv[]) {
     *start_memaddr = 10;
     *end_memaddr = 20;
 
-    printf("Allocate %d Kb\n", len);
-    printf("memory starts: %p - Val: %d\n", &(*start_memaddr), *start_memaddr);
-    printf("  memory ends: %p - Val: %d\n", &(*end_memaddr), *end_memaddr);
+    printf("       Allocated Memory: %d Kb\n", len);
+    printf("Allocated Memory starts: %p - Val: %d\n", \
+            &(*start_memaddr), *start_memaddr);
+    printf("  Allocated Memory ends: %p - Val: %d\n", \
+            &(*end_memaddr), *end_memaddr);
 
     // Elimina la memoria allocata
     if (munmap(addr, len) == -1) {
