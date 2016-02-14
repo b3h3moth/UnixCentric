@@ -73,11 +73,11 @@ Lo scopo del programma e' di allocare una regione di memoria di esattamente
 
 int main(int argc, char *argv[]) {
     void *addr;
-    size_t size = 4096;
+    size_t len = 4096;
+    int protection = PROT_READ | PROT_WRITE;
+    int flags = MAP_PRIVATE | MAP_ANON;
 
-    addr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
-    
-    if (addr == MAP_FAILED) {
+    if ((addr = mmap(NULL, len, protection, flags, -1, 0)) == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
