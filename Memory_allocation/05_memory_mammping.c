@@ -87,9 +87,12 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    char *first_memaddr = (char *)addr;
+    // Indirizzo iniziale del range allocato (0)
+    char *start_memaddr = (char *)addr;
+    // Indirizzo finale del range allocato (4095)
     char *end_memaddr   = (char *)(addr)+4095;
-    printf("Allocated Memory starts: %p\n", &(*first_memaddr));
+
+    printf("Allocated Memory starts: %p\n", &(*start_memaddr));
     printf("  Allocated Memory ends: %p\n", &(*end_memaddr));
 
     return(EXIT_SUCCESS);
