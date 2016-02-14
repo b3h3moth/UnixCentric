@@ -60,7 +60,6 @@ int main(int argc, char *argv[]) {
     char *addr;
     size_t file_size;
     int fin, fout;
-    void *
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
