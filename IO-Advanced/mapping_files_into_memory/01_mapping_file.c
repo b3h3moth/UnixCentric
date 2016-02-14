@@ -16,7 +16,13 @@ HEADER   : <sys/mman.h>
 PROTOTYPE: void *mmap(void *addr, size_t length, int prot, int flags,
                       int fd, off_t offset);
 
-
+Il file aperto associato al file descriptor 'fd' e' mappato a partire dall'
+indirizzo 'addr', se 'addr' dovesse valere NULL sara' il kernel stesso a 
+definire l'indirizzo dal quale iniziare la mappatura. La dimensione del file da
+mappare e' definita da 'length'. La protezione del range di memoria e'
+stabilito da 'prot', i cui valori riguardano lettura 'PROT_READ', scrittura 
+'PROT_WRITE', esecuzione 'PROT_EXEC' e accesso non consentito 'PROT_NONE'. Il
+tipo di memoria impostato mediante la variabile intera 'flags'.
 */
 
 int main(void) {
