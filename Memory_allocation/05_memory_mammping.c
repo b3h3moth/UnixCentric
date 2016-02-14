@@ -92,8 +92,16 @@ int main(int argc, char *argv[]) {
     // Indirizzo finale del range allocato (4095)
     char *end_memaddr   = (char *)(addr)+4095;
 
-    printf("Allocated Memory starts: %p\n", &(*start_memaddr));
-    printf("  Allocated Memory ends: %p\n", &(*end_memaddr));
+    /* Se si aggiungesse un solo byte in piu' si otterrebbe un 
+    'segmentation fault' */
+
+    // Inizializzazione degli interi
+    *start_memaddr = 10;
+    *end_memaddr = 20;
+
+    printf("Allocate %d Kb\n", len);
+    printf("memory starts: %p - Val: %d\n", &(*start_memaddr), *start_memaddr);
+    printf("  memory ends: %p - Val: %d\n", &(*end_memaddr), *end_memaddr);
 
     return(EXIT_SUCCESS);
 }
