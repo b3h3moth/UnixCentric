@@ -58,8 +58,9 @@ Ritorna 0 in caso di successo, -1 altrimenti.
 
 int main(int argc, char *argv[]) {
     char *addr;
-    size_t len = 4;
-    int fd;
+    size_t file_size;
+    int fin, fout;
+    void *
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
@@ -67,12 +68,12 @@ int main(int argc, char *argv[]) {
     }
 
     fd = open(argv[1], O_RDONLY);
-    if (fd == -1) {
+    if (fin == -1) {
         fprintf(stderr, "Err. (%d) fopen() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
+    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fin, 0);
     
     if (addr == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
