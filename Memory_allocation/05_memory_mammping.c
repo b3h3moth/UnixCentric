@@ -29,14 +29,18 @@ che una pagina e' di 4096 Kb.
 
 La variabile intera 'prot' indica la protezione della mappa, ovvero se i dati 
 mappati devono essere letti 'PROT_READ', scritti 'PROT_WRITE', eseguiti 
-'PROT_EXEC' oppure se non e' possibile acceddervi 'PROT_NONE'. 
+'PROT_EXEC', oppure se non e' possibile acceddervi 'PROT_NONE'. 
+PROT_NONE deve essere usato da solo, mentre gli altri flags possono essere 
+combinati tra loro mediante un 'bitwise-inclusive OR'.
+
 La variabile intera 'flags' determina se i cambiamenti ai dati mappati devono 
 essere visibili agli altri processi e se le eventuali modifiche devono essere 
-scritte su disco 'MAP_SHARED', oppure no 'MAP_PRIVATE'. Il file-descriptor 
-'fd' indica il file da mappare. Infine 'offset' riguarda il punto a partire 
-dal quale iniziare la mappatura.
+scritte su disco 'MAP_SHARED', oppure no 'MAP_PRIVATE'. Anche in questo
+caso e' possibile combinare diversi flags con un 'bitwise-inclusive OR', ad
+esempio 'MAP_ANON' deve essere associato a 'MAP_PRIVATE'.
 
-Nota: 'fd' e 'offset' sono generalmente ignorati.
+Il file-descriptor 'fd' indica il file da mappare. Infine 'offset' riguarda il
+punto a partire dal quale iniziare la mappatura.
 
 In caso di successo, ritorna un puntatore all'area mappata; in caso di errore
 restituisce MAP_FAILED, ovvero (void *)-1.
