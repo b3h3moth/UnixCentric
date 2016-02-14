@@ -68,8 +68,9 @@ del processo, e' come se si utilizzasse la malloc() in un certo senso.
 
 
 /* The program's purpose: 
-Lo scopo del programma e' di allocare una regione di memoria di esattamente
-4096 Kb, verificare gli indirizzi allocati e infine deallocarla */
+Lo scopo del programma e' di allocare una pagina di memoria - tipicamente di
+4096 Kb - dopodiche' scrivere un intero nell'indirizzo iniziale, stamparlo
+e infine rilasciare la memoria */
 
 int main(int argc, char *argv[]) {
     void *addr;
@@ -81,6 +82,9 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    for (int i=0; i<len+1; i++)
+        ;
 
     return(EXIT_SUCCESS);
 }
