@@ -26,9 +26,9 @@ tipo di memoria impostato mediante la variabile intera 'flags'.
 
 La funzione mmap() restituisce un puntatore alla regione di memoria associata
 in caso di successo, -1 altrimenti.
-
 */
 
 int main(void) {
+
     return(EXIT_SUCCESS);
 }

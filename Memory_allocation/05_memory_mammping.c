@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/mman.h>
-#include <fcntl.h>
 
 /* L'allocazione della memoria puo' essere gestita anche mediante una mappatura
 della memoria stessa utilizzando le syscall mmap() e munmap(). 
@@ -74,7 +74,7 @@ e infine rilasciare la memoria */
 
 int main(int argc, char *argv[]) {
     void *addr;
-    size_t len = 4096;
+    size_t len = sysconf(_SC_PAGESIZE);
     int protection = PROT_READ | PROT_WRITE;
     int flags = MAP_PRIVATE | MAP_ANON;
 
@@ -82,9 +82,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-
-    for (int i=0; i<len+1; i++)
-        ;
 
     return(EXIT_SUCCESS);
 }
