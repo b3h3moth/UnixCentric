@@ -56,8 +56,8 @@ PROTOTYPE: int munmap(void *addr, size_t length);
 Qualora si volesse eliminare il mapping manualmente, si dovra' invocare la
 system call munmap(), che elimina il mapping specificato nel range compreso 
 tra l'indirizzo 'addr' e il numero di byte 'length'. Per chiudere il file
-mappato dovra' essere invocata specificatamente la syscall close().
-Ritorna 0 in caso di successo, -1 altrimenti.
+mappato, qualora ci fosse, dovra' essere invocata specificatamente la syscall 
+close() sul file stesso. Ritorna 0 in caso di successo, -1 altrimenti.
 
 Nota: Una regione di memoria puo' essere contrassegnata o MAP_PRIVATE o 
       MAP_SHARED, tutto il resto e' opzionale e non vincolante.
@@ -102,6 +102,7 @@ int main(int argc, char *argv[]) {
     printf("Allocate %d Kb\n", len);
     printf("memory starts: %p - Val: %d\n", &(*start_memaddr), *start_memaddr);
     printf("  memory ends: %p - Val: %d\n", &(*end_memaddr), *end_memaddr);
+
 
     return(EXIT_SUCCESS);
 }
