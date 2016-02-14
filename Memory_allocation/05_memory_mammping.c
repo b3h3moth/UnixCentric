@@ -69,8 +69,10 @@ del processo, e' come se si utilizzasse la malloc() in un certo senso.
 
 /* The program's purpose: 
 Lo scopo del programma e' di allocare una pagina di memoria - tipicamente di
-4096 Kb - dopodiche' scrivere un intero nell'indirizzo iniziale, stamparlo
-e infine rilasciare la memoria */
+4096 Kb - dopodiche' prelevare l'indirizzo iniziale e finale del range di 
+memoria allocato e salvare i valori in variabili distinte, inizializzarle
+con degli interi, stampare gli indirizzi e i valori, e infine rilasciare la 
+memoria */
 
 int main(int argc, char *argv[]) {
     void *addr;
@@ -82,6 +84,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    char *first_memaddr = (char *)addr;
+    char *end_memaddr   = (char *)(addr)+4095;
+    printf("Allocated Memory starts: %p\n", &(*first_memaddr));
+    printf("  Allocated Memory ends: %p\n", &(*end_memaddr));
 
     return(EXIT_SUCCESS);
 }
