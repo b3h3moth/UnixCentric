@@ -27,13 +27,14 @@ kernel prendera' in considerazione tale indirizzo per posizionare la mappa; il
 kernel linux iniziera' la mappatura dalla pagina "confinante"  - da ricordare 
 che una pagina e' di 4096 Kb.
 
-'prot' indica la protezione della mappa, ovvero se i dati mappati possono
-essere letti (PROT_READ), scritti (PROT_WRITE), eseguiti (PROT_EXEC) oppure se
-non e' possibile addervi (PROT_NONE); 'flags' determina se i cambiamenti ai
-dati mappati siano visibili agli altri processi e le eventuali modifiche
-scritte su disco (MAP_SHARED) oppure no (MAP_PRIVATE); 'fd' e' il 
-file-descriptor del file da mappare; 'offset' infine riguarda il punto a 
-partire dal quale inizia la mappatura.
+La variabile intera 'prot' indica la protezione della mappa, ovvero se i dati 
+mappati devono essere letti 'PROT_READ', scritti 'PROT_WRITE', eseguiti 
+'PROT_EXEC' oppure se non e' possibile acceddervi 'PROT_NONE'. 
+La variabile intera 'flags' determina se i cambiamenti ai dati mappati devono 
+essere visibili agli altri processi e se le eventuali modifiche devono essere 
+scritte su disco 'MAP_SHARED', oppure no 'MAP_PRIVATE'. Il file-descriptor 
+'fd' indica il file da mappare. Infine 'offset' riguarda il punto a partire 
+dal quale iniziare la mappatura.
 
 Nota: 'fd' e 'offset' sono generalmente ignorati.
 
@@ -54,7 +55,7 @@ tra l'indirizzo 'addr' e il numero di byte 'length'. Per chiudere il file
 mappato dovra' essere invocata specificatamente la syscall close().
 Ritorna 0 in caso di successo, -1 altrimenti.
 
-Nota: Una regione di memoria deve essere contrassegnata o MAP_PRIVATE o 
+Nota: Una regione di memoria puo' essere contrassegnata o MAP_PRIVATE o 
       MAP_SHARED, tutto il resto e' opzionale e non vincolante.
 
 MAP_ANON non comporta file su disco, alloca la memoria per l'utilizzo privato
