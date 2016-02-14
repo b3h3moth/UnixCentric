@@ -103,6 +103,11 @@ int main(int argc, char *argv[]) {
     printf("memory starts: %p - Val: %d\n", &(*start_memaddr), *start_memaddr);
     printf("  memory ends: %p - Val: %d\n", &(*end_memaddr), *end_memaddr);
 
+    // Elimina la memoria allocata
+    if (munmap(addr, len) == -1) {
+        fprintf(stderr, "Err.(%d) munmap(): %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
