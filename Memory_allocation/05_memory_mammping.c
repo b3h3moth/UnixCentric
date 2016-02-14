@@ -52,32 +52,22 @@ Qualora si volesse eliminare il mapping manualmente, si dovra' invocare la
 system call munmap(), che elimina il mapping specificato nel range compreso 
 tra l'indirizzo 'addr' e il numero di byte 'length'. Per chiudere il file
 mappato dovra' essere invocata specificatamente la syscall close().
-
 Ritorna 0 in caso di successo, -1 altrimenti.
 
-Per quanto riguarda 'flags', una regione di memoria deve essere contrassegnata
-come MAP_PRIVATE o MAP_SHARED, tutto il resto e' opzionale e non vincolante.
+Nota: Una regione di memoria deve essere contrassegnata o MAP_PRIVATE o 
+      MAP_SHARED, tutto il resto e' opzionale e non vincolante.
+
+MAP_ANON non comporta file su disco, alloca la memoria per l'utilizzo privato
+del processo, e' come se si utilizzasse la malloc() in un certo senso.
 
 */
 
 
 int main(int argc, char *argv[]) {
-    char *addr;
-    size_t file_size;
-    int fin, fout;
+    void *addr;
+    size_t size = 4096;
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s file\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
-    fd = open(argv[1], O_RDONLY);
-    if (fin == -1) {
-        fprintf(stderr, "Err. (%d) fopen() - %s\n", errno, strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-
-    addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fin, 0);
+    addr = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
     
     if (addr == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
