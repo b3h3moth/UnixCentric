@@ -54,7 +54,12 @@ tra l'indirizzo 'addr' e il numero di byte 'length'. Per chiudere il file
 mappato dovra' essere invocata specificatamente la syscall close().
 
 Ritorna 0 in caso di successo, -1 altrimenti.
+
+Per quanto riguarda 'flags', una regione di memoria deve essere contrassegnata
+come MAP_PRIVATE o MAP_SHARED, tutto il resto e' opzionale e non vincolante.
+
 */
+
 
 int main(int argc, char *argv[]) {
     char *addr;
