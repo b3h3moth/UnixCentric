@@ -59,9 +59,12 @@ Nota: Una regione di memoria deve essere contrassegnata o MAP_PRIVATE o
 
 MAP_ANON non comporta file su disco, alloca la memoria per l'utilizzo privato
 del processo, e' come se si utilizzasse la malloc() in un certo senso.
-
 */
 
+
+/* The program's purpose: 
+Lo scopo del programma e' di allocare una regione di memoria di esattamente
+4096 Kb, verificare gli indirizzi allocati e infine deallocarla */
 
 int main(int argc, char *argv[]) {
     void *addr;
