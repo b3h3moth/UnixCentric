@@ -23,6 +23,10 @@ mappare e' definita da 'length'. La protezione del range di memoria e'
 stabilito da 'prot', i cui valori riguardano lettura 'PROT_READ', scrittura 
 'PROT_WRITE', esecuzione 'PROT_EXEC' e accesso non consentito 'PROT_NONE'. Il
 tipo di memoria impostato mediante la variabile intera 'flags'.
+
+La funzione mmap() restituisce un puntatore alla regione di memoria associata
+in caso di successo, -1 altrimenti.
+
 */
 
 int main(void) {
