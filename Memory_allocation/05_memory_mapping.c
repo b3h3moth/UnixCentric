@@ -72,23 +72,12 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /*
-    - addr impostato a NULL, per cui sara' il kernel a determinare l'indirizzo;
-    - PROT_READ, PROT_WRITE, protezione impostata in lettura e scrittura;
-    - MAP_PRIVATE,           la mappa sara' privata rispetto al processo e non
-                             associata ad alcun file;
-    - file descriptor settato a -1, quindi mappatura anonima;
-    - l'offset del file impostato a 0.
-    */
     addr = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
     
     if (addr == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap(): %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
-
-    *((char *)addr) = 'a';
-    printf("%c\n", *((char *)addr) );
 
     return(EXIT_SUCCESS);
 }
