@@ -76,6 +76,8 @@ memoria */
 
 int main(int argc, char *argv[]) {
     void *addr;
+
+    // Inizializza len a 'memory page size'
     size_t len = sysconf(_SC_PAGESIZE);
     int protection = PROT_READ | PROT_WRITE;
     int flags = MAP_PRIVATE | MAP_ANON;
