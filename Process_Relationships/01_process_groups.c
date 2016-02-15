@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <sys/wait.h>
 
 /*
@@ -21,14 +22,14 @@ PROTOTYPE : pid_t getpgrp(void);
             pid_t getpgid(pid_t pid);
 SEMANTICS : La funzione getpgrp() restituisce il PGID del processo chiamante;
             la funzione getpgid() restituisce il PGID del processo indicato da
-	    'pid'.
+	        'pid'.
 RETURNS   : Il PGID in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 Nota: getpgrp() e' equivalente a getpgid(0).
 
 Ciascun gruppo di processi puo' avere un processo leader, una sorta di capo 
 famiglia, il PGID del quale corrisponde al proprio PID; solitamente il primo
-processo ad entrare nel gruppo diviene anche process group leader.
+processo ad entrare nel gruppo diviene anche il 'process group leader'.
 
 Il process group leader puo' sia creare nuovi gruppi, sia creare nuovi processi
 all'interno del gruppo, che continueranno ad esistere anche qualora il process
@@ -69,37 +70,34 @@ int main(int argc, char *argv[]) {
 
     switch(pid = fork()) {
     	case -1:
-	    err("fork() failed");
+            err("fork() failed");
 
-	case 0:
-	    if ((pgid = getpgrp()) == -1)
-	    	err("getpgrp() failed");
+	    case 0:
+	        if ((pgid = getpgrp()) == -1)
+	    	    err("getpgrp() failed");
 
-	    /* Si estraggono PID, PPID e PGID del 1° processo figlio */
-	    get_process_info(pgid);
+	        /* Si estraggono PID, PPID e PGID del 1° processo figlio */
+	        get_process_info(pgid);
 
-	    if ((pid = fork()) < 0)
-	    	err("fork() failed");
-	    else if (pid == 0) {
-
-	    	/* Si assegna il gruppo pgid al nuovo processo; in realta'
-		ci sarebbe andato lo stesso */
-		if (setpgid(pid, pgid) < 0)
-		    err("setpgid() failed");
+	        if ((pid = fork()) < 0)
+	    	    err("fork() failed");
+	        else if (pid == 0) {
+                /* Si assegna il gruppo pgid al nuovo processo; in realta'
+		           ci sarebbe andato lo stesso */
+		        if (setpgid(pid, pgid) < 0)
+		            err("setpgid() failed");
 		
-		/* Si estraggono PID, PPID e PGID del 2° processo figlio */
-		get_process_info(pgid);
-	    } else {
-	    	waitpid(pid, NULL, 0);
-		exit(EXIT_SUCCESS);
-	    }
-	    
-	    exit(EXIT_SUCCESS);
-
-	default:
-	    waitpid(pid, NULL, 0);
+		        /* Si estraggono PID, PPID e PGID del 2° processo figlio */
+		        get_process_info(pgid);
+	        } else {
+	    	    waitpid(pid, NULL, 0);
+		        exit(EXIT_SUCCESS);
+	        }
+            exit(EXIT_SUCCESS);
+        
+        default:
+	        waitpid(pid, NULL, 0);
     }
-
     return(EXIT_SUCCESS);
 }
 
