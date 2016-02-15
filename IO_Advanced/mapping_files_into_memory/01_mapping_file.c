@@ -45,6 +45,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    lseek(fin, 256, SEEK_SET);
+    write(fin, " ", 1);
+    lseek(fin, 0, SEEK_SET);
+
     fmem = mmap(0, 256, PROT_WRITE, MAP_SHARED, fin, 0);
 
     if (fmem == MAP_FAILED) {
@@ -55,6 +59,11 @@ int main(int argc, char *argv[]) {
     close(fin);
 
     sprintf((char *)fmem, "%d\n", 100);
-    munmap(fmem, 256);
+    
+    if (munmap(fmem, 256) == -1) {
+        fprintf(stderr, "Err.(%d) munmap() - %s\n", errno, strerror(errno));
+        exit(EXIT_SUCCESS);
+    }
+
     return(EXIT_SUCCESS);
 }
