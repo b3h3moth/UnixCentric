@@ -46,8 +46,7 @@ int main(int argc, char *argv[]) {
     }
 
     lseek(fin, 256, SEEK_SET);
-    write(fin, " ", 1);
-    lseek(fin, 0, SEEK_SET);
+    write(fin, "", 1);
 
     fmem = mmap(0, 256, PROT_WRITE, MAP_SHARED, fin, 0);
 
@@ -58,7 +57,7 @@ int main(int argc, char *argv[]) {
 
     close(fin);
 
-    sprintf((char *)fmem, "%d\n", 100);
+    sprintf((char *)fmem, "%s", "Take a Walk on the Wild Side");
     
     if (munmap(fmem, 256) == -1) {
         fprintf(stderr, "Err.(%d) munmap() - %s\n", errno, strerror(errno));
