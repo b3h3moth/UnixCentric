@@ -4,7 +4,7 @@
 #include <unistd.h> 
 #include <string.h>
 
-/* I byte del file /etc/passwd su questa macchina, Debian GNU/Linux powerpc */
+// I byte del file /etc/passwd sulla macchina in uso Debian GNU/Linux PowerPC
 #define MAX_BUF     1413
 #define PERMS       0644
 #define OFFSET      32 // La prima riga elininata
@@ -20,10 +20,11 @@ RETURNS   : L'offset in caso di successo, -1 in caso di errore
 -------------------------------------------------------------------------------
 */
 
-/* Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
+/* The program's purpose:
+Legge il contenuto del file 'input_file', dopodiche' il file-offset viene 
 aggiornato di OFFSET byte rispetto all'inizio - in pratica rimuovera' la prima
-riga che nel mio file corrisponde a OFFSET byte -, da questo punto si copiera'
-tutto il contenuto da OFFSET fino alla fine sul file 'output_file'.
+riga che nel file in uso corrisponde a OFFSET byte -, da questo punto si
+copiera' tutto il contenuto in 'output_file' da OFFSET fino alla fine.
 
 Nota: Per calcolare i byte della prima riga del file /etc/passwd ho eseguito
 $ head -n 1 /etc/passwd | wc -c
