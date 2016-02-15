@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <errno.h>
+#include <string.h>
+#include <unistd.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 
@@ -42,5 +45,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    fmem = mmap(0, 256, PROT_WRITE, MAP_SHARED, fin, 0);
+
+    if (fmem == MAP_FAILED) {
+        fprintf(stderr, "Err.(%d) mmap() - %s\n", errno, strerror(errno));
+        exit(EXIT_SUCCESS);
+    }
+
+    close(fin);
+
+    sprintf((char *)fmem, "%d\n", 100);
+    munmap(fmem, 256);
     return(EXIT_SUCCESS);
 }
