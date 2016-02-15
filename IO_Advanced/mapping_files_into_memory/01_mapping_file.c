@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include <sys/mman.h>
+#include <sys/stat.h>
 
 /* Il kernel linux consente ad ogni processo di mappare un file su disco 
 direttamente in memoria, creando in tal modo una relazione tra i byte del file
@@ -31,7 +33,14 @@ nello spazio degli indirizzi del processo.
 La system call mmap() restituisce un puntatore alla regione di memoria
 associata in caso di successo, -1 altrimenti. */
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    int fin;
+    void *fmem;
+
+    if ((fin = open(argv[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR)) == -1) {
+        fprintf(stderr, "Usage: %s file\n", argv[0]);
+        exit(EXIT_SUCCESS);
+    }
 
     return(EXIT_SUCCESS);
 }
