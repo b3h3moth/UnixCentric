@@ -8,22 +8,32 @@
 #include <sys/stat.h>
 
 #define MAX_STR 64
-#define RECORDS 100
+#define RECORDS 10
 
-typedef struct {
+struct rec {
     int id;
-    char title[MAX_STR];
-} Record;
+    char string[MAX_STR];
+};
+
+typedef struct rec Record;
 
 int main(int argc, char *argv[]) {
-    Record record, *mapped;
-    int fin, fout;
+    Record record;
     FILE *fp;
 
     if ((fp = fopen(argv[1], "w+")) == NULL) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
         exit(EXIT_SUCCESS);
     }
+
+    // Inizializzazione e scrittura su disco dei record
+    for (int i=0; i<RECORDS; i++) {
+        record.id = i;
+        sprintf(record.string, "record: '%d'\n", i);
+        fwrite(record.string, strlen(record.string), 1, fp);
+    }
+    fclose(fp);
+
 
     return(EXIT_SUCCESS);
 }
