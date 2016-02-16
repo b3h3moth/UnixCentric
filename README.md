@@ -1,3 +1,7 @@
+## C11 (iso9899:2011)
+
+The purpose of this place is to talk about C11 (Standard ISO) language programming
+
 ### bitwise Hacks
 
 From bitwise operators to bitwise Hacks on integer and floating point data 
