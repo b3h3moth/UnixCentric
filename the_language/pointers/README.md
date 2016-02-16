@@ -1,3 +1,5 @@
+First of all *array and pointers are not the same*.
+
 ### List of arguments covered
 
 * Declare a pointer
