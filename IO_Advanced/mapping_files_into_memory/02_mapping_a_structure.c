@@ -20,10 +20,11 @@ typedef struct rec Record;
 int main(int argc, char *argv[]) {
     Record record;
     FILE *fp;
+    int fd;
 
     if ((fp = fopen(argv[1], "w+")) == NULL) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
-        exit(EXIT_SUCCESS);
+        exit(EXIT_FAILURE);
     }
 
     // Inizializzazione e scrittura su disco dei record
@@ -34,6 +35,10 @@ int main(int argc, char *argv[]) {
     }
     fclose(fp);
 
+    if ((fd = open(argv[1], O_RDWR)) == -1) {
+        fprintf(stderr, "Err.(%d) open() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
