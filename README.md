@@ -1,6 +1,6 @@
 ## C11 (iso9899:2011)
 
-The purpose of this place is to talk about C11 (Standard ISO) language programming
+The purpose of this repository is to talk about C11 (Standard ISO)
 
 ### bitwise Hacks
 
