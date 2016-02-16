@@ -18,7 +18,7 @@ struct rec {
 typedef struct rec Record;
 
 int main(int argc, char *argv[]) {
-    Record record;
+    Record record, *fmap;
     FILE *fp;
     int fd;
 
@@ -37,6 +37,13 @@ int main(int argc, char *argv[]) {
 
     if ((fd = open(argv[1], O_RDWR)) == -1) {
         fprintf(stderr, "Err.(%d) open() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    fmap = mmap(0, RECORDS * sizeof(record), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+
+    if (fmap == MAP_FAILED) {
+        fprintf(stderr, "Err.(%d) mmap() - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
