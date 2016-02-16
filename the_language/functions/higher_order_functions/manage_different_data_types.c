@@ -24,18 +24,16 @@ int main(int argc, char *argv[]) {
 
 // testing, it doesn't work well!
 void check_error(int type, char *val, void(*print)(char *, union data_val *)) {
-    /*
-     if type is (types)
-        check if val is > or < to MIN/MAX
-              exit/error 
-        else
-             set up and call print()
-     */
+    dava_val value;
 
+    if (type == CHAR) {
+        value.valchar = atoi(val);
+        print("%c\n", value.valchar);
+    }
 }
 
 void print(char *fmt, union data_val *d) {
     char *format = (void *)fmt;
 
-    printf(format, d->valuint);
+    printf(format, d->valchar);
 }
