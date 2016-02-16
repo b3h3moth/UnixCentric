@@ -37,29 +37,41 @@ La system call mmap() restituisce un puntatore alla regione di memoria
 associata in caso di successo, -1 altrimenti. */
 
 int main(int argc, char *argv[]) {
-    int fin;
+    char *text = "Take a Walk on the Wild Side (Lou Reed)";
     void *fmem;
+    int fin;
+    size_t len = strlen(text);
 
     if ((fin = open(argv[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR)) == -1) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
-        exit(EXIT_SUCCESS);
+        exit(EXIT_FAILURE);
     }
 
-    lseek(fin, 256, SEEK_SET);
-    write(fin, "", 1);
+    // Si usa lseek() per assicurarsi che il file sia sufficientemente capiente
+    if (lseek(fin, len, SEEK_SET) == -1) {
+        fprintf(stderr, "Err.(%d) lseek() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
-    fmem = mmap(0, 256, PROT_WRITE, MAP_SHARED, fin, 0);
+    if (write(fin, "", 1) == -1) {
+        fprintf(stderr, "Err.(%d) write() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+    
+    // Mappa il file 'fin' in memoria
+    fmem = mmap(0, len, PROT_WRITE, MAP_SHARED, fin, 0);
 
     if (fmem == MAP_FAILED) {
         fprintf(stderr, "Err.(%d) mmap() - %s\n", errno, strerror(errno));
-        exit(EXIT_SUCCESS);
+        exit(EXIT_FAILURE);
     }
 
     close(fin);
 
-    sprintf((char *)fmem, "%s", "Take a Walk on the Wild Side");
+    // Scrive il messaggio direttamente in memoria
+    sprintf((char *)fmem, "%s", text);
     
-    if (munmap(fmem, 256) == -1) {
+    if (munmap(fmem, len) == -1) {
         fprintf(stderr, "Err.(%d) munmap() - %s\n", errno, strerror(errno));
         exit(EXIT_SUCCESS);
     }
