@@ -20,7 +20,8 @@ typedef struct rec Record;
 int main(int argc, char *argv[]) {
     Record record, *fmap;
     FILE *fp;
-    int fd;
+    int fd, n;
+    char buf;
 
     if ((fp = fopen(argv[1], "w+")) == NULL) {
         fprintf(stderr, "Usage: %s file\n", argv[0]);
@@ -47,19 +48,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    int n, n2;
-    char buf, buf2[4096];
-
+    fputs("Reading from file mapped:\n", stdout);
+    // Legge un carattere per volta dal file mappato in memoria
     while ((n = read(fd, &buf, 1)) > 0) {
         write(1, &buf, n);
     }
-
-    /* Legge da memoria e inserisce tutto nel buffer
-     if ((n2 = read(fd,buf2, 4096)) < 0)
-         exit (-1);
-     if (write (STDOUT_FILENO, buf2, n2) < 0)
-         exit (-1);
-     */
 
     return(EXIT_SUCCESS);
 }
