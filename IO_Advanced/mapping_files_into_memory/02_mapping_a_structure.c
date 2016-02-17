@@ -59,5 +59,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Chiusura del file descriptor
+    close(fd);
+
     return(EXIT_SUCCESS);
 }
