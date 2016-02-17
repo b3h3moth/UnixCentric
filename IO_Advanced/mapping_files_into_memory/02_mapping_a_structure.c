@@ -54,5 +54,10 @@ int main(int argc, char *argv[]) {
         write(1, &buf, n);
     }
 
+    if (munmap(fmap, RECORDS * sizeof(record)) == -1) {
+        fprintf(stderr, "Err.(%d) munmap() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
     return(EXIT_SUCCESS);
 }
