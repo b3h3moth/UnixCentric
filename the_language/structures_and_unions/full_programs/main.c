@@ -25,13 +25,16 @@ int main(void) {
             case 's': 
                 search(); 
                 break;
+            case 'd': 
+                delete(); 
+                break;
             case 'p': 
                 print(); 
                 break;
             case 'q': 
                 return(EXIT_SUCCESS);
             default: 
-                printf("\nLegal codes are [i] [u] [s] [p] [q]\n");
+                printf("\nLegal codes are [i] [u] [s] [d] [p] [q]\n");
         }
     }
 
