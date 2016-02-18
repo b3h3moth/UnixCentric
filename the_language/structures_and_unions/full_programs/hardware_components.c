@@ -57,7 +57,8 @@ void delete(void) {
         num_hw_components = 0;
     else if (i == num_hw_components-1) { // rimozione ultimo elemento array
         num_hw_components--;
-    }
+    } else if (i < 0)
+        fprintf(stderr, "Sorry, request component doesn't exist\n");
 }
 
 /* Verifica il numero di componente, se non esiste stampa un messaggio di 
