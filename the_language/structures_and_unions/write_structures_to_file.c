@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 #define MAX_STR 64
 
@@ -16,10 +17,16 @@ typedef struct rec Record;
 
 int main(void) {
     Record *address_book;
+    char *my_alias = "b3h3m0th";
+    char *my_mail = "b3h3m0th@email.org";
 
     // It allocates the proper amount of memory
     address_book = malloc(sizeof(Record));
+
+    // Structure initialization
     address_book->id = 1;
+    strncpy(address_book->alias, my_alias, strlen(my_alias));
+    strncpy(address_book->alias, my_mail, strlen(my_mail));
 
     return(EXIT_SUCCESS);
 }
