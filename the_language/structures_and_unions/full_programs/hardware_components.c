@@ -44,6 +44,7 @@ int insert(void) {
     return num_hw_components++;
 }
 
+// Elimina un elemento dal vettore.
 void delete(void) {
     int i, num;
 
