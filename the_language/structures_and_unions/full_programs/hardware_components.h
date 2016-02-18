@@ -6,7 +6,7 @@
 
 // La struttura di ciascuna voce del catalogo
 struct hw_item {
-    int number;
+    int id;
     char name[MAX_LEN+1];
     char model[MAX_LEN+1];
     int quantity;
@@ -18,6 +18,7 @@ typedef struct hw_item HardwareItem;
 int insert(void);
 void update(void);
 void search(void);
+void delete(void);
 void print(void);
 
 #endif
