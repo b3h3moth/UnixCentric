@@ -47,20 +47,22 @@ int insert(void) {
 void delete(void) {
     int i, num;
 
-    printf("Enter component id: ");
-    scanf("%d", &num);
+    if (num_hw_components <= 0) {
+        printf("List of hardware components is empty.\n");
+    } else {
+        printf("Enter component id: ");
+        scanf("%d", &num);
     
-    i = find_component(num);
+        i = find_component(num);
 
-    // Se si intende rimuovere il primo elemento dell'array
-    if ((i == 0) && (num_hw_components == 1))
-        num_hw_components = 0;
-    else if (i == num_hw_components-1) { // rimozione ultimo elemento array
-        num_hw_components--;
-    } else if (i < 0)
-        fprintf(stderr, "Sorry, request component doesn't exist\n");
-    else if (num_hw_components == 0)
-        fprintf(stderr, "Sorry, db is empty.\n");
+        // Se si intende rimuovere il primo elemento dell'array
+        if ((i == 0) && (num_hw_components == 1))
+            num_hw_components = 0;
+        else if (i == num_hw_components-1) { // rimozione ultimo elemento array
+            num_hw_components--;
+        } else if (i < 0)
+            fprintf(stderr, "Sorry, request component doesn't exist\n");
+    }
 }
 
 /* Verifica il numero di componente, se non esiste stampa un messaggio di 
@@ -102,7 +104,7 @@ void search(void) {
 void print(void) {
     if (num_hw_components <= 0) {
         printf("List of hardware components is empty.\n");
-}
+    }
 
     for (int i=0; i<num_hw_components; i++) {
         printf("  Component id: %d\n", dbcomponent[i].id);
