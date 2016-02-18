@@ -12,6 +12,8 @@ struct rec {
 
 typedef struct rec Record;
 
+/* The program's purpose is to write a full structure to a file */
+
 int main(void) {
     return(EXIT_SUCCESS);
 }
