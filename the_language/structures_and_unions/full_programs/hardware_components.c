@@ -60,7 +60,7 @@ void delete(void) {
     } else if (i < 0)
         fprintf(stderr, "Sorry, request component doesn't exist\n");
     else if (num_hw_components == 0)
-        fprintf(sdterr, "Sorry, db is empty.\n");
+        fprintf(stderr, "Sorry, db is empty.\n");
 }
 
 /* Verifica il numero di componente, se non esiste stampa un messaggio di 
