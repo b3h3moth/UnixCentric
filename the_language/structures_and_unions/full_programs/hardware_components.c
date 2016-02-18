@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "readline.h"
 #include "hardware_components.h"
 
@@ -14,22 +15,22 @@ HardwareItem dbcomponent[MAX_COMPONENTS];
 /* Inserisce un componente nel database; nel caso fosse gia' presente nel db 
 opppure il db stesso fosse pieno restituisce un messaggio di errore */
 int insert(void) {
-    int component_num;
+    int component_id;
 
     if (num_hw_components == MAX_COMPONENTS) {
         printf("DB is full\n");
         return(1);
     }
 
-    printf("Enter component number: ");
-    scanf("%d", &component_num);
+    printf("Enter component id: ");
+    scanf("%d", &component_id);
 
     // Verifica se un componente gia' esiste
-    if (find_component(component_num) >= 0) {
+    if (find_component(component_id) >= 0) {
         printf("Component already exists.\n");
         return(1);
     }
-    dbcomponent[num_hw_components].number = component_num;
+    dbcomponent[num_hw_components].id = component_id;
 
     printf("Enter component name: ");
     read_line(dbcomponent[num_hw_components].name, MAX_LEN);
@@ -43,12 +44,28 @@ int insert(void) {
     return num_hw_components++;
 }
 
+void delete(void) {
+    int i, num;
+
+    printf("Enter component id: ");
+    scanf("%d", &num);
+    
+    i = find_component(num);
+
+    // Se si intende rimuovere il primo elemento dell'array
+    if ((i == 0) && (num_hw_components == 1))
+        num_hw_components = 0;
+    else if (i == num_hw_components-1) { // rimozione ultimo elemento array
+        num_hw_components--;
+    }
+}
+
 /* Verifica il numero di componente, se non esiste stampa un messaggio di 
 errore, in caso contrario modifica la quantita' disponibile */
 void update(void) {
     int i, num, change;
 
-    printf("Enter component number: ");
+    printf("Enter component id: ");
     scanf("%d", &num);
 
     i = find_component(num);
@@ -65,7 +82,7 @@ void update(void) {
 void search(void) {
     int i, num;
 
-    printf("Enter component number: ");
+    printf("Enter component id: ");
     scanf("%d", &num);
 
     i = find_component(num);
@@ -82,10 +99,10 @@ void search(void) {
 void print(void) {
     if (num_hw_components <= 0) {
         printf("List of hardware components is empty.\n");
-    }
+}
 
     for (int i=0; i<num_hw_components; i++) {
-        printf("Component name: %d\n", dbcomponent[i].number);
+        printf("  Component id: %d\n", dbcomponent[i].id);
         printf("Component name: %s\n", dbcomponent[i].name);
         printf("      Quantity: %d\n", dbcomponent[i].quantity);
         printf("         Model: %s\n", dbcomponent[i].model);
@@ -98,7 +115,7 @@ void print(void) {
 -1 altrimenti. */
 static int find_component(int num) {
     for (int i=0; i<num_hw_components; i++)
-        if (dbcomponent[i].number == num)
+        if (dbcomponent[i].id == num)
             return i;
 
     return (-1);
