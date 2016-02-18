@@ -55,15 +55,12 @@ void delete(void) {
     
         i = find_component(num);
 
-        if (i > 0) {
-            dbcomponent[i] = dbcomponent[num_hw_components];
+        if (i >= 0) {
+            for (int j = i; j<num_hw_components; j++) {
+                dbcomponent[j] = dbcomponent[j+1];
+            }
             num_hw_components--;
-        } // Se si intende rimuovere il primo elemento dell'array
-         else if ((i == 0) && (num_hw_components == 1))
-            num_hw_components = 0;
-        else if (i == num_hw_components-1) { // rimozione ultimo elemento array
-            num_hw_components--;
-        } else if (i < 0)
+        } else 
             fprintf(stderr, "Sorry, request component doesn't exist\n");
     }
 }
