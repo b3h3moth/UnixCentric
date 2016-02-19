@@ -15,7 +15,7 @@ struct rec {
 typedef struct rec Record;
 
 /* The program's purpose is to write a full structure to a binary file, then
-read data from the file  */
+read file and store data within new structure. */
 
 int main(void) {
     Record *address_book;
@@ -31,8 +31,8 @@ int main(void) {
     strncpy(address_book->alias, my_alias, strlen(my_alias));
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
-    // Si sta lavorando su un file binario, per cui, per leggerlo, sara'
-    // necessario utilizzare fread().
+    /* Si sta lavorando su un file binario, per cui, per leggerlo, sara'
+    necessario utilizzare fread() */
     fout = fopen("fout.txt", "wb");
 
     if (fout == NULL) {
@@ -40,9 +40,8 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    // write the structure to file
+    // write the structure to file and close stream
     fwrite(address_book, sizeof(Record), 1, fout);
-
     fclose(fout);
 
     return(EXIT_SUCCESS);
