@@ -18,8 +18,8 @@ typedef struct rec Record;
 read file and store data within new structure. */
 
 int main(void) {
-    Record *address_book;
-    FILE *fout;
+    Record *address_book, *address_book_backup;
+    FILE *fin, *fout;
     char *my_alias = "b3h3m0th";
     char *my_mail = "mymail@email.org";
 
@@ -44,5 +44,13 @@ int main(void) {
     fwrite(address_book, sizeof(Record), 1, fout);
     fclose(fout);
 
+    // Read data from file
+    address_book_backup = malloc(sizeof(Record));
+    fin = fopen("fout.txt", "rb");
+
+    if (fout == NULL) {
+        fprintf(stderr, "Err.(%d) fopen() - %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
     return(EXIT_SUCCESS);
 }
