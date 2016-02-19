@@ -36,7 +36,7 @@ int main(void) {
     fout = fopen("fout.txt", "wb");
 
     if (fout == NULL) {
-        fprintf(stderr, "Err.(%d) fopen() - %s\n", errno, strerror(errno));
+        fprintf(stderr, "Err.(%d) fopen(out) - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
@@ -48,9 +48,17 @@ int main(void) {
     address_book_backup = malloc(sizeof(Record));
     fin = fopen("fout.txt", "rb");
 
-    if (fout == NULL) {
-        fprintf(stderr, "Err.(%d) fopen() - %s\n", errno, strerror(errno));
+    if (fin == NULL) {
+        fprintf(stderr, "Err.(%d) fopen(in) - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    fread(address_book_backup, sizeof(Record), 1, fin);
+    fclose(fin);
+
+    printf("   id: %d\n", address_book_backup->id);
+    printf("alias: %s\n", address_book_backup->alias);
+    printf("email: %s\n", address_book_backup->email);
+
     return(EXIT_SUCCESS);
 }
