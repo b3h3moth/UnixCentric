@@ -2,30 +2,33 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_STR 8
+#define MAX_STR 16
 
-struct {
-    char str1[MAX_STR];
-    int  value;
-    char str2[MAX_STR];
-} data;
+struct rec {
+    char name[MAX_STR];
+    char surname[MAX_STR];
+    int  age;
+};
+
+typedef struct rec Record;
 
 int main(void) {
-    FILE *fp;
-    char *filename = "data.txt";
-    unsigned int data_size = sizeof(data);
+    Record *db;
+    FILE *fout;
 
-    strcpy(data.str1, "xxxxxxx");
-    data.value = 0x12ABCDEF;
-    strcpy(data.str2, "yyyyyyy");
+    db = malloc(sizeof(Record));
+    strcpy(db->name, "Mister");
+    db->age = 40;
+    strcpy(db->surname, "B3h3m0th");
 
-    // Copia ciascun membro della struttura 'data' nel file
-    if ((fp = fopen(filename, "wb"))) {
-        fwrite(&data, sizeof(data), 1, fp);
-        fclose(fp);
+    // Copy each structure member to file
+    if ((fout = fopen("db.txt", "w+"))) {
+        fprintf(fout, "%s\n%s\n%d\n", db->name, db->surname, db->age);
+        fclose(fout);
     }
 
-    printf("struct 'data'(%d byte) written into: '%s'\n", data_size, filename);
+    // $ cat db.txt 
+    // and reading structure data
 
     return(EXIT_SUCCESS);
 }
