@@ -31,8 +31,8 @@ int main(void) {
     strncpy(address_book->alias, my_alias, strlen(my_alias));
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
-    /* Si sta lavorando su un file binario, per cui, per leggerlo, sara'
-    necessario utilizzare fread() */
+    /* We are working with binary file, so will be necessary open file with
+    fread() later */
     fout = fopen("fout.txt", "wb");
 
     if (fout == NULL) {
@@ -40,12 +40,13 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    // write the structure to file and close stream
+    // It writes the structure to the file and then close stream
     fwrite(address_book, sizeof(Record), 1, fout);
     fclose(fout);
 
-    // Read data from file
+    // It allocates memory for new 'Record'
     address_book_backup = malloc(sizeof(Record));
+    // It opens the input file
     fin = fopen("fout.txt", "rb");
 
     if (fin == NULL) {
@@ -53,6 +54,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    // It reads from binary file
     fread(address_book_backup, sizeof(Record), 1, fin);
     fclose(fin);
 
