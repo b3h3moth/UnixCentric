@@ -7,28 +7,33 @@
 #define MAX_STR 32
 
 struct rec {
+    int id;
     char alias[MAX_STR];
     char email[MAX_STR];
 };
 
 typedef struct rec Record;
 
-/* The program's purpose is to write a full structure to a file */
+/* The program's purpose is to write a full structure to a binary file, then
+read data from the file  */
 
 int main(void) {
     Record *address_book;
     FILE *fout;
-    char *my_alias = "b3h3m0th\0";
-    char *my_mail = "mymail@email.org\0";
+    char *my_alias = "b3h3m0th";
+    char *my_mail = "mymail@email.org";
 
     // It allocates the proper amount of memory
     address_book = malloc(sizeof(Record));
 
     // Structure initialization
+    address_book->id = 1973;
     strncpy(address_book->alias, my_alias, strlen(my_alias));
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
-    fout = fopen("fout.txt", "w+");
+    // Si sta lavorando su un file binario, per cui, per leggerlo, sara'
+    // necessario utilizzare fread().
+    fout = fopen("fout.txt", "wb");
 
     if (fout == NULL) {
         fprintf(stderr, "Err.(%d) fopen() - %s\n", errno, strerror(errno));
