@@ -18,9 +18,12 @@ typedef struct {
         };
         int a[2];
     };
-} vec_t;
+} v_t;
 
 int main(void) {
+    v_t vec;
+
+    printf("%d %d %d\n", vec.x = 10, vec.a[1] = 20, vec.z = 30);
 
     return(EXIT_SUCCESS);
 }
