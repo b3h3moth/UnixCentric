@@ -9,6 +9,17 @@ c11 standard definition:
 "A structure or union is defined without any named members".
 */
 
+typedef struct {
+    union {
+        struct {
+            int x;
+            int y;
+            int z;
+        };
+        int a[2];
+    };
+} vec_t;
+
 int main(void) {
 
     return(EXIT_SUCCESS);
