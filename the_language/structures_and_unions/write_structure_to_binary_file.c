@@ -32,11 +32,8 @@ int main(void) {
     strncpy(address_book->alias, my_alias, strlen(my_alias));
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
-    /* We are working with binary file, so will be necessary open file with
-    fread() later */
-    fout = fopen("fout.txt", "wb");
-
-    if (fout == NULL) {
+    // Open a 'binary' file
+    if ((fout = fopen("fout.txt", "wb")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(out) - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }

@@ -24,7 +24,7 @@ int main(void) {
     db->age = 40;
     strcpy(db->surname, "B3h3m0th");
 
-    // Copy each structure member to file
+    // Open an 'ascii' file
     if ((fout = fopen("db.txt", "w+")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(); %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
