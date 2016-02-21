@@ -21,6 +21,7 @@ the result finally. */
 int main(void) {
     Record *address_book, *address_book_backup;
     FILE *fin, *fout;
+    char *filedata = "db.txt";
     char *my_alias = "b3h3m0th";
     char *my_mail = "mymail@email.org";
 
@@ -33,7 +34,7 @@ int main(void) {
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
     // Open a 'binary' file
-    if ((fout = fopen("fout.txt", "wb")) == NULL) {
+    if ((fout = fopen(filedata, "wb")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(out) - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
@@ -45,7 +46,7 @@ int main(void) {
     // It allocates memory for new 'Record'
     address_book_backup = malloc(sizeof(Record));
     // It opens the input file
-    fin = fopen("fout.txt", "rb");
+    fin = fopen(filedata, "rb");
 
     if (fin == NULL) {
         fprintf(stderr, "Err.(%d) fopen(in) - %s\n", errno, strerror(errno));
