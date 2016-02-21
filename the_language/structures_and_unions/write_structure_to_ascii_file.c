@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #define MAX_STR 16
 
@@ -12,6 +13,8 @@ struct rec {
 
 typedef struct rec Record;
 
+// The program's purpose is to write a 'Record' structure inside a file (ascii)
+
 int main(void) {
     Record *db;
     FILE *fout;
@@ -22,10 +25,14 @@ int main(void) {
     strcpy(db->surname, "B3h3m0th");
 
     // Copy each structure member to file
-    if ((fout = fopen("db.txt", "w+"))) {
-        fprintf(fout, "%s\n%s\n%d\n", db->name, db->surname, db->age);
-        fclose(fout);
+    if ((fout = fopen("db.txt", "w+")) == NULL) {
+        fprintf(stderr, "Err.(%d) fopen(); %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
     }
+    
+    fprintf(fout, "%s\n%s\n%d\n", db->name, db->surname, db->age);
+    
+    fclose(fout);
 
     // $ cat db.txt 
     // and reading structure data
