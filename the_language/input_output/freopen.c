@@ -40,8 +40,8 @@ int main(void) {
         printf("Line executed at: \'%s\'\n", date);
     }
 
-    /* redirect the output back to the screen. 
-    Note: this solution doesn't work ever and it's not portable */
+    /* Redirige lo stream output allo stato originale.
+    Nota: Questa soluzione non funziona sempre e non e' portabile. */
     freopen("/dev/tty", "a", stdout);
 
     fputs("After freopen()\n", stdout);
