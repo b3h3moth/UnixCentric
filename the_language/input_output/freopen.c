@@ -3,6 +3,7 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
+#include <unistd.h>
 
 /* Lo scopo del programma e' redirigere lo stream output verso un file mediante
 la funzione freopen(), dopodiche' scrivere nel file stesso una stringa che 
@@ -20,7 +21,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    fputs("Before freopen()", stdout);
+    fputs("Before freopen()\n", stdout);
 
     if (freopen(fname, "w", stdout) == NULL) {
         fprintf(stderr, "Unable to redirect stdout stream.\n");
@@ -39,8 +40,5 @@ int main(void) {
         printf("Line executed at: \'%s\'\n", date);
     }
 
-    // Close stream redirection
-    fclose(stdout);
-    
     return(EXIT_SUCCESS);
 }
