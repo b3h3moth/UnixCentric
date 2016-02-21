@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// The program's purpose is to redirect standard I/O stream to file
+
+/* Lo scopo del programma e' redirigere lo stream output verso un file mediante
+la funzione freopen(), dopodiche' scrivere nel file stesso una stringa che 
+identifichi la data esatta della scrittura della stringa stessa. 
+Tale esempio puo' essere un buon punto di partenza per la realizzazione di 
+routine di debugging e/o testing. */
 
 int main(void) {
     time_c sec;
@@ -12,7 +17,7 @@ int main(void) {
     if (freopen(fname, "w", stdout) == NULL) {
         fprintf(stderr, "Unable to redirect stdout stream.\n");
     } else 
-        printf("I'm writing inside a file\n");
+        printf("Line executed at %.24s\n", ctime(&sec));
     
     return(EXIT_SUCCESS);
 }
