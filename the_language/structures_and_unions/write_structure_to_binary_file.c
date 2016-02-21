@@ -34,7 +34,7 @@ int main(void) {
     strncpy(address_book->email, my_mail, strlen(my_mail));
 
     // Open a 'binary' file
-    if ((fout = fopen(filedata, "wb")) == NULL) {
+    if ((fout = fopen(filedata, "wb+")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(out) - %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
