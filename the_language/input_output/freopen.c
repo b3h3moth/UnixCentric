@@ -31,7 +31,9 @@ int main(void) {
             exit(EXIT_FAILURE);
         }
 
-        
+        /* La funzione ctime() aggiunge un carattere di new-line alla fine
+        della stringa creata. L'istruzione di seguito sostituisce tale
+        carattere con un piu' congruo null-terminated character. */
         date[strlen(date)-1] = '\0';
         
         printf("Line executed at: \'%s\'\n", date);
