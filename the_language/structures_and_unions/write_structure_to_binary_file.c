@@ -14,8 +14,9 @@ struct rec {
 
 typedef struct rec Record;
 
-/* The program's purpose is to write a full structure to a binary file, then
-read file and store data within new structure. */
+/* The program's purpose is to write a full structure inside a binary file, 
+then read the binary file and store data inside a new structure, print out
+the result finally. */
 
 int main(void) {
     Record *address_book, *address_book_backup;
