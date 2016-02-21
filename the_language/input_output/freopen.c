@@ -9,8 +9,14 @@ Tale esempio puo' essere un buon punto di partenza per la realizzazione di
 routine di debugging e/o testing. */
 
 int main(void) {
-    time_c sec;
+    time_c t;
+    char *date;
     char fname[] = "data.txt";
+
+    if (time(&t) < 0) {
+        fprintf(stderr, "Err. %d time(); %s.\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     fputs("Before freopen()", stdout);
 
