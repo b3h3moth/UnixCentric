@@ -18,6 +18,7 @@ typedef struct rec Record;
 int main(void) {
     Record *db;
     FILE *fout;
+    char fname[] = "db.txt";
 
     db = malloc(sizeof(Record));
     strcpy(db->name, "Mister");
@@ -25,7 +26,7 @@ int main(void) {
     strcpy(db->surname, "B3h3m0th");
 
     // Open an 'ascii' file
-    if ((fout = fopen("db.txt", "w+")) == NULL) {
+    if ((fout = fopen(fname, "w+")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(); %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
