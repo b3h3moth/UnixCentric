@@ -4,34 +4,34 @@
 #include <string.h>
 
 /*
-Nota: la libreria Standard I/O e' stata  scritta nel 1975 dal compianto Dennis 
-Ritchie, venuto a mancare nell'ottobre del 2011.
+Nota: la libreria Standard I/O <stdio.h> e' stata  scritta nel 1975 dal
+      compianto "Dennis Ritchie", venuto a mancare nell'ottobre del 2011.
 
-Nella sezione "IO-Unbuffered" si e' discusso della gestione dell'I/O mediante le
-primitive di basso livello fornite dal sistema operativo, che interagiscono
+Nella sezione "IO_Unbuffered" si e' discusso della gestione dell'I/O mediante
+le primitive di basso livello fornite dal sistema operativo, che interagiscono
 direttamente con il kernel, ora invece si affronta l'I/O bufferizzato gestito 
 con le funzioni della libreria ISO C standard, implementate peraltro proprio
 sopra le primitive di basso livello.
 
 Allorquando si apre un file in lettura o in scrittura utilizzando la libreria 
-I/O standard associamo ad esso uno stream, la cui orientazione determina se la 
-lettura o scrittura dei caratteri sul file e' single-byte oppure multi-byte
-(wide).
+I/O standard associamo ad esso uno stream, il cui orientamento
+determina se la lettura o scrittura dei caratteri sul file sara' single-byte 
+oppure multi-byte (wide).
 
 La funzione fopen() apre uno stream e ritorna un puntatore ad un oggetto FILE,
-ovvero una struttura al cui interno vi sono svariate informazioni che consentono
-la gestione dello stream, tra cui:
+ovvero una struttura al cui interno vi sono svariate informazioni che
+consentono la gestione dello stream, tra cui:
 - Posizione corrente all'interno del file;
 - Indicatore di errore;
 - Indicatori di stato (lettura, scrittura o entrambi);
-- La grandezza del buffer;
+- grandezza del buffer;
 - Fine del file (EOF).
 
-Nota: Il programmatore non ha alcuna necessita' di interagire direttamente con i
-vari campi della struttura FILE, poiche' ciascuna operazione di I/O potra'
-gestirla mediante un puntatore alla struttura stessa, definita in <stdio.h>.
+Nota: Il programmatore non ha alcuna necessita' di interagire direttamente con
+      i vari campi della struttura FILE, poiche' ciascuna operazione di I/O 
+      potra' gestirla mediante un puntatore alla struttura stessa.
 
-Come accennato in IO-unbuffered, ogni processo dispone di 3 stream predefiniti,
+Come accennato in IO_Unbuffered, ogni processo dispone di 3 stream predefiniti,
 o file descriptor, nella sostanza sono gli stessi:
 - standard input  = stdin  - POSIX(STDIN_LINENO);
 - standard output = stdout - POSIX(STDOUT_LINENO;
@@ -39,8 +39,8 @@ o file descriptor, nella sostanza sono gli stessi:
 
 Cosa si intende per I/O bufferizzato? I caratteri scritti su uno stream sono 
 conservati in un buffer, essi tuttavia saranno trasmessi in blocco solo quando 
-il buffer risultera' essere pieno (la bufferizzazione e' gestita automaticamente
-dalla standard library); da notare inoltre che il lavoro di bufferizzazione e di
+il buffer risultera' essere pieno - la bufferizzazione e' gestita
+automaticamente dalla standard library. Il lavoro di bufferizzazione e di
 trasmissione dei dati in blocco e' svolto in modalita' asincrona, per cui e' 
 possibile che, qualora due processi accedano contemporaneamente ad un file,
 possano sorgere delle incongruenze.
@@ -61,11 +61,12 @@ PROTOTYPE : FILE *fopen(const char *path, const char *mode);
             FILE *freopen(const char *path, const char *mode, FILE *stream); 
             FILE *fdopen(int fd, const char *mode);
 
-SEMANTICS : La funzione fopen() aapre il file puntato da 'path', secondo i 
-            permessi 'mode'; la funzione freopen() apre il file 'path' secondo
-	    i permessi 'mode', e lo associa allo stream 'stream'; la funzione
-	    fdopen() apre lo stream definito dal file descriptor 'fd', secondo i
-	    permessi 'mode'.
+SEMANTICS : La funzione fopen() apre il file puntato da 'path', secondo i 
+            permessi 'mode'; 
+            la funzione freopen() apre il file 'path' secondo i permessi 'mode'
+            e lo associa allo stream 'stream'; 
+            la funzione fdopen() apre lo stream definito dal file descriptor
+            'fd', secondo i permessi 'mode'.
 
 RETURNS   : Un puntatore al file in caso di successo, NULL in caso di errore
 --------------------------------------------------------------------------------
