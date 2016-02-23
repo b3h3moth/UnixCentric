@@ -32,7 +32,7 @@ PROTOTYPE : int ferror(FILE *fp);
             int feof(FILE *fp);
 SEMANTICS : La funzione ferror() verifica se vi e' stato un errore nello stream
             'fp'; la funzione feof() verifica se lo stream 'fp' e' giunto alla 
-	    fine del file (EOF).
+	        fine del file (EOF).
 RETURNS   : true, non zero , se la condizione e' vera,  0 altrimenti
 --------------------------------------------------------------------------------
 L'oggetto FILE della standard library contiene il flag "End of File", che indica

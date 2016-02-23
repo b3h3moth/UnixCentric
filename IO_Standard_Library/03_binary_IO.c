@@ -19,9 +19,9 @@ PROTOTYPE : size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
 
 SEMANTICS : La funzione fread() legge 'nmemb' elementi di dati, ciascuno di essi
             di 'size' bytes di lunghezza, dallo stream puntato da 'stream',
-	    collocandoli in 'ptr'; la funzione fwrite() scrive 'nmemb' elementi
-	    di dati collocati in 'ptr', ciascuno di essi di 'size' bytes di 
-	    lunghezza, nello stream puntato da 'stream'.
+	        collocandoli in 'ptr'; la funzione fwrite() scrive 'nmemb' elementi
+	        di dati collocati in 'ptr', ciascuno di essi di 'size' bytes di 
+	        lunghezza, nello stream puntato da 'stream'.
 
 RETURNS   : Il numero di dati scritti o letti in caso di successo, in caso di 
             errore o EOF un numero di elementi minore rispetto al richiesto
