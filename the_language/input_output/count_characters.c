@@ -26,6 +26,14 @@ int main(int argc, char *argv[]) {
     // Legge 'char by char' salvando di volta in volta il toale dei caratteri
     while ((ch = getc(fp)) != EOF) {
         putc(ch, stdout);
+
+        /* Se 'count' dovesse essere maggiore di un 'unsigned int' di 32 bit,
+        sara' nuovamente impostato a zero e si uscira' dal ciclo */
+        if (count > UINT32_MAX) {
+            fprintf(stderr, "Ops, characters are more then %u\n", UINT32_MAX);
+            count = 0;
+            break;
+        }
         count++;
     }
 
