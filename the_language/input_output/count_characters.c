@@ -8,13 +8,13 @@
 stampare su stdout il contenuto del file, di contare ciascun carattere del file
 stesso, ponendo un limite al numero massimo di caratteri da salvare. */
 
-int main(int argc, char argv[]) {
+int main(int argc, char *argv[]) {
     int ch;
-    File *fp;
+    FILE *fp;
     uint32_t count = 0;
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <filename>.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -24,6 +24,14 @@ int main(int argc, char argv[]) {
     }
 
     // Legge 'char by char' salvando di volta in volta il toale dei caratteri
+    while ((ch = getc(fp)) != EOF) {
+        putc(ch, stdout);
+        count++;
+    }
+
+    fclose(fp);
+
+    printf("%s has %d characters\n", argv[1], count);
 
     return(EXIT_SUCCESS);
 }
