@@ -36,16 +36,23 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Program break: %10p\n", sbrk(0));
+    printf("current Program break: %10p\n", sbrk(0));
     printf("Allocate %d*%d bytes\n", n_alloc, block_size);
 
     for (int i=0; i<n_alloc; i++) {
         ptr[i] = malloc(block_size);
         if (ptr[i] == NULL) {
-            fprintf(sdterr, "Err. malloc(), %s\n", strerror(errno));
+            fprintf(stderr, "Err. malloc(), %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
     }
+
+    printf("current Program break: %10p\n", sbrk(0));
+    printf("free blocks from %d to %d in steps of %d\n", \
+            free_min, free_max, free_step);
+
+    for (int i = free_min - 1; i<free_max; i += free_step)
+        free(ptr[i]);
 
     return(EXIT_SUCCESS);
 }
