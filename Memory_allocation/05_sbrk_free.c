@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <errno.h>
 
 #define MAX_SIZE_ALLOC 1000000
 
 int main(int argc, char *argv[]) {
     char *ptr[MAX_SIZE_ALLOC];
-    int free_min, free_step, free_max, block_size, n_alloc, i;
+    int free_min, free_step, free_max, block_size, n_alloc;
 
     if (argc < 3 || strcmp(argv[1], "--help") == 0) {
         fprintf(stderr, "Usage: %s num-allocs block-size [step [min [max]]]\n",\
@@ -34,6 +36,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    printf("Program break: %10p\n", sbrk(0));
+    printf("Allocate %d*%d bytes\n", n_alloc, block_size);
+
+    for (int i=0; i<n_alloc; i++) {
+        ptr[i] = malloc(block_size);
+        if (ptr[i] == NULL) {
+            fprintf(sdterr, "Err. malloc(), %s\n", strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+    }
 
     return(EXIT_SUCCESS);
 }
