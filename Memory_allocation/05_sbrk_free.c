@@ -54,5 +54,7 @@ int main(int argc, char *argv[]) {
     for (int i = free_min - 1; i<free_max; i += free_step)
         free(ptr[i]);
 
+    printf("current Program break: %10p\n", sbrk(0));
+
     return(EXIT_SUCCESS);
 }
