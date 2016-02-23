@@ -13,5 +13,13 @@ int main(int argc, char *argv[]) {
                 argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    n_alloc = strtol(argv[1], NULL, 10);
+
+    if (n_alloc > MAX_SIZE_ALLOC) {
+        fprintf(stderr, "Err. num-alloc > %d\n", MAX_SIZE_ALLOC);
+        exit(EXIT_FAILURE);
+    }
+    
     return(EXIT_SUCCESS);
 }
