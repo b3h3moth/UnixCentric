@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <string.h>
 
-#define BUF_SIZE 512
+enum {BUF_SIZE = 512};
 
 static const char fname[] = "/etc/passwd";
 
