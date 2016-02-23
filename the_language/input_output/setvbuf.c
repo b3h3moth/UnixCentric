@@ -14,11 +14,15 @@ int main(void) {
     if ((fp = fopen(fname, "r"))) {
         printf("%s is open.\n", fname);
 
-        // Impostazione del buffer a 'BUF_SIZE', svuotarlo ad ogni 'new line'
+        /* Impostazione del buffer a 'BUF_SIZE'
+        _IOLBF; il buffer dev'essere svuotato  ad ogni 'new line' */
         if (setvbuf(fp, buf, _IOLBF, BUF_SIZE) != 0) {
             fprintf(stderr, "Err. setvbuf() %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
+    } else {
+        fprintf(stderr, "Err. fopen() %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
     }
 
     return(EXIT_SUCCESS);
