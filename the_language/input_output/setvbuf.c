@@ -7,6 +7,9 @@
 
 static const char fname[] = "/etc/passwd";
 
+/* Lo scopo del programma e' di impostare il buffer a una dimensione prefissata
+e leggere un file 'char by char' */
+
 int main(void) {
     char buf[BUF_SIZE];
     int ch;
