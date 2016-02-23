@@ -3,7 +3,7 @@
 
 #define BUF_SIZE 1024
 
-static const char[] = "/etc/passwd";
+static const char fname[] = "/etc/passwd";
 
 int main(void) {
     char buf[BUF_SIZE];
