@@ -29,6 +29,11 @@ int main(int argc, char *argv[]) {
     free_min = (argc > 4) ? strtol(argv[4], NULL, 10) : 1;
     free_max = (argc > 5) ? strtol(argv[5], NULL, 10) : n_alloc;
 
+    if (free_max > n_alloc) {
+        fprintf(stderr, "Err. free_max > num_allocs\n");
+        exit(EXIT_FAILURE);
+    }
+
 
     return(EXIT_SUCCESS);
 }
