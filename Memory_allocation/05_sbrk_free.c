@@ -6,6 +6,19 @@
 
 #define MAX_SIZE_ALLOC 1000000
 
+/* Lo scopo del programma e' di verificare le conseguenze della chiamata free()
+in relazione al 'program break'. Il programma alloca blocchi di memoria 
+multipli, dopodiche' alcuni o tutti i blocchi saranno liberati, a seconda degli
+argomenti forniti dalla linea di comando.
+- Il primo argomento specifica il numero dei blocchi.
+- Il secondo argomento indica la grandezza dei blocchi.
+- Il terzo argomento riguarda gli step del loop da attivare per liberare la 
+  memoria: 1 libera ogni blocco (default), 2, libera ogni secondo blocco e 
+  cosi' via.
+- Il quarto e il quinto argomento indicano il range di blocchi da liberare; se 
+  sono omessi, tutti i blocchi allocati saranno liberati.
+*/
+
 int main(int argc, char *argv[]) {
     char *ptr[MAX_SIZE_ALLOC];
     int free_min, free_step, free_max, block_size, n_alloc;
