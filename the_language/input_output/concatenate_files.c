@@ -5,6 +5,9 @@
 
 enum { BUF_MAX = 64 };
 
+/* Lo scopo del programma e' di stampare su stdout uno o piu' file ricevuti
+in input, una sorta di simulazione del comando 'cat' */
+
 int main(int argc, char *argv[]) {
     // Inizializza a 0 buf (si sarebbe potuto utilizzare memset())
     char buf[BUF_MAX] = {0};
