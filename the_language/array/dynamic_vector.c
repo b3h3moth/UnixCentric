@@ -1,46 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* IMPLEMENTAZIONE DI UN VETTORE DINAMICO
- *******************************************************************************
- * Realizzazione di un vettore dinamico, l'ampiezza dello stesso sara' decisa a
- * run-time dall'utente, l'utente inoltre dovra' inizializzare ciascun elemento,
- * dopodiche' ciascun elemento sara' stampato in output.
- */
+typedef int DataType;
+typedef DataType *VectorDataType;
 
-/* Si definisce il tipo di dato con cui lavorare, un intero di tipo int, si
- * realizza inoltre il nuovo tipo di dato con cui gestire la memoria dinamica,
- * un puntatore ad intero nel caso specifico. */
-typedef int TipoDato;
-typedef TipoDato *DatoVettore;
+/* Lo scopo del programma e' di realizzare un vettore dinamico, il numero degli
+elementi pertanto sara' definito dall'utente a run-time. */
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	int size, i;
-	DatoVettore vettore_dinamico;
+	VectorDataType vec;
 
-	printf("Definire l'ampiezza del vettore: ");
+	printf("Enter vector size: ");
 	scanf("%d", &size);
 
-	/* Si alloca la memoria corretta, da notare l'utilizzo del tipo di dato che
-	 * e' stato scelto all'inizio dell'implementazione; cosi' facendo, qualora
-	 * si volesse utilizzare un tipo di dato diverso da int, si potra' gestire
-	 * tale operazione direttamente mediante l'istruzione typedef, rendendo il
-	 * programma il piu' generale possibile. */
-	vettore_dinamico = malloc(size * sizeof(TipoDato));
+    // Allocazione della memoria definita dall'utente
+	vec = malloc(size * sizeof(DataType));
 
-	/* Si riempie il vettore */
+	// Inizializzazione del vettore
 	printf("Inizializzazione vettore\n");
 	for (i=0; i<size; i++) {
-		printf("Immettere un intero per il (%d°) elemento: ", i+1);
-		scanf("%d", &vettore_dinamico[i]);
+		printf("Init element (%.2d), give me an integer: ", i+1);
+		scanf("%d", &vec[i]);
 	}
 
+    // Stampa ciascun elemento del vettore
 	for (i=0; i<size; i++)
-		printf("vettore[%d]= %d\n", i, vettore_dinamico[i]);
+		printf("vec[%d]:\'%d\'\n", i, vec[i]);
 
-	/* Si rilascia la memoria precedentemente allocata */
-	free(vettore_dinamico);
+	// Si libera la memoria
+	free(vec);
 
 	return(EXIT_SUCCESS);
 }
