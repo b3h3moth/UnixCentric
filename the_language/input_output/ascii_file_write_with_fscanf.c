@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <sys/utsname.h>
 
+#define UTSNAME_MEMBER_SIZE    5
+
 /* Lo scopo del programma e' di scrivere talune informazioni circa il kernel
 in uso all'interno del file ascii 'filename'. */
 
@@ -11,7 +13,7 @@ void set_hostname_info(char *arg, char **vec);
 
 int main(void) {
     struct utsname buf;
-    char *hostinfo[3];
+    char *hostinfo[UTSNAME_MEMBER_SIZE];
     char fname[] = "db.txt";
     FILE *fout;
 
@@ -29,7 +31,7 @@ int main(void) {
     set_hostname_info(buf.release, &hostinfo[1]);
     set_hostname_info(buf.version, &hostinfo[2]);
 
-    for (int i=0; i<3; i++)
+    for (int i=0; i<UTSNAME_MEMBER_SIZE; i++)
         fprintf(fout, "%s\n", hostinfo[i]);
 
     fclose(fout);
