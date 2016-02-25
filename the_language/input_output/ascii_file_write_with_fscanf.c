@@ -27,6 +27,9 @@ int main(void) {
 }
 
 void set_hostname_info(char *arg, char **vec) {
-    *vec = malloc(sizeof(strlen(arg)));
+    if ((*vec = malloc(sizeof(strlen(arg)))) == NULL) {
+        fprintf(stderr, "Err. malloc(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
     strcpy(*vec, arg);
 }
