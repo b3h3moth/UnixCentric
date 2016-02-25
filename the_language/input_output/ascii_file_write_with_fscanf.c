@@ -39,6 +39,8 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+/* Alloca la memoria necessaria per una stringa, dopodiche' scrive la stringa 
+stessa all'interno dell'array di puntatori 'vec' */
 void set_hostname_info(char *arg, char **vec) {
     if ((*vec = malloc(sizeof(strlen(arg)))) == NULL) {
         fprintf(stderr, "Err. malloc(), %s\n", strerror(errno));
