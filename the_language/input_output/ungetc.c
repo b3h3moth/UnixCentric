@@ -7,6 +7,7 @@ interi, dopodiche' stamparle sullo stdout.  */
 
 int main(void) {
     int ch, value;
+    fputs("Write any integer do you want: ", stdout);
 
     while ((ch = fgetc(stdin)) != EOF && isdigit(ch)) {
         value *= 10;
