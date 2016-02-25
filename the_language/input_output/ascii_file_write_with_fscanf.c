@@ -13,6 +13,13 @@ void set_hostname_info(char *arg, char **vec);
 int main(void) {
     struct utsname buf;
     char *hostinfo[3];
+    char fname[] = "db.txt";
+    FILE *fin;
+
+    if ((fin = fopen(fname, "w")) == NULL) {
+        fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     if (uname(&buf) == -1) {
         fprintf(stderr, "Err. uname(), %s\n", strerror(errno));
@@ -31,5 +38,6 @@ void set_hostname_info(char *arg, char **vec) {
         fprintf(stderr, "Err. malloc(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
     strcpy(*vec, arg);
 }
