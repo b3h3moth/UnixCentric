@@ -4,9 +4,8 @@
 #include <errno.h>
 #include <sys/utsname.h>
 
-/* Lo scopo del programma e' di scrivere all'interno del file ascii 'filename'
-per evitare messaggi di warning dal compilatore sarebbe meglio compilare con
-l'opzione _D_BSD_SOURCE */
+/* Lo scopo del programma e' di scrivere talune informazioni circa il kernel
+in uso all'interno del file ascii 'filename'. */
 
 void set_hostname_info(char *arg, char **vec);
 
