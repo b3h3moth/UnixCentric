@@ -40,4 +40,6 @@ int main(void) {
 void set_hostname_info(char *arg, char *vec) {
     vec = malloc(sizeof(strlen(arg)));
     strcpy(vec, arg);
+    printf(vec);
+    printf(arg);
 }
