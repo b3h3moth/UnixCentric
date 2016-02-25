@@ -14,9 +14,9 @@ int main(void) {
     struct utsname buf;
     char *hostinfo[3];
     char fname[] = "db.txt";
-    FILE *fin;
+    FILE *fout;
 
-    if ((fin = fopen(fname, "w")) == NULL) {
+    if ((fout = fopen(fname, "w")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
@@ -29,6 +29,12 @@ int main(void) {
     set_hostname_info(buf.sysname, &hostinfo[0]);
     set_hostname_info(buf.release, &hostinfo[1]);
     set_hostname_info(buf.version, &hostinfo[2]);
+
+    for (int i=0; i<3; i++)
+        fprintf(fout, "%s\n", hostinfo[i]);
+
+    fclose(fout);
+
 
     return(EXIT_SUCCESS);
 }
