@@ -35,6 +35,7 @@ int main(void) {
 
     fclose(fout);
 
+    fprintf(stdout, "File \'%s\' was written\n", fname);
 
     return(EXIT_SUCCESS);
 }
