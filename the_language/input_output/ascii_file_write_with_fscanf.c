@@ -26,10 +26,12 @@ int main(void) {
         fprintf(stderr, "Err. uname(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
-
-    set_hostname_info(buf.sysname, &hostinfo[0]);
-    set_hostname_info(buf.release, &hostinfo[1]);
-    set_hostname_info(buf.version, &hostinfo[2]);
+                                                   // Equivalent to:
+    set_hostname_info(buf.sysname,  &hostinfo[0]); //   *(&hostinfo)
+    set_hostname_info(buf.nodename, &hostinfo[1]); //   *(&hostinfo)+1
+    set_hostname_info(buf.release,  &hostinfo[2]); //   *(&hostinfo)+2
+    set_hostname_info(buf.version,  &hostinfo[3]); //   *(&hostinfo)+3
+    set_hostname_info(buf.machine,  &hostinfo[4]); //   *(&hostinfo)+4
 
     for (int i=0; i<UTSNAME_MEMBER_SIZE; i++)
         fprintf(fout, "%s\n", hostinfo[i]);
