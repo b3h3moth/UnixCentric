@@ -33,12 +33,14 @@ int main(void) {
     set_hostname_info(buf.version,  &hostinfo[3]); //   *(&hostinfo)+3
     set_hostname_info(buf.machine,  &hostinfo[4]); //   *(&hostinfo)+4
 
-    for (int i=0; i<UTSNAME_MEMBER_SIZE; i++)
+    for (int i=0; i<UTSNAME_MEMBER_SIZE; i++) {
         fprintf(fout, "%s\n", hostinfo[i]);
+        fprintf(stdout, "%s\n", hostinfo[i]);
+    }
 
     fclose(fout);
 
-    fprintf(stdout, "File \'%s\' was written\n", fname);
+    fprintf(stdout, "\n(Filename: \'%s\')\n", fname);
 
     return(EXIT_SUCCESS);
 }
@@ -46,7 +48,7 @@ int main(void) {
 /* Alloca la memoria necessaria per una stringa, dopodiche' scrive la stringa 
 stessa all'interno dell'array di puntatori 'vec' */
 void set_hostname_info(char *arg, char **vec) {
-    if ((*vec = malloc(sizeof(strlen(arg)))) == NULL) {
+    if ((*vec = malloc(strlen(arg))) == NULL) {
         fprintf(stderr, "Err. malloc(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
