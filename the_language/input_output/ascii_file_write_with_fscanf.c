@@ -16,6 +16,7 @@ int main(void) {
     char *hostinfo[UTSNAME_MEMBER_SIZE];
     char fname[] = "db.txt";
     FILE *fin, *fout;
+    int ch;
 
     if ((fout = fopen(fname, "w")) == NULL) {
         fprintf(stderr, "Err.writing file, fopen(), %s\n", strerror(errno));
@@ -40,12 +41,17 @@ int main(void) {
 
     fclose(fout);
 
-    fprintf(stdout, "\n(Filename: \'%s\')\n", fname);
+    fprintf(stdout, "(Reading from filename: \'%s\')\n", fname);
 
     if ((fin = fopen(fname, "r")) == NULL) {
         fprintf(stderr, "Err.reading file fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    while ((ch = fgetc(fin)) != EOF) 
+        fputc(ch, stdout);
+
+    fclose(fin);
 
     return(EXIT_SUCCESS);
 }
