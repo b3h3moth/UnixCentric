@@ -15,10 +15,10 @@ int main(void) {
     struct utsname buf;
     char *hostinfo[UTSNAME_MEMBER_SIZE];
     char fname[] = "db.txt";
-    FILE *fout;
+    FILE *fin, *fout;
 
     if ((fout = fopen(fname, "w")) == NULL) {
-        fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
+        fprintf(stderr, "Err.writing file, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
@@ -35,12 +35,17 @@ int main(void) {
 
     for (int i=0; i<UTSNAME_MEMBER_SIZE; i++) {
         fprintf(fout, "%s\n", hostinfo[i]);
-        fprintf(stdout, "%s\n", hostinfo[i]);
+        //fprintf(stdout, "%s\n", hostinfo[i]);
     }
 
     fclose(fout);
 
     fprintf(stdout, "\n(Filename: \'%s\')\n", fname);
+
+    if ((fin = fopen(fname, "r")) == NULL) {
+        fprintf(stderr, "Err.reading file fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
