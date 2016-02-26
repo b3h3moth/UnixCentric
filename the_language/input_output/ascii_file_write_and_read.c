@@ -7,7 +7,8 @@
 #define UTSNAME_MEMBER_SIZE    5
 
 /* Lo scopo del programma e' di scrivere talune informazioni circa il kernel
-in uso all'interno del file ascii 'filename'. */
+in uso all'interno del file ascii 'filename', dopodiche' leggere dal file
+stesso e stampare in output il risultato. */
 
 void set_hostname_info(char *arg, char **vec);
 
