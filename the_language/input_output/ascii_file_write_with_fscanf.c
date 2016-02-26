@@ -26,7 +26,7 @@ int main(void) {
         fprintf(stderr, "Err. uname(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
-                                                   // Equivalent to:
+                                                   // Equivalente a:
     set_hostname_info(buf.sysname,  &hostinfo[0]); //   *(&hostinfo)
     set_hostname_info(buf.nodename, &hostinfo[1]); //   *(&hostinfo)+1
     set_hostname_info(buf.release,  &hostinfo[2]); //   *(&hostinfo)+2
