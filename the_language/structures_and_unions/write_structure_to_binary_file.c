@@ -16,12 +16,14 @@ typedef struct rec Record;
 
 /* The program's purpose is to write a full structure inside a binary file, 
 read the binary file and store data inside a new structure, and then print out
-the result. */
+the result. 
+
+Rember we are working with binary file, 'cat' commant doesn't work on it */
 
 int main(void) {
     Record *address_book, *address_book_backup;
     FILE *fin, *fout;
-    char *filedata = "db.txt";
+    char *filedata = "db.bin";
     char *my_alias = "b3h3m0th";
     char *my_mail = "mymail@email.org";
 
