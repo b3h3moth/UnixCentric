@@ -4,7 +4,7 @@
 #include <string.h>
 #include <errno.h>
 #include <assert.h>
-#include "xmalloc.h"
+#include "malloc_two.h"
 
 /* L'allocazione della memoria sara' effettuata mediante una linked-list,
 'base_heap' e' una variabile puntatore globale che punta alla testa della 
@@ -55,7 +55,7 @@ t_mem_block request_heap(t_mem_block last, size_t size) {
 }
 
 // Mediante le due funzioni precedenti, alloca la memoria necessaria
-void *xmalloc(size_t size) {
+void *malloc_two(size_t size) {
     t_mem_block block, last;
 
     if (size <= 0)
@@ -91,7 +91,7 @@ t_mem_block get_ptr_block(void *ptr) {
 }
 
 // Libera i blocchi di memoria utilizzati
-void xfree(void *ptr) {
+void free_two(void *ptr) {
     if (!ptr)
         return;
 
