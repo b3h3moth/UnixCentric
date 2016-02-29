@@ -8,10 +8,10 @@ int main(void) {
     const unsigned int size = strlen(title);
 
     // malloc_one() testing function
-    void *ptr = (char *)malloc_one(size);
-    strncpy(ptr, title, strlen(title)+1);
+    //void *ptr = (char *)malloc_one(size);
+    //strncpy(ptr, title, strlen(title)+1);
 
-    printf("%s\n", ptr);
+    //printf("%s\n", ptr);
 
     return(EXIT_SUCCESS);
 }
