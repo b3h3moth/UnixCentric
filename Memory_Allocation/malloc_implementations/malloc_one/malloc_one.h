@@ -1,5 +1,5 @@
-#ifndef YMALLOC
-#define YMALLOC
+#ifndef MALLOC_ONE_H
+#define MALLOC_ONE_H
 
 #include <stdio.h>
 
@@ -11,6 +11,6 @@ struct memory_block {
 // Prototipi
 void init_alloc(void);
 void free_mem(void *first_byte);
-void my_mallocb(size_t size);
+void malloc_one(size_t size);
 
 #endif

@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "zmalloc.h"
+#include "malloc_one.h"
 
 // L'allocatore e' inizializzato
 int init_allocator = 0;
@@ -32,7 +32,7 @@ void free_mem(void *first_byte) {
 }
 
 // Assegna tanta memoria quanta richiesta da 'size'
-void my_mallocb(size_t size) {
+void malloc_one(size_t size) {
     void *cur_location;
     struct memory_block *cur_block;
     void *location;
