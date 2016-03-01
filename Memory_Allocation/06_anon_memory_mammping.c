@@ -46,7 +46,7 @@ In caso di successo, ritorna un puntatore all'area mappata; in caso di errore
 restituisce MAP_FAILED, ovvero (void *)-1.
 
 Nota: Riguardo l'eliminazione del mapping.
-      Allorquando un processe termina la propria esecuzione, il mapping viene
+      Allorquando un processo termina la propria esecuzione, il mapping viene
       cancellato automaticamente, comprese eventuali modifiche salvate su 
       disco nel caso in cui fosse stata utilizzata la protezione MAP_SHARED.
 
