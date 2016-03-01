@@ -6,8 +6,9 @@
 #define MAX_LEN  50
 
 /* Lo scopo del programma e' di inizializzare un array di MAX_LEN elementi 
-con un numero casuale, dopodiche' scrivere l'intero array in file binario 
-mediante la funzione fwrite(). Infine leggere i dati scritti.  */
+con un numero casuale (1 < N < 1000), dopodiche' scrivere l'intero array in un
+file binario mediante la funzione fwrite(). Infine leggere i dati scritti
+copiando ciascun valore in una copia dell'array di partenza.*/
 
 int main(void) {
     FILE *fout, *fin;
@@ -30,7 +31,7 @@ int main(void) {
     }
 
     for (int i=0; i<MAX_LEN; i++)
-        *(data + i) = rand() % 100;
+        *(data + i) = rand() % 1000;
 
     n = fwrite(data, sizeof(data[0]), sizeof(data)/sizeof(data[0]), fout);
     fclose(fout);
@@ -47,7 +48,7 @@ int main(void) {
     }
 
     n = fread(datacopy, sizeof(int), MAX_LEN, fin);
-    for(int i=0; i<MAX_LEN; i++)
+    for(int i=0; i<n; i++)
         printf("data[%d] = %d\n", i, datacopy[i]);
 
     fclose(fin);
