@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #define MAX_LEN  100
 
@@ -22,6 +23,11 @@ int main(void) {
     */
 
     fp = fopen("file.txt", "w");
+
+    if (fp == NULL) {
+        perror("fopen");
+        exit(EXIT_FAILURE);
+    }
 
     fwrite(&vec, sizeof(vec[0]), sizeof(vec)/sizeof(vec[0]), fp);
 
