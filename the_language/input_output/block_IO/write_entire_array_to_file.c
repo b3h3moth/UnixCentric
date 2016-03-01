@@ -11,6 +11,8 @@ mediante la funzione fwrite() */
 int main(void) {
     FILE *fp;
     char *binfile = "data.bin";
+    int data[MAX_LEN];
+
     /*
     const char *unix_os[] = { 
         "Debian GNU/Linux", "OpenBSD", "FreeBSD", 
@@ -18,7 +20,6 @@ int main(void) {
         "OpenSolaris", "AIX", "Minix"
     };
     */
-    int vec[] = { 1,2,3,4,5,6,7,8,9,10};
 
     fp = fopen("file.txt", "w");
 
