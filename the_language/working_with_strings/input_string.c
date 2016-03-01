@@ -6,7 +6,12 @@ int main(void) {
     
     printf("Type a string: ");
     while ((ch = getchar()) != '\n') {
-        if (i < 99) {
-
+        if (i < 99)
+            line[i++] = c;
+        else {
+            printf("maximum string\n");
+            exit(1);
+        }
+    }
     return(EXIT_SUCCESS);
 }
