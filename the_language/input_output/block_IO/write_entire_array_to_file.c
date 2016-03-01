@@ -22,12 +22,15 @@ int main(void) {
     };
     */
 
-    fp = fopen("file.txt", "w");
+    fp = fopen("file.txt", "wb");
 
     if (fp == NULL) {
         perror("fopen");
         exit(EXIT_FAILURE);
     }
+
+    for (int i=0; i<MAX_LEN; i++)
+        *(data + i) = random();
 
     fwrite(&vec, sizeof(vec[0]), sizeof(vec)/sizeof(vec[0]), fp);
 
