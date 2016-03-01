@@ -10,6 +10,7 @@ mediante la funzione fwrite() */
 
 int main(void) {
     FILE *fp;
+    char *binfile = "data.bin";
     /*
     const char *unix_os[] = { 
         "Debian GNU/Linux", "OpenBSD", "FreeBSD", 
