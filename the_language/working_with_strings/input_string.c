@@ -10,7 +10,7 @@ int main(void) {
             line[i++] = c;
         else {
             printf("maximum string\n");
-            exit(1);
+            exit(EXIT_FAILURE);
         }
     }
     return(EXIT_SUCCESS);
