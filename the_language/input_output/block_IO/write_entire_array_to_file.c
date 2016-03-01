@@ -4,8 +4,9 @@
 
 #define MAX_LEN  100
 
-/* Lo scopo del programma e' di scrivere un intero array all'all'inerno di un
-file mediante una sola chiamata, utilizzando la funzione fwrite(). */
+/* Lo scopo del programma e' di inizializzare un array di MAX_LEN elementi 
+con un numero casuale, dopodiche' scrivere l'intero array in file binario 
+mediante la funzione fwrite() */
 
 int main(void) {
     FILE *fp;
