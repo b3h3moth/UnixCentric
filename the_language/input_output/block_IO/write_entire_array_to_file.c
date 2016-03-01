@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_LEN  100
+
 /* Lo scopo del programma e' di scrivere un intero array all'all'inerno di un
 file mediante una sola chiamata, utilizzando la funzione fwrite(). */
 
