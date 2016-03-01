@@ -6,6 +6,7 @@ int main(void) {
     
     printf("Type a string: ");
     while ((ch = getchar()) != '\n') {
+        if (i < 99) {
 
     return(EXIT_SUCCESS);
 }
