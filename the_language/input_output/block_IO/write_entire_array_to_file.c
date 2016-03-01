@@ -10,7 +10,7 @@ con un numero casuale, dopodiche' scrivere l'intero array in file binario
 mediante la funzione fwrite() */
 
 int main(void) {
-    FILE *fp;
+    FILE *fout, *fin;
     char *binfile = "data.bin";
     int data[MAX_LEN], n;
 
@@ -22,19 +22,31 @@ int main(void) {
     };
     */
 
-    fp = fopen(binfile, "wb");
+    fout = fopen(binfile, "wb");
 
-    if (fp == NULL) {
-        perror("fopen");
+    if (fout == NULL) {
+        perror("fopen()");
         exit(EXIT_FAILURE);
     }
 
     for (int i=0; i<MAX_LEN; i++)
         *(data + i) = rand();
 
-    n = fwrite(data, sizeof(data[0]), sizeof(data)/sizeof(data[0]), fp);
+    n = fwrite(data, sizeof(data[0]), sizeof(data)/sizeof(data[0]), fout);
+    printf("Written \'%d\' elements and \'%d\' byte to file: \'%s\'\n", \
+            n, n * sizeof(int), binfile);
 
-    fclose(fp);
+    fclose(fout);
+
+    // Lettura dal file binario appena creato 'binfile'
+    fin = fopen(binfile, "r");
+
+    if (fout == NULL) {
+        perror("fopen()");
+        exit(EXIT_FAILURE);
+    }
+
+
 
     return(EXIT_SUCCESS);
 }
