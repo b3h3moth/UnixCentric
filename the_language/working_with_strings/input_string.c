@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_BUF 50
+
+/* Lo scopo del programma e' di ricevere una stringa in input e costruirla
+come tale mediante un vettore di caratteri della medesima lunghezza */
 
 int main(void) {
     char ch, buf[MAX_BUF];
