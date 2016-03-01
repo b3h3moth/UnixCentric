@@ -4,6 +4,7 @@
 #include <errno.h>
 
 #define MAX_STR 16
+#define MAX_BUF 32
 
 struct rec {
     char name[MAX_STR];
@@ -17,26 +18,34 @@ typedef struct rec Record;
 
 int main(void) {
     Record *db;
-    FILE *fout;
+    FILE *fout, *fin;
     char fname[] = "db.txt";
+    char buf[MAX_STR];
 
     db = malloc(sizeof(Record));
     strcpy(db->name, "Mister");
     db->age = 40;
     strcpy(db->surname, "B3h3m0th");
 
-    // Open an 'ascii' file
+    // Open an 'ascii' file and then write data
     if ((fout = fopen(fname, "w+")) == NULL) {
         fprintf(stderr, "Err.(%d) fopen(); %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
     
     fprintf(fout, "%s\n%s\n%d\n", db->name, db->surname, db->age);
-    
     fclose(fout);
 
-    // $ cat db.txt 
-    // and reading structure data
+    // Read data from 'fname'
+    if ((fin = fopen(fname, "r")) == NULL) {
+        fprintf(stderr, "Err.(%d) fopen(); %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    while (fgets(buf, MAX_BUF, fin))
+        fputs(buf, stdout);
+
+    fclose(fin);
 
     return(EXIT_SUCCESS);
 }
