@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+/* Lo scopo del programma e' di leggere uno o piu' file in input e di stampare
+su stdout i caratteri speciali */
+
 int main(void) {
     int ch;
 
