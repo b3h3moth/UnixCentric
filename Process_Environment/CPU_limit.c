@@ -3,7 +3,10 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/time.h>
 #include <sys/resource.h>
+
+/* Compile the program with _GNU_SOURCE macro */
 
 int main(void) {
     struct rlimit res_lim;
@@ -27,8 +30,8 @@ int main(void) {
             exit(EXIT_FAILURE);
         }
         
-        printf("Limits: soft=%d; hard=%d\n", res_lim.rlim_cur, 
-                res_lim.rlim_max);
+        printf("Limits: soft=%d; hard=%d\n", (int)res_lim.rlim_cur, 
+                (int)res_lim.rlim_max);
     } else {
 
         if (prlimit(pid, RLIMIT_CPU, NULL, &res_lim) == -1) {
@@ -36,8 +39,8 @@ int main(void) {
             exit(EXIT_FAILURE);
         }
 
-        printf("Limits: soft=%d; hard=%d\n", res_lim.rlim_cur, 
-                res_lim.rlim_max);
+        printf("Limits: soft=%d; hard=%d\n", (int)res_lim.rlim_cur, 
+                (int)res_lim.rlim_max);
     }
 
     return(EXIT_SUCCESS);
