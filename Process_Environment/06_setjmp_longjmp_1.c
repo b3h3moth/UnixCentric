@@ -20,15 +20,15 @@ HEADER    : <setjmp.h>
 PROTOTYPE : int setjmp(jmp_buf env);
 SEMANTICS : La funzione setjmp() salva lo stack, contesto/ambiente corrente, 
             nella variabile 'env', per essere utilizzata successivamente da 
-	    longjmp().
+	        longjmp().
 RETURNS   : 0 se chiamata direttamente, non zero se ritorna da longjmp()
 --------------------------------------------------------------------------------
 HEADER    : <setjmp.h>
 PROTOTYPE : int longjmp(jmp_buf env, int val);
 SEMANTICS : La funzione longjmp() restituisce l'ambiente salvato dall'ultima
             chiamata a setjmp() mediante la variabile 'env'; dopo aver 
-	    completato l'esecuzione restituisce il controllo a setjmp() che
-	    restituira' 'val'.
+	        completato l'esecuzione restituisce il controllo a setjmp() che
+	        restituira' 'val'.
 RETURNS   : Non ritorna
 --------------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ void func_two(void)
 {
     printf("func_two() begins\n");
     
-    /* Si ritorna alla istruzione successiva alla chiamaa setjmp(), da notare
+    /* Si ritorna all'istruzione successiva alla chiamaa setjmp(), da notare
     che impostando val a 0, si avra' un valore di ritorno comunque diverso da
     0; in questo caso tuttavia si e' optato per un valore facilmente verificale
     al ritorno della setjmp(). */
