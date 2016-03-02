@@ -8,16 +8,16 @@ su stdout i caratteri speciali */
 
 int main(int argc, char *argv[]) {
     int ch;
-    int show = 0; // mostra caratteri speciali se attivata
+    int strip = 0; // taglia dalla visione i caratteri speciali
 
     if (argc > 1 && strcmp(argv[1], "-s") == 0)
-        show = 1;
+        strip = 1;
 
     while ((ch = getchar()) != EOF) {
-        if (show)
-            printf("\\%03o", ch);
-        else if (isascii(ch) && (isprint(ch) || ch == '\n' || ch == '\t' || ch == ' '))
+        if (isascii(ch) && (isprint(ch) || ch == '\n' || ch == '\t' || ch == ' '))
             fputc(ch, stdout);
+        else if (!strip)
+            printf("\\%03o", ch);
     }
 
     return(EXIT_SUCCESS);
