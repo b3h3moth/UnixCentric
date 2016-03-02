@@ -15,11 +15,12 @@ static int globval;
 compilatore o senza, utilizzando peraltro salti non locali "nonlocal jumps".
 
 Compilare il sorgente normalmente:
-gcc code.c
+$ gcc -std=c11 -Wall -pedantic code.c
 
 E dopo con l'ottimizzazione:
-gcc -O code.c
+$ gcc -std=c11 -Wall -pedantic -O1 code.c
 */
+
 int main(void) {
     int autoval;
     register int regival;
