@@ -3,13 +3,12 @@
 #include <string.h>
 #include <ctype.h>
 
-static int strip = 0; // taglia dalla visione i caratteri speciali
-
 /* Lo scopo del programma e' di leggere uno o piu' file in input e di stampare
 su stdout i caratteri speciali */
 
 int main(int argc, char *argv[]) {
     int ch;
+    int strip = 0; // taglia dalla visione i caratteri speciali
 
     while (argc > 1 && argv[1][0] == '-') {
         switch (argv[1][1]) {
@@ -26,8 +25,6 @@ int main(int argc, char *argv[]) {
 }
 
 void visible_chars(FILE *fp) {
-    int ch;
-
     while ((ch = getchar()) != EOF) {
         if (isascii(ch) && (isprint(ch) || ch == '\n' || ch == '\t' || ch == ' '))
             fputc(ch, stdout);
