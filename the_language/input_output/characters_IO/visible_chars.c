@@ -39,3 +39,5 @@ void visible_chars(FILE *fp) {
     }
 }
 
+/* Note sulla compilazione, l'uso di isascii() prevede l'utilizzo della macro
+_BSD_SOURCE affinche' non compaiano i messaggi di Warning su stdout */
