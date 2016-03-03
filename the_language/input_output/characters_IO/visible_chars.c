@@ -14,7 +14,6 @@ su stdout i caratteri speciali */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
-    int ch;
 
     while (argc > 1 && argv[1][0] == '-') {
         switch (argv[1][1]) {
@@ -48,10 +47,14 @@ void visible_chars(FILE *fp) {
     int ch;
 
     while ((ch = getchar()) != EOF) {
-        if (isascii(ch) && (isprint(ch) || ch == '\n' || ch == '\t' || ch == ' '))
-            fputc(ch, stdout);
-        else if (!strip)
+        if (isascii(ch) && isprint(ch)) {
+            if (ch == '\n' || ch == '\t' || ch == ' ')
+                printf(" \\%03o", ch);
+            else
+                putchar(ch);
+        } else if (!strip)
             printf("\\%03o", ch);
+            
     }
 }
 
