@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 /* Lo scopo del programma e' di leggere uno o piu' file in input e di stampare
-su stdout i caratteri speciali */
+su stdout il/i file compresi alcuni caratteri speciali */
 
 int main(int argc, char *argv[]) {
     int ch;
@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
     while ((ch = getchar()) != EOF) {
         if (isascii(ch) && (isprint(ch) || ch == '\n' || ch == '\t' || ch == ' '))
-            fputc(ch, stdout);
+            putchar(ch);
         else if (!strip)
             printf("\\%03o", ch);
     }
