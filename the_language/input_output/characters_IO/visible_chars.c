@@ -23,6 +23,8 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "%s: Unknow argument %s\n", argv[0], argv[1]);
                 exit(EXIT_FAILURE);
         }
+        argc--;
+        argv++;
     }
 
     return(EXIT_SUCCESS);
