@@ -7,8 +7,9 @@
 su stdout il/i file compresi alcuni caratteri speciali */
 
 int main(int argc, char *argv[]) {
+    FILE *fp;
     int ch;
-    int strip = 0; // taglia dalla visione i caratteri speciali
+    static int strip = 0; // taglia dalla visione i caratteri speciali
 
     if (argc > 1 && strcmp(argv[1], "-s") == 0)
         strip = 1;
