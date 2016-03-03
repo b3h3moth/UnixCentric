@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <ctype.h>
 
 static int strip = 0; // taglia dalla visione i caratteri speciali
@@ -12,6 +13,7 @@ void visible_chars(FILE *fp);
 su stdout i caratteri speciali */
 
 int main(int argc, char *argv[]) {
+    FILE *fp;
     int ch;
 
     while (argc > 1 && argv[1][0] == '-') {
@@ -27,6 +29,18 @@ int main(int argc, char *argv[]) {
         argv++;
     }
 
+    if (argc == 1)
+        visible_chars(stdin);
+    else
+        for (int i=0; i<argc; i++)
+            if ((fp = fopen(argv[i], "r")) == NULL) {
+                fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
+                exit(EXIT_FAILURE);
+            } else {
+                visible_chars(fp);
+                fclose(fp);
+            }
+    
     return(EXIT_SUCCESS);
 }
 
