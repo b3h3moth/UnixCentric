@@ -8,6 +8,7 @@
 // Function prototype
 FILE *openfile(char *file, char *mode);
 void print(FILE *fp, int page_size);
+void devtty(void);
 
 /* Lo scopo del programma e' di leggere l'input una pagina alla volta, la
 dimensione della pagina, in righe naturalmente, e' definita da PAGE_SIZE */
@@ -37,6 +38,8 @@ FILE *openfile(char *file, char *mode) {
     }
 }
 
+/* Stampa PAGE_SIZE -1 linee in output, dopodiche' ogni scheramata sara'
+passata a devtty() */
 void print(FILE *fp, int page_size) {
     static int lines = 0;
     char buf[BUFSIZ];       // La grandezza del buffer di input
@@ -46,8 +49,19 @@ void print(FILE *fp, int page_size) {
             fputs(buf, stdout);
         } else {
             buf[strlen(buf)-1] = '\0';
-            //fflush(stdout);
-            //ttyin();
-            //lines = 0;
+            fflush(stdout);
+            devtty();
+            lines = 0;
         }
+}
+
+void devtty(void) {
+    char buf[BUFSIZ];
+    FILE *efopen();
+    static FILE *tty = NULL;
+
+    if (tty == NULL)
+        tty = openfile("/dev/tty", "r");
+    if (fgets(buf, BUFSIZ, tty) == NULL || buf[0] == 'q')
+        exit(EXIT_FAILURE);
 }
