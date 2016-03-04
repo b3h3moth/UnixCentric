@@ -17,7 +17,6 @@ della pagina successiva e' sufficiente 'return', oppure 'q' per uscire
 immediatamente. */
 
 int main(int argc, char *argv[]) {
-    char *program_name;
     FILE *fp;
 
     fp = openfile(argv[1], "r");
