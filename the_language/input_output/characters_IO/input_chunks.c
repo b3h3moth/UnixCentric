@@ -49,9 +49,9 @@ void print(FILE *fp, int page_size) {
             fputs(buf, stdout);
         } else {
             buf[strlen(buf)-1] = '\0';
-            fflush(stdout);
-            devtty();
-            lines = 0;
+            fflush(stdout); // Pulisce lo schermo ad ogni PAGE_SIZE -1
+            devtty();       // Legge il resto delle pagine
+            lines = 0;      // Azzera il conteggio delle linee
         }
 }
 
