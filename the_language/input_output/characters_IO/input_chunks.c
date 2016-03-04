@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errrno.h>
 
 #define PAGE_SIZE 22
 
@@ -13,7 +15,7 @@ int main(int argc, char *argv[]) {
     char *program_name;
     FILE *fp;
 
-    if (argc == 1)
+    openfile(argv[1], "r");
 
     return(EXIT_SUCCESS);
 }
