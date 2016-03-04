@@ -20,8 +20,18 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     int page_size = PAGE_SIZE;  // Valore di default dimensione pagina
 
+    if (argc > 1 && argv[1][0] == '-') {
+        page_size = strtol(&argv[1][1], NULL, 10);
+        if (page_size <= 9) {
+            fprintf(stderr, "Please page_size must be greater equals to 10\n");
+            exit(EXIT_FAILURE);
+        }
+        argc--;
+        argv++;
+    }
+
     fp = openfile(argv[1], "r");
-    print(fp, PAGE_SIZE);
+    print(fp, page_size);
 
     return(EXIT_SUCCESS);
 }
