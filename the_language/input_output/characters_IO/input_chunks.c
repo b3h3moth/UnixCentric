@@ -7,7 +7,7 @@
 
 // Function prototype
 FILE *openfile(char *file, char *mode);
-void print(FILE *fp, int size);
+void print(FILE *fp, int page_size);
 
 /* Lo scopo del programma e' di leggere l'input una pagina alla volta, la
 dimensione della pagina, in righe naturalmente, e' definita da PAGE_SIZE */
@@ -17,6 +17,7 @@ int main(int argc, char *argv[]) {
     FILE *fp;
 
     fp = openfile(argv[1], "r");
+    print(fp, PAGE_SIZE);
 
     return(EXIT_SUCCESS);
 }
@@ -36,4 +37,17 @@ FILE *openfile(char *file, char *mode) {
     }
 }
 
-void print(FILE *fp, int size);
+void print(FILE *fp, int page_size) {
+    static int lines = 0;
+    char buf[BUFSIZ];       // La grandezza del buffer di input
+
+    while (fgets(buf, sizeof(buf), fp) != NULL)
+        if (++lines < page_size) {
+            fputs(buf, stdout);
+        } else {
+            buf[strlen(buf)-1] = '\0';
+            //fflush(stdout);
+            //ttyin();
+            //lines = 0;
+        }
+}
