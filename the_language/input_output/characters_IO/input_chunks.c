@@ -12,7 +12,9 @@ void opentty(void);
 
 /* Lo scopo del programma e' di leggere lo standard input una pagina alla
 volta. La dimensione della pagina e' ottenuta mediante il conteggio delle
-linee di input ed e' definita da PAGE_SIZE.  */
+linee di input ed e' definita da PAGE_SIZE. Per andare avanti nella lettura
+della pagina successiva e' sufficiente 'return', oppure 'q' per uscire 
+immediatamente. */
 
 int main(int argc, char *argv[]) {
     char *program_name;
@@ -39,7 +41,7 @@ FILE *openfile(char *file, char *mode) {
     }
 }
 
-/* Stampa PAGE_SIZE -1 linee in output, dopodiche' ogni scheramata sara'
+/* Stampa sullo standard output una pagina, dopodiche' ogni scheramata sara'
 passata a opentty() */
 void print(FILE *fp, int page_size) {
     static int lines = 0;
@@ -56,7 +58,8 @@ void print(FILE *fp, int page_size) {
         }
 }
 
-// Invia le pagine a /dev/tty per la gestione della lettura
+/* Ciascuna nuova pagina da leggere, successiva alla prima, viene inviata
+al device '/dev/tty' */
 void opentty(void) {
     char buf[BUFSIZ];
     static FILE *tty = NULL;
