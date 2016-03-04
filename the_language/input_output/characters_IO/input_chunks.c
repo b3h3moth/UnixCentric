@@ -8,7 +8,7 @@
 // Function prototype
 FILE *openfile(char *file, char *mode);
 void print(FILE *fp, int page_size);
-void devtty(void);
+void opentty(void);
 
 /* Lo scopo del programma e' di leggere l'input una pagina alla volta, la
 dimensione della pagina, in righe naturalmente, e' definita da PAGE_SIZE */
@@ -39,7 +39,7 @@ FILE *openfile(char *file, char *mode) {
 }
 
 /* Stampa PAGE_SIZE -1 linee in output, dopodiche' ogni scheramata sara'
-passata a devtty() */
+passata a opentty() */
 void print(FILE *fp, int page_size) {
     static int lines = 0;
     char buf[BUFSIZ];       // La grandezza del buffer di input
@@ -50,13 +50,13 @@ void print(FILE *fp, int page_size) {
         } else {
             buf[strlen(buf)-1] = '\0';
             fflush(stdout); // Pulisce lo schermo ad ogni PAGE_SIZE -1
-            devtty();       // Legge il resto delle pagine
+            opentty();       // Legge il resto delle pagine
             lines = 0;      // Azzera il conteggio delle linee
         }
 }
 
 // Invia le pagine a /dev/tty per la gestione della lettura
-void devtty(void) {
+void opentty(void) {
     char buf[BUFSIZ];
     static FILE *tty = NULL;
 
