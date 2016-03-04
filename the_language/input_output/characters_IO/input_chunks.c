@@ -58,7 +58,6 @@ void print(FILE *fp, int page_size) {
 // Invia le pagine a /dev/tty per la gestione della lettura
 void devtty(void) {
     char buf[BUFSIZ];
-    FILE *efopen();
     static FILE *tty = NULL;
 
     if (tty == NULL)
