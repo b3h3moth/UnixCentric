@@ -7,17 +7,18 @@
 
 // Function prototype
 FILE *openfile(char *file, char *mode);
-void print(FILE *fp, int page_size);
+void print(FILE *fp, int pgsize);
 void opentty(void);
 
 /* Lo scopo del programma e' di leggere lo standard input una pagina alla
 volta. La dimensione della pagina e' ottenuta mediante il conteggio delle
-linee di input ed e' definita da PAGE_SIZE. Per andare avanti nella lettura
+linee di input ed e' definita da pgsize. Per andare avanti nella lettura
 della pagina successiva e' sufficiente 'return', oppure 'q' per uscire 
 immediatamente. */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
+    int page_size = PAGE_SIZE;  // Valore di default dimensione pagina
 
     fp = openfile(argv[1], "r");
     print(fp, PAGE_SIZE);
@@ -30,9 +31,7 @@ puntatore allo stream, altrimenti esce */
 FILE *openfile(char *file, char *mode) {
     FILE *fp;
 
-    fp = fopen(file, mode);
-
-    if (fp != NULL)
+    if ((fp = fopen(file, mode)) != NULL)
         return fp;
     else {
         fprintf(stderr, "Err. fopen() %s\n", strerror(errno));
@@ -42,16 +41,16 @@ FILE *openfile(char *file, char *mode) {
 
 /* Stampa sullo standard output una pagina, dopodiche' ogni scheramata sara'
 passata a opentty() */
-void print(FILE *fp, int page_size) {
+void print(FILE *fp, int pgsize) {
     static int lines = 0;
     char buf[BUFSIZ];       // La grandezza del buffer di input
 
     while (fgets(buf, sizeof(buf), fp) != NULL)
-        if (++lines < page_size) {
+        if (++lines < pgsize) {
             fputs(buf, stdout);
         } else {
             buf[strlen(buf)-1] = '\0';
-            fflush(stdout); // Pulisce lo schermo ad ogni PAGE_SIZE -1
+            fflush(stdout); // Pulisce lo schermo ad ogni pgsize -1
             opentty();      // Legge il resto delle pagine
             lines = 0;      // Azzera il conteggio delle linee
         }
