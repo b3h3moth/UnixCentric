@@ -4,8 +4,8 @@
 #include <string.h>
 #include <stdint.h>
 
-/* Lo scopo del programma e' di ricevere un file in input come argomento, di
-stampare su stdout il contenuto del file, di contare ciascun carattere del file
+/* Lo scopo del programma e' di ricevere un file in input, di stampare sullo
+standard output il contenuto del file e di contare ciascun carattere del file
 stesso, ponendo un limite al numero massimo di caratteri da salvare. */
 
 int main(int argc, char *argv[]) {
