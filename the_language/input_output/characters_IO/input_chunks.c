@@ -10,8 +10,9 @@ FILE *openfile(char *file, char *mode);
 void print(FILE *fp, int page_size);
 void opentty(void);
 
-/* Lo scopo del programma e' di leggere l'input una pagina alla volta, la
-dimensione della pagina, in righe naturalmente, e' definita da PAGE_SIZE */
+/* Lo scopo del programma e' di leggere lo standard input una pagina alla
+volta. La dimensione della pagina e' ottenuta mediante il conteggio delle
+linee di input ed e' definita da PAGE_SIZE.  */
 
 int main(int argc, char *argv[]) {
     char *program_name;
@@ -23,8 +24,8 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
-/* Apre un file, se ci riesce il puntatore al file sara' restituito al 
-chiamante, altrimenti esce */
+/* Apre uno stream in lettura, in caso di successo restituisce al chiamante un
+puntatore allo stream, altrimenti esce */
 FILE *openfile(char *file, char *mode) {
     FILE *fp;
 
@@ -50,7 +51,7 @@ void print(FILE *fp, int page_size) {
         } else {
             buf[strlen(buf)-1] = '\0';
             fflush(stdout); // Pulisce lo schermo ad ogni PAGE_SIZE -1
-            opentty();       // Legge il resto delle pagine
+            opentty();      // Legge il resto delle pagine
             lines = 0;      // Azzera il conteggio delle linee
         }
 }
