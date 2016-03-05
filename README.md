@@ -1,8 +1,7 @@
-## The meaningful art of writing UNIX programming in C ansi
+## The art of writing programs in C on UNIX Systems
 
 The purpose of this project is to create a repository with a lot and well 
-documented source code on UNIX Programming in C ansi. 
-
+documented source code on UNIX Programming in C ansi.
 
 ### Bibliography
 
@@ -26,8 +25,6 @@ A list of compilers used:
 * gcc (Debian 4.9.0-7)  4.9.0 (old)     i386 32bit
 * gcc (Debian 4.9.3-2)  4.9.3           i386 32bit
 * clang version 3.5.2-1                 i386 32bit
-
-
 
 <hr />
 
