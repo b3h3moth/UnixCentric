@@ -1,7 +1,7 @@
 ## The Art of Writing (C)ode in the UNIX Environment
 
-The purpose of this project is to create a repository with a lot and well 
-documented source code, it is totally focused on the beautiful art of writing 
+The purpose of this project is to create a repository with a lot of source
+code well documented, it is totally focused on the beautiful art of writing 
 UNIX programs in C, c11 mainly.
 
 ### How to compile programs
