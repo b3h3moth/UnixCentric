@@ -28,6 +28,6 @@ A list of compilers used:
 
 <hr />
 
-<address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>
+<address>`*Luca Suriano a.k.a. Behemoth*`: `<behemoth _at_ autistici _dot_ org>`
 
-*GPG KeyID* = 0xE83F9FBB`</address>
+`*GPG KeyID*`: `0xE83F9FBB`</address>
