@@ -7,6 +7,7 @@ documented source code on UNIX Programming in C ansi.
 ### Bibliography
 
 - **`(Unix Programming)`**
+  * **Advanced Programming in the UNIX Environment**; *Richard Stevens*, *Stephen A.Rago* (`3rd, 2013, Addison Wesley`)
 
 ### How to compile programs
 
