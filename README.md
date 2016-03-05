@@ -1,7 +1,7 @@
 ## The art of writing programs in C on UNIX Systems
 
 The purpose of this project is to create a repository with a lot and well 
-documented source code on UNIX Programming in C ansi.
+documented source code on UNIX Programming in C ansi (c11 mainly).
 
 ### Bibliography
 
@@ -28,5 +28,6 @@ A list of compilers used:
 
 <hr />
 
-<address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>`</address>
-<address>GPG Key ID: `KeyID = 0xE83F9FBB`</address>
+<address>`*Luca Suriano a.k.a. Behemoth*: <behemoth _at_ autistici _dot_ org>
+
+*GPG KeyID* = 0xE83F9FBB`</address>
