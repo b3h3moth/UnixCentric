@@ -1,7 +1,8 @@
-## The art of writing programs in C on UNIX Systems
+## The Art of Writing (C)ode in the UNIX Environment
 
 The purpose of this project is to create a repository with a lot and well 
-documented source code on UNIX Programming in C ansi (c11 mainly).
+documented source code, it is totally focused on the beautiful art of writing 
+UNIX programs in C, c11 mainly.
 
 ### How to compile programs
 
