@@ -25,6 +25,7 @@ A list of compilers used right now:
 
 - **Unix Programming**
   * **The Unix Programming Environment**; *Brian W.Kernighan*, *Rob Pike* (`1983, Prentice-Hall`)
+  * **Advanced Unix Programming**; *Marc J.Rochkind*, (`2nd, 2004, Addison Wesley`)
   * **Advanced Programming in the UNIX Environment**; *Richard Stevens*, *Stephen A.Rago* (`3rd, 2013, Addison Wesley`)
 
 <hr />
