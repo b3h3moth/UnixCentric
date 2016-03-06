@@ -15,14 +15,6 @@ int main(void) {
     char *binfile = "data.bin";
     int data[MAX_LEN], datacopy[MAX_LEN], n;
 
-    /*
-    const char *unix_os[] = { 
-        "Debian GNU/Linux", "OpenBSD", "FreeBSD", 
-        "HP-UX", "Solaris", "Mac OS X", "NetBSD", 
-        "OpenSolaris", "AIX", "Minix"
-    };
-    */
-
     fout = fopen(binfile, "wb");
 
     if (fout == NULL) {
