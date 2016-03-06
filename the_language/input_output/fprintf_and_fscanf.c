@@ -17,6 +17,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Writing file
     if ((fp = fopen(argv[1], "w")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
@@ -26,6 +27,17 @@ int main(int argc, char *argv[]) {
         val = rand() % 1000;
         fprintf(fp, "%2d %3d\n", i, val);
     }
+
+    fclose(fp);
+
+    // Reading file
+    if ((fp = fopen(argv[1], "r")) == NULL) {
+        fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+
+
     
     return(EXIT_SUCCESS);
 }
