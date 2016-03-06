@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     fclose(fp);
 
     // Reading file
-    if ((fp = fopen(argv[1], "r")) == NULL) {
+    if ((fp = fopen(argv[1], "r+")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
@@ -41,6 +41,8 @@ int main(int argc, char *argv[]) {
         fscanf(fp, "%2d %3d", &j, &val);
         data[LEN-i] = val;
     }
+
+    fprintf(fp, "\nArray elements inversion\n");
     
     return(EXIT_SUCCESS);
 }
