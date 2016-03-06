@@ -6,8 +6,9 @@
 #define LEN 50
 
 /* Lo scopo del programma e' di scrivere degli interi in un file, dopodiche'
-leggere il file scritto e inizializzare un array di LEN elementi con i valori
-letti inversi. */
+leggere dal file e inizializzare un array di LEN elementi con i valori
+invertiti. Infine scrivere sul file precedentemente aperto l'array con
+gli elementi invertiti. */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
