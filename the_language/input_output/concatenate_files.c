@@ -11,8 +11,13 @@ in input, una sorta di simulazione del comando 'cat' */
 int main(int argc, char *argv[]) {
     /* Inizializza a 0 ciascun elemento dell'array buf[]
     da notare che si sarebbe potuto utilizzare memset() */
-    char buf[BUF_MAX] = {0};
+    char buf[BUF_MAX];
     FILE *fin;
+
+    if (memset(buf, 0, BUF_MAX) == NULL) {
+        fprintf(stderr, "Err. memset(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     for (int i=1; i<argc; i++) {
         if ((fin = fopen(argv[i], "r"))) {
