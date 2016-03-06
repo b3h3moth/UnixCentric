@@ -38,12 +38,17 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    for (int i=1; i<=LEN; i++) {
+    for (int i=0; i<LEN; i++) {
         fscanf(fp, "%2d %3d", &j, &val);
         data[LEN-i] = val;
     }
 
-    fprintf(fp, "\nArray elements inversion\n");
+    fprintf(fp, "\n-----[ Array elements inversion ]-----\n");
+    for (int i=0; i<=LEN; i++) {
+        fprintf(fp, "%2d %3d\n", i, data[i]);
+    }
+
+    fclose(fp);
     
     return(EXIT_SUCCESS);
 }
