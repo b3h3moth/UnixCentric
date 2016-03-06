@@ -6,11 +6,12 @@
 #define LEN 50
 
 /* Lo scopo del programma e' di scrivere degli interi in un file, dopodiche'
-leggere il file scritto e invertire i numeri */
+leggere il file scritto e inizializzare un array di LEN elementi con i valori
+letti inversi. */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
-    int data[LEN], val;
+    int data[LEN], val, j;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -36,8 +37,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-
-
+    for (int i=1; i<=LEN; i++) {
+        fscanf(fp, "%2d %3d", &j, &val);
+        data[LEN-i] = val;
+    }
     
     return(EXIT_SUCCESS);
 }
