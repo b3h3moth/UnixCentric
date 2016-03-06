@@ -12,6 +12,11 @@ int main(int argc, char *argv[]) {
     char buf[BUF_MAX];
     FILE *fin;
 
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <filename, ...>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     // Inizializza a 0 ciascun elemento dell'array buf[]
     if (memset(buf, 0, BUF_MAX) == NULL) {
         fprintf(stderr, "Err. memset(), %s\n", strerror(errno));
