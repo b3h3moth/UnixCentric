@@ -10,11 +10,16 @@ leggere il file scritto e invertire i numeri */
 
 int main(void) {
     FILE *fp;
-    int data[LEN];
+    int data[LEN], val;
 
     if ((fp = fopen(argv[1], "w")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
+    }
+
+    for (int i=0; i<LEN; i++) {
+        val = rand % 1000;
+        fprintf(fp, "%d %d\n", i, val);
     }
 
     return(EXIT_SUCCESS);
