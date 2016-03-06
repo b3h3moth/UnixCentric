@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Writing file
+    // Open file for writing
     if ((fp = fopen(argv[1], "w")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 
     fclose(fp);
 
-    // Reading file
+    // Open file for reading
     if ((fp = fopen(argv[1], "r+")) == NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
@@ -43,6 +43,7 @@ int main(int argc, char *argv[]) {
         *(data + LEN -i) = val;
     }
 
+    // Writing file
     fprintf(fp, "\n-----[ Array elements inversion ]-----\n");
     for (int i=1; i<=LEN; i++) {
         fprintf(fp, "%2d %3d\n", i, *(data + i -1));
