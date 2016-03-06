@@ -9,11 +9,10 @@ enum { BUF_MAX = 64 };
 in input, una sorta di simulazione del comando 'cat' */
 
 int main(int argc, char *argv[]) {
-    /* Inizializza a 0 ciascun elemento dell'array buf[]
-    da notare che si sarebbe potuto utilizzare memset() */
     char buf[BUF_MAX];
     FILE *fin;
 
+    // Inizializza a 0 ciascun elemento dell'array buf[]
     if (memset(buf, 0, BUF_MAX) == NULL) {
         fprintf(stderr, "Err. memset(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
