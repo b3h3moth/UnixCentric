@@ -13,3 +13,5 @@
 * Pointer to function
 * Pointer to pointer
 * Pointer to void
+* Restricted pointer
+* Pointers and compound literals
