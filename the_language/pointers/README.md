@@ -1,4 +1,4 @@
-First of all *array and pointers are not the same*.
+#### *C arrays and pointers are not the same*
 
 ### List of arguments covered
 
