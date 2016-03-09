@@ -19,4 +19,8 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-void find_str(char str[]);
+void find_str(char str[]) {
+    for (int i=0; i<4; i++)
+        if (strstr(str[i], find_str()))
+            printf("Lyric %d: %s\n", i, str[i]);
+}
