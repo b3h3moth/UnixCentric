@@ -6,7 +6,17 @@
 /* Lo scopo del programma e' di verificare il funzionamento della funzione
 strstr() */
 
+void find_str(char str[]);
+
 int main(void) {
-    char lyrics[][MAX_LEN]
+    char lyrics[][MAX_LEN] = { 
+        "take a walk on the wild side",
+        "getup stand up standuo for your rights",
+        "could you be loved",
+        "The zion train is coming our way"
+    };
+
     return(EXIT_SUCCESS);
 }
+
+void find_str(char str[]);
