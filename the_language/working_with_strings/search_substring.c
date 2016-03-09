@@ -20,7 +20,8 @@ int main(void) {
     char buf[MAX_LEN];
 
     printf("Search: ");
-    fgets(
+    fgets(buf, MAX_LEN, stdin);
+    find_str(buf);
 
     return(EXIT_SUCCESS);
 }
