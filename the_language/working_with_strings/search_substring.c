@@ -2,13 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LEN 40
+#define MAX_LEN 50
 
 char lyrics[][MAX_LEN] = { 
         "no, we don't need no more trouble",
         "getup stand up standup for your rights",
-        "could you be loved",
-        "The zion train is coming our way"
+        "I shot the sheriff but I didn't shoot no deputy",
+        "stop that train, i'm leavin today",
+        "The zion train is coming our way",
+        "there's natural mystic blowing through the air"
 };
 
 /* Lo scopo del programma e' di verificare il funzionamento della funzione
