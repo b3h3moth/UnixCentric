@@ -28,6 +28,7 @@ int main(void) {
 
 void find_str(char str[]) {
     for (int i=0; i<4; i++)
-        if (strstr(lyrics[i], str))
+        if (strstr(lyrics[i], str)) {
             printf("Lyric %d: %s\n", i, lyrics[i]);
+        }
 }
