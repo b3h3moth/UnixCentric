@@ -12,6 +12,9 @@ struct db {
 struct db init(struct db val);
 void print_data(struct db val);
 
+/* Lo scopo del programma e' di utilizzare un compund literal, 
+nella fattispecie una struct, come argomento di una funzione. */
+
 int main(void) {
     struct db data = init((struct db){0,'m', "behemoth"});
     print_data(data);
