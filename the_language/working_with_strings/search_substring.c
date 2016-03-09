@@ -19,9 +19,6 @@ strstr() */
 void find_str(char str[]);
 
 int main(void) {
-    int len=sizeof(lyrics)/sizeof(lyrics[0]);
-    for (int i=0; i<sizeof(lyrics)/sizeof(lyrics[0]); i++)
-    printf("%d\n", len);
     char buf[MAX_LEN];
 
     printf("Search: ");
