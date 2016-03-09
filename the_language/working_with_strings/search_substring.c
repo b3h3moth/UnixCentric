@@ -6,7 +6,7 @@
 
 char lyrics[][MAX_LEN] = { 
         "no, we don't need no more trouble",
-        "getup stand up standuo for your rights",
+        "getup stand up standup for your rights",
         "could you be loved",
         "The zion train is coming our way"
 };
