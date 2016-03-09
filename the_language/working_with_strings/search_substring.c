@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_LEN 40
 
@@ -26,6 +27,6 @@ int main(void) {
 
 void find_str(char str[]) {
     for (int i=0; i<4; i++)
-        if (strstr(str[i], ))
-            printf("Lyric %d: %s\n", i, str[i]);
+        if (strstr(lyrics[i], str))
+            printf("Lyric %d: %s\n", i, lyrics[i]);
 }
