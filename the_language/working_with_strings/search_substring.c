@@ -21,6 +21,12 @@ int main(void) {
 
     printf("Search: ");
     fgets(buf, MAX_LEN, stdin);
+    for (int i=0; i<strlen(buf); i++) {
+        if (buf[i] == '\n') {
+            buf[i] = '\0';
+            break;
+        }
+    }
     find_str(buf);
 
     return(EXIT_SUCCESS);
