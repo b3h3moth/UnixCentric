@@ -17,21 +17,14 @@ char lyrics[][MAX_LEN] = {
 strstr() */
 
 void find_str(char str[]);
-void remove_newline(char str[]);
+void remove_newline(char *str);
 
 int main(void) {
     char buf[MAX_LEN];
 
     printf("Search: ");
     fgets(buf, MAX_LEN, stdin);
-
-    for (int i=0; i<strlen(buf); i++) {
-        if (buf[i] == '\n') {
-            buf[i] = '\0';
-            break;
-        }
-    }
-    
+    remove_newline(buf);
     find_str(buf);
 
     return(EXIT_SUCCESS);
@@ -44,4 +37,11 @@ void find_str(char str[]) {
         }
 }
 
-void remove_newline(char str[]) 
+void remove_newline(char *str) {
+    for (int i=0; i<strlen(str); i++) {
+        if (str[i] == '\n') {
+            str[i] = '\0';
+            break;
+        }
+    }
+}
