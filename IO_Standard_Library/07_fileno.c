@@ -11,6 +11,7 @@ SEMANTICS : La funzione fileno() ritorna il file descriptor, numero intero
             positivo, di 'stream'.
 RETURNS   : Il file descriptor in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
+La compilazione prevede l'aggiunta della macro _POSIX_SOURCE, o _POSIX_C_SOURCE
 */
 
 int main(int argc, char *argv[]) {
