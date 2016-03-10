@@ -19,15 +19,15 @@ int main(int argc, char *argv[]) {
 
     if ((stream = fopen("/etc/fstab", "r" )) == NULL) {
     	fprintf(stderr, "Err.(%s) fopen() failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
 
     if ((n_str = fileno(stream)) < 0) {
     	fprintf(stderr, "Err.(%s) fileno() failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
     
-    printf("File descriptor, numero:  %d.\n", n_str);
+    printf("File descriptor number is:  %d.\n", n_str);
     
     fclose(stream);
     
