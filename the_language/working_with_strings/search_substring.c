@@ -22,7 +22,7 @@ void remove_newline(char *str);
 int main(void) {
     char buf[MAX_LEN];
 
-    printf("Search: ");
+    fputs("Search: ", stdout);
     
     if (fgets(buf, MAX_LEN, stdin) == NULL) {
         fprintf(stderr, "Err. when working with string %s\n", buf);
