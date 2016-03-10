@@ -23,7 +23,12 @@ int main(void) {
     char buf[MAX_LEN];
 
     printf("Search: ");
-    fgets(buf, MAX_LEN, stdin);
+    
+    if (fgets(buf, MAX_LEN, stdin) == NULL) {
+        fprintf(stderr, "Err. when working with string %s\n", buf);
+        exit(EXIT_FAILURE);
+    }
+
     remove_newline(buf);
     find_str(buf);
 
