@@ -17,6 +17,7 @@ char lyrics[][MAX_LEN] = {
 strstr() */
 
 void find_str(char str[]);
+void remove_newline(char str[]);
 
 int main(void) {
     char buf[MAX_LEN];
@@ -42,3 +43,5 @@ void find_str(char str[]) {
             printf("Lyric %d: %s\n", i, lyrics[i]);
         }
 }
+
+void remove_newline(char str[]) 
