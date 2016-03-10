@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// From "the practice of Programming", pag.135
+/* Lo scopo del programma e' di porre le basi per la scrittura di un menu'
+senza l'ausilio di funzioni quali possono essere getopt() o getopt_long() */
 
 int main(int argc, char *argv[]) {
     for (int i=1; i<argc; i++) {
