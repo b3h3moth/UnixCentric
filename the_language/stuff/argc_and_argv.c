@@ -6,6 +6,11 @@ senza l'ausilio di funzioni quali possono essere getopt() o getopt_long() */
 
 int main(int argc, char *argv[]) {
 
+    if (argc < 2) {
+        printf("Usage: %s -a -b\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     /* Cicla tra gli argomenti verificando che il primo carattere di ciascun
     argomento sia '-' */
     for (int i=1; i<argc; i++) {
