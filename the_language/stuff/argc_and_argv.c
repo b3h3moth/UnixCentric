@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
                 printf("Full option is: %s\n", argv[i]);
                 fputs("Do something\n", stdout);
                 break;
+            default:
+                printf("Usage: %s -a -b\n", argv[0]);
         }
 
     }
