@@ -14,8 +14,8 @@ int main(int argc, char *argv[]) {
 
         switch (argv[i][1]) {
             case 'a':
-                printf("Option is: %c\n", argv[i][1]);
-                fputs("Do something\n")
+                printf("Full option is: %s\n", argv[i]);
+                fputs("Do something\n", stdout);
                 break;
             case 'b':
                 printf("from = %d (err.)\n", atoi(argv[i]));
