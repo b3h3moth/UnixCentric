@@ -18,8 +18,8 @@ int main(int argc, char *argv[]) {
                 fputs("Do something\n", stdout);
                 break;
             case 'b':
-                printf("from = %d (err.)\n", atoi(argv[i]));
-                printf("from = %d (good)\n", atoi(&argv[i][2]));
+                printf("Full option is: %s\n", argv[i]);
+                fputs("Do something\n", stdout);
                 break;
         }
 
