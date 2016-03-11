@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
                 fputs("Do something\n", stdout);
                 break;
             default:
-                printf("Usage: %s -a -b\n", argv[0]);
+                printf("Option unknow\n");
         }
 
     }
