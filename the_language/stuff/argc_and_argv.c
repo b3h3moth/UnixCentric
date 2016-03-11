@@ -13,11 +13,11 @@ int main(int argc, char *argv[]) {
             break;
 
         switch (argv[i][1]) {
-            case 'o':
+            case 'a':
                 printf("Option is: %c\n", argv[i][1]);
                 fputs("Do something\n")
                 break;
-            case 'f':
+            case 'b':
                 printf("from = %d (err.)\n", atoi(argv[i]));
                 printf("from = %d (good)\n", atoi(&argv[i][2]));
                 break;
