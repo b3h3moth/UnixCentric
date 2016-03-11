@@ -12,12 +12,10 @@ int main(int argc, char *argv[]) {
         if (argv[i][0] != '-')
             break;
 
-
         switch (argv[i][1]) {
             case 'o':
-                printf("%c\n", argv[i][1]);
-                printf("output = %s (err.)\n", argv[i]);
-                printf("output = %s (good)\n", &argv[i][2]);
+                printf("Option is: %c\n", argv[i][1]);
+                fputs("Do something\n")
                 break;
             case 'f':
                 printf("from = %d (err.)\n", atoi(argv[i]));
