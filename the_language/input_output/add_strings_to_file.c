@@ -18,16 +18,19 @@ int main(void) {
     printf("Enter strings to add to \'%s\' (press ? to terminate)\n", filename);
     // Ricezione delle stringhe in input, e scrittura delle stesse sul file
     while ((fscanf(stdin, "%30s", buf) == 1) && (buf[0] != '?'))
-        fprintf(fp, "%s\n", buf);
+        fprintf(fp, "%s ", buf);
 
 
     /* Ci si sposta all'inizio del file, e poiche' il file stesso e' stato
     aperto in modalita' 'a+' (append) leggera' tutto cio' che e' stato scritto
     nelle varie esecuzione del programma */
-    fseek(fp, 0L, SEEK_SET);
+    if (fseek(fp, 0L, SEEK_SET) == -1) {
+        fprintf(stderr, "Err. fseek(); %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     while (fscanf(fp, "%s", buf) != -1)
-        fputs(buf, stdout);
+        fprintf(stdout, "%s ", buf);
 
     fclose(fp);
     return(EXIT_SUCCESS);
