@@ -20,7 +20,15 @@ int main(void) {
     while ((fscanf(stdin, "%30s", buf) == 1) && (buf[0] != '?'))
         fprintf(fp, "%s\n", buf);
 
-    fclose(fp);
 
+    /* Ci si sposta all'inizio del file, e poiche' il file stesso e' stato
+    aperto in modalita' 'a+' (append) leggera' tutto cio' che e' stato scritto
+    nelle varie esecuzione del programma */
+    fseek(fp, 0L, SEEK_SET);
+
+    while (fscanf(fp, "%s", buf) != -1)
+        fputs(buf, stdout);
+
+    fclose(fp);
     return(EXIT_SUCCESS);
 }
