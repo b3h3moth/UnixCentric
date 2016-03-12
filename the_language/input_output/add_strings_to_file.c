@@ -25,11 +25,10 @@ int main(void) {
     while ((fscanf(stdin, "%30s", buf) == 1) && (buf[0] != '?'))
         fprintf(fp, "%s ", buf);
 
-
     /* Ci si sposta all'inizio del file, e poiche' il file stesso e' stato
     aperto in modalita' 'a+' (append) leggera' tutto cio' che e' stato scritto
-    nelle varie esecuzione del programma */
-    if (fseek(fp, 0L, SEEK_SET) == -1) {
+    nelle varie esecuzioni del programma. */
+    if (fseek(fp, 0L, SEEK_SET) == -1) { // Equivalente a rewind(fp);
         fprintf(stderr, "Err. fseek(); %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
