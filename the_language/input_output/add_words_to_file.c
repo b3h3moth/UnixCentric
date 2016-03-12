@@ -11,8 +11,11 @@ int main(void) {
     char *filename = "data.txt";
 
     if ((fp = fopen(filename, "a+")) == NULL) {
-        fprintf(sdterr, "Err. fopen(); %s\n", strerror(errno));
+        fprintf(stderr, "Err. fopen(); %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    printf("Words to add to \'%s\': ", filename);
+
     return(EXIT_SUCCESS);
 }
