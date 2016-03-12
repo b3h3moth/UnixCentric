@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 
-#define MAX_LEN  50
+#define MAX_LEN  25
 
 /* Lo scopo del programma e' di inizializzare un array di MAX_LEN elementi 
 con un numero casuale (1 < N < 1000), dopodiche' scrivere l'intero array in un
