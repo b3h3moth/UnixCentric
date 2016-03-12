@@ -7,7 +7,7 @@
 
 int main(void) {
     FILE *fp;
-    char words[MAX_LEN];
+    char buf[MAX_LEN];
     char *filename = "data.txt";
 
     if ((fp = fopen(filename, "a+")) == NULL) {
