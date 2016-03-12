@@ -15,7 +15,12 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Words to add to \'%s\': ", filename);
+    printf("Enter strings to add to \'%s\' (press ? to terminate)\n", filename);
+    // Ricezione delle stringhe in input, e scrittura delle stesse sul file
+    while ((fscanf(stdin, "%30s", buf) == 1) && (buf[0] != '?'))
+        fprintf(fp, "%s\n", buf);
+
+    fclose(fp);
 
     return(EXIT_SUCCESS);
 }
