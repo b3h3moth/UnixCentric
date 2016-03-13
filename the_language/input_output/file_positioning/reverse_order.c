@@ -5,6 +5,10 @@
 
 #define MAX_LEN 80
 
+/* Lo scopo del programma e' di stampare un file ricevuto in input, in ordine
+inverso. La stampa avverra' dalla fine all'inizio del file e carattere per
+carattere. */
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     int ch;
@@ -26,7 +30,7 @@ int main(int argc, char *argv[]) {
         last = ftell(fp);
 
     /* Stampa il file in ordine inverso, settando di volta in volta il file
-    pointer alla fine del file mediante fseek() */
+    pointer al carattere da stampare mediante la funzione fseek() */
     for (long i=1; i<last; i++)
         if (fseek(fp, -i, SEEK_END) != -1)
             putchar(ch = getc(fp));
