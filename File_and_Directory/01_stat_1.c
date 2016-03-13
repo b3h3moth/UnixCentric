@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
       */
       if (lstat(argv[i], &buffer) < 0) {
       	 fprintf(stderr, "Err: stat\n");
-	 continue;
+	     continue;
       }
       
       if (S_ISREG(buffer.st_mode))
