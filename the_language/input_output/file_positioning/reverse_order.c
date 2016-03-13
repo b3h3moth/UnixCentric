@@ -25,9 +25,13 @@ int main(int argc, char *argv[]) {
     if (fseek(fp, 0, SEEK_END) != -1)
         last = ftell(fp);
 
+    /* Stampa il file in ordine inverso, settando di volta in volta il file
+    pointer alla fine del file mediante fseek() */
     for (long i=1; i<last; i++)
         if (fseek(fp, -i, SEEK_END) != -1)
             putchar(ch = getc(fp));
+
+    fclose(fp);
 
     return(EXIT_SUCCESS);
 }
