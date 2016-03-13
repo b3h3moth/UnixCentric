@@ -5,7 +5,9 @@
 
 #define MAX_LEN 80
 
-main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
+    FILE *fp;
+    unsigned long last;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -17,6 +19,10 @@ main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    
+    // Sposta il file pointer alla fine del file, salvando la posizione
+    if (fseek(fp, 0, SEEK_END) != -1)
+        last = ftell(fp);
+
+
     return(EXIT_SUCCESS);
 }
