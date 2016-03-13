@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[]) {
     FILE *fp;
+    int ch;
     unsigned long last;
 
     if (argc != 2) {
@@ -24,6 +25,9 @@ int main(int argc, char *argv[]) {
     if (fseek(fp, 0, SEEK_END) != -1)
         last = ftell(fp);
 
+    for (long i=1; i<last; i++)
+        if (fseek(fp, -i, SEEK_END) != -1)
+            putchar(ch = getc(fp));
 
     return(EXIT_SUCCESS);
 }
