@@ -7,7 +7,8 @@
 
 /* Lo scopo del programma e' di stampare un file ricevuto in input, in ordine
 inverso. La stampa avverra' dalla fine all'inizio del file e carattere per
-carattere. */
+carattere. Si utilizzeranno le funzioni fseek() per spostarsi alla fine
+del file e ftell() per acquisire la posizione. */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
