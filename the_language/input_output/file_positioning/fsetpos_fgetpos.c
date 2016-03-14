@@ -3,6 +3,9 @@
 #include <errno.h>
 #include <string.h>
 
+/* Lo scopo del programma e' di aprire un file e leggere alcuni byte da diversi
+offset. Si utilizzeranno le funzioni portabili fsetpos() e fgetpos(). */
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     fpos_t pos;
