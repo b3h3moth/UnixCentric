@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     fpos_t pos_beg, pos_end;
     size_t data_len;
     char buf[MAX_BUF];
+    int rc;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -32,7 +33,8 @@ int main(int argc, char *argv[]) {
 
     // Imposta pos_end alla fine del file, ovvero SEE_END
     while (feof(fp)) {
-        if (fgetpos(fp, &pos_end) != 0) {
+        rc = fgetpos(fp, &pos_end);
+        if (rc != 0) {
             fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
