@@ -43,7 +43,11 @@ int main(int argc, char *argv[]) {
     /* Il file pointer ora punta ad EOF presumibilmente, per cui se volessi
     stampare su stdout i primi MAX_BUF caratteri dovrei riportarlo all'inizio
     del file */
-    fsetpos(fp, &pos_beg);
+    rc = fsetpos(fp, &pos_beg);
+    if (rc != 0) {
+        fprintf(stderr, "Err. fsetpos(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     data_len = fread(buf, sizeof(char), MAX_BUF, fp);
     buf[MAX_BUF-1] = '\0';
