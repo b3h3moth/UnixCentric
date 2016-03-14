@@ -34,7 +34,9 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // Ora il file poin
+    /* Il file pointer ora punta ad EOF presumibilmente, per cui se volessi
+    stampare su stdout i primi MAX_BUF caratteri dovrei riportarlo all'inizio
+    del file */
 
     fsetpos(fp, &pos_end);
 
