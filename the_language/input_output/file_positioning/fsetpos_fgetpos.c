@@ -26,7 +26,8 @@ int main(int argc, char *argv[]) {
     }
    
     // Imposta pos_beg all'inizio del file, ovvero SEE_SET
-    if (fgetpos(fp, &pos_beg) != 0) {
+    rc = fgetpos(fp, &pos_beg);
+    if (rc != 0) {
         fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
