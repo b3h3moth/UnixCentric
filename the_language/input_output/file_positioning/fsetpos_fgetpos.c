@@ -23,11 +23,18 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Lettura di BYTE_SIZE byte del file
-    fread
+    // Lettura di MAX_BUF byte dal file e salvati in buf
+    if (!feof(fp)) {
+        fread(buf, sizeof(char), MAX_BUF, fp);
+        buf[MAX_BUF-1] = '\0';
 
-    int offset = fgetpos(fp, &file_pos);
-    printf("%d\n", offset);
+        if (fgetpos(fp, &pos) != 0) {
+            fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+    }
+    
+    printf("%s\n", buf);
 
     fclose(fp);
 
