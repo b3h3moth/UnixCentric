@@ -19,13 +19,14 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
-    
+   
+    // Imposta pos_beg all'inizio del file, ovvero SEE_SET
     if (fgetpos(fp, &pos_beg) != 0) {
         fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    // Lettura di MAX_BUF byte dal file e salvati in buf
+    // Imposta pos_end alla fine del file, ovvero SEE_END
     while (feof(fp)) {
         if (fgetpos(fp, &pos_end) != 0) {
             fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
@@ -33,14 +34,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // Ora il file poin
+
     fsetpos(fp, &pos_end);
 
-    int ch;
-    while ((ch = fgetc(fp))) {
-        if (feof(fp))
-            break;
-        fputc(ch, stdout);
-    }
 
     fclose(fp);
 
