@@ -84,6 +84,7 @@ programming and secure coding.
   * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
   * **C Programming; A modern Approach**, *Kim N.King* (`2nd, 2008, W. W. Norton & Company`)
   * **Secure coding in C and C++**; *Robert C. Seacord* (`2nd, 2013, Addison Wesley`)
+- **`(c11)`
 
 <hr />
 
