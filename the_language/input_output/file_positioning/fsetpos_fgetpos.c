@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         rc = fgetpos(fp, &pos_end);
         
         if (rc != 0) {
-            fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
+            fprintf(stderr, "Err. fgetpos() at the end, %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
     }
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     riportarlo all'inizio del file */
     rc = fsetpos(fp, &pos_beg);
     if (rc != 0) {
-        fprintf(stderr, "Err. fsetpos() at the end, %s\n", strerror(errno));
+        fprintf(stderr, "Err. fsetpos() back to beginning%s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
