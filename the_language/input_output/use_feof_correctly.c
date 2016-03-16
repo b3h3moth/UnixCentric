@@ -17,6 +17,13 @@ int main(int argc, char *argv[]) {
     esplicitamente il raggiungimento della fine del file, ma piuttosto essa 
     si limita a ritornare il valore di una variabile conservata nella libreria
     I/O indicante che e' stata gia' tentata una lettura oltre la fine del file.
+    Tale variabile non e' impostata da fefof() ma da una funzione qualsiasi che
+    effettua una lettura oltre la fine del file.
+    Un errore logico comune e':
+        while (!feof(stream)) {
+            ...
+        }
+    Questo codice porta ad elaborare due volte la fine del file.
     */
     
     fclose(fp);
