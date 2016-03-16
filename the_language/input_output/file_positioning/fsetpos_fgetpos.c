@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     } while (ch != EOF);
     
     if (feof(fp)) {
-        /* Imposta pos_end alla fine del file, dopo l'ultimo bye, ovvero come
+        /* Imposta pos_end alla fine del file, dopo l'ultimo byte, ovvero come
         se fosse SEEK_END */
         rc = fgetpos(fp, &pos_end);
         
@@ -64,6 +64,7 @@ int main(int argc, char *argv[]) {
 
     printf("Read from \'%s\', first \'%d\' characters:\n", argv[1], data_len);
     printf("%s\n", buf);
+    printf("BEG: %ld\nEND: %ld\n", pos_beg.__pos, pos_end.__pos);
 
     return(EXIT_SUCCESS);
 }
