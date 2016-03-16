@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     fpos_t pos_beg, pos_end;
     size_t data_len;
     char buf[MAX_BUF];
-    int rc;
+    int rc, ch;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -28,25 +28,32 @@ int main(int argc, char *argv[]) {
     // Imposta pos_beg all'inizio del file, ovvero SEE_SET
     rc = fgetpos(fp, &pos_beg);
     if (rc != 0) {
-        fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
+        fprintf(stderr, "Err. fgetpos() at the beginning, %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    // Imposta pos_end alla fine del file, ovvero SEE_END
-    while (feof(fp)) {
+    // Si fa andare avanti lo stream finche' giunge alla fine del fine
+    do {
+        ch = fgetc(fp);
+    } while (ch != EOF);
+    
+    if (feof(fp)) {
+        /* Imposta pos_end alla fine del file, dopo l'ultimo bye, ovvero come
+        se fosse SEEK_END */
         rc = fgetpos(fp, &pos_end);
+        
         if (rc != 0) {
             fprintf(stderr, "Err. fgetpos(), %s\n", strerror(errno));
             exit(EXIT_FAILURE);
         }
     }
 
-    /* Il file pointer ora punta ad EOF presumibilmente, per cui se volessi
-    stampare su stdout i primi MAX_BUF caratteri dovrei riportarlo all'inizio
-    del file */
+    /* Il file pointer ora punta alla fine dello stream, per cui se volessi
+    stampare su stdout i primi MAX_BUF caratteri dello stream stesso dovrei 
+    riportarlo all'inizio del file */
     rc = fsetpos(fp, &pos_beg);
     if (rc != 0) {
-        fprintf(stderr, "Err. fsetpos(), %s\n", strerror(errno));
+        fprintf(stderr, "Err. fsetpos() at the end, %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
