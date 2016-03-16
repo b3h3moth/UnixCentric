@@ -18,14 +18,15 @@ int main(int argc, char *argv[]) {
     }
 
     /* La funzione feof() ritorna un valore diverso da zero se e' stata tentata
-    una lettura dello stream oltre le fine del file. La feof() non controlla
-    esplicitamente il raggiungimento della fine del file, ma piuttosto essa 
-    si limita a ritornare il valore di una variabile conservata nella libreria
-    I/O indicante che e' stata gia' tentata una lettura oltre la fine del file.
+    una lettura dello stream oltre le fine del file, ovvero se l'indicatore di
+    fine del file relativo allo stream e' attivo. 
     
-    Tale variabile non e' impostata da feof() ma da una funzione qualsiasi che
-    effettua una lettura oltre la fine del file.
-    
+    La costante EOF e' definita in nella librera stdio.h ed e' un 
+    unsigned char che vale -1.
+
+    La funzione feof() non controlla esplicitamente il raggiungimento della 
+    fine del file.
+
     Un errore logico comune e':
         while (!feof(stream)) {
             ...
