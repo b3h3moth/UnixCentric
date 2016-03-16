@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[]) {
     FILE *fp;
+    int ch;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -27,14 +28,24 @@ int main(int argc, char *argv[]) {
     La funzione feof() non controlla esplicitamente il raggiungimento della 
     fine del file.
 
-    Un errore logico comune e':
+    Questo codice porta ad elaborare due volte la fine del file, e' un errore
+    logico molto comune:
         while (!feof(stream)) {
-            ...
+            c = getchar();
         }
-    Questo codice porta ad elaborare due volte la fine del file.
     */
+    do { 
+        ch = fgetc(fp);
+    } while (ch != EOF);
 
+    if (feof(fp)) {
+        // Handle end of file
+    } else if (ferror(fp)) {
+        // Handle file error
+    } else 
+        // handle error
     
     fclose(fp);
+
     return(EXIT_SUCCESS);
 }
