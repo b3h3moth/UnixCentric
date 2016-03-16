@@ -6,6 +6,11 @@
 int main(int argc, char *argv[]) {
     FILE *fp;
 
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     fp = fopen(argv[1], "r");
     if (fp != NULL) {
         fprintf(stderr, "Err. fopen(), %s\n", strerror(errno));
@@ -17,14 +22,17 @@ int main(int argc, char *argv[]) {
     esplicitamente il raggiungimento della fine del file, ma piuttosto essa 
     si limita a ritornare il valore di una variabile conservata nella libreria
     I/O indicante che e' stata gia' tentata una lettura oltre la fine del file.
-    Tale variabile non e' impostata da fefof() ma da una funzione qualsiasi che
+    
+    Tale variabile non e' impostata da feof() ma da una funzione qualsiasi che
     effettua una lettura oltre la fine del file.
+    
     Un errore logico comune e':
         while (!feof(stream)) {
             ...
         }
     Questo codice porta ad elaborare due volte la fine del file.
     */
+
     
     fclose(fp);
     return(EXIT_SUCCESS);
