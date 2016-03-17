@@ -51,13 +51,17 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+// Il menu' a scelta delle opzioni
 int set_option(void) {
     int value;
+
     fputs("[1] save data for printing\n"
           "[2] update an account\n"
           "[3] add a new account\n"
           "[4] delete an account\n"
           "[5] quit\n : ",  stdout);
+
     scanf("%1d", &value);
+
     return value;
 }
