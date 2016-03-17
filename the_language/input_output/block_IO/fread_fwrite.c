@@ -48,9 +48,6 @@ int main(void) {
         fprintf(stderr, "Err. writing vector to stream with fwrite()n");
         exit(EXIT_FAILURE);
     }
-
-    // Salva il secondo offset per la succesiva lettura
-    fgetpos(fp, &pos_two);
    
     // Riprende il primo offset
     fsetpos(fp, &pos_one);
@@ -62,6 +59,9 @@ int main(void) {
     for (int i=0; i<vec_size; i++)
         printf("%d, ", vecb[i]);
 
+    // Salva il secondo offset per la succesiva lettura
+    fgetpos(fp, &pos_two);
+
     // Scrive la struttura 'mydata' nello stream fp
     fwrite(&mydata, sizeof(Record), 1, fp);
 
@@ -69,6 +69,7 @@ int main(void) {
     fsetpos(fp, &pos_two);
     fread(&mydata_backup, sizeof(Record), 1, fp);
 
+    printf("\nRecord structure backup is:\n");
     printf("id: %d\nnickname: %s\ne-mail: %s\n", 
             mydata_backup.id, mydata_backup.nickname, mydata_backup.email);
 
