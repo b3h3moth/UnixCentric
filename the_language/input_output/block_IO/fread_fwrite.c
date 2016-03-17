@@ -5,9 +5,8 @@
 
 int main(void) {
     FILE *fp;
-    int val = 255;
+    int val = 255, valb;
     int vec[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096};
-    int valb;
     int vec_size = sizeof(vec) / sizeof(vec[0]);
 
 
@@ -28,7 +27,10 @@ int main(void) {
     printf("val backup is: %d\n", valb);
 
     // Scrive un vettore di 'vec_size' elementi nello stream 'fp'
-    fwrite(&vec, sizeof(vec)/sizeof(vec[0]), 1, fp);
+    if (fwrite(&vec, vec_size, 12, fp) != vec_size) {
+        fprintf(stderr, "Err. writing vector to stream with fwrite()n");
+        exit(EXIT_FAILURE);
+    }
 
     fclose(fp);
     return(EXIT_SUCCESS);
