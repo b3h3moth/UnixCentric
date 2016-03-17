@@ -21,6 +21,7 @@ int main(void) {
     int vecb[vec_size];
     fpos_t pos_one, pos_two;
     Record mydata = {1, "b3h3m0th", "b3h3m0th@email.org"};
+    Record mydata_backup;
 
 
     if ((fp = fopen("data.bin", "wb+")) == NULL) {
@@ -47,6 +48,9 @@ int main(void) {
         fprintf(stderr, "Err. writing vector to stream with fwrite()n");
         exit(EXIT_FAILURE);
     }
+
+    // Salva l'offset
+    fgetpos(fp, &pos_two);
    
     // Riprende il primo offset
     fsetpos(fp, &pos_one);
@@ -60,7 +64,6 @@ int main(void) {
 
     // Scrive la struttura 'mydata' nello stream fp
     fwrite(&mydata, sizeof(Record), 1, fp);
-
     fclose(fp);
     return(EXIT_SUCCESS);
 }
