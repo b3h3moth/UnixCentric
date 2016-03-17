@@ -19,7 +19,8 @@ int main(void) {
 
     // Scrive l'intero di quattro byte 'val' nello stream 'fp'
     fwrite(&val, sizeof(int), 1, fp);
-    // Salva l'offset
+
+    // Salva l'offset subito dopo la scrittura dell'intero
     fgetpos(fp, &pos_one);
 
     /* Sposta il file pointer all'inizio del file per consentire alla funzione
@@ -36,7 +37,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
    
-    // Riprende l'offset salvato subito dopo la scrittura dell'intero 'val'
+    // Riprende il primo offset
     fsetpos(fp, &pos_one);
 
     // Inizializza il vettore 'vecb' con i dati letti dallo stream 'fp
