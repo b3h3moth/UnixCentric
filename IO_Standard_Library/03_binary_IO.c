@@ -62,6 +62,8 @@ int main(void) {
 
    /* Consente la lettura dall'inizio del file */
    rewind(fp);
+
+   printf("Written \'%d\' elements\n", ret_func);
    
    printf("  Version  year\n");
 
