@@ -13,7 +13,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    // Scrive quattro byte dell'intero 'val' nel file
+    // Scrive l'intero di quattro byte 'val' nello stream 'fp'
     fwrite(&val, sizeof(int), 1, fp);
 
     fclose(fp);
