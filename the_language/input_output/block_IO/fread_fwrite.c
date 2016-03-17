@@ -49,7 +49,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    // Salva l'offset
+    // Salva il secondo offset per la succesiva lettura
     fgetpos(fp, &pos_two);
    
     // Riprende il primo offset
@@ -64,6 +64,10 @@ int main(void) {
 
     // Scrive la struttura 'mydata' nello stream fp
     fwrite(&mydata, sizeof(Record), 1, fp);
+
+    // Riprende il secondo offset
+    fsetpos(fp, &pos_two);
+
     fclose(fp);
     return(EXIT_SUCCESS);
 }
