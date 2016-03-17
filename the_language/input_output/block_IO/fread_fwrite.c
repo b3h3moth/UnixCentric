@@ -9,6 +9,7 @@ int main(void) {
     int vec[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096};
     int vec_size = sizeof(vec) / sizeof(vec[0]);
     int vecb[vec_size];
+    fpos_t pos_one, pos_two;
 
 
     if ((fp = fopen("data.bin", "wb+")) == NULL) {
@@ -16,11 +17,10 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    fpos_t pos;
     // Scrive l'intero di quattro byte 'val' nello stream 'fp'
     fwrite(&val, sizeof(int), 1, fp);
     // Salva l'offset
-    fgetpos(fp, &pos);
+    fgetpos(fp, &pos_one);
 
     /* Sposta il file pointer all'inizio del file per consentire alla funzione
     fread() di poter leggere i dati */
@@ -36,8 +36,8 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
    
-    // Riprende l'offset salvato per leggere il vettore
-    fsetpos(fp, &pos);
+    // Riprende l'offset salvato subito dopo la scrittura dell'intero 'val'
+    fsetpos(fp, &pos_one);
     fread(&vecb, sizeof(int), vec_size, fp);
 
     fputs("valb vector backup is: ", stdout);
