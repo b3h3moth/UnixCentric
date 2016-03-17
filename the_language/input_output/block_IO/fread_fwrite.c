@@ -67,6 +67,10 @@ int main(void) {
 
     // Riprende il secondo offset
     fsetpos(fp, &pos_two);
+    fread(&mydata_backup, sizeof(Record), 1, fp);
+
+    printf("id: %d\nnickname: %s\ne-mail: %s\n", 
+            mydata_backup.id, mydata_backup.nickname, mydata_backup.email);
 
     fclose(fp);
     return(EXIT_SUCCESS);
