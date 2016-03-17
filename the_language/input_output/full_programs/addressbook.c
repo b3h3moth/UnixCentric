@@ -21,6 +21,7 @@ typedef struct client_data DataClient;
 // Prototipi
 int set_option(void);
 void save_textfile(FILE *file);
+void add_record(FILE *file);
 
 int main(void) {
     FILE *fp;
@@ -97,3 +98,6 @@ void save_textfile(FILE *fin) {
 
     fclose(fout);
 }
+
+// Inserisce un nuovo record
+void add_record(FILE *file) {
