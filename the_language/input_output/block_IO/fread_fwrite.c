@@ -38,6 +38,8 @@ int main(void) {
    
     // Riprende l'offset salvato subito dopo la scrittura dell'intero 'val'
     fsetpos(fp, &pos_one);
+
+    // Inizializza il vettore 'vecb' con i dati letti dallo stream 'fp
     fread(&vecb, sizeof(int), vec_size, fp);
 
     fputs("valb vector backup is: ", stdout);
