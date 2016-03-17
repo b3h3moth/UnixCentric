@@ -16,6 +16,7 @@ struct client_data {
 
 // Prototipi
 int set_option(void);
+void save_textfile(FILE *file);
 
 int main(void) {
     FILE *fp;
@@ -65,3 +66,6 @@ int set_option(void) {
 
     return value;
 }
+
+// Crea un file per la stampa
+void save_textfile(FILE *file) {
