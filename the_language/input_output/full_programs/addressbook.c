@@ -88,7 +88,8 @@ void save_textfile(FILE *fin) {
     // Salva l'offset dell'inizio del file
     rewind(fin);
 
-    //fprintf(fout, "%2d %20s %20s %20s %2d %4d\n");
+    fprintf(fout, "%10s %10s %10s %10s %10s %10s\n",
+            "id", "last name", "firstname", "email", "age", "birthday");
 
     while (!feof(fin)) {
         fread(&client, sizeof(DataClient), 1, fin);
