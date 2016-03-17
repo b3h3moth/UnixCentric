@@ -11,8 +11,12 @@ struct client_data {
     int id;
     char last_name[MAX_LEN];
     char first_name[MAX_LEN];
-    double balance;
+    char email[MAX_LEN];
+    int age;
+    int birthday;
 };
+
+typedef struct client_data DataClient;
 
 // Prototipi
 int set_option(void);
@@ -69,3 +73,8 @@ int set_option(void) {
 
 // Crea un file per la stampa
 void save_textfile(FILE *file) {
+    FILE *fp;
+
+    // Informazioni di default
+    DataClient client = {0, "
+}
