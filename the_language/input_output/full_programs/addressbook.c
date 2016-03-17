@@ -72,9 +72,27 @@ int set_option(void) {
 }
 
 // Crea un file per la stampa
-void save_textfile(FILE *file) {
-    FILE *fp;
+void save_textfile(FILE *fin) {
+    FILE *fout;
+    char *filename = "account.txt";
+    fpos_t fpos_beginning;
 
     // Informazioni di default
-    DataClient client = {0, "
+    DataClient client = {0, "","","",0,0};
+
+    if ((fout = fopen(filename, "w")) == NULL) {
+        fprintf(stderr, "Err. Opening file, fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    // Salva l'offset dell'inizio del file
+    rewind(fin);
+
+    //fprintf(fout, "%2d %20s %20s %20s %2d %4d\n");
+
+    while (!feof(fin)) {
+        fread(&client, sizeof(DataClient), 1, fin);
+    }
+
+    fclose(fout);
 }
