@@ -5,6 +5,7 @@
 
 int main(void) {
     int val = 255;
+    int vec[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
     int valb;
 
     FILE *fp;
@@ -17,6 +18,8 @@ int main(void) {
     // Scrive l'intero di quattro byte 'val' nello stream 'fp'
     fwrite(&val, sizeof(int), 1, fp);
 
+    /* Sposta il file pointer all'inizio del file per consetire alla funzione
+    fread() di poter leggere i dati */
     fseek(fp, 0, SEEK_SET);
 
     // Legge un intero da dallo stream 'fp' salvandolo in valb
