@@ -35,7 +35,7 @@ int main(void) {
     while ( (option = set_option()) != MENU_OPTIONS) {
         switch (option) {
             case 1:
-                puts("1");
+                save_textfile(fp);
                 break;
             case 2:
                 puts("2");
