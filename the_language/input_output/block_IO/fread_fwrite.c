@@ -3,6 +3,16 @@
 #include <string.h>
 #include <errno.h>
 
+#define MAX_LEN 40
+
+struct data {
+    int id;
+    char full_name[MAX_LEN];
+    char email[MAX_LEN];
+};
+
+typedef struct data *Record;
+
 int main(void) {
     FILE *fp;
     int val = 255, valb;
@@ -10,6 +20,7 @@ int main(void) {
     int vec_size = sizeof(vec) / sizeof(vec[0]);
     int vecb[vec_size];
     fpos_t pos_one, pos_two;
+    Record mydata;
 
 
     if ((fp = fopen("data.bin", "wb+")) == NULL) {
