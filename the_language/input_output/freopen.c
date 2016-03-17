@@ -6,8 +6,8 @@
 #include <unistd.h>
 
 /* Lo scopo del programma e' redirigere lo stream output verso un file mediante
-la funzione freopen(), dopodiche' scrivere nel file stesso una stringa che 
-identifichi la data esatta della scrittura della stringa stessa. 
+la funzione freopen(), dopodiche' scrivere all'interno del file una stringa che
+identifichi la data esatta della scrittura della stringa stessa.
 Tale esempio puo' essere un buon punto di partenza per la realizzazione di 
 routine di debugging e/o testing. */
 
