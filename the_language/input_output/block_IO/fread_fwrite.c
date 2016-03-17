@@ -8,17 +8,21 @@ int main(void) {
     int val = 255, valb;
     int vec[] = {2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096};
     int vec_size = sizeof(vec) / sizeof(vec[0]);
+    int vecb[vec_size];
 
 
-    if ((fp = fopen("data.bin", "ab+")) == NULL) {
+    if ((fp = fopen("data.bin", "wb+")) == NULL) {
         fprintf(stderr, "Err. open stream with fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
+    fpos_t pos;
     // Scrive l'intero di quattro byte 'val' nello stream 'fp'
     fwrite(&val, sizeof(int), 1, fp);
+    // Salva l'offset
+    fgetpos(fp, &pos);
 
-    /* Sposta il file pointer all'inizio del file per consetire alla funzione
+    /* Sposta il file pointer all'inizio del file per consentire alla funzione
     fread() di poter leggere i dati */
     fseek(fp, 0, SEEK_SET);
 
@@ -31,6 +35,13 @@ int main(void) {
         fprintf(stderr, "Err. writing vector to stream with fwrite()n");
         exit(EXIT_FAILURE);
     }
+   
+    // Riprende l'offset salvato per leggere il vettore
+    fsetpos(fp, &pos);
+    fread(&vecb, sizeof(int), vec_size, fp);
+
+    for (int i=0; i<vec_size; i++)
+        printf("%d\n", vecb[i]);
 
     fclose(fp);
     return(EXIT_SUCCESS);
