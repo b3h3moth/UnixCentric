@@ -30,17 +30,24 @@ int main(void) {
     while ( (option = set_option()) != MENU_OPTIONS) {
         switch (option) {
             case 1:
+                puts("1");
                 break;
             case 2:
+                puts("2");
                 break;
             case 3:
+                puts("3");
                 break;
             case 4:
+                puts("4");
                 break;
             default:
                 fputs("Unknow option\n", stdout);
                 break;
+        }
     }
+
+    fclose(fp);
     return(EXIT_SUCCESS);
 }
 
@@ -51,6 +58,6 @@ int set_option(void) {
           "[3] add a new account\n"
           "[4] delete an account\n"
           "[5] quit\n : ",  stdout);
-
-    return (scanf("%1d", &value));
+    scanf("%1d", &value);
+    return value;
 }
