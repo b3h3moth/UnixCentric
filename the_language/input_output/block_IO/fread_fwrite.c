@@ -40,9 +40,9 @@ int main(void) {
     fsetpos(fp, &pos);
     fread(&vecb, sizeof(int), vec_size, fp);
 
-    printf("valb vector backup is: %d\n", valb);
+    fputs("valb vector backup is: ", stdout);
     for (int i=0; i<vec_size; i++)
-        printf("%d\n", vecb[i]);
+        printf("%d, ", vecb[i]);
 
     fclose(fp);
     return(EXIT_SUCCESS);
