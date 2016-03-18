@@ -4,7 +4,7 @@
 #include <string.h>
 
 // Function Prototypes
-void dbl_spacing(FILE *fin, FILE *fout);
+void dbl_spacing(FILE *in, FILE *out);
 void usage(char *prog_name);
 
 /* Lo scopo del programma e' di raddoppiare la spaziatura in un file ricevuto
@@ -26,11 +26,24 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    dbl_spacing(fin, fout);
+
+    fclose(fin);
+    fclose(fout);
+
     return(EXIT_SUCCESS);
 }
 
 // Realizza la doppia spaziatura nel file 'fin',  salva il tutto in 'fout'
-void dbl_spacing(FILE *fin, FILE *fout) {
+void dbl_spacing(FILE *in, FILE *out) {
+    int ch;
+
+    while ((ch = fgetc(in)) != EOF) {
+        fputc(ch, out);
+
+        if (ch == ' ')
+            fputs("   ", out);
+    }
 }
 
 // Informazioni circa il programma in uso
