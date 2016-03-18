@@ -117,5 +117,13 @@ void add_record(FILE *file) {
                "\'age\',\'birthday\'\n: ");
         scanf("%s%s%s%d%d", client.last_name, client.first_name,    \
                 client.email, &client.age, &client.birthday);
+
+        client.id = account_id;
+        
+        // Sposta il file pointer nel punto corretto del file
+        fseek(file, (client.id - 1) * sizeof(DataClient), SEEK_SET);
+
+        // salva il record nel file
+        fwrite(&client, sizeof(DataClient), 1, file);
     }
 }
