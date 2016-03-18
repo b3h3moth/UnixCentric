@@ -101,3 +101,13 @@ void save_textfile(FILE *fin) {
 
 // Inserisce un nuovo record
 void add_record(FILE *file) {
+    DataClient client = {0, "","","",0,0};
+
+    int account_id;
+
+    printf("New ID (1-100): ");
+    scanf("%1d", &account_id);
+
+    // Sposta il file pointer nel punto corretto del file
+    fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
+
