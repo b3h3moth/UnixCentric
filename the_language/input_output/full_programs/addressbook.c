@@ -76,7 +76,6 @@ int set_option(void) {
 void save_textfile(FILE *fin) {
     FILE *fout;
     char *filename = "account.txt";
-    fpos_t fpos_beginning;
 
     // Informazioni di default
     DataClient client = {0, "","","",0,0};
@@ -110,4 +109,4 @@ void add_record(FILE *file) {
 
     // Sposta il file pointer nel punto corretto del file
     fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
-
+}
