@@ -39,7 +39,7 @@ int main(void) {
                 save_textfile(fp);
                 break;
             case 2:
-                puts("2");
+                add_record(fp);
                 break;
             case 3:
                 puts("3");
@@ -109,4 +109,13 @@ void add_record(FILE *file) {
 
     // Legge il record dal file
     fread(&client, sizeof(DataClient), 1, file);
+
+    if (client.id != 0)
+        printf("Record #%d already contains info\n", client.id);
+    else {
+        printf("enter \'last name\', \'first name\', \'email\', "   \
+               "\'age\',\'birthday\'\n: ");
+        scanf("%s%s%s%d%d", client.last_name, client.first_name,    \
+                client.email, &client.age, &client.birthday);
+    }
 }
