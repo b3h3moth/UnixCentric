@@ -22,7 +22,6 @@ typedef struct client_data DataClient;
 int set_option(void);
 void save_textfile(FILE *file);
 void add_record(FILE *file);
-void update_record(FILE *file);
 
 int main(void) {
     FILE *fp;
@@ -43,7 +42,7 @@ int main(void) {
                 add_record(fp);
                 break;
             case 3:
-                puts("3");
+                update_record(fp);
                 break;
             case 4:
                 puts("4");
@@ -126,14 +125,4 @@ void add_record(FILE *file) {
         // salva il record nel file
         fwrite(&client, sizeof(DataClient), 1, file);
     }
-}
-
-// Aggiorna un record
-void update_record(FILE *file) {
-    int account_id;
-    DataClient client = {0, "","","",0,0};
-
-    // L'account ID da aggiornare
-    printf("Update ID (1-100): ");
-    scanf("%1d", &account_id);
 }
