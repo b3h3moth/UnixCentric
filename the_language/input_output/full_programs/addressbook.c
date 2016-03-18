@@ -98,9 +98,8 @@ void save_textfile(FILE *fin) {
 
 // Inserisce un nuovo record
 void add_record(FILE *file) {
-    DataClient client = {0, "","","",0,0};
-
     int account_id;
+    DataClient client = {0, "","","",0,0};
 
     printf("New ID (1-100): ");
     scanf("%1d", &account_id);
@@ -131,4 +130,10 @@ void add_record(FILE *file) {
 
 // Aggiorna un record
 void update_record(FILE *file) {
+    int account_id;
+    DataClient client = {0, "","","",0,0};
 
+    // L'account ID da aggiornare
+    printf("Update ID (1-100): ");
+    scanf("%1d", &account_id);
+}
