@@ -5,7 +5,7 @@
 
 #define MAX_LEN 20
 
-enum { MENU_OPTIONS=5 };
+enum { MENU_OPTIONS=4 };
 
 struct client_data {
     int id;
@@ -22,11 +22,12 @@ typedef struct client_data DataClient;
 int set_option(void);
 void save_textfile(FILE *file);
 void add_record(FILE *file);
+void delete_record(FILE *file);
 
 int main(void) {
     FILE *fp;
     int option;
-    char *faddrbook = "addressbook.bin";
+    char *faddrbook = "data.bin";
 
     if ((fp = fopen(faddrbook, "ab+")) == NULL) {
         fprintf(stderr, "Err. opening file. fopen(), %s\n", strerror(errno));
@@ -42,10 +43,7 @@ int main(void) {
                 add_record(fp);
                 break;
             case 3:
-                update_record(fp);
-                break;
-            case 4:
-                puts("4");
+                delete_record(fp);
                 break;
             default:
                 fputs("Unknow option\n", stdout);
@@ -72,7 +70,7 @@ int set_option(void) {
 // Crea un file per la stampa
 void save_textfile(FILE *fin) {
     FILE *fout;
-    char *filename = "account.txt";
+    char *filename = "data.txt";
 
     // Informazioni di default
     DataClient client = {0, "","","",0,0};
@@ -86,10 +84,16 @@ void save_textfile(FILE *fin) {
     rewind(fin);
 
     fprintf(fout, "%10s %10s %10s %10s %10s %10s\n",
-            "id", "last name", "firstname", "email", "age", "birthday");
+            "ID", "last name", "firstname", "email", "age", "birthday");
 
     while (!feof(fin)) {
         fread(&client, sizeof(DataClient), 1, fin);
+
+        if (client.id != 0) {
+            fprintf(fout, "%10d %10s %10s %10s %10d %10d\n",
+                    client.id, client.last_name, client.first_name,
+                    client.email, client.age, client.birthday);
+        }
     }
 
     fclose(fout);
@@ -123,6 +127,32 @@ void add_record(FILE *file) {
         fseek(file, (client.id - 1) * sizeof(DataClient), SEEK_SET);
 
         // salva il record nel file
+        fwrite(&client, sizeof(DataClient), 1, file);
+    }
+}
+
+// Rimuove un record
+void delete_record(FILE *file) {
+    int account_id;
+    DataClient client = {0, "","","",0,0};
+
+    // Record da rimuovere
+    printf("New ID (1-100): ");
+    scanf("%1d", &account_id);
+
+    // Sposta il file pointer nel punto corretto del file
+    fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
+
+    // Legge il record dal file
+    fread(&client, sizeof(DataClient), 1, file);
+
+    if (client.id == 0)
+        printf("Record #%d doesn't exist\n", client.id);
+    else {
+        // Sposta il file pointer nel punto corretto del file
+        fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
+
+        // sovrascrive il record con uno vuoto
         fwrite(&client, sizeof(DataClient), 1, file);
     }
 }
