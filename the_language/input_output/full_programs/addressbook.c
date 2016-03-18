@@ -22,6 +22,7 @@ typedef struct client_data DataClient;
 int set_option(void);
 void save_textfile(FILE *file);
 void add_record(FILE *file);
+void update_record(FILE *file);
 
 int main(void) {
     FILE *fp;
@@ -127,3 +128,7 @@ void add_record(FILE *file) {
         fwrite(&client, sizeof(DataClient), 1, file);
     }
 }
+
+// Aggiorna un record
+void update_record(FILE *file) {
+
