@@ -61,11 +61,8 @@ int main(void) {
 int set_option(void) {
     int value;
 
-    fputs("[1] save data for printing\n"
-          "[2] add a new account\n"
-          "[3] update a new account\n"
-          "[4] delete an account\n"
-          "[5] quit\n : ",  stdout);
+    fputs("[1 save data] [2 add account] [3 update account] [4 delete account] "
+          "[5 quit] : ",  stdout);
 
     scanf("%1d", &value);
 
@@ -109,4 +106,7 @@ void add_record(FILE *file) {
 
     // Sposta il file pointer nel punto corretto del file
     fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
+
+    // Legge il record dal file
+    fread(&client, sizeof(DataClient), 1, file);
 }
