@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
 
 // Function Prototypes
 void dbl_spacing(FILE *fin, FILE *fout);
@@ -13,6 +15,16 @@ int main(int argc, char *argv[]) {
 
     if (argc != 3)
         usage(argv[0]);
+
+    if ((fin = fopen(argv[1], "r")) == NULL) {
+        fprintf(stderr, "Err. opening input file, %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    if ((fout = fopen(argv[2], "w")) == NULL) {
+        fprintf(stderr, "Err. opening output file, %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
