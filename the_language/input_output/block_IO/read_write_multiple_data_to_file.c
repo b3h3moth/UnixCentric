@@ -7,6 +7,9 @@ struct data {
     char email[30];
 };
 
+/* Lo scopo del programma a' di scrivere diverse strutture su un file binario,
+dopodiche' leggere i dati dal file e stamparli sullo stdout */
+
 int main(void) {
     FILE *fp;
     struct data mydata1 = {1, "luca suriano", "luka@autistici.org"};
