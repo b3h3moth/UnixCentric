@@ -14,10 +14,10 @@ dopodiche' leggere i dati dal file e stamparli sullo stdout */
 
 int main(void) {
     FILE *fp;
+    struct data mydata, *mydata4;
     struct data mydata1 = {1, "luca suriano", "luka@autistici.org"};
     struct data mydata2 = {2, "richard stallman", "rms@stallman.org"};
     struct data mydata3 = {3, "Larry Wall", "larry@perl.org"};
-    struct data mydata;
     
     if ((fp = fopen("data.bin", "wb+")) == NULL) {
         fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
@@ -27,6 +27,10 @@ int main(void) {
     fwrite(&mydata1, sizeof(struct data), 1, fp);
     fwrite(&mydata2, sizeof(struct data), 1, fp);
     fwrite(&mydata3, sizeof(struct data), 1, fp);
+
+    /* Poiche' mydata4 e' un puntatore a una 'struct data' si deve allocare la
+    memoria corretta affinche' possa conterete i dati */
+    mydata4 = malloc(sizeof(struct data));
 
     /* Per leggere e' necessario posizionare il 'file position indicator' 
     all'inizio del file */
