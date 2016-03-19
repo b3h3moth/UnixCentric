@@ -32,7 +32,7 @@ int main(void) {
             n, n * sizeof(int), binfile);
 
     // Lettura dal file binario appena creato 'binfile'
-    fin = fopen(binfile, "r");
+    fin = fopen(binfile, "rb");
 
     if (fout == NULL) {
         perror("fopen()");
