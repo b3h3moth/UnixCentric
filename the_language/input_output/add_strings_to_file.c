@@ -6,9 +6,8 @@
 #define MAX_LEN 31
 
 /* Lo scopo del programma e' di scrivere una serie di stringhe in un file
-ricevute da stdin, dopodiche' si spostera' il 'file pointer' all'inizio del
-file stesso e sara' letto e stampato su stdout. */
-
+ricevute da stdin, dopodiche' si spostera' il 'file position indicator'
+all'inizio del file stesso e sara' letto e stampato su stdout. */
 
 int main(void) {
     FILE *fp;

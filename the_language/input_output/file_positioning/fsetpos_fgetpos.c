@@ -48,9 +48,9 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    /* Il file pointer ora punta alla fine dello stream, per cui se volessi
-    stampare su stdout i primi MAX_BUF caratteri dello stream stesso dovrei 
-    riportarlo all'inizio del file */
+    /* Il 'file position indicator' ora punta alla fine dello stream, per cui
+    se si volessero stampare sullo standard output i primi MAX_BUF caratteri
+    dello stream, si dovrebbe sportarlo all'inizio del file */
     rc = fsetpos(fp, &pos_beg);
     if (rc != 0) {
         fprintf(stderr, "Err. fsetpos() back to beginning%s\n", strerror(errno));

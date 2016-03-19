@@ -28,6 +28,8 @@ int main(void) {
     fwrite(&mydata2, sizeof(struct data), 1, fp);
     fwrite(&mydata3, sizeof(struct data), 1, fp);
 
+    /* Per leggere e' necessario posizionare il 'file position indicator' 
+    all'inizio del file */
     fseek(fp, 0, SEEK_SET);
 
     while (fread(&mydata, sizeof(struct data), 1, fp))

@@ -35,8 +35,8 @@ int main(void) {
     // Salva l'offset subito dopo la scrittura dell'intero
     fgetpos(fp, &pos_one);
 
-    /* Sposta il file pointer all'inizio del file per consentire alla funzione
-    fread() di poter leggere i dati */
+    /* Sposta il 'file position indicator' all'inizio del file per consentire
+    alla funzione fread() di poter leggere i dati */
     fseek(fp, 0, SEEK_SET);
 
     // Legge un intero da dallo stream 'fp' salvandolo in valb

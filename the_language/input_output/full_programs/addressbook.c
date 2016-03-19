@@ -107,7 +107,7 @@ void add_record(FILE *file) {
     printf("New ID (1-100): ");
     scanf("%1d", &account_id);
 
-    // Sposta il file pointer nel punto corretto del file
+    // Sposta il 'file position indicator' nel punto corretto del file
     fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
 
     // Legge il record dal file
@@ -123,7 +123,7 @@ void add_record(FILE *file) {
 
         client.id = account_id;
         
-        // Sposta il file pointer nel punto corretto del file
+        // Sposta il 'file position indicator' nel punto corretto del file
         fseek(file, (client.id - 1) * sizeof(DataClient), SEEK_SET);
 
         // salva il record nel file
@@ -140,7 +140,7 @@ void delete_record(FILE *file) {
     printf("New ID (1-100): ");
     scanf("%1d", &account_id);
 
-    // Sposta il file pointer nel punto corretto del file
+    // Sposta il 'file position indicator' nel punto corretto del file
     fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
 
     // Legge il record dal file
@@ -149,7 +149,7 @@ void delete_record(FILE *file) {
     if (client.id == 0)
         printf("Record #%d doesn't exist\n", client.id);
     else {
-        // Sposta il file pointer nel punto corretto del file
+        // Sposta il 'file position indicator' nel punto corretto del file
         fseek(file, (account_id - 1) * sizeof(DataClient), SEEK_SET);
 
         // sovrascrive il record con uno vuoto

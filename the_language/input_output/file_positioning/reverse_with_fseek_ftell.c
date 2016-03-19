@@ -25,8 +25,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Sposta il file pointer alla fine del file, salva inoltre la posizione
-    del file pointer stesso, ovvero il numero dei byte del file */
+    /* Sposta il 'file position indicator' alla fine del file, salva inoltre la
+    posizione stessa del 'file position indicator', ovvero il numero dei byte 
+    del file */
     if (fseek(fp, 0, SEEK_END) != -1)
         last = ftell(fp);
 
