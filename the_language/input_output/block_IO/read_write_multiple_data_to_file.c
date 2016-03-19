@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
 struct data {
     int id;
@@ -16,7 +18,11 @@ int main(void) {
     struct data mydata2 = {2, "richard stallman", "rms@stallman.org"};
     struct data mydata3 = {3, "Larry Wall", "larry@perl.org"};
     struct data mydata;
-    fp = fopen("xxx.bin", "wb+");
+    
+    if ((fp = fopen("data.bin", "wb+")) == NULL) {
+        fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     fwrite(&mydata1, sizeof(struct data), 1, fp);
     fwrite(&mydata2, sizeof(struct data), 1, fp);
