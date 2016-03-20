@@ -3,6 +3,7 @@
 #include <time.h>
 
 #define MAX_LOOP    10000000
+
 // Lo scopo del programma e' di calcolare il tempo di esecuzione di un ciclo
 
 int main(void) {
