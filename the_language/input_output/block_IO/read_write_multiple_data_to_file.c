@@ -46,7 +46,7 @@ int main(void) {
     fseek(fp, 0, SEEK_SET);
 
     // Lettura di tutto cio' che e' stato scritto nel file
-    while (fread(&mydata, sizeof(struct data), 1, fp))
+    while (fread(&mydata, sizeof(struct data), 1, fp) != 0)
         printf("%d %s %s\n", mydata.id, mydata.name, mydata.email);
 
     fclose(fp);
