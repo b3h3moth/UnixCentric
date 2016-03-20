@@ -17,4 +17,10 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-char *get_string(char *str, int num)
+char *get_string(char *str, int num) {
+    char *ret_val, *find;
+
+    if ((ret_val = fgets(str, num, stdin)) == NULL) {
+        fprintf(stderr, "Err. get string with fgets(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
