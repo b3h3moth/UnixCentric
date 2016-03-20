@@ -15,6 +15,7 @@ int main(void) {
     char out_filename[LEN];
 
     puts("Name of files to append");
+    get_string(out_filename, LEN);
     
     return(EXIT_SUCCESS);
 }
