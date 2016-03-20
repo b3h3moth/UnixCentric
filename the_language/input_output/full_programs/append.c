@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
 #define LEN 21
 
@@ -24,3 +26,16 @@ char *get_string(char *str, int num) {
         fprintf(stderr, "Err. get string with fgets(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    if ((find = strchr(str, '\n')) == NULL) {
+        fprintf(stderr, "Err. strchr(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    find = '\0';
+
+    while (getchar() != '\n')
+        continue;
+
+    return ret_val;
+}
