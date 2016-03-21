@@ -16,7 +16,6 @@ int main(void) {
 
     puts("Name of files to append");
     get_string(out_filename, LEN);
-    printf("\n\n%s\n\n", out_filename);
     
     return(EXIT_SUCCESS);
 }
