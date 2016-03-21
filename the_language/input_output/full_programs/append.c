@@ -16,27 +16,23 @@ int main(void) {
 
     puts("Name of files to append");
     get_string(out_filename, LEN);
+    printf("\n\n%s\n\n", out_filename);
     
     return(EXIT_SUCCESS);
 }
 
+// Processa il nome dei file, new line compresa
 char *get_string(char *str, int num) {
     char *ret_val, *find;
 
-    if ((ret_val = fgets(str, num, stdin)) == NULL) {
-        fprintf(stderr, "Err. get string with fgets(), %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
+    if ((ret_val = fgets(str, num, stdin)) != NULL) {
+        if ((find = strchr(str, '\n')) != NULL)
+            find = '\0';
+        else {
+            while (getchar() != '\n')
+                continue;
+        }
     }
-
-    if ((find = strchr(str, '\n')) == NULL) {
-        fprintf(stderr, "Err. strchr(), %s\n", strerror(errno));
-        exit(EXIT_FAILURE);
-    }
-
-    find = '\0';
-
-    while (getchar() != '\n')
-        continue;
 
     return ret_val;
 }
