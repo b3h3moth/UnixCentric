@@ -23,6 +23,8 @@ struct rec {
     char email[MAX_LEN];
 };
 
+typedef struct rec Record;
+
 int main(void) {
     return(EXIT_SUCCESS);
 }
