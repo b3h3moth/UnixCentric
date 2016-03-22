@@ -25,6 +25,21 @@ struct rec {
 
 typedef struct rec Record;
 
+// Function prototypes
+void open_file(char *mode);
+
 int main(void) {
+    Record member;
+
     return(EXIT_SUCCESS);
+}
+
+static inline void close_file(void) {
+    fclose(global.fp);
+    global.fp = NULL;
+}
+
+void open_file(char *mode) {
+    if (global.fp)
+        close_file();
 }
