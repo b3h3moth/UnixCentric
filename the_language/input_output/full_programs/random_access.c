@@ -7,6 +7,13 @@ struct {
     FILE *fp;
 } global = { .filename = "data.bin", .fp = NULL };
 
+struct date { 
+    int day;
+    int month;
+    int year;
+};
+
+struc
 int main(void) {
     return(EXIT_SUCCESS);
 }
