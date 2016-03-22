@@ -7,8 +7,8 @@
 void dbl_spacing(FILE *in, FILE *out);
 void usage(char *prog_name);
 
-/* Lo scopo del programma e' di raddoppiare la spaziatura in un file ricevuto
-in input, salvandone una copia */
+/* Lo scopo del programma e' di raddoppiare la spaziatura di in un file
+ricevuto in input, salvandone una copia */
 
 int main(int argc, char *argv[]) {
     FILE *fin, *fout;
