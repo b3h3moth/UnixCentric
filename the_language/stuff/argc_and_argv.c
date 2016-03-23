@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 /* Lo scopo del programma e' di porre le basi per far si che l'avvio del 
-possa essere gestito mediante l'inserimento di opzioni sulla linea di comando,
-senza l'ausilio di funzioni quali possono essere getopt() o getopt_long() */
+programma possa essere gestito mediante l'inserimento di opzioni sulla linea di
+comando e senza l'ausilio di funzioni quali possono essere getopt() o 
+getopt_long() */
 
 int main(int argc, char *argv[]) {
 
