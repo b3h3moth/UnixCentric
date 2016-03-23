@@ -7,7 +7,7 @@ void print_short(void);
 void print_int(void);
 void print_long(void);
 
-/* Just for testing purposes. How to parse command line arguments and compare
+/* Just for testing purpose. How to parse command line arguments and compare
 them with hypothetical menu items. 
 
 I need a menu', but I don't want getopt() family functions. */
