@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAX_LEN 20
 
@@ -26,12 +25,12 @@ typedef struct data Record;
 
 // Function prototypes
 void open_file(char *mode);
-bool get_person(Record *rec);
+void add_record(Record *rec);
 
 int main(void) {
     Record member;
 
-    while (get_person(&member)) {
+    while (add_record(&member)) {
         fwrite(&member, sizeof(Record), 1, global.fp);
 
     return(EXIT_SUCCESS);
@@ -47,6 +46,7 @@ void open_file(char *mode) {
         close_file();
 }
 
-bool get_person(Record *rec) {
-    return true;
+void get_record(Record *rec) {
+    puts("Name: ");
+    scanf("%s", rec->name);
 }
