@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAX_LEN 20
 
@@ -9,27 +10,29 @@ struct {
     FILE *fp;
 } global = { .filename = "data.bin", .fp = NULL };
 
-struct date { 
+typedef struct date {
     int day;
     int month;
     int year;
-};
+} Date;
 
-typedef struct date Date;
-
-struct rec {
+struct data {
     Date *dt;
     char name[MAX_LEN];
     char email[MAX_LEN];
 };
 
-typedef struct rec Record;
+typedef struct data Record;
 
 // Function prototypes
 void open_file(char *mode);
+bool get_person(Record *rec);
 
 int main(void) {
     Record member;
+
+    while (get_person(&member)) {
+        fwrite(&member, sizeof(Record), 1, global.fp);
 
     return(EXIT_SUCCESS);
 }
@@ -42,4 +45,8 @@ static inline void close_file(void) {
 void open_file(char *mode) {
     if (global.fp)
         close_file();
+}
+
+bool get_person(Record *rec) {
+    return true;
 }
