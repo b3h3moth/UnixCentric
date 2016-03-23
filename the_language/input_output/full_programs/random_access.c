@@ -56,5 +56,5 @@ void get_name(char *name, size_t size) {
 
 void get_record(Record *rec) {
     puts("Name: ");
-    scanf("%s", rec->name);
+    get_name(rec->name, sizeof(rec->name));
 }
