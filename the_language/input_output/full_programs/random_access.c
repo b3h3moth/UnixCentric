@@ -48,7 +48,11 @@ void open_file(char *mode) {
 }
 
 void get_name(char *name, size_t size) {
-    fgets(name,
+    fgets(name, size, stdin);
+    
+    if (name[strlen(name)-1] == '\n')
+        name[strlen(name)-1] = '\0';
+}
 
 void get_record(Record *rec) {
     puts("Name: ");
