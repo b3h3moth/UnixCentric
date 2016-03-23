@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define BUF_SIZE 128
-#define MIN_STR_SIZE 5
+#define MAX_STR_LEN 50
+#define MIN_STR_LEN 5
 
 void get_ascii(char *name, FILE *f_in);
 
 /* Lo scopo del programma e' di elaborare un file binario in input ed 
-estrapolare da esso tutte le stringhe stampabili di dimensione compresa tra
-MIN_STR_SIZE e BUF_SIZE */
+estrapolare da esso tutte le stringhe stampabili e stamparle mediante un buffer
+di dimensione compresa tra MIN_STR_LEN e MAX_STR_LEN. */
 
 int main(int argc, char *argv[]) {
     int i;
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 
 void get_ascii(char *name, FILE *f_in) {
     int c, i;
-    char buf[BUF_SIZE];
+    char buf[MAX_STR_LEN];
 
     do {
         for (i=0; (c = fgetc(f_in)) != EOF; ) {
@@ -44,14 +44,14 @@ void get_ascii(char *name, FILE *f_in) {
 
             buf[i++] = c;
 
-            if (i >= BUF_SIZE)
+            if (i >= MAX_STR_LEN)
                 break;
         }
 
         /* Stampa solo se la stringa ricevuta in input risulta essere
-        sufficientemente lunga; MIN_STR_SIZE infatti definisce la grandezza
+        sufficientemente lunga; MIN_STR_LEN infatti definisce la grandezza
         minima delle stringhe da elaborare. */
-        if (i >= MIN_STR_SIZE)
+        if (i >= MIN_STR_LEN)
             printf("%s:%.*s\n", name, i, buf);
     } while (c != EOF);
 }
