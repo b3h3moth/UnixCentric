@@ -25,7 +25,8 @@ typedef struct data Record;
 
 // Function prototypes
 void open_file(char *mode);
-void add_record(Record *rec);
+void get_name(char *name, size_t size)
+void get_record(Record *rec);
 
 int main(void) {
     Record member;
@@ -45,6 +46,9 @@ void open_file(char *mode) {
     if (global.fp)
         close_file();
 }
+
+void get_name(char *name, size_t size) {
+    fgets(name,
 
 void get_record(Record *rec) {
     puts("Name: ");
