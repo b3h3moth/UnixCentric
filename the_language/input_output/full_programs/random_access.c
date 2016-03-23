@@ -25,13 +25,13 @@ typedef struct data Record;
 
 // Function prototypes
 void open_file(char *mode);
-void get_name(char *name, size_t size)
+void get_name(char *name, size_t size);
 void get_record(Record *rec);
 
 int main(void) {
     Record member;
 
-    while (add_record(&member)) {
+    while (get_record(&member)) {
         fwrite(&member, sizeof(Record), 1, global.fp);
 
     return(EXIT_SUCCESS);
