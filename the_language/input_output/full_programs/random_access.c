@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 
 #define MAX_LEN 20
 
@@ -26,18 +28,19 @@ typedef struct data Record;
 // Function prototypes
 void open_file(char *mode);
 void get_name(char *name, size_t size);
-void get_record(Record *rec);
+bool get_record(Record *rec);
 
 int main(void) {
     Record member;
 
     while (get_record(&member)) {
         fwrite(&member, sizeof(Record), 1, global.fp);
+    }
 
     return(EXIT_SUCCESS);
 }
 
-static inline void close_file(void) {
+inline void close_file(void) {
     fclose(global.fp);
     global.fp = NULL;
 }
@@ -54,7 +57,8 @@ void get_name(char *name, size_t size) {
         name[strlen(name)-1] = '\0';
 }
 
-void get_record(Record *rec) {
+bool get_record(Record *rec) {
     puts("Name: ");
     get_name(rec->name, sizeof(rec->name));
+    return true;
 }
