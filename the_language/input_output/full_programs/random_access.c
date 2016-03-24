@@ -35,9 +35,8 @@ int main(void) {
     Record member;
     open_file("ab");
 
-    while (get_record(&member)) {
-        fwrite(&member, sizeof(Record), 1, global.fp);
-    }
+    get_record(&member);
+    fwrite(&member, sizeof(Record), 1, global.fp);
 
     return(EXIT_SUCCESS);
 }
