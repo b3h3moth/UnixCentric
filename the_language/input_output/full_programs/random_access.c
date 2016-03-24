@@ -31,20 +31,23 @@ void get_name(char *name, size_t size);
 void get_record(Record *rec);
 void print_record(void);
 
-int main(void) {
-    Record member;
-    open_file("ab");
-
-    get_record(&member);
-    fwrite(&member, sizeof(Record), 1, global.fp);
-
-    return(EXIT_SUCCESS);
-}
-
 static inline void close_file(void) {
     fclose(global.fp);
     global.fp = NULL;
 }
+
+int main(void) {
+    Record member;
+    open_file("ab");
+    get_record(&member);
+    fwrite(&member, sizeof(Record), 1, global.fp);
+    close_file();
+
+    print_record();
+
+    return(EXIT_SUCCESS);
+}
+
 
 void open_file(char *mode) {
     if (global.fp)
