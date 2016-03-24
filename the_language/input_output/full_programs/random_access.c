@@ -53,6 +53,8 @@ void open_file(char *mode) {
         fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    fclose(global.fp);
 }
 
 void get_name(char *name, size_t size) {
