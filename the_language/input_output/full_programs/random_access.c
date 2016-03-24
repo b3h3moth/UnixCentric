@@ -58,18 +58,19 @@ void open_file(char *mode) {
 void get_name(char *name, size_t size) {
     fflush(stdout);
     fgets(name, size, stdin);
+    size_t len = strlen(name);
     
-    if (name[strlen(name)-1] == '\n')
-        name[strlen(name)-1] = '\0';
+    if (name[len-1] == '\n')
+        name[len-1] = '\0';
 }
 
 void get_record(Record *rec) {
     fputs("give Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
 
-    fputs("give Birthday (dd/mm/dddd): ", stdout);
-    scanf("%2d %2d %4d", &rec->dt.day, &rec->dt.month, &rec->dt.year);
-
     fputs("give E-Mail: ", stdout);
     get_name(rec->email, sizeof(rec->email));
+
+    fputs("give Birthday (dd/mm/dddd): ", stdout);
+    scanf("%d %d %d", &rec->dt.day, &rec->dt.month, &rec->dt.year);
 }
