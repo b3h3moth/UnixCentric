@@ -85,8 +85,8 @@ void print_record(void) {
     open_file("rb");
 
     while (fread(&rec, sizeof(Record), 1, global.fp) != 0)
-    printf("%s %s %d/%d/%d\n", rec.name, rec.email, rec.dt.day, 
-            rec.dt.month, rec.dt.year);
+        printf("%s %s %d/%d/%d\n", rec.name, rec.email, rec.dt.day, \
+                rec.dt.month, rec.dt.year);
 
     close_file();
 }
