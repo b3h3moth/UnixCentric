@@ -29,7 +29,7 @@ typedef struct data Record;
 // Function prototypes
 void open_file(char *mode);
 void get_name(char *name, size_t size);
-bool get_record(Record *rec);
+void get_record(Record *rec);
 
 int main(void) {
     Record member;
@@ -63,8 +63,7 @@ void get_name(char *name, size_t size) {
         name[strlen(name)-1] = '\0';
 }
 
-bool get_record(Record *rec) {
+void get_record(Record *rec) {
     fputs("Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
-    return true;
 }
