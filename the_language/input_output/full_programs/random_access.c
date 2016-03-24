@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <errno.h>
 
 #define MAX_LEN 20
 
@@ -32,7 +33,7 @@ bool get_record(Record *rec);
 
 int main(void) {
     Record member;
-
+    open_file("ab");
 
     while (get_record(&member)) {
         fwrite(&member, sizeof(Record), 1, global.fp);
@@ -41,7 +42,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-inline void close_file(void) {
+static inline void close_file(void) {
     fclose(global.fp);
     global.fp = NULL;
 }
@@ -49,6 +50,11 @@ inline void close_file(void) {
 void open_file(char *mode) {
     if (global.fp)
         close_file();
+
+    if ((global.fp = fopen(global.filename, mode)) == NULL) {
+        fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 }
 
 void get_name(char *name, size_t size) {
@@ -60,10 +66,6 @@ void get_name(char *name, size_t size) {
 
 bool get_record(Record *rec) {
     fputs("Name: ", stdout);
-    get_name(rec->name, sizeof(rec->name));
-    fputs("Birthday (dd-mm-yyyy): ", stdout);
-    scanf("%2d %2d %4d", &rec->dt->day, &rec->dt->month, &rec->dt->year);
-    fputs("E-Mail: ", stdout);
     get_name(rec->name, sizeof(rec->name));
     return true;
 }
