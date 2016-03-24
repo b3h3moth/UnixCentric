@@ -40,7 +40,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-inline void close_file(void) {
+static inline void close_file(void) {
     fclose(global.fp);
     global.fp = NULL;
 }
@@ -58,7 +58,9 @@ void get_name(char *name, size_t size) {
 }
 
 bool get_record(Record *rec) {
-    puts("Name: ");
+    fputs("Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
+    fputs("Birthday (dd-mm-yyyy): ", stdout);
+    scanf("%2d", &rec->dt->day);
     return true;
 }
