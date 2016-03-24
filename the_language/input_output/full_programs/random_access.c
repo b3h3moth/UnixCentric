@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 
-#define MAX_LEN 20
+#define MAX_LEN 30
 
 // Struttura anonima per salvataggio di dati globali, quali il nome del file
 struct {
@@ -58,7 +58,6 @@ void open_file(char *mode) {
         exit(EXIT_FAILURE);
     }
 
-    fclose(global.fp);
 }
 
 void get_name(char *name, size_t size) {
@@ -85,10 +84,9 @@ void print_record(void) {
     Record rec;
     open_file("rb");
 
-    while (fread(&rec, sizeof(Record), 1, global.fp) != 0) {
-        printf("%s %s %d/%d/%d\n", rec.name, rec.email, rec.dt.day, 
-                rec.dt.month, rec.dt.year);
-    }
+    while (fread(&rec, sizeof(Record), 1, global.fp) != 0)
+    printf("%s %s %d/%d/%d\n", rec.name, rec.email, rec.dt.day, 
+            rec.dt.month, rec.dt.year);
 
     close_file();
 }
