@@ -29,6 +29,7 @@ typedef struct data Record;
 void open_file(char *mode);
 void get_name(char *name, size_t size);
 void get_record(Record *rec);
+void print_record(void);
 
 int main(void) {
     Record member;
@@ -75,4 +76,16 @@ void get_record(Record *rec) {
 
     fputs("give Birthday (dd/mm/dddd): ", stdout);
     scanf("%d %d %d", &rec->dt.day, &rec->dt.month, &rec->dt.year);
+}
+
+void print_record(void) {
+    Record rec;
+    open_file("rb");
+
+    while (fread(&rec, sizeof(Record), 1, global.fp) != 0) {
+        printf("%s %s %d/%d/%d\n", rec.name, rec.email, rec.dt.day, 
+                rec.dt.month, rec.dt.year);
+    }
+
+    close_file();
 }
