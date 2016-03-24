@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <string.h>
 #include <errno.h>
 
@@ -19,7 +18,7 @@ typedef struct date {
 } Date;
 
 struct data {
-    Date *dt;
+    Date dt;
     char name[MAX_LEN];
     char email[MAX_LEN];
 };
@@ -64,6 +63,9 @@ void get_name(char *name, size_t size) {
 }
 
 void get_record(Record *rec) {
-    fputs("Name: ", stdout);
+    fputs("give Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
+
+    fputs("give Birthday (dd/mm/dddd): ", stdout);
+    scanf("%2d %2d %4d", &rec->dt.day, &rec->dt.month, &rec->dt.year);
 }
