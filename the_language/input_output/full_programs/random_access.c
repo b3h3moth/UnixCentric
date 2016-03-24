@@ -61,6 +61,6 @@ bool get_record(Record *rec) {
     fputs("Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
     fputs("Birthday (dd-mm-yyyy): ", stdout);
-    scanf("%2d", &rec->dt->day);
+    scanf("%2d %2d %4d", &rec->dt->day, &rec->dt->month, &rec->dt->year);
     return true;
 }
