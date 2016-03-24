@@ -33,6 +33,7 @@ bool get_record(Record *rec);
 int main(void) {
     Record member;
 
+
     while (get_record(&member)) {
         fwrite(&member, sizeof(Record), 1, global.fp);
     }
@@ -40,7 +41,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-static inline void close_file(void) {
+inline void close_file(void) {
     fclose(global.fp);
     global.fp = NULL;
 }
@@ -62,5 +63,7 @@ bool get_record(Record *rec) {
     get_name(rec->name, sizeof(rec->name));
     fputs("Birthday (dd-mm-yyyy): ", stdout);
     scanf("%2d %2d %4d", &rec->dt->day, &rec->dt->month, &rec->dt->year);
+    fputs("E-Mail: ", stdout);
+    get_name(rec->name, sizeof(rec->name));
     return true;
 }
