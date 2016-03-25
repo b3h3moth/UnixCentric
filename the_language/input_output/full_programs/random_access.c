@@ -30,6 +30,7 @@ void open_file(char *mode);
 void get_name(char *name, size_t size);
 void get_record(Record *rec);
 void print_record(void);
+void find_record(Record *rec);
 
 static inline void close_file(void) {
     fclose(global.fp);
@@ -90,3 +91,5 @@ void print_record(void) {
 
     close_file();
 }
+
+void find_record(Record *rec) {
