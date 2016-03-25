@@ -37,6 +37,9 @@ static inline void close_file(void) {
     global.fp = NULL;
 }
 
+/* Lo scopo del programma e' di creare un database caratterizzato da nome,
+e-mail e data di nascita, tali dati saranno salvati in un file binario. */
+
 int main(void) {
     Record member;
     open_file("ab");
