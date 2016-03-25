@@ -101,5 +101,7 @@ void find_record(Record *rec) {
     fseek(fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
 
     while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
-
-
+        if (strcmp(rec->name, temp.name) == 0) {
+            printf("Found, e-mail is: %s", temp.email);
+            found++;
+        }
