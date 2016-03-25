@@ -30,7 +30,7 @@ void open_file(char *mode);
 void get_name(char *name, size_t size);
 void get_record(Record *rec);
 void print_record(void);
-void find_record(Record *rec);
+void find_record(char *str);
 
 static inline void close_file(void) {
     fclose(global.fp);
@@ -45,6 +45,9 @@ int main(void) {
     close_file();
 
     print_record();
+
+    find_record("luca");
+    close_file();
 
     return(EXIT_SUCCESS);
 }
@@ -92,7 +95,7 @@ void print_record(void) {
     close_file();
 }
 
-void find_record(Record *rec) {
+void find_record(char *str) {
     Record temp;
     int found = 0;
     fpos_t cur;
@@ -101,7 +104,7 @@ void find_record(Record *rec) {
     fseek(global.fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
 
     while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
-        if (strcmp(rec->name, temp.name) == 0) {
+        if (strstr(temp.name, str)) {
             printf("Found, e-mail is: %s", temp.email);
             found++;
         }
