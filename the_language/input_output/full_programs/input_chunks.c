@@ -49,7 +49,7 @@ FILE *openfile(char *file, char *mode) {
     }
 }
 
-/* Stampa sullo standard output una pagina, dopodiche' ogni scheramata sara'
+/* Stampa sullo standard output una pagina, dopodiche' ogni schermata sara'
 passata a opentty() */
 void print(FILE *fp, int pgsize) {
     static int lines = 0;
