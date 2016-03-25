@@ -5,12 +5,14 @@
 
 #define MAX_LEN 30
 
-// Struttura anonima per salvataggio di dati globali, quali il nome del file
+/* Struttura anonima per salvataggio di dati globali, quali il nome del file e
+lo stream di riferimento */
 struct {
     char *filename;
     FILE *fp;
 } global = { .filename = "data.bin", .fp = NULL };
 
+// Creazione del tipo di dato Record
 typedef struct date {
     int day;
     int month;
