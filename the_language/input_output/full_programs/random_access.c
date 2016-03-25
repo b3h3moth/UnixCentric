@@ -101,12 +101,16 @@ void find_record(char *str) {
 
     fseek(global.fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
 
+    printf("Search name: %s\n", str);
+
     while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
         if (strstr(temp.name, str)) {
-            printf("Found, e-mail is: %s", temp.email);
+            printf("Found, e-mail is: %s\n", temp.email);
             found++;
         }
     }
+
+    printf("Total found: %d\n", found);
 
     close_file();
 }
