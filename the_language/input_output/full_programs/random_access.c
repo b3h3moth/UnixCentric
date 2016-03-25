@@ -98,10 +98,17 @@ void find_record(Record *rec) {
     fpos_t cur;
 
     fgetpos(global.fp, &cur);
-    fseek(fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
+    fseek(global.fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
 
     while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
         if (strcmp(rec->name, temp.name) == 0) {
             printf("Found, e-mail is: %s", temp.email);
             found++;
         }
+    }
+
+    if (found == 0)
+        printf("Doesn't found\n");
+
+    fsetpos(global.fp, &cur);
+}
