@@ -99,3 +99,7 @@ void find_record(Record *rec) {
 
     fgetpos(global.fp, &cur);
     fseek(fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
+
+    while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
+
+
