@@ -47,7 +47,6 @@ int main(void) {
     print_record();
 
     find_record("luca");
-    close_file();
 
     return(EXIT_SUCCESS);
 }
@@ -98,9 +97,8 @@ void print_record(void) {
 void find_record(char *str) {
     Record temp;
     int found = 0;
-    fpos_t cur;
+    open_file("rb");
 
-    fgetpos(global.fp, &cur);
     fseek(global.fp, 0L, SEEK_SET);    // Equivalente a rewind(global.fp)
 
     while (fread(&temp, sizeof(Record), 1, global.fp) != 0) {
@@ -110,8 +108,5 @@ void find_record(char *str) {
         }
     }
 
-    if (found == 0)
-        printf("Doesn't found\n");
-
-    fsetpos(global.fp, &cur);
+    close_file();
 }
