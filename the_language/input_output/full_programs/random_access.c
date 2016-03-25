@@ -93,3 +93,9 @@ void print_record(void) {
 }
 
 void find_record(Record *rec) {
+    Record temp;
+    int found = 0;
+    fpos_t cur;
+
+    fgetpos(global.fp, &cur);
+    fseek(fp, 0L, SEEK_SET);
