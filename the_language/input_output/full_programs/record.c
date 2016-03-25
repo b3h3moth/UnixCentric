@@ -19,13 +19,11 @@ typedef struct date {
     int year;
 } Date;
 
-struct data {
+typedef struct data {
     Date dt;
     char name[MAX_LEN];
     char email[MAX_LEN];
-};
-
-typedef struct data Record;
+} Record;
 
 // Function prototypes
 void open_file(char *mode);
