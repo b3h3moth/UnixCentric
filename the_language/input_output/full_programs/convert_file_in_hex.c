@@ -4,12 +4,16 @@
 #include <ctype.h>
 #include <errno.h>
 
-#define MAXLEN  256
+#define MAXLEN      256
+#define DISPLAY     80
+#define PAGE_LENGTH 20
 
 int main(int argc, char *argv[]) {
     char filename[FILENAME_MAX]; // Definito in stdio.h
     FILE *fp;
-    size_t len;
+    size_t len, count;
+    int lines;
+    unsigned char buf[DISPLAY/4-1];
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
@@ -32,6 +36,7 @@ int main(int argc, char *argv[]) {
     }
 
     setvbuf(fp, NULL, _IOFBF, BUFSIZ);
+
 
     return(EXIT_SUCCESS);
 }
