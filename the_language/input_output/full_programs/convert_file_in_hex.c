@@ -4,8 +4,8 @@
 #include <ctype.h>
 #include <errno.h>
 
-int main(void) {
-    char *filename[FILENAME_MAX]; // Definito in stdio.h
+int main(int argc, char *argv[]) {
+    char filename[FILENAME_MAX]; // Definito in stdio.h
     FILE *fp;
     size_t len;
 
