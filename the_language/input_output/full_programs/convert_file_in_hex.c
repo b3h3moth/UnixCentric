@@ -45,12 +45,17 @@ int main(int argc, char *argv[]) {
             else
                 printf(" ");
         }
-    }
+    
     printf("| ");
 
     for (i=0; i<count; ++i)
         printf("%c", isprint(buf[i]) ? buf[i] : '.');
     printf("\n");
+
+    if (!(++lines % PAGE_LENGTH))
+        if (toupper(getchar()) == 'E')
+            continue;
+    }
 
     return(EXIT_SUCCESS);
 }
