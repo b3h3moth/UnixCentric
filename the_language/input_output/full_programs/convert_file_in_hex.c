@@ -48,5 +48,9 @@ int main(int argc, char *argv[]) {
     }
     printf("| ");
 
+    for (i=0; i<count; ++i)
+        printf("%c", isprint(buf[i]) ? buf[i] : '.');
+    printf("\n");
+
     return(EXIT_SUCCESS);
 }
