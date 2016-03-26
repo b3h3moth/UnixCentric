@@ -11,7 +11,7 @@
 int main(int argc, char *argv[]) {
     char filename[FILENAME_MAX]; // Definito in stdio.h
     FILE *fp;
-    size_t len, count;
+    size_t len, count, i;
     int lines;
     unsigned char buf[DISPLAY/4-1];
 
@@ -37,6 +37,16 @@ int main(int argc, char *argv[]) {
 
     setvbuf(fp, NULL, _IOFBF, BUFSIZ);
 
+    while (!feof(fp)) {
+        count = fread(buf, sizeof(char), sizeof(buf), fp);
+        for (i=0; i<sizeof(buf); ++i) {
+            if (i<count)
+                printf("%#x", buf[i]);
+            else
+                printf(" ");
+        }
+    }
+    printf("| ");
 
     return(EXIT_SUCCESS);
 }
