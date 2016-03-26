@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     if (filename[len-1] == '\n')
         filename[len-1] = '\0';
 
-    if (fopen(filename, "rb") == NULL) {
+    if ((fp = fopen(filename, "rb")) == NULL) {
         fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
