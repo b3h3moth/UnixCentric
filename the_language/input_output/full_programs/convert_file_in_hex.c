@@ -8,6 +8,10 @@
 #define DISPLAY     80
 #define PAGE_LENGTH 20
 
+/* Lo scopo del programma e' di stampare in esadecimale un file ricevuto in
+input. Sullo standard output ci sara' prima la versione in hex poi la stringa
+di default, per cui sara' diviso in due. */
+
 int main(int argc, char *argv[]) {
     char filename[FILENAME_MAX]; // Definito in stdio.h
     FILE *fp;
