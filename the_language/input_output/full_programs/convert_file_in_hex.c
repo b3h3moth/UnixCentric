@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    setvbuf(fp, NULL, _IOFBF, BUFSIZ);
+    setvbuf(fp, NULL, _IONBF, BUFSIZ);
 
     while (!feof(fp)) {
         count = fread(buf, sizeof(char), sizeof(buf), fp);
@@ -45,17 +45,19 @@ int main(int argc, char *argv[]) {
             else
                 printf(" ");
         }
-    
-    printf("| ");
+        
+        printf("| ");
 
-    for (i=0; i<count; ++i)
-        printf("%c", isprint(buf[i]) ? buf[i] : '.');
-    printf("\n");
+        for (i=0; i<count; ++i)
+            printf("%c", isprint(buf[i]) ? buf[i] : '.');
+        printf("\n");
 
-    if (!(++lines % PAGE_LENGTH))
-        if (toupper(getchar()) == 'E')
-            continue;
+        if (!(++lines % PAGE_LENGTH))
+            if (toupper(getchar()) == 'E')
+                continue;
     }
 
+    fclose(fp);
+    fp = NULL;
     return(EXIT_SUCCESS);
 }
