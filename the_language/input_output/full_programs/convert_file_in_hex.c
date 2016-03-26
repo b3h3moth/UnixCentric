@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         count = fread(buf, sizeof(char), sizeof(buf), fp);
         for (i=0; i<sizeof(buf); ++i) {
             if (i<count)
-                printf("%#x", buf[i]);
+                printf("%02x ", buf[i]);
             else
                 printf(" ");
         }
