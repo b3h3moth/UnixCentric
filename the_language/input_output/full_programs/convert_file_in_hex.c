@@ -38,8 +38,12 @@ int main(int argc, char *argv[]) {
 
     setvbuf(fp, NULL, _IONBF, BUFSIZ);
 
-    while (!feof(fp)) {
-        count = fread(buf, sizeof(char), sizeof(buf), fp);
+    while ((count = fread(buf, sizeof(char), sizeof(buf), fp)) != 0) {
+        if (ferror(fp)) {
+            fprintf(stderr, "File error: %s\n", strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+
         for (i=0; i<sizeof(buf); ++i) {
             if (i<count)
                 printf("%02x ", buf[i]);
