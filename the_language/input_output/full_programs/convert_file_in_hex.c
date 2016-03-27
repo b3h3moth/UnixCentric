@@ -13,7 +13,8 @@ input. Sullo standard output ci sara' prima la versione in hex poi la stringa
 di default, per cui sara' diviso in due. */
 
 int main(int argc, char *argv[]) {
-    char filename[FILENAME_MAX]; // Definito in stdio.h
+    //char filename[FILENAME_MAX]; // Definito in stdio.h
+    char *filename;
     FILE *fp;
     size_t len, count, i;
     int lines;
@@ -24,15 +25,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Inserimento del nome del file
-    fputs("Enter filename: ", stdout);
-    fgets(filename, MAXLEN, stdin);
-    
+    // Copia il nome del file ricevuto come argomento nella variabile filename
+    filename = malloc(strlen(argv[1]) + 1);
+    strcpy(filename, argv[1]);
     len = strlen(filename);
-
-    // Rimuove la new-line finale
-    if (filename[len-1] == '\n')
-        filename[len-1] = '\0';
+    filename[len] = '\0';
 
     if ((fp = fopen(filename, "rb")) == NULL) {
         fprintf(stderr, "Err. opening file, fopen(), %s\n", strerror(errno));
