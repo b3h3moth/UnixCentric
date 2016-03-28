@@ -12,6 +12,11 @@ typedef struct {
 
 static const char *filename = "data.bin";
 
+// Function Prototypes
+Record *get_record(Record *rec);
+
 int main(void) {
     return(EXIT_SUCCESS);
 }
+
+Record *get_record(Record *rec) {
