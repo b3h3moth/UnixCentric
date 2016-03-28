@@ -28,12 +28,12 @@ Record *get_record(Record *rec) {
     get_name(rec->name, MAXLEN);
 
     fputs("Enter id: ", stdout);
-    scanf("%d", &rec->id);
+    scanf("%u", &rec->id);
 }
 
 void get_name(char *name, size_t size) {
     fflush(stdout);
-    fgets(name, size);
+    fgets(name, size, stdin);
     size_t len = strlen(name);
 
     if (name[len-1] == '\n')
