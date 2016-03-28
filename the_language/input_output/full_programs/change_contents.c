@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
+#include <errno.h>
 
 #define MAXLEN  256
 
@@ -17,6 +19,9 @@ Record *get_record(Record *rec);
 void get_name(char *name, size_t size);
 
 int main(void) {
+    Record myrec;
+    get_record(&myrec);
+
     return(EXIT_SUCCESS);
 }
 
@@ -29,6 +34,8 @@ Record *get_record(Record *rec) {
 
     fputs("Enter id: ", stdout);
     scanf("%u", &rec->id);
+
+    return rec;
 }
 
 void get_name(char *name, size_t size) {
