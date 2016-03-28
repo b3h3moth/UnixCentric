@@ -21,6 +21,7 @@ void get_name(char *name, size_t size);
 void write_record(const Record *rec, FILE *fp);
 Record *read_record(Record *rec, FILE *fp);
 void write_file(const char *mode);
+void list_file(void);
 
 
 int main(void) {
