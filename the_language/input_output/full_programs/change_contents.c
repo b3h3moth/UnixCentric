@@ -49,4 +49,7 @@ void get_name(char *name, size_t size) {
 }
 
 void write_record(const Record *rec, FILE *fp) {
+    fwrite(&rec->id, sizeof(rec->id), 1, fp);
+    fwrite(rec->name, strlen(rec->name), 1, fp);
+    fwrite(rec->email, strlen(rec->name), 1, fp);
 }
