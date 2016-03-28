@@ -76,13 +76,13 @@ void get_name(char *name, size_t size) {
 }
 
 void get_record(Record *rec) {
-    fputs("give Name: ", stdout);
+    fputs("Enter Name: ", stdout);
     get_name(rec->name, sizeof(rec->name));
 
-    fputs("give E-Mail: ", stdout);
+    fputs("Enter E-Mail: ", stdout);
     get_name(rec->email, sizeof(rec->email));
 
-    fputs("give Birthday (dd/mm/dddd): ", stdout);
+    fputs("Enter Birthday (dd/mm/dddd): ", stdout);
     scanf("%d %d %d", &rec->dt.day, &rec->dt.month, &rec->dt.year);
 }
 

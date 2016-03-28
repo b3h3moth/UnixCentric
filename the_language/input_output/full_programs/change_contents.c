@@ -20,3 +20,4 @@ int main(void) {
 }
 
 Record *get_record(Record *rec) {
+    fputs("Enter name (%d max characters): ", MAXLEN);
