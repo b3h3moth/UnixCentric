@@ -17,6 +17,7 @@ static const char *filename = "data.bin";
 // Function Prototypes
 Record *get_record(Record *rec);
 void get_name(char *name, size_t size);
+void write_record(const Record *rec, FILE *fp);
 
 int main(void) {
     Record myrec;
@@ -45,4 +46,7 @@ void get_name(char *name, size_t size) {
 
     if (name[len-1] == '\n')
         name[len-1] = '\0';
+}
+
+void write_record(const Record *rec, FILE *fp) {
 }
