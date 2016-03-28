@@ -28,9 +28,10 @@ int main(void) {
     FILE *fp;
     fp = fopen(filename, "ab+");
     get_record(&myrec);
-    write_record(&myrec, fp);
-    read_record(&newrec, fp);
+    write_file("ab+");
 
+
+    fclose(fp);
     return(EXIT_SUCCESS);
 }
 
