@@ -18,6 +18,8 @@ static const char *filename = "data.bin";
 Record *get_record(Record *rec);
 void get_name(char *name, size_t size);
 void write_record(const Record *rec, FILE *fp);
+Record *read_record(Record *rec, FILE *fp);
+
 
 int main(void) {
     Record myrec;
@@ -28,6 +30,7 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+
 
 Record *get_record(Record *rec) {
     printf("Enter name (%d max characters): ", MAXLEN);
@@ -55,4 +58,16 @@ void write_record(const Record *rec, FILE *fp) {
     fwrite(&rec->id, sizeof(rec->id), 1, fp);
     fwrite(rec->name, strlen(rec->name), 1, fp);
     fwrite(rec->email, strlen(rec->name), 1, fp);
+}
+
+Record *read_record(Record *rec, FILE *fp) {
+    fread(&rec->id, sizeof(rec->id), 1, fp);
+
+    fread(rec->name, strlen(rec->name), 1, fp);
+    rec->name[strlen(rec->name)] = '\0';
+    
+    fread(rec->email, strlen(rec->name), 1, fp);
+    rec->email[strlen(rec->email)] = '\0';
+
+    return rec;
 }
