@@ -82,3 +82,16 @@ void write_file(const char *mode) {
         fprintf(stderr, "Err. open file, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    do {
+        Record rec;
+        write_record(&rec, fp);
+
+        fputs("Another record? (y or not) : ", stdout);
+        scanf("%1c", &answer);
+
+        fflush(stdin);
+    } while (tolower(answer) == 'y');
+
+    fclose(fp);
+}
