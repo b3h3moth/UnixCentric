@@ -19,14 +19,16 @@ Record *get_record(Record *rec);
 void get_name(char *name, size_t size);
 void write_record(const Record *rec, FILE *fp);
 Record *read_record(Record *rec, FILE *fp);
+void write_file(const char *mode);
 
 
 int main(void) {
-    Record myrec;
+    Record myrec, newrec;
     FILE *fp;
     fp = fopen(filename, "ab+");
     get_record(&myrec);
     write_record(&myrec, fp);
+    read_record(&newrec, fp);
 
     return(EXIT_SUCCESS);
 }
@@ -71,3 +73,12 @@ Record *read_record(Record *rec, FILE *fp) {
 
     return rec;
 }
+
+void write_file(const char *mode) {
+    FILE *fp;
+    char answer = 'y';
+
+    if ((fp = fopen(filename, mode)) == NULL) {
+        fprintf(stderr, "Err. open file, fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
