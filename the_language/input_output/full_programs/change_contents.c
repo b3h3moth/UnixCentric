@@ -21,7 +21,10 @@ void write_record(const Record *rec, FILE *fp);
 
 int main(void) {
     Record myrec;
+    FILE *fp;
+    fp = fopen(filename, "ab+");
     get_record(&myrec);
+    write_record(&myrec, fp);
 
     return(EXIT_SUCCESS);
 }
