@@ -21,8 +21,14 @@ int main(void) {
 }
 
 Record *get_record(Record *rec) {
-    fputs("Enter name (%d max characters): ", MAXLEN);
+    printf("Enter name (%d max characters): ", MAXLEN);
+    get_name(rec->name, MAXLEN);
 
+    printf("Enter mail (%d max characters): ", MAXLEN);
+    get_name(rec->name, MAXLEN);
+
+    fputs("Enter id: ", stdout);
+    scanf("%d", &rec->id);
 }
 
 void get_name(char *name, size_t size) {
