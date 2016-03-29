@@ -15,15 +15,16 @@ int main(void) {
 }
 
 void arr_func(char ch[10]) {
-    printf("     &ch: %#x\n", &ch);
-    printf("&(ch[0]): %#x\n", &(ch[0]));
-    printf("&(ch[1]): %#x\n", &(ch[1]));
-    printf("    ++ch: %#x\n", ++ch);
+    printf("Address of array parameter: %#x\n", &ch);
+    printf("       Address of &(ch[0]): %#x\n", &(ch[0]));
+    printf("       Address of &(ch[1]): %#x\n", &(ch[1]));
+    printf("       Address of     ++ch: %#x\n", ++ch);
 }
 
 void ptr_func(char *pr) {
-    printf("     &pr: %#x\n", &pr);
-    printf("&(pr[0]): %#x\n", &(pr[0]));
-    printf("&(pr[1]): %#x\n", &(pr[1]));
-    printf("    ++pr: %#x\n", ++pr);
+    puts(" ");
+    printf("Address of pointer paramet: %#x\n", &pr);
+    printf("       Address of &(pr[0]): %#x\n", &(pr[0]));
+    printf("       Address of &(pr[1]): %#x\n", &(pr[1]));
+    printf("       Address of     ++pr: %#x\n", ++pr);
 }
