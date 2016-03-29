@@ -98,3 +98,20 @@ void write_file(const char *mode) {
 
     fclose(fp);
 }
+
+void list_file(void) {
+    Record rec;
+    FILE *fp;
+
+
+    if ((fp = fopen(filename, "rb")) == NULL) {
+        fprintf(stderr, "Err. open file, fopen(), %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    while (read_record(&rec, fp))
+        printf("%s %s %d", rec.name, rec.email, rec.id);
+
+    fputs(" ", stdout);
+    fclose(fp);
+}
