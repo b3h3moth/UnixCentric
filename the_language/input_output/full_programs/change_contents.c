@@ -25,6 +25,35 @@ void list_file(void);
 
 
 int main(void) {
+    char answer = 'q';
+
+    while (1) {
+        fputs("(l) list file contents\n"
+              "(c) create new file\n"
+              "(a) add new record/s\n"
+              "(q) quit\n", stdout);
+        scanf("%1c", &answer);
+
+        switch(tolower(answer)) {
+            case 'l': 
+                list_file();
+                break;
+            case 'c':
+                write_file("wb+");
+                fputs("\nCreate file: done.\n", stdout);
+                break;
+            case 'a':
+                write_file("ab+");
+                fputs("\nAppend to file: done.\n", stdout);
+            case 'q': case 'Q':
+                fputs("Quit: done.\n", stdout);
+                exit(EXIT_SUCCESS);
+            default:
+                fputs("\nInvalid argument.\n", stdout);
+                break;
+        }
+    }
+
     return(EXIT_SUCCESS);
 }
 
