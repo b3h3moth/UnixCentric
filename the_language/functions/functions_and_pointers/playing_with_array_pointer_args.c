@@ -7,6 +7,11 @@ char vec[] = "abcdefghijklmnopqrstuvwxyz";
 void arr_func(char ch[10]);
 void ptr_func(char *ptr);
 
+/* Lo scopo del programma e' di verificare l'uguaglianza tra puntatori ed array
+allorquando il parametro formale di una funzione dovesse essere per l'appunto
+un array o un puntatore. In questo caso infatti il parametro formale viene
+sempre convertito in un puntataore. */
+
 int main(void) {
     printf("Address of global array: %#x\n\n", &vec);
     arr_func(vec);
