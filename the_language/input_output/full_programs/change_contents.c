@@ -25,11 +25,14 @@ void list_file(void);
 
 
 int main(void) {
-    Record myrec, newrec;
+    Record myrec;
     FILE *fp;
+
     fp = fopen(filename, "ab+");
+    
     get_record(&myrec);
     write_file("ab+");
+    list_file();
 
 
     fclose(fp);
@@ -67,11 +70,17 @@ void write_record(const Record *rec, FILE *fp) {
 
 Record *read_record(Record *rec, FILE *fp) {
     fread(&rec->id, sizeof(rec->id), 1, fp);
+    if (feof(fp))
+        return NULL;
 
     fread(rec->name, strlen(rec->name), 1, fp);
+    if (feof(fp))
+        return NULL;
     rec->name[strlen(rec->name)] = '\0';
     
     fread(rec->email, strlen(rec->name), 1, fp);
+    if (feof(fp))
+        return NULL;
     rec->email[strlen(rec->email)] = '\0';
 
     return rec;
