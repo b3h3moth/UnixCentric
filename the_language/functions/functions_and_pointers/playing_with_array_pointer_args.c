@@ -8,6 +8,7 @@ void arr_func(char ch[10]);
 void ptr_func(char *ptr);
 
 int main(void) {
+    printf("Address of global array: %#x\n\n", &vec);
     arr_func(vec);
     ptr_func(vec);
 
