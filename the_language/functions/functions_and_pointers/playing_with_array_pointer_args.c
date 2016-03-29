@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char vec[] = "abcdefghijklm";
+char vec[] = "abcdefghijklmnopqrstuvwxyz";
 
 // Function Prototypes
 void arr_func(char ch[10]);
