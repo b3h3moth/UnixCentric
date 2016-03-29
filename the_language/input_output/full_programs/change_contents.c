@@ -25,17 +25,6 @@ void list_file(void);
 
 
 int main(void) {
-    Record myrec;
-    FILE *fp;
-
-    fp = fopen(filename, "ab+");
-    
-    get_record(&myrec);
-    write_file("ab+");
-    list_file();
-
-
-    fclose(fp);
     return(EXIT_SUCCESS);
 }
 
