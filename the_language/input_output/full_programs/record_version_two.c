@@ -100,7 +100,7 @@ Record *read_record(Record *rec, FILE *fp) {
     size_t len_email = 0;
 
     fread(&len_name, sizeof(len_name), 1, fp);
-    fread(rec->name, sizeof(char), len, fp);
+    fread(rec->name, sizeof(char), len_name, fp);
     rec->name[len_name] = '\0';
     
     fread(&len_email, sizeof(len_email), 1, fp);
