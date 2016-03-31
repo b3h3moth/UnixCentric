@@ -77,7 +77,9 @@ void get_name(char *name, size_t size) {
         name[len-1] = '\0';
 }
 
-// Scrive la lunghezza della stringa seguita dalla stringa stessa e dall'id
+/* Scrive la lunghezza della stringa - membro name - seguita dalla stringa
+stessa e dall'id. Cio' consente in fase di lettura di leggere anche la
+lunghezza della stringa e quindi regolarsi di conseguenza */
 void write_record(const Record *rec, FILE *fp) {
     size_t len = strlen(rec->name);
 
