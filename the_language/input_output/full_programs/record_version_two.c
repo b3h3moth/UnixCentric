@@ -15,7 +15,7 @@ typedef struct {
 static const char *filename = "data.bin";
 
 // Function Prototypes
-Record *get_record(Record *rec);
+Record *get_person(Record *rec);
 void get_name(char *name, size_t size);
 void write_record(const Record *rec, FILE *fp);
 Record *read_record(Record *rec, FILE *fp);
@@ -44,7 +44,7 @@ int main(void) {
             case 'a':
                 write_file("ab+");
                 fputs("\nAppend to file: done.\n", stdout);
-            case 'q': case 'Q':
+            case 'q':
                 fputs("Quit: done.\n", stdout);
                 exit(EXIT_SUCCESS);
             default:
@@ -59,17 +59,19 @@ int main(void) {
 }
 
 
-Record *get_record(Record *rec) {
+Record *get_person(Record *rec) {
     printf("Enter name (%d max characters): ", MAXLEN);
     get_name(rec->name, MAXLEN);
 
-    fputs("Enter id: ", stdout);
-    scanf("%u", &rec->id);
+    fputs("Enter id: ", stdin);
+    scanf("%d", &rec->id);
 
     return rec;
 }
 
 void get_name(char *name, size_t size) {
+    fflush(stdin);
+
     fgets(name, size, stdin);
     size_t len = strlen(name);
 
@@ -117,11 +119,10 @@ void write_file(const char *mode) {
 
     do {
         Record rec;
-        write_record(&rec, fp);
+        write_record( get_person(&rec), fp);
 
         fputs("Another record? (y or not) : ", stdout);
         scanf("%1c", &answer);
-
         fflush(stdin);
     } while (tolower(answer) == 'y');
 
@@ -132,14 +133,13 @@ void list_file(void) {
     Record rec;
     FILE *fp;
 
-
     if ((fp = fopen(filename, "rb")) == NULL) {
         fprintf(stderr, "Err. open file, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
     while (read_record(&rec, fp))
-        printf("%s %s %d", rec.name, rec.email, rec.id);
+        printf("%s %d", rec.name, rec.id);
 
     fputs(" ", stdout);
     fclose(fp);
