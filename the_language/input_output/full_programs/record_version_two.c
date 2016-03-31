@@ -8,9 +8,8 @@
 #define MAXLEN  256
 
 typedef struct {
-    uint32_t id;
     char name[MAXLEN];
-    char email[MAXLEN];
+    int age;
 } Record;
 
 static const char *filename = "data.bin";
