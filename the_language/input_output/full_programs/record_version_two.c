@@ -91,15 +91,15 @@ void write_record(const Record *rec, FILE *fp) {
 Record *read_record(Record *rec, FILE *fp) {
     size_t len = 0;
 
+    // Legge la lunghezza della stringa
     fread(&len, sizeof(len), 1, fp);
     if (feof(fp))
         return NULL;
 
     fread(rec->name, sizeof(char), len, fp);
-    rec->name[strlen(rec->name)] = '\0';
+    rec->name[len] = '\0';
     
-    fread(rec->email, sizeof(char), len, fp);
-    rec->email[strlen(rec->email)] = '\0';
+    fread(&rec->id, sizeof(rec->id), 1, fp);
 
     return rec;
 }
