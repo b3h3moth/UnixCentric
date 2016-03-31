@@ -88,6 +88,7 @@ void write_record(const Record *rec, FILE *fp) {
     fwrite(&rec->id, sizeof(rec->id), 1, fp);
 }
 
+// Legge il record dal file e lo salva nella struttura apposita
 Record *read_record(Record *rec, FILE *fp) {
     size_t len = 0;
 
@@ -104,6 +105,7 @@ Record *read_record(Record *rec, FILE *fp) {
     return rec;
 }
 
+// Scrive un numero arbitrario di record all'interno del file
 void write_file(const char *mode) {
     FILE *fp;
     char answer = 'y';
