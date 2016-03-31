@@ -9,7 +9,7 @@
 
 typedef struct {
     char name[MAXLEN];
-    int age;
+    int id;
 } Record;
 
 static const char *filename = "data.bin";
@@ -78,15 +78,10 @@ void get_name(char *name, size_t size) {
 }
 
 void write_record(const Record *rec, FILE *fp) {
-    size_t len_name = strlen(rec->name);
-    size_t len_email = strlen(rec->email);
+    size_t len = strlen(rec->name);
 
-    fwrite(&len_name, sizeof(len_name), 1, fp);
-    fwrite(rec->name, sizeof(char), len_name, fp);
-
-    fwrite(&len_email, sizeof(len_email), 1, fp);
-    fwrite(rec->email, sizeof(char), len_email, fp);
-
+    fwrite(&len, sizeof(len), 1, fp);
+    fwrite(rec->name, sizeof(char), len, fp);
     fwrite(&rec->id, sizeof(rec->id), 1, fp);
 }
 
