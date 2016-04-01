@@ -26,7 +26,12 @@ int main(void) {
     printf("%s", bits(vec[2]));
     printf("%s", bits(vec[3]));
 
+    // Stampa l'array mediante i vari tipi di dato utilizzati
     printf("\n\'%c\' \'%c\' \'%c\' \'%c\'\n", *pc, *(pc+1), *(pc+2), *(pc+3));
+    printf("%d %d\n", *ps, *(ps+1));
+    printf("%d\n", *pi);
+    printf("%f\n", *pf);
+
     return(EXIT_SUCCESS);
 }
 
