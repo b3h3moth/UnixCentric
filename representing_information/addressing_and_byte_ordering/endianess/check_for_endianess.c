@@ -11,10 +11,10 @@ int big_endian(void);
 
 int main(void) {
     // Puntatori all'inizio di 'vec'
-    char    *ptochr = vec;
-    short   *ptoshr = (short *)vec;
-    int     *ptoint = (int *)vec;
-    float   *ptoflt = (float *)vec;
+    char    *pc = vec;
+    short   *ps = (short *)vec;
+    int     *pi = (int *)vec;
+    float   *pf = (float *)vec;
 
     if (big_endian())
         puts("Big-Endian Architecture.");
@@ -26,7 +26,7 @@ int main(void) {
     printf("%s", bits(vec[2]));
     printf("%s", bits(vec[3]));
 
-    printf("\'%c\' \'%c\' \'%c\' \'%c\'\n", *ptoshr, *(ptoshr+1),*(ptoshr+2),*(ptoshr+3));
+    printf("\n\'%c\' \'%c\' \'%c\' \'%c\'\n", *pc, *(pc+1), *(pc+2), *(pc+3));
     return(EXIT_SUCCESS);
 }
 
