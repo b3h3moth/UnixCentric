@@ -6,6 +6,7 @@ char vec[4] = {'a', 'b', 'c', 'd'};
 
 // Function Prototypes
 char *bits(char ch);
+int big_endian(void);
 
 
 int main(void) {
@@ -16,4 +17,11 @@ int main(void) {
     float   *ptoflt = (float *)vec;
 
     return(EXIT_SUCCESS);
+}
+
+
+int big_endian(void) {
+    long val = 1;
+
+    return !(*((char *)(&x)));
 }
