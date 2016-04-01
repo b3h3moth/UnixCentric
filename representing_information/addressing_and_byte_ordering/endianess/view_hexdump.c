@@ -41,7 +41,7 @@ int main(void) {
     }
 
     printf("struct 'data'(%d byte) written into: '%s'\n", data_size, filename);
-    fputs("please check byte ordering incoving an hexdump\n", stdout);
+    fputs("please check byte ordering incoking an hexdump\n", stdout);
     printf("'hexdump %s' or 'hd %s'\n", filename, filename);
 
     return(EXIT_SUCCESS);
