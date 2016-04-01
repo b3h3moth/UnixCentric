@@ -16,6 +16,11 @@ int main(void) {
     int     *ptoint = (int *)vec;
     float   *ptoflt = (float *)vec;
 
+    if (big_endian())
+        puts("Big-Endian Architecture.");
+    else
+        puts("Little-Endian Architecture.");
+    
     return(EXIT_SUCCESS);
 }
 
