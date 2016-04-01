@@ -20,7 +20,13 @@ int main(void) {
         puts("Big-Endian Architecture.");
     else
         puts("Little-Endian Architecture.");
-    
+
+    printf("%s", bits(vec[0]));
+    printf("%s", bits(vec[1]));
+    printf("%s", bits(vec[2]));
+    printf("%s", bits(vec[3]));
+
+    printf("\'%c\' \'%c\' \'%c\' \'%c\'\n", *ptoshr, *(ptoshr+1),*(ptoshr+2),*(ptoshr+3));
     return(EXIT_SUCCESS);
 }
 
