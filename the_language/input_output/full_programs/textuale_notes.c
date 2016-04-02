@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     //struct stat f_stat;
     Note *mynote = malloc(sizeof(Note));
-    char *filename = "data.bin";
+    char *filename = "dbnote.bin";
 
     if ((argc != 2)) {
         usage(argv[0]);
