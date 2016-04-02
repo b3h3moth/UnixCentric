@@ -73,7 +73,7 @@ void init_note(char *filename) {
 
     fclose(fp);
 
-    puts("Resetting DB notes is now complete.");
+    puts("DB notes is now empty.");
 }
 
 // Ogni nota ha un proprio id 
@@ -121,7 +121,7 @@ void add_note(FILE *file, Note *note) {
     }
 
     if (strlen(note->text) < CH_MAX) {
-        fprintf(stderr, "Warning: A note less than \'%d\' is not accepted.\n",
+        fprintf(stderr, "Warning: Notes less than \'%d\' is not accepted.\n",
                 CH_MAX-1);
         exit(EXIT_FAILURE);
     }
