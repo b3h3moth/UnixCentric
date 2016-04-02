@@ -64,7 +64,7 @@ Record *get_person(Record *rec) {
     get_name(rec->name, MAXLEN);
 
     fputs("Enter id: ", stdin);
-    scanf("%d", &rec->id);
+    scanf(" %d", &rec->id);
 
     return rec;
 }
