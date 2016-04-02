@@ -70,7 +70,6 @@ Record *get_person(Record *rec) {
 }
 
 void get_name(char *name, size_t size) {
-    fflush(stdin);
 
     fgets(name, size, stdin);
     size_t len = strlen(name);
