@@ -23,7 +23,7 @@ typedef struct note Note;
 void init_note(char *filename);
 void add_note(FILE *file, Note *note);
 void read_note(FILE *file, Note *note);
-void usage(char *filename);
+static void usage(char *filename);
 
 /* Lo scopo del programma e' di mantenere un database testuale con note di una
 grandezza massima di TEXT_LEN. Ciascuna nota sara' corredata della data.
@@ -72,6 +72,8 @@ void init_note(char *filename) {
     }
 
     fclose(fp);
+
+    puts("Resetting DB notes is now complete.");
 }
 
 // Ogni nota ha un proprio id 
@@ -140,6 +142,6 @@ void read_note(FILE *file, Note *note) {
     }
 }
 
-void usage(char *filename) {
-    fprintf(stderr, "Usage: %s [-a, add] [-r read]\n", filename);
+static void usage(char *filename) {
+    fprintf(stderr, "Usage: %s [-a, add] [-r read] [-i init/reset]\n", filename);
 }
