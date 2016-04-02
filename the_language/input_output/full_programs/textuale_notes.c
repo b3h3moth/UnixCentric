@@ -25,6 +25,10 @@ void add_note(FILE *file, Note *note);
 void read_note(FILE *file, Note *note);
 void usage(char *filename);
 
+/* Lo scopo del programma e' di mantenere un database testuale con note di una
+grandezza massima di TEXT_LEN. Ciascuna nota sara' corredata della data.
+Le opzioni sono -r o read per leggere le note e -a o add per scriverle. */
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     //struct stat f_stat;
@@ -48,6 +52,8 @@ int main(int argc, char *argv[]) {
         add_note(fp, mynote);
     else if ((strcmp(argv[1], "read") == 0) || (strcmp(argv[1], "-r") == 0))
         read_note(fp, mynote);
+    else if ((strcmp(argv[1], "init") == 0) || (strcmp(argv[1], "-i") == 0))
+        init_note(filename);
     else
         usage(argv[0]);
 
@@ -56,6 +62,7 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
+// Inizializza il database delle note, utile anche se si volesse azzererarlo
 void init_note(char *filename) {
     FILE *fp;
 
@@ -67,6 +74,7 @@ void init_note(char *filename) {
     fclose(fp);
 }
 
+// Ogni nota ha un proprio id 
 static int set_id(FILE *file, Note* note) {
     size_t nrec = 1;
 
