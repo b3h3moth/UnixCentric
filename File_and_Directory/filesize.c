@@ -17,4 +17,6 @@ int main(int argc, char *argv[]){
         exit(EXIT_FAILURE);
     } else
         printf("The size of %s is %ld K\n", argv[1], infobuf.st_size );
+
+    return(EXIT_SUCCESS);
 }
