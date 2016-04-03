@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 #include <time.h>
 
-/* Stampa le dimensioni di pathname
+// Stampa l'ora di accesso del file ricevuto in input
 
 int main(int argc, char *argv[]) {
     struct stat stbuf;
