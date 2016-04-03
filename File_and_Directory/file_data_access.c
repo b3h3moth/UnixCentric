@@ -4,7 +4,7 @@
 #include <sys/stat.h>
 #include <time.h>
 
-// Stampa l'ora di accesso del file ricevuto in input
+// Stampa l'ora di accesso del file ricevuto in argomento
 
 int main(int argc, char *argv[]) {
     struct stat stbuf;
