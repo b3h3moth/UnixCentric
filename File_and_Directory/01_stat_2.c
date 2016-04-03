@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("%8ld %s\n", stbuf.st_size, argv[1]);
+    printf("Last status change: %s\n", ctime(&stbuf.st_ctime));
 
     exit(EXIT_SUCCESS);
 }
