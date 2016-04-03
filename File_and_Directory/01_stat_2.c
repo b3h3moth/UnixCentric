@@ -19,7 +19,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Last status change: %s\n", ctime(&stbuf.st_ctime));
+    printf("Last status change: %s", ctime(&stbuf.st_ctime));
+    printf("  Last file access: %s", ctime(&stbuf.st_atime));
 
     exit(EXIT_SUCCESS);
 }
