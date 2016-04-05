@@ -14,9 +14,11 @@ int main(int argc, char *argv[]) {
     FILE *fp;
 
     if ((fp = fopen(argv[1], "r")) == 0) {
-        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <filename, string>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    find_str(fp, argv[2]);
 
     return(EXIT_SUCCESS);
 }
