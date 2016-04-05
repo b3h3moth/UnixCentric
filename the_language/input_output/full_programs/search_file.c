@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAXLEN  256
+#define MAXBUF  256
 
 int find_str(FILE *fp, const char *str);
 
@@ -14,4 +14,4 @@ int main(void) {
 }
 
 int find_str(FILE *fp, const char *str) {
-
+    char buf[MAXBUF] = "";
