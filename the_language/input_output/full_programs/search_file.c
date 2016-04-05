@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #define MAXBUF  256
 
+// Function Prototypes
 int find_str(FILE *fp, const char *str);
 
 /* Lo scopo del programma e' di cercare, mediante la funzione find_str(), 
@@ -13,8 +15,13 @@ corrispondenza con la stringa fornita alla funzione stessa */
 int main(int argc, char *argv[]) {
     FILE *fp;
 
-    if ((fp = fopen(argv[1], "r")) == 0) {
+    if (argc != 3) {
         fprintf(stderr, "Usage: %s <filename, string>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    if ((fp = fopen(argv[1], "r")) == 0) {
+        fprintf(stderr, "Err. opening stream, fopen(), %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
