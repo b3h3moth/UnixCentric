@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Si fa andare avanti lo stream finche' giunge alla fine del fine
+    // Si fa andare avanti lo stream finche' giunge alla fine del file
     do {
         ch = fgetc(fp);
     } while (ch != EOF);
