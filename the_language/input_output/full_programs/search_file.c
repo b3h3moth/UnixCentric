@@ -15,3 +15,9 @@ int main(void) {
 
 int find_str(FILE *fp, const char *str) {
     char buf[MAXBUF] = "";
+    int count = 0;
+
+    if (fp == NULL || str == NULL)
+        return(-1);
+    else
+        rewind(fp); // 'File position inidicator' impostato all'inizio del file
