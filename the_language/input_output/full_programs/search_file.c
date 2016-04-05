@@ -26,8 +26,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    int nstr = find_str(fp, argv[2]);
-    printf("Find %d\n", nstr);
+    if ((nstr = find_str(fp, argv[2])) > 0)
+        printf("\nFind \'%d\' string/s in \'%s\'\n", nstr, argv[1]);
+    else
+        printf("Doesn't find \'%s\' in \'%s\'\n", argv[2], argv[1]);
 
     return(EXIT_SUCCESS);
 }
