@@ -14,6 +14,7 @@ corrispondenza con la stringa fornita alla funzione stessa */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
+    size_t nstr;
 
     if (argc != 3) {
         fprintf(stderr, "Usage: %s <filename, string>\n", argv[0]);
@@ -25,7 +26,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    find_str(fp, argv[2]);
+    int nstr = find_str(fp, argv[2]);
+    printf("Find %d\n", nstr);
 
     return(EXIT_SUCCESS);
 }
