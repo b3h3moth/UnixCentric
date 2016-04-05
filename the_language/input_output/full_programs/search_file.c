@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAXBUF  256
 
@@ -10,6 +11,8 @@ tutte le linee del file, e stamparle sullo stdout, in cui ci dovesse essere una
 corrispondenza con la stringa fornita alla funzione stessa */
 
 int main(void) {
+    FILE *fp;
+
     return(EXIT_SUCCESS);
 }
 
@@ -28,3 +31,9 @@ int find_str(FILE *fp, const char *str) {
             ++count;
             fputs(buf, stdout);
         }
+
+    if (feof(fp))
+        return count;
+    else
+        return(-1);
+}
