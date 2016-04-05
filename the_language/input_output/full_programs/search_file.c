@@ -21,3 +21,10 @@ int find_str(FILE *fp, const char *str) {
         return(-1);
     else
         rewind(fp); // 'File position inidicator' impostato all'inizio del file
+
+    // Stampa le linee al'interno delle quali vi e' 'str'
+    while (fgets(buf, MAXBUF, fp) != NULL)
+        if (strstr(buf, str) != NULL) {
+            ++count;
+            fputs(buf, stdout);
+        }
