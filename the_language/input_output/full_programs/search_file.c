@@ -10,8 +10,13 @@ int find_str(FILE *fp, const char *str);
 tutte le linee del file, e stamparle sullo stdout, in cui ci dovesse essere una
 corrispondenza con la stringa fornita alla funzione stessa */
 
-int main(void) {
+int main(int argc, char *argv[]) {
     FILE *fp;
+
+    if ((fp = fopen(argv[1], "r")) == 0) {
+        fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
