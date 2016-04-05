@@ -14,5 +14,9 @@ int main(void) {
     // Dichiarazione di un puntatore a un array di interi
     int (*p)[3];
 
+    /* Premessa: L'operatore di subscript '[]' ha una precedenza maggiore 
+    rispetto all'indirezione '*p', tuttavia inserendo l'indirezione tra
+    parentesi la precedenza della stessa sara' maggiore.  */
+
     return(EXIT_SUCCESS);
 }
