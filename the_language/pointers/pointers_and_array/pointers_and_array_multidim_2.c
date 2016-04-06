@@ -25,6 +25,10 @@ int main(void) {
     printf("%d\n", (*p)[0]);
     printf("%d\n", (*(*p + 0) + 0) );
 
+    // Assegna un nuovo valore al primo elemento della prima riga della matrice
+    (*p)[0] = 123;
+    printf("%d\n", (*(*p + 0) + 0));
+
 
     return(EXIT_SUCCESS);
 }
