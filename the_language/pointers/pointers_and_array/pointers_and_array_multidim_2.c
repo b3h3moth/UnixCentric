@@ -18,5 +18,8 @@ int main(void) {
     rispetto all'indirezione '*p', tuttavia inserendo l'indirezione tra
     parentesi la precedenza della stessa sara' maggiore. */
 
+    for (int i=0; i<6; i++) 
+        printf("%d\n", (*p)[i]);
+
     return(EXIT_SUCCESS);
 }
