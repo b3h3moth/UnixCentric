@@ -20,15 +20,32 @@ int main(void) {
 
     // 'p' punta alla prima riga della matrice
     p = data;
-    
-    // Stampa del primo elemento della prima riga della matrice
-    printf("%d\n", (*p)[0]);
-    printf("%d\n", (*(*p + 0) + 0) );
 
-    // Assegna un nuovo valore al primo elemento della prima riga della matrice
+    // Assegna nuovo valore al primo elemento della prima riga della matrice
+    printf("old: %d\n", *((*p) + 0));
     (*p)[0] = 123;
-    printf("%d\n", (*(*p + 0) + 0));
+    printf("new: %d\n", *((*p) + 0));
 
+    // Assegna nuovo valore al secondo elemento della prima riga della matrice
+    printf("old: %d\n", *((*p) + 1));
+    (*p)[1] = 768;
+    printf("new: %d\n", *((*p) + 1));
+
+    // Assegna nuovo valore al primo elemento della seconda riga della matrice
+    printf("old: %d\n", *((*p) + 3));
+    p[1][0] = 999;
+    printf("new: %d\n", *((*p) + 3));
+
+    // Assegna nuovo valore al terzo elemento della seconda riga della matrice
+    printf("old: %d\n", *((*p) + 5));
+    p[1][2] = 2016;
+    printf("new: %d\n", *((*p) + 5));
+
+    for (int i=0; i<6; i++) {
+        if ((i % 3) == 0)
+            puts(" ");
+        printf("%4d, ", (*p)[i]);
+    }
 
     return(EXIT_SUCCESS);
 }
