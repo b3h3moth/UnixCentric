@@ -18,8 +18,13 @@ int main(void) {
     rispetto all'indirezione '*p', tuttavia inserendo l'indirezione tra
     parentesi la precedenza della stessa sara' maggiore. */
 
-    for (int i=0; i<6; i++) 
-        printf("%d\n", (*p)[i]);
+    // 'p' punta alla prima riga della matrice
+    p = data;
+    
+    // Stampa del primo elemento della prima riga della matrice
+    printf("%d\n", (*p)[0]);
+    printf("%d\n", (*(*p + 0) + 0) );
+
 
     return(EXIT_SUCCESS);
 }
