@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int main(void) {
-    char *football_team[] = { "Juventus", "Manchester United", "Chelsea",
+    char *football_team[] = { 
+        "Juventus", "Manchester United", "Chelsea",
         "Manchester City", "Milan", "Real Madrid", "Barcellona" };
 
     char *ptr = football_team[0];
