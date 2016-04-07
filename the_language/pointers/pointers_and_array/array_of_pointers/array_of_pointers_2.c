@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
- * Visualizzare gli elementi di un puntatore a un vettore di stringhe
- */
+/* Lo scopo del programma e' di stampare ciascun elemento dell'array di
+puntatori */
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
    char *array[] = {"campobasso",
       "roma", "napoli", "venezia",
       "verona","torino", "milano",
