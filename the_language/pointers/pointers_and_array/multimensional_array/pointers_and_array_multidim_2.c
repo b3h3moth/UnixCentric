@@ -16,7 +16,10 @@ int main(void) {
 
     /* Premessa: L'operatore di subscript '[]' ha una precedenza maggiore 
     rispetto all'indirezione '*p', tuttavia inserendo l'indirezione tra
-    parentesi la precedenza della stessa sara' maggiore. */
+    parentesi la precedenza della stessa sara' maggiore. Se non fosse stata
+    inserita l'indirezione tra parentesi l'istruzione risultante sarebbe stata
+    int *p[3], ovvero un array di puntatori, ben diverso da un puntatore a un 
+    array di interi. */
 
     // 'p' punta alla prima riga della matrice
     p = data;
