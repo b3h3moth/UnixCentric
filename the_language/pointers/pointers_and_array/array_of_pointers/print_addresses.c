@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Lo scopo del programma e' di verificare l'indirizzo del primo elemento dell'
+array di puntatori (a stringhe), calcolare l'offset per scorrere tra gli
+elementi. */
+
 int main(void) {
     char *football_team[] = { 
         "Juventus", "Manchester United", "Chelsea",
