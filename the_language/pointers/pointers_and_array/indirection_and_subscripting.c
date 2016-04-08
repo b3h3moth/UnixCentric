@@ -3,10 +3,11 @@
 
 #define SIZE 5
 
-/* "Array and pointers are not the same and they are not completely 
-interchangeable". Si parta sempre dall'assunto che array e puntatori non sono
-ne' la stessa cosa ne' sono sempre intercambiabili, in specifiche condizioni
-tuttavia hanno delle similitudini */
+/*      "Array and pointers are not the same 
+         and they are not completely interchangeable". 
+
+Array e puntatori non sono la stessa ne' tantomeno sono sempre intercambiabili,
+in specifiche condizioni tuttavia hanno delle concordanze. */
 
 int main(void) {
     float data[SIZE] = {1.1, 2.2, 3.3, 4.4, 5.5}, *ptr;

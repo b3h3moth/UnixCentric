@@ -34,4 +34,4 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
-// Nota: Vettore ed array monodimensionale sono concetti equivalenti
+
