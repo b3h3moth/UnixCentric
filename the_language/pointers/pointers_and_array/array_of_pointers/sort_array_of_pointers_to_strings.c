@@ -10,18 +10,19 @@
 void sortp(char *str[], int n);
 
 int main(void) {
-    int n=0;
     /* Array bidimensionale contenente le stringhe ricevute in input, non piu'
     di MAX_BUF stringhe per una dimensione massima di BUF_SIZE caratteri */
     char buf[MAX_BUF][BUF_SIZE];
     // Puntatore all'array di caratteri da ordinare
     char *pbuf[MAX_BUF];
+    size_t n=0;
 
     printf("Enter string (max %d size)\n", BUF_SIZE-1);
     fputs("> ", stdout);
 
-    while (fgets(buf[n], BUF_SIZE, stdin) && n < MAX_BUF) {
-        if (strlen(buf[n]) > BUF_SIZE) {
+    while (fgets(buf[n], BUF_SIZE-1, stdin) && n < MAX_BUF) {
+            buf[n][strlen(buf[n])-1] = '\0';
+        if (strlen(buf[n]) > BUF_SIZE-1) {
             printf("Only %d max char strings are allowed\n", BUF_SIZE);
             break;
         }
@@ -33,10 +34,6 @@ int main(void) {
     for (int i=0; i<n; i++)
         printf("%s\n", buf[i]);
 
-
-    fputs("\nSorted strings:\n", stdout);
-    for (int i=0; i<n; i++)
-        printf("%s\n", pbuf[i]);
 
     return(EXIT_SUCCESS);
 }
