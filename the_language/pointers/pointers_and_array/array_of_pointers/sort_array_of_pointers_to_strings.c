@@ -14,7 +14,7 @@ int main(void) {
     fputs("Enter name (one per line), EOF to quit: ", stdout);
 
     for (n = 0; fgets(buf[n], BUF_SIZE, stdin) && n < MAX_BUF; n++) {
-        buf[n][strlen(buf[n])-1] = '\0';
+        //buf[n][strlen(buf[n])-1] = '\0';
         pbuf[n] = buf[n];
     }
 
