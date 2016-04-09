@@ -13,7 +13,7 @@ int main(void) {
     int n=0;
     /* Array bidimensionale contenente le stringhe ricevute in input, non piu'
     di MAX_BUF stringhe per una dimensione massima di BUF_SIZE caratteri */
-    char input_strings[MAX_BUF][BUF_SIZE];
+    char buf[MAX_BUF][BUF_SIZE];
     // Puntatore all'array di caratteri da ordinare
     char *pbuf[MAX_BUF];
 
@@ -39,7 +39,7 @@ int main(void) {
 
     fputs("\nSorted strings:\n", stdout);
     for (int i=0; i<n; i++)
-        printf("%s\n", buf[i]);
+        printf("%s\n", pbuf[i]);
 
     return(EXIT_SUCCESS);
 }
