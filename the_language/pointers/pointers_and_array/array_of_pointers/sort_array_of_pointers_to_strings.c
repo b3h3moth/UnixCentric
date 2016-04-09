@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_BUF     3   // Numero massimo di stringhe in input
+#define MAX_BUF     10   // Numero massimo di stringhe in input
 #define BUF_SIZE    21  // Larghezza massima della sringa
 
 // Function Prototype
@@ -33,7 +33,7 @@ int main(void) {
 
     sortp(pbuf, n);
 
-    fputs("\nUnsorted strings:\n", stdout);
+    fputs("\nSorted strings:\n", stdout);
     for (int i=0; i<n; i++)
         printf("%s\n",pbuf[i]);
 
