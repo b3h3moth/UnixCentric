@@ -17,12 +17,10 @@ int main(void) {
     // Puntatore all'array di caratteri da ordinare
     char *pbuf[MAX_BUF];
 
-    fputs("Enter name (one per line), EOF to quit: ", stdout);
+    printf("Enter string (max %d size)\n", BUF_SIZE-1);
+    fputs("> ", stdout);
 
-    
-    while (fgets(buf[n], BUF_SIZE, stdin)) {
-        if (n == MAX_BUF)
-            break;
+    while (fgets(buf[n], BUF_SIZE, stdin) && n < MAX_BUF) {
         if (strlen(buf[n]) > BUF_SIZE) {
             printf("Only %d max char strings are allowed\n", BUF_SIZE);
             break;
@@ -35,7 +33,6 @@ int main(void) {
     for (int i=0; i<n; i++)
         printf("%s\n", buf[i]);
 
-    sortp(pbuf, n);
 
     fputs("\nSorted strings:\n", stdout);
     for (int i=0; i<n; i++)
