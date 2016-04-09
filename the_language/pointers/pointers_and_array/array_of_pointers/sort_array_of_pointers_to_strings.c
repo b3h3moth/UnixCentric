@@ -11,8 +11,10 @@ void sortp(char *str[], int n);
 
 int main(void) {
     int n=0;
-    char buf[MAX_BUF][BUF_SIZE];
-    // Dichiarazione del puntatore all'array di caratteri che sara' ordinato
+    /* Array bidimensionale contenente le stringhe ricevute in input, non piu'
+    di MAX_BUF stringhe per una dimensione massima di BUF_SIZE caratteri */
+    char input_strings[MAX_BUF][BUF_SIZE];
+    // Puntatore all'array di caratteri da ordinare
     char *pbuf[MAX_BUF];
 
     fputs("Enter name (one per line), EOF to quit: ", stdout);
