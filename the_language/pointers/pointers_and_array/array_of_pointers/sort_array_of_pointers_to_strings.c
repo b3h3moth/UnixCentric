@@ -9,6 +9,12 @@
 // Function Prototype
 void sortp(char *str[], int n);
 
+/* Lo scopo del programma e' di salvare in un array bidimensionale MAX_BUF 
+stringhe ottenute dallo standard input e al contempo assegnare a ogni elemento
+di un array di puntatori l'indirizzo una stringa. Infine ordinare le stringhe 
+mediante la funzione sortp(), che lavorera' solo sui puntatori mediante un 
+'selection sort'. */
+
 int main(void) {
     /* Array bidimensionale contenente le stringhe ricevute in input, non piu'
     di MAX_BUF stringhe per una dimensione massima di BUF_SIZE caratteri */
