@@ -6,6 +6,9 @@
 #define MAX_BUF     5   // Numero massimo di stringhe in input
 #define BUF_SIZE    21  // Larghezza massima della sringa
 
+// Function Prototype
+void sortp(char *str[], int n);
+
 int main(void) {
     int n, i;
     char buf[MAX_BUF][BUF_SIZE];
@@ -24,3 +27,5 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+
+void sortp(char *str[], int n) {
