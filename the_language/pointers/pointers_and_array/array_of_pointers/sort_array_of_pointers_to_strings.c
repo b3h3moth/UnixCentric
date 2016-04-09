@@ -20,12 +20,9 @@ int main(void) {
     printf("Enter string (max %d size)\n", BUF_SIZE-1);
     fputs("> ", stdout);
 
-    while (fgets(buf[n], BUF_SIZE-1, stdin) && n < MAX_BUF) {
+    for (int j=0; j<MAX_BUF; j++) {
+        fgets(buf[n], BUF_SIZE-1, stdin);
             buf[n][strlen(buf[n])-1] = '\0';
-        if (strlen(buf[n]) > BUF_SIZE-1) {
-            printf("Only %d max char strings are allowed\n", BUF_SIZE);
-            break;
-        }
         pbuf[n] = buf[n];
         n++;
     }
@@ -34,6 +31,11 @@ int main(void) {
     for (int i=0; i<n; i++)
         printf("%s\n", buf[i]);
 
+    sortp(pbuf, n);
+
+    fputs("\nUnsorted strings:\n", stdout);
+    for (int i=0; i<n; i++)
+        printf("%s\n",pbuf[i]);
 
     return(EXIT_SUCCESS);
 }
