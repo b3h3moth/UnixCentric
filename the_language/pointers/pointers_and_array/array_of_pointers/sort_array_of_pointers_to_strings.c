@@ -10,7 +10,7 @@
 void sortp(char *str[], int n);
 
 int main(void) {
-    int n, i;
+    int n;
     char buf[MAX_BUF][BUF_SIZE];
     char *pbuf[MAX_BUF];
 
@@ -29,3 +29,15 @@ int main(void) {
 }
 
 void sortp(char *str[], int n) {
+    int maxpos = 0;
+    char *tmp;
+
+    for (int size = n; size>1; size--) {
+        for (int i=0; i<size; i++)
+            if (strcmp(str[i], str[maxpos]) > 0)
+                maxpos = i;
+        tmp = str[maxpos];
+        str[maxpos] = str[size-1];
+        str[size-1] = tmp;
+    }
+}
