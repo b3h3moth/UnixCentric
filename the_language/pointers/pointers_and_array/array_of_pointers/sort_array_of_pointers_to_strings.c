@@ -3,25 +3,39 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_BUF     5   // Numero massimo di stringhe in input
+#define MAX_BUF     3   // Numero massimo di stringhe in input
 #define BUF_SIZE    21  // Larghezza massima della sringa
 
 // Function Prototype
 void sortp(char *str[], int n);
 
 int main(void) {
-    int n;
+    int n=0;
     char buf[MAX_BUF][BUF_SIZE];
+    // Dichiarazione del puntatore all'array di caratteri che sara' ordinato
     char *pbuf[MAX_BUF];
 
     fputs("Enter name (one per line), EOF to quit: ", stdout);
 
-    for (n = 0; fgets(buf[n], BUF_SIZE, stdin) && n < MAX_BUF; n++) {
-        //buf[n][strlen(buf[n])-1] = '\0';
+    
+    while (fgets(buf[n], BUF_SIZE, stdin)) {
+        if (n == MAX_BUF)
+            break;
+        if (strlen(buf[n]) > BUF_SIZE) {
+            printf("Only %d max char strings are allowed\n", BUF_SIZE);
+            break;
+        }
         pbuf[n] = buf[n];
+        n++;
     }
 
     fputs("\nUnsorted strings:\n", stdout);
+    for (int i=0; i<n; i++)
+        printf("%s\n", buf[i]);
+
+    sortp(pbuf, n);
+
+    fputs("\nSorted strings:\n", stdout);
     for (int i=0; i<n; i++)
         printf("%s\n", buf[i]);
 
@@ -29,11 +43,11 @@ int main(void) {
 }
 
 void sortp(char *str[], int n) {
-    int maxpos = 0;
+    int maxpos = 0, i, size;
     char *tmp;
 
-    for (int size = n; size>1; size--) {
-        for (int i=0; i<size; i++)
+    for (size = n; size>1; size--) {
+        for (i=0; i<size; i++)
             if (strcmp(str[i], str[maxpos]) > 0)
                 maxpos = i;
         tmp = str[maxpos];
