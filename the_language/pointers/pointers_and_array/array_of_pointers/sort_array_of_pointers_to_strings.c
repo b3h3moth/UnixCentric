@@ -46,6 +46,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+// Da riscrivere
 void sortp(char *str[], int n) {
     int maxpos = 0, i, size;
     char *tmp;
