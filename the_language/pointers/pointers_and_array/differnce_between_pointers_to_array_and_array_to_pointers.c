@@ -8,7 +8,10 @@ int main(void) {
     char strd[] = "Lisp Language";
     char stre[] = "AWK Language";
 
-    char *ptra = stra, *ptr2 = strb, *ptr3 = strc, *ptr4 = strd, *ptr5 = stre;
+    char *ptr1 = stra, *ptr2 = strb, *ptr3 = strc, *ptr4 = strd, *ptr5 = stre;
+
+    // Array di puntatori
+    char *arr[5] = {ptr1, ptr2, ptr3, ptr4, ptr5};
 
     return(EXIT_SUCCESS);
 }
