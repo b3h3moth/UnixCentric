@@ -8,5 +8,7 @@ int main(void) {
     char strd[] = "Lisp Language";
     char stre[] = "AWK Language";
 
+    char *ptra = stra, *ptr2 = strb, *ptr3 = strc, *ptr4 = strd, *ptr5 = stre;
+
     return(EXIT_SUCCESS);
 }
