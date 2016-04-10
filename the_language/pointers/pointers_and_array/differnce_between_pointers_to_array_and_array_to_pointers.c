@@ -13,5 +13,8 @@ int main(void) {
     // Array di puntatori
     char *arr[5] = {ptr1, ptr2, ptr3, ptr4, ptr5};
 
+    for (int i=0; i<5; i++)
+        printf("%s\n", arr[i]);
+
     return(EXIT_SUCCESS);
 }
