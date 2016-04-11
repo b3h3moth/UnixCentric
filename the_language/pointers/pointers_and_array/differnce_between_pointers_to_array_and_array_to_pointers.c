@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum { ROW = 5, COL = 15 };
+enum { ROW = 4, COL = 10 };
 
 int main(void) {
+    /* Stringhe da utilizzare sia con l'array di puntatori sia col puntatore ad
+    array di stringhe */
     char str1[] = "C Language";
     char str2[] = "C++ Language";
     char str3[] = "Perl Language";
@@ -17,6 +19,10 @@ int main(void) {
 
     for (int i=0; i<5; i++)
         printf("%s\n", arr[i]);
+
+    /* Array bidimensionale, ciascuna riga corrisponde a una stringa, le 
+    colonne invece indicano la lunghezza della stringa stessa */
+    char marr[ROW][COL] = { "FreeBSD", "OpenBSD", "GNU/Linux", "Solaris" };
 
     return(EXIT_SUCCESS);
 }
