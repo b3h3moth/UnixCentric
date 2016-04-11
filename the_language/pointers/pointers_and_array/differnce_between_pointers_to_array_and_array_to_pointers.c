@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum { ROW = 5, COL = 15 };
+
 int main(void) {
     char str1[] = "C Language";
     char str2[] = "C++ Language";
