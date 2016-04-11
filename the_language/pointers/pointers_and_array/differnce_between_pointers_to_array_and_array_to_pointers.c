@@ -23,6 +23,7 @@ int main(void) {
     /* Array bidimensionale, ciascuna riga corrisponde a una stringa, le 
     colonne invece indicano la lunghezza della stringa stessa */
     char marr[ROW][COL] = { "FreeBSD", "OpenBSD", "GNU/Linux", "Solaris" };
+    char (*ptrm)[COL] = marr;
 
     return(EXIT_SUCCESS);
 }
