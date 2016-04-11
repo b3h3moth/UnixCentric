@@ -17,13 +17,17 @@ int main(void) {
     char *arr[5] = {ptr1, ptr2, ptr3, ptr4, ptr5};
 
     for (int i=0; i<5; i++)
-        printf("%s\n", arr[i]);
+        printf("> %s\n", arr[i]);
 
     /* Array bidimensionale, ciascuna riga corrisponde a una stringa, le 
     colonne invece indicano la lunghezza della stringa stessa */
     char marr[ROW][COL] = { "FreeBSD", "OpenBSD", "GNU/Linux", "Solaris" };
     // Puntatore ad array di stringhe - di dimensione massima COL.
     char (*ptrm)[COL] = marr;
+
+    for (int i=0; i<ROW; i++)
+        printf("- %s\n", *(ptrm + i) );
+        // printf("- %s\n", ptrm[i] );  equivalente
 
     return(EXIT_SUCCESS);
 }
