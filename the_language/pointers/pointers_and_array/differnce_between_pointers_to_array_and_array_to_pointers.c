@@ -4,8 +4,7 @@
 enum { ROW = 4, COL = 10 };
 
 int main(void) {
-    /* Stringhe da utilizzare sia con l'array di puntatori sia col puntatore ad
-    array di stringhe */
+    /* Stringhe da utilizzare con l'array di puntatori */
     char str1[] = "C Language";
     char str2[] = "C++ Language";
     char str3[] = "Perl Language";
@@ -23,6 +22,7 @@ int main(void) {
     /* Array bidimensionale, ciascuna riga corrisponde a una stringa, le 
     colonne invece indicano la lunghezza della stringa stessa */
     char marr[ROW][COL] = { "FreeBSD", "OpenBSD", "GNU/Linux", "Solaris" };
+    // Puntatore ad array di stringhe - di dimensione massima COL.
     char (*ptrm)[COL] = marr;
 
     return(EXIT_SUCCESS);
