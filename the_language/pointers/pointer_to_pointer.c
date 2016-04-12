@@ -11,12 +11,18 @@ int main(void) {
         "extern",
     };
 
-    int *ptr = &number;
-    int **ptr_to_ptr = &ptr;
+    char *str1 = keywords[0];
+    char *str2 = keywords[1];
+    char *str3 = keywords[2];
+    char *str4 = keywords[3];
+    char *str5 = keywords[4];
+    char *str6 = keywords[5];
 
-    printf("      address of number: %p\n", (void *)&number);
-    printf("         *ptr points to: %p\n", (void *)ptr);
-    printf(" **ptr_to_ptr points to: %p\n", (void *)*ptr_to_ptr);
+    char *ptr[] = {str1, str2, str3, str4, str5, str6 };
+    char **ptp = &ptr[0];
+
+    for (int i=0; i<sizeof(ptr)/sizeof(ptr[0]); i++)
+        printf("%s\n", ptp[i]);
 
     return(EXIT_SUCCESS);
 }
