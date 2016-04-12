@@ -53,7 +53,7 @@ void sortp(char *str[], int n) {
 
     for (size = n; size>1; size--) {
         for (i=0; i<size; i++)
-            if (strcmp(str[i], str[maxpos]) > 0)
+            if (strlen(str[i]) >= strlen(str[maxpos]))
                 maxpos = i;
         tmp = str[maxpos];
         str[maxpos] = str[size-1];
