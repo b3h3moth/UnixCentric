@@ -20,14 +20,14 @@ int main() {
         {"Bill Shannon"}
     };
     
-    puts("Unsorter order");
-    puts("--------------");
+    puts("Unsorted strings");
+    puts("----------------");
    
     for(int i=0; i<WORD; i++)
         printf("%s\n", strings[i]);
 
-    puts("\n_sorted order");
-    puts("------------");
+    puts("\nSorted strings");
+    puts("----------------");
    
     selection_sort(strings);
    
