@@ -11,7 +11,6 @@ int main(void) {
         "extern",
     };
 
-    int number = 31337;
     int *ptr = &number;
     int **ptr_to_ptr = &ptr;
 
