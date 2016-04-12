@@ -46,14 +46,15 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// Da riscrivere
+/* Selection sort molto basica e non completa, si confrontano soltanto i primi
+caratteri, lo scopo infatti e' lo scambio dei puntatori non l'ordinamento */
 void sortp(char *str[], int n) {
     int maxpos = 0, i, size;
     char *tmp;
 
     for (size = n; size>1; size--) {
         for (i=0; i<size; i++)
-            if (strlen(str[i]) >= strlen(str[maxpos]))
+            if ((str[i][0]) >= str[maxpos][0])
                 maxpos = i;
         tmp = str[maxpos];
         str[maxpos] = str[size-1];
