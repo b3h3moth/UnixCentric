@@ -2,6 +2,15 @@
 #include <stdlib.h>
 
 int main(void) {
+    char *keywords[] = { 
+        "auto",
+        "extern",
+        "register",
+        "static",
+        "void",
+        "extern",
+    };
+
     int number = 31337;
     int *ptr = &number;
     int **ptr_to_ptr = &ptr;
