@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-enum { MAX_LINE = 1000 };
+enum { MAX_LINE = 500 };
 
 char *pline[MAX_LINE];
 
