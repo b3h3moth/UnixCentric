@@ -15,6 +15,15 @@ int main(void) {
     for ( ; n < MAX_LINE && (pline[n] = get_line()) != NULL; ++n)
         ;
 
+    if (!feof(stdin)) {
+        if (n == MAX_LINE)
+            puts("too many lines");
+        else
+            puts("stdin error");
+    }
+
+
+
     return(EXIT_SUCCESS);
 }
 
