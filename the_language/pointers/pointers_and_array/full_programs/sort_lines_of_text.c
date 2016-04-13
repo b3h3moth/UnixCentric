@@ -30,10 +30,10 @@ char *get_line(void) {
         else
             ++len;
 
-        if ((pline = malloc(len)) != NULL)
-            strcpy(pline, buf);
+        if ((*pline = malloc(len)) != NULL)
+            strcpy(*pline, buf);
     }
-    return pline;
+    return *pline;
 }
 
 int compare_strings(const void *str1, const void *str2) {
