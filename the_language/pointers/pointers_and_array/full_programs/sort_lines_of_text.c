@@ -20,9 +20,11 @@ int main(void) {
             puts("too many lines");
         else
             puts("stdin error");
+    } else {
+        qsort(pline, n, sizeof(char*), compare_strings);
+        for (char **p = pline; p<pline+n; ++p)
+            puts(*p);
     }
-
-
 
     return(EXIT_SUCCESS);
 }
