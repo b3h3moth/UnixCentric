@@ -75,7 +75,7 @@ Note: `-ansi` option equals `-std=c90`
 The best books to learn and improve own skills and knowledge about C language 
 programming and secure coding.
 
-- **`(c89)`**
+#### c89
   * **The C Programming Language: ANSI C Version**; *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
   * **The Standard C Library**; *Phillip James Plauger* (`1992, Prentice Hall`)
   * **Expert C Programming: Deep C Secrets**; *Peter Van Der Linden* (`1994, Prentice Hall`)
