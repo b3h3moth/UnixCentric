@@ -83,12 +83,12 @@ programming and secure coding.
   * **Pointers on C**; *Kenneth Reek* (`1997, Pearson`)
   * **A book on C: Programming in C**; *Al Kelley*, *Ira Pohl* (`4th, 1998, Addison Wesley`)
 
-- **`(c99)`**
+#### c99
   * **The Practice of Programming**; *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
   * **C Programming: A modern Approach**; *Kim N.King* (`2nd, 2008, W. W. Norton & Company`)
   * **Secure coding in C and C++**; *Robert C.Seacord* (`2nd, 2013, Addison Wesley`)
 
-- **`(c11)`**
+#### c11
   * **21st Century C: C Tips from the New School**; *Ben Klemens* (`2nd, 2014, O'Reilly`)
   * **The CERT C Coding Standard: 98 Rules for Developing Safe, Reliable, and Secure Systems**; *Robert C.Seacord* (`2014, Addison Wesley`)
 
