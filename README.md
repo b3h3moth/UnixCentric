@@ -77,6 +77,7 @@ programming and secure coding.
 
 - **`(c89)`**
   * **The C Programming Language: ANSI C Version**; *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
+  * **The Standard C Library**; *Phillip James Plauger* (`1992, Prentice Hall`)
   * **Expert C Programming: Deep C Secrets**; *Peter Van Der Linden* (`1994, Prentice Hall`)
   * **C Interfaces and Implementations: Techniques for Creating Reusable Software**; *David R.Hanson* (`1996, Addison Wesley`)
   * **Pointers on C**; *Kenneth Reek* (`1997, Pearson`)
