@@ -33,9 +33,9 @@ How computer really works:
   * casting and information loss
   * integer arithmetic
 
-* floating point (IEEE 754 single and double precision)
+* floating point (Standard IEEE 754 single and double precision)
   * float, double
-  * to do, at the moment is empty
+  * (to do, at the moment is empty)
 
 ### The language
 
