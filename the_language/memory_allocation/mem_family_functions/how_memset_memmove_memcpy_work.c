@@ -10,17 +10,19 @@ int main(void) {
     char buf[MAX_BUF];
 
     // Testing memset()
-    printf("%7s %s\n", "Before:", string1);
+    printf("%16s %s\n", "memset() Before:", string1);
     memset(string1 + OFFSET, 'X', 10);
-    printf("%7s %s\n", "After:",string1);
+    printf("%16s %s\n", "memset() After:",string1);
 
-    // Testing memcpy()
+    // Testing memcpy(), no overlap
     strcpy(buf, string2);
-    printf("%7s %s\n", "Before:", buf);
-    memcpy(buf + 2, buf + 12, 10);
-    printf("%7s %s\n", "After:", buf);
-    memcpy(buf + 2, buf + 12, 10);
-    printf("%7s %s\n", "After:", buf);
+    printf("%16s %s\n", "Default string:", buf);
+    memcpy(buf + 2, buf + 10, 5);
+    printf("%16s %s (%s)\n", "memcpy() After:", buf, "No overlap");
+
+    // Testing memcpy(), with overlap
+    memcpy(buf, buf + 5, 5);
+    printf("%16s %s (%s)\n", "memcpy() After:", buf, "with overlap");
 
     return(EXIT_SUCCESS);
 }
