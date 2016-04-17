@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 enum { MAX_BUF = 50 };
 
@@ -10,7 +11,7 @@ int main(void) {
 
     puts("before memset()");
     printf("\t%s\n", string1);
-    memset(string1 + 5, '$', 10);
+    memset(string1 + 5, 'X', 10);
     puts("\nafter memset()");
     printf("\t%s\n", string1);
 
