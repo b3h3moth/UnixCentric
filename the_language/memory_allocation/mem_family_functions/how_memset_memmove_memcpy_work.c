@@ -17,11 +17,11 @@ int main(void) {
     // Testing memcpy(), no overlap
     strcpy(buf, string2);
     printf("%16s %s\n", "Default string:", buf);
-    memcpy(buf + 2, buf + 10, 5);
+    memcpy(buf + 2, buf + 12, 10);
     printf("%16s %s (%s)\n", "memcpy() After:", buf, "No overlap");
 
     // Testing memcpy(), with overlap
-    memcpy(buf, buf + 5, 5);
+    memcpy(buf, buf + 5, 10);
     printf("%16s %s (%s)\n", "memcpy() After:", buf, "with overlap");
 
     return(EXIT_SUCCESS);
