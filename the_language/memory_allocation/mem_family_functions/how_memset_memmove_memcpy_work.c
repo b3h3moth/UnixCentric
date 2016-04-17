@@ -9,11 +9,9 @@ int main(void) {
     char string2[MAX_BUF] = "qwertyuiopasdfghjklzxcvbnm";
     char buf[MAX_BUF];
 
-    puts("before memset()");
-    printf("\t%s\n", string1);
+    printf("%7s %s\n", "Before:", string1);
     memset(string1 + 5, 'X', 10);
-    puts("\nafter memset()");
-    printf("\t%s\n", string1);
+    printf("%7s %s\n", "After:",string1);
 
     return(EXIT_SUCCESS);
 }
