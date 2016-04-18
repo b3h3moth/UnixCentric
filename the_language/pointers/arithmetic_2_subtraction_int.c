@@ -25,5 +25,8 @@ int main(void) {
 
     printf("ptr - %d (%2d byte): %d %p\n", 4, 16, *(ptr-4), (void *)(ptr-4));
 
+    /* La sottrazione nell'aritmetica dei puntatori e' lecita solo e soltanto
+    se due puntatori puntano al medesimo array */
+
     return(EXIT_SUCCESS);
 }
