@@ -3,15 +3,16 @@
 
 enum { SIZE = 10 };
 
+/* Lo scopo del programma e' di inizializzare ciascun elemento dell'array a 0
+mediante un puntatore. */
+
 int main(void) {
     double arr[SIZE];
-    double *ap;
 
-    for (ap = &arr[0]; ap < &arr[SIZE]; ap++) {
-        *ap = 1;
-        printf("%g\n", *ap);
+    for (double *ap = &arr[0]; ap < &arr[SIZE]; ap++) {
+        *ap = 0;
+        printf("%g, ", *ap);
     }
-
 
     return(EXIT_SUCCESS);
 }
