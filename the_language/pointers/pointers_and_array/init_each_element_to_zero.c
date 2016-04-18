@@ -15,8 +15,8 @@ int main(void) {
     }
 
     // Dall'ultimo elemento al primo
-    for (double *ap = &arr[SIZE]; ap > &arr[0]; ap--) {
-        *ap = 1;
+    for (double *ap = &arr[SIZE]; ap > &arr[0]; ) {
+        *--ap = 1;
         printf("%g, ", *ap);
     }
 
