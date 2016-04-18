@@ -32,5 +32,7 @@ int main(void) {
     printf("_Bool pt0 == pt2 : %d\n", result1);
     printf("_Bool pt0 <  pt2 : %d\n", result2);
 
+    // E' possibile comparare due puntatori solo se puntano al medesimo array
+    
     return(EXIT_SUCCESS);
 }
