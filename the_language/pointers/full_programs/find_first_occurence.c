@@ -2,14 +2,17 @@
 #include <stdlib.h>
 
 // Function  prototype
-char *find_occurence(char const *source, char const *str);
+char *find_occurence(char *source, char *str);
 
 int main(void) {
-    char *buf = "take a walk on the wild side, lou reed";
-    char *str = "hi";
+    char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
+    char *str = "BCD";
 
     char *temp = find_occurence(buf, str);
-    printf("%s\n", temp);
+
+    printf("Find the first occurence of: \'%s\'\n"                  \
+           "          within the string: \"%s\"\n"                  \
+           "              The result is: \'%s\'\n", str, buf, temp);
 
     return(EXIT_SUCCESS);
 }
@@ -17,7 +20,7 @@ int main(void) {
 /* Lo scopo della funzione find_occurence() e' di trovare la prima occorrenza
 di ciascun carattere della stringa 'str' nella stringa 'source'. 
 Restituisce un puntatore al primo caratere trovato, altrimenti NULL. */
-char *find_occurence(char const *source, char const *str) {
+char *find_occurence(char *source, char *str) {
     char *tmp;
 
     if (source != NULL && str != NULL)
