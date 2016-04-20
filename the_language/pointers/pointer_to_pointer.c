@@ -2,18 +2,18 @@
 #include <stdlib.h>
 
 int main(void) {
-    char *keywords[] = { 
-        "auto",
-        "extern",
-        "register",
-        "static",
-        "void",
-        "extern",
+    char *unixos[] = { 
+        "OpenBSD",
+        "FreeBSD",
+        "Open Solaris",
+        "AIX",
+        "GNU/Linux Os",
+        "",
     };
 
     char *pkwords[6] = { 
-        keywords[0], keywords[1], keywords[2], 
-        keywords[3], keywords[4], keywords[5]
+        unixos[0], unixos[1], unixos[2], 
+        unixos[3], unixos[4], unixos[5]
     };
 
 
