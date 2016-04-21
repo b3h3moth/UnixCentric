@@ -32,3 +32,10 @@ int delete_substring(char *source,  char const *substr) {
     // La sottostringa non e' stata individuata
     if (*source == '\0')
         return false;
+
+    // La sottostringa e' stata individuata e si provvede alla cancellazione
+    while (*source = *next++)
+        ;
+
+    return true;
+}
