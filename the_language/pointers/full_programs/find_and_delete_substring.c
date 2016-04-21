@@ -6,6 +6,9 @@ char *match(char *source, char *str);
 int delete_substring(char *source,  char *substr);
 
 int main(void) {
+    char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
+    char *str = "BCD";
+
     return(EXIT_SUCCESS);
 }
 
