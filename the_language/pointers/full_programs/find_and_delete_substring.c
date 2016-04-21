@@ -3,16 +3,17 @@
 #include <stdbool.h>
 
 char *match(char *source, char *str);
-int delete_substring(char *source,  char *substr);
+bool delete_substring(char *source,  char *substr);
 
 int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
     char *str = "Bob";
 
     bool res = delete_substring(buf, str);
-    if (res)
-        puts("true");
-    else
+
+    if (res) {
+        printf("%s\n", buf);
+    } else
         puts("false");
 
     return(EXIT_SUCCESS);
@@ -26,7 +27,7 @@ char *match(char *source, char *str) {
     return source;
 }
 
-int delete_substring(char *source,  char *substr) {
+bool delete_substring(char *source,  char *substr) {
     char *next;
 
     // Cerca la prima occorrenza della sottostringa
@@ -43,8 +44,12 @@ int delete_substring(char *source,  char *substr) {
         return false;
 
     // La sottostringa e' stata individuata e si provvede alla cancellazione
-    while ((*source++ = *next++))
-        ;
+    while ((*source == *next)) {
+        *source++ = *next++;
+    }
+
+    printf("%s\n", source);
+    printf("%s\n", next);
 
     return true;
 }
