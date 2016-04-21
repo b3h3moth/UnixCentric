@@ -7,7 +7,13 @@ int delete_substring(char *source,  char *substr);
 
 int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
-    char *str = "BCD";
+    char *str = "Bob";
+
+    bool res = delete_substring(buf, str);
+    if (res)
+        puts("true");
+    else
+        puts("false");
 
     return(EXIT_SUCCESS);
 }
