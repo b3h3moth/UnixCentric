@@ -15,3 +15,4 @@
 * Pointer to void
 * Restricted pointer
 * Pointers and compound literals
+* Pointer and array
