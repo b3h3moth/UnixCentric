@@ -53,7 +53,6 @@ bool delete_substring(char *source,  char *substr) {
     }
 
     printf("%s\n", source);
-    printf("%s\n", next);
 
     return true;
 }
