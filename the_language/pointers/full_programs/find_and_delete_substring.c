@@ -5,6 +5,10 @@
 char *match(char *source, char *str);
 bool delete_substring(char *source,  char *substr);
 
+/* Lo scopo del programma e' di creare una funzione che cerchi una
+sottostringa all'interno di una stringa, individuarla e stamparla dal punto
+dell'individuazione fino alla fine */
+
 int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
     char *str = "Bob";
@@ -43,7 +47,7 @@ bool delete_substring(char *source,  char *substr) {
     if (*source == '\0')
         return false;
 
-    // La sottostringa e' stata individuata e si provvede alla cancellazione
+    // La sottostringa e' stata individuata 
     while ((*source == *next)) {
         *source++ = *next++;
     }
