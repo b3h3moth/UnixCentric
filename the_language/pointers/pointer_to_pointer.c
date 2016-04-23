@@ -10,11 +10,13 @@ int main(void) {
         "AIX",
         "GNU/Linux Os",
         "HP/UX",
+        "Dragonfly BSD",
     };
 
     // Array di puntatori contenenti solo le voci di OS UNIX di tipo BSD
-    char *bsd_os[3] = { unixos[0], unixos[1] };
+    char *bsd_os[4] = { unixos[0], unixos[1] };
     bsd_os[2] = unixos[3];
+    bsd_os[3] = unixos[7];
 
     // Dichiarazione ed inizializzazione di un puntatore a un puntatore.
     char **pptr = bsd_os;
