@@ -12,15 +12,14 @@ int main(void) {
         "HP/UX",
     };
 
-    char *bsd_os[2] = { unixos[0], unixos[1] };
+    // Array di puntatori contenenti solo le voci di OS UNIX di tipo BSD
+    char *bsd_os[3] = { unixos[0], unixos[1] };
+    bsd_os[2] = unixos[3];
 
-    char *arr_to_ptrs[6] = { 
-        unixos[0], unixos[1], unixos[2], unixos[3], unixos[4], unixos[5]
-    };
+    // Dichiarazione ed inizializzazione di un puntatore a un puntatore.
+    char **pptr = bsd_os;
 
-    char **pptr = arr_to_ptrs;
-
-    for (int i=0; i<sizeof(arr_to_ptrs)/sizeof(arr_to_ptrs[0]); i++)
+    for (int i=0; i<sizeof(bsd_os)/sizeof(bsd_os[0]); i++)
         printf("%s\n", pptr[i]);
 
     return(EXIT_SUCCESS);
