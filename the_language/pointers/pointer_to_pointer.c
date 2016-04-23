@@ -20,8 +20,7 @@ int main(void) {
     bsd_os[2] = &unixos[3];
     bsd_os[3] = &unixos[7];
 
-    // Dichiarazione ed inizializzazione di un puntatore a un puntatore.
-
+    // Stampa ciascun membro del nuovo array di puntatori a puntatori a char
     for (int i=0; i<sizeof(**bsd_os)/sizeof(**bsd_os[0]); i++)
         printf("%s\n", *bsd_os[i]);
 
