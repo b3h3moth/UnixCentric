@@ -14,7 +14,7 @@ int main(void) {
     };
 
     /* Array di puntatori a puntatori a char contenenti solo le voci di OS
-    UNIX di tipo BSD, o meglio, gli indirizzi alle voci, in modo tale da non
+    UNIX di tipo BSD, o meglio, gli indirizzi delle voci, in modo tale da non
     occupare spazio indesiderato.  */
     char **bsd_os[4] = { &unixos[0], &unixos[1] };
     bsd_os[2] = &unixos[3];
