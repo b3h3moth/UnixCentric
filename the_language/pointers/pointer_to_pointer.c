@@ -13,16 +13,16 @@ int main(void) {
         "Dragonfly BSD",
     };
 
-    // Array di puntatori contenenti solo le voci di OS UNIX di tipo BSD
-    char *bsd_os[4] = { unixos[0], unixos[1] };
-    bsd_os[2] = unixos[3];
-    bsd_os[3] = unixos[7];
+    /* Array di puntatori a puntatori a char contenenti solo le voci di OS
+    UNIX di tipo BSD */
+    char **bsd_os[4] = { &unixos[0], &unixos[1] };
+    bsd_os[2] = &unixos[3];
+    bsd_os[3] = &unixos[7];
 
     // Dichiarazione ed inizializzazione di un puntatore a un puntatore.
-    char **pptr = bsd_os;
 
-    for (int i=0; i<sizeof(bsd_os)/sizeof(bsd_os[0]); i++)
-        printf("%s\n", pptr[i]);
+    for (int i=0; i<sizeof(**bsd_os)/sizeof(**bsd_os[0]); i++)
+        printf("%s\n", *bsd_os[i]);
 
     return(EXIT_SUCCESS);
 }
