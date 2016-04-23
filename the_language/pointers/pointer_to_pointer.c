@@ -6,10 +6,13 @@ int main(void) {
         "OpenBSD",
         "FreeBSD",
         "Open Solaris",
+        "NetBSD",
         "AIX",
         "GNU/Linux Os",
         "HP/UX",
     };
+
+    char *bsd_os[2] = { unixos[0], unixos[1] };
 
     char *arr_to_ptrs[6] = { 
         unixos[0], unixos[1], unixos[2], unixos[3], unixos[4], unixos[5]
