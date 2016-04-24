@@ -14,8 +14,9 @@ int main(void) {
     char *str = "Bob";
 
     char *res = delete_substring(buf, str);
-    printf("%s\n", res);
-
+    printf("Default string: %s\n", buf);
+    printf("Substring to search: %s\n", str);
+    printf("The result: %s\n", res);
 
     return(EXIT_SUCCESS);
 }
