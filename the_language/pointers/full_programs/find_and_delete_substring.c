@@ -16,7 +16,7 @@ int main(void) {
     bool res = delete_substring(buf, str);
 
     if (res) {
-        printf("%s\n", buf);
+        printf("true");
     } else
         puts("false");
 
@@ -51,8 +51,6 @@ bool delete_substring(char *source,  char *substr) {
     while ((*source == *next)) {
         *source++ = *next++;
     }
-
-    printf("%s\n", source);
 
     return true;
 }
