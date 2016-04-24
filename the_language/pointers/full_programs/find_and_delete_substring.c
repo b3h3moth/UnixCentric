@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 char *match(char *source, char *str);
-bool delete_substring(char *source,  char *substr);
+char *delete_substring(char *source,  char *substr);
 
 /* Lo scopo del programma e' di creare una funzione che cerchi una
 sottostringa all'interno di una stringa, individuarla e stamparla dal punto
@@ -13,12 +13,9 @@ int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
     char *str = "Bob";
 
-    bool res = delete_substring(buf, str);
+    char *res = delete_substring(buf, str);
+    printf("%s\n", res);
 
-    if (res) {
-        printf("true");
-    } else
-        puts("false");
 
     return(EXIT_SUCCESS);
 }
@@ -31,7 +28,7 @@ char *match(char *source, char *str) {
     return source;
 }
 
-bool delete_substring(char *source,  char *substr) {
+char *delete_substring(char *source,  char *substr) {
     char *next;
 
     // Cerca la prima occorrenza della sottostringa
@@ -45,12 +42,12 @@ bool delete_substring(char *source,  char *substr) {
 
     // La sottostringa non e' stata individuata
     if (*source == '\0')
-        return false;
+        return NULL;
 
     // La sottostringa e' stata individuata 
     while ((*source == *next)) {
         *source++ = *next++;
     }
 
-    return true;
+    return source;
 }
