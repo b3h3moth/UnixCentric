@@ -6,8 +6,9 @@ char *match(char *source, char *str);
 char *delete_substring(char *source,  char *substr);
 
 /* Lo scopo del programma e' di creare una funzione che cerchi una
-sottostringa all'interno di una stringa, individuarla e stamparla dal punto
-dell'individuazione fino alla fine */
+sottostringa all'interno di una stringa, individuarla e stamparla dal 
+carratere successivo dell'individuazione fino alla fine e solo la 
+prima occorrenza. */
 
 int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
@@ -21,6 +22,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
+// Controlla la corrispondenza 'char by char' di 'str' in source
 char *match(char *source, char *str) {
     while (*str != '\0')
         if (*source++ != *str++)
@@ -29,6 +31,7 @@ char *match(char *source, char *str) {
     return source;
 }
 
+// Rimuove i caratteri non necessari
 char *delete_substring(char *source,  char *substr) {
     char *next;
 
