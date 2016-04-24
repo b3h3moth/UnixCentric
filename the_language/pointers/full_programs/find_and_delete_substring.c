@@ -11,7 +11,7 @@ dell'individuazione fino alla fine */
 
 int main(void) {
     char *buf = "Get up Stand up, Stand up for your rights, Bob Marley";
-    char *str = "Bob";
+    char *str = "our";
 
     char *res = delete_substring(buf, str);
     printf("Default string: %s\n", buf);
@@ -46,8 +46,8 @@ char *delete_substring(char *source,  char *substr) {
         return NULL;
 
     // La sottostringa e' stata individuata 
-    while ((*source == *next)) {
-        *source++ = *next++;
+    while ((*source++ == *next++)) {
+        ;
     }
 
     return source;
