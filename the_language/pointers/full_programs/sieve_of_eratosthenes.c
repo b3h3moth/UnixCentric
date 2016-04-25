@@ -16,5 +16,7 @@ int main(void) {
     for (sp = sieve; sp < &sieve[SIZE]; sp++) 
         *sp = 1;
 
+    // Inizia la rimozione dei multipli del
+    for (num = 3; num += 2; )
     return(EXIT_SUCCESS);
 }
