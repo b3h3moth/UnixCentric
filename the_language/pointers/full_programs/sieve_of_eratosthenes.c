@@ -8,12 +8,13 @@
 di Eratostene per il calcolo di numeri primi. */
 
 int main(void) {
-    char sieve[SIZE];
+    char sieve[SIZE]; // Il crivello e' un array
     char *sp;
     int num;
 
     // setta ciascun elemento del crivello a 1
-    for (sp = sieve; sp < SIZE; sp++) 
+    for (sp = sieve; sp < &sieve[SIZE]; sp++) 
         *sp = 1;
+
     return(EXIT_SUCCESS);
 }
