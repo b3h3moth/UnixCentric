@@ -12,11 +12,19 @@ int main(void) {
     char *sp;
     int num;
 
-    // setta ciascun elemento del crivello a 1
+    // Setta ciascun elemento del crivello a 1
     for (sp = sieve; sp < &sieve[SIZE]; sp++) 
         *sp = 1;
 
-    // Inizia la rimozione dei multipli del
-    for (num = 3; num += 2; )
+    // Processa i multipli del 3
+    for (num = 3; num += 2; ) {
+        sp = &sieve[0] + (num -3) / 2;
+
+        if (sp >= &sieve[SIZE])
+            break;
+
+        while (sp += num, sp < &sieve[SIZE])
+            *sp = 0;
+    }
     return(EXIT_SUCCESS);
 }
