@@ -16,7 +16,7 @@ int main(void) {
     for (sp = sieve; sp < &sieve[SIZE]; sp++) 
         *sp = 1;
 
-    // Processa i multipli del 3
+    // Processa ciascun elemento del crivello iniziando dal 3
     for (num = 3; num += 2; ) {
         sp = &sieve[0] + (num -3) / 2;
 
