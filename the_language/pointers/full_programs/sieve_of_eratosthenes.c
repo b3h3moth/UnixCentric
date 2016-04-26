@@ -26,5 +26,13 @@ int main(void) {
         while (sp += num, sp < &sieve[SIZE])
             *sp = 0;
     }
+
+    // Stampa i numeri primi
+    printf("2, ");
+    for (num = 3, sp = &sieve[0]; sp < &sieve[SIZE]; num +=2, sp++) {
+        if(*sp)
+            printf("%d, ", num);
+    }
+
     return(EXIT_SUCCESS);
 }
