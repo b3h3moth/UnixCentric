@@ -12,7 +12,7 @@ int main(void) {
     char *sp;
     int num;
 
-    // Setta ciascun elemento del crivello a 1
+    // Si imposta ciascun elemento dell'array a 'true'
     for (sp = sieve; sp < &sieve[SIZE]; sp++) 
         *sp = true;
 
