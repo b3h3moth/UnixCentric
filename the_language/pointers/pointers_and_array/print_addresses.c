@@ -11,11 +11,11 @@ int main(void) {
 
     /* Ciascun elemento dell'array, essendo un intero, ha una dimensione di 
     4 byte, per cui essendo l'array di dimensione SIZE, il totale della
-    dimensione e' di 40 byte. */
+    dimensione risulta essere di (4 x SIZE) byte. */
     for (i=0; i<SIZE; i++)
         vector[i] = 100+i;
 
-    printf("vector = 0x%lx\n", (unsigned long)vector);
+    printf("Vector = 0x%lx\n", (unsigned long)vector);
 
     /* L'array creato altro non e' che un puntatore al suo primo elemento, per
     cui puo' essere assegnato ad un altro puntatore */
@@ -23,7 +23,7 @@ int main(void) {
 
     // Stampa indirizzi di memoria e valori del vettore
     for (i=0; i<SIZE; i++, ptr++) {
-        printf("[%d] vector[%d]:%d <-> ptr(0x%lx):%d\n", \
+        printf("[%d] Vector[%d]:%d <-> ptr(0x%lx):%d\n", \
                 i, i,vector[i], (unsigned long) ptr, *ptr);
     }
     
