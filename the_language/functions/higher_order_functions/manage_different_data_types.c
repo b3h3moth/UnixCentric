@@ -21,7 +21,6 @@ void print(char *fmt, Data *d);
 
 int main(int argc, char *argv[]) {
     check_error(4, "10", &print);
-    check_error(5, "-10", &print);
 
     return(EXIT_SUCCESS);
 }
@@ -33,9 +32,6 @@ void check_error(int type, char *val, void(*print)(char *, Data *)) {
     if (type == INT) {
         value.valint = atol(val);
         print("%d\n", &value);
-    } else if (type == UINT) {
-        value.valint = atoll(val);
-        print("%u", &value);
     }
 }
 
