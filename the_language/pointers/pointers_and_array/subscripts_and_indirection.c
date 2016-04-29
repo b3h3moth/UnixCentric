@@ -4,7 +4,7 @@
 #define SIZE 10
 
 int main(void) {
-    int arr[SIZE] = {0,1,2,3,4,5,6,7,8,9};
+    int arr[SIZE] = {11, 22, 33, 44, 55, 66, 77, 88, 99, 100};
     int *ap;
 
     // 'arr' e' un puntatore costante al primo elemento dell'array stesso.
@@ -15,15 +15,16 @@ int main(void) {
     /* Se 'arr' e' un puntatore e' possibile utilizzare l'indirezione, stesso
     discorso naturalmente per il puntatore 'ap'. Nel caso specifico si
     utilizza l'indirezione per l'ottenimento di un Rvalue.*/
-    printf("%d\n", *(arr + 1));
-    printf("%d\n", *(ap + 1));
+    printf("print element 1: %d\n", *(arr + 1));
+    printf("print element 2: %d\n", *(ap + 2));
 
     // Modifca il valore di due elementi dell'array, mediante Lvalue
-    *(arr + 2) = 99;
-    *(ap + 3) = 100;
+    *(arr + 2) = 2189;
+    *(ap + 3) = 8768;
 
     /* Mediante il confronto tra puntatori, ovvero indirizzi, stampa ciascun
     elemento dell'array.  */
+    puts("After indirection:");
     while (ap < &arr[SIZE]) {
         printf("%d, ", *ap);
         ap++;
