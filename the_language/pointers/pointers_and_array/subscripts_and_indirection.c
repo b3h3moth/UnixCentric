@@ -18,9 +18,16 @@ int main(void) {
     printf("%d\n", *(arr + 1));
     printf("%d\n", *(ap + 1));
 
-    // Si modifca il valore mediante un Lvalue
+    // Modifca il valore di due elementi dell'array, mediante Lvalue
     *(arr + 2) = 99;
     *(ap + 3) = 100;
+
+    /* Mediante il confronto tra puntatori, ovvero indirizzi, stampa ciascun
+    elemento dell'array.  */
+    while (ap < &arr[SIZE]) {
+        printf("%d, ", *ap);
+        ap++;
+    }
 
     return(EXIT_SUCCESS);
 }
