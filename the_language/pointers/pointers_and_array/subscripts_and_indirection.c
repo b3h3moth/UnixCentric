@@ -18,5 +18,9 @@ int main(void) {
     printf("%d\n", *(arr + 1));
     printf("%d\n", *(ap + 1));
 
+    // Si modifca il valore mediante un Lvalue
+    *(arr + 2) = 99;
+    *(ap + 3) = 100;
+
     return(EXIT_SUCCESS);
 }
