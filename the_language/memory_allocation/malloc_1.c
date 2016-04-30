@@ -76,12 +76,13 @@ int main(int argc, char *argv[]) {
     free(ptrn); /* Rilascio della memoria */
 
     /* Variabili statiche e globali non permettono l'uso di malloc(), tuttavia
-    la soluzione con le variabili statiche potrebbe essere la suddivisione della
-    dichiarazione dall'inizializzazione:    
+    la soluzione con le variabili statiche potrebbe essere la 
+    non simultaneita' della dichiarazione con l'inizializzazione:
+
     static int *p;
     p = (int*)malloc(sizeof(int));
 
-    L'istruzione di seguito invece produrrebbe un errore:
+    Sarebbe errore utilizzarli nella medesima istruzione:
     static int *p  = (int*)malloc(sizeof(int));
     */
 
