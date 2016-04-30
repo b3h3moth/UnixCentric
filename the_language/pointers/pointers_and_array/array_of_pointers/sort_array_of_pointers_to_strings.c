@@ -24,11 +24,11 @@ int main(void) {
     size_t n=0;
 
     printf("Enter string (max %d size)\n", BUF_SIZE-1);
-    fputs("> ", stdout);
 
     for (int j=0; j<MAX_BUF; j++) {
+        printf("string %2d of %2d: ", j+1, MAX_BUF);
         fgets(buf[n], BUF_SIZE-1, stdin);
-            buf[n][strlen(buf[n])-1] = '\0';
+        buf[n][strlen(buf[n])-1] = '\0';
         pbuf[n] = buf[n];
         n++;
     }
