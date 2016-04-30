@@ -12,13 +12,11 @@ int main(int argc, char *argv[]) {
       "genova","palermo","catania",
       "bari","firenze"};
    
-   int x, y;
-   
    /* Calcola il numero degli elementi presenti nel vettore di stringhe */
    int len = sizeof(array) / sizeof(char *);	
    
-   for (x=0; x<len; x++) {
-      for (y=0; y<=strlen(array[x]); y++)
+   for (int x=0; x<len; x++) {
+      for (int y=0; y<=strlen(array[x]); y++)
       	 printf("%c", array[x][y]);
       printf("\n");
    }
