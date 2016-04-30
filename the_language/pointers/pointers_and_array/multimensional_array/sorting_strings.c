@@ -6,6 +6,9 @@ enum {WORD=10, SIZE=20};
 
 void selection_sort(char (*arr)[SIZE]);
 
+/* Lo scopo del programma e' di dichiarare ed inizializzare un array di 
+stringhe, dopodiche' ordinarle. */
+
 int main() {
     char strings[WORD][SIZE]={ 
         {"Rob Pike"},
