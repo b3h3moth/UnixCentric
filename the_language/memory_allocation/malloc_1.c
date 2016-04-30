@@ -17,8 +17,10 @@ La funzione malloc() alloca un blocco di memoria sullo heap, il numero di byte
 da allocare e' indicato dall'unico argomento 'size', in caso di esito negativo
 sara' restituito NULL.
 
-Chiamate successive non garantiscono continuita' nella memoria allocata, 
-tuttavia vi sara' allineamento al tipo di dato del puntatore.
+Chiamate successive non garantiscono continuita' nella memoria allocata, ovvero
+le locazioni non saranno una di seguito all'altra, tuttavia vi sara' 
+allineamento in accordo col tipo di dato del puntatore, nel caso specifico se
+si utilizzasse un intero di 4 byte, gli indirizzi saranno sequenziali.
 
 HEADER    : <stdlib.h>
 PROTOTYPE : void *malloc(size_t size);
