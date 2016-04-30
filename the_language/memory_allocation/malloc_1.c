@@ -17,6 +17,9 @@ La funzione malloc() alloca un blocco di memoria sullo heap, il numero di byte
 da allocare e' indicato dall'unico argomento 'size', in caso di esito negativo
 sara' restituito NULL.
 
+Chiamate successive non garantiscono continuita' nella memoria allocata, 
+tuttavia vi sara' allineamento al tipo di dato del puntatore.
+
 HEADER    : <stdlib.h>
 PROTOTYPE : void *malloc(size_t size);
 SEMANTICS : La funzione malloc alloca 'size' byte di memoria sullo heap.
