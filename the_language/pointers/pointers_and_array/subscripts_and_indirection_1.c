@@ -8,6 +8,9 @@ int main(void) {
     int arr[SIZE] = {11, 22, 33, 44, 55, 66, 77, 88, 99, 100};
     int *ap;
 
+    // Il puntatore ap punta al primo elemento dell'array 'arr'
+    ap = arr;
+
     /* La dichiarazione dell'array 'arr' riserva spazio in memoria per il
     numero degli elementi dell'array. La dichiarazione del puntatore invece
     riserva spazio solo per il puntatore stesso.
@@ -15,10 +18,6 @@ int main(void) {
     *arr    e' lecita, si ottiene un Rvalue, ovvero il primo elemento. 
     *ap     non e' lecita poiche' non si sa a cosa punti. */
     printf("get first element: %d\n", *arr);
-                 
-
-    // Il puntatore ap punta al primo elemento dell'array 'arr'
-    ap = arr;
 
     /* Se 'arr' e' un puntatore e' possibile utilizzare l'indirezione, stesso
     discorso naturalmente per il puntatore 'ap'. Nel caso specifico si
