@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 #include "addresslist.h"
 
 static char name[MAX_ADDR][NAME_LEN];
