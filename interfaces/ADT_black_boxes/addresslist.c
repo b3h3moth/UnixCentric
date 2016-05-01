@@ -13,5 +13,16 @@ static int find_entry(char const *str) {
         if (strcmp(str, name[entry]) == 0)
             return entry;
 
-    return(EXIT_FAILURE);
+    return(-1);
+}
+
+char const *lookup_addr(char const *name) {
+    int entry;
+
+    entry = find_entry(name);
+
+    if (entry == -1)
+        return NULL;
+    else
+        return address[entry];
 }
