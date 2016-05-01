@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Lo scopo del programma e' di utilizzare il nome di un array 
+multidimensionale come un puntatore a un array di interi, dopodiche' verificare
+che si possa lavorare con tale puntatore sia come un Lvalue sia come un Rvalue.
+*/
+
 int main(void) {
     int matrix[3][4] = { {1,2,3,4},{11,12,13,14},{21,22,23,24} };
 
+    /* Il nome dell'array 'matrix' e' un puntatore costante a un array di 
+    interi, l'indirizzo di partenza pertanto puo' essere ottenuto mediante 
+    differenti espressioni. */
     printf("%p\n", (void *)*(matrix + 0));
     printf("%p\n", (void *)matrix);
     printf("%p\n", (void *)&matrix[0][0]);
