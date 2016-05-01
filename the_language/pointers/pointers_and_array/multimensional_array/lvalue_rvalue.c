@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Lo scopo del programma e' di utilizzare il nome di un array 
-multidimensionale come un puntatore a un array di interi, dopodiche' verificare
-che si possa lavorare con tale puntatore sia come un Lvalue sia come un Rvalue.
+/* Lo scopo del programma e' di verificare che il nome di un array 
+multidimensionale altro non e' che un puntatore a un array di interi, stampando
+l'indirizzo iniziale dell'array stesso. Infine si utilizza tale puntatore 
+sia come se fosse un Lvalue sia come se fosse un Rvalue.
 */
 
 int main(void) {
