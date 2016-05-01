@@ -5,8 +5,9 @@
 
 int main(void) {
 
-    // Il vettore e' inizializzato contestualmente alla dichiarazione
-    // In questo caso si tratta di un vettore di 5 elementi
+    /* Il vettore e' inizializzato contestualmente alla dichiarazione
+    In questo caso tuttavia, poiche' manca la grandezza dell'array, il 
+    compilatore allochera' la memoria adatta a contenere  5 elementi */
     int vector_a[] = {10, 20, 30, 40, 50};
 
     // I primi 5 elelmenti sono inizializzati, il resto sara' posto a 0
