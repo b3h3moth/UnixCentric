@@ -7,7 +7,7 @@ char name[MAX_ADDR][NAME_LEN] = {
     "maria",
     "giovanna",
     "carla",
-    "francesa"
+    "francesca"
 };
 char address[MAX_ADDR][ADDR_LEN] = {
     "1111111111",
@@ -26,5 +26,18 @@ char mail[MAX_ADDR][MAIL_LEN] = {
 };
 
 int main(void) {
+    char const *res1 = lookup_addr("giovanna");
+    char const *res2 = lookup_addr("giovanni");
+
+    if (res1 != NULL) {
+        printf("%s\n", res1);
+        printf("%s\n", lookup_mail("giovanna"));
+    } else
+        puts("Doesn't found");
+
+    if (res2 == NULL)
+        puts("Doesn't found");
+
+
     return(EXIT_SUCCESS);
 }
