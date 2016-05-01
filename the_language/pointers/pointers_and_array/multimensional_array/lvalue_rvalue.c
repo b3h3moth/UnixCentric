@@ -16,7 +16,10 @@ int main(void) {
     printf("%p\n", (void *)matrix);
     printf("%p\n", (void *)&matrix[0][0]);
 
+    // Si utilizza come un Lvalue, modificando alcuni elementi
+    *(*(matrix + 0) + 1) = 98;
     *(*(matrix + 1) + 2) = 99;
+    *(*(matrix + 2) + 3) = 100;
 
     for (int i=0; i<3; i++)
         for (int j=0; j<4; j++)
