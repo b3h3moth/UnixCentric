@@ -13,6 +13,7 @@ int main(void) {
 
     // Dichiarazione di un puntatore a un array di interi
     int (*p)[3] = data;
+    // 'p' punta alla prima riga della matrice
 
     /* Premessa: L'operatore di subscript '[]' ha una precedenza maggiore 
     rispetto all'indirezione '*p', tuttavia inserendo l'indirezione tra
@@ -21,8 +22,6 @@ int main(void) {
     int *p[3], ovvero un array di puntatori, ben diverso da un puntatore a un 
     array di interi. */
 
-    // 'p' punta alla prima riga della matrice
-    p = data;
 
     // Assegna nuovo valore al primo elemento della prima riga della matrice
     printf("old: %d\n", *((*p) + 0));
