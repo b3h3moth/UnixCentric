@@ -7,5 +7,8 @@ int main(void) {
         {30,40}
     };
 
+    // Dichiarazione di un puntatore ad array
+    int (*mp)[2] = matrix;
+
     return(EXIT_SUCCESS);
 }
