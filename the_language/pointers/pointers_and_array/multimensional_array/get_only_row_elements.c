@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /* Lo scopo del programma e' di stampare a video solo il primo elemento di
-ciascuna riga della matrice, utilizzando solo i puntatori */
+ciascuna riga della matrice, utilizzando solo i puntatori e senza l'ausilio
+dei subscripts. */
 
 int main(void) {
     int matrix[4][4] = { 
@@ -15,7 +16,7 @@ int main(void) {
     // Dichiarazione di un puntatore ad array
     int (*mp)[4];
 
-    for (mp = matrix; mp<&matrix[4]; mp++)
+    for (mp = matrix; mp<(matrix + 4); mp++)
         printf("%d\n", *(*mp) );
 
     return(EXIT_SUCCESS);
