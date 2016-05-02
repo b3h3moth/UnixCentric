@@ -27,5 +27,9 @@ int main(void) {
         for (int j=0; j<4; j++)
             printf("%d, ", *(*(matrix + i) + j));
 
+    /* I subscripts sono una sorta di forma alternativa di indirezione, quindi
+    e' possibile utilizzarmi assieme */
+    printf("\nsubscripts/indirection together\nelem: %d\n", *(matrix[2] + 1));
+    
     return(EXIT_SUCCESS);
 }
