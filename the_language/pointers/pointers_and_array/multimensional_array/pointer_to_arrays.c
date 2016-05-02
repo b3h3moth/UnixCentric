@@ -8,7 +8,10 @@ int main(void) {
     };
 
     // Dichiarazione di un puntatore ad array
-    int (*mp)[2] = matrix;
+    int (*mp)[2];
+
+    for (mp = matrix; mp<&matrix[2]; mp++)
+        printf("%d\n", (*mp)[0]);
 
     return(EXIT_SUCCESS);
 }
