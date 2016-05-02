@@ -22,7 +22,7 @@ int main(void) {
     *(*(matrix + 1) + 2) = 99;
     *(*(matrix + 2) + 3) = 100;
 
-    // Si utilizza con un Rvalue, stampando a video ciascun elemento
+    // Si utilizza come Rvalue, stampando a video ciascun elemento
     for (int i=0; i<3; i++)
         for (int j=0; j<4; j++)
             printf("%d, ", *(*(matrix + i) + j));
