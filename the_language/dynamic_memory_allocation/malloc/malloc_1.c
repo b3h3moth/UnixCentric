@@ -80,6 +80,16 @@ int main(int argc, char *argv[]) {
 
     free(ptrn); /* Rilascio della memoria */
 
+    // E' buona norma verificare se la memoria allocata risulta essere NULL
+    int *p;
+    p = malloc(sizeof(int));
+    if (p != NULL)
+        puts("pointer is ok");
+    else
+        puts("ops, pointer is not good");
+
+    free(p);
+
     /* Variabili statiche e globali non permettono l'uso di malloc(), tuttavia
     la soluzione con le variabili statiche potrebbe essere la 
     non simultaneita' della dichiarazione con l'inizializzazione:
