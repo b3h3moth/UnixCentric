@@ -5,7 +5,7 @@
 #define MAX_NOTE  5     // numero massimo di promemoria
 #define MSG_LEN   255   // lunghezza massima dei messaggi
 
-void read_line(char str[], int n);
+void read_line(char *str, int n);
 
 /* Lo scopo del programma e' di scrivere un promemoria inerente la giornata,
 con ora piu' nota. */
@@ -67,7 +67,7 @@ int main(void) {
 }
 
 // Legge il messaggio da archiviare
-void read_line(char str[], int n) {
+void read_line(char *str, int n) {
     int ch, i = 0;
 
     while ((ch = getchar()) != '\n') {
