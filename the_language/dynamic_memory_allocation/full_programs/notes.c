@@ -53,7 +53,7 @@ int main(void) {
         num_note++;
     }
 
-    fputs("\nDay noteer\n", stdout);
+    fputs("\nToday's notes: \n", stdout);
 
     for (i=0; i<num_note; i++)
         printf(" %s\n", notes[i]);
@@ -66,8 +66,10 @@ void read_line(char str[], int n) {
     int ch, i = 0;
 
     while ((ch = getchar()) != '\n') {
-        if (i < n)
-            str[i++] = ch;
+        if (i < n) {
+            str[i] = ch;
+            i++;
+        }
     }
         
     str[i] = '\0';
