@@ -7,6 +7,9 @@
 
 void read_line(char str[], int n);
 
+/* Lo scopo del programma e' di scrivere un promemoria inerente la giornata,
+con ora piu' nota. */
+
 int main(void) {
     // Vettore per contenere i promemoria
     char *notes[MAX_NOTE];
@@ -19,11 +22,13 @@ int main(void) {
             break;
         }
 
-        fputs("enter day and note: ", stdout);
+        fputs("Enter hour (from 1 to 24) and note: ", stdout);
         scanf("%2d", &day);
         
-        if (day == 0)
-            break;
+        if (day < 1 || day > 24) {
+            fprintf(stderr, "Err. hour must be >= 1 and <= 24. Exit\n");
+            exit(EXIT_FAILURE);
+        }
 
         // Copia la data 'day' in 'day_str'
         sprintf(day_str, "%2d", day);
