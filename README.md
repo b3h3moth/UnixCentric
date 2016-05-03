@@ -4,8 +4,7 @@ The purpose of this repository is to talk about C11 (Standard ISO)
 
 ### bitwise Hacks
 
-From bitwise operators to bitwise Hacks on integer and floating point data 
-types. A journey among the bits:
+From bitwise operators to the binary representation. A journey among the bits.
 
 * bit operators;
 * shifting;
@@ -15,7 +14,7 @@ types. A journey among the bits:
 
 ### interfaces
 
-How to build robust interfaces in C programs.
+How to build robust interfaces.
 
 ### Libraries and API's
 
