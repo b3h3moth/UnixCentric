@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NOTE  50    // numero massimo di promemoria
+#define MAX_NOTE  5     // numero massimo di promemoria
 #define MSG_LEN   255   // lunghezza massima dei messaggi
 
 void read_line(char str[], int n);
@@ -19,7 +19,7 @@ int main(void) {
             break;
         }
 
-        fputs("enter day and noteer: ", stdout);
+        fputs("enter day and note: ", stdout);
         scanf("%2d", &day);
         
         if (day == 0)
@@ -65,8 +65,10 @@ int main(void) {
 void read_line(char str[], int n) {
     int ch, i = 0;
 
-    while ((ch = getchar()) != '\n')
+    while ((ch = getchar()) != '\n') {
         if (i < n)
             str[i++] = ch;
-        str[i] = '\0';
+    }
+        
+    str[i] = '\0';
 }
