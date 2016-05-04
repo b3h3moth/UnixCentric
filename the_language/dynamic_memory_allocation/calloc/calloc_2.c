@@ -22,8 +22,7 @@ int main(void) {
 }
 
 /* La funzione allocMemory() ritorna l'indirizzo di memoria di grandezza utile 
-a contenere esattamente un vettore di caratteri 'buf' di 'size' dimensioni */
-char *allocMemory(char *buf, int size)
-{
+a contenere esattamente un vettore di caratteri 'buf' di dimensioni 'size'. */
+char *allocMemory(char *buf, int size) {
     return buf = calloc(size,  sizeof(char));
 }
