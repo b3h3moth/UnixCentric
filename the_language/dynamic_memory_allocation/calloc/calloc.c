@@ -3,7 +3,8 @@
 #include <string.h>
 
 /* La peculiarità della funzione calloc() e' che setta ciascun elemento del 
-blocco a zero.
+blocco allocato a zero. Da notare tuttavia che richiede piu' tempo di 
+esecuzione rispetto a una chiamata a malloc().
 
 HEADER    : <stdlib.h>
 PROTOTYPE : void *calloc(size_t nmemb, size_t size);
@@ -15,7 +16,8 @@ RETURNS   : Un puntatore alla memoria allocata in caso di successo,
             NULL in caso di errore
 --------------------------------------------------------------------------------
 Poiche' alloca elementi contigui di memoria, inizialmente fu pensata proprio
-per gli array, da notare tuttavia che richiede piu' tempo di una malloc().
+per gli array.
+
 */
 
 int main(void) {
