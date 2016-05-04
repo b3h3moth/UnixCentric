@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *allocMemory(char *buf, int size);
+char *allocmem(char *buf, int size);
 
 int main(void) {
     char def_string[] = "C language programming";
     char *buffer;
     int size = strlen(def_string)+1;
 
-    buffer = allocMemory(buffer, size);
+    buffer = allocmem(buffer, size);
     strcpy(buffer, def_string);
 
     /* Si imposta il carattere di fine stringa */
@@ -21,8 +21,8 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-/* La funzione allocMemory() ritorna l'indirizzo di memoria di grandezza utile 
+/* La funzione allocmem() ritorna l'indirizzo di memoria di grandezza utile 
 a contenere esattamente un vettore di caratteri 'buf' di dimensioni 'size'. */
-char *allocMemory(char *buf, int size) {
+char *allocmem(char *buf, int size) {
     return buf = calloc(size,  sizeof(char));
 }
