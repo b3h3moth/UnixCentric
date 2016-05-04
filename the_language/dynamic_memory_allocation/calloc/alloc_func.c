@@ -6,17 +6,17 @@ char *allocmem(char *buf, int size);
 
 int main(void) {
     char def_string[] = "C language programming";
-    char *buffer;
+    char *buffer = NULL;
     int size = strlen(def_string)+1;
 
     buffer = allocmem(buffer, size);
     strcpy(buffer, def_string);
 
-    /* Si imposta il carattere di fine stringa */
-    buffer[--size] = '\0';
+    /* Imposta il null character finale. */
+    *(buffer + --size) = '\0';  // Equivalente a buffer[--size]
 
-    printf("strlen(default string): %d - %s\n", size, def_string);
-    printf("    strlen(new string): %d - %s\n", strlen(buffer), buffer);
+    printf("strlen(default): %d - %s\n", size, def_string);
+    printf("   strlen(copy): %d - %s\n", strlen(buffer), buffer);
     
     return(EXIT_SUCCESS);
 }
