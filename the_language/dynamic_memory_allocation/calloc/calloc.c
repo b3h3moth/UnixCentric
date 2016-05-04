@@ -2,16 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* La funzione calloc() alloca un blocco di memoria per un array sullo heap e, 
-diversamente dalla malloc(), setta ciascun elemento a 0.
+/* La peculiarità della funzione calloc() e' che setta ciascun elemento del 
+blocco a zero.
 
 HEADER    : <stdlib.h>
-PROTOTYPE : void *calloc(size_t num_elem, size_t size);
-SEMANTICS : La funzione calloc() alloca memoria per un array di 'num_elem' 
-            elementi, ciascuno di dimensione 'size'. Se 'num_elem' o 'size' e' 
-            zero la funzione ritorna NULL.
-RETURNS   : Un puntatore alla memoria allocata in caso di successo, NULL in caso
-            di errore
+PROTOTYPE : void *calloc(size_t nmemb, size_t size);
+SEMANTICS : La funzione calloc() alloca memoria per un array di 'nmemb' 
+            elementi, ognuno dei quali di dimensione 'size'. 
+            Ciascun elemento e' settato a zero. 
+            Se 'num_elem' o 'size' vale zero la funzione ritorna NULL. 
+RETURNS   : Un puntatore alla memoria allocata in caso di successo, 
+            NULL in caso di errore
 --------------------------------------------------------------------------------
 Poiche' alloca elementi contigui di memoria, inizialmente fu pensata proprio
 per gli array, da notare tuttavia che richiede piu' tempo di una malloc().
