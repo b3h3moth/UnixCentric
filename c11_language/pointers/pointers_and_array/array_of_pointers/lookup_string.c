@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define UNIXOS_SIZE (sizeof(unixos) / sizeof(unixos[0]))
+
 int lookup_os(char const *const osname, char const *oslist[], int const size);
 
 /* Lo scopo del programma e' di realizzare un array di puntatori, sul quale
@@ -18,7 +20,7 @@ int main(void) {
         NULL
     };
 
-    int res = lookup_os("Solaris", unixos, 6);
+    int res = lookup_os("Solaris", unixos, UNIXOS_SIZE);
 
     if (res != -1)
         printf("%s\n", unixos[res]);
