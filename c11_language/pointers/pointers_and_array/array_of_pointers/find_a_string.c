@@ -4,6 +4,9 @@
 
 int lookup_os(char const *const osname, char const *oslist[], int const size);
 
+/* Lo scopo del programma e' di realizzare un array di puntatori, sul quale
+eseguire una ricerca mediante una funzione. */
+
 int main(void) {
     char const *unixos[] = {
         "OpenBSD",
@@ -15,16 +18,19 @@ int main(void) {
         NULL
     };
 
-    int res = lookup_os("solaris", unixos, 6);
+    int res = lookup_os("Solaris", unixos, 6);
 
     if (res != -1)
         printf("%s\n", unixos[res]);
     else
-        puts("string doesn't find");
+        puts("That OS is not in the list, sorry.");
     
     return(EXIT_SUCCESS);
 }
 
+/* Ricerca la stringa 'osname' nell'array di puntatori 'unixos'. In caso di 
+esito positivo ritorna l'indice dell'array che fa riferimento alla stringa, 
+altrimenti -1. */
 int lookup_os(char const *const osname, char const *oslist[], int const size) {
     char const **osp;
 
