@@ -36,9 +36,10 @@ How computer really works:
   * float, double
   * (to do, at the moment is empty)
 
-### The language
+### c11 - The language
 
-A lot of articles on C99 and C11 standards, the core of the language.
+A lot of articles focused on c11 standard, the core of the language is also
+treated,
 
 #### How to compile programs
 
