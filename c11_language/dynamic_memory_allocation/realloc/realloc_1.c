@@ -21,11 +21,10 @@ RETURNS   : Un puntatore al nuovo blocco di memoria in caso di successo, NULL in
 - Se la richiesta di memoria fosse maggiore rispetto alla memoria correntemente
   allocata, sarebbe allocata la memoria necessaria partendo dalla locazione 
   successiva rispetto al blocco allocato, oppure la nuova memoria sarebbe 
-  allocata in una nuova regione sullo heap, copiando  il blocco vecchio;
+  allocata in una nuova regione sullo heap, copiando il blocco vecchio;
 
-- Se 'size' sara' 0 e il 'ptr' diverso da NULL, sara' equivalente a free(ptr);
-
-- Se 'ptr' sara' NULL, la chiamata sara' equivalente a malloc(size);
+- Se 'size' vale 0 e 'ptr' diverso da NULL, sara' equivalente a free(ptr);
+- Se 'ptr' vale NULL, la chiamata sara' equivalente a malloc(size).
 */
 
 int main(int argc, char *argv[]) {
