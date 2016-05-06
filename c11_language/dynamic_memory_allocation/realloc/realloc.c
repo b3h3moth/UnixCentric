@@ -35,17 +35,21 @@ int main(void) {
     char *backup;
 
     // Si allocano 30 byte
-    email = (char*) malloc(30);
+    email = (char*) malloc(40);
+
     // Si utilizzano tuttavia solo 22 byte, compreso il null byte '\0' finale
     strcpy(email, "mymail@myhostname.org");
 
-    /* Si allocano solo 15 byte */
-    backup = realloc(email, 15);
+    /* Si alloca la memoria necessaria per contenere la stringa */
+    backup = realloc(email, strlen(email)+1);
 
     /* Come si potra' evincere dall'output, sara' riutilizzato il blocco
     originario, la stringa peraltro sara' ben maggiore di 15 byte */
-    printf("e-mail value: %p [%s]\n", email, email);
-    printf("backup value: %p [%s]\n", backup, backup);
+    printf("e-mail value: %p [%s] %d byte\n", email, email, strlen(email));
+    printf("backup value: %p [%s] %d byte\n", backup, backup, strlen(backup));
+
+    // Rilascio il blocco di memoria allocato
+    free(backup);
 
     return(EXIT_SUCCESS);
 }
