@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Lo scopo del programma e' di stampare a video solo il primo elemento di
+/* Lo scopo del programma e' di stampare a video soltanto il primo elemento di
 ciascuna riga della matrice, utilizzando solo i puntatori e senza l'ausilio
 dei subscripts. */
 
