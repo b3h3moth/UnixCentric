@@ -27,22 +27,23 @@ RETURNS   : Un puntatore al nuovo blocco di memoria in caso di successo, NULL in
 - Se 'ptr' vale NULL, la chiamata sara' equivalente a malloc(size).
 */
 
-int main(int argc, char *argv[]) {
-    /* richiesta di memoria minore rispetto alla memoria correntemente 
-    allocata */
+/* Lo scopo del programma e' di riallocare uno spazio di memoria minore 
+rispetto alla richiesta originaria */
+
+int main(void) {
     char *email;
     char *backup;
 
-    /* Si allocano 30 byte ma se ne utilizzano solo 23 */
+    // Si allocano 30 byte
     email = (char*) malloc(30);
-    strcpy(email, "behemoth@autistici.org");   /* 23 byte compreso '\0' */
+    // Si utilizzano tuttavia solo 22 byte, compreso il null byte '\0' finale
+    strcpy(email, "mymail@myhostname.org");
 
     /* Si allocano solo 15 byte */
     backup = realloc(email, 15);
 
     /* Come si potra' evincere dall'output, sara' riutilizzato il blocco
-    originario contenuto compreso non modificato, la stringa inoltre sara' ben
-    maggiore di 15 byte */
+    originario, la stringa peraltro sara' ben maggiore di 15 byte */
     printf("e-mail value: %p [%s]\n", email, email);
     printf("backup value: %p [%s]\n", backup, backup);
 
