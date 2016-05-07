@@ -7,10 +7,17 @@ int main(void) {
         "claudia",
         "giovanna",
         "isabella",
-        "marianna",
-        "deborah"
+        "x",
+        "deborah",
+        NULL
     };
 
+    char new_name[] = "rossella";
+
+    /* Il modo migliore per copiare una stringa allorquando si lavora con
+    array of pointers e' di salvare semplicemente il puntatore della nuova
+    stringa */
+    names[4] = &str[0];
 
     return(EXIT_SUCCESS);
 }
