@@ -12,12 +12,12 @@ int main(void) {
         NULL
     };
 
-    char new_name[] = "rossella";
+    char name[] = "rossella";
 
     /* Il modo migliore per copiare una stringa allorquando si lavora con
     array of pointers e' di salvare semplicemente il puntatore della nuova
     stringa */
-    names[4] = &str[0];
+    names[4] = &name[0];
 
     return(EXIT_SUCCESS);
 }
