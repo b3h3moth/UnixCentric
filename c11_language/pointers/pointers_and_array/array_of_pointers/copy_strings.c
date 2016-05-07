@@ -4,6 +4,9 @@
 
 #define ARR_SIZE    ( sizeof(names) / sizeof(names[0]) )
 
+/* Lo scopo del programma e' di inserire due stringhe in un array di puntatori
+gia' inizializzato. */
+
 int main(void) {
     char *names[] = {
         "francesca",
