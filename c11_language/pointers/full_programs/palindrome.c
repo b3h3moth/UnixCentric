@@ -2,11 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
     char *first, *last;
     size_t len;
+    char *str;
 
-    char str[] = { "abab" };
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     len = strlen(str);
 
     first = str;
