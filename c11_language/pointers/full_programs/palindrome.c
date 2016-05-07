@@ -1,22 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define AP_SIZE ( sizeof(strings) / sizeof(strings[0]) )
+#define AP_SIZE ( sizeof(str) / sizeof(str[0]) )
 
 int main(void) {
-    char **first, **last;
+    char *first, *last;
+    size_t len;
 
-    char *strings[] = {
-        "aaabbbcccbbbaaa",
-        "abababbababa",
-        "qwertyaggagaagytrewq",
-        "assaassaassasa",
-    };
+    char str[] = { "abab" };
+    len = strlen(str);
 
-    first = strings;
-
-    for (int i=0; i<AP_SIZE; i++) {
+    first = str;
+    last = &str[len-1];
+    
+    while (first < last) {
+        if (*first != *last)
+            break;
+        first++;
+        last--;
     }
+
+    if (first >= last)
+        puts("palindrome");
 
     return(EXIT_SUCCESS);
 }
