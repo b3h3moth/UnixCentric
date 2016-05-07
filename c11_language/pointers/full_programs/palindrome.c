@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define AP_SIZE ( sizeof(str) / sizeof(str[0]) )
-
 int main(void) {
     char *first, *last;
     size_t len;
