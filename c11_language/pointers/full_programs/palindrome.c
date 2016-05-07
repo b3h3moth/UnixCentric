@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define BUF_SIZE    20
+
 int main(int argc, char *argv[]) {
     char *first, *last;
     size_t len;
-    char *str;
+    char *str = calloc(BUF_SIZE, sizeof(char));
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <string>\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
+    fputs("entry string: ", stdout);
+    scanf("%19s", str);
 
     len = strlen(str);
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (first >= last)
-        puts("palindrome");
+        fputs("The string is Palindrome");
 
     return(EXIT_SUCCESS);
 }
