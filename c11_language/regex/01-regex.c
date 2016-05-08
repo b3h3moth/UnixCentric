@@ -10,7 +10,7 @@ stringa. */
 int main(void) {
     char *default_string = "C Language Programming";
     char *pattern = "gra";
-    
+
     if (regex_match(pattern, default_string) == 0)
 		printf ("Pattern \'%s\' found into the string \'%s\'",  \
                 pattern, default_string);
@@ -26,12 +26,12 @@ int regex_match(char *pattern, const char *default_string) {
     regex_t preg;
 
     status = regcomp(&preg, pattern, REG_EXTENDED | REG_NOSUB);
-    
+
 	if (status != 0)
         return(EXIT_FAILURE);
-    
+
 	status = regexec(&preg, default_string, (size_t) 0, NULL, 0);
-    
+
 	if (status != 0) {
         regfree (&preg);
         return(EXIT_FAILURE);
