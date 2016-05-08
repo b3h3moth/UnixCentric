@@ -10,11 +10,11 @@ char name[MAX_ADDR][NAME_LEN] = {
     "francesca"
 };
 char address[MAX_ADDR][ADDR_LEN] = {
-    "1111111111",
-    "2222222222",
-    "3333333333",
-    "4444444444",
-    "5555555555",
+    "luca's address",
+    "maria's address",
+    "giovanna's address",
+    "carla's address",
+    "francesca's address"
 };
 
 char mail[MAX_ADDR][MAIL_LEN] = {
@@ -33,11 +33,10 @@ int main(void) {
         printf("%s\n", res1);
         printf("%s\n", lookup_mail("giovanna"));
     } else
-        puts("Doesn't found");
+        puts("Not found");
 
     if (res2 == NULL)
-        puts("Doesn't found");
-
+        puts("Not found");
 
     return(EXIT_SUCCESS);
 }
