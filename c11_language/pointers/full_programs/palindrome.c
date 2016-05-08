@@ -4,6 +4,9 @@
 
 #define BUF_SIZE    20
 
+/* Lo scopo del programma e' verificare se una stringa ricevuta in input e'
+palindroma o meno. */
+
 int main(int argc, char *argv[]) {
     char *first, *last;
     size_t len;
