@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (first >= last)
-        fputs("The string is Palindrome");
+        fputs("The string is Palindrome", stdout);
 
     return(EXIT_SUCCESS);
 }
