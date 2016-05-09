@@ -26,3 +26,14 @@ int match(char *regexp, char *text) {
 }
 
 int matchere(char regexp, char *text) {
+    if (regexp[0] == '\0')
+        return 1;
+    if (regexp[1] == '*')
+        return matchstar(regexè[0], regexp + 2, text);
+    if (regexp[0] == '$' && regexp[1] == '\0')
+        return *text == '\0';
+    if (*text != '\0' && (regexp[0] == '.' || regexp[0] == *text))
+        return matchere(regexp + 1, text + 1);
+
+    return 0;
+}
