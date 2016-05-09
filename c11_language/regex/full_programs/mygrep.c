@@ -3,6 +3,7 @@
 
 // Function Prototypes
 int match(char *regexp, char *text);
+int matchere(char regexp, char *text);
 
 int main(void) {
     return(EXIT_SUCCESS);
@@ -23,3 +24,5 @@ int match(char *regexp, char *text) {
 
     return 0;
 }
+
+int matchere(char regexp, char *text) {
