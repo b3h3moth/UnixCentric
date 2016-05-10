@@ -4,6 +4,7 @@
 // Function Prototypes
 int match(char *regexp, char *text);
 int matchere(char regexp, char *text);
+int matchstar(int c, char *regexp, char *text);
 
 int main(void) {
     return(EXIT_SUCCESS);
@@ -37,3 +38,5 @@ int matchere(char regexp, char *text) {
 
     return 0;
 }
+
+int matchstar(int c, char *regexp, char *text);
