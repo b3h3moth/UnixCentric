@@ -3,7 +3,7 @@
 
 // Function Prototypes
 int match(char *regexp, char *text);
-int matchere(char regexp, char *text);
+int matchere(char *regexp, char *text);
 int matchstar(int c, char *regexp, char *text);
 
 int main(void) {
@@ -26,7 +26,7 @@ int match(char *regexp, char *text) {
     return 0;
 }
 
-int matchere(char regexp, char *text) {
+int matchere(char *regexp, char *text) {
     if (regexp[0] == '\0')
         return 1;
     if (regexp[1] == '*')
