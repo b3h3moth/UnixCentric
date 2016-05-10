@@ -39,4 +39,11 @@ int matchere(char regexp, char *text) {
     return 0;
 }
 
-int matchstar(int c, char *regexp, char *text);
+int matchstar(int c, char *regexp, char *text) {
+    do {
+        if (matchere(regexp, text))
+            return 1;
+    } while (*text != '\0' && (*text++ == c || c == '.'));
+
+    return 0;
+}
