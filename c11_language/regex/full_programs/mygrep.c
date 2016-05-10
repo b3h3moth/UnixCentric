@@ -10,7 +10,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// Determina se una stringa di testo soddisfa una regular expression
+// Cerca 'regexp' nel testo 'text'
 int match(char *regexp, char *text) {
     /* Se la regex inizia con ^, la parte iniziale del testo deve soddisfare
        la restante parte dell'espressione. */
@@ -26,6 +26,7 @@ int match(char *regexp, char *text) {
     return 0;
 }
 
+// Cerca 'regexp' all'inizio del testo 'text'
 int matchere(char *regexp, char *text) {
     if (regexp[0] == '\0')
         return 1;
@@ -39,6 +40,7 @@ int matchere(char *regexp, char *text) {
     return 0;
 }
 
+// Cerca la regex '*' all'inizio del testo 'text'
 int matchstar(int c, char *regexp, char *text) {
     do {
         if (matchere(regexp, text))
