@@ -10,28 +10,27 @@ int main(int argc, char **argv, char **envp) {
    int c;
    int *vettore;
 
-   printf("Creazione di un vettore di interi [1-9]\n"
-          "Inserire lunghezza del vettore: ");
+   printf("Entry vector of integer's size [1-9]: ");
    
    if (scanf("%1d", &n) != 0) {
        vettore = malloc(n * sizeof(int)); 
        /* Oppure avrei potuto utilizzare: vettore = calloc(n, sizeof(int)); */
    } else {
-       fprintf(stderr, "Err. il tipo dev'essere intero, riprova\n");
+       fprintf(stderr, "Err. please entry an integer\n");
        exit(EXIT_FAILURE);
    }
 
    for (c = 0; c < n; c++) {
-      printf("Inserire un valore per l'elemento '%d' del vettore: ", c+1);
+      printf("Entry '%d' element value: ", c+1);
       scanf("%d", &vettore[c]);
    }
 
    for (c = n-1; c >= 0; c--) {
-      printf("vettore[%d] = %d\n", c+1, vettore[c]);
+      printf("vector[%d] = %d\n", c+1, vettore[c]);
    }
 
-   printf("\nRIALLOCAZIONE: AMPLIAMENTO DEL VETTORE\n"
-   	  " -> Inserire un intero : ");
+   printf("\nRealloc\n"
+   	  " -> Entry new size: ");
    if (scanf("%1d", &new_alloc) != 0) {
       if (new_alloc > 0) {
           tmp = n;
@@ -39,25 +38,24 @@ int main(int argc, char **argv, char **envp) {
           vettore = realloc(vettore, (n * sizeof(int)));
       }
    } else {
-       fprintf(stderr, "Err. il tipo dev'essere intero, riprova\n");
+       fprintf(stderr, "Err. please entry an integer\n");
        exit(EXIT_FAILURE);
    }
 
-   printf("\nVettore originario : \"%2d\" elementi\n", n);
-   printf("Vettore ampliato   : \"%2d\" elementi\n", n+new_alloc);
+   printf("\n  Originary vector: \"%2d\" elements\n", n);
+   printf("Reallocated vector: \"%2d\" elements\n", n+new_alloc);
 
 
-   printf("\nInizializzazione nuovi elementi del vettore\n");
+   printf("\nInit new vector elements\n");
    for (c=tmp; c<n; c++) {
-      printf("Inserire un valore per l'elemento '%d' del vettore: ", 
-              ((tmp++)+1));
+      printf("Entry '%d elemen value: ",  (tmp++) + 1);
       scanf("%d", &vettore[c]);
    }
 
    printf("\n");
 
    for(c = n-1; c >= 0; --c) {
-      printf("vettore[%d] = %d\n", c+1, vettore[c]);
+      printf("vector[%d] = %d\n", c+1, vettore[c]);
    }
 
    free(vettore);
