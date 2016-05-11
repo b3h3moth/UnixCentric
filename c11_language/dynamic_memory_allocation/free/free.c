@@ -29,8 +29,10 @@ Dangling pointer: Un puntatore che e' stato rilasciato ma che referenzia ancora
 
 int main(void) {
     int *ptr;
-    /* Si alloca la memoria per contenere un tipo di dato intero */
+    
+    /* Alloca la memoria per contenere un tipo di dato intero */
     ptr = (int*) malloc(sizeof(int));
+    
     /* Lo spazio di memoria viene ora rilasciato */
     free(ptr);
 
