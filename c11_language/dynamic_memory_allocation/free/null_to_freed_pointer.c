@@ -4,7 +4,7 @@
 int main(void) {
     float *ptr;
     
-    /* Alloca la memoria per contenere un tipo di dato floatero */
+    /* Alloca la memoria per contenere un tipo di dato float */
     ptr = malloc(sizeof(float));
     
     /* Lo spazio di memoria viene ora rilasciato */

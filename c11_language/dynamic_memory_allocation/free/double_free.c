@@ -7,7 +7,7 @@ int main(void) {
     
     *ptr1 = 1234;
 
-    // C>opia l'indirizzo della memoria allocata 
+    // Copia l'indirizzo della memoria allocata 
     ptr2 = ptr1;
 
     // Primo rilascio
