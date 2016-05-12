@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Dangling pointers, ovvero quando un puntatore referenzia memoria che e' 
-stata gia' rilasciata. */
+/* Dangling pointers; si verifica allorquando un puntatore referenzia della 
+memoria gia' precedentemente rilasciata. */
 
 int main(void) {
     int *p1, *p2;
