@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
                 continue;
             }
 
-            if (grep(argv[1], fp, argc > 3 ? argv[i] : NULL) > 0)
+            if (grep(argv[1], fp, (argc > 3) ? argv[i] : NULL) > 0)
                 nmatch++;
 
             fclose(fp);
