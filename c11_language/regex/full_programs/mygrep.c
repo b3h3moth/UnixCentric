@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
         for (int i = 2; i<argc; i++) {
             if ((fp = fopen(argv[i], "r")) == NULL) {
                 fprintf(stderr, "can't open %s\n", argv[i]);
-                exit(EXIT_FAILURE);
+                continue;
             }
 
             if (grep(argv[1], fp, argc > 3 ? argv[i] : NULL) > 0)
