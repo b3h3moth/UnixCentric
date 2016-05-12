@@ -10,7 +10,8 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// Cerca 'regexp' nel testo 'text'
+/* Cerca 'regexp' nel testo 'text'. Determina se una stringa soddisfa o meno
+una regular expression */
 int match(char *regexp, char *text) {
     /* Se la regex inizia con ^, la parte iniziale del testo deve soddisfare
        la restante parte dell'espressione. */
