@@ -79,4 +79,22 @@ int matchstar(int c, char *regexp, char *text) {
     return 0;
 }
 
-int grep(char *regexp, FILE *fp, char *name);
+int grep(char *regexp, FILE *fp, char *name) {
+    int n, nmatch = 0;
+    char buf[BUFSIZ];
+
+    while (fgets(buf, sizeof(buf), fp) != NULL) {
+        n = strlen(buf);
+
+        if (n > 0 && buf[n-1] == '\n')
+            buf[n-1] = '\0';
+
+        if (match(regexp, buf)) {
+            nmatch++;
+            if (name != NULL)
+                printf("%s: ", name);
+            printf("%s\n", buf);
+        }
+    }
+    return nmatch;
+}
