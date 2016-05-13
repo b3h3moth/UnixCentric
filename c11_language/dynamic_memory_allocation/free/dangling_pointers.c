@@ -7,6 +7,7 @@ a un oggetto non valido. */
 
 int main(void) {
     int *ptr1, *ptr2;
+
     // Si alloca la memoria necessaria per contenere un dato intero
     ptr1 = malloc(sizeof(int));
     // Si assegna un valore intero all'area puntata
