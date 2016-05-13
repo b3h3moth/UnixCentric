@@ -46,8 +46,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-/* Selection sort molto basica e non completa, si confrontano soltanto i primi
-caratteri, lo scopo infatti e' lo scambio dei puntatori non l'ordinamento */
+// Selection sort molto basica per l'ordinamento delle stringhe
 void sortp(char *str[], int n) {
     int maxpos = 0, i, size;
     char *tmp;
