@@ -30,11 +30,8 @@ wild side");
    vettore, gestendola come un 'char *', puntatore a char.
    
    Quando si crea una stringa letterale e' necessario ricordare che il 
-   puntatore punta alla prima lettera della stringa:
-   char *ptr;
-   ptr = "Hello";
-   
-   ptr punta alla prima lettera della stringa "Hello".
+   puntatore punta alla locazione in cui e' contenuto il primo carattere della 
+   stringa.
    
    E' possibile pertanto usare una stringa letterale ovunque il C ammetta un
    puntatore a char. */
