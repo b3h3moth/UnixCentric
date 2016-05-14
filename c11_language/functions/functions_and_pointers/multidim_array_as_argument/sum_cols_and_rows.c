@@ -21,6 +21,8 @@ int main(void) {
         {0,1,2,3}
     };
 
+    sum_rows(mdarr, ROWS);
+
     tot = sum_all(mdarr);
     printf("Total rows: %d\n", tot);
 
@@ -28,7 +30,16 @@ int main(void) {
 }
 
 void sum_rows(int arr[][COLS], int rows) {
+    int tot_rows;
+
+    for (int r=0; r<ROWS; r++) {
+        tot_rows = 0;
+        for (int c=0; c<COLS; c++)
+            tot_rows += arr[r][c];
+        printf("%2d row: %d total\n", r, tot_rows);
+    }
 }
+
 void sum_cols(int arr[][COLS], int rows) {
 }
 
