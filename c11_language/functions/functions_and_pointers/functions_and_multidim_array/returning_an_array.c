@@ -13,11 +13,13 @@ int (*pf())[ARR_SIZE];
 a un array di ARR_SIZE elementi. */
 
 int main(void) {
+
+    int (*array)[ARR_SIZE] = pf();
     return(EXIT_SUCCESS);
 }
 
+// Alloca e inizializza a 0 ciascun elemento di un puntatore ad un array
 int (*pf())[ARR_SIZE] {
-    int (*parr)[ARR_SIZE];
-    parr = calloc(ARR_SIZE, sizeof(int));
+    int (*parr)[ARR_SIZE] = calloc(ARR_SIZE, sizeof(int));
     return parr;
 }
