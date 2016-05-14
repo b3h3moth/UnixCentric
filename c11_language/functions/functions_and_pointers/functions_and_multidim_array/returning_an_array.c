@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARR_SIZE    10
+#define ARR_SIZE    50
 
 /* Un array non puo' essere utilizzato come valore di ritorno di una funzione, 
 piuttosto e' possibile far ritornare dalla funzione un puntatore a qualsiasi 
@@ -35,7 +35,8 @@ int (*pf())[ARR_SIZE] {
 // Stampa ciascun elemento di un puntatore ad array
 void print(int (*p)[ARR_SIZE]) {
     int *ptmp;
+    int i=0;
 
-    for (ptmp = *p; ptmp < (*p + ARR_SIZE); ptmp++)
-        printf("%d\n", *ptmp);
+    for (ptmp = *p; ptmp < (*p + ARR_SIZE); ptmp++, i++)
+        printf("[%2d] %2d x %2d = %d \n", i, i, i, *ptmp);
 }
