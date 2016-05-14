@@ -6,8 +6,8 @@
 
 // Function Prototypes
 int sum_all(int (*arr)[COLS]);
-void sum_rows(int arr[][COLS], int rows);
-void sum_cols(int [][COLS], int);
+void sum_rows(int arr[][COLS]);
+void sum_cols(int [][COLS]);
 
 /* Lo scopo del programma e' di provare le invocazioni di una funzione il cui
 parametro formale e' un array multidimensionale e individuare quindi le varie
@@ -21,26 +21,26 @@ int main(void) {
         {0,1,2,3}
     };
 
-    sum_rows(mdarr, ROWS);
+    sum_rows(mdarr);
 
     tot = sum_all(mdarr);
-    printf("Total rows: %d\n", tot);
+    printf("Total rows and cols: %d\n", tot);
 
     return(EXIT_SUCCESS);
 }
 
-void sum_rows(int arr[][COLS], int rows) {
+void sum_rows(int arr[][COLS]) {
     int tot_rows;
 
     for (int r=0; r<ROWS; r++) {
         tot_rows = 0;
         for (int c=0; c<COLS; c++)
             tot_rows += arr[r][c];
-        printf("%2d row: %d total\n", r, tot_rows);
+        printf("%2d row: %2d total\n", r, tot_rows);
     }
 }
 
-void sum_cols(int arr[][COLS], int rows) {
+void sum_cols(int arr[][COLS]) {
 }
 
 int sum_all(int arr[][COLS]) {
