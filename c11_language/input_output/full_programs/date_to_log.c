@@ -6,7 +6,7 @@
 #include <time.h>
 
 
-#define LOG_FILE "./log_file"
+#define LOG_FILE "./log.txt"
 
 void write_date_to_log(void);
 
@@ -29,7 +29,9 @@ void write_date_to_log(void) {
     fd = open(LOG_FILE, O_APPEND | O_SYNC | O_CREAT | O_WRONLY, 0666);
 
     if (fd < 0) {
-        fprintf(stderr, "Can't write log file %s\n", LOG_FILE);
+        fprintf(stderr, "Can't write log file: \'%s\'\n", LOG_FILE);
+        close(fd);
+        exit(EXIT_FAILURE);
     }
 
     time_string = asctime(localtime(&t));
