@@ -5,7 +5,6 @@
 #include <fcntl.h>
 #include <time.h>
 
-
 #define LOG_FILE "./log.txt"
 
 void write_date_to_log(void);
@@ -19,25 +18,25 @@ int main(void) {
 void write_date_to_log(void) {
     char *username;
     time_t t;
-    int fd;
+    FILE *fp;
     char s[1000];
     char *time_string;
 
     username = getenv("USER");
     t = time(0);
 
-    fd = open(LOG_FILE, O_APPEND | O_SYNC | O_CREAT | O_WRONLY, 0666);
+    fp = fopen(LOG_FILE, "a+");
 
-    if (fd < 0) {
+    if (fp == NULL) {
         fprintf(stderr, "Can't write log file: \'%s\'\n", LOG_FILE);
-        close(fd);
+        fclose(fp);
         exit(EXIT_FAILURE);
     }
 
     time_string = asctime(localtime(&t));
   
     sprintf(s, "%-10s %s", username, time_string); 
-    write(fd, s, strlen(s));
+    fwrite(s, sizeof(char), strlen(s), fp);
     
-    close(fd);
+    fclose(fp);
 }
