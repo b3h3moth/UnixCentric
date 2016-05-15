@@ -1,20 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <time.h>
 
+
 #define LOG_FILE "./log_file"
 
-void write_data_to_log(void);
+void write_date_to_log(void);
 
 int main(void) {
-    write_data_to_log();
+    write_date_to_log();
     
     return(EXIT_SUCCESS);
 }
 
-void write_data_to_log(void) {
+void write_date_to_log(void) {
     char *username;
     time_t t;
     int fd;
