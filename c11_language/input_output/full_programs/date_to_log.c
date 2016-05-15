@@ -5,12 +5,15 @@
 #include <fcntl.h>
 #include <time.h>
 
-#define LOG_FILE "./log.txt"
+static const char * const LOG_FILE = "./log.txt";
+enum { MAX_BUF = 500 };
 
 void write_date_to_log(void);
 
 int main(void) {
     write_date_to_log();
+
+    printf("log \'%s\' written\n", LOG_FILE);
     
     return(EXIT_SUCCESS);
 }
@@ -19,7 +22,7 @@ void write_date_to_log(void) {
     char *username;
     time_t t;
     FILE *fp;
-    char s[1000];
+    char buf[MAX_BUF];
     char *time_string;
 
     username = getenv("USER");
@@ -35,8 +38,8 @@ void write_date_to_log(void) {
 
     time_string = asctime(localtime(&t));
   
-    sprintf(s, "%-10s %s", username, time_string); 
-    fwrite(s, sizeof(char), strlen(s), fp);
+    sprintf(buf, "%-10s %s", username, time_string); 
+    fwrite(buf, sizeof(char), strlen(buf), fp);
     
     fclose(fp);
 }
