@@ -7,8 +7,8 @@
 
 void read_line(char *str, int n);
 
-/* Lo scopo del programma e' di scrivere un promemoria inerente la giornata,
-con ora piu' nota. */
+/* Lo scopo del programma e' di scrivere un semplice promemoria inerente la 
+giornata, con ora piu' nota. */
 
 int main(void) {
     // Vettore per contenere i promemoria
@@ -41,11 +41,11 @@ int main(void) {
                 break;
 
         for (j=num_note; j>i; j--)
-            notes[i] = notes[j-1];
+            notes[j] = notes[j-1];
 
         /* Alloca l'esatto numero di caratteri per la nota
         Ovvero 3 (data e spazio) piu'messaggio */
-        notes[i] = malloc(3 + strlen(msg_str) +1);
+        notes[i] = malloc(2 + strlen(msg_str) +1);
 
         if (notes[i] == NULL) {
             printf("--- No space left ---\n");
@@ -60,6 +60,7 @@ int main(void) {
 
     fputs("\nToday's notes: \n", stdout);
 
+    // Stampa le note in ordine cronologico
     for (i=0; i<num_note; i++)
         printf(" %s\n", notes[i]);
 
@@ -70,12 +71,8 @@ int main(void) {
 void read_line(char *str, int n) {
     int ch, i = 0;
 
-    while ((ch = getchar()) != '\n') {
-        if (i < n) {
-            *(str + i)= ch;
-            i++;
-        }
-    }
-        
+    while ((ch = getchar()) != '\n')
+        if (i < n)
+            str[i++] = ch;
     str[i] = '\0';
 }
