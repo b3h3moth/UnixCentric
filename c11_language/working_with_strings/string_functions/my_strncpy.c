@@ -1,4 +1,4 @@
-#include "my_string_function.h"
+#include "my_strfunc.h"
 
 char *my_strncpy(char *dest, const char *src, size_t n) {
     size_t i;
