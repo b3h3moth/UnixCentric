@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-/* Il linguaggio C consente di definire funzioni che consentono un numero
+/* Il linguaggio C permette di definire funzioni che consentono un numero
 arbitrario di parametri, tipicamente sono le funzioni I/O; in tali funzioni il
 numero arbitrario di parametri si indica nel prototipo con l'ellissi "..." e
 deve sempre seguire obbligatoriamente un parametro fisso.
