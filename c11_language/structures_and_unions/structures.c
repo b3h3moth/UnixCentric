@@ -30,7 +30,11 @@ int main(void) {
                                 .set_name  = "giallo" };
 
     Dichiara la variabile struct white, dopodiche' ciascun membro sara' 
-    inizializzato */
+    inizializzato.
+    
+    RGB_color e' il tag, indica un pattern che successivamente puo'
+    essere utilizzato per dichiarare una variabile, ma non e' esso stesso una 
+    variabile.  */
     struct RGB_color white;
 
     white.set_red = 255;
