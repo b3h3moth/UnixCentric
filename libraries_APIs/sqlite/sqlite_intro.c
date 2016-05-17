@@ -10,12 +10,14 @@ int main(int argc, char *argv[]) {
     int         rc;
     char        *sql;
 
+    // Creazione del database
     if (sqlite3_open("note.db", &db)) {
         fprintf(stderr, "Err. Open database - %s\n", sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
     }
 
-    sql = "CREATE TABLE test4(id INTEGER PRIMARY KEY AUTOINCREMENT,\
+    sql = "CREATE TABLE test4(\
+        id INTEGER PRIMARY KEY AUTOINCREMENT,\
         data DATE NOT NULL,\
         ora TIME NOT NULL,\
         testo TEXT NOT NULL)";
