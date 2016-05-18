@@ -2,7 +2,17 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-int main(int argc, char *argv[]) {
+static int callback(void *null, int argc, char **argv, char **col_name) {
+    int i;
+
+    for (i=0; i<argc; i++)
+        printf("%s = %s\n", col_name[i], argv[i] ? argv[i] : "NULL");
+
+    puts(" ");
+    return 0;
+}
+
+int main(int argc, char **argv) {
     sqlite3 *db;
     int rc;
     char *err_msg = NULL;
@@ -26,9 +36,11 @@ int main(int argc, char *argv[]) {
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err: Can't execute SQL statement %s\n", err_msg);
-        sqlite_free(err_msg);
+        sqlite3_free(err_msg);
     }
 
+    // Chiusura connessione al database
+    sqlite3_close(db);
 
     return(EXIT_SUCCESS);
 }
