@@ -31,13 +31,18 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
 
+    printf("DB \'%s\' opened\n", argv[1]);
+
     // Invio di una query SQL al database, ricevuta come argomento
     rc = sqlite3_exec(db, argv[2], callback, 0, &err_msg);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err: Can't execute SQL statement %s\n", err_msg);
         sqlite3_free(err_msg);
+        exit(EXIT_FAILURE);
     }
+
+    printf("Query \'%s\' executed\n", argv[2]);
 
     // Chiusura connessione al database
     sqlite3_close(db);
