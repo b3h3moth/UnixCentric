@@ -12,6 +12,9 @@ static int callback(void *null, int argc, char **argv, char **col_name) {
     return 0;
 }
 
+/* Lo scopo del programma e' di implementare una funzione di callback() a
+supporto della chiata sqlite3_exec() */
+
 int main(int argc, char **argv) {
     sqlite3 *db;
     int rc;
