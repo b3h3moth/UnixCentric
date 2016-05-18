@@ -15,6 +15,20 @@ int main(int argc, char *argv[]) {
     // Apertura del database fornito come argomento
     rc = sqlite3_open(argv[1], &db);
 
+    if (rc) {
+        fprintf(stderr, "Err: Can't open DB %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        exit(EXIT_FAILURE);
+    }
+
+    // Invio di una query SQL al database, ricevuta come argomento
+    rc = sqlite3_exec(db, argv[2], callback, 0, &err_msg);
+
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err: Can't execute SQL statement %s\n", err_msg);
+        sqlite_free(err_msg);
+    }
+
 
     return(EXIT_SUCCESS);
 }
