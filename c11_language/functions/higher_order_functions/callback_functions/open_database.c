@@ -13,7 +13,9 @@ static int callback(void *null, int argc, char **argv, char **col_name) {
 }
 
 /* Lo scopo del programma e' di implementare una funzione di callback() a
-supporto della chiata sqlite3_exec() */
+supporto della chiamata sqlite3_exec(), naturalmente i benefici di tale 
+chiamata saranno evidenti qualora il database conenga effettivamente dei dati.
+*/
 
 int main(int argc, char **argv) {
     sqlite3 *db;
@@ -44,8 +46,6 @@ int main(int argc, char **argv) {
         sqlite3_free(err_msg);
         exit(EXIT_FAILURE);
     }
-
-    printf("Query \'%s\' executed\n", argv[2]);
 
     // Chiusura connessione al database
     sqlite3_close(db);
