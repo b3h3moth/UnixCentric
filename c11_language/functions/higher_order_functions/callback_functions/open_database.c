@@ -17,7 +17,7 @@ supporto della chiamata sqlite3_exec(), naturalmente i benefici di tale
 chiamata saranno evidenti qualora il database conenga effettivamente dei dati.
 */
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
     sqlite3 *db;
     int rc;
     char *err_msg = NULL;
@@ -36,8 +36,6 @@ int main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
 
-    printf("DB \'%s\' opened\n", argv[1]);
-
     // Invio di una query SQL al database, ricevuta come argomento
     rc = sqlite3_exec(db, argv[2], callback, 0, &err_msg);
 
@@ -53,7 +51,21 @@ int main(int argc, char **argv) {
     return(EXIT_SUCCESS);
 }
 
-/* How to compile the program wih sqlite3 header:
+/* 
+A supporto e' sato inserito un file .sql con alcune query dedicate sia alla
+creazione della tabella sia all'inserimento di dati nei campi previsti dalla 
+tabella stessa.
+
+Prima di compilare, upload dei dati all'interno del db:
+$ cat data.sql | sqlite3 my.db
+
+Fase di compilazione del sorgente:
 $   gcc -std=c11 -Wall -pedantic -lsqlite3 open_database.c -o opendb
 $ clang -std=c11 -Wall -pedantic -lsqlite3 open_database.c -o opendb
+
+Esecuzione del programma:
+$ ./opendb my.db "SELECT * FROM oslist;"
+
+[...]
+
 */
