@@ -1,4 +1,4 @@
-*** How callback works
+## How callback works
 
 La callback function e' solitamente una funzione passata come parametro 
 ad un'altra funzione, in tal modo puo' svolgere specifici compiti del tutto 
