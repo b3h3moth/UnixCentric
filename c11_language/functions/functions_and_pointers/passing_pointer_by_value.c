@@ -4,10 +4,11 @@
 void foo(int *ptr);
 
 int main(void) {
-    /* In C il passaggio dei parametri avviene sempre per valore (by value), 
-    poi se per mezzo dei puntatori tale regola possa essere aggirata dando 
-    una sorta parvenza di passaggio by reference e' tutt'altro discorso, ma
-    non cambia di una virgola il concetto di fondo, ovvero by value. */
+    /* In C il passaggio dei parametri avviene sempre per valore - by value -, 
+    tuttavia se per mezzo dei puntatori tale regola possa essere aggirata
+    fornendo un'illusoria parvenza di passaggio per riferimento - by reference -
+    e' tutt'altro discorso, cio' che non cambia e' il dato incontrovertibile
+    che nel linguaggio C il passaggio dei parametri avviene by value. */
     int num = 20;
     int *p = &num;
 
