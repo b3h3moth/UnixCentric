@@ -8,17 +8,19 @@ La memoria sara' allocata mediante la funzione e sara' ritornato l'indirizzo
 della memoria stessa. */
 
 int main(int argc, char *argv[]) {
-    int *myarr = NULL;;
+    int *myarr = NULL;
     int *tmp = NULL;
+    int sz;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <array size>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    myarr = create_array(10);
+    sz = atoi(argv[1]);
+    myarr = create_array(sz);
 
-    for (tmp = myarr; tmp < (myarr + 10); tmp++)
+    for (tmp = myarr; tmp < (myarr + sz); tmp++)
         printf("%d\n", *tmp);
     
     return(EXIT_SUCCESS);
