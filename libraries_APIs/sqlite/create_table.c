@@ -7,7 +7,7 @@ database fornito come argomento */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db;
-    char *sql, *err;
+    char *sql_query, *err;
     int rc;
 
     if (argc != 2) {
