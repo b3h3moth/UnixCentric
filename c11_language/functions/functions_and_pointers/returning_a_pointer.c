@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Lo scopo del programma e' di ottenere il valore massimo
+// Lo scopo del programma e' di scrivere una funzione che ritorni un puntatore
 
-int *get_max(int *x, int *y);
+int *create_array(
 
 int main(void) {
     int num1 = 20;
