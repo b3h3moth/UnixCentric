@@ -21,8 +21,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Query scritta in standard SQL '92, il cui compito e' la creazione di una
-    tabella suddivisa in specifici campi */
+    // Query il cui compito e' la creazione di una tabella suddivisa in campi
     sql_query = "CREATE TABLE note(\
            id INTEGER PRIMARY KEY AUTOINCREMENT,\
            data DATE NOT NULL,\
