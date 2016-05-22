@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     sql_query = "INSERT INTO note(data, time, msg) VALUES \
            ( date('now'), \
            time('now'), \
-           'SQLite C API' )";
+           'I'm working on SQLite database' )";
     
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_query, NULL, NULL, &err);
