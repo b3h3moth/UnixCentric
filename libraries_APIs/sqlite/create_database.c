@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Database \'%s\' created.\n", argv[1]);
+    printf("Database \'%s\' successfully created.\n", argv[1]);
 
     // Close database connection
     sqlite3_close(db);

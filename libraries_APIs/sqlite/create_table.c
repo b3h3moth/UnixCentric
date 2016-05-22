@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
 
-    printf("Table created within the database: %s\n", argv[1]);
+    printf("Table successfully created within the database: %s\n", argv[1]);
 
     // Close database connection
     sqlite3_close(db);
