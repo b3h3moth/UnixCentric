@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
 
-    puts("Statements stored in a table");
+    puts("Statements successfully stored in a table");
 
     // Close database connection
     sqlite3_close(db);
