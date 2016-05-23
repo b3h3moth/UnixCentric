@@ -22,13 +22,13 @@ int main(void) {
         "Zimbabwe", "Zambia",
         "Russia", "Pakistan",
         "Afghanistan", "Nepal",
-        "jamaica", "Ghana",
+        "Jamaica", "Ghana",
     };
     
-    qsort (country, ARR_SIZE, sizeof (const char *), compare);
+    qsort (country, ARR_SIZE, sizeof(const char *), compare);
     
     for (i=0; i<ARR_SIZE; i++) {
-        printf ("[%.2d]: %s.\n", i, country[i]);
+        printf ("[%.2d %12s]\n", i, country[i]);
     }
 
     return(EXIT_SUCCESS);
