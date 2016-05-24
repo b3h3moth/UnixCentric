@@ -4,5 +4,6 @@
 #include <stdio.h>
 
 char *my_strncpy(char *dest, const char *src, size_t n);
+char *my_strncat(char *dest, const char *src, size_t n);
 
 #endif
