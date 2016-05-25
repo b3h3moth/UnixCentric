@@ -22,7 +22,10 @@ int main(int argc, char *argv[]) {
 
     for (tmp = myarr; tmp < (myarr + sz); tmp++)
         printf("%d\n", *tmp);
-    
+
+    // E' responsabilita' del chiamante rilasciare la memoria
+    free(myarr);
+
     return(EXIT_SUCCESS);
 }
 
