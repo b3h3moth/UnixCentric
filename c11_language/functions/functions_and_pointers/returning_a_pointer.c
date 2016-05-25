@@ -38,5 +38,8 @@ int *create_array(int size) {
     for (int i=0; i<size; i++)
         *(array + i) = i * i;
 
+    /* La variabile array smette di esistere all'uscita dalla funzione, la 
+    memoria allocata tuttavia resta, per cui dovra' essere gestita dal
+    chiamante */
     return array;
 }
