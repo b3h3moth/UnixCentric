@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 
     // Query il cui compito e' la creazione di una tabella suddivisa in campi
     sql_query = "CREATE TABLE note(\
-           id INTEGER PRIMARY KEY AUTOINCREMENT,\
+           id INTEGER PRIMARY KEY,\
            data DATE NOT NULL,\
            time TIME NOT NULL,\
            msg TEXT NOT NULL)";
