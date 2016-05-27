@@ -14,6 +14,8 @@ The c ansi programming language (c11)
 * Logical operators
 * Functions
   * variadic functions
+  * function and pointers
+  * high order functions
 * Pointers
 * Structures and Unions
 * Vector of characters (strings)
