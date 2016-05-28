@@ -1,16 +1,15 @@
 ### SQLite API C functions covered
 
-Either open or create database
+Opening a new database connection:
 
 * sqlite3_open();
 * sqlite3_open_v2();
 
-Execute query
+One-step query execution interface:
 
 * sqlite3_exec();
-* sqlite3_exec_v2();
 
-Close database connection
+Closing a database connection:
 
 * sqlite3_close();
 * sqlite3_close_v2();
