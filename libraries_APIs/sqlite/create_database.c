@@ -3,7 +3,7 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' la creazione del database - per il momento si
-tratta solo di file vuoto - mediante la funzione specifica, il nome del 
+tratta solo di un file vuoto - mediante la funzione specifica, il nome del 
 database stesso e' fornito come argomento in input. */
 
 int main(int argc, char *argv[]) {
