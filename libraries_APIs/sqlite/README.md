@@ -1,3 +1,20 @@
+### SQLite API C functions covered
+
+Either open or create database.
+
+* sqlite3_open();
+* sqlite3_open_v2();
+
+Execute query
+
+* sqlite3_exec();
+* sqlite3_exec_v2();
+
+Close database connection
+
+* sqlite3_close();
+* sqlite3_close_v2();
+
 ### How to compile SQLite3 library
 
 First of all install the SQLite library.
