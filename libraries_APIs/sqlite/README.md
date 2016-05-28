@@ -1,6 +1,6 @@
 ### SQLite API C functions covered
 
-Either open or create database.
+Either open or create database
 
 * sqlite3_open();
 * sqlite3_open_v2();
