@@ -19,6 +19,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* In realta' e' stato creato un file vuoto, nulla e' stato inserito, 
+    neanche gli specifici header SQLite */
+
     printf("Database \'%s\' successfully created.\n", argv[1]);
 
     // Close database connection
