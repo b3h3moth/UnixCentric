@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' la creazione del database mediante la API 
-specifica, il nome del database stesso e' fornito in input. */
+/* Lo scopo del programma e' la creazione del database - per il momento si
+tratta solo di file vuoto - mediante la funzione specifica, il nome del 
+database stesso e' fornito come argomento in input. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db;
@@ -18,9 +19,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
     }
-
-    /* In realta' e' stato creato un file vuoto, nulla e' stato inserito, 
-    neanche gli specifici header SQLite */
 
     printf("Database \'%s\' successfully created.\n", argv[1]);
 
