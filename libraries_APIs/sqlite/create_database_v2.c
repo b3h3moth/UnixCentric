@@ -10,6 +10,8 @@ Si utilizza la nuova funzione con suffisso _v2. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db;
+
+    // Campo di bit che indica la creazione del database in lettura/scrittura
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
 
     if (argc != 2) {
@@ -17,7 +19,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Creazione del database, la funzione ora supporta 4 parametri.
+    /* Creazione del database, la nuova versione della funzione supporta 
+    quattro  parametri */
     if (sqlite3_open_v2(argv[1], &db, flags, NULL )) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
