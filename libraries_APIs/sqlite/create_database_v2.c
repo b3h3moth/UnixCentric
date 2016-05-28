@@ -4,9 +4,13 @@
 
 /* Lo scopo del programma e' la creazione del database - per il momento si
 tratta solo di un file vuoto - mediante la funzione specifica, il nome del 
-database stesso e' fornito come argomento in input. 
+database stesso e' fornito come argomento in input.
 
-Si utilizza la nuova funzione con suffisso _v2. */
+Si utilizza la nuova funzione con suffisso _v2.
+
+E' consigliabile utilizzare nei nuovi programmi la versione con suffisso _v2,
+che conferisce maggior controllo sull'apertura e il processamente del database. 
+*/
 
 int main(int argc, char *argv[]) {
     sqlite3 *db;
