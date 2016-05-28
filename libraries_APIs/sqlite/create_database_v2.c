@@ -33,7 +33,8 @@ int main(int argc, char *argv[]) {
     printf("Database \'%s\' successfully created.\n", argv[1]);
 
     // Close database connection
-    sqlite3_close_v2(db);
+    if (sqlite3_close_v2(db) == SQLITE_OK)
+        puts("Closed database connection");
 
     return(EXIT_SUCCESS);
 }
