@@ -1,3 +1,16 @@
+### Prepared statements life cycle
+
+Once a database connection is established, we can start to execute SQL commands,
+this is done preparing and stepping through statements. The database connection
+and prepared statements objects are controlled by a set of routine:
+
+* sqlite3_open()
+* sqlite3_prepare()
+* sqlite3_step()
+* sqlite3_column()
+* sqlite3_finalize()
+* sqlite3_close()
+
 ### SQLite API C functions covered
 
 Opening a new database connection:
