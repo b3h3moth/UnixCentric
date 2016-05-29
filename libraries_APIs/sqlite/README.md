@@ -4,12 +4,18 @@ Once a database connection is established, we can start to execute SQL commands,
 this is done preparing and stepping through statements. The database connection
 and prepared statements objects are controlled by a set of routine:
 
-* sqlite3_open()
-* sqlite3_prepare()
-* sqlite3_step()
-* sqlite3_column()
-* sqlite3_finalize()
-* sqlite3_close()
+* sqlite3_open()        
+* sqlite3_prepare()     1° step
+* sqlite3_step()        2° step
+* sqlite3_column()      3° step
+* sqlite3_finalize()    4° step
+* sqlite3_close()       
+
+The sqlite3_exec() interface is a convenience wrapper that carries out all four of
+the above steps with a single function call. A callback function passed into sqlite3_exec
+is used to process each row of the result set.
+
+
 
 ### SQLite API C functions covered
 
