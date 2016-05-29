@@ -12,10 +12,10 @@ and prepared statements objects are controlled by a set of routine:
 * sqlite3_close()       
 
 The sqlite3_exec() interface is a convenience wrapper that carries out all four of
-the above steps with a single function call. A callback function passed into sqlite3_exec
+the above steps with a single function call. A callback function passed into sqlite3_exec()
 is used to process each row of the result set.
 
-
+[An Introduction to the SQLite C/C++ interface][https://www.sqlite.org/cintro.html]
 
 ### SQLite API C functions covered
 
