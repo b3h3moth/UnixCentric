@@ -1,14 +1,14 @@
-### Prepared statements life cycle
+### Prepared Statement life cycle
 
 Once a database connection is established, we can start to execute SQL commands,
 this is done preparing and stepping through statements. The database connection
 and prepared statements objects are controlled by a set of routine:
 
 * sqlite3_open()        
-* sqlite3_prepare()     1° step
-* sqlite3_step()        2° step
-* sqlite3_column()      3° step
-* sqlite3_finalize()    4° step
+* sqlite3_prepare()     1st step
+* sqlite3_step()        2nd step
+* sqlite3_column()      3rd step
+* sqlite3_finalize()    4th step
 * sqlite3_close()       
 
 The sqlite3_exec() interface is a convenience wrapper that carries out all four of
