@@ -23,6 +23,11 @@ int main(void) {
     // Copia l'indirizzo della funzione process_string() in fpstrlen
     fpstrlen = process_string;
 
+    /* Non e' stato necessario inserire l'operatore 'address-of', poiche' il
+    compilatore l'avrebbe comunque ignorato, pertanto la chiamata
+    fpstrlen = &process_string; 
+    e' equivalente, ma non consigliata */
+
     // Invoca fpstrlen() su ogni stringa dell'array di puntatori
     for (int i = 0; i < (sizeof(pstr)/sizeof(pstr[0])); i++)
         printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen(pstr[i]));
