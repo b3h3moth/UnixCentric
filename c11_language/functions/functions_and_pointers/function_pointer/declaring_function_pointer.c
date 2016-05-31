@@ -2,9 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Function Prototype
 size_t process_string(char *str);
 
+/* Lo scopo del programma e' di dichiarare un puntatore a funzione, dopodiche'
+utilizzarlo salvando al suo interno l'indirizzo di un'altra funzione. */
+
 int main(void) {
+    // Dichiara il puntatore a funzione fpstrlen
     size_t (*fpstrlen)(char *);
     char *pstr[] = {
         "The art of C programming",
@@ -15,8 +20,10 @@ int main(void) {
         "UNIX is an ideal development environment"
     };
 
+    // Copia l'indirizzo della funzione process_string() in fpstrlen
     fpstrlen = process_string;
 
+    // Invoca fpstrlen() su ogni stringa dell'array di puntatori
     for (int i = 0; i < (sizeof(pstr)/sizeof(pstr[0])); i++)
         printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen(pstr[i]));
     
