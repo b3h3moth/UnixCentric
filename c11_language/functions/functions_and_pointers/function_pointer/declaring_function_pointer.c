@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef size_t (*fptr)(char *);
+
 // Function Prototype
 size_t process_string(char *str);
 
@@ -11,6 +13,9 @@ utilizzarlo salvando al suo interno l'indirizzo di un'altra funzione. */
 int main(void) {
     // Dichiara il puntatore a funzione fpstrlen
     size_t (*fpstrlen)(char *);
+    // Dichiara fpstrlen2 mediante il tipo creato con typedef
+    fptr fpstrlen2;
+
     char *pstr[] = {
         "The art of C programming",
         "C++ is a good choice for OOP",
