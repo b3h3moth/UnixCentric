@@ -25,8 +25,9 @@ int main(void) {
         "UNIX is an ideal development environment"
     };
 
-    // Copia l'indirizzo della funzione process_string() in fpstrlen
+    // Copia l'indirizzo della funzione process_string()
     fpstrlen = process_string;
+    fpstrlen2 = process_string;
 
     /* Non e' stato necessario inserire l'operatore 'address-of', poiche' il
     compilatore l'avrebbe comunque ignorato, pertanto la chiamata
@@ -34,9 +35,12 @@ int main(void) {
     e' equivalente, ma non consigliata */
 
     // Invoca fpstrlen() su ogni stringa dell'array di puntatori
-    for (int i = 0; i < (sizeof(pstr)/sizeof(pstr[0])); i++)
+    for (int i = 0; i < 3; i++)
         printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen(pstr[i]));
-    
+
+    for (int i = 3; i < 6; i++)
+        printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen2(pstr[i]));
+
     return(EXIT_SUCCESS);
 }
 
