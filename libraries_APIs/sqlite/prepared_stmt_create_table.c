@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
     sqlite3_prepare_v2(db, sql_str, -1, &stmt, NULL);
     // Poiche' si crea una tabella serve una sola funzione "stepped"
     sqlite3_step(stmt);
+
     sqlite3_finalize(stmt);
 
     // Close database connection
