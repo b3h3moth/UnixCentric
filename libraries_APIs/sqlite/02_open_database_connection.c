@@ -16,12 +16,21 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Creazione del database
-    if (sqlite3_open(argv[1], &db)) {
+    // Inizializzazione della libreria
+    if (sqlite3_initialize() != SQLITE_OK) {
+        fprintf(stderr, "Err. Unable to initialize the library\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Creazione della connessione al database
+    res = sqlite3_open(argv[1], &db);
+
+    if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
     }
 
+    printf("Library \'%s\' successfully initialized..\n", sqlite3_libversion());
     printf("Database \'%s\' successfully created.\n", argv[1]);
 
     // Close database connection
