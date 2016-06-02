@@ -14,7 +14,8 @@ processamente del database.
 */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db;
+    sqlite3 *db = NULL;
+    int res = 0;
 
     // Campo di bit che indica la creazione del database in lettura/scrittura
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
