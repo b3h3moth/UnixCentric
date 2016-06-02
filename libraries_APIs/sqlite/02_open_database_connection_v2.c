@@ -40,11 +40,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    printf("Library \'%s\' successfully initialized..\n", sqlite3_libversion());
     printf("Database \'%s\' successfully created.\n", argv[1]);
 
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
         puts("Closed database connection");
+
+    sqlite3_shutdown();
 
     return(EXIT_SUCCESS);
 }
