@@ -1,4 +1,4 @@
-### Prepared Statement life cycle
+## Prepared Statement life cycle
 
 Once a database connection is established, we can start to execute SQL commands,
 this is done __preparing and stepping through statements__. The database 
@@ -17,7 +17,7 @@ of the above steps with a single function call. A callback function passed into
 
 [An Introduction to the SQLite C/C++ interface](https://www.sqlite.org/cintro.html)
 
-### SQLite API C functions covered
+## SQLite API C functions covered
 
 Opening a new database connection:
 
@@ -33,7 +33,7 @@ Closing a database connection:
 * `sqlite3_close()`
 * `sqlite3_close_v2()`
 
-### How to compile SQLite3 library
+## How to compile SQLite3 library
 
 First of all install the SQLite library.
 
@@ -47,6 +47,14 @@ $ gcc -stc=c11 -lsqlite3 -Wall -pedantic file.c -o prog
 $ clang -stc=c11 -lsqlite3 -Wall -pedantic file.c -o prog
 ```
 
-### Get SQLite library
+## Bibliography
+
+There are only two books that tell about API C.
+
+* **Using SQLite**, *edition* (`O'Relly, 2010`)
+  * by *xxx*
+  - `Covers SQLite x.x.x`
+
+## Get SQLite library
 
 [Download](https://sqlite.org/download.html) source code from main site.
