@@ -30,10 +30,13 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Creazione del database, la nuova versione della funzione supporta 
-    quattro  parametri */
-    if (sqlite3_open_v2(argv[1], &db, flags, NULL )) {
+    /* Creazione della connessione al database, la versione v2 della libreria
+    supporta quattro parametri */
+    res = sqlite3_open_v2(argv[1], &db, flags, NULL);
+
+    if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
 
