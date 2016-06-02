@@ -16,12 +16,17 @@ processamente del database.
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     int res = 0;
-
     // Campo di bit che indica la creazione del database in lettura/scrittura
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    // Inizializzazione della libreria
+    if (sqlite3_initialize() != SQLITE_OK) {
+        fprintf(stderr, "Err. Unable to initialize the library.\n");
         exit(EXIT_FAILURE);
     }
 
