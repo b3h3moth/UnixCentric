@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' la creazione del database - per il momento si
-tratta solo di un file vuoto - mediante la funzione specifica, il nome del 
-database stesso e' fornito come argomento in input. */
+/* Lo scopo del programma e' l'apertura della connessione al database e la 
+relativa creazione dello stesso - per il momento si tratta solo di un file 
+vuoto - mediante la funzione specifica, il nome del database stesso e' 
+fornito come argomento in input. */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db;
+    sqlite3 *db = NULL;
+    int res = 0;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
