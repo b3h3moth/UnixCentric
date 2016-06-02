@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' la creazione del database - per il momento si
-tratta solo di un file vuoto - mediante la funzione specifica, il nome del 
-database stesso e' fornito come argomento in input.
+/* Lo scopo del programma e' l'apertura di una connessione al database e la
+conseguente creazione del database stesso - che peraltro nel caso specifico
+sara' semplicemente un file vuoto -, mediante la nuova versione della funzione
+denominata con prefisso 'v2'. Il nome del database e' fornito come argomento 
+dalla command line.
 
-Si utilizza la nuova funzione con suffisso _v2.
-
-E' consigliabile utilizzare nei nuovi programmi la versione con suffisso _v2,
-che conferisce maggior controllo sull'apertura e il processamente del database. 
+La documentazione SQLite consiglia espressamente l'utilizzo della nuova 
+versione sqlite3_open_v2(), che conferisce maggior controllo sull'apertura e il
+processamente del database.
 */
 
 int main(int argc, char *argv[]) {
