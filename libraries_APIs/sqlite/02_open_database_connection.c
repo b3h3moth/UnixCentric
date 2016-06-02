@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
 
@@ -36,6 +37,8 @@ int main(int argc, char *argv[]) {
     // Close database connection
     if (sqlite3_close(db) == SQLITE_OK)
         puts("Closed database connection");
+
+    sqlite3_shutdown();
 
     return(EXIT_SUCCESS);
 }
