@@ -11,14 +11,9 @@ Una dichiarazione e' eseguita (stepped through) riga per riga fin quando non
 ci sono piu' righe da valutare.
 
 Le Prepared Statements (dichiarazioni preparate), a differenza delle 
-connessioni al database che possono essere aprte, utilizzate per un periodo e
-poi chiuse, possono trovarsi in diversi stati. 
-
-Una dichiarazione potrebbe essere:
-- preparata e non eseguita;
-- eseguita;
-- resettata;
-- eseguita diverse volte.
+connessioni al database che possono essere aperte, utilizzate per un periodo e
+poi chiuse, possono trovarsi in diversi stati, come ad esempio essere eseguite,
+essere resettate, essere eseguite piu' volte, non eseguite.
 
 */
 
