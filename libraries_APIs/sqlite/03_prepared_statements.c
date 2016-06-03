@@ -2,9 +2,20 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Le Prepared Statements (dichiarazioni preparate), a differenza delle 
+/* Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
+compilata in forma binaria e pronta per essere valutata; il processo di
+preparazione pertanto e' la conversione di un comando SQL in una
+"Prepared Statement" in forma binaria.
+
+Le Prepared Statements (dichiarazioni preparate), a differenza delle 
 connessioni al database che possono essere aprte, utilizzate per un periodo e
-poi chiuse, possono trovarsi in diversi stati. */
+poi chiuse, possono trovarsi in diversi stati. 
+
+Una dichiarazione potrebbe essere:
+- preparata e non eseguita;
+- eseguita;
+- resettata;
+- eseguita diverse volte.*/
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
