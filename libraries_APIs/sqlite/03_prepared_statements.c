@@ -2,20 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
-compilata in forma binaria e pronta per essere valutata; il processo di
-preparazione pertanto e' la conversione di un comando SQL in una
-"Prepared Statement" in forma binaria (compiled object code).
-
-Una dichiarazione e' eseguita (stepped through) riga per riga fin quando non
-ci sono piu' righe da valutare.
-
-Le Prepared Statements (dichiarazioni preparate), a differenza delle 
-connessioni al database che possono essere aperte, utilizzate per un periodo e
-poi chiuse, possono trovarsi in diversi stati, come ad esempio essere eseguite,
-essere resettate, essere eseguite piu' volte, non eseguite.
-
-*/
+/* Lo scopo del programma e' la creazione di un database ex-novo, il nome del
+database sara' fornito in input, dopodiche' mediante una query sara' creata una
+tabella mediante le "Prepared Statements". */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
@@ -34,8 +23,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Creazione della connessione al database, la versione v2 della libreria
-    supporta quattro parametri */
+    /* Creazione della connessione al database */
     res = sqlite3_open_v2(argv[1], &db, flags, NULL);
 
     if (res != SQLITE_OK) {
@@ -43,6 +31,21 @@ int main(int argc, char *argv[]) {
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
+
+    /* Creazione della "Prepared Statement".
+    Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
+    compilata in forma binaria e pronta per essere valutata; il processo di
+    preparazione pertanto e' la conversione di un comando SQL in una
+    "Prepared Statement" in forma binaria (compiled object code).
+    
+    Una dichiarazione e' eseguita (stepped through) riga per riga fin quando 
+    non ci sono piu' righe da valutare.
+    
+    Le Prepared Statements - a differenza delle connessioni al database che 
+    possono essere aperte, utilizzate per un periodo di tempo e poi chiuse - 
+    possono trovarsi in diversi stati, come ad esempio essere eseguite,
+    essere resettate, essere eseguite piu' volte, non eseguite.
+    */
 
 
     // Close database connection
