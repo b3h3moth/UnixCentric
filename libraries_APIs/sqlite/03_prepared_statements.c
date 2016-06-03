@@ -7,6 +7,9 @@ compilata in forma binaria e pronta per essere valutata; il processo di
 preparazione pertanto e' la conversione di un comando SQL in una
 "Prepared Statement" in forma binaria (compiled object code).
 
+Una dichiarazione e' eseguita (stepped through) riga per riga fin quando non
+ci sono piu' righe da valutare.
+
 Le Prepared Statements (dichiarazioni preparate), a differenza delle 
 connessioni al database che possono essere aprte, utilizzate per un periodo e
 poi chiuse, possono trovarsi in diversi stati. 
@@ -15,7 +18,9 @@ Una dichiarazione potrebbe essere:
 - preparata e non eseguita;
 - eseguita;
 - resettata;
-- eseguita diverse volte.*/
+- eseguita diverse volte.
+
+*/
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
