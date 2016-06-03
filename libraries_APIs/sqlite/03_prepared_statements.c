@@ -59,6 +59,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    sqlite3_step(stmt);
+
+    sqlite3_finalize(stmt);
+
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
         puts("Closed database connection");
