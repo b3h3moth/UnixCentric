@@ -10,11 +10,11 @@ int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
     // SQL statement il cui compito e' la creazione di una tabella 
-    char *sql_str = "CREATE TABLE note(\
-           id INTEGER PRIMARY KEY,\
-           data DATE NOT NULL,\
-           time TIME NOT NULL,\
-           msg TEXT NOT NULL)";
+    char *sql_str = "CREATE TABLE note("
+           "id INTEGER PRIMARY KEY,"
+           "data DATE NOT NULL,"
+           "time TIME NOT NULL,"
+           "msg TEXT NOT NULL)";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
