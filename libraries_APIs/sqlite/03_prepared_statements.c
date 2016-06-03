@@ -45,6 +45,10 @@ int main(int argc, char *argv[]) {
     possono essere aperte, utilizzate per un periodo di tempo e poi chiuse - 
     possono trovarsi in diversi stati, come ad esempio essere eseguite,
     essere resettate, essere eseguite piu' volte, non eseguite.
+
+    La conversione di un comando SQL da stringa a "Prepared Statement" avviene
+    per mezzo una delle funzioni della famiglia sqlite3_prepare_*(), nello
+    specifico la v2.
     */
 
 
