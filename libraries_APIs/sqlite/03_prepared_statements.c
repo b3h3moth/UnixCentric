@@ -5,7 +5,7 @@
 /* Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
 compilata in forma binaria e pronta per essere valutata; il processo di
 preparazione pertanto e' la conversione di un comando SQL in una
-"Prepared Statement" in forma binaria.
+"Prepared Statement" in forma binaria (compiled object code).
 
 Le Prepared Statements (dichiarazioni preparate), a differenza delle 
 connessioni al database che possono essere aprte, utilizzate per un periodo e
