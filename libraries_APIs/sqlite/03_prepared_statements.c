@@ -7,10 +7,14 @@ database sara' fornito in input, dopodiche' mediante una query sara' creata una
 tabella mediante le "Prepared Statements". */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db = NULL;
-    int res = 0;
-    // Campo di bit che indica la creazione del database in lettura/scrittura
-    int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    sqlite3     *db = NULL;
+    int         res = 0;
+    int         flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    char        *sql_str = "CREATE TABLE note("
+        "id INTEGER PRIMARY KEY,"
+        "data DATE NOT NULL,"
+        "time TIME NOT NULL,"
+        "msg TEXT NOT NULL);";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -50,7 +54,7 @@ int main(int argc, char *argv[]) {
     per mezzo una delle funzioni della famiglia sqlite3_prepare_*(), nello
     specifico la v2.
     */
-
+    sqlite3_prepare_v2(db, sql_str
 
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
