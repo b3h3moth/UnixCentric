@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
     compilata in forma binaria e pronta per essere valutata; il processo di
     preparazione pertanto e' la conversione di un comando SQL in una
-    "Prepared Statement" in forma binaria (compiled object code).
+    "Prepared Statement" in forma binaria (compiled object code o byte-code).
     
     Una dichiarazione e' eseguita (stepped through) riga per riga fin quando 
     non ci sono piu' righe da valutare.
@@ -58,6 +58,11 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
     }
+
+    /* La dichiarazione SQL ora e' in forma di byte-code, esso e' dato in pasto
+    al VDBE (Virtual DataBase Engine) che si occupera' di processarlo.
+    L'esecuzione del codice VDBE e' responsabilita' della funzione
+    sqlite3_step(). */
 
     sqlite3_step(stmt);
 
