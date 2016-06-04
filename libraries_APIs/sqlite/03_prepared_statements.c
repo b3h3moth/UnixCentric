@@ -71,7 +71,8 @@ int main(int argc, char *argv[]) {
     come INSERT, UPDATE o DELETE serve una singola invocazione sqlite3_step().
     */
   
-    sqlite3_step(stmt);
+    if (sqlite3_step(stmt) == SQLITE_DONE)
+        printf("Statement successfully executed: %s\n", sql_str);
 
     sqlite3_finalize(stmt);
 
