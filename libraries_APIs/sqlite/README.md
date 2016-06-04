@@ -2,7 +2,7 @@
 
 Once a database connection is established, we can start to execute SQL commands,
 this is done __preparing and stepping through statements__. The database 
-connection and prepared statements objects are controlled by a set of routine:
+connection and prepared statement objects are controlled by a set of routine:
 
 * `sqlite3_open()`        
 * `sqlite3_prepare()`     1st step
