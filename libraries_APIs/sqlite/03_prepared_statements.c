@@ -72,13 +72,22 @@ int main(int argc, char *argv[]) {
     */
   
     if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("Statement successfully executed: %s\n", sql_str);
+        printf("... Statement successfully executed: %s\n", sql_str);
 
-    sqlite3_finalize(stmt);
+    /* Allorquando la funzione sqlite3_step() ritorna SQLITE_DONE, cio' sta a
+    significare che la 'Prepared Statement' e' stata eseguita con successo,
+    per cui ora ci si trova di fronte a due strade:
+    - eseguire nuovamente la dichiarazione resettando la 'Prepared Statement';
+    - rilasciare definitivamene la 'Prepared Statement'.
+    Nel caso specifico, poiche' non c'è alcuna dichiarazione da ri-eseguire, si
+    propende per l'eliminazione definitiva di tutte le risorse legate alla
+    'Prepared Statement' appena eseguita, mediante sqlite3_finalize(). */
+    if (sqlite3_finalize(stmt) == SQLITE_OK)
+        puts("... Prepared Statemend destroyed.");
 
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
-        puts("Closed database connection");
+        puts("... Closed database connection. ");
 
     sqlite3_shutdown();
 
