@@ -59,15 +59,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* La dichiarazione SQL ora e' in forma di byte-code, esso e' dato in pasto
-    al VDBE (Virtual DataBase Engine) che si occupera' di processarlo.
+    /* La dichiarazione SQL ora e' in forma di byte-code, il quale viene dato 
+    in past al VDBE (Virtual DataBase Engine) che si occupera' di processarlo.
 
     L'esecuzione del codice VDBE e' responsabilita' della funzione
     sqlite3_step(), che ritorna una riga per volta, per cui se si volesse
     avanzare riga per riga si dovrebbe invocare la funzione stessa piu' volte,
     fino a quando non si giunge alla fine della dichiarazione o se si incontra
     uno stop, inaspettato o meno,  dell'esecuzione.
-    Per quelle dichiarazioni invece che non hanno risultati di ritorno, 
+    Invece, per quelle dichiarazioni che non hanno risultati da ritornare, 
     come INSERT, UPDATE o DELETE serve una singola invocazione sqlite3_step().
     */
   
