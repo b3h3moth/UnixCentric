@@ -44,12 +44,16 @@ int main(int argc, char *argv[]) {
         printf("%s\n", sqlite3_column_text(stmt, 0));
 
     // Rilascio delle risorse relative alla Prepared Statement
-    if (sqlite3_finalize(stmt) == SQLITE_OK)
-        puts("... Prepared Statemend destroyed.");
+    if (sqlite3_finalize(stmt) != SQLITE_OK) {
+        fprintf(stderr, "Err. Unable to finalize.\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Close database connection
-    if (sqlite3_close_v2(db) == SQLITE_OK)
-        puts("... Closed database connection. ");
+    if (sqlite3_close_v2(db) != SQLITE_OK)
+        fprintf(stderr, "Err. Unable to close connection.\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Rilascio delle risorse dell'inizializzazione
     sqlite3_shutdown();
