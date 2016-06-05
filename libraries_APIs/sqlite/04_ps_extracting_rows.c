@@ -40,9 +40,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Estrazione dei dati riga per riga
-    while (sqlite3_step(stmt) == SQLITE_ROW)
-        printf("%s\n", sqlite3_column_text(stmt, 0));
+    /* Estrazione dei dati riga per riga
+    La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
+    nella 'Prepared Statement', che nel caso specifico e' del testo; ritorna
+    un puntatore const di tipo void, per cui il cast e' necessario per evitare
+    messaggi di warning del compilatore, o peggio */
+    while (sqlite3_step(stmt) == SQLITE_ROW) {
+        data = (const char*)sqlite3_column_text(stmt, 0);
+        printf("%s\n", data ? data : "empty");
+    }
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
