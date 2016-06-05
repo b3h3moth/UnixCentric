@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Stampa il nome della colonna
-    printf("%s\n", sqlite3_column_name(stmt, 0));
+    printf("column: %s\n", sqlite3_column_name(stmt, 0));
 
     /* Estrazione dei dati riga per riga
     La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         data = (const char*)sqlite3_column_text(stmt, 0);
-        printf("%s,", data ? data : "empty");
+        printf("'%s\'\n", data ? data : "empty");
     }
 
     // Rilascio delle risorse relative alla Prepared Statement
