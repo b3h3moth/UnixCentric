@@ -47,8 +47,8 @@ int main(int argc, char *argv[]) {
     
     Le Prepared Statements - a differenza delle connessioni al database che 
     possono essere aperte, utilizzate per un periodo di tempo e poi chiuse - 
-    possono trovarsi in diversi stati, come ad esempio essere eseguite,
-    essere resettate, essere eseguite piu' volte, non eseguite.
+    possono trovarsi in diversi stati e in ciascun stato posso essere invocate
+    o meno delle funzioni. Gli stati sono: "ready", "running", e "done.
 
     La conversione di un comando SQL da stringa a "Prepared Statement" avviene
     per mezzo una delle funzioni della famiglia sqlite3_prepare_*(), nello
