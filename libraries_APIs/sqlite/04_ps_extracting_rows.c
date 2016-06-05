@@ -10,8 +10,9 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
-    int          flags = SQLITE_OPEN_READONLY;
+    const char   *data = NULL;
     char         *sql_str = "SELECT msg FROM note ORDER by id";
+    int          flags = SQLITE_OPEN_READONLY;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -50,7 +51,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Close database connection
-    if (sqlite3_close_v2(db) != SQLITE_OK)
+    if (sqlite3_close_v2(db) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to close connection.\n");
         exit(EXIT_FAILURE);
     }
