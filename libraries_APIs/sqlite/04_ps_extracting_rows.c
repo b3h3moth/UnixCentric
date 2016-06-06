@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' l'estrazione dei dati da una tabella mediante la
-creazione di una 'Prepared Statement'. Il nome del database e' fornito in
-input */
+/* Lo scopo del programma e' l'estrazione dei dati da una colonna della tabella
+mediante la creazione di una 'Prepared Statement'. Il nome del database e' 
+fornito in input */
 
 int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Creazione della connessione al database */
-    res = sqlite3_open_v2(argv[1], &db, flags, NULL);
+    res = sqlite3_open_v2(argv[1], &b, flags, NULL);
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't open database: %s\n", sqlite3_errmsg(db));
