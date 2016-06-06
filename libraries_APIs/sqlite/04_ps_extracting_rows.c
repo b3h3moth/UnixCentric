@@ -10,7 +10,6 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
-    const char   *data = NULL;
     char         *sql_str = "SELECT msg FROM note ORDER by id";
     int          flags = SQLITE_OPEN_READONLY;
 
@@ -49,10 +48,18 @@ int main(int argc, char *argv[]) {
     un puntatore const di tipo void, per cui il cast e' necessario per evitare
     messaggi di warning del compilatore, o peggio */
 
+    /* 1° approach
+    const char   *data = NULL;
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         data = (const char*)sqlite3_column_text(stmt, 0);
         printf("'%s\'\n", data ? data : "empty");
     }
+    */
+    
+    // 2° approach
+    while (sqlite3_step(stmt) == SQLITE_ROW)
+        for (int i=0; i<sqlite3_column_count(stmt); i++)
+            printf("%s\n", (const char*)sqlite3_column_text(stmt, 0));
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
