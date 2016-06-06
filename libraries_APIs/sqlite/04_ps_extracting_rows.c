@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Creazione della connessione al database */
-    res = sqlite3_open_v2(argv[1], &b, flags, NULL);
+    res = sqlite3_open_v2(argv[1], &db, flags, NULL);
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't open database: %s\n", sqlite3_errmsg(db));
@@ -62,6 +62,12 @@ int main(int argc, char *argv[]) {
     while (sqlite3_step(stmt) == SQLITE_ROW)
         for (int i=0; i<sqlite3_column_count(stmt); i++)
             printf("%s\n", (const char*)sqlite3_column_text(stmt, 0));
+
+    /* In questo caso il tipo di dato estratto e' del testo, ma ci possono 
+    essere tuttavia dei casi in cui sarebbe oltremodo necessario verificare il
+    dato estratto prima di stamparlo. In tal caso ci sono valori di ritorno 
+    specifici, come SQLITE_TEXT - numerico 3 -, che consentono per l'appunto
+    una verifica prima dell'estrazione. */
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
