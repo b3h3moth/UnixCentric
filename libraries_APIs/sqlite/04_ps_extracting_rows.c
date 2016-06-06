@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     un puntatore const di tipo void, per cui il cast e' necessario per evitare
     messaggi di warning del compilatore, o peggio */
 
-    /* 1° approach
+    /* 1° tecnica, usando un semplice ciclo while
     const char   *data = NULL;
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         data = (const char*)sqlite3_column_text(stmt, 0);
@@ -56,7 +56,9 @@ int main(int argc, char *argv[]) {
     }
     */
     
-    // 2° approach
+    /* 2° tecnica, un ciclo for all'interno di un ciclo file, si utilizza
+    peraltro la funzione di supporto sqlite3_column_count() per il conteggio
+    del numero di colonne da estrarre */
     while (sqlite3_step(stmt) == SQLITE_ROW)
         for (int i=0; i<sqlite3_column_count(stmt); i++)
             printf("%s\n", (const char*)sqlite3_column_text(stmt, 0));
