@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Nuovo tipo di dato 'fp', un puntatore a funzione che accetta due parametri
+di tipo intero, e ritorna un intero */
 typedef int (*fp)(int, int);
 
 // Functinn Prototype
@@ -19,8 +21,6 @@ int sum(int val1, int val2) {
 
 // Sottrae due interi
 int sub(int val1, int val2) {
-    if (val1 < val2)
-        return -1;
     return val1 - val2;
 }
 
