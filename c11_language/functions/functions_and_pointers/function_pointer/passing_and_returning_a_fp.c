@@ -8,9 +8,13 @@ typedef int (*fp)(int, int);
 // Functinn Prototype
 int sum(int val1, int val2);
 int sub(int val1, int val2);
-int operation(fp calc, int val1, int val2);
+fp select(char op);
+int eval(char op, int val1, int val2);
 
 int main(void) {
+    printf("%d\n", eval('+', 10, 20));
+    printf("%d\n", eval('-', 10, 20));
+
     return(EXIT_SUCCESS);
 }
 
@@ -23,7 +27,17 @@ int sum(int val1, int val2) {
 int sub(int val1, int val2) {
     return val1 - val2;
 }
+    
+fp select(char op) {
+    switch(op) {
+        case '+': return sum;
+        case '-': return sub;
+    }
 
-int operation(fp calc, int val1, int val2) {
-    return calc(val1, val2);
+    return 0;
+}
+
+int eval(char op, int val1, int val2) {
+    fp operation = select(op);
+    return operation(val1, val2);
 }
