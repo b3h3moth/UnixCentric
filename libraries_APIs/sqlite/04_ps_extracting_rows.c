@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
     }
     */
     
-    /* 2° tecnica, un ciclo for all'interno di un ciclo file, si utilizza
+    /* 2° tecnica, un 'for loop' all'interno di un 'while loop', si utilizza
     peraltro la funzione di supporto sqlite3_column_count() per il conteggio
     del numero di colonne da estrarre */
     while (sqlite3_step(stmt) == SQLITE_ROW)
@@ -65,9 +65,8 @@ int main(int argc, char *argv[]) {
 
     /* In questo caso il tipo di dato estratto e' del testo, ma ci possono 
     essere tuttavia dei casi in cui sarebbe oltremodo necessario verificare il
-    dato estratto prima di stamparlo. In tal caso ci sono valori di ritorno 
-    specifici, come SQLITE_TEXT - numerico 3 -, che consentono per l'appunto
-    una verifica prima dell'estrazione. */
+    dato estratto prima di stamparlo, come ad esempio SQLITE_TEXT, il cui 
+    valore intero e' 3. */
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
