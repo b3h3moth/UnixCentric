@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* La dichiarazione SQL ora e' in forma di byte-code, il quale viene dato 
-    in past al VDBE (Virtual DataBase Engine) che si occupera' di processarlo.
+    in pasto al VDBE (Virtual DataBase Engine) che si occupera' di processarlo.
 
     L'esecuzione del codice VDBE e' responsabilita' della funzione
     sqlite3_step(), che ritorna una riga per volta, per cui se si volesse
