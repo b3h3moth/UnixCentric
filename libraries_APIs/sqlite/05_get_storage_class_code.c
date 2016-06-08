@@ -44,7 +44,8 @@ int main(void) {
     risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
     */
 
-    // 
+    /* Stampa del nome della colonna, della Storage Classe e del tipo
+    dichiarato nella SQL */
     for (int i=0; i<sqlite3_column_count(stmt); i++) {
         printf("Column: %4s | Storage Class: %i | Declared As: %s\n", \
                sqlite3_column_name(stmt, i), sqlite3_column_type(stmt, i), \
