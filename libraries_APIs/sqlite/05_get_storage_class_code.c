@@ -34,6 +34,16 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    // Il byte-code con l'SQL viene dato in pasto al VDBE
+    rc = sqlite3_step(stmt);
+    
+    /* Warning: E' molto importante collocare la funzione sqlite3_step() subito
+    dopo la funzione di 'preparazione', altrimenti si potrebbero avere 
+    risultati inattesi.
+    Provare ad esempio a collocarla dopo il 'for loop' e verificare il 
+    risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
+    */
+
     // 
     for (int i=0; i<sqlite3_column_count(stmt); i++) {
         printf("Column: %4s | Storage Class: %i | Declared As: %s\n", \
@@ -41,7 +51,6 @@ int main(void) {
                sqlite3_column_decltype(stmt, i));
     }
 
-    rc = sqlite3_step(stmt);
 
     // Rilascio delle risorse applicate alla 'Prepared Statement'
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
