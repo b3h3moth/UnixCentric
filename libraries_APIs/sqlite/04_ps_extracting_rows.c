@@ -65,8 +65,8 @@ int main(int argc, char *argv[]) {
 
     /* In questo caso il tipo di dato estratto e' del testo, ma ci possono 
     essere tuttavia dei casi in cui sarebbe oltremodo necessario verificare il
-    dato estratto prima di stamparlo, come ad esempio SQLITE_TEXT, il cui 
-    valore intero e' 3. */
+    il tipo dato estratto (storage class) prima di stamparlo, come ad esempio
+    SQLITE_TEXT, il cui valore intero e' 3.  */
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
