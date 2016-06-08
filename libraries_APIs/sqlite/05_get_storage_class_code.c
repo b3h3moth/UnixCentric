@@ -5,12 +5,6 @@
 /* Lo scopo del programma e' di individuare il tipo di dato all'interno dei
 record di un database, mediante la classe di memorizzazione (Storage Class). 
 
-Ci sono cinque interi che identificano le classi di memorizzazione:
-SQLITE_INTEGER  = 1
-SQLITE_FLOAT    = 2
-SQLITE_TEXT     = 3
-SQLITE_BLOB     = 4
-SQLITE_NULL     = 5
 */
 
 int main(void) {
@@ -60,7 +54,15 @@ int main(void) {
                sqlite3_column_decltype(stmt, i));
     }
 
-    /
+    /* Per individuare il tipo di Storage Class all'interno di una colonna, si
+    sarebbe potuto anche utilizzare la funzione sqlite2_column_type(), che
+    ritorna proprio una delle cinque classi di memorizzazione, ovvero:
+    SQLITE_INTEGER  = 1
+    SQLITE_FLOAT    = 2
+    SQLITE_TEXT     = 3
+    SQLITE_BLOB     = 4
+    SQLITE_NULL     = 5
+    */
 
     // Rilascio delle risorse applicate alla 'Prepared Statement'
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
