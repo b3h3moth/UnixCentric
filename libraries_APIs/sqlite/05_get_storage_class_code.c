@@ -3,7 +3,15 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di individuare il tipo di dato all'interno dei
-record di un database, mediante la classe di memorizzazione (Storage Class). */
+record di un database, mediante la classe di memorizzazione (Storage Class). 
+
+Ci sono cinque interi che identificano le classi di memorizzazione:
+SQLITE_INTEGER  = 1
+SQLITE_FLOAT    = 2
+SQLITE_TEXT     = 3
+SQLITE_BLOB     = 4
+SQLITE_NULL     = 5
+*/
 
 int main(void) {
     sqlite3         *db = NULL;
@@ -44,7 +52,7 @@ int main(void) {
     risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
     */
 
-    /* Stampa del nome della colonna, della Storage Classe e del tipo
+    /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
     for (int i=0; i<sqlite3_column_count(stmt); i++) {
         printf("Column: %4s | Storage Class: %i | Declared As: %s\n", \
@@ -52,6 +60,7 @@ int main(void) {
                sqlite3_column_decltype(stmt, i));
     }
 
+    /
 
     // Rilascio delle risorse applicate alla 'Prepared Statement'
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
