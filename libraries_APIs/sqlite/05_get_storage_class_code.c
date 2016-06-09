@@ -3,8 +3,10 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di individuare il tipo di dato all'interno dei
-record di un database, mediante la classe di memorizzazione (Storage Class). 
+record e stamparlo a video.
 
+Ciascun tipo dato utilizzato per riempire i record e' identificato mediante un
+intero, la classe di memorizzazione (Storage Class).
 */
 
 int main(void) {
