@@ -11,10 +11,10 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
     int          flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
-    char         *sql_str = "CREATE TABLE note(id INTEGER PRIMARY KEY,"
-                           "data DATE NOT NULL,"
-                           "time TIME NOT NULL,"
-                           "msg TEXT NOT NULL);";
+    char         *sql_str = "CREATE TABLE addressBook(id INTEGER PRIMARY KEY,"
+                           "fullname TEXT NOT NULL,"
+                           "alias TEXT NOT NULL,"
+                           "email TEXT NOT NULL);";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
