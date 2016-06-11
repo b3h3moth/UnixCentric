@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
-    char         *sql_str = "SELECT msg FROM note ORDER by id";
+    char         *sql_str = "SELECT email FROM addressbook ORDER by id";
     int          flags = SQLITE_OPEN_READONLY;
 
     if (argc != 2) {

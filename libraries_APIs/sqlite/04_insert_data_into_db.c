@@ -11,14 +11,11 @@ int main(int argc, char *argv[]) {
     int          res = 0;
     int          flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     char         *sql_str = 
-        "INSERT INTO addressbook(fullname, alias, email)"
-        "VALUES ('rossella', 'ros', 'ros@free.org');"
-        "INSERT INTO addressbook(fullname, alias, email)"
-        "VALUES ('francesco', 'frank', 'franky@slash.org');"
-        "INSERT INTO addressbook(fullname, alias, email)"
-        "VALUES ('luca', 'lu', 'liuc@step.org');"
-        "INSERT INTO addressbook(fullname, alias, email)"
-        "VALUES ('carlotta', 'carl', 'carl@otta.org');";
+        "INSERT INTO addressbook(fullname, alias, email) VALUES"
+        "('rossella', 'ros', 'ros@free.org'),"
+        "('mia', 'mi', 'mia@mia.org'),"
+        "('luca', 'lu', 'liuc@step.org'),"
+        "('carlotta', 'carl', 'carl@ot.org');";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
