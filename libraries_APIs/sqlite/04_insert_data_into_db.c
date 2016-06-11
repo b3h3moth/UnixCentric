@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
-    int          flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    int          flags = SQLITE_OPEN_READWRITE;
     char         *sql_str = 
         "INSERT INTO addressbook(fullname, alias, email) VALUES"
         "('rossella', 'ros', 'ros@free.org'),"
