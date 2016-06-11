@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
-    char         *sql_str = "SELECT email FROM addressbook ORDER by id";
+    char         *sql_str = "SELECT * FROM addressbook ORDER by id";
     int          flags = SQLITE_OPEN_READONLY;
 
     if (argc != 2) {
@@ -40,7 +40,10 @@ int main(int argc, char *argv[]) {
     }
 
     // Stampa il nome della colonna
-    printf("column: %s\n", sqlite3_column_name(stmt, 0));
+    printf("%2s %10s %8s %14s\n", sqlite3_column_name(stmt, 0), \
+            sqlite3_column_name(stmt, 1), \
+            sqlite3_column_name(stmt, 2), \
+            sqlite3_column_name(stmt, 3) );
 
     /* Estrazione dei dati riga per riga
     La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
@@ -60,8 +63,10 @@ int main(int argc, char *argv[]) {
     peraltro la funzione di supporto sqlite3_column_count() per il conteggio
     del numero di colonne da estrarre */
     while (sqlite3_step(stmt) == SQLITE_ROW)
-        for (int i=0; i<sqlite3_column_count(stmt); i++)
-            printf("%s\n", (const char*)sqlite3_column_text(stmt, 0));
+        printf("%2d %10s %8s %14s\n", sqlite3_column_int(stmt, 0), \
+                (const char*)sqlite3_column_text(stmt, 1),      \
+                (const char*)sqlite3_column_text(stmt, 2),      \
+                (const char*)sqlite3_column_text(stmt, 3) );
 
     /* In questo caso il tipo di dato estratto e' del testo, ma ci possono 
     essere tuttavia dei casi in cui sarebbe oltremodo necessario verificare il
