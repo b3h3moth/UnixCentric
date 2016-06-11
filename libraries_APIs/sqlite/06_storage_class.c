@@ -14,7 +14,7 @@ int main(void) {
     sqlite3_stmt    *stmt = NULL;
     int             res = 0;
     int             rc = 0;
-    char            *sql_str = "SELECT * FROM note order by time";
+    char            *sql_str = "SELECT * FROM addressbook order by id";
     int             flags = SQLITE_OPEN_READONLY;
 
     // Inizializzazione della libreria
@@ -40,6 +40,12 @@ int main(void) {
 
     // Il byte-code con l'SQL viene dato in pasto al VDBE
     rc = sqlite3_step(stmt);
+
+    if (rc != SQLITE_ROW) {
+        fprintf(stderr, "Err. stepping through\n");
+        sqlite3_close_v2(db);
+        exit(EXIT_FAILURE);
+    }
     
     /* Warning: E' molto importante collocare la funzione sqlite3_step() subito
     dopo la funzione di 'preparazione', altrimenti si potrebbero avere 
@@ -51,7 +57,7 @@ int main(void) {
     /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
     for (int i=0; i<sqlite3_column_count(stmt); i++) {
-        printf("Column: %4s | Storage Class: %i | Declared As: %s\n", \
+        printf("Column: %10s | Storage Class: %i | Declared As: %s\n", \
                sqlite3_column_name(stmt, i), sqlite3_column_type(stmt, i), \
                sqlite3_column_decltype(stmt, i));
     }
