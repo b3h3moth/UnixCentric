@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' l'estrazione dei dati da una colonna della tabella
-mediante la creazione di una 'Prepared Statement'. Il nome del database e' 
-fornito in input */
+/* Lo scopo del programma e' l'estrazione dei dati, riga per riga, da una 
+tabella, mediante la creazione di una 'Prepared Statement'. 
+Il nome del database e' fornito in input */
 
 int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Stampa il nome della colonna
+    // Stampa il nome di ciascuna colonna
     printf("%2s %10s %8s %14s\n", sqlite3_column_name(stmt, 0), \
             sqlite3_column_name(stmt, 1), \
             sqlite3_column_name(stmt, 2), \
@@ -47,11 +47,12 @@ int main(int argc, char *argv[]) {
 
     /* Estrazione dei dati riga per riga
     La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
-    nella 'Prepared Statement', che nel caso specifico e' del testo; ritorna
+    nella 'Prepared Statement' che, nel caso specifico, e' del testo; ritorna
     un puntatore const di tipo void, per cui il cast e' necessario per evitare
-    messaggi di warning del compilatore, o peggio */
+    messaggi di warning del compilatore, o peggio. */
 
-    /* 1° tecnica, usando un semplice ciclo while
+    /* 1° tecnica, usando un semplice ciclo while e salvando il dato estratto 
+    in una variabile:
     const char   *data = NULL;
     while (sqlite3_step(stmt) == SQLITE_ROW) {
         data = (const char*)sqlite3_column_text(stmt, 0);
@@ -59,19 +60,13 @@ int main(int argc, char *argv[]) {
     }
     */
     
-    /* 2° tecnica, un 'for loop' all'interno di un 'while loop', si utilizza
-    peraltro la funzione di supporto sqlite3_column_count() per il conteggio
-    del numero di colonne da estrarre */
+    /* 2° tecnica, funzioni specifiche per l'estrazione dei dati, colonna per 
+    colonna, subito in sampa sullo standard output */
     while (sqlite3_step(stmt) == SQLITE_ROW)
         printf("%2d %10s %8s %14s\n", sqlite3_column_int(stmt, 0), \
                 (const char*)sqlite3_column_text(stmt, 1),      \
                 (const char*)sqlite3_column_text(stmt, 2),      \
                 (const char*)sqlite3_column_text(stmt, 3) );
-
-    /* In questo caso il tipo di dato estratto e' del testo, ma ci possono 
-    essere tuttavia dei casi in cui sarebbe oltremodo necessario verificare il
-    il tipo dato estratto (storage class) prima di stamparlo, come ad esempio
-    SQLITE_TEXT, il cui valore intero e' 3.  */
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
@@ -85,7 +80,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Rilascio delle risorse dell'inizializzazione
+    // Rilascio delle risorse di inizializzazione
     sqlite3_shutdown();
 
     return(EXIT_SUCCESS);
