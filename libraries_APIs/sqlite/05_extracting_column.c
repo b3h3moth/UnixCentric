@@ -39,7 +39,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Stampa il nome di ciascuna colonna
+    /* Stampa il nome di ciascuna colonna. 
+    I numeri corrispondono all'indice della colonna stessa, che come gli array
+    iniziano da zero e da sinistra verso destra.
+    */
     printf("%2s %10s %8s %14s\n", sqlite3_column_name(stmt, 0), \
             sqlite3_column_name(stmt, 1), \
             sqlite3_column_name(stmt, 2), \
