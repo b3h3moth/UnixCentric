@@ -7,6 +7,7 @@ tabella, mediante la creazione di una 'Prepared Statement'.
 Il nome del database e' fornito in input */
 
 int main(int argc, char *argv[]) {
+    const char *col_names[4] = {NULL};
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
@@ -39,14 +40,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Stampa il nome di ciascuna colonna. 
-    I numeri corrispondono all'indice della colonna stessa, che come gli array
-    iniziano da zero e da sinistra verso destra.
+    /* Stampa il nome di ciascuna colonna, ma prima si provvede a contare il
+    numero delle colonne e a salvare ciascun valore.
+    
+    Nota: Ogni colonna ha un indice, che come gli array iniziano da zero e da 
+          sinistra verso destra.
     */
-    printf("%2s %10s %8s %14s\n", sqlite3_column_name(stmt, 0), \
-            sqlite3_column_name(stmt, 1), \
-            sqlite3_column_name(stmt, 2), \
-            sqlite3_column_name(stmt, 3) );
+    for (int i=0; i<sqlite3_column_count(stmt); i++)
+        col_names[i] = sqlite3_column_name(stmt, i);
+    
+    printf("%2s %10s %8s %14s\n", col_names[0], col_names[1], col_names[2], col_names[3]);
 
     /* Estrazione dei dati riga per riga
     La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
