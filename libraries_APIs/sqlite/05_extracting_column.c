@@ -7,12 +7,12 @@ tabella, mediante la creazione di una 'Prepared Statement'.
 Il nome del database e' fornito in input */
 
 int main(int argc, char *argv[]) {
-    const char *colnms[4] = {NULL};     // Nomi delle colonne
-    sqlite3      *db = NULL;
-    sqlite3_stmt *stmt = NULL;
-    int          res = 0;
-    char         *sql_str = "SELECT * FROM addressbook ORDER by id";
-    int          flags = SQLITE_OPEN_READONLY;
+    sqlite3         *db = NULL;
+    sqlite3_stmt    *stmt = NULL;
+    const char      *colnms[4] = {NULL};     // Nomi delle colonne
+    int             res = 0;
+    char            *sql_str = "SELECT * FROM addressbook ORDER by id";
+    int             flags = SQLITE_OPEN_READONLY;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -41,9 +41,9 @@ int main(int argc, char *argv[]) {
     }
 
     /* Stampa il nome di ciascuna colonna, ma prima si provvede a contare il
-    numero delle colonne e a salvare ciascun valore.
+    numero delle colonne stesse e a salvare ciascun valore.
     
-    Nota: Ogni colonna ha un indice, che come gli array iniziano da zero e da 
+    Nota: Ogni colonna ha un indice che, come gli array, parte da zero e da
           sinistra verso destra.
     */
     for (int i=0; i<sqlite3_column_count(stmt); i++)
