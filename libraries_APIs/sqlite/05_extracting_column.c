@@ -52,24 +52,17 @@ int main(int argc, char *argv[]) {
     La funzione sqlite3_column_text() estrae i dati dalla colonna specificata
     nella 'Prepared Statement' che, nel caso specifico, e' del testo; ritorna
     un puntatore const di tipo void, per cui il cast e' necessario per evitare
-    messaggi di warning del compilatore, o peggio. */
+    messaggi di warning del compilatore, o peggio.
 
-    /* 1° tecnica, usando un semplice ciclo while e salvando il dato estratto 
-    in una variabile:
-    const char   *data = NULL;
+    La funzione sqlite3_column_int() estrae dati di tipo intero, mentre
+    la funzione sqlite3_column_bytes() estrae i byte dell'ultima colonna. */
     while (sqlite3_step(stmt) == SQLITE_ROW) {
-        data = (const char*)sqlite3_column_text(stmt, 0);
-        printf("'%s\'\n", data ? data : "empty");
-    }
-    */
-    
-    /* 2° tecnica, funzioni specifiche per l'estrazione dei dati, colonna per 
-    colonna, subito in sampa sullo standard output */
-    while (sqlite3_step(stmt) == SQLITE_ROW)
-        printf("%2d %10s %8s %14s\n", sqlite3_column_int(stmt, 0), \
+        printf("%2d %10s %8s %14s (byte: %d)\n", sqlite3_column_int(stmt, 0), \
                 (const char*)sqlite3_column_text(stmt, 1),      \
                 (const char*)sqlite3_column_text(stmt, 2),      \
-                (const char*)sqlite3_column_text(stmt, 3) );
+                (const char*)sqlite3_column_text(stmt, 3),      \
+                sqlite3_column_bytes(stmt, 3));
+    }
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
