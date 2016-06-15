@@ -14,8 +14,8 @@ int mol(int val1, int val2);
 fp select(char op);
 int eval(char op, int val1, int val2);
 
-/* Lo scopo del programma e' di creare esempio usabile di array di puntatori a 
-funzione */
+/* Lo scopo del programma e' di creare un esempio usabile di array di puntatori
+a funzione */
 
 int main(void) {
     printf("sum: %d\n", eval('+', 10, 20));
