@@ -13,14 +13,12 @@ int sub(int val1, int val2);
 int mol(int val1, int val2);
 fp select(char op);
 int eval(char op, int val1, int val2);
+void inizialize_op(void);
 
 /* Lo scopo del programma e' di creare un esempio usabile di array di puntatori
 a funzione */
 
 int main(void) {
-    printf("sum: %d\n", eval('+', 10, 20));
-    printf("sub: %d\n", eval('-', 10, 20));
-    printf("mol: %d\n", eval('*', 10, 20));
 
     return(EXIT_SUCCESS);
 }
@@ -38,6 +36,12 @@ int sub(int val1, int val2) {
 // Moltiplica due interi
 int mol(int val1, int val2) {
     return val1 * val2;
+}
+
+void inizialize_op(void) {
+    operation['+'] = sum;
+    operation['-'] = sub;
+    operation['*'] = mol;
 }
 
 /* Se op contiene il segno '+' ritorna la funzione sum(), se invece contiene
