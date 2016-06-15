@@ -5,6 +5,7 @@ typedef int (*fp)(int, int);
 
 // Dichiarazione di un array di puntatori funzione
 fp operation[128] = {NULL};
+// Istruzione equivalente: int (*operation[128])(int, int) = { NULL };
 
 // Function Prototypes
 int sum(int val1, int val2);
