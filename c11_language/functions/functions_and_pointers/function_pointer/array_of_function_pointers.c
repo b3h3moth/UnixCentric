@@ -12,7 +12,7 @@ int sum(int val1, int val2);
 int sub(int val1, int val2);
 int mol(int val1, int val2);
 fp select(char op);
-int eval(char op, int val1, int val2);
+int eval(int op, int val1, int val2);
 void initialize_op(void);
 
 /* Lo scopo del programma e' di creare un esempio usabile di array di puntatori
@@ -61,7 +61,7 @@ fp select(char op) {
 }
 
 // Valuta i parametri a seconda del contesto
-int eval(char op, int val1, int val2) {
+int eval(int op, int val1, int val2) {
     fp operation;
     operation = fparr[op];
     return operation(val1, val2);
