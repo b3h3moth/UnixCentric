@@ -3,17 +3,18 @@
 
 typedef int (*fp)(int, int);
 
-// Dichiarazione di un array di puntatori
+// Dichiarazione di un array di puntatori funzione
 fp operation[128] = {NULL};
 
-// Functinn Prototype
+// Function Prototypes
 int sum(int val1, int val2);
 int sub(int val1, int val2);
 int mol(int val1, int val2);
 fp select(char op);
 int eval(char op, int val1, int val2);
 
-// Lo scopo del programma e' di creare esempio usabile di puntatore a funzione
+/* Lo scopo del programma e' di creare esempio usabile di array di puntatori a 
+funzione */
 
 int main(void) {
     printf("sum: %d\n", eval('+', 10, 20));

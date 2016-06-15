@@ -5,7 +5,7 @@
 di tipo intero, e ritorna un intero */
 typedef int (*fp)(int, int);
 
-// Functinn Prototype
+// Function Prototypes
 int sum(int val1, int val2);
 int sub(int val1, int val2);
 int mol(int val1, int val2);
