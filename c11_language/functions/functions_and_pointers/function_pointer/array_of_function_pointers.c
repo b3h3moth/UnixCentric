@@ -38,6 +38,7 @@ int mol(int val1, int val2) {
     return val1 * val2;
 }
 
+// Assegna la funzione adatta a ciascun operatore
 void inizialize_op(void) {
     operation['+'] = sum;
     operation['-'] = sub;
