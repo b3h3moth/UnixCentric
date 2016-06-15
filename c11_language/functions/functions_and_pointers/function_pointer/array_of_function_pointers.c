@@ -13,13 +13,16 @@ int sub(int val1, int val2);
 int mol(int val1, int val2);
 fp select(char op);
 int eval(char op, int val1, int val2);
-void inizialize_op(void);
+void initialize_op(void);
 
 /* Lo scopo del programma e' di creare un esempio usabile di array di puntatori
 a funzione */
 
 int main(void) {
-
+    initialize_op();
+    printf("%d\n", eval('+', 10, 20));
+    printf("%d\n", eval('-', 10, 20));
+    printf("%d\n", eval('*', 10, 20));
     return(EXIT_SUCCESS);
 }
 
@@ -39,7 +42,7 @@ int mol(int val1, int val2) {
 }
 
 // Assegna la funzione adatta a ciascun operatore
-void inizialize_op(void) {
+void initialize_op(void) {
     fparr['+'] = sum;
     fparr['-'] = sub;
     fparr['*'] = mol;
