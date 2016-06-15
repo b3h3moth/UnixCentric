@@ -4,7 +4,7 @@
 typedef int (*fp)(int, int);
 
 // Dichiarazione di un array di puntatori funzione
-fp operation[128] = {NULL};
+fp fparr[128] = {NULL};
 // Istruzione equivalente: int (*operation[128])(int, int) = { NULL };
 
 // Function Prototypes
@@ -40,9 +40,9 @@ int mol(int val1, int val2) {
 
 // Assegna la funzione adatta a ciascun operatore
 void inizialize_op(void) {
-    operation['+'] = sum;
-    operation['-'] = sub;
-    operation['*'] = mol;
+    fparr['+'] = sum;
+    fparr['-'] = sub;
+    fparr['*'] = mol;
 }
 
 /* Se op contiene il segno '+' ritorna la funzione sum(), se invece contiene
@@ -59,6 +59,7 @@ fp select(char op) {
 
 // Valuta i parametri a seconda del contesto
 int eval(char op, int val1, int val2) {
-    fp operation = select(op);
+    fp operation;
+    operation = fparr[op];
     return operation(val1, val2);
 }
