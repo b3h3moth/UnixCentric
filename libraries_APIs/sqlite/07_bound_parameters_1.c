@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
-    int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
 
     if (argc != 2) {
