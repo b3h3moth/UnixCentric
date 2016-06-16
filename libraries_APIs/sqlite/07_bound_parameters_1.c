@@ -7,7 +7,12 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
-    char *sql_str = "INSERT INTO addressbook VALUES(:str1, :str2, :str3)";
+    int idx = -1;
+    char *str_fullname = "bar";
+    char *str_alias = "baz";
+    char *str_email = "baz@bar.org";
+    char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
+                    "VALUES(?, ?, ?)";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -26,8 +31,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL)
+    sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
 
+    sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
+
+    sqlite3_step(stmt);
+
+    sqlite3_finalize(stmt);
 
     // Close database connection
     sqlite3_close_v2(db);
