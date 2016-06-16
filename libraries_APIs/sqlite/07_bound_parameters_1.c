@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
 
     sqlite3_step(stmt);
 
+    // Release prepared statement resources
     sqlite3_finalize(stmt);
-
     // Close database connection
     sqlite3_close_v2(db);
     // Shutdown library initialization
