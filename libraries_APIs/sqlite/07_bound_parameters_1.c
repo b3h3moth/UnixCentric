@@ -31,7 +31,6 @@ int main(int argc, char *argv[]) {
 
     // Open database connection
     rc = sqlite3_open_v2(argv[1], &db, flags, NULL);
-
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
@@ -39,8 +38,9 @@ int main(int argc, char *argv[]) {
     }
 
     // Prepare the statement
-    sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) {
-        fprintf(stderr, "Err. Unable to prepare the statement.\n");
+    rc = sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Can't prepare the statement.\n");
         exit(EXIT_FAILURE);
     }
 
