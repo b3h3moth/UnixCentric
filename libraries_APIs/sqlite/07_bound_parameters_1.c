@@ -12,9 +12,9 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
-    char *str_fullname = "baz";
-    char *str_alias = "bz";
-    char *str_email = "baz@baz.baz";
+    char *str_fullname = "foobar";
+    char *str_alias = "foo";
+    char *str_email = "foo@bar.baz";
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
