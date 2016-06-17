@@ -41,16 +41,38 @@ int main(int argc, char *argv[]) {
     rc = sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Can't prepare the statement.\n");
+        sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
 
-    // Bind the values
-    sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
+    // Bind the first value
+    rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Binding the value (%i).\n", rc);
+        sqlite3_close(db);
+        exit(EXIT_FAILURE);
+    }
+
+    // Bind the second value
+    rc = sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Binding the value (%i).\n", rc);
+        sqlite3_close(db);
+        exit(EXIT_FAILURE);
+    }
+
+    // Bind the third value
+    rc = sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Binding the value (%i).\n", rc);
+        sqlite3_close(db);
+        exit(EXIT_FAILURE);
+    }
 
     // Do the statement
-    sqlite3_step(stmt);
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE)
+        fprintf(stderr, "Err. Stepping through the statement.\n", rc);
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
