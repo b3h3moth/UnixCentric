@@ -69,10 +69,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Do the statement
+    // Execute the statement
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE)
-        fprintf(stderr, "Err. Stepping through the statement.\n", rc);
+        fprintf(stderr, "Err. Stepping through the statement.\n");
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
