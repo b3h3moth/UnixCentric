@@ -20,7 +20,10 @@ int main(int argc, char *argv[]) {
     }
 
     // Library initialization
-    sqlite3_initialize();
+    sqlite3_initialize() {
+        fprintf(stderr, "Err. Unable to initialize the library.\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Open database connection
     rc = sqlite3_open_v2(argv[1], &db, flags, NULL);
@@ -31,13 +34,19 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
+    // Prepare the statement
+    sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) {
+        fprintf(stderr, "Err. Unable to prepare the statement.\n");
+        exit(EXIT_FAILURE);
+    }
 
+    // Bind the values
     sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
 
-    sqlite3_step(stmt);
+    // Do the statement
+    sqlite3_step(stmt) 
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
