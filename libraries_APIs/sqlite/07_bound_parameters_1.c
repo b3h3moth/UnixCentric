@@ -12,9 +12,9 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
-    char *str_fullname = "bar";
-    char *str_alias = "baz";
-    char *str_email = "baz@bar.org";
+    char *str_fullname = "baz";
+    char *str_alias = "bz";
+    char *str_email = "baz@baz.baz";
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Library initialization
-    sqlite3_initialize() {
+    if (sqlite3_initialize() != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to initialize the library.\n");
         exit(EXIT_FAILURE);
     }
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
 
     // Do the statement
-    sqlite3_step(stmt) 
+    sqlite3_step(stmt);
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
