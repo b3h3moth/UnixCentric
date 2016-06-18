@@ -36,9 +36,14 @@ int main(int argc, char *argv[]) {
     5 - $<name> , parametro denominato con indice automatico.
     
     Ai valori fullname, alias e email della stringa SQL 'sql_str' vengono 
-    associati tre parametri, con indice rispettivamente uno, due e tre. */
+    associati i tre parametri :name, :aka e :mail, con indice rispettivamente 
+    uno, due e tre. Quindi:
+    fullname -> :name (index 1)
+       alias -> :aka  (index 2)
+       email -> :mail (index 3)
+    */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
-                    "VALUES(?, ?, ?)";
+                    "VALUES(:name, :aka, :mail)";
 
     // Stringhe da associare ai parametri
     char *str_fullname = "foobar";
@@ -105,6 +110,10 @@ int main(int argc, char *argv[]) {
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
+
+    printf("idx %d\n", sqlite3_bind_parameter_index(stmt, ":eee"));
+    printf("idx %i\n", sqlite3_bind_parameter_count(stmt));
+    printf("idx %s\n", sqlite3_bind_parameter_name(stmt, 3));
 
     // Execute the statement
     rc = sqlite3_step(stmt);
