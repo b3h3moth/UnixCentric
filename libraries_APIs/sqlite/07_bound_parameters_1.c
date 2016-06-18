@@ -61,6 +61,13 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* Prima di eseguira la dichiarazione, i parametri possono essere associati
+    (bind) a un valore mediante una delle funzioni della famiglia 
+    sqlite3_bind_*(). Come accennato in precedenza tali funzioni devono essere
+    invocate dopo la preparazione della dichiarazione ma prima dell'
+    esecuzione, ovvero prima che si invochi la funzione sqlite3_step(). 
+    Ad ogni riga possono essere associati valori diversi. */
+    
     // Bind the first value
     rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
