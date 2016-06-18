@@ -13,26 +13,30 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     int idx = -1;
 
-    /* I 'bound parameters' sono dei token inseriti all'interno della stringa
-    SQL, agiscono come una sorta di segnaposto per numeri e stringhe a singola
-    quotatura, sono collocati nella stringa stessa prima della preparazione 
-    della dichiarazione. Successivamente, dopo che la dichiarazione e' stata 
-    preparata e prima dell'esecuzione, e' possibile associare (bind) un valore
-    al parametro. Alla fine dell'esecuzione della dichiarazione e' possibile
-    resettare la dichiarazione stessa e ripetere il ciclo di binding con nuovi
-    parametri.
+    /* I 'bound parameters' sono dei token inseriti all'interno di una stringa
+    SQL, agiscono come una sorta di segnaposto per qualsiasi valore letterale e
+    possono essere numeri oppure stringhe a singola quotatura, devono essere 
+    collocati nella stringa SQL prima della preparazione della dichiarazione.
+    
+    Successivamente, dopo che la dichiarazione e' stata preparata, ma prima 
+    dell'esecuzione, e' possibile associare/legare (bind) un valore al 
+    rispettivo parametro. Alla fine dell'esecuzione della dichiarazione e' 
+    possibile resettare la dichiarazione stessa e ripetere il ciclo di binding
+    con nuovi parametri.
 
-    Da notare che ogni parametro all'interno della dichiarazione e' 
-    referenziato mediante un indice.
+    Nota: Ogni parametro all'interno della dichiarazione e' referenziato 
+          mediante un indice che parte da uno.
 
     SQLite supporta cinque stili di 'Statement parameters':
-    ?           parametro anonimo con indice automatico. L'indice e' unico,
-                sequenziale e inizia da 1;
-    ?<index>    parametro con indice numerico esplicito;
-    :<name>     parametro denominato con indice automatico;
-    @<name>     parametro denominato con indice automatico;
-    $<name>     parametro denominato con indice automatico.
-    */
+    1 - ?       , parametro anonimo con indice automatico. L'indice e' unico,
+                  sequenziale e inizia da 1;
+    2 - ?<index>, parametro con indice numerico esplicito;
+    3 - :<name> , parametro denominato con indice automatico;
+    4 - @<name> , parametro denominato con indice automatico;
+    5 - $<name> , parametro denominato con indice automatico.
+    
+    Ai valori fullname, alias e email della stringa SQL 'sql_str' vengono 
+    associati tre parametri, con indice rispettivamente uno, due e tre. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
