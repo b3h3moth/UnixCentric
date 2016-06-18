@@ -17,8 +17,16 @@ int main(int argc, char *argv[]) {
     SQL, sono come una sorta di segnaposto, collocati nella stringa prima della
     preparazione della dichiarazione. Successivamente, dopo che la 
     dichiarazione e' stata preparata e prima dell'esecuzione, e' possibile
-    associare (bind) un valore al parametro. 
-    SQLite supporta cinque stili di 'Statement parameters':*/
+    associare (bind) un valore al parametro.
+
+    SQLite supporta cinque stili di 'Statement parameters':
+    ?           parametro anonimo con indice automatico. L'indice e' unico, 
+                sequenziale e inizia da 1;
+    ?<index>    parametro con indice numerico esplicito;
+    :<name>     parametro denominato con indice automatico;
+    @<name>     parametro denominato con indice automatico;
+    $<name>     parametro denominato con indice automatico.
+    */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
