@@ -14,13 +14,13 @@ int main(int argc, char *argv[]) {
     int idx = -1;
 
     /* I 'bound parameters' sono dei token inseriti all'interno della stringa
-    SQL, sono come una sorta di segnaposto, collocati nella stringa prima della
-    preparazione della dichiarazione. Successivamente, dopo che la 
+    SQL, sono come una sorta di segnaposto, collocati nella stringa stessa 
+    prima della preparazione della dichiarazione. Successivamente, dopo che la
     dichiarazione e' stata preparata e prima dell'esecuzione, e' possibile
     associare (bind) un valore al parametro.
 
     SQLite supporta cinque stili di 'Statement parameters':
-    ?           parametro anonimo con indice automatico. L'indice e' unico, 
+    ?           parametro anonimo con indice automatico. L'indice e' unico,
                 sequenziale e inizia da 1;
     ?<index>    parametro con indice numerico esplicito;
     :<name>     parametro denominato con indice automatico;
@@ -64,9 +64,10 @@ int main(int argc, char *argv[]) {
 
     /* Prima di eseguira la dichiarazione, i parametri possono essere associati
     (bind) a un valore mediante una delle funzioni della famiglia 
-    sqlite3_bind_*(). Come accennato in precedenza tali funzioni devono essere
+    sqlite3_bind_*(). Come accennato in precedenza, tali funzioni devono essere
     invocate dopo la preparazione della dichiarazione ma prima dell'
-    esecuzione, ovvero prima che si invochi la funzione sqlite3_step(). 
+    esecuzione della dichiarazione stessa, ovvero antecedentemente all'
+    invocazione della funzione sqlite3_step().
     Ad ogni riga possono essere associati valori diversi. */
     
     /* Bind the first value
