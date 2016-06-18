@@ -3,8 +3,10 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di associare, mediante le funzioni della
-famiglia sqlite3_bind_*(), alcuni parametri ad altre variabili statiche, e 
-infine incapsularli nella stringa SQL da passare al database. */
+famiglia 'sqlite3_bind_*()', alcuni parametri a dei valori e incapsularli nella 
+stringa SQL da passare al database. Il tutto sara' eseguito grazie agli
+'SQLite Bound Parameters'. Infine, oltre alla dichiarazione SQL da eseguire, il
+programma stampa a video diverse peculiarita' dei 'bound parameters'. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
