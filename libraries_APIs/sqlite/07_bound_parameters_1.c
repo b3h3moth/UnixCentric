@@ -18,7 +18,12 @@ int main(int argc, char *argv[]) {
     quotatura, sono collocati nella stringa stessa prima della preparazione 
     della dichiarazione. Successivamente, dopo che la dichiarazione e' stata 
     preparata e prima dell'esecuzione, e' possibile associare (bind) un valore
-    al parametro.
+    al parametro. Alla fine dell'esecuzione della dichiarazione e' possibile
+    resettare la dichiarazione stessa e ripetere il ciclo di binding con nuovi
+    parametri.
+
+    Da notare che ogni parametro all'interno della dichiarazione e' 
+    referenziato mediante un indice.
 
     SQLite supporta cinque stili di 'Statement parameters':
     ?           parametro anonimo con indice automatico. L'indice e' unico,
@@ -73,7 +78,7 @@ int main(int argc, char *argv[]) {
     
     /* Bind the first value
     Si utilizza la funzione sqlite3_bind_text() poiche' si sta lavorando con
-    delle stringhe */
+    una stringa */
     rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
