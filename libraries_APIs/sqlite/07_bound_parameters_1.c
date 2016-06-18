@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
+    // Stringhe da associare ai parametri
     char *str_fullname = "foobar";
     char *str_alias = "foo";
     char *str_email = "foo@bar.baz";
@@ -68,7 +69,9 @@ int main(int argc, char *argv[]) {
     esecuzione, ovvero prima che si invochi la funzione sqlite3_step(). 
     Ad ogni riga possono essere associati valori diversi. */
     
-    // Bind the first value
+    /* Bind the first value
+    Si utilizza la funzione sqlite3_bind_text() poiche' si sta lavorando con
+    delle stringhe */
     rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
