@@ -12,11 +12,19 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
+
+    /* I 'bound parameters' sono dei token inseriti all'interno della stringa
+    SQL, sono come una sorta di segnaposto, collocati nella stringa prima della
+    preparazione della dichiarazione. Successivamente, dopo che la 
+    dichiarazione e' stata preparata e prima dell'esecuzione, e' possibile
+    associare (bind) un valore al parametro. 
+    SQLite supporta cinque stili di 'Statement parameters':*/
+    char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
+                    "VALUES(?, ?, ?)";
+
     char *str_fullname = "foobar";
     char *str_alias = "foo";
     char *str_email = "foo@bar.baz";
-    char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
-                    "VALUES(?, ?, ?)";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
