@@ -22,10 +22,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Stringhe da associare ai parametri
-    char *str_fullname = argv[2];
-    char *str_alias = argv[3];
-    char *str_email = argv[4];
+    /* Stringhe da associare ai parametri, sono gestite in modo sicuro facendo
+    attenzione alla grandezza di ciascuna di esse */
+    const char *const str_fullname = argv[2];
+    const char *const str_alias = argv[3];
+    const char *const str_email = argv[4];
 
     // Library initialization
     if (sqlite3_initialize() != SQLITE_OK) {
