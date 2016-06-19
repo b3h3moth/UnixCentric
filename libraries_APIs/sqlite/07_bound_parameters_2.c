@@ -94,9 +94,9 @@ int main(int argc, char *argv[]) {
     if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Stepping through the statement.\n");
     } else
-        printf("... Statement successfully executed.\n",    \
-               "fullname: %s\nalias: %s\ne-mail: %s\n...",  \
-               "Parameters added.)", str_fullname, str_alias, str_email);
+        printf("... Statement successfully executed.\n"         \
+               "fullname: %8s\nalias: %8s\ne-mail: %8s\n... "   \
+               "Parameters added", str_fullname, str_alias, str_email);
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
