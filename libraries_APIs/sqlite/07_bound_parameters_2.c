@@ -15,10 +15,6 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     // Indice dei bound parameters
     int idx = -1;   
-    // Stringhe da associare ai bound parameters
-    char *str_fullname = NULL;
-    char *str_alias = NULL;
-    char *str_email = NULL;
     // Stringa SQL con bound parameters
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(:name, :aka, :mail)";
@@ -28,31 +24,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Verifica che ciascun parametro fornito in input non sia NULL */
-    const char *const in_fname = (argc && argv[2]) ? argv[2] : "";
-    const char *const in_alias = (argc && argv[3]) ? argv[3] : "";
-    const char *const in_mail = (argc && argv[4]) ? argv[4] : "";
-    size_t sz_fname = strlen(in_fname) + 1;
-    size_t sz_alias = strlen(in_alias) + 1;
-    size_t sz_mail = strlen(in_mail) + 1;
-
-    if (strlen(in_fname) != 0 && strlen(in_alias) != 0 && strlen(in_mail) != 0) {
-        str_fullname = malloc(sizeof(sz_fname));
-        strncpy(str_fullname, in_fname, sz_fname);
-
-        str_alias = malloc(sizeof(strlen(in_alias)));
-        strncpy(str_alias, in_alias, strlen(in_alias));
-
-        str_email = malloc(sizeof(strlen(in_mail)));
-        strncpy(str_email, in_mail, strlen(in_mail));
-    } else {
-        puts("NULL parameters are not valid.");
-    free(str_fullname);
-    free(str_alias);
-    free(str_email);
-
-        exit(EXIT_FAILURE);
-    }
+    /* Le stringhe ricevute in input diventano costanti */
+    const char *const str_fullname = (argc && argv[2]) ? argv[2] : "";
+    const char *const str_alias = (argc && argv[3]) ? argv[3] : "";
+    const char *const str_email = (argc && argv[4]) ? argv[4] : "";
 
     // Library initialization
     if (sqlite3_initialize() != SQLITE_OK) {
@@ -119,7 +94,9 @@ int main(int argc, char *argv[]) {
     if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Stepping through the statement.\n");
     } else
-        puts("... Statement successfully executed.");
+        printf("... Statement successfully executed.\n",    \
+               "fullname: %s\nalias: %s\ne-mail: %s\n...",  \
+               "Parameters added.)", str_fullname, str_alias, str_email);
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
@@ -127,10 +104,6 @@ int main(int argc, char *argv[]) {
     sqlite3_close_v2(db);
     // Shutdown library initialization
     sqlite3_shutdown();
-    // Free strings
-    free(str_fullname);
-    free(str_alias);
-    free(str_email);
 
     return(EXIT_SUCCESS);
 }
