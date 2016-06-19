@@ -24,9 +24,9 @@ int main(int argc, char *argv[]) {
 
     /* Stringhe da associare ai parametri, sono gestite in modo sicuro facendo
     attenzione alla grandezza di ciascuna di esse */
-    const char *const str_fullname = argv[2];
-    const char *const str_alias = argv[3];
-    const char *const str_email = argv[4];
+    const char *const str_fullname = (argc && argv[2]) ? argv[2] : "";
+    const char *const str_alias = (argc && argv[3]) ? argv[3] : "";
+    const char *const str_email = (argc && argv[4]) ? argv[4] : "";
 
     // Library initialization
     if (sqlite3_initialize() != SQLITE_OK) {
