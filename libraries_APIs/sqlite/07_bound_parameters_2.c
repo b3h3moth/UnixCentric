@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
                     "VALUES(:name, :aka, :mail)";
 
     if (argc != 5) {
-        fprintf(stderr, "Usage: %s dbname, name, alias, email\n", argv[0]);
+        fprintf(stderr, "Usage: %s <DB>,<name>,<alias>,<email>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
