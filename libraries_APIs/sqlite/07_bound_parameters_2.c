@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
-
+    // Stringa SQL con bound parameters
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(:name, :aka, :mail)";
 
