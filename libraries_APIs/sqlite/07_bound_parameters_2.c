@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di associare, mediante le funzioni della
@@ -14,6 +15,10 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     // Indice dei bound parameters
     int idx = -1;   
+    // Stringhe da associare ai bound parameters
+    char *str_fullname = NULL;
+    char *str_alias = NULL;
+    char *str_email = NULL;
     // Stringa SQL con bound parameters
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(:name, :aka, :mail)";
@@ -23,11 +28,24 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Stringhe da associare ai parametri, sono gestite in modo sicuro facendo
-    attenzione alla grandezza di ciascuna di esse */
-    const char *const str_fullname = (argc && argv[2]) ? argv[2] : "";
-    const char *const str_alias = (argc && argv[3]) ? argv[3] : "";
-    const char *const str_email = (argc && argv[4]) ? argv[4] : "";
+    /* Verifica che ciascun parametro fornito in input non sia NULL */
+    const char *const in_fname = (argc && argv[2]) ? argv[2] : "";
+    const char *const in_alias = (argc && argv[3]) ? argv[3] : "";
+    const char *const in_mail = (argc && argv[4]) ? argv[4] : "";
+
+    if (strlen(in_fname) != 0 && strlen(in_alias) != 0 && strlen(in_mail) != 0) {
+        str_fullname = malloc(sizeof(strlen(in_fname)) + 1);
+        strncpy(str_fullname, in_fname, strlen(in_fname));
+
+        str_alias = malloc(sizeof(strlen(in_alias)) + 1);
+        strncpy(str_alias, in_alias, strlen(in_alias));
+
+        str_email = malloc(sizeof(strlen(in_mail)) + 1);
+        strncpy(str_email, in_mail, strlen(in_mail));
+    } else {
+        puts("NULL parameters are not valid.");
+        exit(EXIT_FAILURE);
+    }
 
     // Library initialization
     if (sqlite3_initialize() != SQLITE_OK) {
