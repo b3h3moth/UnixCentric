@@ -47,7 +47,7 @@ RETURNS   : Un intero da 16bit
 int main(void) {
     int i;
     long x = 0x78A27D0;
-    unsigned char *ptr =(char *)&x;
+    unsigned char *ptr = (char *)&x;
 
     printf("Valori in host byte order\n");
     printf(" x in Esadecimale: %x\n", x);
