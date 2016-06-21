@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Lo scopo del programma e' di produrre un esempio con un array di puntatori
+a puntatori */
+
 int main(void) {
     char *unixos[] = { 
         "OpenBSD",
