@@ -10,8 +10,7 @@ modo sicuro. Soluzione POSIX compilant. */
 
 int main(int argc, char *argv[]) {
     struct stat stbuf;
-    off_t size;
-    char *buf;
+    size_t size;
     int fd;
 
     fd = open(argv[1], O_RDONLY);
@@ -24,5 +23,10 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. Can't fstat file: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    size = stbuf.st_size;
+
+    printf("The \'%s\' size is: %i byte\n", argv[1], size);
+
     return(EXIT_SUCCESS);
 }
