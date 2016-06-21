@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Lo scopo del programma e' di produrre un esempio con un array di puntatori
-a puntatori */
+/* Lo scopo del programma e' le realizzazione di un vettore di stringhe e
+successivamente assegnare solo specifici elementi a un vettore di puntatori
+a stringhe */
 
 int main(void) {
     char *unixos[] = { 
