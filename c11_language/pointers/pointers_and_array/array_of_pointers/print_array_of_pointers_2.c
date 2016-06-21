@@ -3,7 +3,7 @@
 #include <string.h>
 
 /* Lo scopo del programma e' di stampare ciascun elemento dell'array di
-puntatori */
+stringhe */
 
 int main(int argc, char *argv[]) {
    char *array[] = {"campobasso",
