@@ -22,6 +22,7 @@ int main(void) {
     char buf[BUF_SIZE];
 
     init_buffer(buf, BUF_SIZE);
+    print_buffer(buf);
 
     return(EXIT_SUCCESS);
 }
@@ -33,7 +34,6 @@ void init_buffer(char *buf, size_t size) {
     for (i=0; i<size; i++)
         *(buf + i) = i + '0';
 
-    print_buffer(buf);
 }
 
 // Stampa ciascun elemento del vettore
