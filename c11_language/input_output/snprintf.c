@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum {BUF_SIZE = 19};
+enum {BUF_SIZE = 9};
 
 // Function Prototypes
 void init_buffer(char *buf, size_t size);
+static void print_buffer(char *buf);
 
 /*
 HEADER: int snprintf(char *str, size_t size, const char *format, ...);
@@ -30,5 +31,22 @@ void init_buffer(char *buf, size_t size) {
     int i;
 
     for (i=0; i<size; i++)
-        *(buf + i) = i*i;
+        *(buf + i) = i + '0';
+
+    print_buffer(buf);
+}
+
+// Stampa ciascun elemento del vettore
+static void print_buffer(char *buf) {
+    int i;
+    char c;
+
+    for (i=0; i<BUF_SIZE; i++) {
+        c = *(buf + i);
+        if (c == '\0') {
+            printf("\\0");
+        } else 
+            printf("%c", *(buf +i));
+    }
+    printf("\n");
 }
