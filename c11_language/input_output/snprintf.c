@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-enum {BUF_SIZE = 9};
+enum {BUF_SIZE = 10};
 
 // Function Prototypes
 void init_buffer(char *buf, size_t size);
@@ -22,6 +22,26 @@ int main(void) {
     char buf[BUF_SIZE];
 
     init_buffer(buf, BUF_SIZE);
+    print_buffer(buf);
+
+    init_buffer(buf, BUF_SIZE);
+    snprintf(buf, BUF_SIZE, "I Love C");
+    print_buffer(buf);
+
+    init_buffer(buf, BUF_SIZE);
+    snprintf(buf, BUF_SIZE, "Hi");
+    print_buffer(buf);
+
+    init_buffer(buf, BUF_SIZE);
+    snprintf(buf, BUF_SIZE, "Take a Walk on the wild side");
+    print_buffer(buf);
+
+    init_buffer(buf, BUF_SIZE);
+    snprintf(buf, 5, "%d", 11111);
+    print_buffer(buf);
+
+    init_buffer(buf, BUF_SIZE);
+    snprintf(buf, BUF_SIZE, "%d:%s:%d", 10, "hi", 10);
     print_buffer(buf);
 
     return(EXIT_SUCCESS);
