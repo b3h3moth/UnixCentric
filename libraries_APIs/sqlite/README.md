@@ -24,6 +24,13 @@ Opening a new database connection:
 * `sqlite3_open()`
 * `sqlite3_open_v2()`
 
+Bound parameters
+
+* `sqlite3_bind_text()`
+* `sqlite3_bind_parameter_index()`
+* `sqlite3_bind_parameter_count()`
+* `sqlite3_bind_parameter_name()`
+
 One-step query execution interface:
 
 * `sqlite3_exec()`
