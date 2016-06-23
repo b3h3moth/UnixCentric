@@ -11,7 +11,9 @@ connection and prepared statement objects are controlled by a set of routine:
 * `sqlite3_finalize()`    4th step
 * `sqlite3_close()`       
 
-> The `sqlite3_exec()` interface is a __convenience wrapper__ that carries out all four
+## Convenience functions
+
+The `sqlite3_exec()` interface is a __convenience wrapper__ that carries out all four
 of the above steps with a single function call. A callback function passed into 
 `sqlite3_exec()` is used to process each row of the result set.
 
