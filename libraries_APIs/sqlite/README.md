@@ -19,6 +19,9 @@ of the above steps with a single function call. A callback function passed into
 
 [An Introduction to the SQLite C/C++ interface](https://www.sqlite.org/cintro.html)
 
+> Convenience functions can be used to prepare, step, and finalize SQL statement
+in one call
+
 ## SQLite API C functions covered
 
 Opening a new database connection:
