@@ -32,6 +32,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+
+
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
         puts("Closed database connection");
