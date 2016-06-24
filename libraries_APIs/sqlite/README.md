@@ -26,7 +26,7 @@ They are acceptable for DDL commands - Data Definition Language - (CREATE TABLE,
  CREATE INDEX, etc.), but for any type of DML command - Data Manipulation 
 Language - is strongly reccomended using the prepared statements.
 
-## SQLite API C functions covered
+## The SQLite API C functions covered
 
 Opening a new database connection:
 
