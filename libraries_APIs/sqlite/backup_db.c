@@ -5,7 +5,9 @@
 // Lo scopo del programma e di creare un backup del dabatase
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db = NULL;
+    sqlite3 *db = NULL;     // database connection
+    sqlite3 *db_out;        // database backup
+    sqlite3 *db_in;         // database to copy from
     int rc = 0;
     // Campo di bit che indica la creazione del database in lettura/scrittura
     int flags = SQLITE_OPEN_READWRITE;
