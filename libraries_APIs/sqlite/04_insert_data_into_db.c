@@ -50,6 +50,8 @@ int main(int argc, char *argv[]) {
     if (sqlite3_step(stmt) == SQLITE_DONE)
         printf("... Statement successfully executed: %s\n", sql_str);
 
+    /* Lo scopo della funzione sqlite3_last_insert_rowid() e' di determinare
+    l'id dell'ultimo record inserito nella tabella */
     last_rowid = sqlite3_last_insert_rowid(db);
     printf("The last inserted row- id is: \'%d\'\n", last_rowid);
 
