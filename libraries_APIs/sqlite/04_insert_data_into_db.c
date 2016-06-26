@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
     sqlite3      *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
+    int          last_rowid = 0;
     int          flags = SQLITE_OPEN_READWRITE;
     char         *sql_str = 
         "INSERT INTO addressbook(fullname, alias, email) VALUES"
@@ -44,6 +45,9 @@ int main(int argc, char *argv[]) {
 
     if (sqlite3_step(stmt) == SQLITE_DONE)
         printf("... Statement successfully executed: %s\n", sql_str);
+
+    last_rowid = sqlite3_last_insert_rowid(db);
+    printf("The last inserted row- id is: \'%d\'\n", last_rowid);
 
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
