@@ -26,6 +26,15 @@ They are acceptable for DDL commands - Data Definition Language - (CREATE TABLE,
  CREATE INDEX, etc.), but for any type of DML command - Data Manipulation 
 Language - is strongly reccomended using the prepared statements.
 
+## rowid
+
+SQLite automatically create an implicit column named 'rowid' and automatically
+assigns an integer value whenever you insert a new row. When a table with an
+'INTEGER PRIMARY KEY' column is created, this column will points to the
+'rowid'.
+
+Get the last rowid added with `sqlite3_last_insert_rowid()` function.
+
 ## The SQLite API C functions covered
 
 Opening a new database connection:
