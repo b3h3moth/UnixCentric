@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-enum { MAX_LINE = 500 };
+enum { MAX_LINE = 5 };
 
 char *pline[MAX_LINE];
 
+// Function prototypes
 char *get_line(void);
 int compare_strings(const void *str1, const void *str2);
 
