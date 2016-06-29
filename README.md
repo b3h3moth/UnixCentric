@@ -21,6 +21,8 @@ How to build robust interfaces.
 A lot of libraries for every day use; graphics, cryptography, serialization, 
 database, I/O and so on.
 
+* libcairo;
+
 ### Representing information
 
 How computer really works:
