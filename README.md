@@ -21,7 +21,10 @@ How to build robust interfaces.
 A lot of libraries for every day use; graphics, cryptography, serialization, 
 database, I/O and so on.
 
+Full tutorial:
+
 * libcairo;
+* sqlite;
 
 ### Representing information
 
