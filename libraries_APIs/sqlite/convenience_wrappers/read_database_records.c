@@ -7,8 +7,10 @@ database e' fornito come argomento */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db;
+    char **record;
     char *sql_query, *err;
-    int rc;
+    int rc, i, j;
+    int nrows, ncols;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
@@ -25,13 +27,21 @@ int main(int argc, char *argv[]) {
     sql_query = "SELECT * from note ORDER by id";
 
     // Lettura dei record mediante la funzione sqlite3_get_table()
-    rc = sqlite3_get_table(db, sql_query, NULL, NULL, &err);
+    rc = sqlite3_get_table(db, sql_query, &record, &nrows, &ncols, &err);
     if (rc != SQLITE_OK) {
         if (err != NULL) {
             fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
             sqlite3_close(db);
             exit(EXIT_FAILURE);
         }
+    }
+
+    // Stampa dei record
+    for (i=0; i<nrows; i++) {
+        for (j=0; j<ncols; j++) {
+            fprintf(stdout, "%s | ", record[(i+1) * ncols + j]);
+        }
+        fputc('\n', stdout);
     }
 
     // Close database connection
