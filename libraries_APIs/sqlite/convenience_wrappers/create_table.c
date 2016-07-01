@@ -6,9 +6,10 @@
 database fornito come argomento */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db;
-    char *sql_query, *err;
-    int rc;
+    sqlite3 *db = NULL;
+    char    *sql_query = NULL;
+    char    *err = NULL;
+    int     rc = 0;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);

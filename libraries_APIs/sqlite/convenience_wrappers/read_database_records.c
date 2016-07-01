@@ -6,11 +6,12 @@
 database e' fornito come argomento */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db;
-    char **record;
-    char *sql_query, *err;
-    int rc, i, j;
-    int nrows, ncols;
+    sqlite3 *db = NULL;
+    char    **record = NULL;
+    char    *sql_query = NULL;
+    char    *err = NULL;
+    int     rc = 0;
+    int     i, j, nrows, ncols;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
