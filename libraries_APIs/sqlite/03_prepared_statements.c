@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     int          flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     char         *sql_str = "CREATE TABLE addressBook(id INTEGER PRIMARY KEY,"
                            "fullname TEXT NOT NULL UNIQUE,"
-                           "alias TEXT NOT NULL UNIQUE,"
+                           "alias TEXT NOT NULL,"
                            "email TEXT NOT NULL UNIQUE);";
 
     if (argc != 2) {
