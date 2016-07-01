@@ -20,6 +20,7 @@ int main(int argc, char *argv[]) {
         "('francesca', 'fra', 'fran@mcesca.org'),"
         "('mia', 'mi', 'mia@mia.org'),"
         "('luca', 'lu', 'liuc@step.org'),"
+        "('richard', 'rms', 'richard@stallman.org'),"
         "('carlotta', 'carl', 'carl@ot.org');";
 
     if (argc != 2) {
@@ -47,7 +48,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    if (sqlite3_step(stmt) == SQLITE_DONE)
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        printf("Err. inserting data: %s\n", sqlite3_errmsg(db));
+        sqlite3_close_v2(db);
+        sqlite3_shutdown();
+    } else
         printf("... Statement successfully executed: %s\n", sql_str);
 
     /* Lo scopo della funzione sqlite3_last_insert_rowid() e' di determinare
