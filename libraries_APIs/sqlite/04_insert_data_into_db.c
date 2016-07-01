@@ -52,13 +52,12 @@ int main(int argc, char *argv[]) {
         printf("Err. inserting data: %s\n", sqlite3_errmsg(db));
         sqlite3_close_v2(db);
         sqlite3_shutdown();
-    } else
-        printf("... Statement successfully executed: %s\n", sql_str);
-
-    /* Lo scopo della funzione sqlite3_last_insert_rowid() e' di determinare
-    l'id dell'ultimo record inserito nella tabella */
-    last_rowid = sqlite3_last_insert_rowid(db);
-    printf("The last inserted row- id is: \'%d\'\n", last_rowid);
+    } else {
+        /* Lo scopo della funzione sqlite3_last_insert_rowid() e' di 
+        determinare l'id dell'ultimo record inserito nella tabella */
+        last_rowid = sqlite3_last_insert_rowid(db);
+        printf("The last inserted row- id is: \'%d\'\n", last_rowid);
+    }
 
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
