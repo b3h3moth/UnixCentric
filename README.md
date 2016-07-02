@@ -23,8 +23,8 @@ database, I/O and so on.
 
 Full tutorial:
 
-* libcairo;
-* sqlite;
+* cairo library (2D graphics)
+* SQLite (RDMS)
 
 ### Representing information
 
