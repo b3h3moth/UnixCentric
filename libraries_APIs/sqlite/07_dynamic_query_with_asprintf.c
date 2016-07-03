@@ -3,7 +3,9 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di seguire una query dinamica facendo uso della
-funzione asprintf(). */
+funzione asprintf().
+
+Whene compiling compiling the source code add -D_GNU_SOURCE */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
