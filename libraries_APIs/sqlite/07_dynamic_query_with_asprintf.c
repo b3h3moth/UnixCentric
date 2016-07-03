@@ -33,6 +33,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Allocate the right memory to hold the SQL query
     asprintf(&sql_query, "INSERT INTO addressbook (fullname, alias, email) \
             VALUES ('%s', '%s', '%s')", argv[2], argv[3], argv[4]);
 
