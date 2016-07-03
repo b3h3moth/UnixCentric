@@ -11,8 +11,8 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     char *sql_query = NULL;
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
+    if (argc != 5) {
+        fprintf(stderr, "Usage: %s <DBname><name><alias><email>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -28,6 +28,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    asprintf(&sql_query, "INSERT INTO addressbook (fullname, alias, email) \
+            VALUES ('%s', '%s', '%s')", argv[2], argv[3], argv[4]);
+
+    // Prepare the statement
+    rc = sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
 
     // Close database connection
     sqlite3_close_v2(db);
