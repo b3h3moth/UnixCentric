@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     int rc = 0;
+    char *sql_query = NULL;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -32,6 +33,8 @@ int main(int argc, char *argv[]) {
     sqlite3_close_v2(db);
     // Shutdown library initialization
     sqlite3_shutdown();
+    // Free pointer memory
+    free(sql_query);
 
     return(EXIT_SUCCESS);
 }
