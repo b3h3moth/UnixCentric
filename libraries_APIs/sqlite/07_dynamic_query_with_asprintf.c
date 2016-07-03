@@ -5,10 +5,13 @@
 /* Lo scopo del programma e' di seguire una query dinamica facendo uso della
 funzione asprintf().
 
-Whene compiling compiling the source code add -D_GNU_SOURCE */
+Note: Whene compiling add -D_GNU_SOURCE 
+<clang, gcc> -std=c11 -lsqlite3 -Wall -pedantic -D_GNU_SOURCE file.c
+*/
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
+    sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     int rc = 0;
     char *sql_query = NULL;
@@ -34,7 +37,7 @@ int main(int argc, char *argv[]) {
             VALUES ('%s', '%s', '%s')", argv[2], argv[3], argv[4]);
 
     // Prepare the statement
-    rc = sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
+    rc = sqlite3_prepare_v2(db, sql_query,-1, &stmt, NULL);
 
     // Execute the statement
     rc = sqlite3_step(stmt);
