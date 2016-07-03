@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
+/* Lo scopo del programma e' di seguire una query dinamica facendo uso della
+funzione asprintf(). */
+
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
