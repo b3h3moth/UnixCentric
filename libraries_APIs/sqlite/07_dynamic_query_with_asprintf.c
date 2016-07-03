@@ -34,6 +34,14 @@ int main(int argc, char *argv[]) {
     // Prepare the statement
     rc = sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL);
 
+    // Execute the statement
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) {
+        fprintf(stderr, "Err. Stepping through the statement.\n");
+    }
+
+    // Release prepared statement resources
+    sqlite3_finalize(stmt);
     // Close database connection
     sqlite3_close_v2(db);
     // Shutdown library initialization
