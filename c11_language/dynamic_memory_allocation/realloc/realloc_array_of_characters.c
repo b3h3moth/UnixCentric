@@ -16,3 +16,5 @@ int main(void) {
 char *get_line(void) {
     // La grandezza iniziale del buffer, nonche' l'incremento del buffer stesso
     const size_t size_increment = 10;
+    // Puntatore al buffer dei caratteri letti dallo stdin
+    char *buf = malloc(size_increment);
