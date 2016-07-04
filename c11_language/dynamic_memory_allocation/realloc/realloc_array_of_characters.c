@@ -20,3 +20,5 @@ char *get_line(void) {
     char *buf = malloc(size_increment);
     // Puntatore alla successiva posizione libera nel buffer
     char *cur_pos = buf;
+    // Massimo numeri di caratteri che possono essere collocati nel buffer
+    size_t max_len = size_increment;
