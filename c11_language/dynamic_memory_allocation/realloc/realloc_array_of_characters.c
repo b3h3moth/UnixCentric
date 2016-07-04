@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Function Prototype
 char *get_line(void);
@@ -11,7 +12,7 @@ assegnare lo spazio necessario. */
 
 int main(void) {
     char *text = get_line();
-    printf("%s\n", text);
+    printf("%s %d\n", text, strlen(text));
 
     return(EXIT_SUCCESS);
 }
