@@ -31,4 +31,12 @@ char *get_line(void) {
     if (cur_pos == NULL)
         return NULL;
 
+    while(1) {
+        // Legge i caratteri dallo standard input
+        ch = fgetc(stdin);
 
+        // Non appena ci si imbatte in una new-line il ciclo termina
+        if (ch == '\n')
+            break;
+    }
+}
