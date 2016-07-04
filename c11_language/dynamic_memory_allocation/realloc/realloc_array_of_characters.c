@@ -64,6 +64,6 @@ char *get_line(void) {
         *cur_pos++ = ch;
     }
     // Aggiunta del 'null-character' alla fine del buffer
-    *cur_pos++ = '\0';
+    *cur_pos = '\0';
     return buf;
 }
