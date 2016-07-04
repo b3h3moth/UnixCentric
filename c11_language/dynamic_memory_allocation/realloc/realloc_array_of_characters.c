@@ -26,3 +26,9 @@ char *get_line(void) {
     size_t len = 0;
     // Ultimo carattere letto
     int ch;
+
+    // Se il buffer e' vuoto ritorna NULL
+    if (cur_pos == NULL)
+        return NULL;
+
+
