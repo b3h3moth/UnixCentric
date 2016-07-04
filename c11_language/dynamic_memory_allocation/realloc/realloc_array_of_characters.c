@@ -22,3 +22,7 @@ char *get_line(void) {
     char *cur_pos = buf;
     // Massimo numeri di caratteri che possono essere collocati nel buffer
     size_t max_len = size_increment;
+    // Numero di caratteri letti
+    size_t len = 0;
+    // Ultimo carattere letto
+    int ch;
