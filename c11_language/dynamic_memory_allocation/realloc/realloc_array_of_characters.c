@@ -49,5 +49,11 @@ char *get_line(void) {
             free(new_buf);
             return NULL;
         }
+
+        /* La posizione corrente e' orientata a puntare nella giusta posizione
+        del nuovo buffer, dopodiche' si fa puntare il buffer originario al
+        nuovo buffer */
+        cur_pos = new_buf + (cur_pos - buf);
+        buf = new_buf;
     }
 }
