@@ -10,6 +10,9 @@ totale dei caratteri stesso non e' noto, si utilizza la funzione realloc() per
 assegnare lo spazio necessario. */
 
 int main(void) {
+    char *text = get_line();
+    printf("%s\n", text);
+
     return(EXIT_SUCCESS);
 }
 
