@@ -38,5 +38,16 @@ char *get_line(void) {
         // Non appena ci si imbatte in una new-line il ciclo termina
         if (ch == '\n')
             break;
+
+        /* Se si supera il valore di incremento iniziale si procede a
+        riallocare la memoria in un nuovo buffer */
+        if (++len >= max_len)
+            char *new_buf = realloc(buf, max_len += size_increment);
+
+        // Se il nuovo buffer e' vuoto ritorna NULL e libera la memoria
+        if (new_buf == NULL) {
+            free(new_buf);
+            return NULL;
+        }
     }
 }
