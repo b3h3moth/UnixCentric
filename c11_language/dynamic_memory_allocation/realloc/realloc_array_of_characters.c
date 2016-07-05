@@ -6,9 +6,10 @@
 char *get_line(void);
 
 /* Lo scopo del programma e' l'implementazione della funzione get_line() che
-dopo la lettura di caratteri dallo stdin, li assegna a un buffer, ma poiche' il
-totale dei caratteri stesso non e' noto, si utilizza la funzione realloc() per
-assegnare lo spazio necessario. */
+dopo la lettura di caratteri dallo stdin li assegna a un buffer, ma poiche' il
+totale dei caratteri non e' noto, si utilizza la funzione realloc() per
+assegnare lo spazio necessario. Lo scopo della funzione trim() invece e' di 
+eliminare dalla stringa ottenuta in input gli spazi vuoti. */
 
 int main(void) {
     char *text = get_line();
