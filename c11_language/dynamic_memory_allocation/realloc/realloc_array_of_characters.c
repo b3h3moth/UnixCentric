@@ -71,3 +71,6 @@ char *get_line(void) {
 }
 
 char *trim(char *msg) {
+    // Entrambi i puntatori puntano al primo carattere, inizialmente
+    char *msg_old = msg;
+    char *msg_new = msg;
