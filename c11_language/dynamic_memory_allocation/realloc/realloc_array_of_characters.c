@@ -74,3 +74,7 @@ char *trim(char *msg) {
     // Entrambi i puntatori puntano al primo carattere, inizialmente
     char *msg_old = msg;
     char *msg_new = msg;
+
+    // Se incontra uno spazio vuoto, salta al successivo carattere
+    while (*msg_old == ' ')
+        msg_old++;
