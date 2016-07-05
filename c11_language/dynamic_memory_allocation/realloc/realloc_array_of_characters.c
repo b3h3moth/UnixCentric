@@ -72,8 +72,8 @@ char *get_line(void) {
 
 char *trim(char *str) {
     // Entrambi i puntatori puntano al primo carattere, inizialmente
-    char *str_tmp = msg;
-    char *str_new = msg;
+    char *str_tmp = str;
+    char *str_new = str;
 
     // Se incontra uno spazio vuoto, salta al successivo carattere
     while (*str_tmp == ' ')
