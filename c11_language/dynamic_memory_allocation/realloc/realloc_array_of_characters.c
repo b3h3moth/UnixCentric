@@ -15,7 +15,7 @@ eliminare dalla stringa ottenuta in input gli spazi vuoti. */
 int main(void) {
     char *text = get_line();
     printf("%s %d\n", text, strlen(text));
-
+    printf("%s\n", trim(text));
     return(EXIT_SUCCESS);
 }
 
@@ -77,14 +77,15 @@ char *trim(char *str) {
 
     // Se incontra uno spazio vuoto, salta al successivo carattere
     while (*str_tmp == ' ')
-        str_tmp++;
+        ++str_tmp;
 
     // Copia ciascun carattere nella nuova stringa
     while (*str_tmp)
         *(str_new++) = *(str_tmp++);
 
     // Aggiunta dell null-terminator character finale
-    *str_new = 0;
+    *str_new = '\0';
 
-    return realloc(str, strlen(str) + 1);
+    str_new = realloc(str, strlen(str) + 1);
+    return str_new;
 }
