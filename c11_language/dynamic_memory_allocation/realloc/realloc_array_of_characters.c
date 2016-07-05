@@ -82,3 +82,6 @@ char *trim(char *msg) {
     // Copia ciascun carattere nella nuova stringa
     while (*str_tmp)
         *(str_new++) = *(str_tmp++);
+
+    // Aggiunta dell null-terminator character finale
+    *str_new = 0;
