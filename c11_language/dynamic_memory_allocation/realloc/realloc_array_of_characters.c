@@ -4,7 +4,7 @@
 
 // Function Prototype
 char *get_line(void);
-char *trim(char *msg);
+char *trim(char *str);
 
 /* Lo scopo del programma e' l'implementazione della funzione get_line() che
 dopo la lettura di caratteri dallo stdin li assegna a un buffer, ma poiche' il
@@ -70,7 +70,7 @@ char *get_line(void) {
     return buf;
 }
 
-char *trim(char *msg) {
+char *trim(char *str) {
     // Entrambi i puntatori puntano al primo carattere, inizialmente
     char *str_tmp = msg;
     char *str_new = msg;
@@ -85,3 +85,6 @@ char *trim(char *msg) {
 
     // Aggiunta dell null-terminator character finale
     *str_new = 0;
+
+    return realloc(str, strlen(str) + 1);
+}
