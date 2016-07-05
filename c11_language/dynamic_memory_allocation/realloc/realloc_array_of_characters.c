@@ -10,12 +10,13 @@ char *trim(char *str);
 dopo la lettura di caratteri dallo stdin li assegna a un buffer, ma poiche' il
 totale dei caratteri non e' noto, si utilizza la funzione realloc() per
 assegnare lo spazio necessario. Lo scopo della funzione trim() invece e' di 
-eliminare dalla stringa ottenuta in input gli spazi vuoti. */
+eliminare dall'inizio della stringa ottenuta in input gli spazi vuoti. */
 
 int main(void) {
     char *text = get_line();
     printf("%s %d\n", text, strlen(text));
     printf("%s\n", trim(text));
+
     return(EXIT_SUCCESS);
 }
 
