@@ -4,6 +4,7 @@
 
 // Function Prototype
 char *get_line(void);
+char *trim(char *msg);
 
 /* Lo scopo del programma e' l'implementazione della funzione get_line() che
 dopo la lettura di caratteri dallo stdin li assegna a un buffer, ma poiche' il
@@ -68,3 +69,5 @@ char *get_line(void) {
     *cur_pos = '\0';
     return buf;
 }
+
+char *trim(char *msg) {
