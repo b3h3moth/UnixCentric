@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+enum { BUF_SIZE = 10 };
+
 // Function Prototype
 char *get_line(void);
 char *trim(char *str);
@@ -23,7 +25,7 @@ int main(void) {
 
 char *get_line(void) {
     // Grandezza iniziale del buffer, nonche' l'incremento del buffer stesso
-    const size_t size_increment = 10;
+    const size_t size_increment = BUF_SIZE;
     // Puntatore al buffer dei caratteri letti dallo stdin
     char *buf = malloc(size_increment);
     // Puntatore alla successiva posizione libera nel buffer
