@@ -18,7 +18,7 @@ della stringa ottenuta in input gli spazi vuoti. */
 int main(void) {
     char *text = get_line();
     printf("%s %d\n", text, strlen(text));
-    printf("%s\n", trim(text));
+    printf("%s %d\n", trim(text), strlen(trim(text)));
 
     return(EXIT_SUCCESS);
 }
