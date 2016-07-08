@@ -24,5 +24,9 @@ int main(void) {
         **(arr + i) = i+i;
     }
 
+    // Print both array elements
+    for (int i=0; i<ARR_SIZE; i++)
+        printf("%d %d\n", *array[i], **(arr + i));
+
     return(EXIT_SUCCESS);
 }
