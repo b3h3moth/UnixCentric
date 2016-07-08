@@ -20,8 +20,8 @@ int main(void) {
 
     // Dereferencing
     for (int i=0; i<ARR_SIZE; i++) {
-        array[i] = malloc(sizeof(int));
-        *array[i] = i*i;
+        *(arr + i) = malloc(sizeof(int));
+        **(arr + i) = i+i;
     }
 
     return(EXIT_SUCCESS);
