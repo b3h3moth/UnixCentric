@@ -7,15 +7,19 @@ enum {BUF_SIZE = 10};
 void init_buffer(char *buf, size_t size);
 static void print_buffer(char *buf);
 
-/*
-HEADER: int snprintf(char *str, size_t size, const char *format, ...);
+/* La funzione snprintf() e' la versione piu' sicura della funzione sprintf(),
+che si consiglia di non usare o comunque di adoperarla con particolare 
+accortezza poiche' e' particolarmente soggetta ad errori quali il
+'buffer overflow'. La peculiarita' della funzione snprintf() rispetto alla 
+sprintf() sta proprio nella possibilita' di poter indicare la grandezza del
+buffer.
 
-SEMANTICS: La funzione snprintf() redirige al massimo 'size' byte dell'output 
-della printf() nel buffer 'str', compreso '\0'; 'format' si occupa di gestire 
-il formato della stringa all'interno del buffer 'str' - %s, %d, %f etc.; 
-infine '...' sono gli argomenti opzionali.
-
-RETURNS: Il numero dei caratteri scritti in 'str', escluso '\0'.
+Signature: int snprintf(char *str, size_t size, const char *format, ...)
+Semantics: La funzione snprintf() redirige al massimo 'size' byte dell'output 
+della printf() nel buffer 'str', compreso '\0'; 'format' si occupa del formato
+della stringa all'interno del buffer 'str'; infine '...' sono gli argomenti 
+opzionali.
+Returns: Ritorna il numero dei caratteri scritti in 'str', escluso '\0'.
 */
 
 int main(void) {
