@@ -29,23 +29,23 @@ int main(void) {
     print_buffer(buf);
 
     init_buffer(buf, BUF_SIZE);
-    snprintf(buf, BUF_SIZE, "I Love C");
+    snprintf(buf, sizeof(buf), "I Love C");
     print_buffer(buf);
 
     init_buffer(buf, BUF_SIZE);
-    snprintf(buf, BUF_SIZE, "Hi");
+    snprintf(buf, sizeof(buf), "Hi");
     print_buffer(buf);
 
     init_buffer(buf, BUF_SIZE);
-    snprintf(buf, BUF_SIZE, "Take a Walk on the wild side");
+    snprintf(buf, sizeof(buf), "Take a Walk on the wild side");
     print_buffer(buf);
 
     init_buffer(buf, BUF_SIZE);
-    snprintf(buf, 5, "%d", 11111);
+    snprintf(buf, sizeof(buf), "%d", 11111);
     print_buffer(buf);
 
     init_buffer(buf, BUF_SIZE);
-    snprintf(buf, BUF_SIZE, "%d:%s:%d", 10, "hi", 10);
+    snprintf(buf, sizeof(buf), "%d:%s:%d", 10, "hi", 10);
     print_buffer(buf);
 
     return(EXIT_SUCCESS);
