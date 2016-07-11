@@ -12,7 +12,7 @@ Note: Whene compiling add -D_GNU_SOURCE
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
-    int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     char *sql_query = NULL;
 
