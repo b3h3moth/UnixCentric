@@ -13,5 +13,10 @@ int main(void) {
         (int[]) { 60, 70, 80, 90},
         (int[]) { 100 }
     };
+
+    while (*(*array)) {
+        printf("%d\n", *(*array)++);
+    }
+
     return(EXIT_SUCCESS);
 }
