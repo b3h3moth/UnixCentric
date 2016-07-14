@@ -14,9 +14,19 @@ int main(void) {
         (int[]) { 100 }
     };
 
-    while (*(*array)) {
-        printf("%d\n", *(*array)++);
-    }
+    printf("%d\n", *(*array + 0));
+    printf("%d\n", *(*array + 1));
+    printf("%d\n", *(array[1]));
+    printf("%d\n", *(array[1] + 1));
+    printf("%d\n", *(array[1] + 2));
+    printf("%d\n", *(array[2]));
+    printf("%d\n", *(array[2] + 1));
+    printf("%d\n", *(array[2] + 2));
+    printf("%d\n", *(array[2] + 3));
+    printf("%d\n", *(*(array)));
+    printf("%d\n", *(*(array + 1)+1));
+    printf("%d\n", *(*(array + 2)+2));
+    printf("%d\n", *(*(array + 3)+3));
 
     return(EXIT_SUCCESS);
 }
