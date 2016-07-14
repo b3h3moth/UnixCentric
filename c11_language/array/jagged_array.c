@@ -25,5 +25,9 @@ int main(void) {
     printf("%d\n", *(*(array + 2) + 3));
     printf("%d\n", *(*(array + 3)));
 
+    // Print the first element of each row
+    for (int i=0; i<4; i++)
+        printf("%d\n", *(*(array + i)));
+
     return(EXIT_SUCCESS);
 }
