@@ -1,4 +1,4 @@
-## C11 (iso9899:2011)
+## Standard C11 (iso9899:2011) Language Programming
 
 The purpose of this repository is to talk about C11 (Standard ISO)
 
