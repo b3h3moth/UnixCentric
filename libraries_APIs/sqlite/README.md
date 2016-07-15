@@ -28,7 +28,7 @@ acceptable for DDL commands (Data Definition Language) but for any type of DML
 command (Data Manipulation Language) is strongly reccomended using the prepared 
 statements.
 
-## rowid
+## rowid (alias of row identificator)
 
 SQLite automatically create an implicit column named 'rowid' and automatically
 assigns an integer value whenever you insert a new row. When a table with an
