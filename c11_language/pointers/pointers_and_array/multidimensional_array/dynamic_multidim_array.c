@@ -6,6 +6,7 @@ multidimensionale dinamico. */
 
 int main(void) {
     int rows = 2, cols = 5;
+    int **matrix = malloc(rows * sizeof(int *));
 
     return(EXIT_SUCCESS);
 }
