@@ -5,5 +5,7 @@
 multidimensionale dinamico. */
 
 int main(void) {
+    int rows = 2, cols = 5;
+
     return(EXIT_SUCCESS);
 }
