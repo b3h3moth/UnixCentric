@@ -1,3 +1,7 @@
+# SQLite 
+
+> SQLite wants to replace fopen() not Oracle.
+
 ## Prepared Statement life cycle
 
 Once a database connection is established, we can start to execute SQL commands,
