@@ -6,7 +6,12 @@
 
 /* Lo scopo del programma e' di simulare il comportamento del tool 'wc' dei
 sistemi Unix.
- */
+
+Nota: In fase di compilazione, al fine di evitare spiacevoli messaggi di 
+      Warning, e'necessario compilare con una delle 'Feature Test Macros'.
+      man 7 feature_test_macros per maggiori informazioni. 
+$ gcc -std=c11 -Wall -pedantic -D_BSD_SORCE wc_simulator.c
+*/
 
 int main(int argc, char *argv[])
 {
