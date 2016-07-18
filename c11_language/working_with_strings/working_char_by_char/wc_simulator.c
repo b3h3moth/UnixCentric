@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	const char *set_mode = "r";
+    int print_chars = 0;
 	int i, tot_alnum, tot_ascii, tot_space, tot_blank, tot_cntrl, tot_lower, 
 		tot_upper, tot_digit, tot_graph, tot_print, tot_punct, tot_xdgit;
 
@@ -24,8 +25,11 @@ int main(int argc, char *argv[])
 		tot_upper = tot_digit = tot_graph = tot_print = tot_punct = 
 		tot_xdgit = 0;
 
-	if (argc < 2) {
-		fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+	if (argc < 3) {
+		fprintf(stderr, "Usage: %s <filename><N>\n"
+                "[0] - print full file at the beginning\n"
+                "[1] - print only character informations\n", argv[0]);
+
 		exit(EXIT_FAILURE);
 	}
 
@@ -35,7 +39,6 @@ int main(int argc, char *argv[])
 	}
 
 	while ( (i = fgetc(fp)) != EOF) {
-		fputc(i, stdout);
 		if (isalnum(i)) tot_alnum++;
 		if (isascii(i)) tot_ascii++;
 		if (isblank(i)) tot_blank++;
@@ -50,7 +53,18 @@ int main(int argc, char *argv[])
 		if (isxdigit(i)) tot_xdgit++;
 	}
 
-	printf("tot_alnum:%5.d, tot_ascii:%5.d, tot_space:%5.d, tot_blank:%5.d\n" 
+    print_chars = atoi(argv[2]);
+
+    if (print_chars == 0) {
+        /* Dopo la prima lettura del file il 'file position indicator' puntato
+        dallo stream punta alla fine del file, ora e' necessario spostarlo
+        all'inizio del file stesso per consentirne una nuova lettura. */
+        fseek(fp, 0, SEEK_SET);
+        while ((i = fgetc(fp)) != EOF)
+            fputc(i, stdout);
+    }
+
+	printf("\ntot_alnum:%5.d, tot_ascii:%5.d, tot_space:%5.d, tot_blank:%5.d\n"
 		   "tot_cntrl:%5.d, tot_lower:%5.d, tot_upper:%5.d, tot_digit:%5.d\n"
 		   "tot_graph:%5.d, tot_print:%5.d, tot_punct:%5.d, tot_xdgit:%5.d\n",
 			tot_alnum, tot_ascii, tot_space, tot_blank, tot_cntrl, tot_lower, 
