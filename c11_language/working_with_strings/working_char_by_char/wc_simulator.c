@@ -26,9 +26,10 @@ int main(int argc, char *argv[])
 		tot_xdgit = 0;
 
 	if (argc < 3) {
-		fprintf(stderr, "Usage: %s <filename><N>\n"
-                "[0] - print full file at the beginning\n"
-                "[1] - print only character informations\n", argv[0]);
+		fprintf(stderr, "Usage: %s <filename><print mode>\n"
+                "print mode (0) - print full file at the beginning\n"
+                "print mode (1) - print only character informations\n", 
+                argv[0]);
 
 		exit(EXIT_FAILURE);
 	}
