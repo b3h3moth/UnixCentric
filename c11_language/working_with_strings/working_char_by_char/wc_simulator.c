@@ -65,7 +65,8 @@ int main(int argc, char *argv[])
             fputc(i, stdout);
     }
 
-	printf("\ntot_alnum:%5.d, tot_ascii:%5.d, tot_space:%5.d, tot_blank:%5.d\n"
+    printf("\nPrint character informations of: \'%s\'\n", argv[1]);
+	printf("tot_alnum:%5.d, tot_ascii:%5.d, tot_space:%5.d, tot_blank:%5.d\n"
 		   "tot_cntrl:%5.d, tot_lower:%5.d, tot_upper:%5.d, tot_digit:%5.d\n"
 		   "tot_graph:%5.d, tot_print:%5.d, tot_punct:%5.d, tot_xdgit:%5.d\n",
 			tot_alnum, tot_ascii, tot_space, tot_blank, tot_cntrl, tot_lower, 
