@@ -4,8 +4,8 @@
 #include <ctype.h>
 #include <errno.h>
 
-/* Simulazione del programma wc su unix, si utilizzeranno tutte le funzioni
- * della standard library.
+/* Lo scopo del programma e' di simulare il comportamento del tool 'wc' dei
+sistemi Unix.
  */
 
 int main(int argc, char *argv[])
