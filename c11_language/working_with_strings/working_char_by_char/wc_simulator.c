@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		tot_xdgit = 0;
 
 	if (argc < 2) {
-		fprintf(stderr, "%s: Uso %s arg\n", (char *)strerror(errno), argv[1]);
+		fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
