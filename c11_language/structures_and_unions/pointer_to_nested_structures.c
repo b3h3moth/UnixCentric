@@ -22,9 +22,8 @@ typedef struct rec *Record;
 int main(int argc, char *argv[]) {
     Record test;
 
-    /* E' necessario allocare la memoria necessaria a contenere una struttura
-    di tipo rec, che nel caso specifico e' il puntatore alla stessa *Record,
-    senza tale operazione sara' impossibile inizializzare la struttura */
+    /* Allocazione della memoria per il tipo di dato Record, ovvero un
+    puntatore alla struttura 'rec' */
     test = malloc(sizeof(Record));
 
     test->year = 1970;
