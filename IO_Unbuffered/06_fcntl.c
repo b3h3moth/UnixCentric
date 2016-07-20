@@ -10,7 +10,7 @@ HEADER    : <fcntl.h>
 PROTOTYPE : int fcntl(int fd, int cmd, ... < arg > );
 SEMANTICS : La funzione fcntl() esegue diverse operazioni sul file descriptor 
             'fd' a seconda del valore di 'cmd'; il terzo argomento 'arg' puo' 
-	    indicare un intero oppure un puntatore alla struttura struct flock.
+	        indicare un intero oppure un puntatore alla struttura struct flock.
 RETURNS   : I valori di ritorno sono diversi a seconda dell'operazione eseguita,
             sempre -1 in caso di errore
 --------------------------------------------------------------------------------
