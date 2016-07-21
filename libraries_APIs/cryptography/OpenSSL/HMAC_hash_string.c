@@ -16,7 +16,14 @@ int main(void) {
     unsigned char *dgst = NULL;
     char mdstr[LEN] = {0};
 
-    // sha hash engine
+    /* You may use many hash engines:
+    EVP_sha()
+    EVP_sha1()
+    EVP_sha224()
+    EVP_sha256()
+    EVP_sha384()
+    EVP_sha512()
+    In this case it is sha. */
     dgst = HMAC(EVP_sha(), key, strlen(key), (unsigned char *)data, \
                 strlen(data), NULL, NULL);
 
