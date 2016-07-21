@@ -5,7 +5,8 @@
 
 enum { LEN = 20 };
 
-// The program's purpose is how to hash a string through OpenSSL hash function.
+/* The program's purpose is how to hash a string through OpenSSL hash function
+by using sha() or sha1() hash engine. */
 
 int main(void) {
     // The Key to hash
