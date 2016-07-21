@@ -32,11 +32,11 @@ int main(void) {
 
     // Inizializzazione della libreria
     if (sqlite3_initialize() == SQLITE_OK)
-        printf("Library \'%s\' initialized\n", sqlite3_libversion());
+        printf("Library: \'%s\' initialized\n", sqlite3_libversion());
 
     // Rilascio delle risorse
     if (sqlite3_shutdown() == SQLITE_OK)
-        printf("Library freed\n");
+        printf("Library: freed\n");
 
     return(EXIT_SUCCESS);
 }
