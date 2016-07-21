@@ -23,5 +23,9 @@ buon fine ritornebbe SQLITE_OK, altrimenti un codice d'errore diverso da zero.
 */
 
 int main(void) {
+    /* Si determina l'opzione di configurazione relativa al multithreading, che
+    non necessita peraltro di ulteriore argomento */
+    sqlite3_config(SQLITE_CONFIG_MULTITHREAD);
+
     return(EXIT_SUCCESS);
 }
