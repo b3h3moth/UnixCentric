@@ -20,10 +20,13 @@ dal primo, ovvero dal valore intero che e' stato inserito.
 
 Valore di ritorno: Allorquando l'opzione di configurazione dovesse andare a 
 buon fine ritornebbe SQLITE_OK, altrimenti un codice d'errore diverso da zero.
+
+Nota: E' consentito settare solo un'opzione di configurazione, le restanti 
+      saranno mantenute ai valori di default.
 */
 
 int main(void) {
-    /* Si determina l'opzione di configurazione relativa al multithreading, che
+    /* Determina l'opzione di configurazione relativa al multithreading, che
     non necessita peraltro di ulteriore argomento */
     sqlite3_config(SQLITE_CONFIG_MULTITHREAD);
 
