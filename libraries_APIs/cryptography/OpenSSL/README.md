@@ -1,6 +1,6 @@
 ## Secure Sockets Layer toolkit - development files
 
-On Debian GNU/Linux and its derivatives you need to install *libssl-dev*
+On *Debian GNU/Linux* and its derivatives you need to install **`libssl-dev`**
 package. 
 
 This package is part of the OpenSSL project's implementation of the SSL and TLS
