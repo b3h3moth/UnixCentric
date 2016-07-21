@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sqlite3.h>
 
 /* Allorquando si lavora con un programma che contiene la libreria SQLite e in 
 altri contesti dove serve una configurazione della libreria specifica, 
