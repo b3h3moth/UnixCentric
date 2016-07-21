@@ -82,10 +82,11 @@ $ clang -stc=c11 -lsqlite3 -Wall -pedantic file.c -o prog
 
 ## Bibliography
 
-There are only two books that tell about API C.
+There are few books that cover the SQLite C API from beginning to end:
 
 * **The Definitive Guide to SQLite**; *Grant Allen*, *Mike Owens* (`2nd, 2010, Apress`)
 * **Using SQLite**; *Jay A. Kreibich* (`2010, O'Reilly`)
+
 
 ## Get SQLite library
 
