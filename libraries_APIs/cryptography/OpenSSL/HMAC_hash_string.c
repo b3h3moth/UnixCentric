@@ -8,12 +8,15 @@ enum { LEN = 20 };
 // The program's purpose is how to hash a string through OpenSSL hash function.
 
 int main(void) {
+    // The Key to hash
     char key[] = "A1B2C3B4C5";
+    // The string to hash
     char data[] = "OpenSSL Hash function";
     unsigned char *dgst = NULL;
     char mdstr[LEN] = {0};
 
-    dgst = HMAC(EVP_sha1(), key, strlen(key), (unsigned char *)data, \
+    // sha hash engine
+    dgst = HMAC(EVP_sha(), key, strlen(key), (unsigned char *)data, \
                 strlen(data), NULL, NULL);
 
     for (int i=0; i<LEN; i++)
