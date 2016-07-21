@@ -3,14 +3,7 @@
 #include <string.h>
 #include <openssl/evp.h>
 
-/* On Debian GNU/Linux and its derivatives you need to install 'libssl-dev'
-package, then compile with:
-
-$ gcc program.c -lcrypto -o prog
-
-The program's purpose is to produce the keys.
-*/
-
+// The program's purpose is to produce the keys.
 
 int main(int argc, char *argv[]) {
     int i;
