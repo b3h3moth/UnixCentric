@@ -11,11 +11,14 @@ int main(void) {
     char key[] = "A1B2C3B4C5";
     char data[] = "OpenSSL Hash function";
     unsigned char *dgst = NULL;
+    char mdstr[LEN] = NULL;
 
     dgst = HMAC(EVP_sha1(), key, strlen(key), (unsigned char *)data, \
                 strlen(data), NULL, NULL);
 
-    char mdstr[LEN];
     for (int i=0; i<LEN; i++)
+        sprintf(&mdstr[i*2], "%02x", (unsigned int)dgst[i]);
+
+
     return(EXIT_SUCCESS);
 }
