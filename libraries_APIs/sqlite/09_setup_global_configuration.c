@@ -16,7 +16,9 @@ mediante sqlite3_shutdown(), altrimenti sara' resituito l'errore SQLITE_MISUSE.
 
 Il primo argomento dell'interfaccia e' un intero che determina le opzioni di
 configurazione della libreria SQLite, i successivi argomenti invece dipendono
-dal primo, ovvero dal valore intero che e' stato inserito. 
+dal primo, ovvero dal valore intero che e' stato inserito. Le opzioni di
+configurazione sono diverse, elencate nella documentazione ufficiale alla voce
+"SQLite C Interface; Configuration Options"[1].
 
 Valore di ritorno: Allorquando l'opzione di configurazione dovesse andare a 
 buon fine ritornebbe SQLITE_OK, altrimenti un codice d'errore diverso da zero.
@@ -40,3 +42,5 @@ int main(void) {
 
     return(EXIT_SUCCESS);
 }
+
+// [1] https://sqlite.org/c3ref/c_config_covering_index_scan.html
