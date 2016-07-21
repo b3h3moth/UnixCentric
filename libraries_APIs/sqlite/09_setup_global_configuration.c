@@ -4,7 +4,7 @@
 
 /* Allorquando si lavora con un programma che contiene la libreria SQLite e in 
 altri contesti dove serve una configurazione della libreria specifica, 
-puo' risultare utile avere una configurazione globale della libreria stessa. 
+puo' risultare utile avere una settaggio globale della libreria stessa. 
 A tale scopo e' stata implemenata l'interfaccia sqlite3_config(int, ...).
 
 Nota: Nella maggior parte dei casi la configurazione di default risulta essere
@@ -12,12 +12,14 @@ Nota: Nella maggior parte dei casi la configurazione di default risulta essere
  
 L'interfaccia sqlite3_config() deve essere invocata prima dell'inizializzazione
 della libreria con sqlite3_initialize() e dopo lo shutdown della stessa 
-mediante sqlite3_shutdown(), altrimensi sara' resituito l'errore SQLITE_MISUSE.
+mediante sqlite3_shutdown(), altrimenti sara' resituito l'errore SQLITE_MISUSE.
 
-Il primo argomento della funzione e' un intero che determina le opzioni di
-configurazione della libreria SQLite, gli argomenti successivi dipendono dal 
-primo argomento. Allorquando l'opzione di configurazione va a buon fine 
-ritorna SQLITE_OK, altrimento un codice d'errore.
+Il primo argomento dell'interfaccia e' un intero che determina le opzioni di
+configurazione della libreria SQLite, i successivi argomenti invece dipendono
+dal primo, ovvero dal valore intero che e' stato inserito. 
+
+Valore di ritorno: Allorquando l'opzione di configurazione dovesse andare a 
+buon fine ritornebbe SQLITE_OK, altrimenti un codice d'errore diverso da zero.
 */
 
 int main(void) {
