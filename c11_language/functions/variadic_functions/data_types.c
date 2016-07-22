@@ -3,7 +3,11 @@
 #include <string.h>
 #include <stdarg.h>
 
+// Function Prototype
 int iterate(const char *format, ...);
+
+/* Lo scopo del programma e' la scrittura della funzione iterate() di tipo
+varidic function, essa consente di iterare su un array di tipo diverso. */
 
 int main(void) {
     char *string = "variadic functions";
@@ -39,10 +43,8 @@ int iterate(const char *format, ...) {
 
         while (llong_vector[++j] != -1)
                     ;
-
         return j;
     }
 
-    
     return(EXIT_SUCCESS);
 }
