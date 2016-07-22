@@ -1,6 +1,6 @@
 #! /usr/bin/tclsh
 
-# How to create a 'logged entry' database thorugh SQLite Tcl extension
+# How to create a 'logged entry' database by using SQLite Tcl extension
 
 package require sqlite3
 sqlite3 db $argv
