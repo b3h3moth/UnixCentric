@@ -3,13 +3,13 @@
 #include <stdarg.h>
 
 /* Il linguaggio C permette di definire funzioni che consentono un numero
-arbitrario di parametri, tipicamente sono le funzioni I/O; in tali funzioni il
-numero arbitrario di parametri si indica nel prototipo con l'ellissi "..." e
-deve sempre seguire obbligatoriamente un parametro fisso.
+arbitrario di parametri, tipicamente sono le funzioni di I/O.
+
+Nota: Il numero arbitrario di parametri si indica nel prototipo di funzione
+      con l'ellissi "..." e deve seguire obbligatoriamente un parametro fisso.
 
 L'header di riferimento e' <stdarg.h> che contiene una serie di utilities per 
-la standardizzazione dell'utilizzo delle funzioni con un numero arbitrario di 
-parametri.
+la standardizzazione della procedura.
 
 Le utilities fornite da <stdarg.h> - dipendenti dal sistema utilizzato - 
 lavorano con il tipo di dato 'va_list' - typedef char *va_list):
