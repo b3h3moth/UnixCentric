@@ -10,8 +10,13 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
     int          last_rowid = 0;
-    int          flags = SQLITE_OPEN_READWRITE;
+    int          flags = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
     char         *sql_str = 
+        "BEGIN TRANSACTION
+        "CREATE TABLE dbmail(id INTEGER PRIMARY KEY,"
+        "       fullname TEXT,"
+        "       alias TEXT,"
+        "       email TEXT);"
         "INSERT INTO addressbook(fullname, alias, email) VALUES"
         "('rossella', 'ros', 'ros@free.org'),"
         "('mario', 'mr', 'mario@mario.org'),"
@@ -21,7 +26,8 @@ int main(int argc, char *argv[]) {
         "('mia', 'mi', 'mia@mia.org'),"
         "('luca', 'lu', 'liuc@step.org'),"
         "('richard', 'rms', 'richard@stallman.org'),"
-        "('carlotta', 'carl', 'carl@ot.org');";
+        "('carlotta', 'carl', 'carl@ot.org')"
+        "COMMIT;";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
