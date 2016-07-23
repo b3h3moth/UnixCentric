@@ -11,8 +11,8 @@ int main(int argc, char *argv[]) {
     int          res = 0;
     int          last_rowid = 0;
     int          flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
+    char         *err_msg;
     char         *sql_str = 
-        "BEGIN IMMEDIATE TRANSACTION;"
         "CREATE TABLE dbmail(id INTEGER PRIMARY KEY,"
         "       fullname TEXT,"
         "       alias TEXT,"
@@ -26,8 +26,7 @@ int main(int argc, char *argv[]) {
         "('mia', 'mi', 'mia@mia.org'),"
         "('luca', 'lu', 'liuc@step.org'),"
         "('richard', 'rms', 'richard@stallman.org'),"
-        "('carlotta', 'carl', 'carl@ot.org')"
-        "COMMIT TRANSACTION;";
+        "('carlotta', 'carl', 'carl@ot.org');";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -49,6 +48,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    sqlite3_exec(db, "BEGIN TRANSACTION", NULL, NULL, &err_msg);
+
     if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
@@ -64,6 +65,8 @@ int main(int argc, char *argv[]) {
         last_rowid = sqlite3_last_insert_rowid(db);
         printf("The last inserted row- id is: \'%d\'\n", last_rowid);
     }
+
+    sqlite3_exec(db, "COMMIT TRANSACTION", NULL, NULL, &err_msg);
 
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
