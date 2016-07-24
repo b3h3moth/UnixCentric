@@ -66,7 +66,14 @@ int main(int argc, char *argv[]) {
     // Chiusura del file handler
     fclose(fp);
 
+    // Apertura della connessione al database e verifica di eventuali errori
     rc = sqlite3_open_v2("test.db", &db, flags, NULL);
+
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        exit(EXIT_SUCCESS);
+    }
 
     return(EXIT_SUCCESS);
 }
