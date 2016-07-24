@@ -3,6 +3,9 @@
 #include <string.h>
 #include <errno.h>
 
+/* Lo scopo del file e' di ottenere il peso di un file mediante la funzione
+ftell() */
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     int fsize = 0;
