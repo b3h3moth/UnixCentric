@@ -10,7 +10,13 @@ int main(int argc, char *argv[]) {
     FILE *fp;
     int fsize = 0;
 
+    if (argc != 2) {
+        fprintf(stderr, "Usage; %s <filepath>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     fp = fopen(argv[1], "rb");
+
     if (fp == NULL) {
         fprintf(stderr, "Err. Cannot open image: %s\n", argv[1]);
         exit(EXIT_FAILURE);
@@ -25,7 +31,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* La funzione ftell() ritorna la posizione del 'file position indicator',
+    che corrisponde  al numero di byte del file stesso. */
     fsize = ftell(fp);
+
     if (fsize == -1) {
         fprintf(stderr, "Err. ftell() failed: %s", strerror(errno));
         fclose(fp);
