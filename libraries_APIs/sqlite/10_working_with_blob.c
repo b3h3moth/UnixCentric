@@ -27,8 +27,8 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    /* Sposta il file pointer alla fine del file in lettura, poiche' e' 
-    necessario calcolare il peso dell'immagine e si verifica che il risultato
+    /* Sposta il 'file position indicator' alla fine del file, sara' utile per
+    calcolare il peso dell'immagine, dopodiche' si verifica che il risultato
     sia privo di errori. */
     fseek(fp, 0, SEEK_END);
 
@@ -37,6 +37,10 @@ int main(void) {
         fclose(fp);
         exit(EXIT_FAILURE);
     }
+
+    /* La funzione ftell() ritorna la posizione corrente del 'file position
+    indicator', che corrisponde anche al numero di byte del file. */
+    flen = ftell(fp);
 
     return(EXIT_SUCCESS);
 }
