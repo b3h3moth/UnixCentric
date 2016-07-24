@@ -15,6 +15,17 @@ int main(void) {
     char *err_msg = 0;
     char *sql = NULL;
 
-    if (
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <image>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    // Per i tipi di dato 'blob' si deve lavorare con file binary
+    fp = fopen(argv[1], "rb");
+    if (fp == NULL) {
+        fprintf(stderr, "Cannot open image: %s\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
     return(EXIT_SUCCESS);
 }
