@@ -14,6 +14,11 @@ int main(int argc, char *argv[]) {
     // Sposta il 'file position indicator' alla fine del file
     fseek(fp, 0, SEEK_END);
 
+    if (ferror(fp)) {
+        fprintf(stderr, "Err. fseek() failed.");
+        fclose(fp);
+        exit(EXIT_FAILURE);
+    }
 
     fsize = ftell(fp);
     
