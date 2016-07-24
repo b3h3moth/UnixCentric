@@ -5,7 +5,7 @@
 /* Lo scopo del programma e' di inserire all'interno di un database una
 immagine - tipo di dato blob - ottenuta in input. */
 
-int main(void) {
+int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
     FILE *fp = NULL;
