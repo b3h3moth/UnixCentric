@@ -6,5 +6,15 @@
 immagini */
 
 int main(void) {
+    sqlite3 *db = NULL;
+    sqlite3_stmt *stmt = NULL;
+    FILE *fp = NULL;
+    int flen = 0;
+    int size = 0;
+    int rc = 0;
+    char *err_msg = 0;
+    char *sql = NULL;
+
+    if (
     return(EXIT_SUCCESS);
 }
