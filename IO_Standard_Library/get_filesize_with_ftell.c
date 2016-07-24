@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
 int main(int argc, char *argv[]) {
     FILE *fp;
@@ -21,6 +23,11 @@ int main(int argc, char *argv[]) {
     }
 
     fsize = ftell(fp);
+    if (fsize == -1) {
+        fprintf(stderr, "Err. ftell() failed: %s", strerror(errno));
+        fclose(fp);
+        exit(EXIT_FAILURE);
+    }
     
     printf("The size of \'%s\' is: %d byte\n", argv[1], fsize);
 
