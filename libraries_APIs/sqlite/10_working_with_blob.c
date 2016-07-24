@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sqlite.h>
+#include <sqlite3.h>
 
 /* Lo scopo del programma e' di creare un database per l'inserimento di 
 immagini */
