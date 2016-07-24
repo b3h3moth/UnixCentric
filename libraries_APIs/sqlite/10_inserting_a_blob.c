@@ -84,5 +84,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    // bind del valore binario - l'immagine - alla 'prepared statement'
+    sqlite3_bind_blob(stmt, 1, image, size, SQLITE_STATIC);
+    
+    // Esecuzione della 'prepared statement' e scrittura dei dati
+    rc = sqlite3_step(stmt);
     return(EXIT_SUCCESS);
 }
