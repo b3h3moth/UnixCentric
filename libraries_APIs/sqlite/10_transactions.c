@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
         printf("The last inserted row- id is: \'%d\'\n", last_rowid);
     }
 
-    sqlite3_exec(db, "COMMIT TRANSACTION", NULL, NULL, &err_msg);
+    sqlite3_exec(db, "COMMIT", NULL, NULL, &err_msg);
 
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
