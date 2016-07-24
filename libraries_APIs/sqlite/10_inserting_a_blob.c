@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di inserire all'interno di un database una
@@ -47,6 +49,9 @@ int main(int argc, char *argv[]) {
         fclose(fp);
         exit(EXIT_FAILURE);
     }
+
+    // L'array che conterra' l'immagine
+    char image[flen+1] = {0};
 
     return(EXIT_SUCCESS);
 }
