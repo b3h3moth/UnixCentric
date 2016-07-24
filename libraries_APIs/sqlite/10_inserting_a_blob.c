@@ -51,7 +51,13 @@ int main(int argc, char *argv[]) {
     }
 
     // L'array che conterra' l'immagine
-    char image[flen+1] = {0};
+    char image[flen+1];
+
+    // Lettura dal file pointer e inizializzazione dell'array
+    int size = fread(image, 1, flen, fp);
+
+    // Chiusura del file handler
+    fclose(fp);
 
     return(EXIT_SUCCESS);
 }
