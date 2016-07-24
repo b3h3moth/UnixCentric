@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     int size = 0;
     int rc = 0;
     char *err_msg = 0;
-    char *sql = NULL;
+    char *sql = "INSERT INTO images(data) VALUES (?)";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <image>\n", argv[0]);
