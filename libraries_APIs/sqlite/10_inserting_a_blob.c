@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
     int flen = 0;
     int size = 0;
     int rc = 0;
-    char *err_msg = 0;
     char *sql = "INSERT INTO images(data) VALUES (?)";
 
     if (argc != 2) {
@@ -67,7 +66,7 @@ int main(int argc, char *argv[]) {
     fclose(fp);
 
     // Apertura della connessione al database e verifica di eventuali errori
-    rc = sqlite3_open_v2("test.db", &db, flags, NULL);
+    rc = sqlite3_open_v2("new.db", &db, flags, NULL);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
@@ -76,10 +75,11 @@ int main(int argc, char *argv[]) {
     }
 
     // Creazione della 'prepared statement'
-    rc = sqlite3_prepare_v2(db, sql, -1, stmt, 0);
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot prepare stmt.: %s\n", sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Prepared Statement creation failed: %s\n", \
+                sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_SUCCESS);
     }
@@ -89,5 +89,14 @@ int main(int argc, char *argv[]) {
     
     // Esecuzione della 'prepared statement' e scrittura dei dati
     rc = sqlite3_step(stmt);
+    
+    if (rc != SQLITE_DONE) {
+        fprintf(stderr, "Err. Prepared Statement execution failed: %s", \
+                sqlite3_errmsg(db));
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
     return(EXIT_SUCCESS);
 }
