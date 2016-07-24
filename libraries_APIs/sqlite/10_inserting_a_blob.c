@@ -75,5 +75,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    // Creazione della 'prepared statement'
+    rc = sqlite3_prepare_v2(db, sql, -1, stmt, 0);
+
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Cannot prepare stmt.: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        exit(EXIT_SUCCESS);
+    }
+
     return(EXIT_SUCCESS);
 }
