@@ -23,7 +23,7 @@ int main(void) {
     // Per i tipi di dato 'blob' si deve lavorare con file binary
     fp = fopen(argv[1], "rb");
     if (fp == NULL) {
-        fprintf(stderr, "Err: Cannot open image: %s\n", argv[1]);
+        fprintf(stderr, "Err. Cannot open image: %s\n", argv[1]);
         exit(EXIT_FAILURE);
     }
 
@@ -33,7 +33,7 @@ int main(void) {
     fseek(fp, 0, SEEK_END);
 
     if (ferror(fp)) {
-        fprintf(stderr, "Err: fseek() failed.\n");
+        fprintf(stderr, "Err. fseek() failed.\n");
         fclose(fp);
         exit(EXIT_FAILURE);
     }
@@ -41,6 +41,12 @@ int main(void) {
     /* La funzione ftell() ritorna la posizione corrente del 'file position
     indicator', che corrisponde anche al numero di byte del file. */
     flen = ftell(fp);
+
+    if (flen == -1) {
+        fprintf(stderr, "Err. ftell() failed: %s\n", strerror(errno));
+        fclose(fp);
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
