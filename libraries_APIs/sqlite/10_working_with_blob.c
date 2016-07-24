@@ -27,5 +27,11 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    /* Sposta il file pointer alla fine del file in lettura, poiche' e' 
+    necessario calcolare il peso dell'immagine e si verifica che il risultato
+    sia privo di errori. */
+    fseek(fp, 0, SEEK_END);
+    
+    
     return(EXIT_SUCCESS);
 }
