@@ -56,8 +56,16 @@ int main(int argc, char *argv[]) {
     // Lettura dal file pointer e inizializzazione dell'array
     int size = fread(image, 1, flen, fp);
 
+    if (ferror(fp)) {
+        fprintf(stderr, "Err. fread() failed: %s\n", strerror(errno));
+        fclose(fp);
+        exit(EXIT_FAILURE);
+    }
+
     // Chiusura del file handler
     fclose(fp);
+
+    sql
 
     return(EXIT_SUCCESS);
 }
