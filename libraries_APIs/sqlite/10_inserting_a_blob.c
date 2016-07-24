@@ -15,7 +15,9 @@ int main(int argc, char *argv[]) {
     int flen = 0;
     int size = 0;
     int rc = 0;
-    char *sql = "INSERT INTO images(data) VALUES (?)";
+    char *sql = "CREATE TABLE IF NOT EXISTS blobs("
+                "key integer primary key, data blob);"
+                "INSERT INTO blobs(data) VALUES (?);";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <image>\n", argv[0]);
