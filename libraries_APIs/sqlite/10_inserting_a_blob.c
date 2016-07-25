@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     FILE *fp = NULL;
     int flags = SQLITE_OPEN_READWRITE;
-    int flen = 0;
+    long flen = 0;
     int size = 0;
     int rc = 0;
     char *sql = "CREATE TABLE IF NOT EXISTS blobs("
