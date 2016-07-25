@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     int size = 0;
     int rc = 0;
     char *sql = "CREATE TABLE IF NOT EXISTS blobs("
-                "key integer primary key, data blob);"
+                "id INTEGER PRIMARY KEY, data BLOB);"
                 "INSERT INTO blobs(data) VALUES (?);";
 
     if (argc != 2) {
@@ -51,6 +51,9 @@ int main(int argc, char *argv[]) {
         fclose(fp);
         exit(EXIT_FAILURE);
     }
+
+    // Riporta il 'file position indicator' all'inizio del file
+    fseek(fp, 0, SEEK_SET);
 
     // L'array che conterra' l'immagine
     char image[flen+1];
