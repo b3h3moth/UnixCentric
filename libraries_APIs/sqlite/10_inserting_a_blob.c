@@ -15,9 +15,9 @@ int main(int argc, char *argv[]) {
     long flen = 0;
     int size = 0;
     int rc = 0;
-    char *sql = "CREATE TABLE IF NOT EXISTS blobs("
-                "id INTEGER PRIMARY KEY, data BLOB);"
-                "INSERT INTO blobs(data) VALUES (?);";
+    char *sql_create = "CREATE TABLE IF NOT EXISTS blobs("
+                "id INTEGER PRIMARY KEY, data BLOB);";
+    char *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <image>\n", argv[0]);
@@ -55,20 +55,8 @@ int main(int argc, char *argv[]) {
     // Riporta il 'file position indicator' all'inizio del file
     fseek(fp, 0, SEEK_SET);
 
-    // L'array che conterra' l'immagine
-    char image[flen+1];
-
-    // Lettura dal file pointer e inizializzazione dell'array
-    size = fread(image, 1, flen, fp);
-
-    if (ferror(fp)) {
-        fprintf(stderr, "Err. fread() failed: %s\n", strerror(errno));
-        fclose(fp);
-        exit(EXIT_FAILURE);
-    }
-
-    // Chiusura del file handler
-    fclose(fp);
+    // Apertura della connessione al database e verifica di eventuali errori
+    rc = sqlite3_open_v2("new.db", &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
 
     // Apertura della connessione al database e verifica di eventuali errori
     rc = sqlite3_open_v2("new.db", &db, flags, NULL);
@@ -100,6 +88,7 @@ int main(int argc, char *argv[]) {
                 sqlite3_errmsg(db));
     }
 
+    fclose(fp);
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
