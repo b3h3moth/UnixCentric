@@ -55,8 +55,13 @@ int main(int argc, char *argv[]) {
     // Riporta il 'file position indicator' all'inizio del file
     fseek(fp, 0, SEEK_SET);
 
-    // Apertura della connessione al database e verifica di eventuali errori
+    // Creazione del database
     rc = sqlite3_open_v2("new.db", &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        exit(EXIT_SUCCESS);
+    }
 
     // Apertura della connessione al database e verifica di eventuali errori
     rc = sqlite3_open_v2("new.db", &db, flags, NULL);
