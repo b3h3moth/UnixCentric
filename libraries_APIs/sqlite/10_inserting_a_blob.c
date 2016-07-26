@@ -10,6 +10,7 @@ immagine - tipo di dato blob - ottenuta in input. */
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
+    sqlite3_blob *blob = NULL;
     FILE *fp = NULL;
     int flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
     int flags_insert = SQLITE_OPEN_READWRITE;
