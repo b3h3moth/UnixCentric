@@ -72,15 +72,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // Apertura della connessione al database e verifica di eventuali errori
-    rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
-
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
-        sqlite3_close(db);
-        exit(EXIT_SUCCESS);
-    }
-
     // Creazione della 'prepared statement'
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
 
