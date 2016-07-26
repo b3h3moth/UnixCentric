@@ -16,6 +16,10 @@ int main(int argc, char *argv[]) {
     long flen = 0;
     int size = 0;
     int rc = 0;
+    int len;
+    int offset = 0;
+    const int DATA_SIZE = 1024;
+    void *data = NULL;
     char *err_msg = NULL;
     char *sql_create = "CREATE TABLE IF NOT EXISTS blobs("
                 "id INTEGER PRIMARY KEY, data BLOB);";
@@ -107,6 +111,9 @@ int main(int argc, char *argv[]) {
                 rc, sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
     }
+
+    data = malloc(DATA_SIZE);
+
     
 
     fclose(fp);
