@@ -83,6 +83,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    // bind a 0 del file
+    sqlite3_bind_zeroblob(stmt, 1, flen);
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) {
+        fprintf(stderr, "Err. insert statement failed: %d-%s\n", rc, sqlite3_errmsg(db));
+        exit(EXIT_SUCCESS);
+    }
+
     // bind del valore binario - l'immagine - alla 'prepared statement'
     sqlite3_bind_blob(stmt, 1, image, size, SQLITE_STATIC);
     
