@@ -124,13 +124,13 @@ int main(int argc, char *argv[]) {
         offset += len;
     }
     
-
     sqlite3_blob_close(blob);
-
-    printf("BLOB data \'%s\' written\n", argv[1]);
-
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+
+    printf("BLOB data \'%s\' written\n", argv[1]);
+    
+
     fclose(fp);
     free(data);
 
