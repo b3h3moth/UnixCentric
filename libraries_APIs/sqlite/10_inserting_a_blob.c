@@ -117,7 +117,7 @@ int main(int argc, char *argv[]) {
 
     data = malloc(DATA_SIZE);
 
-    // Scrive i dati binari di tipo BLOB nella tabella
+    // Scrive i dati binari di tipo BLOB
     while ((bytes_read = fread(data, 1, DATA_SIZE, fp))) {
         rc = sqlite3_blob_write(blob, data, bytes_read, offset);
         if (rc != SQLITE_OK) {
@@ -127,13 +127,15 @@ int main(int argc, char *argv[]) {
         }
         offset += bytes_read;
     }
-    
+
+    // Il totale dei byte scritti, ovvero il peso del dato binario
+    int file_size = sqlite3_blob_bytes(blob);
+     
     sqlite3_blob_close(blob);
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
-    printf("BLOB data \'%s\' written\n", argv[1]);
-    
+    printf("BLOB data: \'%s\' | %d byte\n", argv[1], file_size);
 
     fclose(fp);
     free(data);
