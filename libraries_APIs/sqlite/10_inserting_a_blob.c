@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Ins. Statement failed: %d-%s\n", \
                 rc, sqlite3_errmsg(db));
-        exit(EXIT_SUCCESS);
+        exit(EXIT_FAILURE);
     }
 
     /* Crea una riga con il dato blog in bianco, sara' utile per la successiva
@@ -105,19 +105,14 @@ int main(int argc, char *argv[]) {
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. BLOB Handling failed: %d-%s\n", \
                 rc, sqlite3_errmsg(db));
-        exit(EXIT_SUCCESS);
-    
-    // Esecuzione della 'prepared statement' e scrittura dei dati
-    rc = sqlite3_step(stmt);
-    
-    if (rc != SQLITE_DONE) {
-        fprintf(stderr, "Err. Prepared Statement execution failed: %s", \
-                sqlite3_errmsg(db));
+        exit(EXIT_FAILURE);
     }
+    
 
     fclose(fp);
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+    free(data);
 
     return(EXIT_SUCCESS);
 }
