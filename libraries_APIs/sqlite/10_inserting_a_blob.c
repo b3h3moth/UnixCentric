@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     fseek(fp, 0, SEEK_SET);
 
     // Creazione del database
-    rc = sqlite3_open_v2("new.db", &db, flags_create, &err_msg);
+    rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot open db: %d-%s\n", rc, sqlite3_errmsg(db));
         sqlite3_close(db);
