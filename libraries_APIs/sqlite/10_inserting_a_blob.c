@@ -65,6 +65,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    rc = sqlite3_exec(db, sql_create, NULL, NULL, &err_msg);
+
     // Apertura della connessione al database e verifica di eventuali errori
     rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
 
