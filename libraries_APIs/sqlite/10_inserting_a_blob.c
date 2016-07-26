@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     chiamata */
     sqlite3_int64   row_id = sqlite3_last_insert_rowid(db);
     // Si lavora col tipo di dato BLOB
-    rc = sqlite3_blob_open(db, "main", blobs, data, 
+    rc = sqlite3_blob_open(db, "main", "blobs", "data", row_id, 1, &blob);
     
     // Esecuzione della 'prepared statement' e scrittura dei dati
     rc = sqlite3_step(stmt);
