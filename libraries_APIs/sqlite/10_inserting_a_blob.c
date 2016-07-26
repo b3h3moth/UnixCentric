@@ -11,7 +11,8 @@ int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
     FILE *fp = NULL;
-    int flags = SQLITE_OPEN_READWRITE;
+    int flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
+    int flags_insert = SQLITE_OPEN_READWRITE;
     long flen = 0;
     int size = 0;
     int rc = 0;
@@ -57,7 +58,7 @@ int main(int argc, char *argv[]) {
     fseek(fp, 0, SEEK_SET);
 
     // Creazione del database
-    rc = sqlite3_open_v2("new.db", &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, NULL);
+    rc = sqlite3_open_v2("new.db", &db, flags_create, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
@@ -65,7 +66,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Apertura della connessione al database e verifica di eventuali errori
-    rc = sqlite3_open_v2("new.db", &db, flags, NULL);
+    rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot open db: %s\n", sqlite3_errmsg(db));
