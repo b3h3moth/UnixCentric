@@ -65,6 +65,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
+    // Creazione del tabella velocemente mediante il 'convenience wrapper
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot create table: %d-%s\n", rc, sqlite3_errmsg(db));
@@ -72,8 +73,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // Creazione della 'prepared statement'
-    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
+    // Creazione della 'prepared statement' per l'inserimento
+    rc = sqlite3_prepare_v2(db, sql_insert, -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Prepared Statement creation failed: %s\n", \
