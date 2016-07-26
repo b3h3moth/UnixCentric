@@ -85,8 +85,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // bind a 0 del file, ed esecuzione della 'prepared statement'
+    // bind del peso del file che sara' inserito successivamente a zero
     sqlite3_bind_zeroblob(stmt, 1, flen);
+
+    // esecuzione della 'prepared statement' e scrittura 
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Ins. Statement failed: %d-%s\n", \
@@ -97,6 +99,7 @@ int main(int argc, char *argv[]) {
     /* Crea una riga con il dato blog in bianco, sara' utile per la successiva
     chiamata */
     sqlite3_int64   row_id = sqlite3_last_insert_rowid(db);
+
     // Si lavora col tipo di dato BLOB
     rc = sqlite3_blob_open(db, "main", "blobs", "data", row_id, 1, &blob);
     if (rc != SQLITE_OK) {
