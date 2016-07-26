@@ -10,20 +10,21 @@ enum {DATA_SIZE = 1024};
 immagine - tipo di dato blob - ottenuta in input. */
 
 int main(int argc, char *argv[]) {
-    sqlite3 *db = NULL;
-    sqlite3_stmt *stmt = NULL;
-    sqlite3_blob *blob = NULL;
-    FILE *fp = NULL;
-    int flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
-    long flen = 0;
-    int rc = 0;
-    int len;
-    int offset = 0;
-    void *data = NULL;
-    char *err_msg = NULL;
-    char *sql_create = "CREATE TABLE IF NOT EXISTS blobs("
-                "id INTEGER PRIMARY KEY, data BLOB);";
-    char *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
+    sqlite3        *db = NULL;
+    sqlite3_stmt   *stmt = NULL;
+    sqlite3_blob   *blob = NULL;
+    sqlite3_int64  row_id = 0;
+    FILE           *fp = NULL;
+    int            flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
+    long           flen = 0;
+    int            rc = 0;
+    int            len;
+    int            offset = 0;
+    void           *data = NULL;
+    char           *err_msg = NULL;
+    char           *sql_create = "CREATE TABLE IF NOT EXISTS blobs(" \
+                                 "id INTEGER PRIMARY KEY, data BLOB);";
+    char           *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <image>\n", argv[0]);
@@ -89,7 +90,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // bind del peso del file che sara' inserito successivamente a zero
+    /* Creazione di un blob vuoto i cui byte sono tutti settati a 0x00 - 
+    zero-filled blob -, nel quale leggere o scrivere il file binario; in
+    questo caso l'interfaccia sara' usata per scrivere l'immagine.  */
     sqlite3_bind_zeroblob(stmt, 1, flen);
 
     // esecuzione della 'prepared statement' e scrittura 
@@ -102,9 +105,9 @@ int main(int argc, char *argv[]) {
 
     /* Crea una riga con il dato blog in bianco, sara' utile per la successiva
     chiamata */
-    sqlite3_int64   row_id = sqlite3_last_insert_rowid(db);
+    row_id = sqlite3_last_insert_rowid(db);
 
-    // Si lavora col tipo di dato BLOB
+    // Apertura di un 'BLOB Handle' su 'blob'
     rc = sqlite3_blob_open(db, "main", "blobs", "data", row_id, 1, &blob);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. BLOB Handling failed: %d-%s\n", \
