@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     int            flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
     long           flen = 0;
     int            rc = 0;
-    int            len;
+    int            bytes_read = 0;
     int            offset = 0;
     void           *data = NULL;
     char           *err_msg = NULL;
@@ -118,14 +118,14 @@ int main(int argc, char *argv[]) {
     data = malloc(DATA_SIZE);
 
     // Scrive i dati binari di tipo BLOB nella tabella
-    while (0 < (len = fread(data, 1, DATA_SIZE, fp))) {
-        rc = sqlite3_blob_write(blob, data, len, offset);
+    while ((bytes_read = fread(data, 1, DATA_SIZE, fp))) {
+        rc = sqlite3_blob_write(blob, data, bytes_read, offset);
         if (rc != SQLITE_OK) {
             fprintf(stderr, "Err. Writing BLOB: %d-%s\n", \
                     rc, sqlite3_errmsg(db));
             exit(EXIT_FAILURE);
         }
-        offset += len;
+        offset += bytes_read;
     }
     
     sqlite3_blob_close(blob);
