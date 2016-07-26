@@ -92,8 +92,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // bind del valore binario - l'immagine - alla 'prepared statement'
-    sqlite3_bind_blob(stmt, 1, image, size, SQLITE_STATIC);
+    /* Crea una riga con il dato blog in bianco, sara' utile per la successiva
+    chiamata */
+    sqlite3_int64   row_id = sqlite3_last_insert_rowid(db);
+    // Si lavora col tipo di dato BLOB
+    rc = sqlite3_blob_open(db, "main", blobs, data, 
     
     // Esecuzione della 'prepared statement' e scrittura dei dati
     rc = sqlite3_step(stmt);
