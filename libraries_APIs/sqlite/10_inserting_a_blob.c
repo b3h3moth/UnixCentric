@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // Creazione del tabella velocemente mediante il 'convenience wrapper
+    // Creazione della tabella mediante il 'convenience wrapper'
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot create table: %d-%s\n", \
