@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <sqlite3.h>
 
+enum {DATA_SIZE = 1024};
+
 /* Lo scopo del programma e' di inserire all'interno di un database una
 immagine - tipo di dato blob - ottenuta in input. */
 
@@ -17,7 +19,6 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     int len;
     int offset = 0;
-    const int DATA_SIZE = 1024;
     void *data = NULL;
     char *err_msg = NULL;
     char *sql_create = "CREATE TABLE IF NOT EXISTS blobs("
