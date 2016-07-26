@@ -13,7 +13,6 @@ int main(int argc, char *argv[]) {
     sqlite3_blob *blob = NULL;
     FILE *fp = NULL;
     int flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
-    int flags_insert = SQLITE_OPEN_READWRITE;
     long flen = 0;
     int size = 0;
     int rc = 0;
@@ -61,7 +60,8 @@ int main(int argc, char *argv[]) {
     // Creazione del database
     rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot open db: %d-%s\n", rc, sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Cannot open db: %d-%s\n", \
+                rc, sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_SUCCESS);
     }
@@ -69,7 +69,8 @@ int main(int argc, char *argv[]) {
     // Creazione del tabella velocemente mediante il 'convenience wrapper
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err_msg);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot create table: %d-%s\n", rc, sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Cannot create table: %d-%s\n", \
+                rc, sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_SUCCESS);
     }
@@ -78,17 +79,18 @@ int main(int argc, char *argv[]) {
     rc = sqlite3_prepare_v2(db, sql_insert, -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Prepared Statement creation failed: %s\n", \
-                sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Prepared Statement creation failed: %d-%s\n", \
+                rc, sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_SUCCESS);
     }
 
-    // bind a 0 del file
+    // bind a 0 del file, ed esecuzione della 'prepared statement'
     sqlite3_bind_zeroblob(stmt, 1, flen);
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
-        fprintf(stderr, "Err. insert statement failed: %d-%s\n", rc, sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Ins. Statement failed: %d-%s\n", \
+                rc, sqlite3_errmsg(db));
         exit(EXIT_SUCCESS);
     }
 
@@ -97,6 +99,10 @@ int main(int argc, char *argv[]) {
     sqlite3_int64   row_id = sqlite3_last_insert_rowid(db);
     // Si lavora col tipo di dato BLOB
     rc = sqlite3_blob_open(db, "main", "blobs", "data", row_id, 1, &blob);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. BLOB Handling failed: %d-%s\n", \
+                rc, sqlite3_errmsg(db));
+        exit(EXIT_SUCCESS);
     
     // Esecuzione della 'prepared statement' e scrittura dei dati
     rc = sqlite3_step(stmt);
