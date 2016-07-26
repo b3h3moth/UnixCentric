@@ -14,7 +14,6 @@ int main(int argc, char *argv[]) {
     FILE *fp = NULL;
     int flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
     long flen = 0;
-    int size = 0;
     int rc = 0;
     int len;
     int offset = 0;
@@ -125,6 +124,10 @@ int main(int argc, char *argv[]) {
         offset += len;
     }
     
+
+    sqlite3_blob_close(blob);
+
+    printf("BLOB data \'%s\' written\n", argv[1]);
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
