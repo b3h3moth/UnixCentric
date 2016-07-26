@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
     long flen = 0;
     int size = 0;
     int rc = 0;
+    char *err_msg = NULL;
     char *sql_create = "CREATE TABLE IF NOT EXISTS blobs("
                 "id INTEGER PRIMARY KEY, data BLOB);";
     char *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
