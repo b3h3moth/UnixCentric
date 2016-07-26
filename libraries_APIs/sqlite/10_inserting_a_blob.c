@@ -114,11 +114,21 @@ int main(int argc, char *argv[]) {
 
     data = malloc(DATA_SIZE);
 
+    // Scrive i dati binari di tipo BLOB nella tabella
+    while (0 < (len = fread(data, 1, DATA_SIZE, fp))) {
+        rc = sqlite3_blob_write(blob, data, len, offset);
+        if (rc != SQLITE_OK) {
+            fprintf(stderr, "Err. Writing BLOB: %d-%s\n", \
+                    rc, sqlite3_errmsg(db));
+            exit(EXIT_FAILURE);
+        }
+        offset += len;
+    }
     
 
-    fclose(fp);
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+    fclose(fp);
     free(data);
 
     return(EXIT_SUCCESS);
