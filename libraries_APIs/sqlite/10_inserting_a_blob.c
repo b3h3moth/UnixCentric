@@ -27,14 +27,14 @@ int main(int argc, char *argv[]) {
     char           *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
 
     if (argc != 3) {
-        fprintf(stderr, "Usage: %s <image>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <db name><image>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Per i tipi di dato 'blob' si deve lavorare con file binary
-    fp = fopen(argv[1], "rb");
+    fp = fopen(argv[2], "rb");
     if (fp == NULL) {
-        fprintf(stderr, "Err. Cannot open image: %s\n", argv[1]);
+        fprintf(stderr, "Err. Cannot open image: %s\n", argv[2]);
         exit(EXIT_FAILURE);
     }
 
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
     fseek(fp, 0, SEEK_SET);
 
     // Creazione del database
-    rc = sqlite3_open_v2("new.db", &db, flags_create, NULL);
+    rc = sqlite3_open_v2(argv[1], &db, flags_create, NULL);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Cannot open db: %d-%s\n", \
                 rc, sqlite3_errmsg(db));
@@ -135,7 +135,8 @@ int main(int argc, char *argv[]) {
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
-    printf("BLOB data: \'%s\' | %d byte\n", argv[1], file_size);
+    printf("DB: \'%s\'\nBLOB data: \'%s\' | %d byte\n", \
+            argv[1], argv[2], file_size);
 
     fclose(fp);
     free(data);
