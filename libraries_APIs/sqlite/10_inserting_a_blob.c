@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
                                  "id INTEGER PRIMARY KEY, data BLOB);";
     char           *sql_insert = "INSERT INTO blobs(data) VALUES (?);";
 
-    if (argc != 2) {
+    if (argc != 3) {
         fprintf(stderr, "Usage: %s <image>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
