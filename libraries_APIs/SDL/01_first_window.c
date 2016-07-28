@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
+/* Lo scopo del programma e' di inizializzare la libreria SDL */
+
 int main(int argc, char *argv[]) {
     // Image
     SDL_Surface *image = NULL;
