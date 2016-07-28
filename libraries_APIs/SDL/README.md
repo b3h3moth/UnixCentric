@@ -12,6 +12,4 @@ Version: 2.0.x
 
 ## How to compile
 
-both c11 and c99 are good choices.
-
-gcc file.c -std=c11 -Wall -pedantic `sdl-config --cflags --libs`
+`gcc file.c -std=c11 -Wall -pedantic $(sdl-config --cflags --libs`
