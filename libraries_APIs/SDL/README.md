@@ -10,6 +10,14 @@ e joystick.
 
 Version: 2.0.x
 
-## How to compile
+## How to Compile SDL programs
 
-`gcc file.c -std=c11 -Wall -pedantic $(sdl-config --cflags --libs`
+With sdl2-config tool:
+
+`gcc program.c -std=c11 (or c99) -Wall -pedantic `sdl2-config --cflags --libs``
+`clang program.c -std=c11 (or c99) -Wall -pedantic `sdl2-config --cflags --libs``
+
+Linking the library directly:
+
+`gcc -std=c11 (or c99) -Wall -pedantic -lSDL2 program.c`
+`clang -std=c11 (or c99) -Wall -pedantic -lSDL2 program.c`
