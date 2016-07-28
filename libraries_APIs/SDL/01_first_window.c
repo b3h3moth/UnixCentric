@@ -5,32 +5,16 @@
 /* Lo scopo del programma e' di inizializzare la libreria SDL */
 
 int main(int argc, char *argv[]) {
-    // Image
-    SDL_Surface *image = NULL;
-    SDL_Surface *screen = NULL;
+    
+    // Inizializzazione della libreria SDL
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        fprintf(stderr, "Cannot initialize SDL: %s\n", SDL_GetError());
+        exit(EXIT_FAILURE);
+    }
 
-    // Start SDL
-    SDL_Init(SDL_INIT_EVERYTHING);
+    puts("Success");
 
-    // Setup screen
-    screen = SDL_SetVideoMode(640, 480, 32, SDL_SWSURFACE);
-
-    // Load image
-    image = SDL_LoadBMP("hello.bmp");
-
-    // Apply image to screen
-    SDL_BlitSurface(image, NULL, screen, NULL);
-
-    // Update screen
-    SDL_Flip(screen);
-
-    // Pause
-    SDL_Delay(2000);
-
-    // Free loaded image
-    SDL_FreeSurface(image);
-
-    // Quit SDL
+    // Close the library
     SDL_Quit();
     
     return(EXIT_SUCCESS);
