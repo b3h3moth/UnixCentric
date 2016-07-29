@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
-/* Lo scopo del programma e' di inizializzare la libreria SDL */
+// Lo scopo del programma e' di inizializzare la libreria SDL
 
 int main(int argc, char *argv[]) {
     
@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
     puts("Success");
 
-    // Close the library
+    // Chiusura della libreria
     SDL_Quit();
     
     return(EXIT_SUCCESS);
