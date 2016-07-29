@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
             - la superficie, il rettangolo, da riempire;
             - il colore con cui riempiere il rettangolo, in questo caso rosso.
             */
-            SDL_FillRect(surface, NULL, SDL_MapRGB(s->format, 255, 0, 0));
+            SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 0, 0));
 
             // Update della superficie
             SDL_UpdateWindowSurface(window);
