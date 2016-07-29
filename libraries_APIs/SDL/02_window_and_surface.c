@@ -36,6 +36,7 @@ int main(int argc, char *argv[]) {
 
             // Update della superficie
             SDL_UpdateWindowSurface(window);
+        }
     }
 
     // Pausa di 5000 millisecondi (5 secondi)
