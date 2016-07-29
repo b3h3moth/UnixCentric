@@ -9,7 +9,6 @@ int main(int argc, char *argv[]) {
     const int scr_height = 400;
     // La finestra
     SDL_Window *window = NULL;
-    SDL_Surface *surface = NULL;
     
     // Inizializzazione della libreria SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
