@@ -22,12 +22,16 @@ int main(int argc, char *argv[]) {
         - l'altezza della finestra;
         - flags a disposizione della finestra, in questo caso indica che la
           finestra sia visibile */
-        window = SDL_CreateWindow("Take a Walk on The Wild Side", \
-                0, 0, scr_width, scr_height, SDL_WINDOW_SHOWN);
+        window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
+                SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
+                scr_width, scr_height, SDL_WINDOW_SHOWN);
 
         if (window == NULL)
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
     }
+
+    // Pausa di 5000 millisecondi (5 secondi)
+    SDL_Delay(5000);
 
     // Close the library
     SDL_Quit();
