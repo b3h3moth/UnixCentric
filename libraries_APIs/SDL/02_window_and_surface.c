@@ -23,6 +23,9 @@ int main(int argc, char *argv[]) {
 
         if (window == NULL)
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
+        else {
+            // Creazione della superficie della finestra
+            surface = SDL_GetWindowSurface(window);
     }
 
     // Pausa di 5000 millisecondi (5 secondi)
