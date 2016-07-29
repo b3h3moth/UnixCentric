@@ -88,6 +88,6 @@ There are few books that cover the SQLite C API from beginning to end:
 * **Using SQLite**; *Jay A. Kreibich* (`2010, O'Reilly`)
 
 
-## Get SQLite library
+## How to get the library
 
-[Download](https://sqlite.org/download.html) source code from main site.
+[download](https://sqlite.org/download.html) source code from main site.
