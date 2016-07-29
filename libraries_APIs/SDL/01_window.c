@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     
     // Inizializzazione della libreria SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        fprintf(stderr, "Cannot initialize SDL: %s\n", SDL_GetError());
+        fprintf(stderr, "Err. Cannot initialize SDL: %s\n", SDL_GetError());
     } else {
         /* Creazione della finestra con specifici parametri
         - titolo della finestra;
@@ -25,6 +25,10 @@ int main(int argc, char *argv[]) {
           finestra sia visibile */
         window = SDL_CreateWindow("Take a Walk on The Wild Side", \
                 0, 0, scr_width, scr_height, SDL_WINDOW_SHOWN);
+
+        if (window == NULL)
+            fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
+    }
 
     // Close the library
     SDL_Quit();
