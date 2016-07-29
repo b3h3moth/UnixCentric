@@ -33,7 +33,10 @@ int main(int argc, char *argv[]) {
     // Pausa di 5000 millisecondi (5 secondi)
     SDL_Delay(5000);
 
-    // Close the library
+    // Distrugge la finestra
+    SDL_DestroyWindow(window);
+
+    // Chiusura della libreria
     SDL_Quit();
     
     return(EXIT_SUCCESS);
