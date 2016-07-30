@@ -34,9 +34,8 @@ int main(int argc, char *argv[]) {
             */
             SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 0, 0));
 
-            /* Il sol fatto di aver creato una superficie, in questo caso, non 
-            vuol dire che si possa vedere una volta lanciato il programma in 
-            esecuzione, per cui serve una chiamata che aggiorni la finestra */
+            /* Aver creato una superficie non basta, serve ora mostrarla
+            sullo schermo - screen: */
             SDL_UpdateWindowSurface(window);
         }
     }
