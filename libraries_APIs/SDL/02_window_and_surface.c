@@ -34,10 +34,13 @@ int main(int argc, char *argv[]) {
             */
             SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 0, 0));
 
-            // Update della superficie
+            /* Il sol fatto di aver creato una superficie, in questo caso, non 
+            vuol dire che si possa vedere una volta lanciato il programma in 
+            esecuzione, per cui serve una chiamata che aggiorni la finestra */
             SDL_UpdateWindowSurface(window);
         }
     }
+
 
     // Pausa di 5000 millisecondi (5 secondi)
     SDL_Delay(5000);
