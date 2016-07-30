@@ -6,8 +6,8 @@
 superficie 2D - surface - rettangolare */
 
 int main(int argc, char *argv[]) {
-    const int scr_width = 320;
-    const int scr_height = 400;
+    const int scr_width = 640;
+    const int scr_height = 480;
     // La finestra
     SDL_Window *window = NULL;
     // Superficie 2D
