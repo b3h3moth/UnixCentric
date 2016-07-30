@@ -24,7 +24,10 @@ int main(int argc, char *argv[]) {
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
 
         /* Ora e' necessario il rendering 2D della finestra, altrimenti non si
-        vedrebbe alcunche' */
+        vedrebbe alcunche, i parametri della funzione sono:
+        - la finestra che mostra il rendering;
+        - rendering driver o -1 per inizializzare il primo disponibile;
+        - rendering flags. */
         renderer = SDL_CreateRenderer(window, -1, 0);
 
         if (window == NULL)
@@ -45,7 +48,6 @@ int main(int argc, char *argv[]) {
             SDL_UpdateWindowSurface(window);
         }
     }
-
 
     // Pausa di 5000 millisecondi (5 secondi)
     SDL_Delay(5000);
