@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
     // Inizializzazione della libreria SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         fprintf(stderr, "Err. Cannot initialize SDL: %s\n", SDL_GetError());
+        return(1);
     } else {
         window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
