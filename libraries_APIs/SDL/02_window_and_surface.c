@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 
 /* Lo scopo del programma e' di creare una finestra - window - con una
-superficie rettangolare */
+superficie 2D - surface - rettangolare */
 
 int main(int argc, char *argv[]) {
     const int scr_width = 320;
