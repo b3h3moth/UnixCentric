@@ -25,7 +25,9 @@ int main(int argc, char *argv[]) {
         window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
-
+        /* La finestra - window - rappresenta la risoluzione del gioco, lo 
+        stato iniziale, ma ancora non c'e' nulla di visibile, se non il titolo
+        della finestra stessa. */
         if (window == NULL)
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
     }
