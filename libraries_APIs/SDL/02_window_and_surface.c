@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
     SDL_Window *window = NULL;
     // Superficie 2D
     SDL_Surface *surface = NULL;
+    SDL_Renderer *renderer = NULL;
     
     // Inizializzazione della libreria SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -21,6 +22,8 @@ int main(int argc, char *argv[]) {
         window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
+        
+        renderer = SDL_CreateRenderer(window, -1, 0);
 
         if (window == NULL)
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
@@ -44,6 +47,9 @@ int main(int argc, char *argv[]) {
 
     // Pausa di 5000 millisecondi (5 secondi)
     SDL_Delay(5000);
+
+    // Distrugge il rendering
+    SDL_DestroyRenderer(renderer);
 
     // Distrugge la finestra
     SDL_DestroyWindow(window);
