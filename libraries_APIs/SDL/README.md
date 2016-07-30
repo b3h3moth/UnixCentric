@@ -1,8 +1,9 @@
 # Simple DirectMedia Layer (SDL)
 
-E' una libreria multimediale cross-platform di sviluppo, fornisce un accesso
-low-level all'hardware grafico via OpenGL e Direct3D, ad audio, keyboard, mouse,
-e joystick. 
+E' una libreria multimediale cross-platform di sviluppo che fornisce un accesso
+low-level all'hardware grafico via OpenGL e Direct3D, ad audio, keyboard, 
+mouse, joystick, cdrom e inoltre fornisce supporto ai thread e alla gestione
+del tempo.
 
 > E' ampiamente utilizzata principalmente per la scrittura di video games.
 
