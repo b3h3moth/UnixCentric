@@ -22,7 +22,9 @@ int main(int argc, char *argv[]) {
         window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
-        
+
+        /* Ora e' necessario il rendering 2D della finestra, altrimenti non si
+        vedrebbe alcunche' */
         renderer = SDL_CreateRenderer(window, -1, 0);
 
         if (window == NULL)
