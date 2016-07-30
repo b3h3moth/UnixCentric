@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
-// Lo scopo del programma e' di creare una finestra di base
+// Lo scopo del programma e' di creare una finestra di base con un titolo
 
 int main(int argc, char *argv[]) {
-    const int scr_width = 320;
-    const int scr_height = 400;
+    const int scr_width = 640;
+    const int scr_height = 480;
     // La finestra
     SDL_Window *window = NULL;
     
