@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
-/* Lo scopo del programma e' di creare una finestra - window - con una
-superficie 2D - surface - rettangolare */
+/* Lo scopo del programma e' di creare un finestra con il relativo redendering,
+in modo tale che possa essere visualizzata sullo schermo. */
 
 int main(int argc, char *argv[]) {
     const int scr_width = 640;
