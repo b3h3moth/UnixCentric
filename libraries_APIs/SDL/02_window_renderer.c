@@ -8,8 +8,7 @@ enum { SCR_WIDTH = 640, SCR_HEIGHT = 480};
 in modo tale che possa essere visualizzata sullo schermo. */
 
 int main(int argc, char *argv[]) {
-    // La finestra
-    SDL_Window *window = NULL;
+    SDL_Window   *window = NULL;
     SDL_Renderer *renderer = NULL;
     
     // Inizializzazione della libreria SDL
