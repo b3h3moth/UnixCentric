@@ -48,6 +48,7 @@ int main(int argc, char *argv[]) {
     selezionato precedentemente, altrimenti si vedrebbe una finestra nera. */
     SDL_RenderClear(renderer);
 
+    // Visualizza la finestra di colore grigio, settato in precedenza.
     SDL_RenderPresent(renderer);
 
     // Pausa di 5000 millisecondi (5 secondi)
