@@ -23,11 +23,7 @@ int main(int argc, char *argv[]) {
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
 
-        /* Ora e' necessario il rendering 2D della finestra, altrimenti non si
-        vedrebbe alcunche, i parametri della funzione sono:
-        - la finestra che mostra il rendering;
-        - rendering driver o -1 per inizializzare il primo disponibile;
-        - rendering flags. */
+        // Rendering della finestra 'window'
         renderer = SDL_CreateRenderer(window, -1, 0);
 
         if (window == NULL)
