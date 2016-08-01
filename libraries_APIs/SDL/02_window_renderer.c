@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     // Distrugge la finestra
     SDL_DestroyWindow(window);
 
-    // Chiusura della libreria
+    // Chiusura e pulizia della libreria
     SDL_Quit();
     
     return(EXIT_SUCCESS);
