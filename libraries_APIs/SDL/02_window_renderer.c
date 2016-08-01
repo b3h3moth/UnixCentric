@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
+enum { SCR_WIDTH = 640, SCR_HEIGHT = 480};
+
 /* Lo scopo del programma e' di creare un finestra con il relativo redendering,
 in modo tale che possa essere visualizzata sullo schermo. */
 
 int main(int argc, char *argv[]) {
-    const int scr_width = 640;
-    const int scr_height = 480;
     // La finestra
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
