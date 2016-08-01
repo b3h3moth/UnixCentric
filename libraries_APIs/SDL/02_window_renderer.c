@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
     } else {
         window = SDL_CreateWindow("Window Renderer",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
-                scr_width, scr_height, SDL_WINDOW_SHOWN);
+                SCR_WIDTH, SCR_HEIGHT, SDL_WINDOW_SHOWN);
 
         if (window == NULL) {
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
             - rendering driver o -1 per inizializzare il primo disponibile;
             - 0 o uno o piu' rendering flags. */
             renderer = SDL_CreateRenderer(window, -1, 0);
+        }
     }
 
     /* Impostazione del colore per disegnare la finestra, ovvero il grigio.
