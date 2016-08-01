@@ -14,16 +14,23 @@ int main(int argc, char *argv[]) {
     // Inizializzazione della libreria SDL
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         fprintf(stderr, "Err. Cannot initialize SDL: %s\n", SDL_GetError());
-        return(1);
+        return (1);
     } else {
-        window = SDL_CreateWindow("Take a Walk on The Wild Side",   \
+        window = SDL_CreateWindow("Window Renderer",   \
                 SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,     \
                 scr_width, scr_height, SDL_WINDOW_SHOWN);
 
         if (window == NULL) {
             fprintf(stderr, "Err. Could not create window: %s\n", SDL_GetError());
-            return 1;
-        } else 
+            return (1);
+        } else {
+            /* Ora e' necessario il renderer 2D della finestra, altrimenti non
+            si vedrebbe alcunche'. Il puntatore a SDL_Window 'window' lo si 
+            passa alla funzione per la creazione del renderering della finestra.
+            I parametri della funzione sono:
+            - Il puntatore a SDL_window dove sara' attuato il rendering;
+            - rendering driver o -1 per inizializzare il primo disponibile;
+            - 0 o uno o piu' rendering flags. */
             renderer = SDL_CreateRenderer(window, -1, 0);
     }
         
