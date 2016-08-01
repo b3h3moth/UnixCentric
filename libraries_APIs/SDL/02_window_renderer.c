@@ -44,6 +44,8 @@ int main(int argc, char *argv[]) {
     - alpha value di RGBA. */
     SDL_SetRenderDrawColor(renderer, 127, 127, 127, 0);
 
+    /* Cancella il target di rendering corrente dello schermo con il colore 
+    selezionato precedentemente, altrimenti si vedrebbe una finestra nera. */
     SDL_RenderClear(renderer);
 
     SDL_RenderPresent(renderer);
