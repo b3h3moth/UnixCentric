@@ -28,13 +28,20 @@ int main(int argc, char *argv[]) {
             si vedrebbe alcunche'. Il puntatore a SDL_Window 'window' lo si 
             passa alla funzione per la creazione del renderering della finestra.
             I parametri della funzione sono:
-            - Il puntatore a SDL_window dove sara' attuato il rendering;
+            - Il puntatore a SDL_Window dove sara' attuato il rendering;
             - rendering driver o -1 per inizializzare il primo disponibile;
             - 0 o uno o piu' rendering flags. */
             renderer = SDL_CreateRenderer(window, -1, 0);
     }
-        
-    SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
+
+    /* Impostazione del colore per disegnare la finestra, ovvero il grigio.
+    I parametro della funzione sono:
+    - il puntatore a SDL_Renderer;
+    - red value di RGBA;
+    - green value di RGBA;
+    - blue value di RGBA;
+    - alpha value di RGBA. */
+    SDL_SetRenderDrawColor(renderer, 127, 127, 127, 0);
 
     SDL_RenderClear(renderer);
 
