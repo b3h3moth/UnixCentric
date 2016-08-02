@@ -11,5 +11,7 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "SDL", "Windows", NULL);
+
     return(EXIT_SUCCESS);
 }
