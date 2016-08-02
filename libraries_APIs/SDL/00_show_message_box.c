@@ -13,5 +13,8 @@ int main(void) {
 
     SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "SDL", "Windows", NULL);
 
+    // Chiusura e pulizia della libreria
+    SDL_Quit();
+
     return(EXIT_SUCCESS);
 }
