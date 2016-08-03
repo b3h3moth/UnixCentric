@@ -24,6 +24,7 @@ database, I/O and so on.
 Full tutorial:
 
 * cairo library (2D graphics)
+* SDL, Simple DirectMedia Library (2D graphics)
 * SQLite C API Library (RDMS)
 
 ### Representing information
