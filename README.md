@@ -42,7 +42,7 @@ How computer really works:
   * float, double
   * (to do, at the moment is empty)
 
-### c11 - The language
+### c11 - Syntax, Tips and Tricks
 
 A lot of articles focused on c11 standard, the core of the language is also
 treated,
