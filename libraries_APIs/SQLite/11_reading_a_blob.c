@@ -24,16 +24,15 @@ int main(int argc, char *argv[]) {
     char           *err_msg = NULL;
     char           *sql = "SELECT data FROM blobs";
 
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <db name><image>\n", argv[0]);
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <db name>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    // Per i tipi di dato 'blob' si deve lavorare con file binary
-    fp = fopen(argv[2], "rb");
+    fp = fopen("test.jpg", "wb");
     if (fp == NULL) {
-        fprintf(stderr, "Err. Cannot open image: %s\n", argv[2]);
-        exit(EXIT_FAILURE);
+        puts("cannot open");
+        return 1;
     }
 
     // Creazione del database
@@ -45,17 +44,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    // Creazione della tabella mediante il 'convenience wrapper'
-    rc = sqlite3_exec(db, sql_create, NULL, NULL, &err_msg);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot create table: %d-%s\n", \
-                rc, sqlite3_errmsg(db));
-        sqlite3_close(db);
-        exit(EXIT_SUCCESS);
-    }
-
     // Creazione della 'prepared statement' per l'inserimento
-    rc = sqlite3_prepare_v2(db, sql_insert, -1, &stmt, NULL);
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Prepared Statement creation failed: %d-%s\n", \
@@ -64,11 +54,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_SUCCESS);
     }
 
-    /* Creazione di un blob vuoto i cui byte sono tutti settati a 0x00 - 
-    zero-filled blob -, nel quale leggere o scrivere il file binario; in
-    questo caso l'interfaccia sara' usata per scrivere l'immagine.  */
-    sqlite3_bind_zeroblob(stmt, 1, flen);
-
     // esecuzione della 'prepared statement' e scrittura 
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
@@ -76,10 +61,6 @@ int main(int argc, char *argv[]) {
                 rc, sqlite3_errmsg(db));
         exit(EXIT_FAILURE);
     }
-
-    /* Crea una riga con il dato blog in bianco, sara' utile per la successiva
-    chiamata */
-    row_id = sqlite3_last_insert_rowid(db);
 
     // Apertura di un 'BLOB Handle' su 'blob'
     rc = sqlite3_blob_open(db, "main", "blobs", "data", row_id, 1, &blob);
@@ -93,7 +74,7 @@ int main(int argc, char *argv[]) {
 
     // Scrive i dati binari di tipo BLOB
     while ((bytes_read = fread(data, 1, DATA_SIZE, fp))) {
-        rc = sqlite3_blob_write(blob, data, bytes_read, offset);
+        rc = sqlite3_blob_read(blob, data, bytes_read, offset);
         if (rc != SQLITE_OK) {
             fprintf(stderr, "Err. Writing BLOB: %d-%s\n", \
                     rc, sqlite3_errmsg(db));
