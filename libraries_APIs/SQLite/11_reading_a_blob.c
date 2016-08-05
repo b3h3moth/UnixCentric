@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <assert.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include <sqlite3.h>
 
 enum {DATA_SIZE = 1024};
@@ -13,56 +18,39 @@ int main(int argc, char *argv[]) {
     sqlite3        *db = NULL;
     sqlite3_stmt   *stmt = NULL;
     sqlite3_blob   *blob = NULL;
-    FILE           *fp = NULL;
+    int           fd = 0;
     int            flags_create = SQLITE_OPEN_READWRITE;
     int            rc = 0;
-    char           *sql = "SELECT data FROM blobs where id = 1";
+    char           *sql = "SELECT * FROM blobs where id = 1";
 
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <db name>\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
-    fp = fopen("test.jpg", "wb");
-    if (fp == NULL) {
-        puts("cannot open");
-        return 1;
-    }
 
     // Creazione del database
-    rc = sqlite3_open_v2(argv[1], &db, flags_create, NULL);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Cannot open db: %d-%s\n", \
-                rc, sqlite3_errmsg(db));
-        sqlite3_close(db);
-        exit(EXIT_SUCCESS);
-    }
+    rc = sqlite3_open_v2("db.db", &db, flags_create, NULL);
+
+    unsigned char **pzBlob = 0;
+    int *pnBlob = 0;
+    fd = open("bea.jpg", O_WRONLY | O_CREAT, 755);
+
+    do {
 
     // Creazione della 'prepared statement' per l'inserimento
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL);
 
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Prepared Statement creation failed: %d-%s\n", \
-                rc, sqlite3_errmsg(db));
-        sqlite3_close(db);
-        exit(EXIT_SUCCESS);
-    }
-
     // esecuzione della 'prepared statement' e scrittura 
     rc = sqlite3_step(stmt);
-    // Il totale dei byte scritti, ovvero il peso del dato binario
-    int file_size = sqlite3_blob_bytes(blob);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Ins. Statement failed: %d-%s\n", \
-                rc, sqlite3_errmsg(db));
-        exit(EXIT_FAILURE);
+
+    if (rc == SQLITE_ROW) {
+        *pnBlob = sqlite3_column_bytes(stmt, 0);
+        *pzBlob = (unsigned char *)malloc(*pnBlob);
+        memcpy(*pzBlob, (void *)sqlite3_column_blob(stmt, 0), *pnBlob);
     }
 
-    sqlite3_blob_close(blob);
     sqlite3_finalize(stmt);
-    sqlite3_close(db);
+    } while (rc == SQLITE_SCHEMA);
 
-    fclose(fp);
+    write(fd, "bea.jpg", *pnBlob);
+
+    sqlite3_close(db);
 
     return(EXIT_SUCCESS);
 }
