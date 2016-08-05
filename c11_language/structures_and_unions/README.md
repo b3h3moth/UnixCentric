@@ -8,3 +8,8 @@
 * Unions;
 * Bit fields;
 * vector of structures.
+
+### Bibliograhy
+
+[The Lost Art of C Structure Packing](https://www.catb.org/esr/structure-packing/) 
+by *Eric S.Rymond*
