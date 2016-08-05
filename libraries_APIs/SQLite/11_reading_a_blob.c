@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     sqlite3_blob   *blob = NULL;
     sqlite3_int64  row_id = 0;
     FILE           *fp = NULL;
-    int            flags_create = SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
+    int            flags_create = SQLITE_OPEN_READWRITE;
     long           flen = 0;
     int            rc = 0;
     int            bytes_read = 0;
@@ -35,30 +35,6 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. Cannot open image: %s\n", argv[2]);
         exit(EXIT_FAILURE);
     }
-
-    /* Sposta il 'file position indicator' alla fine del file, sara' utile per
-    calcolare il peso dell'immagine, dopodiche' si verifica che il risultato
-    sia privo di errori. */
-    fseek(fp, 0, SEEK_END);
-
-    if (ferror(fp)) {
-        fprintf(stderr, "Err. fseek() failed.\n");
-        fclose(fp);
-        exit(EXIT_FAILURE);
-    }
-
-    /* La funzione ftell() ritorna la posizione corrente del 'file position
-    indicator', che corrisponde anche al numero di byte del file. */
-    flen = ftell(fp);
-
-    if (flen == -1) {
-        fprintf(stderr, "Err. ftell() failed: %s\n", strerror(errno));
-        fclose(fp);
-        exit(EXIT_FAILURE);
-    }
-
-    // Riporta il 'file position indicator' all'inizio del file
-    fseek(fp, 0, SEEK_SET);
 
     // Creazione del database
     rc = sqlite3_open_v2(argv[1], &db, flags_create, NULL);
