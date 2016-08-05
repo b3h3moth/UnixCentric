@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    fp = fopen("test.jpg", "wb");
+    fp = fopen(argv[1], "wb");
     if (fp == NULL) {
         puts("cannot open");
         return 1;
