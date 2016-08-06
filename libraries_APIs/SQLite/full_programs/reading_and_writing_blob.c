@@ -17,6 +17,8 @@ int main(int argc, char *argv[]) {
     int is_store = 0; 
     // Il file descriptor
     int fd = 0;
+    // Il risultato delle chiamate
+    int rc = 0;
     // Il peso del file da inserire nel database
     struct stat file_size = {0};
     // Il peso del tipo di dato blob
@@ -39,6 +41,9 @@ int main(int argc, char *argv[]) {
     if (argv[2][0] == 's' || argv[2][0] == 'S') {
         is_store = 1;
     }
+
+    // Apre una connessione al database
+
 
     return(EXIT_SUCCESS);
 }
