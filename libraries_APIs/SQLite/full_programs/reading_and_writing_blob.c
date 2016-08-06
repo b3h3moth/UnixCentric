@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     // Il risultato delle chiamate
     int rc = 0;
     // Datbase flags
-    int flags = 0;
+    int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     // Il peso del file da inserire nel database
     struct stat file_size = {0};
     // Il peso del tipo di dato blob
