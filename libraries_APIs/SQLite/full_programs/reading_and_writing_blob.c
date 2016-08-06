@@ -19,6 +19,8 @@ int main(int argc, char *argv[]) {
     int fd = 0;
     // Il risultato delle chiamate
     int rc = 0;
+    // Datbase flags
+    int flags = 0;
     // Il peso del file da inserire nel database
     struct stat file_size = {0};
     // Il peso del tipo di dato blob
@@ -43,6 +45,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Apre una connessione al database
+    rc = sqlite3_open_v2(file_db, &db, flags, NULL)
 
 
     return(EXIT_SUCCESS);
