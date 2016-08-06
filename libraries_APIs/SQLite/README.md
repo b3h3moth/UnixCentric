@@ -43,7 +43,8 @@ assigns an integer value whenever you insert a new row. When a table with an
 
 Get the last rowid added with `sqlite3_last_insert_rowid()` function.
 
-## The SQLite API C functions covered
+
+## The SQLite core C APIs
 
 Opening a new database connection:
 
@@ -53,6 +54,7 @@ Opening a new database connection:
 Bound parameters
 
 * `sqlite3_bind_text()`
+* `sqlite3_bind_blob()`
 * `sqlite3_bind_parameter_index()`
 * `sqlite3_bind_parameter_count()`
 * `sqlite3_bind_parameter_name()`
@@ -65,6 +67,14 @@ Closing a database connection:
 
 * `sqlite3_close()`
 * `sqlite3_close_v2()`
+
+Working with BLOB data type:
+
+* `sqlite3_blob_open()`
+* `sqlite3_blob_read()`
+* `sqlite3_blob_write()`
+* `sqlite3_blob_close()`
+
 
 ## How to compile SQLite3 library
 
