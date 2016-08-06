@@ -61,3 +61,9 @@ int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
+
+// Crea la tabella nel database 'db'
+static int create_table(sqlite3 *db) {
+    const char *sql = "CREATE TABLE blobs(id INTEGER PRIMARY KEY, data BLOB)";
+    return sqlite3_exec(db, sql, 0, 0, 0);
+}
