@@ -20,7 +20,14 @@ int main(int argc, char *argv[]) {
     struct stat file_size = {0};
     // Il peso del tipo di dato blob
     int blob_size = 0;
-    unsigned char *z_blob = NULL;
+    // Salva il tipo di dato blob
+    unsigned char *data_blob = NULL;
+
+    // Verifica gli argomenti della linea di comando
+    if (argc != 4) {
+        fprintf(stderr, "Usage: %s [DB name] (write | read) [FILE]\n", argv[0]);
+        return 1;
+    }
 
     return(EXIT_SUCCESS);
 }
