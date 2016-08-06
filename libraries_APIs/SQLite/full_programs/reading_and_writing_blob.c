@@ -5,13 +5,14 @@
 #include <sys/types.h>
 #include <sqlite3.h>
 
+
 int main(int argc, char *argv[]) {
     // Connessione al database
     sqlite3        *db = NULL;
     // Il filename del database
-    char const *db_filename = NULL;
-    // Il file da salvare o da recuperare dal database
-    char const *sr_file = NULL;
+    char const *file_db = NULL;
+    // Il file da scrivere nel database o da leggere dal database stesso
+    char const *file_wr = NULL;
     // 1 = salvare; 0 = recuperare
     int is_store = 0; 
     // Il file descriptor
@@ -28,6 +29,9 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Usage: %s [DB name] (write | read) [FILE]\n", argv[0]);
         return 1;
     }
+
+    file_db = argv[1];
+    file_wr = argv[3];
 
     return(EXIT_SUCCESS);
 }
