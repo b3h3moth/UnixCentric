@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -9,8 +10,8 @@
 int main(int argc, char *argv[]) {
     // Connessione al database
     sqlite3        *db = NULL;
-    // 1 = salvare; 0 = recuperare
-    int is_store = 0; 
+    // 1 = scrivere BLOB nel DB | 0 = leggere BLOB dal DB
+    bool is_write = 0; 
     // Il file descriptor
     int fd = 0;
     // Il risultato delle chiamate
@@ -38,10 +39,10 @@ int main(int argc, char *argv[]) {
     file_wr = argv[3];
 
     /* Verifica la prima lettera del terzo argomento, nel caso di esito 
-    positivo si imposta la variabile is_store ad 1, ovvero che si procedera'
+    positivo si imposta la variabile is_write ad 1, ovvero che si procedera'
     alla scrittura di un dato binario nel database.  */
     if (argv[2][0] == 's' || argv[2][0] == 'S') {
-        is_store = 1;
+        is_write = 1;
     }
 
     // Apre una connessione al database
