@@ -9,10 +9,6 @@
 int main(int argc, char *argv[]) {
     // Connessione al database
     sqlite3        *db = NULL;
-    // Il filename del database
-    char const *file_db = NULL;
-    // Il file da scrivere nel database o da leggere dal database stesso
-    char const *file_wr = NULL;
     // 1 = salvare; 0 = recuperare
     int is_store = 0; 
     // Il file descriptor
@@ -27,6 +23,10 @@ int main(int argc, char *argv[]) {
     int blob_size = 0;
     // Salva il tipo di dato blob
     unsigned char *data_blob = NULL;
+    // Il filename del database
+    char const *file_db = NULL;
+    // Il file da scrivere nel database o da leggere dal database stesso
+    char const *file_wr = NULL;
 
     // Verifica gli argomenti della linea di comando
     if (argc != 4) {
@@ -45,8 +45,12 @@ int main(int argc, char *argv[]) {
     }
 
     // Apre una connessione al database
-    rc = sqlite3_open_v2(file_db, &db, flags, NULL)
-
+    rc = sqlite3_open_v2(file_db, &db, flags, NULL);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Open Database Connection failed: %d - %s\n", \
+                sqlite3_errcode(db), sqlite3_errmsg(db));
+        return 1;
+    }
 
     return(EXIT_SUCCESS);
 }
