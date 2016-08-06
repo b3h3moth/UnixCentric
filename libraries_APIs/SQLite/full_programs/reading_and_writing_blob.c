@@ -6,6 +6,8 @@
 #include <sys/types.h>
 #include <sqlite3.h>
 
+// Function Prototypes
+static int create_table(sqlite3 *db);
 
 int main(int argc, char *argv[]) {
     // Connessione al database
@@ -54,6 +56,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (is_write) {
+        create_table(db);
     }
 
     return(EXIT_SUCCESS);
