@@ -53,5 +53,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    if (is_write) {
+    }
+
     return(EXIT_SUCCESS);
 }
