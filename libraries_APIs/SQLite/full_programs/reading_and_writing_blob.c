@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     // Datbase flags
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
     // Il peso del file da inserire nel database
-    struct stat file_size = {0};
+    struct stat fstatus = {0};
     // Il peso del tipo di dato blob
     int blob_size = 0;
     // Salva il tipo di dato blob
@@ -66,6 +66,14 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), file_wr);
             return 1;
         }
+
+        if (fstat(fd, &fstatus) != 0) {
+            fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), fstatus);
+            return 1;
+        }
+
+        blob_size = fstatus.st_size;
+
     }
 
     return(EXIT_SUCCESS);
