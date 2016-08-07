@@ -64,12 +64,12 @@ int main(int argc, char *argv[]) {
         // Apertura del file ricevuto come argomento e infine calcolo del peso
         fd = open(file_wr, O_RDONLY);
         if (fd < 0) {
-            fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), file_wr);
+            fprintf(stderr, "Err. Open file: %s:%s\n", strerror(errno), file_wr);
             return 1;
         }
 
         if (fstat(fd, &fstatus) != 0) {
-            fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), fstatus);
+            fprintf(stderr, "Err. Stat file: %s:%s\n", strerror(errno), file_wr);
             return 1;
         }
 
@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
         infine chiusura dello stesso */
         data_blob = malloc(blob_size);
         if (blob_size != read(fd, data_blob, blob_size)) {
-            fprintf(stderr, "Err. Read file: %d:%s\n", strerror(errno), data_blob);
+            fprintf(stderr, "Err. Read file: %s:%s\n", strerror(errno), data_blob);
             return 1;
         }
 
