@@ -208,14 +208,14 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
 
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
-    if (rc == SQLITE_ROW) {
-        *blb_sz = sqlite3_column_bytes(stmt, 0);
-        *blb_data = (unsigned char *)malloc(*blb_sz);
-        memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
-    } else {
+    if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
+    } else {
+        *blb_sz = sqlite3_column_bytes(stmt, 0);
+        *blb_data = (unsigned char *)malloc(*blb_sz);
+        memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
     }
 
     return rc;
