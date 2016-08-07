@@ -138,12 +138,12 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     const char *sql = "INSERT INTO blobs(id, data) VALUES(?, ?)";
     int rc;
 
-    // Prepared Statement
+    // Compilazione della Prepared Statement nella macchina virtuale
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement %d:%s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
-        return 1;
+        return rc;
     }
 
     // binding del valore alla query SQL
@@ -172,6 +172,14 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     // Nel caso non ci fossero record nella tabella
     blb_data = NULL;
     blb_sz = NULL;
-
+    
+    // Compilazione della Prepared Statement nella macchina virtuale
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Unable to create Prepared Statement %d:%s\n", \
+                sqlite3_errcode(db), sqlite3_errmsg(db));
+        return rc;
+    }
+    
     return rc;
 }
