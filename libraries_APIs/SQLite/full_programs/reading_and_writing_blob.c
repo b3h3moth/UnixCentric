@@ -120,6 +120,12 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
+        if (!blob_data) {
+            fprintf(stderr, "Ops! Database is empy %s.\n", file_wr);
+            return 1;
+        }
+
+
     }
 
 
