@@ -169,5 +169,9 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     const char *sql = "SELECT data FROM blobs WHERE id = ?";
     int rc;
 
+    // Nel caso non ci fossero record nella tabella
+    blb_data = NULL;
+    blb_sz = NULL;
+
     return rc;
 }
