@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
     if (is_write) {
         create_table(db);
 
+        // Apertura del file ricevuto come argomento e infine calcolo del peso
         fd = open(file_wr, O_RDONLY);
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), file_wr);
@@ -73,6 +74,17 @@ int main(int argc, char *argv[]) {
         }
 
         blob_size = fstatus.st_size;
+
+        /* Allocazione dello spazio necessario per il file 'file_wr', lettura e
+        infine chiusura dello stesso */
+        data_blob = malloc(blob_size);
+        if (blob_size != read(fd, data_blob, blob_size)) {
+            fprintf(stderr, "Err. Read file: %d:%s\n", strerror(errno), data_blob);
+            return 1;
+        }
+
+        close(fd);
+
 
     }
 
