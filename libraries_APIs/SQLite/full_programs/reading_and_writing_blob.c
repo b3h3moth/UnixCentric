@@ -127,5 +127,12 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     // binding del valore alla query SQL
     sqlite3_bind_blob(stmt, 2, blb_data, blb_sz, SQLITE_STATIC);
 
-    // Esecuzione della macchina virtuale e la relativa istruzione SQL
+    // Esecuzione della Prepared Statement
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_ROW) {
+        fprintf(stderr, "Err. Unable to stepping through  %d:%s\n", \
+                sqlite3_errcode(db), sqlite3_errmsg(db));
+        return 1;
+    }
+
     
