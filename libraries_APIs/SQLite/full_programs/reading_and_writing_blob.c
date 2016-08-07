@@ -59,11 +59,11 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (is_write) {
-        // Write BLOB data to the database
+    if (is_write) { // Scrive il tipo di dato BLOB nel database
+        // C
         create_table(db);
 
-        // Apertura del file ricevuto come argomento e infine calcolo del peso
+        // Apre il file ricevuto come argomento
         fd = open(file_wr, O_RDONLY);
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %s - %s\n", \
@@ -77,11 +77,13 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
+        // Salva il peso del file in byte
         blob_size = fstatus.st_size;
 
-        /* Allocazione dello spazio necessario per il file 'file_wr', lettura e
-        infine chiusura dello stesso */
+        // Alloca lo spazio necessario per il dato blob
         blob_data = malloc(blob_size);
+        
+        // Legge il file
         if (blob_size != read(fd, blob_data, blob_size)) {
             fprintf(stderr, "Err. Read file: %s - %s\n", \
                     strerror(errno), blob_data);
@@ -90,17 +92,25 @@ int main(int argc, char *argv[]) {
 
         close(fd);
 
-        /* Scrive il tipo di dato BLOB nel database, rilascia inoltre la memoria
-        precedentemente allocata */
+        // Scrive il tipo di dato BLOB nel database
         if (SQLITE_OK != write_blob(db, blob_data, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         }
 
+        // Rilascia la memoria precedentemente allocata
         free(blob_data);
-    } else {
-        // Read BLOB data from the database
+
+    } else { // Legge il tipo di dato BLOB dal database
+
+        // Apre il 
+        fd = open(file_wr, O_RDONLY);
+        if (fd < 0) {
+            fprintf(stderr, "Err. Open file: %s - %s\n", \
+                    strerror(errno), file_wr);
+            return 1;
+        }
 
 
     return(EXIT_SUCCESS);
