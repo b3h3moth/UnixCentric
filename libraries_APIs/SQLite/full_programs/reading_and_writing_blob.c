@@ -160,7 +160,7 @@ static int create_table(sqlite3 *db) {
 // Scrive il tipo BLOB nel database
 static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     sqlite3_stmt *stmt;
-    const char *sql = "INSERT INTO blobs(id, data) VALUES(?, ?)";
+    const char *sql = "INSERT INTO blobs(data) VALUES(?)";
     int rc;
 
     // Compilazione della Prepared Statement nella macchina virtuale
@@ -172,7 +172,7 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     }
 
     // binding del valore alla query SQL
-    sqlite3_bind_blob(stmt, 2, blb_data, blb_sz, SQLITE_STATIC);
+    sqlite3_bind_blob(stmt, 1, blb_data, blb_sz, SQLITE_STATIC);
 
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
