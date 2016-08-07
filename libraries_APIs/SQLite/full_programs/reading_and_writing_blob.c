@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <string.h>
+#include <fcntl.h>
+#include <errno.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sqlite3.h>
@@ -57,6 +60,12 @@ int main(int argc, char *argv[]) {
 
     if (is_write) {
         create_table(db);
+
+        fd = open(file_wr, O_RDONLY);
+        if (fd < 0) {
+            fprintf(stderr, "Err. Open file: %d:%s\n", strerror(errno), file_wr);
+            return 1;
+        }
     }
 
     return(EXIT_SUCCESS);
