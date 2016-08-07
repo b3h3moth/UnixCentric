@@ -60,6 +60,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (is_write) {
+        // Write BLOB data to the database
         create_table(db);
 
         // Apertura del file ricevuto come argomento e infine calcolo del peso
@@ -98,7 +99,8 @@ int main(int argc, char *argv[]) {
         }
 
         free(blob_data);
-    } 
+    } else {
+        // Read BLOB data from the database
 
 
     return(EXIT_SUCCESS);
