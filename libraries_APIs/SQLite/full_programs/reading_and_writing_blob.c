@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Legge il dato BLOB dal database.
-        if (SQLITE_OK != read_blob(db, &blob_data, &blob_size)) {
+        if (SQLITE_DONE != read_blob(db, &blob_data, &blob_size)) {
             fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
 
         // Verifica se il database contiene record o meno
         if (!blob_data) {
-            fprintf(stderr, "Ops! Database is empty %s.\n", file_wr);
+            fprintf(stderr, "Ops! Database is empty.\n");
             return 1;
         }
 
