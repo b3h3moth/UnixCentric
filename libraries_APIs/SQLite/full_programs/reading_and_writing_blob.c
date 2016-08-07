@@ -11,6 +11,7 @@
 
 // Function Prototypes
 static int create_table(sqlite3 *db);
+static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz);
 static int write_blob(sqlite3* db, void *blb_data, int blb_sz);
 
 int main(int argc, char *argv[]) {
@@ -160,4 +161,8 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     rc = sqlite3_finalize(stmt);
 
     return rc;
+}
+
+// Legge il tipo di dato BLOB dat database
+static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
 }
