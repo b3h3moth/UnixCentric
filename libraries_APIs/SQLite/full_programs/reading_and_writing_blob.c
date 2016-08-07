@@ -14,6 +14,10 @@ static int create_table(sqlite3 *db);
 static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz);
 static int write_blob(sqlite3* db, void *blb_data, int blb_sz);
 
+/* Lo scopo del programma e' di scrivere un dato binario di tipo BLOB nel
+database, oppure leggere dal database stesso un BLOB e salvarlo nel
+file system. */
+
 int main(int argc, char *argv[]) {
     // Connessione al database
     sqlite3        *db = NULL;
