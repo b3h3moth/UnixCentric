@@ -77,13 +77,13 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        // Salva il peso del file in byte
+        // Salva in 'blob_size' il peso del file in byte
         blob_size = fstatus.st_size;
 
         // Alloca lo spazio necessario per il dato blob
         blob_data = malloc(blob_size);
         
-        // Legge il file
+        // Legge il file in 'blob_data'
         if (blob_size != read(fd, blob_data, blob_size)) {
             fprintf(stderr, "Err. Read file: %s - %s\n", \
                     strerror(errno), blob_data);
@@ -104,8 +104,8 @@ int main(int argc, char *argv[]) {
 
     } else { // Legge il tipo di dato BLOB dal database
 
-        // Apre il 
-        fd = open(file_wr, O_RDONLY);
+        // Apre il file in scrittura
+        fd = open(file_wr, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR)
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %s - %s\n", \
                     strerror(errno), file_wr);
