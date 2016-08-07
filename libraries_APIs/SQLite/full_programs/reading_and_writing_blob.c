@@ -91,8 +91,6 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        close(fd);
-
         // Scrive il tipo di dato BLOB nel database
         if (SQLITE_OK != write_blob(db, blob_data, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to the database %d:%s\n", \
@@ -100,8 +98,10 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        // Rilascia la memoria precedentemente allocata
+        /* Rilascia la memoria precedentemente allocata, e chiusura del 
+        file descriptor */
         free(blob_data);
+        close(fd);
 
     } else { // Legge il tipo di dato BLOB dal database
 
@@ -126,16 +126,22 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
+        // Scrive un dato BLOB prelevato dal database in un file
         if (blob_size != write(fd, blob_data, blob_size)) {
-            fprintf(stderr, "Err. Write file %d:%s\n", \
+            fprintf(stderr, "Err. Write file %s:%s\n",  \
                     strerror(errno), blob_data);
             return 1;
         }
 
-
-
+        /* Rilascia la memoria precedentemente allocata, e chiusura del 
+        file descriptor */
+        free(blob_data);
+        close(fd);
     }
 
+    // Chiusura della connessione al database
+    if (sqlite3_close_v2(db) == SQLITE_OK)
+        puts("Closed database connection");
 
     return(EXIT_SUCCESS);
 }
