@@ -165,4 +165,9 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
 
 // Legge il tipo di dato BLOB dat database
 static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
+    sqlite3_stmt *stmt;
+    const char *sql = "SELECT data FROM blobs WHERE id = ?";
+    int rc;
+
+    return rc;
 }
