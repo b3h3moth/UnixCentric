@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Legge il dato BLOB dal database.
-        if (SQLITE_DONE != read_blob(db, &blob_data, &blob_size)) {
+        if (SQLITE_OK != read_blob(db, &blob_data, &blob_size)) {
             fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -191,7 +191,7 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
 // Legge il tipo di dato BLOB dat database
 static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     sqlite3_stmt *stmt;
-    const char *sql = "SELECT data FROM blobs WHERE id = ?";
+    const char *sql = "SELECT data FROM blobs WHERE id = 1";
     int rc;
 
     // Nel caso non ci fossero record nella tabella
@@ -210,7 +210,7 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     rc = sqlite3_step(stmt);
     if (rc == SQLITE_ROW) {
         *blb_sz = sqlite3_column_bytes(stmt, 0);
-        *blb_data = malloc(*blb_sz);
+        *blb_data = (unsigned char *)malloc(*blb_sz);
         memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
     }
 
