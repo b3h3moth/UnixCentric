@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Legge il dato BLOB dal database.
-        if (SQLITE_OK != read_blob(db, file_wr, blob_data, blob_size)) {
+        if (SQLITE_OK != read_blob(db, &blob_data, &blob_size)) {
             fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
