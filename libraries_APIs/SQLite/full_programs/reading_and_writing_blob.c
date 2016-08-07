@@ -126,6 +126,13 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
+        if (blob_size != write(fd, blob_data, blob_size)) {
+            fprintf(stderr, "Err. Write file %d:%s\n", \
+                    strerror(errno), blob_data);
+            return 1;
+        }
+
+
 
     }
 
