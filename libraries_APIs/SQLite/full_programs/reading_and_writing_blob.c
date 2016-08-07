@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 
         // Scrive il tipo di dato BLOB nel database
         if (SQLITE_OK != write_blob(db, blob_data, blob_size)) {
-            fprintf(stderr, "Err. Write BLOB to database %d:%s\n", \
+            fprintf(stderr, "Err. Write BLOB to the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         }
@@ -105,12 +105,21 @@ int main(int argc, char *argv[]) {
     } else { // Legge il tipo di dato BLOB dal database
 
         // Apre il file in scrittura
-        fd = open(file_wr, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR)
+        fd = open(file_wr, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %s - %s\n", \
                     strerror(errno), file_wr);
             return 1;
         }
+
+        // Legge il dato BLOB dal database.
+        if (SQLITE_OK != read_blob(db, file_wr, blob_data, blob_size)) {
+            fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
+                    sqlite3_errcode(db), sqlite3_errmsg(db));
+            return 1;
+        }
+
+    }
 
 
     return(EXIT_SUCCESS);
