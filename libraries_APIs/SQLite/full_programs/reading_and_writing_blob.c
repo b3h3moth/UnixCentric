@@ -170,8 +170,8 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     int rc;
 
     // Nel caso non ci fossero record nella tabella
-    blb_data = NULL;
-    blb_sz = NULL;
+    *blb_data = 0;
+    *blb_sz = 0;
     
     // Compilazione della Prepared Statement nella macchina virtuale
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
@@ -183,6 +183,11 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
 
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
+    if (rc == SQLITE_ROW) {
+        *blb_sz = sqlite3_column_bytes(stmt, 0);
+        *blb_data = malloc(*blb_sz);
+        memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
+    }
 
     return rc;
 }
