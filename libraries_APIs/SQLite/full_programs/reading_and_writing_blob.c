@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 
         /* Scrive il tipo di dato BLOB nel database, rilascia inoltre la memoria
         precedentemente allocata */
-        if (SQLITE_OK != write_blob(db, file_wr, data_blob, blob_size)) {
+        if (SQLITE_OK != write_blob(db, data_blob, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -129,7 +129,7 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
 
     // Esecuzione della Prepared Statement
     rc = sqlite3_step(stmt);
-    if (rc != SQLITE_ROW) {
+    if (rc != SQLITE_DONE) {
         fprintf(stderr, "Err. Unable to stepping through  %d:%s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
