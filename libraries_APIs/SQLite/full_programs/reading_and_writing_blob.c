@@ -11,7 +11,7 @@
 
 // Function Prototypes
 static int create_table(sqlite3 *db);
-static int write_blob(sqlite3* db, const char *key, void *data_blob, int blob_sz);
+static int write_blob(sqlite3* db, const char *key, void *blb_data, int blb_sz);
 
 int main(int argc, char *argv[]) {
     // Connessione al database
@@ -109,3 +109,7 @@ static int create_table(sqlite3 *db) {
     const char *sql = "CREATE TABLE blobs(id INTEGER PRIMARY KEY, data BLOB)";
     return sqlite3_exec(db, sql, 0, 0, 0);
 }
+
+// Scrive il tipo BLOB nel database
+static int write_blob(sqlite3* db, const char *key, void *blb_data, int blb_sz) {
+    const char *sql = "INSERT INTO blobs(id, data) VALUES(?, ?)";
