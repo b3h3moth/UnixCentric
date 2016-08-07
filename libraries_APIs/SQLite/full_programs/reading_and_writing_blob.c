@@ -113,7 +113,14 @@ static int create_table(sqlite3 *db) {
 // Scrive il tipo BLOB nel database
 static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     sqlite3_stmt *stmt;
+    const char *sql = "INSERT INTO blobs(id, data) VALUES(?, ?)";
     int rc;
 
+    rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
+    if (rc != SQLITE_OK) {
+        fprintf(stderr, "Err. Unable to create Prepared Statement %d:%s\n", \
+                sqlite3_errcode(db), sqlite3_errmsg(db));
+        return 1;
+    }
 
-    const char *sql = "INSERT INTO blobs(id, data) VALUES(?, ?)";
+
