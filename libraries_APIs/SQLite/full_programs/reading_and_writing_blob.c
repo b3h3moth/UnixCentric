@@ -177,7 +177,7 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
-        fprintf(stderr, "Err. Unable to stepping through  %d:%s\n", \
+        fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     }
@@ -191,7 +191,7 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
 // Legge il tipo di dato BLOB dat database
 static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
     sqlite3_stmt *stmt;
-    const char *sql = "SELECT data FROM blobs WHERE id = 1";
+    const char *sql = "SELECT data FROM blobs WHERE id = ?";
     int rc;
 
     // Nel caso non ci fossero record nella tabella
@@ -212,6 +212,10 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
         *blb_sz = sqlite3_column_bytes(stmt, 0);
         *blb_data = (unsigned char *)malloc(*blb_sz);
         memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
+    } else {
+        fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
+                sqlite3_errcode(db), sqlite3_errmsg(db));
+        return 1;
     }
 
     return rc;
