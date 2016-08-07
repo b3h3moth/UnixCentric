@@ -135,4 +135,8 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
         return 1;
     }
 
-    
+    // Rilascio delle risorse dedicate alla Prepared Statement
+    rc = sqlite3_finalize(stmt);
+
+    return rc;
+}
