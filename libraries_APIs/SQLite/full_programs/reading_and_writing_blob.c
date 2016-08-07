@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     // Il peso del tipo di dato blob
     int blob_size = 0;
     // Salva il tipo di dato blob
-    unsigned char *data_blob = NULL;
+    unsigned char *blob_data = NULL;
     // Il filename del database
     char const *file_db = NULL;
     // Il file da scrivere nel database o da leggere dal database stesso
@@ -80,10 +80,10 @@ int main(int argc, char *argv[]) {
 
         /* Allocazione dello spazio necessario per il file 'file_wr', lettura e
         infine chiusura dello stesso */
-        data_blob = malloc(blob_size);
-        if (blob_size != read(fd, data_blob, blob_size)) {
+        blob_data = malloc(blob_size);
+        if (blob_size != read(fd, blob_data, blob_size)) {
             fprintf(stderr, "Err. Read file: %s - %s\n", \
-                    strerror(errno), data_blob);
+                    strerror(errno), blob_data);
             return 1;
         }
 
@@ -91,14 +91,14 @@ int main(int argc, char *argv[]) {
 
         /* Scrive il tipo di dato BLOB nel database, rilascia inoltre la memoria
         precedentemente allocata */
-        if (SQLITE_OK != write_blob(db, data_blob, blob_size)) {
+        if (SQLITE_OK != write_blob(db, blob_data, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         }
 
-        free(data_blob);
-    }
+        free(blob_data);
+    } 
 
 
     return(EXIT_SUCCESS);
