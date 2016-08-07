@@ -120,8 +120,9 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
+        // Verifica se il database contiene record o meno
         if (!blob_data) {
-            fprintf(stderr, "Ops! Database is empy %s.\n", file_wr);
+            fprintf(stderr, "Ops! Database is empty %s.\n", file_wr);
             return 1;
         }
 
