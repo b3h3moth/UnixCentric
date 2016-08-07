@@ -11,6 +11,7 @@
 
 // Function Prototypes
 static int create_table(sqlite3 *db);
+static int write_blob(sqlite3* db, const char *key, void *data_blob, int blob_sz);
 
 int main(int argc, char *argv[]) {
     // Connessione al database
