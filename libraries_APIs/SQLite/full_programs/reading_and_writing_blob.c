@@ -65,7 +65,6 @@ int main(int argc, char *argv[]) {
     }
 
     if (is_write) { // Scrive il tipo di dato BLOB nel database
-        // C
         create_table(db);
 
         // Apre il file ricevuto come argomento
@@ -101,7 +100,7 @@ int main(int argc, char *argv[]) {
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         } else
-            puts("BLOB data written");
+            puts("BLOB data \'%s\' successfully written.\n", file_wr);
 
         /* Rilascia la memoria precedentemente allocata, e chiusura del 
         file descriptor */
