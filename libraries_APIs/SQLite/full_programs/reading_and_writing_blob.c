@@ -70,14 +70,14 @@ int main(int argc, char *argv[]) {
         // Apre il file ricevuto come argomento
         fd = open(input_file, O_RDONLY);
         if (fd < 0) {
-            fprintf(stderr, "Err. Open file: %s - %s\n", \
-                    strerror(errno), input_file);
+            fprintf(stderr, "%d: Err. Open file failed: %s : \'%s\'\n", \
+                    __LINE__, strerror(errno), input_file);
             return 1;
         }
 
         if (fstat(fd, &fstatus) != 0) {
-            fprintf(stderr, "Err. Stat file: %s - %s\n", \
-                    strerror(errno), input_file);
+            fprintf(stderr, "%d: Err. Stat file failed: %s : \'%s\'\n", \
+                    __LINE__, strerror(errno), input_file);
             return 1;
         }
 
