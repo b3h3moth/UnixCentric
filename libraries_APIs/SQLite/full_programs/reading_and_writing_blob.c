@@ -11,8 +11,8 @@
 
 // Function Prototypes
 static int create_table(sqlite3 *db);
-static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz);
-static int write_blob(sqlite3* db, void *blb_data, int blb_sz);
+static int read_blob(sqlite3 *db, const char *fname, unsigned char **blb_data, int *blb_sz);
+static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz);
 
 /* Lo scopo del programma e' di scrivere un dato binario di tipo BLOB nel
 database, oppure leggere dal database stesso un BLOB e salvarlo nel
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Scrive il tipo di dato BLOB nel database
-        if (SQLITE_OK != write_blob(db, blob_data, blob_size)) {
+        if (SQLITE_OK != write_blob(db, file_wr, blob_data, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -118,7 +118,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Legge il dato BLOB dal database.
-        if (SQLITE_OK != read_blob(db, &blob_data, &blob_size)) {
+        if (SQLITE_OK != read_blob(db, file_wr, &blob_data, &blob_size)) {
             fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -152,14 +152,14 @@ int main(int argc, char *argv[]) {
 
 // Crea la tabella nel database 'db'
 static int create_table(sqlite3 *db) {
-    const char *sql = "CREATE TABLE blobs(id INTEGER PRIMARY KEY, data BLOB)";
+    const char *sql = "CREATE TABLE blobs(file_name TEXT PRIMARY KEY, data BLOB)";
     return sqlite3_exec(db, sql, 0, 0, 0);
 }
 
 // Scrive il tipo BLOB nel database
-static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
+static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz) {
     sqlite3_stmt *stmt;
-    const char *sql = "INSERT INTO blobs(data) VALUES(?)";
+    const char *sql = "INSERT INTO blobs(file_name, data) VALUES(?, ?)";
     int rc;
 
     // Compilazione della Prepared Statement nella macchina virtuale
@@ -170,8 +170,9 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
         return rc;
     }
 
-    // binding del valore alla query SQL
-    sqlite3_bind_blob(stmt, 1, blb_data, blb_sz, SQLITE_STATIC);
+    // binding dei valori alle variabili della query SQL
+    sqlite3_bind_text(stmt, 1, fname, -1, SQLITE_STATIC);
+    sqlite3_bind_blob(stmt, 2, blb_data, blb_sz, SQLITE_STATIC);
 
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
@@ -188,9 +189,9 @@ static int write_blob(sqlite3* db, void *blb_data, int blb_sz) {
 }
 
 // Legge il tipo di dato BLOB dat database
-static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
+static int read_blob(sqlite3 *db, const char *fname, unsigned char **blb_data, int *blb_sz) {
     sqlite3_stmt *stmt;
-    const char *sql = "SELECT data FROM blobs WHERE id = ?";
+    const char *sql = "SELECT data FROM blobs WHERE file_name = ?";
     int rc;
 
     // Nel caso non ci fossero record nella tabella
@@ -205,9 +206,12 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
         return rc;
     }
 
+    // Bind del nome del file alla variabile della query SQL
+    sqlite3_bind_text(stmt, 1, fname, -1, SQLITE_STATIC);
+
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
-    if (rc != SQLITE_DONE) {
+    if (rc != SQLITE_ROW) {
         fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
@@ -216,6 +220,9 @@ static int read_blob(sqlite3 *db, unsigned char **blb_data, int *blb_sz) {
         *blb_data = (unsigned char *)malloc(*blb_sz);
         memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
     }
+
+    // Rilascio delle risorse dedicate alla Prepared Statement
+    rc = sqlite3_finalize(stmt);
 
     return rc;
 }
