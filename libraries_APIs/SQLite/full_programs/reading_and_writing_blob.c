@@ -11,8 +11,8 @@
 
 // Function Prototypes
 static int create_table(sqlite3 *db);
-static int read_blob(sqlite3 *db, const char *fname, unsigned char **blb_data, int *blb_sz);
-static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz);
+static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, int *buf_len);
+static int write_blob(sqlite3* db, const char *fname, void *buf_ptr, int buf_len);
 
 /* Lo scopo del programma e' di scrivere un dato binario di tipo BLOB nel
 database, oppure leggere dal database stesso un BLOB e salvarlo nel
@@ -36,9 +36,9 @@ int main(int argc, char *argv[]) {
     // Salva il tipo di dato blob
     unsigned char *blob_data = NULL;
     // Il filename del database
-    char const *file_db = NULL;
+    char const *db_filename = NULL;
     // Il file da scrivere nel database o da leggere dal database stesso
-    char const *file_wr = NULL;
+    char const *input_file = NULL;
 
     // Verifica gli argomenti della linea di comando
     if (argc != 4) {
@@ -46,8 +46,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    file_db = argv[1];
-    file_wr = argv[3];
+    db_filename = argv[1];
+    input_file = argv[3];
 
     /* Verifica la prima lettera del terzo argomento corrisponda alla 's' o 'S'
     di 'store'; nel caso di esito positivo imposta la variabile 'is_write' a 1,
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Apre una connessione al database
-    rc = sqlite3_open_v2(file_db, &db, flags, NULL);
+    rc = sqlite3_open_v2(db_filename, &db, flags, NULL);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Open Database Connection failed: %d - %s\n", \
                 sqlite3_errcode(db), sqlite3_errmsg(db));
@@ -68,16 +68,16 @@ int main(int argc, char *argv[]) {
         create_table(db);
 
         // Apre il file ricevuto come argomento
-        fd = open(file_wr, O_RDONLY);
+        fd = open(input_file, O_RDONLY);
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %s - %s\n", \
-                    strerror(errno), file_wr);
+                    strerror(errno), input_file);
             return 1;
         }
 
         if (fstat(fd, &fstatus) != 0) {
             fprintf(stderr, "Err. Stat file: %s - %s\n", \
-                    strerror(errno), file_wr);
+                    strerror(errno), input_file);
             return 1;
         }
 
@@ -95,12 +95,12 @@ int main(int argc, char *argv[]) {
         }
 
         // Scrive il tipo di dato BLOB nel database
-        if (SQLITE_OK != write_blob(db, file_wr, blob_data, blob_size)) {
+        if (SQLITE_OK != write_blob(db, input_file, blob_data, blob_size)) {
             fprintf(stderr, "Err. Write BLOB to the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         } else
-            printf("BLOB data \'%s\' successfully written.\n", file_wr);
+            printf("BLOB data \'%s\' successfully written.\n", input_file);
 
         /* Rilascia la memoria precedentemente allocata e chiusura del 
         file descriptor */
@@ -110,15 +110,15 @@ int main(int argc, char *argv[]) {
     } else { // Legge il tipo di dato BLOB dal database
 
         // Apre il file in scrittura
-        fd = open(file_wr, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
+        fd = open(input_file, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
         if (fd < 0) {
             fprintf(stderr, "Err. Open file: %s - %s\n", \
-                    strerror(errno), file_wr);
+                    strerror(errno), input_file);
             return 1;
         }
 
         // Legge il dato BLOB dal database.
-        if (SQLITE_OK != read_blob(db, file_wr, &blob_data, &blob_size)) {
+        if (SQLITE_OK != read_blob(db, input_file, &blob_data, &blob_size)) {
             fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
@@ -157,7 +157,7 @@ static int create_table(sqlite3 *db) {
 }
 
 // Scrive il tipo BLOB nel database
-static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz) {
+static int write_blob(sqlite3* db, const char *fname, void *buf_ptr, int buf_len) {
     sqlite3_stmt *stmt;
     const char *sql = "INSERT INTO blobs(file_name, data) VALUES(?, ?)";
     int rc;
@@ -172,7 +172,7 @@ static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz
 
     // binding dei valori alle variabili della query SQL
     sqlite3_bind_text(stmt, 1, fname, -1, SQLITE_STATIC);
-    sqlite3_bind_blob(stmt, 2, blb_data, blb_sz, SQLITE_STATIC);
+    sqlite3_bind_blob(stmt, 2, buf_ptr, buf_len, SQLITE_STATIC);
 
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
@@ -189,14 +189,14 @@ static int write_blob(sqlite3* db, const char *fname, void *blb_data, int blb_sz
 }
 
 // Legge il tipo di dato BLOB dat database
-static int read_blob(sqlite3 *db, const char *fname, unsigned char **blb_data, int *blb_sz) {
+static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, int *buf_len) {
     sqlite3_stmt *stmt;
     const char *sql = "SELECT data FROM blobs WHERE file_name = ?";
     int rc;
 
     // Nel caso non ci fossero record nella tabella
-    *blb_data = 0;
-    *blb_sz = 0;
+    *buf_ptr = 0;
+    *buf_len = 0;
     
     // Compilazione della Prepared Statement nella macchina virtuale
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
@@ -216,9 +216,9 @@ static int read_blob(sqlite3 *db, const char *fname, unsigned char **blb_data, i
                 sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     } else {
-        *blb_sz = sqlite3_column_bytes(stmt, 0);
-        *blb_data = (unsigned char *)malloc(*blb_sz);
-        memcpy(*blb_data, (void *)sqlite3_column_blob(stmt, 0), *blb_sz);
+        *buf_len = sqlite3_column_bytes(stmt, 0);
+        *buf_ptr = (unsigned char *)malloc(*buf_len);
+        memcpy(*buf_ptr, (void *)sqlite3_column_blob(stmt, 0), *buf_len);
     }
 
     // Rilascio delle risorse dedicate alla Prepared Statement
