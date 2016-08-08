@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
         } else
             printf("BLOB data \'%s\' successfully written.\n", file_wr);
 
-        /* Rilascia la memoria precedentemente allocata, e chiusura del 
+        /* Rilascia la memoria precedentemente allocata e chiusura del 
         file descriptor */
         free(blob_data);
         close(fd);
