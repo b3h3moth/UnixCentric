@@ -49,9 +49,9 @@ int main(int argc, char *argv[]) {
     file_db = argv[1];
     file_wr = argv[3];
 
-    /* Verifica la prima lettera del terzo argomento, nel caso di esito 
-    positivo si imposta la variabile is_write ad 1, ovvero che si procedera'
-    alla scrittura di un dato binario nel database.  */
+    /* Verifica la prima lettera del terzo argomento corrisponda alla 's' o 'S'
+    di 'store'; nel caso di esito positivo imposta la variabile 'is_write' a 1,
+    ovvero si procedera' alla scrittura di un dato binario nel database.  */
     if (argv[2][0] == 's' || argv[2][0] == 'S') {
         is_write = 1;
     }
