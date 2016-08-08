@@ -100,7 +100,7 @@ int main(int argc, char *argv[]) {
                     sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         } else
-            puts("BLOB data \'%s\' successfully written.\n", file_wr);
+            printf("BLOB data \'%s\' successfully written.\n", file_wr);
 
         /* Rilascia la memoria precedentemente allocata, e chiusura del 
         file descriptor */
