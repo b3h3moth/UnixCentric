@@ -14,7 +14,8 @@ typedef struct OS {
 /*
 HEADER    : <stdio.h>
 
-PROTOTYPE : size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+PROTOTYPES: 
+     size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
      size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 
 SEMANTICS : La funzione fread() legge 'nmemb' elementi di dati, ciascuno di essi
