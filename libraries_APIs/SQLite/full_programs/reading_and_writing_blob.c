@@ -75,20 +75,23 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        if (fstat(fp, &fstatus) != 0) {
-            fprintf(stderr, "%d: Stat file failed (%s : \'%s\')\n", \
+        /* Spoosta il 'file pointer indicator' alla fine del file, in modo
+        tale da calcolare il peso del file stesso */
+        if (fseek(fp, 0, SEEK_END) != 0) {
+            fprintf(stderr, "%d: Seek file failed (%s : \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
+            fclose(fp)
             return 1;
         }
 
         // Salva in 'blob_size' il peso del file in byte
-        blob_size = fstatus.st_size;
+        blob_size = ftell(fp);
 
         // Alloca lo spazio necessario per il dato blob
         blob_data = malloc(blob_size);
         
         // Legge il file in 'blob_data'
-        if (blob_size != read(fd, blob_data, blob_size)) {
+        if (blob_size != fread(blob_data, sizeof(char), blob_size, fp)) {
             fprintf(stderr, "%d: Read file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), blob_data);
             return 1;
@@ -110,7 +113,7 @@ int main(int argc, char *argv[]) {
     } else { // Legge il tipo di dato BLOB dal database
 
         // Apre il file in scrittura
-        fd = open(input_file, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
+        fp = open(input_file, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
         if (fd < 0) {
             fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
