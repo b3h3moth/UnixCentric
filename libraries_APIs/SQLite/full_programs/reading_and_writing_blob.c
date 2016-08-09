@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
         if (fseek(fp, 0, SEEK_END) != 0) {
             fprintf(stderr, "%d: Seek file failed (%s : \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
-            fclose(fp)
+            fclose(fp);
             return 1;
         }
 
@@ -108,13 +108,13 @@ int main(int argc, char *argv[]) {
         /* Rilascia la memoria precedentemente allocata e chiusura del 
         file descriptor */
         free(blob_data);
-        close(fd);
+        fclose(fp);
 
     } else { // Legge il tipo di dato BLOB dal database
 
         // Apre il file in scrittura
-        fp = open(input_file, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
-        if (fd < 0) {
+        fp = fopen(input_file, "r");
+        if (fp == NULL) {
             fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
@@ -134,7 +134,7 @@ int main(int argc, char *argv[]) {
         }
 
         // Scrive un dato BLOB prelevato dal database in un file
-        if (blob_size != write(fd, blob_data, blob_size)) {
+        if (blob_size != fwrite(blob_data, sizeof(char), blob_size, fp)) {
             fprintf(stderr, "%d: Write file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), blob_data);
             return 1;
@@ -143,7 +143,7 @@ int main(int argc, char *argv[]) {
         /* Rilascia la memoria precedentemente allocata, e chiusura del 
         file descriptor */
         free(blob_data);
-        close(fd);
+        fclose(fp);
     }
 
     // Chiusura della connessione al database
