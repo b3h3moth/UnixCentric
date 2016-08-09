@@ -67,15 +67,15 @@ int main(int argc, char *argv[]) {
     if (is_write) { // Scrive il tipo di dato BLOB nel database
         create_table(db);
 
-        // Apre il file ricevuto come argomento
-        fd = fopen(input_file, "r");
-        if (fd < 0) {
+        // Apre il file ricevuto come argomento in lettura
+        fp = fopen(input_file, "r");
+        if (fp == NULL) {
             fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
         }
 
-        if (fstat(fd, &fstatus) != 0) {
+        if (fstat(fp, &fstatus) != 0) {
             fprintf(stderr, "%d: Stat file failed (%s : \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
