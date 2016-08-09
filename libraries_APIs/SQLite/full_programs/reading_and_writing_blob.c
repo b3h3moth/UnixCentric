@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     // Apre una connessione al database
     rc = sqlite3_open_v2(db_filename, &db, flags, NULL);
     if (rc != SQLITE_OK) {
-            fprintf(stderr, "%d: Open Database failed (%d: \'%s\')\n", \
+            fprintf(stderr, "%d: Open database failed (%d: \'%s\')\n", \
                 __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     }
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
         // Apre il file ricevuto come argomento
         fd = open(input_file, O_RDONLY);
         if (fd < 0) {
-            fprintf(stderr, "%d: Open File failed (%s: \'%s\')\n", \
+            fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
         }
@@ -89,15 +89,15 @@ int main(int argc, char *argv[]) {
         
         // Legge il file in 'blob_data'
         if (blob_size != read(fd, blob_data, blob_size)) {
-            fprintf(stderr, "Err. Read file: %s - %s\n", \
-                    strerror(errno), blob_data);
+            fprintf(stderr, "%d: Read file failed (%s: \'%s\')\n", \
+                    __LINE__, strerror(errno), blob_data);
             return 1;
         }
 
         // Scrive il tipo di dato BLOB nel database
         if (SQLITE_OK != write_blob(db, input_file, blob_data, blob_size)) {
-            fprintf(stderr, "Err. Write BLOB to the database %d:%s\n", \
-                    sqlite3_errcode(db), sqlite3_errmsg(db));
+            fprintf(stderr, "%d: Write BLOB into database (%d: \'%s\')\n", \
+                    __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         } else
             printf("BLOB data \'%s\' successfully written.\n", input_file);
@@ -112,15 +112,15 @@ int main(int argc, char *argv[]) {
         // Apre il file in scrittura
         fd = open(input_file, O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
         if (fd < 0) {
-            fprintf(stderr, "Err. Open file: %s - %s\n", \
-                    strerror(errno), input_file);
+            fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
+                    __LINE__, strerror(errno), input_file);
             return 1;
         }
 
         // Legge il dato BLOB dal database.
         if (SQLITE_OK != read_blob(db, input_file, &blob_data, &blob_size)) {
-            fprintf(stderr, "Err. Read BLOB from the database %d:%s\n", \
-                    sqlite3_errcode(db), sqlite3_errmsg(db));
+            fprintf(stderr, "%d: Write BLOB into database (%d: \'%s\')\n", \
+                    __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
             return 1;
         }
 
@@ -132,8 +132,8 @@ int main(int argc, char *argv[]) {
 
         // Scrive un dato BLOB prelevato dal database in un file
         if (blob_size != write(fd, blob_data, blob_size)) {
-            fprintf(stderr, "Err. Write file %s:%s\n",  \
-                    strerror(errno), blob_data);
+            fprintf(stderr, "%d: Write file failed (%s: \'%s\')\n", \
+                    __LINE__, strerror(errno), blob_data);
             return 1;
         }
 
@@ -165,8 +165,8 @@ static int write_blob(sqlite3* db, const char *fname, void *buf_ptr, int buf_len
     // Compilazione della Prepared Statement nella macchina virtuale
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Unable to create Prepared Statement %d:%s\n", \
-                sqlite3_errcode(db), sqlite3_errmsg(db));
+        fprintf(stderr, "%d: Statement preparation failed (%d: \'%s\')\n", \
+                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return rc;
     }
 
@@ -177,8 +177,8 @@ static int write_blob(sqlite3* db, const char *fname, void *buf_ptr, int buf_len
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {
-        fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
-                sqlite3_errcode(db), sqlite3_errmsg(db));
+        fprintf(stderr, "%d: SQL statement execution failed (%d: \'%s\')\n", \
+                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     }
 
@@ -201,8 +201,8 @@ static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, in
     // Compilazione della Prepared Statement nella macchina virtuale
     rc = sqlite3_prepare_v2(db, sql, -1, &stmt, 0);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Unable to create Prepared Statement %d:%s\n", \
-                sqlite3_errcode(db), sqlite3_errmsg(db));
+        fprintf(stderr, "%d: Statement preparation failed (%d: \'%s\')\n", \
+                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return rc;
     }
 
@@ -212,8 +212,8 @@ static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, in
     // Esecuzione della macchina virtuale
     rc = sqlite3_step(stmt);
     if (rc != SQLITE_ROW) {
-        fprintf(stderr, "Err. Failed to execute virtual machine %d:%s\n", \
-                sqlite3_errcode(db), sqlite3_errmsg(db));
+        fprintf(stderr, "%d: SQL statement execution failed (%d: \'%s\')\n", \
+                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     } else {
         *buf_len = sqlite3_column_bytes(stmt, 0);
