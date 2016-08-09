@@ -23,8 +23,8 @@ int main(int argc, char *argv[]) {
     sqlite3        *db = NULL;
     // 1 = scrivere BLOB nel DB | 0 = leggere BLOB dal DB
     bool is_write = 0; 
-    // Il file descriptor
-    int fd = 0;
+    // Il file pointer
+    FILE *fp = NULL;
     // Il risultato delle chiamate
     int rc = 0;
     // Datbase flags
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
         create_table(db);
 
         // Apre il file ricevuto come argomento
-        fd = open(input_file, O_RDONLY);
+        fd = fopen(input_file, "r");
         if (fd < 0) {
             fprintf(stderr, "%d: Open file failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
