@@ -59,8 +59,8 @@ int main(int argc, char *argv[]) {
     // Apre una connessione al database
     rc = sqlite3_open_v2(db_filename, &db, flags, NULL);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. Open Database Connection failed: %d - %s\n", \
-                sqlite3_errcode(db), sqlite3_errmsg(db));
+            fprintf(stderr, "%d: Open Database failed (%d: \'%s\')\n", \
+                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
         return 1;
     }
 
@@ -70,13 +70,13 @@ int main(int argc, char *argv[]) {
         // Apre il file ricevuto come argomento
         fd = open(input_file, O_RDONLY);
         if (fd < 0) {
-            fprintf(stderr, "%d: Err. Open file failed: %s : \'%s\'\n", \
+            fprintf(stderr, "%d: Open File failed (%s: \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
         }
 
         if (fstat(fd, &fstatus) != 0) {
-            fprintf(stderr, "%d: Err. Stat file failed: %s : \'%s\'\n", \
+            fprintf(stderr, "%d: Stat file failed (%s : \'%s\')\n", \
                     __LINE__, strerror(errno), input_file);
             return 1;
         }
