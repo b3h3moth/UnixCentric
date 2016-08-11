@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* ma serve la prepared statement? */
     sqlite3_blob_open();
     bytes = sqlite3_blob_bytes();
     malloc(bytes);
