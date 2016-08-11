@@ -40,6 +40,7 @@ int main(int argc, char *argv[]) {
 
     sqlite3_blob_open();
     bytes = sqlite3_blob_bytes();
+    sqlite3_blob_read();
 
     // L'esecuzione del codice VDBE
     if (sqlite3_step(stmt) == SQLITE_DONE)
