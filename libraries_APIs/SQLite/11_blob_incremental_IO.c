@@ -38,6 +38,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    sqlite3_blob_open();
+
     // L'esecuzione del codice VDBE
     if (sqlite3_step(stmt) == SQLITE_DONE)
         printf("... Statement successfully executed: %s\n", sql_str);
