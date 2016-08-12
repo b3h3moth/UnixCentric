@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
     }
 
     // Nome della tabella e del dato binario di prelevare
-    const char *const table_name = (argc && argv[1]) ? argv[1] : "";
-    const char *const data_name = (argc && argv[2]) ? argv[2] : "";
+    const char *const table_name = (argc && argv[2]) ? argv[2] : "";
+    const char *const data_name = (argc && argv[3]) ? argv[3] : "";
 
     // Inizializzazione della libreria
     if (sqlite3_initialize() != SQLITE_OK) {
