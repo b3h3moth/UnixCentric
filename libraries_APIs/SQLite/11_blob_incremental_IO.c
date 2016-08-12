@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
     int          flags = SQLITE_OPEN_READWRITE;
-    char         *sql_str = "SELECT data FROM blobs WHERE key = ?"
+    char         *sql_str = "SELECT rowid FROM ? WHERE name like ?";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
@@ -37,6 +37,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
     }
+
 
 
     // L'esecuzione del codice VDBE
