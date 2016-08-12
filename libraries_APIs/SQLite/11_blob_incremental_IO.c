@@ -12,6 +12,10 @@ int main(int argc, char *argv[]) {
     int          flags = SQLITE_OPEN_READWRITE;
     char         *sql_str = "SELECT rowid FROM ? WHERE name like ?";
 
+    // Nome del database e del dato binario di prelevare
+    const char *const table_name = (argc && argv[1]) ? argv[1] : "";
+    const char *const data_name = (argc && argv[2]) ? argv[2] : "";
+
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
         exit(EXIT_FAILURE);
