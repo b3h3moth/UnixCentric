@@ -6,12 +6,13 @@
 I/O incrementale */
 
 int main(int argc, char *argv[]) {
-    sqlite3      *db = NULL;
+    sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
-    int          res = 0;
-    int          flags = SQLITE_OPEN_READWRITE;
-    char         *sql_rowid = "SELECT rowid FROM blobs WHERE file_name like ?";
-    char         *sql_data = "SELECT data from blobs WHERE file_name like ?";
+    int res = 0;
+    int flags = SQLITE_OPEN_READWRITE;
+    sqlite3_int64 rowid = 0;
+    char *sql_rowid = "SELECT rowid FROM blobs WHERE file_name LIKE ?";
+    char *sql_data = "SELECT data FROM blobs WHERE file_name LIKE ?";
 
 
     if (argc != 4) {
@@ -37,6 +38,8 @@ int main(int argc, char *argv[]) {
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
+
+    sqlite3_exec(db, sqlcmd, (void *)&getrowid, &rowid, &err_msg);
 
     // Creazione della "Prepared Statement".
     if (sqlite3_prepare_v2(db, sql_rowid,-1, &stmt, NULL) != SQLITE_OK) {
