@@ -8,7 +8,9 @@ I/O incrementale */
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
+    sqlite3_blob *blob = NULL;
     int res = 0;
+    int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
     sqlite3_int64 rowid = 0;
     char *err_msg = 0;
@@ -49,6 +51,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    sqlite3_blob_open(db, "main", "blobs", "data", rowid, 0, &blob);
+
+    blob_size=sqlite3_blob_bytes(blob);
 
 
     // L'esecuzione del codice VDBE
