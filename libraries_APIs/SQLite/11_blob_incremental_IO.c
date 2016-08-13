@@ -40,7 +40,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    sqlite3_exec(db, sqlcmd, (void *)&getrowid, &rowid, &err_msg);
+    sqlite3_exec(db, sql_rowid, NULL, &rowid, &err_msg);
+    sqlite3_exec(db, sql_data, NULL, argv[3], &err_msg);
 
     // Creazione della "Prepared Statement".
     if (sqlite3_prepare_v2(db, sql_rowid,-1, &stmt, NULL) != SQLITE_OK) {
