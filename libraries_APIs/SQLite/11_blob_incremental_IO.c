@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
     int res = 0;
     int flags = SQLITE_OPEN_READWRITE;
     sqlite3_int64 rowid = 0;
+    char *err_msg = 0;
     char *sql_rowid = "SELECT rowid FROM blobs WHERE file_name LIKE ?";
     char *sql_data = "SELECT data FROM blobs WHERE file_name LIKE ?";
 
