@@ -10,7 +10,8 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
     int          flags = SQLITE_OPEN_READWRITE;
-    char         *sql_rowid = "SELECT rowid FROM ? WHERE name like ?";
+    char         *sql_rowid = "SELECT rowid FROM ? WHERE file_name like ?";
+    char         *sql_data = "SELECT data from ? WHERE file_name like ?";
 
 
     if (argc != 4) {
