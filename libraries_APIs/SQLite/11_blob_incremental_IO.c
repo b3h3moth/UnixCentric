@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int          res = 0;
     int          flags = SQLITE_OPEN_READWRITE;
-    char         *sql_str = "SELECT rowid FROM ? WHERE name like ?";
+    char         *sql_rowid = "SELECT rowid FROM ? WHERE name like ?";
 
 
     if (argc != 4) {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Creazione della "Prepared Statement".
-    if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
+    if (sqlite3_prepare_v2(db, sql_rowid,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
     }
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 
     // L'esecuzione del codice VDBE
     if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("... Statement successfully executed: %s\n", sql_str);
+        printf("... Statement successfully executed: %s\n", sql_rowid);
 
     // Rilascio della prepared statement
     if (sqlite3_finalize(stmt) == SQLITE_OK)
