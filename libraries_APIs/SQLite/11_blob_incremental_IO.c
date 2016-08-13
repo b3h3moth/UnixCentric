@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
     sqlite3_int64 rowid = 0;
+    char *blob_data = NULL;
     char *err_msg = 0;
     char *sql_rowid = "SELECT rowid FROM blobs WHERE file_name LIKE ?";
     char *sql_data = "SELECT data FROM blobs WHERE file_name LIKE ?";
@@ -53,7 +54,9 @@ int main(int argc, char *argv[]) {
 
     sqlite3_blob_open(db, "main", "blobs", "data", rowid, 0, &blob);
 
-    blob_size=sqlite3_blob_bytes(blob);
+    blob_size = sqlite3_blob_bytes(blob);
+    blob_data = malloc(blob_size);
+    sqlite3_blob_read(blob, blob_data, blob_size, 0);
 
 
     // L'esecuzione del codice VDBE
