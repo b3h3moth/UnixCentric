@@ -12,10 +12,11 @@ int main(int argc, char *argv[]) {
     int res = 0;
     int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
+    int idx = 0;
     sqlite3_int64 rowid = 0;
     char *blob_data = NULL;
     char *err_msg = 0;
-    char *sql_data = "SELECT rowid FROM blobs WHERE name LIKE 'vessels'";
+    char *sql_data = "SELECT data FROM blobs where name LIKE 'vessels'";
 
 /*
     if (argc < 3) {
@@ -25,7 +26,7 @@ int main(int argc, char *argv[]) {
 */
     // Nome della tabella e del dato binario di prelevare
     // const char *const table_name = (argc && argv[2]) ? argv[2] : "";
-  //  const char *const data_name = (argc && argv[2]) ? argv[2] : "";
+    const char *const data_name = (argc && argv[1]) ? argv[1] : "";
 
     // Inizializzazione della libreria
     if (sqlite3_initialize() != SQLITE_OK) {
@@ -48,18 +49,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    rowid = 2;
-
-    if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("... Statement successfully executed: %s\n", sql_data);
+    if (sqlite3_step(stmt) == SQLITE_DONE) {
+       puts("Execute the prepared statement");
+    }
 
     // Rilascio della prepared statement
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
 
-
+    rowid = 2;
     sqlite3_blob_open(db, "main", "blobs", "data", rowid, 0, &blob);
-
     blob_size = sqlite3_blob_bytes(blob);
     blob_data = malloc(blob_size);
     sqlite3_blob_read(blob, blob_data, blob_size, 0);
