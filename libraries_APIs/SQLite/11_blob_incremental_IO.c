@@ -48,7 +48,17 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    sqlite3_blob_open(db, "main", "blobs", "data", 2, 0, &blob);
+    rowid = 2;
+
+    if (sqlite3_step(stmt) == SQLITE_DONE)
+        printf("... Statement successfully executed: %s\n", sql_data);
+
+    // Rilascio della prepared statement
+    if (sqlite3_finalize(stmt) == SQLITE_OK)
+        puts("... Prepared Statemend destroyed.");
+
+
+    sqlite3_blob_open(db, "main", "blobs", "data", rowid, 0, &blob);
 
     blob_size = sqlite3_blob_bytes(blob);
     blob_data = malloc(blob_size);
@@ -60,12 +70,6 @@ int main(int argc, char *argv[]) {
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
     
-    if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("... Statement successfully executed: %s\n", sql_data);
-
-    // Rilascio della prepared statement
-    if (sqlite3_finalize(stmt) == SQLITE_OK)
-        puts("... Prepared Statemend destroyed.");
 
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
