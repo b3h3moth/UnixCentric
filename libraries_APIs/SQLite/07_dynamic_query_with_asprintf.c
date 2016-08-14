@@ -5,8 +5,8 @@
 /* Lo scopo del programma e' di seguire una query dinamica facendo uso della
 funzione asprintf().
 
-Note: Whene compiling add -D_GNU_SOURCE 
-<clang, gcc> -std=c11 -lsqlite3 -Wall -pedantic -D_GNU_SOURCE file.c
+Note: When compiling add -D_GNU_SOURCE 
+<clang | gcc> -std=c11 -lsqlite3 -Wall -pedantic -D_GNU_SOURCE file.c
 */
 
 int main(int argc, char *argv[]) {
@@ -56,4 +56,4 @@ int main(int argc, char *argv[]) {
     free(sql_query);
 
     return(EXIT_SUCCESS);
-}
+}:

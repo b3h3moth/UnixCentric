@@ -60,7 +60,8 @@ int main(int argc, char *argv[]) {
     La funzione sqlite3_column_int() estrae dati di tipo intero, mentre
     la funzione sqlite3_column_bytes() estrae i byte dell'ultima colonna. */
     while (sqlite3_step(stmt) == SQLITE_ROW) {
-        printf("%2d %10s %8s %14s (byte: %d)\n", sqlite3_column_int(stmt, 0), \
+        printf("%2d %10s %8s %14s (byte: %d)\n",                \
+                sqlite3_column_int(stmt, 0),                    \
                 (const char*)sqlite3_column_text(stmt, 1),      \
                 (const char*)sqlite3_column_text(stmt, 2),      \
                 (const char*)sqlite3_column_text(stmt, 3),      \
