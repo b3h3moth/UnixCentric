@@ -19,13 +19,13 @@ int main(int argc, char *argv[]) {
     char *sql_data = "SELECT data FROM blobs WHERE file_name LIKE ?";
 
 
-    if (argc != 4) {
-        fprintf(stderr, "Usage: %s <database> <table> <filename>\n", argv[0]);
+    if (argc < 3) {
+        fprintf(stderr, "Usage: %s <database> <filename>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     // Nome della tabella e del dato binario di prelevare
-    const char *const table_name = (argc && argv[2]) ? argv[2] : "";
+    // const char *const table_name = (argc && argv[2]) ? argv[2] : "";
     const char *const data_name = (argc && argv[3]) ? argv[3] : "";
 
     // Inizializzazione della libreria
@@ -46,27 +46,33 @@ int main(int argc, char *argv[]) {
     sqlite3_exec(db, sql_rowid, NULL, &rowid, &err_msg);
     sqlite3_exec(db, sql_data, NULL, argv[3], &err_msg);
 
-    // Creazione della "Prepared Statement".
+    /* Creazione della "Prepared Statement".
     if (sqlite3_prepare_v2(db, sql_rowid,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
     }
-
+*/
     sqlite3_blob_open(db, "main", "blobs", "data", rowid, 0, &blob);
 
     blob_size = sqlite3_blob_bytes(blob);
     blob_data = malloc(blob_size);
+    sqlite3_bind_blob(stmt, 3, blob_data, blob_size, SQLITE_STATIC);  
     sqlite3_blob_read(blob, blob_data, blob_size, 0);
+    sqlite3_blob_close(blob);
 
-
-    // L'esecuzione del codice VDBE
+    FILE *fblob;
+    fblob=fopen(argv[2], "w");
+    fwrite(blob_data, blob_size, 1, fblob);
+    fclose(fblob);
+    
+    /* L'esecuzione del codice VDBE
     if (sqlite3_step(stmt) == SQLITE_DONE)
         printf("... Statement successfully executed: %s\n", sql_rowid);
 
     // Rilascio della prepared statement
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
-
+*/
     // Close database connection
     if (sqlite3_close_v2(db) == SQLITE_OK)
         puts("... Closed database connection. ");
