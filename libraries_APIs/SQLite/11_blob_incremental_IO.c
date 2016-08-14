@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
     sqlite3_int64 rowid = 0;
     char *blob_data = NULL;
     char *err_msg = 0;
-    char *sql_rowid = "SELECT rowid FROM blobs WHERE file_name LIKE ?";
     char *sql_data = "SELECT rowid FROM blobs WHERE name LIKE 'vessels'";
 
 /*
@@ -61,11 +60,9 @@ int main(int argc, char *argv[]) {
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
     
-
-    /* L'esecuzione del codice VDBE
     if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("... Statement successfully executed: %s\n", sql_rowid);
-*/
+        printf("... Statement successfully executed: %s\n", sql_data);
+
     // Rilascio della prepared statement
     if (sqlite3_finalize(stmt) == SQLITE_OK)
         puts("... Prepared Statemend destroyed.");
