@@ -11,7 +11,10 @@ dalla command line.
 La documentazione SQLite consiglia espressamente l'utilizzo della nuova 
 versione sqlite3_open_v2(), che conferisce maggior controllo sull'apertura e il
 processamente del database.
-*/
+
+Il primo argomento puo' essere sia un filename sia la stringa ':memory:' - ma
+anche una stringa nuova o NULL -, nel qual caso sara' creato un database in RAM
+per la sola durata del programma in esecuzione, ovvero della sessione. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
