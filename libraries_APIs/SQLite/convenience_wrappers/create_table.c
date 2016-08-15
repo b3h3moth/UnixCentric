@@ -24,18 +24,17 @@ int main(int argc, char *argv[]) {
     }
 
     // Query il cui compito e' la creazione di una tabella suddivisa in campi
-    sql_create = "CREATE TABLE note(        \
-                  id INTEGER PRIMARY KEY,   \
-                  data DATE NOT NULL,       \
-                  time TIME NOT NULL,       \
+    sql_create = "CREATE TABLE IF NOT EXISTS note(  \
+                  id INTEGER PRIMARY KEY,           \
+                  data DATE NOT NULL,               \
+                  time TIME NOT NULL,               \
                   msg TEXT NOT NULL)";
     
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
-
     if (rc != SQLITE_OK) {
         if (err != NULL) {
-            fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
+            fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
         }
         return 1;
     }
@@ -43,11 +42,21 @@ int main(int argc, char *argv[]) {
     printf("Table successfully created within the database: %s\n", argv[1]);
 
     // Inserimento di alcuni record nella tabella
-    sql_insert = "INSERT INTO note(data, time, msg) VALUES  \
-                  date('now'),                              \
-                  time('now'),                              \
-                  'Take a walk on the wild side";
+    sql_insert = "INSERT INTO note(data, time, msg) VALUES (    \
+                  date('now'),                                  \
+                  time('now'),                                  \
+                  'Take a walk on the wild side')";
 
+    // Esecuzione della query 'sql'.
+    rc = sqlite3_exec(db, sql_insert, NULL, NULL, &err);
+    if (rc != SQLITE_OK) {
+        if (err != NULL) {
+            fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
+        }
+        return 1;
+    }
+
+    puts("Record successfully created.");
 
     // Close database connection
     sqlite3_close(db);
