@@ -7,7 +7,7 @@ database fornito come argomento */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
-    char    *sql_query = NULL;
+    char    *sql_create = NULL;
     char    *err = NULL;
     int     rc = 0;
 
@@ -23,14 +23,14 @@ int main(int argc, char *argv[]) {
     }
 
     // Query il cui compito e' la creazione di una tabella suddivisa in campi
-    sql_query = "CREATE TABLE note(\
-           id INTEGER PRIMARY KEY,\
-           data DATE NOT NULL,\
-           time TIME NOT NULL,\
-           msg TEXT NOT NULL)";
+    sql_create = "CREATE TABLE note(    \
+        id INTEGER PRIMARY KEY,         \
+        data DATE NOT NULL,             \
+        time TIME NOT NULL,             \
+        msg TEXT NOT NULL)";
     
     // Esecuzione della query 'sql'.
-    rc = sqlite3_exec(db, sql_query, NULL, NULL, &err);
+    rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
     if (rc != SQLITE_OK)
         if (err != NULL) {
             fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
         }
 
     printf("Table successfully created within the database: %s\n", argv[1]);
+
 
     // Close database connection
     sqlite3_close(db);
