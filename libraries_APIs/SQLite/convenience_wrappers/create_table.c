@@ -8,11 +8,12 @@ database fornito come argomento */
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     char    *sql_create = NULL;
+    char    *sql_insert = NULL;
     char    *err = NULL;
     int     rc = 0;
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <database>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -23,11 +24,11 @@ int main(int argc, char *argv[]) {
     }
 
     // Query il cui compito e' la creazione di una tabella suddivisa in campi
-    sql_create = "CREATE TABLE note(    \
-        id INTEGER PRIMARY KEY,         \
-        data DATE NOT NULL,             \
-        time TIME NOT NULL,             \
-        msg TEXT NOT NULL)";
+    sql_create = "CREATE TABLE note(        \
+                  id INTEGER PRIMARY KEY,   \
+                  data DATE NOT NULL,       \
+                  time TIME NOT NULL,       \
+                  msg TEXT NOT NULL)";
     
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
@@ -40,6 +41,13 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Table successfully created within the database: %s\n", argv[1]);
+
+    // Inserimento di alcuni record nella tabella
+    sql_insert = "INSERT INTO note(data, time, msg) VALUES  \
+                  date('now'),                              \
+                  time('now'),                              \
+                  'Take a walk on the wild side";
+
 
     // Close database connection
     sqlite3_close(db);
