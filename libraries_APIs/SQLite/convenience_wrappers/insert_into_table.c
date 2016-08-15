@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     sql_query = "INSERT INTO note(data, time, msg) VALUES \
            ( date('now'), \
            time('now'), \
-           'Convenience wrapper is not a good way' )";
+           'Convenience wrapper' )";
     
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_query, NULL, NULL, &err);
