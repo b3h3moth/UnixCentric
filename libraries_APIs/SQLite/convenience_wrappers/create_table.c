@@ -31,14 +31,15 @@ int main(int argc, char *argv[]) {
     
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
-    if (rc != SQLITE_OK)
+
+    if (rc != SQLITE_OK) {
         if (err != NULL) {
             fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
-            exit(EXIT_FAILURE);
         }
+        return 1;
+    }
 
     printf("Table successfully created within the database: %s\n", argv[1]);
-
 
     // Close database connection
     sqlite3_close(db);
