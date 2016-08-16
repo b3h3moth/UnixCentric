@@ -3,7 +3,7 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di leggere i record di una tabella, il nome del
-database e' fornito come argomento */
+database e' fornito come argomento. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;

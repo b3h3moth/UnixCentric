@@ -3,7 +3,7 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' la creazione di una tabella all'interno del 
-database fornito come argomento */
+database fornito come argomento ed inserire alcuni record. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
