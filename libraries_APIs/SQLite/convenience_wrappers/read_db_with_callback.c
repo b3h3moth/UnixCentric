@@ -11,7 +11,7 @@ funzione di callback, il nome del database e' fornito come argomento. */
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     char    *sql_query = NULL;
-    char    *err = NULL;
+    char    *err_msg = NULL;
     int     rc = 0;
 
 
@@ -32,8 +32,8 @@ int main(int argc, char *argv[]) {
     // Lettura dei record mediante la funzione callback()
     rc = sqlite3_exec(db, sql_query, callback, NULL, &err);
     if (rc != SQLITE_OK) {
-        fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
-        sqlite3_free(err);
+        fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err_msg);
+        sqlite3_free(err_Msg);
     }
 
     // Close database connection
