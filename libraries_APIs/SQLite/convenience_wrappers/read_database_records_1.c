@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Comando SQL per la lettura dei dati da una tabella
-    sql_query = "SELECT * from note ORDER by id";
+    sql_query = "SELECT * from song ORDER by id";
 
     // Lettura dei record mediante la funzione sqlite3_get_table()
     rc = sqlite3_get_table(db, sql_query, &record, &nrows, &ncols, &err);
