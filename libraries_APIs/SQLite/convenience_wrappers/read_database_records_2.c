@@ -3,18 +3,16 @@
 #include <sqlite3.h>
 
 // Function Prototype
-int callback(void *data, int cols, char **fields, char **col_names) {
+int callback(void *data, int num_col, char **col_data, char **col_name);
 
 /* Lo scopo del programma e' di leggere i record di una tabella mediante la
 funzione di callback, il nome del database e' fornito come argomento. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
-    char    **record = NULL;
     char    *sql_query = NULL;
     char    *err = NULL;
     int     rc = 0;
-    int     i, j, nrows, ncols;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
@@ -31,7 +29,7 @@ int main(int argc, char *argv[]) {
     sql_query = "SELECT * from note ORDER by id";
 
     // Lettura dei record mediante la funzione sqlite3_get_table()
-    rc = sqlite3_get_table(db, sql_query, &record, &nrows, &ncols, &err);
+    rc = sqlite3_exec(db, sql_query, callback, NULL, &err);
     if (rc != SQLITE_OK) {
         if (err != NULL) {
             fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
@@ -40,18 +38,15 @@ int main(int argc, char *argv[]) {
         }
     }
 
-
     // Close database connection
     sqlite3_close(db);
 
     return(EXIT_SUCCESS);
 }
 
-int callback(void *data, int cols, char **fields, char **col_names) {
-    for (i=0; i<nrows; i++) {
-        for (j=0; j<ncols; j++) {
-            fprintf(stdout, "%s | ", record[(i+1) * ncols + j]);
-        }
-        fputc('\n', stdout);
-    }
+int callback(void *data, int num_col, char **col_data, char **col_name) {
+    int i;
+
+    for (i=0; i<ncols; i++) {
+    printf("%s %s\n", fields[i], col_names[i]);
 }
