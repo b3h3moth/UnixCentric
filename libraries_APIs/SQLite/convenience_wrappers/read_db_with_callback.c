@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     // Comando SQL per la lettura dei dati da una tabella
     sql_query = "SELECT * from song ORDER by id";
 
-    // Lettura dei record mediante la funzione sqlite3_get_table()
+    // Lettura dei record mediante la funzione callback()
     rc = sqlite3_exec(db, sql_query, callback, NULL, &err);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
