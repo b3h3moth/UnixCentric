@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <database>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
