@@ -30,10 +30,10 @@ int main(int argc, char *argv[]) {
     sql_query = "SELECT * from song ORDER by id";
 
     // Lettura dei record mediante la funzione callback()
-    rc = sqlite3_exec(db, sql_query, callback, NULL, &err);
+    rc = sqlite3_exec(db, sql_query, callback, NULL, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err_msg);
-        sqlite3_free(err_Msg);
+        sqlite3_free(err_msg);
     }
 
     // Close database connection
@@ -50,7 +50,7 @@ int callback(void *data, int num_col, char **col_data, char **col_name) {
              ritornata, pertanto non c'e' alcun bisogno di crearla qualora la 
              query SQL non preveda dati di ritorno */
     for (i=0; i<num_col; i++)
-        printf("%s: %s\n", col_name[i], col_data[i] ? col_data[i] : "NULL");
+        printf("%4s: %s\n", col_name[i], col_data[i] ? col_data[i] : "NULL");
 
     fputc('\n', stdout);
     
