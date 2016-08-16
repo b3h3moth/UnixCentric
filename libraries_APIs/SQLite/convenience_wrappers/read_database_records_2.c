@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     char    *err = NULL;
     int     rc = 0;
 
+
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database_name.db>\n", argv[0]);
         exit(EXIT_FAILURE);
@@ -31,11 +32,8 @@ int main(int argc, char *argv[]) {
     // Lettura dei record mediante la funzione sqlite3_get_table()
     rc = sqlite3_exec(db, sql_query, callback, NULL, &err);
     if (rc != SQLITE_OK) {
-        if (err != NULL) {
-            fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
-            sqlite3_close(db);
-            exit(EXIT_FAILURE);
-        }
+        fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
+        sqlite3_free(err);
     }
 
     // Close database connection
@@ -47,6 +45,8 @@ int main(int argc, char *argv[]) {
 int callback(void *data, int num_col, char **col_data, char **col_name) {
     int i;
 
-    for (i=0; i<ncols; i++) {
-    printf("%s %s\n", fields[i], col_names[i]);
+    for (i=0; i<num_col; i++)
+        printf("%s: %s\n", col_name[i], col_data[i] ? col_data[i] : "NULL");
+    
+    return 0;
 }
