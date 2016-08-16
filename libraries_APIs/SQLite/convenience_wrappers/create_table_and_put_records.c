@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' la creazione di una tabella all'interno del 
-database fornito come argomento ed inserire alcuni record. */
+/* Lo scopo del programma e' la creazione di una tabella e l'inserimento di
+alcuni record nella tabella stessa, utilizzando allo scopo il 
+'convenience wrapper'. Il database e' fornito come primo argomento. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
@@ -24,7 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Query il cui compito e' la creazione di una tabella suddivisa in campi
-    sql_create = "CREATE TABLE IF NOT EXISTS note(  \
+    sql_create = "CREATE TABLE IF NOT EXISTS song(  \
                   id INTEGER PRIMARY KEY,           \
                   data DATE NOT NULL,               \
                   time TIME NOT NULL,               \
@@ -33,27 +34,25 @@ int main(int argc, char *argv[]) {
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
     if (rc != SQLITE_OK) {
-        if (err != NULL) {
-            fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
-        }
-        return 1;
+        fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
+        sqlite3_free(err);
     }
 
     printf("Table successfully created within the database: %s\n", argv[1]);
 
     // Inserimento di alcuni record nella tabella
-    sql_insert = "INSERT INTO note(data, time, msg) VALUES (    \
-                  date('now'),                                  \
-                  time('now'),                                  \
-                  'Take a walk on the wild side')";
+    sql_insert = "INSERT INTO song(data, time, msg) VALUES"
+                 "(date('now'), time('now'), 'Take a walk on the wild side'),"
+                 "(date('now'), time('now'), 'Get up Stand up'),"
+                 "(date('now'), time('now'), 'Jamming'),"
+                 "(date('now'), time('now'), 'Buffalo Soldier'),"
+                 "(date('now'), time('now'), 'Rastaman Vibration')";
 
     // Esecuzione della query 'sql'.
     rc = sqlite3_exec(db, sql_insert, NULL, NULL, &err);
     if (rc != SQLITE_OK) {
-        if (err != NULL) {
-            fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
-        }
-        return 1;
+        fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
+        sqlite3_free(err);
     }
 
     puts("Record successfully created.");
