@@ -42,11 +42,17 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
+// Si utilizza la funzione callback() per leggere ciascun record. 
 int callback(void *data, int num_col, char **col_data, char **col_name) {
     int i;
 
+    /* Nota: La funzione di callback() sara' invocata una volta per ogni riga
+             ritornata, pertanto non c'e' alcun bisogno di crearla qualora la 
+             query SQL non preveda dati di ritorno */
     for (i=0; i<num_col; i++)
         printf("%s: %s\n", col_name[i], col_data[i] ? col_data[i] : "NULL");
+
+    fputc('\n', stdout);
     
     return 0;
 }
