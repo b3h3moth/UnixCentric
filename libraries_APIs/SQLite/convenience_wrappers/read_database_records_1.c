@@ -31,11 +31,8 @@ int main(int argc, char *argv[]) {
     // Lettura dei record mediante la funzione sqlite3_get_table()
     rc = sqlite3_get_table(db, sql_query, &record, &nrows, &ncols, &err);
     if (rc != SQLITE_OK) {
-        if (err != NULL) {
-            fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
-            sqlite3_close(db);
-            exit(EXIT_FAILURE);
-        }
+        fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err);
+        sqlite3_free(err);
     }
 
     // Stampa dei record
