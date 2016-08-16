@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
         sqlite3_free(err);
     }
 
-    printf("Table successfully created within the database: %s\n", argv[1]);
+    printf("Table successfully created: %s\n", argv[1]);
 
     // Inserimento di alcuni record nella tabella
     sql_insert = "INSERT INTO song(data, time, msg) VALUES"
@@ -55,7 +55,9 @@ int main(int argc, char *argv[]) {
         sqlite3_free(err);
     }
 
-    puts("Record successfully created.");
+    /* Si utilizza la funzione sqlite3_changes() per ottenere le ultime righe
+    modificate */
+    printf(" Rows Successfully created: %d\n", sqlite3_changes(db));
 
     // Close database connection
     sqlite3_close(db);
