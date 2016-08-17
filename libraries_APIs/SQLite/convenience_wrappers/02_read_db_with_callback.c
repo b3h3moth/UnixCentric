@@ -3,7 +3,7 @@
 #include <sqlite3.h>
 
 // Function Prototype
-int callback(void *data, int num_col, char **col_data, char **col_name);
+static int callback(void *data, int num_col, char **col_data, char **col_name);
 
 /* Lo scopo del programma e' di leggere i record di una tabella mediante la
 funzione di callback, il nome del database e' fornito come argomento. */
@@ -13,7 +13,6 @@ int main(int argc, char *argv[]) {
     char    *sql_query = NULL;
     char    *err_msg = NULL;
     int     rc = 0;
-
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database>\n", argv[0]);
@@ -29,7 +28,7 @@ int main(int argc, char *argv[]) {
     // Comando SQL per la lettura dei dati da una tabella
     sql_query = "SELECT * from song ORDER by id";
 
-    // Lettura dei record mediante la funzione callback()
+    // Esecuzione della query SQL e invocazione della funzione di callback()
     rc = sqlite3_exec(db, sql_query, callback, NULL, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. can'texecute sql query: \'%s\'\n", err_msg);
@@ -42,8 +41,8 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
-// Si utilizza la funzione callback() per leggere ciascun record. 
-int callback(void *data, int num_col, char **col_data, char **col_name) {
+// La funzione callback() legge ciascun record
+static int callback(void *data, int num_col, char **col_data, char **col_name) {
     int i;
 
     /* Nota: La funzione di callback() sara' invocata una volta per ogni riga
