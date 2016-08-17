@@ -51,8 +51,7 @@ int main(int argc, char *argv[]) {
     o meno delle funzioni. Gli stati sono: "ready", "running", e "done.
 
     La conversione di un comando SQL da stringa a "Prepared Statement" avviene
-    per mezzo una delle funzioni della famiglia sqlite3_prepare_*(), nello
-    specifico la v2.
+    per mezzo della funzione sqlite3_prepare_v2().
     */
     if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
