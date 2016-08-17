@@ -36,14 +36,13 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Creazione della "Prepared Statement".
-    Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL,
-    compilata in forma binaria e pronta per essere valutata; il processo di
-    preparazione pertanto e' la conversione di un comando SQL in una
-    "Prepared Statement" in forma binaria (compiled object code o byte-code).
+    /* Fase di compilazione o di preparazione.
+    Una "Prepared Statement" e' l'istanza di una singola dichiarazione SQL
+    compilata in forma binaria, ovvero e' la conversione di un comando SQL in 
+    un byte-code leggibile dal virtal database engine VDBE.
     
-    Una dichiarazione e' eseguita (stepped through) riga per riga fin quando 
-    non ci sono piu' righe da valutare.
+    Una dichiarazione e' eseguita riga per riga fin quando non ci sono piu' 
+    righe o record da valutare.
     
     Le Prepared Statements - a differenza delle connessioni al database che 
     possono essere aperte, utilizzate per un periodo di tempo e poi chiuse - 
