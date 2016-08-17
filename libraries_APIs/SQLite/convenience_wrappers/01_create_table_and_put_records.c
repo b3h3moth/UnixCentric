@@ -31,7 +31,10 @@ int main(int argc, char *argv[]) {
                   time TIME NOT NULL,               \
                   msg TEXT NOT NULL)";
     
-    // Esecuzione della query 'sql'.
+    /* La funzione sqlite3_exec() esegue tutto il processo - preparation,
+    execution, finalization - di una 'prepared statement' con una sola 
+    chiamata. I record vengono estrapolati dal database mediante la chiamata a
+    una funzione di callback, che sara' invocata una volta per ogni riga. */
     rc = sqlite3_exec(db, sql_create, NULL, NULL, &err);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Failed to execute SQL query: \'%s\'\n", err);
