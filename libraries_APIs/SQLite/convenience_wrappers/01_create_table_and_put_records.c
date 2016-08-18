@@ -41,6 +41,10 @@ int main(int argc, char *argv[]) {
         sqlite3_free(err);
     }
 
+    /* Nota: Il messaggio di errore 'err', qualora dovesse essere utilizzato,
+             dovra' essere esplicitamente deallocato mediante la funzione 
+             sqlite3_free(messaggio_errore). */
+
     printf("Table successfully created: %s\n", argv[1]);
 
     // Inserimento di alcuni record nella tabella
