@@ -31,6 +31,12 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Library initialization
+    if (sqlite3_initialize() != SQLITE_OK) {
+        fprintf(stderr, "Err. Library initialization failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
     // Per i tipi di dato 'blob' si deve lavorare con file binary
     fp = fopen(argv[2], "rb");
     if (fp == NULL) {
@@ -134,6 +140,8 @@ int main(int argc, char *argv[]) {
     sqlite3_blob_close(blob);
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+    // Shutdown the library
+    sqlite3_shutdown();
 
     printf("DB: \'%s\'\nBLOB data: \'%s\' | %d byte\n", \
             argv[1], argv[2], file_size);
