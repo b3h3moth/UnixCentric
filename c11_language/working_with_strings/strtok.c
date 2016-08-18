@@ -5,8 +5,8 @@
 
 enum { BUF_LEN = 64 };
 
-/* Lo scopo del programma e' di estrapolare da un path solo il filename finale,
-estensione compresa */
+/* Lo scopo del programma e' di estrapolare da un path di default, il nome del
+file finale con relativa estensione */
 
 int main(int argc, char *argv[]) {
     char default_path[] = "/home/user/photo/2016/summer/peace_and_love.jpg";
