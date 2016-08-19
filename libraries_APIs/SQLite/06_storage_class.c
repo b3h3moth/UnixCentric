@@ -24,7 +24,7 @@ int main(void) {
     }
 
     // Creazione della connessione al database
-    res = sqlite3_open_v2("my.db", &db, flags, NULL);
+    res = sqlite3_open_v2("def.db", &db, flags, NULL);
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Failed to open database: %s\n", sqlite3_errmsg(db));
