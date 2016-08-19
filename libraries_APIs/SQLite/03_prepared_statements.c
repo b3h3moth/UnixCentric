@@ -32,8 +32,7 @@ int main(int argc, char *argv[]) {
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     /* Fase di compilazione o di preparazione.
@@ -54,7 +53,7 @@ int main(int argc, char *argv[]) {
     */
     if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     /* La dichiarazione SQL ora e' in forma di byte-code, il quale viene dato 
