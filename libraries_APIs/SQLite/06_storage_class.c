@@ -61,6 +61,10 @@ int main(void) {
                sqlite3_column_decltype(stmt, i));
     }
 
+    /* Si utilizza la funzione sqlite3_data_count() per ottenere il numero di
+    colonne */
+    printf("Each record has \'%d\' column\n", sqlite3_data_count(stmt));
+
     /* Per individuare il tipo di Storage Class all'interno di una colonna, si
     sarebbe potuto anche utilizzare la funzione sqlite2_column_type(), che
     ritorna proprio una delle cinque classi di memorizzazione, ovvero:
