@@ -24,10 +24,10 @@ int main(void) {
     }
 
     // Creazione della connessione al database
-    res = sqlite3_open_v2("1.db", &db, flags, NULL);
+    res = sqlite3_open_v2("my.db", &db, flags, NULL);
 
     if (res != SQLITE_OK) {
-        fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
+        fprintf(stderr, "Failed to open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
@@ -35,16 +35,15 @@ int main(void) {
     // Creazione della "Prepared Statement".
     if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Il byte-code con l'SQL viene dato in pasto al VDBE
     rc = sqlite3_step(stmt);
 
     if (rc != SQLITE_ROW) {
-        fprintf(stderr, "Err. stepping through\n");
-        sqlite3_close_v2(db);
-        exit(EXIT_FAILURE);
+        fprintf(stderr, "Err. Failed VDBE execution.\n");
+        return 1;
     }
     
     /* Warning: E' molto importante collocare la funzione sqlite3_step() subito
