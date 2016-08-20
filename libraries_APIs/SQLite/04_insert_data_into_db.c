@@ -13,15 +13,15 @@ int main(int argc, char *argv[]) {
     int          flags = SQLITE_OPEN_READWRITE;
     char         *sql_str = 
         "INSERT INTO addressbook(fullname, alias, email) VALUES"
-        "('rossella', 'ros', 'ros@free.org'),"
-        "('mario', 'mr', 'mario@mario.org'),"
-        "('gino', 'gn', 'gino@gino.org'),"
+        "('rossella', 'oss', '21@free.org'),"
+        "('mario', 'ari', 'mail@mario.org'),"
+        "('gino', 'joe', 'gino@gino.org'),"
         "('claudia', 'cla', 'cla@udia.org'),"
-        "('francesca', 'fra', 'fran@mcesca.org'),"
-        "('mia', 'mi', 'mia@mia.org'),"
-        "('luca', 'lu', 'liuc@step.org'),"
+        "('francesca', 'cesca', 'cesca@fra.org'),"
+        "('mia', 'my', 'mia@mia.org'),"
+        "('luca', 'liuc', 'liuc@step.org'),"
         "('richard', 'rms', 'richard@stallman.org'),"
-        "('carlotta', 'carl', 'carl@ot.org');";
+        "('carlotta', 'lotte', 'carl@ot.org');";
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
