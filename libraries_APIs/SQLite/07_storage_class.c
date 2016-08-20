@@ -50,6 +50,8 @@ int main(void) {
     risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
     */
 
+    printf("The Database name: %s\n", sqlite3_column_database_name(stmt, 0));
+    printf("The Table name: %s\n", sqlite3_column_table_name(stmt, 0));
 
     /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
