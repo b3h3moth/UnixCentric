@@ -50,8 +50,15 @@ int main(void) {
     risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
     */
 
-    printf("The Database name: %s\n", sqlite3_column_database_name(stmt, 0));
-    printf("The Table name: %s\n", sqlite3_column_table_name(stmt, 0));
+    printf("The database associated with a column: \'%s\'\n", \
+            sqlite3_column_database_name(stmt, 0));
+    
+    printf("The Table name: \'%s\'\n", sqlite3_column_table_name(stmt, 0));
+    
+    /* Se nel comando SQL si utilizzasse un alias - AS - sarebbe stampato il
+    nome della colonna definito nello schema. */
+    printf("The first column's name as defined in the schema: \'%s\'\n", \
+            sqlite3_column_origin_name(stmt, 0));
 
     /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
