@@ -60,6 +60,10 @@ int main(void) {
     printf("The first column's name as defined in the schema: \'%s\'\n", \
             sqlite3_column_origin_name(stmt, 0));
 
+    /* Nota: Le tre funzioni pocanzi invocate saranno a disposizione soltanto
+             se si compilera' SQLite mediante la direttiva del preprocessore
+             SQLITE_ENABLE_COLUMN_METADATA. */
+
     /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
     for (int i=0; i<sqlite3_column_count(stmt); i++) {
