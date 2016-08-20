@@ -2,12 +2,9 @@
 #include <stdlib.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' di individuare il tipo di dato all'interno dei
-record e stamparlo a video.
-
-Ciascun tipo dato utilizzato per riempire i record e' identificato mediante un
-intero, la classe di memorizzazione (Storage Class).
-*/
+/* Lo scopo del programma e' di ottenere varie informazioni inerenti i dati 
+delle colonne dei record, nonche' il tipo di storage class - classe di 
+memorizzazione - utilizzato. */
 
 int main(void) {
     sqlite3         *db = NULL;
@@ -52,6 +49,7 @@ int main(void) {
     Provare ad esempio a collocarla dopo il 'for loop' e verificare il 
     risultato. Si notera' che gli interi della Storage Class saranno inesatti. 
     */
+
 
     /* Stampa del nome della colonna, della Storage Class e del tipo
     dichiarato nella SQL */
