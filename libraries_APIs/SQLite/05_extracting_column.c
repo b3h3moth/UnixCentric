@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt    *stmt = NULL;
     const char      *colnms[4] = {NULL};     // Nomi delle colonne
     int             res = 0;
+    const char *tail = NULL;
     char            *sql_str = "SELECT * FROM addressbook ORDER by id";
     int             flags = SQLITE_OPEN_READONLY;
 
@@ -35,7 +36,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Creazione della "Prepared Statement".
-    if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, NULL) != SQLITE_OK) {
+    if (sqlite3_prepare_v2(db, sql_str,-1, &stmt, &tail) != SQLITE_OK) {
         fprintf(stderr, "Err. Unable to create Prepared Statement.\n");
         exit(EXIT_FAILURE);
     }
@@ -60,13 +61,14 @@ int main(int argc, char *argv[]) {
     La funzione sqlite3_column_int() estrae dati di tipo intero, mentre
     la funzione sqlite3_column_bytes() estrae i byte dell'ultima colonna. */
     while (sqlite3_step(stmt) == SQLITE_ROW) {
-        printf("%2d %10s %8s %14s (byte: %d)\n",                \
+        printf("%2d %10s %5s %20s (byte: %3d)\n",                \
                 sqlite3_column_int(stmt, 0),                    \
                 (const char*)sqlite3_column_text(stmt, 1),      \
                 (const char*)sqlite3_column_text(stmt, 2),      \
                 (const char*)sqlite3_column_text(stmt, 3),      \
                 sqlite3_column_bytes(stmt, 3));
     }
+
 
     // Rilascio delle risorse relative alla Prepared Statement
     if (sqlite3_finalize(stmt) != SQLITE_OK) {
