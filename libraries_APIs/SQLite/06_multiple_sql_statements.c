@@ -12,8 +12,8 @@ int main(int argc, char *argv[]) {
     int             res = 0;
     int             flags = SQLITE_OPEN_READONLY;
     const char      *colnms[4] = {NULL};     // Nomi delle colonne
-    char            *tail = NULL;
-    char            *sql_str = 
+    const char      *tail = NULL;
+    const char            *sql_str = 
         "SELECT * FROM addressbook ORDER by id;"
         "SELECT * FROM addressbook ORDER by fullname;"
         "SELECT * FROM addressbook ORDER by alias;"
