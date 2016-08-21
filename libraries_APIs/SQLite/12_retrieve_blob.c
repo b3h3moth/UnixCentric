@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     int res = 0;
     int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
-    char *blob_data = NULL;
+    const char *blob_data = NULL;
     char *sql_data = "SELECT data FROM blobs WHERE id = 1";
 
     if (argc < 3) {
@@ -47,10 +47,19 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* Per acquisire il dato binario si deve prima di tutto calcolare il peso
+    del dato stesso, dopodiche' prelevare il puntatore al dato. */
     if (sqlite3_step(stmt) == SQLITE_ROW) {
+        // Primo modo per prelevare il dato, blob_data
+        blob_size = sqlite3_column_bytes(stmt, 0);
+        blob_data = sqlite3_column_blob(stmt, 0);
+
+        /* Secondo modo per prelevare il dato, si alloca la memoria e si copia
+        il dato mediante la funzione memcpy().
+        char *blob_data;
         blob_size = sqlite3_column_bytes(stmt, 0);
         blob_data = malloc(blob_size);
-        memcpy(blob_data, sqlite3_column_blob(stmt, 0), blob_size);
+        memcpy(blob_data, sqlite3_column_blob(stmt, 0), blob_size); */
     }
 
     fblob=fopen(data_name, "w");
