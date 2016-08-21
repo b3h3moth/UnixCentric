@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
     sqlite3_blob *blob = NULL;
+    FILE *fblob = NULL;
     int res = 0;
     int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
@@ -55,7 +56,6 @@ int main(int argc, char *argv[]) {
     sqlite3_blob_read(blob, blob_data, blob_size, 0);
     sqlite3_blob_close(blob);
 
-    FILE *fblob;
     fblob=fopen("vassili.jpg", "w");
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
