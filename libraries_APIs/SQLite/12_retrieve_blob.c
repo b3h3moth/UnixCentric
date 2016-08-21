@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di recuperare un dato binario di tipo BLOB dalla
@@ -62,7 +63,13 @@ int main(int argc, char *argv[]) {
         memcpy(blob_data, sqlite3_column_blob(stmt, 0), blob_size); */
     }
 
-    fblob=fopen(data_name, "w");
+    fblob = fopen(data_name, "w");
+
+    if (fblob == NULL) {
+        fprintf(stderr, "Err. Writing file: %s\n", strerror(errno));
+        return 1;
+    }
+
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
 
