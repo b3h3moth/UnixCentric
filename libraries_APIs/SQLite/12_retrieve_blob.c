@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     res = sqlite3_open_v2(db_name, &db, flags, NULL);
 
     if (res != SQLITE_OK) {
-        fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
+        fprintf(stderr, "Err. Can't create database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
@@ -66,11 +66,16 @@ int main(int argc, char *argv[]) {
     fblob = fopen(data_name, "w");
 
     if (fblob == NULL) {
-        fprintf(stderr, "Err. Writing file: %s\n", strerror(errno));
+        fprintf(stderr, "Err. Open file failed: %s\n", strerror(errno));
         return 1;
     }
 
-    fwrite(blob_data, blob_size, 1, fblob);
+    if (fwrite(blob_data, blob_size, 1, fblob) != 1) {
+        fprintf(stderr, "Err. Write file failed: %s\n", strerror(errno));
+        return 1;
+    } else
+        printf("Written BLOB data into \'%s\'\n", data_name);
+
     fclose(fblob);
 
     // Rilascio della prepared statement
