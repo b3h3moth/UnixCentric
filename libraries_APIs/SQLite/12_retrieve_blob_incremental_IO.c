@@ -4,7 +4,7 @@
 
 /* Lo scopo del programma e' di recuperare un dato binario di tipo BLOB dalla
 colonna e salvarlo in un nuovo file, il tutto utilizzando l'I/O incrementale 
-- incremental I/O.Il nome del database e il file da salvare sono forniti in 
+- incremental I/O. Il nome del database e il file da salvare sono forniti in
 input. */
 
 int main(int argc, char *argv[]) {
@@ -50,14 +50,22 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Apre un BLOB Handle
     sqlite3_blob_open(db, "main", "blobs", "data", 2, 0, &blob);
 
+    // Peso del dato binario
     blob_size = sqlite3_blob_bytes(blob);
+
+    // Allocazione della memoria per il dato binario da copiare
     blob_data = malloc(blob_size);
+
+    // Lettura del BLOB handle e conseguente salvataggio del dato binario
     sqlite3_blob_read(blob, blob_data, blob_size, 0);
+
+    // Chiusura Blob handle
     sqlite3_blob_close(blob);
 
-    fblob=fopen(data_name, "w");
+    fblob = fopen(data_name, "w");
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
     
