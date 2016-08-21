@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     sqlite3_int64 rowid = 0;
     char *blob_data = NULL;
     char *err_msg = 0;
-    char *sql_data = "SELECT rowid FROM blobs WHERE name LIKE 'vessels'";
+    char *sql_data = "SELECT data FROM blobs WHERE id = 1";
 
     if (argc < 3) {
         fprintf(stderr, "Usage: %s <database> <filename>\n", argv[0]);
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    sqlite3_blob_open(db, "main", "blobs", "data", 2, 0, &blob);
+    sqlite3_blob_open(db, "main", "blobs", "data", 1, 0, &blob);
 
     blob_size = sqlite3_blob_bytes(blob);
     blob_data = malloc(blob_size);
