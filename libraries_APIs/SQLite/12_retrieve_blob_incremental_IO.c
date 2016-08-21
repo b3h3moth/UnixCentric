@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di recuperare un dato binario di tipo BLOB dalla
@@ -15,9 +17,7 @@ int main(int argc, char *argv[]) {
     int res = 0;
     int blob_size = 0;
     int flags = SQLITE_OPEN_READWRITE;
-    sqlite3_int64 rowid = 0;
     char *blob_data = NULL;
-    char *err_msg = 0;
     char *sql_data = "SELECT rowid FROM blobs WHERE id = 1";
 
     if (argc < 3) {
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Apre un BLOB Handle
-    sqlite3_blob_open(db, "main", "blobs", "data", 2, 0, &blob);
+    sqlite3_blob_open(db, "main", "blobs", "data", 1, 0, &blob);
 
     // Peso del dato binario
     blob_size = sqlite3_blob_bytes(blob);
@@ -66,11 +66,19 @@ int main(int argc, char *argv[]) {
     sqlite3_blob_close(blob);
 
     fblob = fopen(data_name, "w");
-    fwrite(blob_data, blob_size, 1, fblob);
+
+    if (fblob == NULL) {
+        fprintf(stderr, "Err. Open file failed: %s\n", strerror(errno));
+        return 1;
+    }
+
+    if (fwrite(blob_data, blob_size, 1, fblob) != 1) {
+        fprintf(stderr, "Err. Write file failed: %s\n", strerror(errno));
+        return 1;
+    } else
+        printf("Written BLOB data into \'%s\'\n", data_name);
+
     fclose(fblob);
-    
-    if (sqlite3_step(stmt) == SQLITE_DONE)
-        printf("... Statement successfully executed: %s\n", sql_data);
 
     // Rilascio della prepared statement
     if (sqlite3_finalize(stmt) == SQLITE_OK)
