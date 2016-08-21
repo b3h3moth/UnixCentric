@@ -3,8 +3,9 @@
 #include <string.h>
 #include <sqlite3.h>
 
-/* Lo scopo del programma e' la manipolazioni del tipo di dato BLOB mediante
-I/O incrementale */
+/* Lo scopo del programma e' di recuperare un dato binario di tipo BLOB dalla
+colonna e salvarlo in nuovo file. Il nome del database e del file binario da 
+salvare sono forniti in input. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
