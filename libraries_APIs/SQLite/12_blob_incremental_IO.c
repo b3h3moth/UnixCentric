@@ -18,15 +18,14 @@ int main(int argc, char *argv[]) {
     char *err_msg = 0;
     char *sql_data = "SELECT rowid FROM blobs WHERE name LIKE 'vessels'";
 
-/*
     if (argc < 3) {
         fprintf(stderr, "Usage: %s <database> <filename>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
-*/
+
     // Nome della tabella e del dato binario di prelevare
-    // const char *const table_name = (argc && argv[2]) ? argv[2] : "";
-  //  const char *const data_name = (argc && argv[2]) ? argv[2] : "";
+    const char *const db_name = (argc && argv[1]) ? argv[1] : "";
+    const char *const data_name = (argc && argv[2]) ? argv[2] : "";
 
     // Inizializzazione della libreria
     if (sqlite3_initialize() != SQLITE_OK) {
@@ -35,7 +34,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Creazione della connessione al database */
-    res = sqlite3_open_v2("my.db", &db, flags, NULL);
+    res = sqlite3_open_v2(db_name, &db, flags, NULL);
 
     if (res != SQLITE_OK) {
         fprintf(stderr, "Err. can't create database: %s\n", sqlite3_errmsg(db));
@@ -56,7 +55,7 @@ int main(int argc, char *argv[]) {
     sqlite3_blob_read(blob, blob_data, blob_size, 0);
     sqlite3_blob_close(blob);
 
-    fblob=fopen("vassili.jpg", "w");
+    fblob=fopen(data_name, "w");
     fwrite(blob_data, blob_size, 1, fblob);
     fclose(fblob);
     
