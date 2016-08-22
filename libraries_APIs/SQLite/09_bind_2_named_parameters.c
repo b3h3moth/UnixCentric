@@ -6,7 +6,10 @@
 famiglia 'sqlite3_bind_*()', alcuni parametri a dei valori e incapsularli nella 
 stringa SQL da passare al database. Il tutto sara' eseguito grazie agli
 'SQLite Bound Parameters'. Infine, oltre alla dichiarazione SQL da eseguire, il
-programma stampa a video diverse peculiarita' dei 'bound parameters'. */
+programma stampa a video diverse peculiarita' dei 'bound parameters'.
+
+Nel caso specifico si utilizzeranno parametri designati - named parameters,
+contrassegnati da ':<name>'. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
@@ -14,48 +17,18 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
-
-    /* I 'bound parameters' sono dei token inseriti all'interno di una stringa
-    SQL, agiscono come una sorta di segnaposto per qualsiasi valore letterale e
-    possono essere numeri oppure stringhe a singola quotatura, devono essere 
-    collocati nella stringa SQL prima della preparazione della dichiarazione.
-    
-    Successivamente, dopo che la dichiarazione e' stata preparata, ma prima 
-    dell'esecuzione, e' possibile associare/legare (bind) un valore al 
-    rispettivo parametro. Alla fine dell'esecuzione della dichiarazione e' 
-    possibile resettare la dichiarazione stessa e ripetere il ciclo di binding
-    con nuovi parametri.
-
-    Nota: Ogni parametro all'interno della dichiarazione e' referenziato 
-          mediante un indice che parte da uno.
-
-    SQLite supporta cinque stili di 'Statement parameters':
-    1 - ?       , parametro anonimo con indice automatico. L'indice e' unico,
-                  sequenziale e inizia da 1;
-    2 - ?<index>, parametro con indice numerico esplicito;
-    3 - :<name> , parametro denominato con indice automatico;
-    4 - @<name> , parametro denominato con indice automatico;
-    5 - $<name> , parametro denominato con indice automatico.
-    
-    Ai valori fullname, alias e email della stringa SQL 'sql_str' vengono 
-    associati i tre parametri :name, :aka e :mail, con indice rispettivamente 
-    uno, due e tre. Quindi:
-    fullname -> :name (index 1)
-       alias -> :aka  (index 2)
-       email -> :mail (index 3)
-    */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(:name, :aka, :mail)";
 
-    // Stringhe da associare ai parametri
-    char *str_fullname = "foobar";
-    char *str_alias = "foo";
-    char *str_email = "foo@bar.baz";
-
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <database name>\n", argv[0]);
+    if (argc != 5) {
+        fprintf(stderr, "Usage: %s <DB>,<name>,<alias>,<email>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    /* Le stringhe ricevute in input diventano costanti */
+    const char *const str_fullname = (argc && argv[2]) ? argv[2] : "";
+    const char *const str_alias = (argc && argv[3]) ? argv[3] : "";
+    const char *const str_email = (argc && argv[4]) ? argv[4] : "";
 
     // Library initialization
     if (sqlite3_initialize() != SQLITE_OK) {
@@ -81,8 +54,8 @@ int main(int argc, char *argv[]) {
 
     /* Prima di eseguira la dichiarazione, i parametri possono essere associati
     (bind) a un valore mediante una delle funzioni della famiglia 
-    sqlite3_bind_*(). Come accennato in precedenza, tali funzioni devono essere
-    invocate dopo la preparazione della dichiarazione ma prima dell'
+    sqlite3_bind_xxx(). Come accennato in precedenza, tali funzioni devono 
+    essere invocate dopo la preparazione della dichiarazione ma prima dell'
     esecuzione della dichiarazione stessa, ovvero antecedentemente all'
     invocazione della funzione sqlite3_step().
     Ad ogni riga possono essere associati valori diversi. */
@@ -145,3 +118,4 @@ int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
+
