@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     int idx = -1;   
     // Stringa SQL con bound parameters
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
-                    "VALUES(:name, :aka, :mail)";
+                    "VALUES(?, ?, ?)";
 
     if (argc != 5) {
         fprintf(stderr, "Usage: %s <DB>,<name>,<alias>,<email>\n", argv[0]);
@@ -52,8 +52,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Bind the first value
-    idx = sqlite3_bind_parameter_index(stmt, ":name");
-    rc = sqlite3_bind_text(stmt, idx, str_fullname, -1, SQLITE_STATIC);
+    rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
         sqlite3_close(db);
@@ -61,8 +60,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Bind the second value
-    idx = sqlite3_bind_parameter_index(stmt, ":aka");
-    rc = sqlite3_bind_text(stmt, idx, str_alias, -1, SQLITE_STATIC);
+    rc = sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
         sqlite3_close(db);
@@ -70,36 +68,25 @@ int main(int argc, char *argv[]) {
     }
 
     // Bind the third value
-    idx = sqlite3_bind_parameter_index(stmt, ":mail");
-    rc = sqlite3_bind_text(stmt, idx, str_email, -1, SQLITE_STATIC);
+    rc = sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
         sqlite3_close(db);
         exit(EXIT_FAILURE);
     }
 
-    /* Stampa del totale dei parametri, del nome degli stessi e del 
-    rispettivo indice, mediante le funzioni specifiche */
-    printf("Total bound parameters: %d\n", sqlite3_bind_parameter_count(stmt));
-    
-    printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 1), \
-            sqlite3_bind_parameter_index(stmt, ":name"));
-    printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 2), \
-            sqlite3_bind_parameter_index(stmt, ":aka"));
-    printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 3), \
-            sqlite3_bind_parameter_index(stmt, ":mail"));
-
     // Execute the statement
     rc = sqlite3_step(stmt);
-    if (rc != SQLITE_DONE) {
-        fprintf(stderr, "Err. Stepping through the statement.\n");
-    } else
-        printf("... Statement successfully executed.\n"         \
-               "fullname: %8s\nalias: %8s\ne-mail: %8s\n... "   \
-               "Parameters added", str_fullname, str_alias, str_email);
+    if (rc == SQLITE_DONE) {
+        puts("... SQL Statement Successfully Executed.");
+        // Stampa il numero totale dei parametri
+        printf("Total bound parameters: %d\n", \
+                sqlite3_bind_parameter_count(stmt));
+    }
 
     // Release prepared statement resources
     sqlite3_finalize(stmt);
+
     // Close database connection
     sqlite3_close_v2(db);
     // Shutdown library initialization
