@@ -4,18 +4,43 @@
 #include <sqlite3.h>
 
 /* Lo scopo del programma e' di associare, mediante le funzioni della
-famiglia 'sqlite3_bind_*()', alcuni parametri a dei valori e incapsularli nella 
-stringa SQL da passare al database, tali valori sono forniti in input. 
-Infine, stampa a video diverse peculiarita' dei 'bound parameters'. */
+famiglia 'sqlite3_bind_xxx()', alcuni parametri a dei valori e incapsularli 
+nella stringa SQL da passare al database, tali valori sono forniti in input.
+Infine, stampa a video diverse peculiarita' dei 'bound parameters'. 
+
+Nel caso specifico si utilizzeranno parametri posizionali - positional 
+parameters - contrassegnato mediante '?. '*/
 
 int main(int argc, char *argv[]) {
+    /* I 'bound parameters' sono dei token inseriti all'interno di una stringa
+    SQL, agiscono come una sorta di segnaposto per qualsiasi valore letterale e
+    possono essere numeri oppure stringhe a singola quotatura, devono essere 
+    collocati nella stringa SQL prima della preparazione della dichiarazione.
+    
+    Successivamente, dopo che la dichiarazione e' stata preparata, ma prima 
+    dell'esecuzione, e' possibile associare/legare (bind) un valore al 
+    rispettivo parametro. Alla fine dell'esecuzione della dichiarazione e' 
+    possibile resettare la dichiarazione stessa e ripetere il ciclo di binding
+    con nuovi parametri.
+
+    Nota: Ogni parametro all'interno della dichiarazione e' referenziato 
+          mediante un indice che parte da uno.
+
+    SQLite supporta cinque stili di 'Statement parameters':
+    1 - ?       , parametro posizionale o anonimo con indice automatico. 
+                  L'indice e' unico, sequenziale e inizia da 1;
+    2 - ?<index>, parametro con indice numerico esplicito;
+    3 - :<name> , parametro denominato con indice automatico;
+    4 - @<name> , parametro denominato con indice automatico;
+    5 - $<name> , parametro denominato con indice automatico.
+    */
     sqlite3 *db = NULL;
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     // Indice dei bound parameters
-    int idx = -1;   
-    // Stringa SQL con bound parameters
+    int idx = -1;
+    // Stringa SQL con i parametri posizionali
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
