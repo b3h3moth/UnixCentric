@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     Nota: Ogni parametro all'interno della dichiarazione e' referenziato 
           mediante un indice che parte da uno.
 
-    SQLite supporta cinque stili di 'Statement parameters':
+    SQLite supporta cinque templates a cui associare parametri:
     1 - ?       , parametro posizionale o anonimo con indice automatico. 
                   L'indice e' unico, sequenziale e inizia da 1;
     2 - ?<index>, parametro con indice numerico esplicito;
@@ -39,9 +39,7 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
-    // Indice dei bound parameters
-    int idx = -1;
-    // Stringa SQL con i parametri posizionali
+    // Stringa SQL con i parametri posizionali.
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
@@ -81,24 +79,21 @@ int main(int argc, char *argv[]) {
     rc = sqlite3_bind_text(stmt, 1, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Bind the second value
     rc = sqlite3_bind_text(stmt, 2, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Bind the third value
     rc = sqlite3_bind_text(stmt, 3, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Execute the statement
