@@ -6,7 +6,10 @@
 /* Lo scopo del programma e' di associare, mediante le funzioni della
 famiglia 'sqlite3_bind_*()', alcuni parametri a dei valori e incapsularli nella 
 stringa SQL da passare al database, tali valori sono forniti in input. 
-Infine, stampa a video diverse peculiarita' dei 'bound parameters'. */
+Infine, stampa a video diverse peculiarita' dei 'bound parameters'. 
+
+Nel caso specifico si utilizzeranno 'numbered parameters', contrassegnati
+mediante '?<index>', dove 'index e' un intero. */
 
 int main(int argc, char *argv[]) {
     sqlite3 *db = NULL;
@@ -15,9 +18,12 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     // Indice dei bound parameters
     int idx = -1;   
-    // Stringa SQL con bound parameters
+    /* Stringa SQL con 'numbered parameters'.
+    Il numero del parametro e' definito dal programmatore. La sintassi come e'
+    evidente richiede il punto interrogativo seguito dal numero del parametro.
+    */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
-                    "VALUES(:name, :aka, :mail)";
+                    "VALUES(?1, ?2, ?3)";
 
     if (argc != 5) {
         fprintf(stderr, "Usage: %s <DB>,<name>,<alias>,<email>\n", argv[0]);
