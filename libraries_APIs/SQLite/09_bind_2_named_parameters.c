@@ -62,15 +62,14 @@ int main(int argc, char *argv[]) {
     
     /* Bind the first value
     Si utilizza la funzione sqlite3_bind_text() per associare il parametro al
-    valore, che in questo caso e' 'text', poiche' trattasi di stringa.
+    valore che in questo caso e' 'text', poiche' trattasi di stringa.
     L'indice del parametro viene salvato nella variabile intera 'idx', ottenuto
     dal valore di ritorno della funzione sqlite3_bind_parameter_index(): */
     idx = sqlite3_bind_parameter_index(stmt, ":name");
     rc = sqlite3_bind_text(stmt, idx, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Bind the second value
@@ -78,8 +77,7 @@ int main(int argc, char *argv[]) {
     rc = sqlite3_bind_text(stmt, idx, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     // Bind the third value
@@ -87,8 +85,7 @@ int main(int argc, char *argv[]) {
     rc = sqlite3_bind_text(stmt, idx, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
-        sqlite3_close(db);
-        exit(EXIT_FAILURE);
+        return 1;
     }
 
     /* Stampa del totale dei parametri, del nome degli stessi e del 
@@ -118,4 +115,3 @@ int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
-
