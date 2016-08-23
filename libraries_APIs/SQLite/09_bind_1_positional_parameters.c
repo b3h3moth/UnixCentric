@@ -6,10 +6,11 @@
 /* Lo scopo del programma e' di associare, mediante le funzioni della
 famiglia 'sqlite3_bind_xxx()', alcuni parametri a dei valori e incapsularli 
 nella stringa SQL da passare al database, tali valori sono forniti in input.
-Infine, stampa a video diverse peculiarita' dei 'bound parameters'. 
+Infine, stampa a video diverse peculiarita' dei 'bound parameters'.
 
 Nel caso specifico si utilizzeranno parametri posizionali - positional 
-parameters - contrassegnato mediante '?. '*/
+parameters - contrassegnati mediante '?' . 
+*/
 
 int main(int argc, char *argv[]) {
     /* I 'bound parameters' sono dei token inseriti all'interno di una stringa
