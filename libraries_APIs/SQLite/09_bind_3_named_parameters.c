@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
     invocazione della funzione sqlite3_step().
     Ad ogni riga possono essere associati valori diversi. */
     
-    /* Bind the first value
+    /* Bind del primo parametro
     Si utilizza la funzione sqlite3_bind_text() per associare il parametro al
     valore che in questo caso e' 'text', poiche' trattasi di stringa.
     L'indice del parametro viene salvato nella variabile intera 'idx', ottenuto
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Bind the second value
+    // Bind del secondo parametro
     idx = sqlite3_bind_parameter_index(stmt, ":aka");
     rc = sqlite3_bind_text(stmt, idx, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Bind the third value
+    // Bind del terzo parametro
     idx = sqlite3_bind_parameter_index(stmt, ":mail");
     rc = sqlite3_bind_text(stmt, idx, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
