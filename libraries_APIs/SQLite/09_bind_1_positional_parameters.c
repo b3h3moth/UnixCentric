@@ -39,7 +39,8 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
-    // Stringa SQL con i parametri posizionali.
+    /* Stringa SQL con i parametri posizionali, a ciascuno di essi viene 
+    associato un indice numerico partendo da 1. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
