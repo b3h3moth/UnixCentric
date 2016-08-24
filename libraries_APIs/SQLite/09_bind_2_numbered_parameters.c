@@ -19,7 +19,8 @@ int main(int argc, char *argv[]) {
     /* Stringa SQL con 'numbered parameters'.
     Il numero del parametro e' definito dal programmatore. La sintassi come e'
     evidente richiede il punto interrogativo seguito dal numero del parametro.
-    */
+    Il range di numeri utilizzabile varia da 1 a 999, tuttavia e' consigliabile
+    adoperare numeri bassi. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?10, ?20, ?30)";
 
