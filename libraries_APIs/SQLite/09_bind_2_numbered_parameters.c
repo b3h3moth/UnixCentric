@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Bind the first value
+    // Bind del primo parametro, l'indice associato vale 10
     rc = sqlite3_bind_text(stmt, 10, str_fullname, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Bind the second value
+    // Bind del secondo parametro, l'indice associato vale 20
     rc = sqlite3_bind_text(stmt, 20, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // Bind the third value
+    // Bind del terzo parametro, l'indice associato vale 30
     rc = sqlite3_bind_text(stmt, 30, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
