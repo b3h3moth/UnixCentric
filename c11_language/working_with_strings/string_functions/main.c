@@ -4,7 +4,7 @@
 #include "my_strfunc.h"
 
 int main(void) {
-    char *src = "Take a walk on the wild side";
+    char src[] = "Take a walk on the wild side";
     char *dest = malloc(sizeof(src)+1);
     char skill_list[] = "C, C+,+ AWK, Perl, Networking, SysAdministration, ";
     char update_skill[] = "Network Security, Secure Coding.";
