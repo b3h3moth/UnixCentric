@@ -17,8 +17,11 @@ int main(int argc, char *argv[]) {
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
     int idx = -1;
+    /* Stringa SQL con i parametri nominativi - named parameters.
+    A ogni stringa alfanumerica, usata nelle tre versioni supportate, viene
+    associato dalla funzione sqlite3_prepare_v2() un indice numerico. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
-                    "VALUES(:name, :aka, :mail)";
+                    "VALUES(:name, @aka, $mail)";
 
     if (argc != 5) {
         fprintf(stderr, "Usage: %s <DB>,<name>,<alias>,<email>\n", argv[0]);
@@ -52,14 +55,6 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Prima di eseguira la dichiarazione, i parametri possono essere associati
-    (bind) a un valore mediante una delle funzioni della famiglia 
-    sqlite3_bind_xxx(). Come accennato in precedenza, tali funzioni devono 
-    essere invocate dopo la preparazione della dichiarazione ma prima dell'
-    esecuzione della dichiarazione stessa, ovvero antecedentemente all'
-    invocazione della funzione sqlite3_step().
-    Ad ogni riga possono essere associati valori diversi. */
-    
     /* Bind del primo parametro
     Si utilizza la funzione sqlite3_bind_text() per associare il parametro al
     valore che in questo caso e' 'text', poiche' trattasi di stringa.
@@ -73,7 +68,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Bind del secondo parametro
-    idx = sqlite3_bind_parameter_index(stmt, ":aka");
+    idx = sqlite3_bind_parameter_index(stmt, "@aka");
     rc = sqlite3_bind_text(stmt, idx, str_alias, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
@@ -81,7 +76,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Bind del terzo parametro
-    idx = sqlite3_bind_parameter_index(stmt, ":mail");
+    idx = sqlite3_bind_parameter_index(stmt, "$mail");
     rc = sqlite3_bind_text(stmt, idx, str_email, -1, SQLITE_STATIC);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Err. Binding the value (%i).\n", rc);
@@ -95,9 +90,9 @@ int main(int argc, char *argv[]) {
     printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 1), \
             sqlite3_bind_parameter_index(stmt, ":name"));
     printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 2), \
-            sqlite3_bind_parameter_index(stmt, ":aka"));
+            sqlite3_bind_parameter_index(stmt, "@aka"));
     printf("\'%5s\' index \'%d\'\n", sqlite3_bind_parameter_name(stmt, 3), \
-            sqlite3_bind_parameter_index(stmt, ":mail"));
+            sqlite3_bind_parameter_index(stmt, "$mail"));
 
     // Execute the statement
     rc = sqlite3_step(stmt);
