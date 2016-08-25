@@ -39,8 +39,9 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
-    /* Stringa SQL con i parametri posizionali, a ciascuno di essi viene 
-    associato un indice numerico partendo da 1. */
+    /* Stringa SQL con i parametri posizionali - positional parameters.
+    A ciascuno di essi viene associato dalla funzione sqlite3_prepare_v2() un 
+    indice numerico progressivo partendo da 1. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
                     "VALUES(?, ?, ?)";
 
