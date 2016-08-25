@@ -16,9 +16,9 @@ int main(int argc, char *argv[]) {
     sqlite3_stmt *stmt = NULL;
     int flags = SQLITE_OPEN_READWRITE;
     int rc = 0;
-    /* Stringa SQL con 'numbered parameters'.
-    Il numero del parametro e' definito dal programmatore. La sintassi come e'
-    evidente richiede il punto interrogativo seguito dal numero del parametro.
+    /* Stringa SQL con  parametri numerici - numbered parameters.
+    Il numero del parametro viene definito dallo sviluppatore. La sintassi 
+    prevede il punto interrogativo seguito dal numero del parametro.
     Il range di numeri utilizzabile varia da 1 a 999, tuttavia e' consigliabile
     adoperare numeri bassi. */
     char *sql_str = "INSERT INTO addressbook (fullname, alias, email)"
