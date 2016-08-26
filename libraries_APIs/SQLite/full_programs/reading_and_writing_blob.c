@@ -208,12 +208,7 @@ static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, in
     rc = sqlite3_step(stmt);
     if (rc == SQLITE_ROW) {
         *buf_len = sqlite3_column_bytes(stmt, 0);
-        *buf_ptr = (unsigned char *)malloc(*buf_len);
-        memcpy(*buf_ptr, (void *)sqlite3_column_blob(stmt, 0), *buf_len);
-    } else {
-        fprintf(stderr, "%d: SQL statement execution failed (%d: \'%s\')\n", \
-                __LINE__, sqlite3_errcode(db), sqlite3_errmsg(db));
-        return 1;
+        *buf_ptr = sqlite3_column_blob(stmt, 0);
     }
 
     // Rilascio delle risorse dedicate alla Prepared Statement
