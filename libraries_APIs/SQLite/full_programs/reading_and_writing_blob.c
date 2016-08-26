@@ -208,7 +208,7 @@ static int read_blob(sqlite3 *db, const char *fname, unsigned char **buf_ptr, in
     rc = sqlite3_step(stmt);
     if (rc == SQLITE_ROW) {
         *buf_len = sqlite3_column_bytes(stmt, 0);
-        *buf_ptr = (void *)sqlite3_column_blob(stmt, 0);
+        *buf_ptr = (unsigned char *)malloc(*buf_len);
     }
 
     // Rilascio delle risorse dedicate alla Prepared Statement
