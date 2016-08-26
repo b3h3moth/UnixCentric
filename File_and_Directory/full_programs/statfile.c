@@ -13,8 +13,8 @@
 char *timeString(time_t t, char * buf);
 int fileStats(const char * file);
 
-/* Il programma fornisce tutte le informazioni sul file fornito come argomento,
-tali informazioni saranno ottenute mediante la funzione lstat(). */
+/* Il programma fornisce informazioni riguardo al file recevuto come argomento,
+tali informazioni saranno processate mediante la funzione lstat(). */
 
 int main(int argc, char *argv[]) {
     int i;
