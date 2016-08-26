@@ -29,8 +29,6 @@ int main(int argc, char *argv[]) {
     int rc = 0;
     // Datbase flags
     int flags = SQLITE_OPEN_CREATE | SQLITE_OPEN_READWRITE;
-    // Il peso del file da inserire nel database
-    struct stat fstatus = {0};
     // Il peso del tipo di dato blob
     int blob_size = 0;
     // Salva il tipo di dato blob
@@ -141,8 +139,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Chiusura della connessione al database
-    if (sqlite3_close_v2(db) == SQLITE_OK)
-        puts("Closed database connection");
+    sqlite3_close_v2(db);
 
     return(EXIT_SUCCESS);
 }
