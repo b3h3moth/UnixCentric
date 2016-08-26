@@ -130,7 +130,7 @@ int main(int argc, char *argv[]) {
         // Scrive un dato BLOB prelevato dal database in un file
         fwrite(blob_data, sizeof(char), blob_size, fp);
         
-        printf("Binary data \'%s\' written.\n", input_file);
+        printf("BLOB data \'%s\' successfully written.\n", input_file);
 
         /* Rilascia la memoria precedentemente allocata, e chiusura del 
         file descriptor */
