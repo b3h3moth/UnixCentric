@@ -64,8 +64,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (is_write) { // Scrive il tipo di dato BLOB nel database
+    stat(db_filename, &fstatus);
+    if ((fstatus.st_mode & S_IFMT) == S_IFREG)
+        return 0;
+    else
         create_table(db);
+
+    if (is_write) { // Scrive il tipo di dato BLOB nel database
 
         // Apre il file ricevuto come argomento in lettura
         fp = fopen(input_file, "r");
