@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
 
         // Verifica se il database contiene record o meno
         if (!blob_data) {
-            fprintf(stderr, "Ops! Database is empty.\n");
+            fprintf(stderr, "Database is empty.\n");
             return 1;
         }
 
