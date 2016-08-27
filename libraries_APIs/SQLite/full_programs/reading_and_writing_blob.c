@@ -146,7 +146,9 @@ int main(int argc, char *argv[]) {
 
 // Crea la tabella nel database 'db'
 static int create_table(sqlite3 *db) {
-    const char *sql = "CREATE TABLE blobs(file_name TEXT PRIMARY KEY, data BLOB)";
+    const char *sql = "CREATE TABLE IF NOT EXISTS blobs("
+                      "file_name TEXT PRIMARY KEY, 
+                      "data BLOB)";
     return sqlite3_exec(db, sql, 0, 0, 0);
 }
 
