@@ -16,17 +16,17 @@ funzione 'write_strings()', in un file. Le stringhe sono inserite input. */
 
 int main(int argc, char *argv[]){
     char buf[BUF_SIZE];
-    int fd1;
+    int fd;
     char *filename = "test.txt";
 
-    if ( (fd1 = open(filename, O_WRONLY | O_CREAT, 0755)) < 0) {
+    if ( (fd = open(filename, O_WRONLY | O_CREAT, 0755)) < 0) {
        fprintf(stderr, "Err: (%d) - '%s'\n", errno, strerror(errno));
-       exit(errno);
+       exit(EXIT_FAILURE);
     }
 
-    write_strings(buf, fd1);
+    write_strings(buf, fd);
     
-    close(fd1);
+    close(fd);
 
     return(EXIT_SUCCESS);
 }
@@ -36,17 +36,17 @@ void write_strings(char b[], int fdw) {
     int n_read;
     printf("Immettere il testo (digitare X per uscire)\n");
 
-    // Clean the buffer
+    // Clean the buffer, each byte is set to zero
     for (i=0; i<BUF_SIZE; i++)
         b[i] = 0;
 
     while ((n_read = read(STDIN_FILENO, b, BUF_SIZE)) > 0) {
-        if (b[n_read-2] == 'X')
+        if (b[n_read - 2] == 'X')
             break;
         
         if (write(fdw, b, n_read) != n_read) {
       	    fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
-            exit(errno);
+            exit(EXIT_FAILURE);
         }
     }
 }
