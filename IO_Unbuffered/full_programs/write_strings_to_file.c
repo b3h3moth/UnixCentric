@@ -8,10 +8,10 @@
 #define BUF_SIZE	128
 
 // Function Prototype
-void ins_str_to_file(char b[], int fdw);
+void write_strings(char b[], int fdw);
 
 /* Lo scopo del programma e' di scrivere una serie di stringhe, mediante la
-funzione 'ins_str_to_file()', in un file. Le stringhe sono inserite input. */
+funzione 'write_strings()', in un file. Le stringhe sono inserite input. */
 
 
 int main(int argc, char *argv[]){
@@ -24,14 +24,14 @@ int main(int argc, char *argv[]){
        exit(errno);
     }
 
-    ins_str_to_file(buf, fd1);
+    write_strings(buf, fd1);
     
     close(fd1);
 
     return(EXIT_SUCCESS);
 }
 
-void ins_str_to_file(char b[], int fdw) {
+void write_strings(char b[], int fdw) {
     int i;
     int n_read;
     printf("Immettere il testo (digitare X per uscire)\n");
