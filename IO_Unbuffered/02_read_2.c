@@ -12,7 +12,8 @@ printf() */
 
 int main(void) {
     char finput[] = "/etc/fstab";
-    int fd, nread;
+    int fd;
+    ssize_t nread;
     char buffer[MAX_BUF+1];
 
     if ((fd = open(finput, O_RDONLY)) < 0) {

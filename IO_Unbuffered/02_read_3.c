@@ -7,7 +7,8 @@
 un carattere alla volta sullo stream di output. */
 
 int main(int argc, char *argv[]) {
-    int fd, n;
+    int fd;
+    ssize_t n;
     char buf;
 
     if (argc < 2) {
