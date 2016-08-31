@@ -1,12 +1,14 @@
-#include <stdio.h>		/* for fprintf(), stderr, BUFSIZ */
-#include <errno.h>		/* declare errno */
-#include <fcntl.h>		/* for flags for open() */
-#include <string.h>		/* declare strerror() */
-#include <unistd.h>		/* for ssize_t */
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <fcntl.h>	
+#include <string.h>	
+#include <unistd.h>	
 #include <sys/types.h>
-#include <sys/stat.h>		/* for mode_t */
+#include <sys/stat.h>	
 
-int process (char *file);
+// Function Prototype
+int process(char *file);
 
 int main (int argc, char *argv[]) {
    int i;
