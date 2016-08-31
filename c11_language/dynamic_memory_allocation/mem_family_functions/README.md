@@ -1,0 +1,3 @@
+### mem* family functions
+
+- memset();

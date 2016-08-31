@@ -1,0 +1,1 @@
+ intro.c `gpgme-config --cflags --libs` -D_FILE_OFFSET_BITS=64
