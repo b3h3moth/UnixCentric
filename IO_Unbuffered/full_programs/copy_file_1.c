@@ -8,9 +8,9 @@
 #define BUF_SIZE 	4096
 #define PERMS_MODE	0755
 
-/*
- Copia un file in un altro file, e' una sorta di cp minimale
-*/
+
+// Lo scopo del programma e' la copia di un file, una sorta di 'cp' minimale
+
 int main(int argc, char *argv[]) {
    int fd_in, fd_out, rd_len, wr_len;
    char buffer[BUF_SIZE];
