@@ -3,8 +3,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int main(int argc, char *argv[])
-{
+/* Lo scopo del programma e' la lettura di un file ricevuto in input, stampando
+un carattere alla volta sullo stream di output. */
+
+int main(int argc, char *argv[]) {
     int fd, n;
     char buf;
 
@@ -18,12 +20,9 @@ int main(int argc, char *argv[])
        exit(EXIT_FAILURE);
     }
 
-    /* 
-     In questo caso, a differenza degli esempi precedenti, si legge un carattere
-     per volta, utilizzando un ciclo while naturalmente e non una espressione 
-     condizionale.
-    */
-    while ( (n = read(fd, &buf, 1)) > 0)
+    /* Lettura del file un carattere alla volta e stampa immediata in output
+    del carattere stesso. */
+    while ((n = read(fd, &buf, 1)) > 0)
        write(STDOUT_FILENO, &buf, n);
     
     close(fd);
