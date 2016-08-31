@@ -1,1 +1,3 @@
-UnixCentric: C11, C99, Unix Programming, POSIX, Perl ... the world of a Unix Developer
+UnixCentric is a perfect World of the Unix System Developer/Engineer.
+
+At the moment it is Strongly Under Construction.
