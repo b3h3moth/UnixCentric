@@ -19,7 +19,8 @@ RETURNS   : Il numero dei byte letti in caso di successo, -1 in caso di errore
 in output e' affidata system call write(). */
 
 int main(int argc, char *argv[]) {
-    int fd, n;
+    int fd;
+    ssize_t n;
     char buf[MAX_BUF+1];
 
     if (argc < 2) {
