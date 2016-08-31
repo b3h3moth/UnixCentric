@@ -4,26 +4,21 @@
 #include <string.h>
 #include <errno.h>
 
-int main(void)
-{
-   char buf[] = "UNIX Programming";
+int main(void) {
+    char buf[] = "Take a Walk on the Wild Side";
+    
+    /* Stampare sullo stdout mediante la system call di basso livello write()
+    risulta essere piu' efficiente rispetto alla funzione di libreria printf()
+    */
 
-
-   /* 
-    Questo metodo di 'stampare' sullo stdout e' piu' efficiente, poiche' lavora
-    mediante system call di basso livello, e oltre all'efficienza e'
-    naturalmente piu' veloce se si fosse utilizzata la classica printf() */
-
-   write(fileno(stdout), buf, sizeof(buf));
+   write(STDOUT_FILENO, buf, sizeof(buf));
 
    printf("\n");
 
-   /*
-    Un ulteriore esempio con  una espressione condizionale per verificare la
-    correttezza della buf in output, o meglio, del vettore di caratteri.
-   */
+   /* Stampa sullo stdout mediante la verifica di una espressione condizionale 
+   per verificare la correttezza del buffer stesso. */
    if (write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)
-      fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
+       fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
 
    return(EXIT_SUCCESS);
 }
