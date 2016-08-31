@@ -15,7 +15,8 @@ RETURNS   : Il numero dei byte letti in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 */
 
-// Lo scopo del programma e' la lettura di un file
+/* Lo scopo del programma e' la lettura di un file ricevuto in input, la stampa
+in output e' affidata system call write(). */
 
 int main(int argc, char *argv[]) {
     int fd, n;
@@ -43,6 +44,8 @@ int main(int argc, char *argv[]) {
     inserire il carattere 'null-terminato' finale */
     buf[n] = '\0';
 
+    /* La funzione write() risulta essere particolarmente efficiente in questo
+    caso */
     if (write (STDOUT_FILENO, buf, n) < 0) {
         fprintf(stderr, "Err. write file\n");
         exit(EXIT_FAILURE);
