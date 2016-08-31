@@ -6,31 +6,32 @@
 
 #define MAX_BUF 1024
 
-int main(void) 
-{
-    char finput[] = "/etc/fstab";
-    int fd;
-    char buffer[MAX_BUF];
+/* Lo scopo del programma e' la lettura di un file definito a 'compile time', 
+la stampa a video dello stesso e' affidata alla funzione di libreria 
+printf() */
 
-    if ( (fd = open(finput, O_RDONLY)) < 0) {
+int main(void) {
+    char finput[] = "/etc/fstab";
+    int fd, nread;
+    char buffer[MAX_BUF+1];
+
+    if ((fd = open(finput, O_RDONLY)) < 0) {
        fprintf(stderr,"Err. open file\n");
        exit(EXIT_FAILURE);
     }
 
-    /* 
-     Legge il contenuto del file indicato dal file descriptor 'fd',
-     copiandolo in 'buffer'; ovviamente la lettura riguarda MAX_BUF byte.
-    */
-    if ( read(fd, buffer, MAX_BUF) < 0) {
+    // Legge MAX_BUF byte dal file descriptor 'fd', salvandoli in 'buffer'
+    if ((nread = read(fd, buffer, MAX_BUF)) < 0) {
        fprintf(stderr, "Err. read file\n");
        exit(EXIT_FAILURE);
     }
-    
-    /*
-     Come si puo' notare si utilizza la printf per scrivere i dati, ma non e'
-     efficiente come se si fosse utilizzato la write()
-    */
+
+    buffer[nread] = '\0';
+
+    /* Per stampare il contenuto del buffer si utilizza la printf(), che non e'
+    efficiente la write() */
     printf("%s", buffer);
+
     close(fd);
 
     return(EXIT_SUCCESS);
