@@ -13,15 +13,15 @@ in lettura e in scrittura sul disco comporta un  "semplice" trasferimento di
 byte, naturalmente senza formattazione.
 
 L'I/O Unbuffered non e' standard ISO C, bensi' standard POSIX 1., nonche'
-Single Unix Specification.
+Single Unix Specification, per cui se lo scopo del programma dovesse essere
+la portabilita' sarebbe opportuno utilizzare gli stream - IO bufferizzato -.
 
-HEADER    : <fcntl.h>
-PROTOTYPE : int open(const char *pathname, int oflag, ...  mode_t mode);
-SEMANTICS : La funzione open() apre o crea il file definito in 'pathname',
-            secondo la modalita' indicata da 'oflags' ed eventualmente con i
-	    permessi 'mode'.
-RETURNS   : 0 in caso di successo, -1 in caso di errore
---------------------------------------------------------------------------------
+HEADER   : <fcntl.h>
+PROTOTYPE: int open(const char *pathname, int oflag, ...  mode_t mode);
+La funzione open() apre o crea il file definito in 'pathname', secondo la 
+modalita' indicata da 'oflag' ed eventualmente con i permessi definiti mediante
+una bit mask in 'mode'. Ritorna 0 in caso di successo, -1 altrimenti.
+
 Allorquando si apre un file, il kernel rilascia un file descriptor al processo,
 ossia un intero non negativo che identifica un file aperto; nei sistemi UNIX ad
 ogni processo sono associati 3 file descriptor: standard input 0, standard
@@ -53,25 +53,28 @@ preciso.
 
 I bit che caratterizzano le costanti simboliche sono suddivisi in tre categorie:
 
-1 - Flag delle modalita' di accesso sui file (solo uno);
+1 - Flag delle modalita' di accesso sui file (solo uno)
+-------------------------------------------------------
 - O_RDONLY    - Apre il file in lettura;
 - O_WRONLY    - Apre il file in scrittura;
 - O_RDWR      - Apre il file il lettura e scrittura;
 
-2 - Flag delle modalita' di apertura sui file (in combinazione):
+2 - Flag delle modalita' di apertura sui file (in combinazione)
+---------------------------------------------------------------
 - O_CREAT     - Se il file non esiste sara' creato;
 - O_DIRECTORY - Se 'pathname' non e' una directory la chiamata fallisce;
 - O_EXCL      - E' utilizzato in concomitanza con O_CREAT, in modo che se il
                 file dovesse essere gia' presente nel filesystem, ritornerebbe
-	        un errore EEXIST, ossia file gia' esistente nel filesystem;
+	            un errore EEXIST, ossia file gia' esistente nel filesystem;
 - O_LARGEFILE - Apertura di file molto grandi;
 - O_NOCTTY    - Se 'pathname' si riferisce ad un terminale, esso non diventera'
                 il terminale di controllo, anche qualora il processo ancora non
-		ne abbia uno;
+		        ne abbia uno;
 - O_NOFOLLOW  - Se 'pathname' e' un collegamento simbolico la chiamata fallisce;
 - O_TRUNC     - Se usato un file aperto in scrittura, tronca la grandezza a 0;
 
-3 - Flag delle modalita' di operazione sui file (in combinazione):
+3 - Flag delle modalita' di operazione sui file (in combinazione)
+-----------------------------------------------------------------
 - O_APPEND    - La posizione corrente viene impostata alla fine del file;
 - O_ASYNC     - Apre il file in modalita' asincrona;
 - O_CLOEXEC   - Attiva la modalita' close-on-exec sul file;
@@ -96,17 +99,17 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
-   /*
-    Si chiude subito il canale di comunicazione stabilito con il kernel, senza
-    eseguire alcuna operazione aggiuntiva
-   */
+   /* Si chiude subito il canale di comunicazione stabilito con il kernel, 
+   senza eseguire alcuna operazione aggiuntiva */
    close(fd);
 
-   /* Esempio di utilizzo di due costanti simboliche in relazione tra loro;
-   nel caso specifico se il file e' gia' presente sul filesystem la funzione
-   open() ritorna un errore EEXIST */
-   if ((fd = open("01_open.c", O_CREAT | O_EXCL, 0644)) < 0) {
-      fprintf(stderr, "Err: (%d) - %s\n", errno, strerror(errno));
+   /* Due costanti simboliche in relazione tra loro; nel caso specifico se il 
+   file e' gia' presente nel filesystem la funzione open() ritorna un errore 
+   EEXIST */
+   if ((fd = open(argv[0], O_CREAT | O_EXCL)) < 0) {
+      fprintf(stderr, "Err: (%d) - %s, %s\n", errno, strerror(errno), *argv);
+      /* argv[0] e *argv puntano alla medesima stringa, ovvero il nome del
+      programma in esecuzione. */
       exit(EXIT_FAILURE);
    }
 
