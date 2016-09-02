@@ -15,8 +15,8 @@ int main(void) {
 
    printf("\n");
 
-   /* Stampa sullo stdout mediante la verifica di una espressione condizionale 
-   per verificare la correttezza del buffer stesso. */
+   /* Stampa sullo stdout mediante la verifica di un'espressione condizionale 
+   per constatare la correttezza del buffer stesso. */
    if (write(STDOUT_FILENO, buf, sizeof(buf)-1) != sizeof(buf)-1)
        fprintf(stderr, "%d: %s err.\n", errno, strerror(errno));
 
