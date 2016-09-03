@@ -1,6 +1,6 @@
 ## igraph
 
-It is a collection od network analysis tools to design directed acyclic graphs
+igraph a collection of network analysis tools to design directed acyclic graphs
 
 
 ### Package and Header library
