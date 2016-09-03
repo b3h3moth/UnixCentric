@@ -3,8 +3,15 @@
 #include <errno.h>
 #include <string.h> /* strerror() */
 
+/* La funzione strerror() - char *strerror(int errnum); - ritorna un puntatore
+ad una stringa che descrive il codice di errore ottenuto dall'argomento
+'errnum'. */
 
-int main(int argc, char **argv) {
+/* Lo scopo del programma e' il tentativo di aprire il file /etc/passwd in
+scrittura, che se eseguito come utente causera' un errore, tale errore sara'
+descritto dalla funzione strerror(). */
+
+int main(void) {
 	FILE *password;
 	
 	if ( (password = fopen("/etc/passwd", "w")) == NULL) { 
