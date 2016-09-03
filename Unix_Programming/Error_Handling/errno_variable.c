@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     /* All'inizio di una chiamata la variabile 'errno' e' impostato a 0, per
     cui ogni altro valore indichera' un codice di errore */
     
-    if ( (fd = open("/dubito/che/esista/questo/file", O_RDONLY)) < 0) {
+    if ( (fd = open("probably/this/file/doesnt/exist", O_RDONLY)) < 0) {
         my_err = errno;
         if (my_err != 0) {
             fprintf(stderr, "Err.:(%d) Il file non esiste\n", errno);
