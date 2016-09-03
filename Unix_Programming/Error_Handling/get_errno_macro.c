@@ -10,11 +10,10 @@ int main(int argc, char *argv[]) {
     if (argc < 2) 
         fprintf(stderr, "Uso: %s <errno_number>\n", argv[0]);
     else {
-        //errno = atoi(argv[1]);
-        perror(argv[1]);
+        errno = strtol(argv[1], 0, 10);
+        perror(argv[1]);  // medesimo risultato con perror("");
     }
     
-    // medesimo risultato con perror("");
     
     return(EXIT_SUCCESS);
 }
