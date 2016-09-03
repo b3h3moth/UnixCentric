@@ -14,6 +14,5 @@ int main(int argc, char *argv[]) {
         perror(argv[1]);  // medesimo risultato con perror("");
     }
     
-    
     return(EXIT_SUCCESS);
 }
