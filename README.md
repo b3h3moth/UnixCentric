@@ -1,3 +1,3 @@
-UnixCentric is a perfect World of the Unix System Developer/Engineer.
+UnixCentric is a Unix System Developer World
 
-At the moment it is Strongly Under Construction.
+Posix, C ansi
