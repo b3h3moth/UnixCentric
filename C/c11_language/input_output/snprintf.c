@@ -9,10 +9,9 @@ static void print_buffer(char *buf);
 
 /* La funzione snprintf() e' la versione piu' sicura della funzione sprintf(),
 che si consiglia di non usare o comunque di adoperarla con particolare 
-accortezza poiche' e' particolarmente soggetta ad errori quali il
-'buffer overflow'. La peculiarita' della funzione snprintf() rispetto alla 
-sprintf() sta proprio nella possibilita' di poter indicare la grandezza del
-buffer.
+accortezza poiche' e' soggetta ad errori quali il 'buffer overflow'. 
+La peculiarita' della funzione snprintf() rispetto alla sprintf() sta proprio 
+nella possibilita' di poter indicare la grandezza del buffer.
 
 Signature: int snprintf(char *str, size_t size, const char *format, ...)
 Semantics: La funzione snprintf() redirige al massimo 'size' byte dell'output 
