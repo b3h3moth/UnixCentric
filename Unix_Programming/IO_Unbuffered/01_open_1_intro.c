@@ -5,7 +5,10 @@
 #include <errno.h>
 #include <string.h>
 
-/*
+/* Atomicity (atomicita'): il kernel garantisce che ciascun step delle system 
+call e' eseguito in una singola operazione e senza interruzioni da parte di un
+processo o thread. Tutte le system call sono eseguite atomicamente.
+
 Il termine Unbuffered I/O (definito anche I/O di basso livello) indica che le
 varie routine (open, read, write, lseek, close, etc...) sono chiamate dirette
 al sistema operativo e pertanto gestite dal Kernel stesso, inoltre l'accesso
