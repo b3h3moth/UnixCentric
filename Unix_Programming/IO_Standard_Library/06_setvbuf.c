@@ -5,6 +5,9 @@
 
 #define MAX_BUF 512
 
+/* La funzione 'int setvbuf(FILE *stream, char *buf, int mode, size_t size)' 
+definisce la bufferizzazione dello stream. */
+
 int main(void) {
    char buf[MAX_BUF];
 
