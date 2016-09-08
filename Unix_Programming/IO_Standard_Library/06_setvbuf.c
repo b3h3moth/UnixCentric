@@ -10,7 +10,7 @@ int main(void) {
 
    fprintf(stdout, "Buffering ...\n");
 
-   if (setvbuf(stdout, buf, _IOFBF, sizeof buf)) {
+   if (setvbuf(stdout, buf, _IOFBF, MAX_BUF)) {
       fprintf(stderr, "Err. Set buffering failed: %s\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
