@@ -17,6 +17,13 @@ int main(void) {
       fprintf(stderr, "Err. Set buffering failed: %s\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
+
+   fprintf(stdout, "Thanks ");
+   fprintf(stdout, "fflush()\n");
+   fflush(stdout);
+
+   fprintf(stdout, "come on baby, it's late\n");
+   sleep(2);
    
    return EXIT_SUCCESS;
 }
