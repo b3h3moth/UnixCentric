@@ -7,7 +7,11 @@
 enum { MAX_BUF = 512 };
 
 /* La funzione 'int setvbuf(FILE *stream, char *buf, int mode, size_t size)' 
-definisce la bufferizzazione dello stream. */
+definisce la bufferizzazione dello stream.
+
+Lo scopo del programma e' di cambiare la dimensione del buffer, utilizzando
+la grandezza appropriata mediante specifiche informazioni sullo status del
+file in lettura. */
 
 int main(int argc, char *argv[]) {
     FILE *fp = NULL;
