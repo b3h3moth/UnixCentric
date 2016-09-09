@@ -27,5 +27,10 @@ int main(int argc, char *argv[]) {
     printf("BUFFER SIZE: %d | Preferred I/O block size: %ld\n", \
             MAX_BUF, st.st_blksize);
 
+    if (setvbuf(fp, NULL, _IOFBF, st.st_blksize) != 0) {
+      fprintf(stderr, "Setup buffering failed: %s\n", strerror(errno));
+      return 1;
+    }
+
    return EXIT_SUCCESS;
 }
