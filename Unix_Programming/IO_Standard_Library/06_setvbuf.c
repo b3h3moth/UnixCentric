@@ -9,12 +9,15 @@
 definisce la bufferizzazione dello stream. */
 
 int main(void) {
-   char buf[MAX_BUF];
+    FILE *fp = fopen(argv[1], "r");
 
-   fprintf(stdout, "Buffering ...\n");
+    if (fp == NULL) {
+      fprintf(stderr, "Open file failed: %s\n", strerror(errno));
+      return 1;
+    }
+
 
    if (setvbuf(stdout, buf, _IOFBF, MAX_BUF)) {
-      fprintf(stderr, "Err. Set buffering failed: %s\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
 
