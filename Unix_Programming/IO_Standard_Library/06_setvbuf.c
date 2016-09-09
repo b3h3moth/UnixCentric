@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-    printf("BUFFER SIZE: %d | Preferred block size: %ld\n", \
+    printf("BUFFER SIZE: %d | Preferred I/O block size: %ld\n", \
             MAX_BUF, st.st_blksize);
 
    return EXIT_SUCCESS;
