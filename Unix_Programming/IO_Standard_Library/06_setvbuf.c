@@ -10,8 +10,10 @@
 definisce la bufferizzazione dello stream. */
 
 int main(int argc, char *argv[]) {
-    FILE *fp = fopen(argv[1], "r");
+    FILE *fp = NULL;
+    struct stat st;
 
+    fp = fopen(argv[1], "r");
     if (fp == NULL) {
       fprintf(stderr, "Open file failed: %s\n", strerror(errno));
       return 1;
