@@ -19,10 +19,13 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-    if (fstat(fp, &st) == -1) {
+    if (fstat(fileno(fp), &st) == -1) {
       fprintf(stderr, "stat file failed: %s\n", strerror(errno));
       return 1;
     }
+
+    printf("BUFFER SIZE: %d | Preferred block size: %ld\n", \
+            MAX_BUF, st.st_blksize);
 
    return EXIT_SUCCESS;
 }
