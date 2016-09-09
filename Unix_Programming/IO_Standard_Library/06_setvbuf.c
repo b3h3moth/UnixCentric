@@ -12,6 +12,7 @@ definisce la bufferizzazione dello stream. */
 int main(int argc, char *argv[]) {
     FILE *fp = NULL;
     struct stat st;
+    int ch;
 
     fp = fopen(argv[1], "r");
     if (fp == NULL) {
@@ -27,10 +28,16 @@ int main(int argc, char *argv[]) {
     printf("BUFFER SIZE: %d | Preferred I/O block size: %ld\n", \
             MAX_BUF, st.st_blksize);
 
+    // Settaggio del buffering 
     if (setvbuf(fp, NULL, _IOFBF, st.st_blksize) != 0) {
       fprintf(stderr, "Setup buffering failed: %s\n", strerror(errno));
       return 1;
     }
+
+    while ((ch = fgetc(fp)) != EOF)
+        fputc(ch, stdout);
+
+    fclose(fp);
 
    return EXIT_SUCCESS;
 }
