@@ -19,17 +19,5 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-
-   if (setvbuf(stdout, buf, _IOFBF, MAX_BUF)) {
-      exit(EXIT_FAILURE);
-   }
-
-   fprintf(stdout, "Thanks ");
-   fprintf(stdout, "fflush()\n");
-   fflush(stdout);
-
-   fprintf(stdout, "come on baby, it's late\n");
-   sleep(2);
-   
    return EXIT_SUCCESS;
 }
