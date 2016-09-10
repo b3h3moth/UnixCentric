@@ -36,6 +36,9 @@ F_SETSIG, setta il segnale inviato quando l'input o l'output e' disponibile;
 F_SETLEASE, imposta o rimuove un file lease; 
 F_GETLEASE, setta un file lease;
 F_NOTIFY, attiva un meccanismo di notifica.
+
+Tra le operazioni piu' comuni vi e' la possibilita' di mettere un blocco in
+lettura o in scrittura ad un file.
 */
 
 int main(int argc, char *argv[]) {
