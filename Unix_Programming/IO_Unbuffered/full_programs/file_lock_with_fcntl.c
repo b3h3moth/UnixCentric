@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
     char *file = argv[1];
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <file>\n", file);
+        fprintf(stderr, "Usage: %s <file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
