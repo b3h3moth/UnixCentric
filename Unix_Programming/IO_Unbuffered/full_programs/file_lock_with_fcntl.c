@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 #include <fcntl.h>
 
 /* Lo scopo del  programma e' la realizzazione di un file 'write lock'
@@ -24,6 +25,12 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Open file: %s\n", file);
+
+    fd = open(file, O_WRONLY);
+    if (fd == NULL) {
+        fprintf(stderr, "Err. Open file failed: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
