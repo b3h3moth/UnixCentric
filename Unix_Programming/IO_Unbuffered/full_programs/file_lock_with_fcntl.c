@@ -3,6 +3,7 @@
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 /* Lo scopo del  programma e' la realizzazione di un file 'write lock'
 utilizzando la funzione fcntl().
@@ -32,6 +33,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    puts("File is lock");
+
     // Azzeramento della variabile di tipo struct flock 'lock'
     memset(&lock, 0, sizeof(lock));
 
@@ -46,6 +49,17 @@ int main(int argc, char *argv[]) {
 
     puts("Locked: [enter to unlock]");
     getchar();
+
+    puts("Unlock");
+    // Sblocca il lock
+    lock.l_type = F_UNLCK;
+
+    if (fcntl(fd, F_SETLKW, &lock) < 0) {
+        fprintf(stderr, "Err. fcntl() failed: %s\n", strerror(errno));
+        return 1;
+    }
+
+    close(fd);
 
     return(EXIT_SUCCESS);
 }
