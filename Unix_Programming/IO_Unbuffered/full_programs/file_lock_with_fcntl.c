@@ -38,5 +38,11 @@ int main(int argc, char *argv[]) {
     // Imposta il tipo del lock in scrittura
     lock.l_type = F_WRLCK;
 
+    // Setta il lock sul file descriptor
+    if (fcntl(fd, F_SETLKW, &lock) < 0) {
+        fprintf(stderr, "Err. fcntl() failed: %s\n", strerror(errno));
+        return 1;
+    }
+
     return(EXIT_SUCCESS);
 }
