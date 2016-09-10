@@ -18,5 +18,7 @@ int main(int argc, char *argv[]) {
     int fd = 0;
     char *file = argv[1];
 
+    printf("Open file: %s\n", file);
+
     return(EXIT_SUCCESS);
 }
