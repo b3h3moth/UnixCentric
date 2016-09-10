@@ -44,5 +44,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    puts("Locked: [enter to unlock]");
+    getchar();
+
     return(EXIT_SUCCESS);
 }
