@@ -40,31 +40,31 @@ int main(int argc, char *argv[]) {
     int val;
     
     if (argc < 2) {
-    	fprintf(stderr, "Uso: %s <descriptor>\n", argv[0]);
-	/* es: ./a.out 0 < /etc/fstab */
-	exit(EXIT_FAILURE);
+    	fprintf(stderr, "Usage: %s <N file descriptor>\n", argv[0]);
+	    /* es: ./a.out 0 < /etc/fstab */
+	    exit(EXIT_FAILURE);
     }
 
     if ((val = fcntl(atoi(argv[1]), F_GETFL, 0)) < 0) {
     	fprintf(stderr, "Err.(%s) fcntl() failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
 
     switch (val & O_ACCMODE) {
     	case O_RDONLY:
-	    printf("solo lettura");
+	    printf("read only");
 	    break;
 
 	case O_WRONLY:
-	    printf("solo scrittura");
+	    printf("write only");
 	    break;
 
 	case O_RDWR:
-	    printf("lettura scrittura");
+	    printf("read write");
 	    break;
 
 	default:
-	    printf("access mode sconosciuto");
+	    printf("access mode unknow");
 	    exit(EXIT_FAILURE);
     }
 
@@ -72,11 +72,11 @@ int main(int argc, char *argv[]) {
     	printf(", append");
 
     if (val & O_NONBLOCK)
-    	printf(", non bloccante");
+    	printf(", non-blocking");
 
 #if defined(O_SYNC)
     if (val & O_SYNC)
-    	printf(", scrittura sincrona");
+    	printf(", async writing");
 #endif
     printf("\n");
 
