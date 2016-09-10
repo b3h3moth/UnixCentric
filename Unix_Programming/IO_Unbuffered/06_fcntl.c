@@ -37,10 +37,8 @@ F_SETLEASE, imposta o rimuove un file lease;
 F_GETLEASE, setta un file lease;
 F_NOTIFY, attiva un meccanismo di notifica.
 
-Tra le operazioni piu' comuni vi e' la possibilita' di mettere un blocco in
-lettura o in scrittura ad un file; il blocco in lettura e' posto su un
-descrittore di file leggibile, mentre il blocco in scrittura su uno
-scrivibile. */
+Una delle operazioni piu' importanti realizzabili con fcntl() e' il blocco in 
+lettura o in scrittura di un file descriptor. */
 
 int main(int argc, char *argv[]) {
     int val;
