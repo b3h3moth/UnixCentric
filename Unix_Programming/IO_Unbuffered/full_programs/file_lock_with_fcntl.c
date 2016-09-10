@@ -24,13 +24,19 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Open file: %s\n", file);
+    printf("Open file to lock: %s\n", file);
 
     fd = open(file, O_WRONLY);
-    if (fd == NULL) {
+    if (fd == -1) {
         fprintf(stderr, "Err. Open file failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    // Azzeramento della variabile di tipo struct flock 'lock'
+    memset(&lock, 0, sizeof(lock));
+
+    // Imposta il tipo del lock in scrittura
+    lock.l_type = F_WRLCK;
 
     return(EXIT_SUCCESS);
 }
