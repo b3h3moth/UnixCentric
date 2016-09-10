@@ -11,7 +11,7 @@ processi; il blocco in scrittura invece va posto su un file descriptor
 scrivibile, ma solo un processo puo' beneficiarne. Il medesimo file non puo' 
 essere bloccato sia in lettura sia in scrittura. */
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
