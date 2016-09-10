@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
 
 /* Lo scopo del  programma e' la realizzazione di un file 'write lock'
 utilizzando la funzione fcntl().
@@ -12,6 +14,9 @@ scrivibile, ma solo un processo puo' beneficiarne. Il medesimo file non puo'
 essere bloccato sia in lettura sia in scrittura. */
 
 int main(int argc, char *argv[]) {
+    struct flock lock;
+    int fd = 0;
+    char *file = argv[1];
 
     return(EXIT_SUCCESS);
 }
