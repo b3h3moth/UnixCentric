@@ -18,6 +18,11 @@ int main(int argc, char *argv[]) {
     int fd = 0;
     char *file = argv[1];
 
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <file>\n", file);
+        exit(EXIT_FAILURE);
+    }
+
     printf("Open file: %s\n", file);
 
     return(EXIT_SUCCESS);
