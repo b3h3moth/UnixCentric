@@ -1,3 +1,5 @@
-# UnixCentric is a Unix System Developer World
+# UnixCentric - Unix System Developer
 
-Posix, C ansi
+## Unix Programming
+
+## C (c11 9899:2011,199  9899:1999)
