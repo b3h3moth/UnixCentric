@@ -1,4 +1,4 @@
-# UnixCentric - Unix System Developer
+# UnixCentric - Unix Systemc and C (c99, c11) Development
 
 ## src (Source Code)
 
