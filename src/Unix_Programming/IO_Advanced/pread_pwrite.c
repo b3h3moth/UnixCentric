@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     size_t in_size, out_size;
 
     if (argc != 7) {
-        fprintf(stderr, "Usage: %s dd <input file, offset, size>"
+        fprintf(stderr, "Usage: %s <input file, offset, size>"
                 " <output file, offset, size>", argv[0]);
         exit(EXIT_FAILURE);
     }
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    out_fd = open(argv[1], O_WRONLY);
+    out_fd = open(argv[4], O_WRONLY);
     if (out_fd < 0) {
         fprintf(stderr, "Unable to write %s: %s\n", argv[4], strerror(errno));
         exit(EXIT_FAILURE);
