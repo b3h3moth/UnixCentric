@@ -16,5 +16,5 @@ pwrite() scrive `count` byte dal buffer a partire da `buf` nel file descriptor
 In entrambi i casi l'offset del file non viene modificato.
 
 In caso di successo ritornano il numero di byte letto o scritti, 0 indica
-che nessun byte e' stato scritto dalla pwrite() oppure EOF dalla pread(). In
+che nessun byte e' stato scritto dalla `pwrite()` oppure EOF dalla pread(). In
 caso di errore -1.
