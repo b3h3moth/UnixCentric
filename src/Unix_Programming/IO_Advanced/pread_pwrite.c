@@ -29,5 +29,11 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    // Setup input output offset
+    in_offst = strtol(argv[2], NULL, 10);
+    out_offst = strtol(argv[3], NULL, 10);
+
+    out_offst = strtol(argv[3], NULL, 10);
+
     return(EXIT_SUCCESS);
 }
