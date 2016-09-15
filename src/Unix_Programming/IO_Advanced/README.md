@@ -1,7 +1,8 @@
 ## pread(), pwrite()
 
 Le system call `pread()` e `pwrite()` combinano gli effetti di una chiamata a
-`lseek()`, `read()` - o `write()` - in una singola system call.
+`lseek()`, `read()` - o `write()` - in una singola system call, tutto cio'
+fornisce un miglioramento nelle performance.
 
 > ```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```
 
@@ -10,7 +11,7 @@ pread() legge `count` byte dal file descriptor `fd` all'offset `offset`
 
 > ```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```
 
-pwrite() scrive `count` byte dal buffer a partire da `buf` nel file descriptor 
+`pwrite()` scrive `count` byte dal buffer a partire da `buf` nel file descriptor
 `fd` all'offset `offset`.
 
 In entrambi i casi l'offset del file non viene modificato.
