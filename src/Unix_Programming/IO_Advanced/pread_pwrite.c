@@ -12,14 +12,20 @@ int main(int argc, char *argv[]) {
     size_t in_size, out_size;
 
     if (argc != 7) {
-        fprintf(stderr, "Usage: %s dd <input_file> <input_offset> <input size>"
-                " <output file> <output offset> <output size>", argv[0]);
+        fprintf(stderr, "Usage: %s dd <input file, offset, size>"
+                " <output file, offset, size>", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     in_fd = open(argv[1], O_RDONLY);
     if (in_fd < 0) {
         fprintf(stderr, "Unable to open %s: %s\n", argv[1], strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    out_fd = open(argv[1], O_WRONLY);
+    if (out_fd < 0) {
+        fprintf(stderr, "Unable to write %s: %s\n", argv[1], strerror(errno));
         exit(EXIT_FAILURE);
     }
 
