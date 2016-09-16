@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    out_fd = open(argv[4], O_WRONLY);
+    out_fd = open(argv[4], O_WRONLY | O_CREAT);
     if (out_fd < 0) {
         fprintf(stderr, "Unable to write %s: %s\n", argv[4], strerror(errno));
         exit(EXIT_FAILURE);
