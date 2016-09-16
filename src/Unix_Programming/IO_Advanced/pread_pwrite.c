@@ -5,6 +5,11 @@
 #include <string.h>
 #include <unistd.h>
 
+/* Lo scopo del programma e' di leggere un file in input, stabilirne offset e 
+size, dopodiche' il contenuto da offset a size puo' essere scritto tutto o in
+parte in un file di output, poiche' anche nel file di output si deve impostare
+sia offset sia size. */
+
 int main(int argc, char *argv[]) {
     char *buf;
     int in_fd, out_fd, nread;
