@@ -47,6 +47,8 @@ int main(int argc, char *argv[]) {
     if (in_size < out_size)
         out_size = in_size;
 
+    /* Si usano le funzioni pread() e pwrite() per leggere e scrivere da uno
+    specifico offset */
     nread = pread(in_fd, buf, in_size, in_offst);
     pwrite(out_fd, buf, nread, out_offst);
 
