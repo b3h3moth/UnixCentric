@@ -4,6 +4,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
 
 /* Lo scopo del programma e' di leggere un file in input, stabilirne offset e 
 size, dopodiche' il contenuto da offset a size puo' essere scritto tutto o in
@@ -28,7 +29,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    out_fd = open(argv[4], O_WRONLY | O_CREAT);
+    out_fd = open(argv[4], O_CREAT | O_WRONLY, S_IRWXU);
     if (out_fd < 0) {
         fprintf(stderr, "Unable to write %s: %s\n", argv[4], strerror(errno));
         exit(EXIT_FAILURE);
