@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
     char *buf;
@@ -42,6 +42,8 @@ int main(int argc, char *argv[]) {
     if (in_size < out_size)
         out_size = in_size;
 
+    nread = pread(in_fd, buf, in_size, in_offst);
+    pwrite(out_fd, buf, nread, out_offst);
 
     return(EXIT_SUCCESS);
 }
