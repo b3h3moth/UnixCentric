@@ -37,5 +37,6 @@ int main(int argc, char *argv[]) {
     in_size = strtol(argv[3], NULL, 10);
     out_size = strtol(argv[6], NULL, 10);
 
+    buf = malloc(sizeof(in_size));
     return(EXIT_SUCCESS);
 }
