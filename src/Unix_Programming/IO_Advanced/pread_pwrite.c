@@ -3,8 +3,8 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
-#include <unistd.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 /* Lo scopo del programma e' di leggere un file in input, stabilirne offset e 
 size, dopodiche' il contenuto da offset a size puo' essere scritto tutto o in
