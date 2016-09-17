@@ -20,7 +20,8 @@ In caso di successo ritornano il numero di byte letto o scritti, 0 indica
 che nessun byte e' stato scritto dalla `pwrite()` oppure EOF dalla pread(). In
 caso di errore -1.
 
-> Nota: In entrambi i casi le system call non sono standard C, per cui e' necessario informare il compilatore di aggiungere delle funzioni extra POSIX. 
+> > **Nota**: In entrambi i casi le system call non sono standard C, per cui e' 
+> > necessario informare il compilatore di aggiungere delle funzioni extra POSIX
 
 La compilazione sara' la seguente:
     
