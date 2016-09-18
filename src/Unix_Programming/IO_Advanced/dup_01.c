@@ -31,9 +31,6 @@ int main(int argc, char *argv[]) {
 
    // Duplicazione del file descriptor 'fd' in 'fd2' mediante dup()
    fd2 = dup(fd);
-   if ((fd2 == -1) && (errno != EBADF)) {
-       puts("err");
-   }
    
    /* dup() accetta come unico argomento il file descriptor da duplicare,
    dopodiche' e' sufficiente assegnare il valore di ritorno ad una variabile 
@@ -51,7 +48,6 @@ int main(int argc, char *argv[]) {
    duplicare e il nuovo file descriptor. */
 
    // Chiusura del secondo file descriptor
-   close(fd2);
 
    /* Dopo questa sorta di catena di passaggio dei file descpritors, si
    provvede alla lettura del file utilizzando l'ultimo file descriptor 
