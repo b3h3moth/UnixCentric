@@ -29,27 +29,34 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
-   /*
-    Duplica mediante la funzione dup() il file descriptor 'fd', dopodiche' lo si
-    chiude.
-   */
+   // Duplicazione del file descriptor 'fd' in 'fd2' mediante dup()
    fd2 = dup(fd);
+   
+   /* dup() accetta come unico argomento il file descriptor da duplicare,
+   dopodiche' e' sufficiente assegnare il valore di ritorno ad una variabile 
+   intera. */
+   
+   // Chiusura del file descriptor iniziale
    close(fd);
 
-   /* 
-    Una nuova duplicazione del file descriptor utilizzando la funzione dup2(),
-    si duplica 'fd2' in 'fd3'.
-   */
+   // Duplicazione del file descriptor 'fd2' in 'fd3' mediante dup2()
    dup2(fd2, fd3);
+
+   /* La differenza sostanziale rispetto a dup() e' che non e' neccessario
+   alcun un assegnamento, poiche' sara' la dup2() stessa ad eseguire la 
+   duplicazione servendosi dei propri argomenti, ovvero il file descriptor da 
+   duplicare e il nuovo file descriptor. */
+
+   // Chiusura del secondo file descriptor
    close(fd2);
 
-   /*
-    Si provvede alla lettura del file utilizzando l'ultimo file descriptor
-   */
-
+   /* Dopo questa sorta di catena di passaggio dei file descpritors, si
+   provvede alla lettura del file utilizzando l'ultimo file descriptor 
+   duplicato, ovvero 'fd3'. */
    while ((nr = read(fd3, &buf, 1)) > 0) 
       write(STDOUT_FILENO, &buf, nr);
 
+   // Chiusura dell'ultimo file descriptor aperto
    close(fd3);
 
    return(EXIT_SUCCESS);
