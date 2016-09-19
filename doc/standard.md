@@ -1,4 +1,4 @@
-# Tha Standards (officially documentation)
+# Tha Standards and manual references (officially documentation)
 
 ## ISO C
 
