@@ -14,6 +14,8 @@ pread() legge `count` byte dal file descriptor `fd` all'offset `offset`
 `pwrite()` scrive `count` byte dal buffer a partire da `buf` nel file descriptor
 `fd` all'offset `offset`.
 
+Header da includere: `<unistd.h>`
+
 In entrambi i casi l'offset del file non viene modificato. In caso di successo 
 ritornano il numero di byte letti o scritti. `0` indica che nessun byte e' stato
 scritto dalla `pwrite()`, mentre `EOF` che la `pread()` ha raggiunto la fine del
@@ -27,9 +29,16 @@ La compilazione sara' la seguente:
     
  ```$ gcc -Wall -pedantic -std=c11 -D_XOPEN_SOURCE=500 file.c```
 
+
 ## readv(), writev(), Scatter/Gather I/O or Vectored I/O
 
 Lo *scatter-gather I/O* e' un metodo di input output per gestire con una
-singola system call la lettura e la scrittura di un vettore di buffer da un
-unico stream. Le system call deputate a tale scopo sono `readv()` per la lettura
-e `writev()` per la scrittura.
+singola system call la lettura e la scrittura di mulipli buffer - un vettore di
+buffer - da un unico stream. 
+
+Le system call deputate a tale scopo sono `readv()` per la lettura e `writev()` 
+per la scrittura.
+
+```ssize_t readv(int fd, const struct iovec *iov, int iovcnt);```
+
+```ssize_t writev(int fd, const struct iovec *iov, int iovcnt);```
