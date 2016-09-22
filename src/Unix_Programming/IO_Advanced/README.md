@@ -6,15 +6,13 @@ fornisce un miglioramento nelle performance.
 
  ```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```
 
-pread() legge `count` byte dal file descriptor `fd` all'offset `offset` 
-(dall'inizio del file) nel buffer a partire da `buf`.
+La funzione `pread()` legge `count` byte dal file descriptor `fd` all'offset 
+`offset` (dall'inizio del file) nel buffer a partire da `buf`.
 
  ```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```
 
-`pwrite()` scrive `count` byte dal buffer a partire da `buf` nel file descriptor
-`fd` all'offset `offset`.
-
-Header da includere: `<unistd.h>`
+La funzione `pwrite()` scrive `count` byte dal buffer a partire da `buf` nel 
+file descriptor `fd` all'offset `offset`.
 
 In entrambi i casi l'offset del file non viene modificato. In caso di successo 
 ritornano il numero di byte letti o scritti. `0` indica che nessun byte e' stato
@@ -32,7 +30,7 @@ La compilazione sara' la seguente:
 
 ## readv(), writev(), Scatter/Gather I/O or Vectored I/O
 
-Lo *scatter-gather I/O* e' un metodo di input output per gestire con una
+Lo **scatter-gather I/O** e' un metodo di input output per gestire con una
 singola system call la lettura e la scrittura di mulipli buffer - un vettore di
 buffer - da un unico stream. 
 
@@ -40,5 +38,8 @@ Le system call deputate a tale scopo sono `readv()` per la lettura e `writev()`
 per la scrittura.
 
 ```ssize_t readv(int fd, const struct iovec *iov, int iovcnt);```
+
+La funzione readv() legge i buffer `iovcnt` dal file associato al file 
+descriptor `fd` nei buffer descritti da iov (__scatter input__).
 
 ```ssize_t writev(int fd, const struct iovec *iov, int iovcnt);```
