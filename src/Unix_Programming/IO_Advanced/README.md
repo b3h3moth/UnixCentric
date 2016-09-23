@@ -39,7 +39,10 @@ per la scrittura.
 
 ```ssize_t readv(int fd, const struct iovec *iov, int iovcnt);```
 
-La funzione readv() legge i buffer `iovcnt` dal file associato al file 
-descriptor `fd` nei buffer descritti da iov (__scatter input__).
+La funzione `readv()` legge i buffer `iovcnt` dal file associato al file 
+descriptor `fd` nei buffer descritti da `iov` (__scatter input__).
 
 ```ssize_t writev(int fd, const struct iovec *iov, int iovcnt);```
+
+La funzione `writev()` scrive i buffer `iovcnt` descritti da `iov` nel file 
+associato al file descriptor `fd` (__gather output__).
