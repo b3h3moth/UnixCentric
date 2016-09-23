@@ -47,6 +47,10 @@ descriptor `fd` nei buffer descritti da `iov` (__scatter input__).
 La funzione `writev()` scrive i buffer `iovcnt` descritti da `iov` nel file 
 associato al file descriptor `fd` (__gather output__).
 
+In caso di successo la funzione readv() restituisce il numero di byte letti, 
+mentre la funzione writev() il numero di byte scritti. In caso di errore 
+entrambe restituiscono -1.
+
 `iov` e' un puntatore alla struttura `iovec` definita in `sys/uio.h`:
 ```
 struct iovec {
