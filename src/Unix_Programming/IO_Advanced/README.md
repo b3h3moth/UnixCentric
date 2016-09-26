@@ -28,7 +28,7 @@ La compilazione sara' la seguente:
  ```$ gcc -Wall -pedantic -std=c11 -D_XOPEN_SOURCE=500 file.c```
 
 
-## readv(), writev(), Scatter/Gather I/O or Vectored I/O
+## Scatter/Gather I/O (or Vectored I/O); readv(), writev()
 
 Lo **scatter-gather I/O** e' un metodo di input output per gestire con una
 singola system call la lettura e la scrittura di mulipli buffer - un vettore di
@@ -60,3 +60,14 @@ struct iovec {
 ```
 
 > I trafserimenti eseguiti da entrambe le system call sono atomici.
+
+## File Descriptor duplication; dup(), dup2(), dup3()
+
+
+ int dup(int fd);
+ La funzione dup(), duplica il file descriptor 'fd'; 
+            
+int dup2(int fd, int fd2);
+ la funzione           dup2() duplica il file descriptor 'fd' in 'fd2'.
+
+ Enrambe ritornanano il nuovo file descriptor, -1 in caso di errore
