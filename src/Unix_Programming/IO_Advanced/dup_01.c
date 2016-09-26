@@ -5,15 +5,8 @@
 #include <string.h>
 #include <fcntl.h>
 
-/*
-HEADER    : <unistd.h>
-PROTOTYPE : int dup(int fd);
-            int dup2(int fd, int fd2);
-SEMANTICS : La funzione dup(), duplica il file descriptor 'fd'; la funzione
-            dup2() duplica il file descriptor 'fd' in 'fd2'.
-RETURNS   : Enrambe ritornanano il nuovo file descriptor, -1 in caso di errore
---------------------------------------------------------------------------------
-*/
+/* Lo scopo del programma e' di aprire un file descriptor, dopodiche' 
+duplicarlo mediante le funzioni dup() e dup2(). */
 
 int main(int argc, char *argv[]) {
    int fd, fd2, fd3, nr;
