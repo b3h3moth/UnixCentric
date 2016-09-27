@@ -63,8 +63,18 @@ struct iovec {
 
 ## File Descriptor duplication; dup(), dup2(), dup3()
 
+La duplicazione di un file descriptor puo' essere gestita in maniera ottimale
+da diverse system call.
 
- int dup(int fd);
+```int dup(int oldfd);```
+
+La funzione `dup` crea una copia del file descriptor `oldfd`. La copia e il 
+vecchio file descriptor condividono l'`offset` e i `file status flags` ma non
+i `file descriptor flags`.
+
+```int dup2(int oldfd, int newfd);```
+```int dup3(int oldfd, int newfd, int flags);```
+
  La funzione dup(), duplica il file descriptor 'fd'; 
             
 int dup2(int fd, int fd2);
