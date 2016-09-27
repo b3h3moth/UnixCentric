@@ -75,7 +75,7 @@ sia i `file status flags` ma non i `file descriptor flags`.
 
 ```int dup2(int oldfd, int newfd);```
 
-
+La funzione `dup2()` crea una copia del file descriptor `oldfd` in `newfd`.
 
 ```int dup3(int oldfd, int newfd, int flags);```
 
