@@ -71,17 +71,14 @@ da diverse system call.
 La funzione `dup` crea una copia del file descriptor `oldfd`, attribuendogli 
 un intero prelevato da un range di numeri bassi non utilizzati da nessun 
 descrittore. La copia e il vecchio file descriptor condividono sia l'`offset` 
-sia i `file status flags` ma non i `file descriptor flags`.
+sia i `file status flags` ma non i `file descriptor flags`. Ritorna la copia 
+del file descriptor oppure -1 in caso di errore.
 
 ```int dup2(int oldfd, int newfd);```
 
-La funzione `dup2()` crea una copia del file descriptor `oldfd` in `newfd`.
+La funzione `dup2()` crea una copia del file descriptor `oldfd` in `newfd`. 
+Ritorna la copia del file descriptor oppure -1 in caso di errore.
 
 ```int dup3(int oldfd, int newfd, int flags);```
 
- La funzione dup(), duplica il file descriptor 'fd'; 
-            
-int dup2(int fd, int fd2);
- la funzione           dup2() duplica il file descriptor 'fd' in 'fd2'.
-
- Enrambe ritornanano il nuovo file descriptor, -1 in caso di errore
+ La funzione `dup3()`
