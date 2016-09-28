@@ -31,8 +31,8 @@ La compilazione sara' la seguente:
 ## Scatter/Gather I/O (or Vectored I/O); readv(), writev()
 
 Lo **scatter-gather I/O** e' un metodo di input output per gestire con una
-singola system call la lettura e la scrittura di mulipli buffer - un vettore di
-buffer - da un unico stream. 
+singola system call la lettura e la scrittura di buffer mulipli non contigui
+da un unico stream.
 
 Le system call deputate a tale scopo sono `readv()` per la lettura e `writev()` 
 per la scrittura.
