@@ -10,8 +10,8 @@
 
 enum { NBUF = 3 };
 
-/* Lo scopo del programma e' di scrivere in un file mediante la funzione
-writev(). */
+/* Lo scopo del programma e' di scrivere un buffer multiplo in un file mediante
+la funzione writev() */
 
 int main(void) {
     struct iovec iov[NBUF];
@@ -43,7 +43,8 @@ int main(void) {
     if (nbyte == -1) {
         fprintf(stderr, "Err. writev() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
-    }
+    } else
+        printf("File \'%s written\'\n", filename);
 
     close(fd);
 
