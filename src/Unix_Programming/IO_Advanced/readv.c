@@ -18,9 +18,9 @@ int main(void) {
     int mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
     int fd, i;
     char *buf[] = {
-        "No woman No cry.\n",
-        "Redemption Song.\n",
-        "Rastaman vibration.\n"
+        "Coming in from the cold.\n",
+        "Could you be loved.\n",
+        "Redemtion Song.\n"
     };
 
     fd = open(filename, flags, mode);
