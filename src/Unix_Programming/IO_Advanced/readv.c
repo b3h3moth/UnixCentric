@@ -10,7 +10,7 @@ enum { NBUF = 3 };
 
 int main(void) {
     struct iovec iov[NBUF];
-    ssize_t nread;
+    ssize_t nbyte;
     int fd, i;
     char *buf[] = {
         "No woman No cry.\n",
@@ -27,7 +27,14 @@ int main(void) {
     // Riempimento della struttura iov
     for (i=0; i<NBUF; i++) {
         iov[i].iov_base = buf[i];
-        iov[i].iov_len = strlen(buf[i]);
+        iov[i].iov_len = strlen(buf[i]) + 1;
+    }
+
+    // Scrittura del file
+    nbyte = writev(fd, iov, NBUF);
+    if (nbyte == -1) {
+        fprintf(stderr, "Err. writev() failed: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
     }
 
     return(EXIT_SUCCESS);
