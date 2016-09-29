@@ -5,6 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/uio.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 
 enum { NBUF = 3 };
@@ -12,6 +13,9 @@ enum { NBUF = 3 };
 int main(void) {
     struct iovec iov[NBUF];
     ssize_t nbyte;
+    char filename[] = "bob_marley_songs.txt";
+    int flags = O_WRONLY | O_CREAT;
+    int mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
     int fd, i;
     char *buf[] = {
         "No woman No cry.\n",
@@ -19,7 +23,7 @@ int main(void) {
         "Rastaman vibration.\n"
     };
 
-    fd = open("bob_marley_songs.txt", O_WRONLY | O_CREAT | O_TRUNC);
+    fd = open(filename, flags, mode);
     if (fd == -1) {
         fprintf(stderr, "Err. open() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
