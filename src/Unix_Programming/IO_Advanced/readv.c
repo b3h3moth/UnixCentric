@@ -10,6 +10,9 @@
 
 enum { NBUF = 3 };
 
+/* Lo scopo del programma e' di scrivere in un file mediante la funzione
+writev(). */
+
 int main(void) {
     struct iovec iov[NBUF];
     ssize_t nbyte;
