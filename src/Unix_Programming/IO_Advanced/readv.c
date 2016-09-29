@@ -4,14 +4,15 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <string.h>
 
 enum { NBUF = 3 };
 
 int main(void) {
-    struct iovec iov[NBUF] = {0};
+    struct iovec iov[NBUF];
     ssize_t nread;
     int fd, i;
-    const char *const *buf[] = {
+    char *buf[] = {
         "No woman No cry.\n",
         "Redemption Song.\n",
         "Rastaman vibration.\n"
@@ -19,8 +20,14 @@ int main(void) {
 
     fd = open("bob_marley_songs.txt", O_WRONLY | O_CREAT | O_TRUNC);
     if (fd == -1) {
-        fprintf(stderr, "Err. open() failed: %d\n", strerror(errno));
+        fprintf(stderr, "Err. open() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
+    }
+
+    // Riempimento della struttura iov
+    for (i=0; i<NBUF; i++) {
+        iov[i].iov_base = buf[i];
+        iov[i].iov_len = strlen(buf[i]);
     }
 
     return(EXIT_SUCCESS);
