@@ -2,18 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
-/* Si redirige tutto lo standard output verso un file */
+/* Lo scopo del programma e' di redirigere lo standard output verso un file,
+utilizzando una funzione di duplicazione del file descriptor */
 
 int main(void) {
-  int fd;
-  char *str;
+    int fd;
+    char *str;
+    char filename[] = "dup.txt";
+    int flags = O_WRONLY | O_CREAT;
+    int mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
+    
+    fd = open(filename, flags, mode);
+    if (fd == -1) {
+        perror("open");
+        exit(EXIT_FAILURE);
+    }
 
-  if ((fd = open("dupfile.txt", O_WRONLY | O_CREAT | O_TRUNC, 0666)) < 0) {
-      perror("open");
-      exit(EXIT_FAILURE);
-  }
-
+  // Redirige lo stdout verso il file aperto dal file descriptor
   if (dup2(fd, 1) < 0) { 
       perror("dup2"); 
       exit(EXIT_FAILURE); 
