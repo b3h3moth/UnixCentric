@@ -6,12 +6,13 @@
 #include <sys/stat.h>
 
 /* Lo scopo del programma e' di redirigere lo standard output verso un file,
-utilizzando una funzione di duplicazione del file descriptor */
+utilizzando una funzione di duplicazione del file descriptor, nel caso 
+specifico dup3(). */
 
 int main(void) {
     int fd;
     char *str;
-    char filename[] = "dup.txt";
+    char filename[] = "fdup.txt";
     int flags = O_WRONLY | O_CREAT;
     int mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
     
@@ -20,43 +21,36 @@ int main(void) {
         perror("open");
         exit(EXIT_FAILURE);
     }
-
-  // Redirige lo stdout verso il file aperto dal file descriptor
-  if (dup2(fd, 1) < 0) { 
+    
+    /* Copia il file descriptor aperto nello stdout, quindi tutto cio' che
+    dovrebbe essere escritto sullo standard output sara' scritto su file */
+    if (dup3(fd, 1, O_CLOEXEC) < 0) { 
       perror("dup2"); 
-      exit(EXIT_FAILURE); 
-  }
-
-  printf("Lo standard output va dritto su dupfile.txt\n");
-
-  close(fd);
-
-  printf("Anche quando si chiude il file descriptor '%d'\n", fd);
-
-  putchar('p');
-  putchar('u');
-  putchar('t');
-  putchar('c');
-  putchar('h');
-  putchar('a');
-  putchar('r');
-  putchar('\n');
-
-  str = "con fwrite()\n";
-
-  if (fwrite(str, sizeof(char), strlen(str), stdout) < 0 ) {
-      perror("fwrite");
       exit(EXIT_FAILURE);
-  }
+    }
 
-  fflush(stdout); 
+    /* Con dup3() e' necessario compilare con la macro -D_GNU_SOURCE per 
+    evitare messaggi di Warning. */
+    
+    printf("The standard output goes into \'%s\'.\n", filename);
+    
+    close(fd);
+    
+    str = "Where does it go? ... \n";
+    
+    if (fwrite(str, sizeof(char), strlen(str), stdout) < 0 ) {
+        perror("fwrite");
+        exit(EXIT_FAILURE);
+    } 
+    
+    fflush(stdout); 
 
-  str = "e con write\n";
+    str = "Ok, Now I'm writing on stdout ... are you sure?\n";
+    
+    if (write(1, str, strlen(str)) < 0) {
+        perror("write");
+        exit(EXIT_FAILURE);
+    }
 
-  if (write(1, str, strlen(str)) < 0) {
-      perror("write");
-      exit(EXIT_FAILURE);
-  }
-
-  return(EXIT_SUCCESS);
+    return(EXIT_SUCCESS);
 }
