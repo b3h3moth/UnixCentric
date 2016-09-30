@@ -52,5 +52,6 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    fprintf(stderr, "Please:\n$ cat %s\n", filename);
     return(EXIT_SUCCESS);
 }
