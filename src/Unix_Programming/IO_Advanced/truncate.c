@@ -48,7 +48,6 @@ int main(int argc, char *argv[]) {
         write(out_fd, buf, in_fsize);
 
     close(in_fd);
-    close(out_fd);
 
     // Troncamento del file della meta' della grandezza originaria
     ((in_fsize % 2) == 0) ? \
@@ -59,5 +58,14 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    if (fstat(out_fd, &st) == -1) {
+        fprintf(stderr, "Err. fstat() inpput failed: %s.\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    printf("The original size of \'%s\': %d\n", argv[1], in_fsize);
+    printf("The size after truncation of \'%s\': %d\n", argv[2], in_fsize);
+
+    close(out_fd);
     return(EXIT_SUCCESS);
 }
