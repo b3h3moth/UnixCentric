@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     int in_fd, out_fd, nr;
     struct stat st;
     ssize_t fsize;
-    char buf[FILE_SIZE];
+    char *buf;
     int in_flags = O_RDONLY;
     int out_flags = O_WRONLY | O_CREAT;
     int out_mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
@@ -35,16 +35,22 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    fstat(in_fd, &st);
-    fsize = st.st_size;
+    /* Effettua uno stat del file di input in modo tale da ricavarne la
+    grandezza e allocare la memoria necessaria per copiarlo esattamente nel
+    file di output. */
+    if (fstat(in_fd, &st) == -1) {
+        fprintf(stderr, "Err. fstat() inpput failed: %s.\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
-    printf(" - - - %d\n", fsize);
-    if ((nr = read(in_fd, buf, FILE_SIZE)) != -1)
-        write(out_fd, buf, FILE_SIZE);
+    fsize = st.st_size;
+    buf = malloc(sizeof(fsize));
+
+    if ((nr = read(in_fd, buf, fsize)) != -1)
+        write(out_fd, buf, fsize);
 
     close(in_fd);
     close(out_fd);
 
-    printf("size file %d\n", nr);
     return(EXIT_SUCCESS);
 }
