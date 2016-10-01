@@ -38,5 +38,7 @@ int main(int argc, char *argv[]) {
 
     close(in_fd);
     close(out_fd);
+
+    truncate(argv[2], SIZE);
     return(EXIT_SUCCESS);
 }
