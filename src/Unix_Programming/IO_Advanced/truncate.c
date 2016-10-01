@@ -7,12 +7,10 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-enum { SIZE = 512, FILE_SIZE = 2025 };
-
 int main(int argc, char *argv[]) {
     int in_fd, out_fd, nr;
     struct stat st;
-    ssize_t fsize;
+    ssize_t in_fsize, new_size;
     char *buf;
     int in_flags = O_RDONLY;
     int out_flags = O_WRONLY | O_CREAT;
@@ -43,14 +41,23 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    fsize = st.st_size;
-    buf = malloc(sizeof(fsize));
+    in_fsize = st.st_size;
+    buf = malloc(sizeof(in_fsize));
 
-    if ((nr = read(in_fd, buf, fsize)) != -1)
-        write(out_fd, buf, fsize);
+    if ((nr = read(in_fd, buf, in_fsize)) != -1)
+        write(out_fd, buf, in_fsize);
 
     close(in_fd);
     close(out_fd);
+
+    // Troncamento del file della meta' della grandezza originaria
+    ((in_fsize % 2) == 0) ? \
+        (new_size = in_fsize / 2) : (new_size = (in_fsize - 1)/2);
+
+    if (truncate(argv[2], new_size) == -1) {
+        fprintf(stderr, "Err. truncate() failed: %s.\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
