@@ -7,6 +7,12 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+/* Lo scopo del programma e' di leggere un file in input, calcolarne la 
+grandezza, e copiare l'intero contenuto in un altro file, dopodiche' si calcola
+la meta' esatta del file originario e si provvede a troncare il nuovo file alla
+grandezza calcolata, ovvero la meta'. Il troncamento sara' eseguito mediante la
+funzione truncate(). */
+
 int main(int argc, char *argv[]) {
     int in_fd, out_fd, nr;
     struct stat st;
