@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("The original size of \'%s\': %d\n", argv[1], in_fsize);
-    printf("The size after truncation of \'%s\': %d\n", argv[2], in_fsize);
+    printf("The size after truncation of \'%s\': %d\n", argv[2], (int)st.st_size);
 
     close(out_fd);
     return(EXIT_SUCCESS);
