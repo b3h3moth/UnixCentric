@@ -11,6 +11,8 @@ enum { SIZE = 512, FILE_SIZE = 2025 };
 
 int main(int argc, char *argv[]) {
     int in_fd, out_fd, nr;
+    struct stat st;
+    ssize_t fsize;
     char buf[FILE_SIZE];
     int in_flags = O_RDONLY;
     int out_flags = O_WRONLY | O_CREAT;
@@ -33,12 +35,16 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    fstat(in_fd, &st);
+    fsize = st.st_size;
+
+    printf(" - - - %d\n", fsize);
     if ((nr = read(in_fd, buf, FILE_SIZE)) != -1)
         write(out_fd, buf, FILE_SIZE);
 
     close(in_fd);
     close(out_fd);
 
-    truncate(argv[2], SIZE);
+    printf("size file %d\n", nr);
     return(EXIT_SUCCESS);
 }
