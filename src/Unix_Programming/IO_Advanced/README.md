@@ -86,3 +86,12 @@ chiamante puo' forzare il flag `close-on-exec` sul nuovo file descriptor
 settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 `newfd` fallisce con l'errore `EINVAL`. Ritorna il nuovo file descriptor oppure
 -1 in caso di errore.
+
+## Set the size of a file: truncate()
+
+
+```int truncate(const char *path, off_t length);```
+
+La funzione `truncate()` setta la grandezza del file `path` al valore 
+impostato in `length`.
+
