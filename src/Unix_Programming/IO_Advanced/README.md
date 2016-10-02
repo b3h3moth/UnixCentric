@@ -87,7 +87,7 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 `newfd` fallisce con l'errore `EINVAL`. Ritorna il nuovo file descriptor oppure
 -1 in caso di errore.
 
-## Set the size of a file: truncate()
+## Set the size of a file: truncate(), ftruncate()
 
 
 ```int truncate(const char *path, off_t length);```
@@ -95,3 +95,8 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 La funzione `truncate()` setta la grandezza del file `path` al valore 
 impostato in `length`. Ritorna zero in caso di successo, altrimenti -1 in caso 
 di errore.
+
+```int ftruncate(int fd, off_t length);```
+
+La differenza sostanziale rispetto alla funzione `truncate()` riguarda 
+l'uso del file descriptor come parametro per individuare un file aperto.
