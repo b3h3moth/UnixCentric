@@ -72,7 +72,7 @@ La funzione `dup` crea una copia del file descriptor `oldfd`, attribuendogli
 un intero prelevato da un range di numeri bassi non utilizzati da nessun 
 descrittore. La copia e il vecchio file descriptor condividono sia l'`offset` 
 sia i `file status flags` ma non i `file descriptor flags`. Ritorna il nuovo 
-file descriptor oppure -1 in caso di errore.
+file descriptor in caso di successo, altrimenti -1 in caso di errore.
 
 ```int dup2(int oldfd, int newfd);```
 
@@ -93,5 +93,5 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 ```int truncate(const char *path, off_t length);```
 
 La funzione `truncate()` setta la grandezza del file `path` al valore 
-impostato in `length`.
-
+impostato in `length`. Ritorna zero in caso di successo, altrimenti -1 in caso 
+di errore.
