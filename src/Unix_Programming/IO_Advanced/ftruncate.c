@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     int out_mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
 
     if (argc != 3) {
-        fprintf(stderr, "Usage: %s <filename>.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <input file><output file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -59,6 +59,7 @@ int main(int argc, char *argv[]) {
     ((in_fsize % 2) == 0) ? \
         (new_size = in_fsize / 2) : (new_size = (in_fsize - 1)/2);
 
+    // La funzione fruncate() prevede un file descriptor come primo argomento
     if (ftruncate(out_fd, new_size) == -1) {
         fprintf(stderr, "Err. truncate() failed: %s.\n", strerror(errno));
         exit(EXIT_FAILURE);
