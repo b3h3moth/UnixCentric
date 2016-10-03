@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     int out_mode = S_IRWXU | S_IXGRP | S_IRWXG | S_IROTH | S_IXOTH;
 
     if (argc != 3) {
-        fprintf(stderr, "Usage: %s <filename>.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <input file><output file>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
