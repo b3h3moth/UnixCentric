@@ -89,7 +89,6 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 
 ## Set the size of a file: truncate(), ftruncate()
 
-
 ```int truncate(const char *path, off_t length);```
 
 La funzione `truncate()` setta la grandezza del file `path` al valore 
@@ -100,3 +99,37 @@ di errore.
 
 La differenza sostanziale rispetto alla funzione `truncate()` riguarda 
 l'uso del file descriptor come parametro per individuare un file aperto.
+
+## Working with temporary files.
+
+> *Security*: Le funzioni per la creazione di file temporanei sono `tmpfile()`
+>, mkstemp()`, `tmpnam()` e `tempnam()`, tuttavia le uniche che si consiglia di
+> utilizzare sono `mkstemp()` e `tmpfile()` poiche' le altre due possono causare
+> falle nella sicurezza dell'applicazione.
+
+```int mkstemp(char *template);```
+La funzione `mkstemp()` crea un file temporaneo unico dalla stringa `template`.
+L'argomento `template` e' utilizzato come modello per il percorso temporaneo, 
+gli ultimi 6 caratteri devono essere necessariamente composti dalla
+stringa **XXXXXX**, dopodiche' saranno sovrascritti affinche' il percorso 
+risulti unico. Il file creato avra' permessi di lettura e scrittura per l'
+`owner` e nessun permesso per gli altri utenti, inoltre il parametro `flag` 
+sara' impostato a `O_EXCL`, garantendo in tal modo al chiamante l'accesso 
+esclusivo al file. Ritorna il file descriptor del file temporaneo in caso di 
+successo, `-1` in caso di errore
+
+```FILE *tmpfile(void);```
+La funzione `tmpfile()` apre un file temporaneo unico, binario in lettura e 
+scrittura. La sua peculiarita' e' che il file temporaneo sara' automaticamente
+eliminato alla chiusura del programma. Ritorna lo stream relativo al file in 
+caso di successo, `NULL` in caso di errore.
+
+```char *tmpnam(char *str);```
+La funzione `tmpnam()` ritorna il puntatore ad una stringa, che dev'essere un 
+filename valido e non esistente al momento della creazione. Ritorna il 
+puntatore al file temporaneo in caso di successo, NULL in caso di esito 
+negativo. Non sono definiti errori.
+
+```char *tempnam(const char *dir, const char *pfx);```
+La funzione `tempnam()` ritorna il puntatore ad una stringa unica indicante il
+file temporaneo in caso di successo, `NULL` in caso di errore
