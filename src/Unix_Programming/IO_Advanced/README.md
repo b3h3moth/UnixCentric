@@ -1,6 +1,8 @@
 # Advanced Input / Output
 
-## Read from or write to a file descriptor at a given offset; pread(), pwrite()
+* [Read from or write to a file descriptor at a given offset; pread(), pwrite()](#headIOA1)
+
+## <a name="headIOA1"></a>Read from or write to a file descriptor at a given offset; pread(), pwrite()
 
 Le system call `pread()` e `pwrite()` combinano gli effetti di una chiamata a
 `lseek()`, `read()` - o `write()` - in una singola system call, tutto cio'
@@ -11,8 +13,7 @@ __```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```__
 La funzione `pread()` legge `count` byte dal file descriptor `fd` all'offset 
 `offset` (dall'inizio del file) nel buffer a partire da `buf`.
 
-
-```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```
+__```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```__
 
 La funzione `pwrite()` scrive `count` byte dal buffer a partire da `buf` nel 
 file descriptor `fd` all'offset `offset`.
@@ -40,12 +41,12 @@ da un unico stream.
 Le system call deputate a tale scopo sono `readv()` per la lettura e `writev()` 
 per la scrittura.
 
-###```ssize_t readv(int fd, const struct iovec *iov, int iovcnt);```
+__```ssize_t readv(int fd, const struct iovec *iov, int iovcnt);```__
 
 La funzione `readv()` legge i buffer `iovcnt` dal file associato al file 
 descriptor `fd` nei buffer descritti da `iov` (__scatter input__).
 
-###```ssize_t writev(int fd, const struct iovec *iov, int iovcnt);```
+__```ssize_t writev(int fd, const struct iovec *iov, int iovcnt);```__
 
 La funzione `writev()` scrive i buffer `iovcnt` descritti da `iov` nel file 
 associato al file descriptor `fd` (__gather output__).
@@ -65,12 +66,12 @@ struct iovec {
 > I trafserimenti eseguiti da entrambe le system call sono atomici.
 
 
-## File Descriptor duplication; dup(), dup2(), dup3()
+## <a name="headup"></a>File Descriptor duplication; dup(), dup2(), dup3()
 
 La duplicazione di un file descriptor puo' essere gestita in maniera ottimale
 da diverse system call.
 
-###```int dup(int oldfd);```
+__```int dup(int oldfd);```__
 
 La funzione `dup` crea una copia del file descriptor `oldfd`, attribuendogli 
 un intero prelevato da un range di numeri bassi non utilizzati da nessun 
@@ -78,12 +79,12 @@ descrittore. La copia e il vecchio file descriptor condividono sia l'`offset`
 sia i `file status flags` ma non i `file descriptor flags`. Ritorna il nuovo 
 file descriptor in caso di successo, altrimenti -1 in caso di errore.
 
-###```int dup2(int oldfd, int newfd);```
+__```int dup2(int oldfd, int newfd);```__
 
 La funzione `dup2()` crea una copia del file descriptor `oldfd` in `newfd`. 
 Ritorna il nuovo file descriptor oppure -1 in caso di errore.
 
-###```int dup3(int oldfd, int newfd, int flags);```
+__```int dup3(int oldfd, int newfd, int flags);```__
 
 La funzione `dup3()` si comporta come `dup2()`, ad eccezione del fatto che il
 chiamante puo' forzare il flag `close-on-exec` sul nuovo file descriptor 
@@ -94,13 +95,13 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 
 ## Set the size of a file: truncate(), ftruncate()
 
-###```int truncate(const char *path, off_t length);```
+__```int truncate(const char *path, off_t length);```__
 
 La funzione `truncate()` setta la grandezza del file `path` al valore 
 impostato in `length`. Ritorna zero in caso di successo, altrimenti -1 in caso 
 di errore.
 
-###```int ftruncate(int fd, off_t length);```
+__```int ftruncate(int fd, off_t length);```__
 
 La differenza sostanziale rispetto alla funzione `truncate()` riguarda 
 l'uso del file descriptor come parametro per individuare un file aperto.
@@ -113,7 +114,7 @@ l'uso del file descriptor come parametro per individuare un file aperto.
 > utilizzare sono `mkstemp()` e `tmpfile()` poiche' le altre due possono causare
 > falle nella sicurezza dell'applicazione.
 
-### ```int mkstemp(char *template);```
+__```int mkstemp(char *template);```__
 
 La funzione `mkstemp()` crea un file temporaneo unico dalla stringa `template`.
 L'argomento `template` e' utilizzato come modello per il percorso temporaneo, 
@@ -125,21 +126,21 @@ sara' impostato a `O_EXCL`, garantendo in tal modo al chiamante l'accesso
 esclusivo al file. Ritorna il file descriptor del file temporaneo in caso di 
 successo, `-1` in caso di errore
 
-### ```FILE *tmpfile(void);```
+__```FILE *tmpfile(void);```__
 
 La funzione `tmpfile()` apre un file temporaneo unico, binario in lettura e 
 scrittura. La sua peculiarita' e' che il file temporaneo sara' automaticamente
 eliminato alla chiusura del programma. Ritorna lo stream relativo al file in 
 caso di successo, `NULL` in caso di errore.
 
-### ```char *tmpnam(char *str);```
+__```char *tmpnam(char *str);```__
 
 La funzione `tmpnam()` ritorna il puntatore ad una stringa, che dev'essere un 
 filename valido e non esistente al momento della creazione. Ritorna il 
 puntatore al file temporaneo in caso di successo, NULL in caso di esito 
 negativo. Non sono definiti errori.
 
-```char *tempnam(const char *dir, const char *pfx);```
+__```char *tempnam(const char *dir, const char *pfx);```__
 
 La funzione `tempnam()` ritorna il puntatore ad una stringa unica indicante il
-file temporaneo in caso di successo, `NULL` in caso di errore
+file temporaneo in caso di successo, `NULL` in caso di errore.
