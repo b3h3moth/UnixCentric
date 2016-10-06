@@ -6,7 +6,7 @@ Le system call `pread()` e `pwrite()` combinano gli effetti di una chiamata a
 `lseek()`, `read()` - o `write()` - in una singola system call, tutto cio'
 fornisce un miglioramento nelle performance.
 
-######```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```
+####```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```
 
 La funzione `pread()` legge `count` byte dal file descriptor `fd` all'offset 
 `offset` (dall'inizio del file) nel buffer a partire da `buf`.
