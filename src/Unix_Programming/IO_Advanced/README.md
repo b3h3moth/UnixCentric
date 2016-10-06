@@ -1,6 +1,6 @@
 # Advanced Input / Output
 
-## pread(), pwrite()
+## Read from or write to a file descriptor at a given offset; pread(), pwrite()
 
 Le system call `pread()` e `pwrite()` combinano gli effetti di una chiamata a
 `lseek()`, `read()` - o `write()` - in una singola system call, tutto cio'
@@ -11,7 +11,8 @@ __```ssize_t pread(int fd, void *buf, size_t count, off_t offset);```__
 La funzione `pread()` legge `count` byte dal file descriptor `fd` all'offset 
 `offset` (dall'inizio del file) nel buffer a partire da `buf`.
 
-###```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```
+
+```ssize_t pwrite(int fd, const void *buf, size_t count, off_t offset);```
 
 La funzione `pwrite()` scrive `count` byte dal buffer a partire da `buf` nel 
 file descriptor `fd` all'offset `offset`.
