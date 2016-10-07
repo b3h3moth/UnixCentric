@@ -122,9 +122,9 @@ La differenza sostanziale rispetto alla funzione `truncate()` riguarda
 l'uso del file descriptor come parametro per individuare un file aperto.
 
 
-## <a name="headIOA5"></a>Working with temporary files.
+## <a name="headIOA5"></a>Working with temporary files;  tmpfile(), mkstemp(), tmpnam(), tempnam()
 
-> *Security*: Le funzioni per la creazione di file temporanei sono `tmpfile()`
+> **Security**: Le funzioni per la creazione di file temporanei sono `tmpfile()`
 >, mkstemp()`, `tmpnam()` e `tempnam()`, tuttavia le uniche che si consiglia di
 > utilizzare sono `mkstemp()` e `tmpfile()` poiche' le altre due possono causare
 > falle nella sicurezza dell'applicazione.
