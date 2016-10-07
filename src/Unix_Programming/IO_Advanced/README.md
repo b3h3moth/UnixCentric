@@ -1,5 +1,6 @@
 # Advanced Input / Output
 
+* [Manipulate file descriptor; fcntl()](#headIOA0)
 * [Read from or write to a file descriptor at a given offset; pread(), pwrite()](#headIOA1)
 * [Scatter/Gather I/O (or Vectored I/O); readv(), writev()](#headIOA2)
 * [File Descriptor duplication; dup(), dup2(), dup3()](#headIOA3)
@@ -7,6 +8,42 @@
 * [Working with temporary files; tmpfile(), mkstemp(), tmpnam(), tempnam()](#headIOA5)
 
 ---
+
+## <a name="headIOA0"></a>Manipulate file descriptor; fcntl()
+
+```int fcntl(int fd, int cmd, ... < arg > );```
+
+La funzione `fcntl()` e' una sorta di punto di accesso per l'esecuzione di 
+diverse operazioni sul file descriptor. Il primo argomento `fd'` e' un file
+descriptor aperto, il secondo argomento `cmd` indica il tipo di operazione da
+eseguire, il terzo argomento `arg` e' opzionale, se utilizzarlo o meno e' 
+determinato da `cmd'`. I valori di ritorno sono diversi a seconda dell'
+operazione eseguita, in caso di errore ritorna sempre `-1`.
+
+La funzione `fcntl()` puo' modificare le proprieta' di un file descriptor, 
+tuttavia il numero degli argomenti, il valore di ritorno, errori compresi, 
+sono strettamente legati al valore della variabile intera `cmd`, che puo' 
+assumere i seguenti valori:
+
+* `F_DUPFD`, duplica il file descriptor;
+* `F_GETFD`, ritorna il valore del file descriptor flag;
+* `F_SETFD`, setta il valore del file descpritor flag;
+* `F_GETFL`, ritorna il valore del file status flag;
+* `F_SETFL`, setta il valore del file status flag;
+* `F_GETLK`, ritorna informazioni sul record locking;
+* `F_SETLK`, setta informazioni sul record locking;
+* `F_SETLKW`, come sopra, non ritorna subito ma attende il rilascio del blocco;
+* `F_GETOWN`, ritorna il PID o il PGID, preposto alla ricezione dei segnali SIGURS;
+* `F_SETOWN`, setta il PID o il PGID, preposto alla ricezione dei segnali SIGURS;
+* `F_GETSIG`, ritorna il segnale inviato quando l'input o l'output e' disponibile;
+* `F_SETSIG`, setta il segnale inviato quando l'input o l'output e' disponibile;
+* `F_SETLEASE`, imposta o rimuove un file lease; 
+* `F_GETLEASE`, setta un file lease;
+* `F_NOTIFY`, attiva un meccanismo di notifica.
+
+Una delle operazioni piu' importanti realizzabili con e' il blocco in lettura o
+in scrittura di un file descriptor, così come la duplicazione del file 
+descriptor.
 
 ## <a name="headIOA1"></a>Read from or write to a file descriptor at a given offset; pread(), pwrite()
 
@@ -150,3 +187,4 @@ __```char *tempnam(const char *dir, const char *pfx);```__
 
 La funzione `tempnam()` ritorna il puntatore ad una stringa unica indicante il
 file temporaneo in caso di successo, `NULL` in caso di errore.
+
