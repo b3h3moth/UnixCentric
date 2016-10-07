@@ -8,15 +8,6 @@
 
 ---
 
-__```int truncate(const char *path, off_t length);```__
-
-La funzione `truncate()` setta la grandezza del file `path` al valore 
-
-__```int truncate(const char *path, off_t length);```__
-
-La funzione `truncate()` setta la grandezza del file `path` al valore 
-## Set the size of a file: truncate(), ftruncate()
-
 ## <a name="headIOA1"></a>Read from or write to a file descriptor at a given offset; pread(), pwrite()
 
 Le system call `pread()` e `pwrite()` combinano gli effetti di una chiamata a
