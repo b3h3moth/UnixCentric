@@ -1,6 +1,21 @@
 # Advanced Input / Output
 
 * [Read from or write to a file descriptor at a given offset; pread(), pwrite()](#headIOA1)
+* [Scatter/Gather I/O (or Vectored I/O); readv(), writev()](#headIOA2)
+* [File Descriptor duplication; dup(), dup2(), dup3()](#headIOA3)
+* [Set the size of a file: truncate(), ftruncate()](#headIOA4)
+* [Working with temporary files; tmpfile(), mkstemp(), tmpnam(), tempnam()](#headIOA5)
+
+---
+
+__```int truncate(const char *path, off_t length);```__
+
+La funzione `truncate()` setta la grandezza del file `path` al valore 
+
+__```int truncate(const char *path, off_t length);```__
+
+La funzione `truncate()` setta la grandezza del file `path` al valore 
+## Set the size of a file: truncate(), ftruncate()
 
 ## <a name="headIOA1"></a>Read from or write to a file descriptor at a given offset; pread(), pwrite()
 
@@ -32,7 +47,7 @@ La compilazione sara' la seguente:
 ```$ gcc -Wall -pedantic -std=c11 -D_XOPEN_SOURCE=500 file.c```
 
 
-## Scatter/Gather I/O (or Vectored I/O); readv(), writev()
+## <a name="headIOA2"></a>Scatter/Gather I/O (or Vectored I/O); readv(), writev()
 
 Lo **scatter-gather I/O** e' un metodo di input output per gestire con una
 singola system call la lettura e la scrittura di buffer mulipli non contigui
@@ -66,7 +81,7 @@ struct iovec {
 > I trafserimenti eseguiti da entrambe le system call sono atomici.
 
 
-## <a name="headup"></a>File Descriptor duplication; dup(), dup2(), dup3()
+## <a name="headIOA3"></a>File Descriptor duplication; dup(), dup2(), dup3()
 
 La duplicazione di un file descriptor puo' essere gestita in maniera ottimale
 da diverse system call.
@@ -93,7 +108,7 @@ settando il parametro `flags` su `O_CLOEXEC`. Inoltre se `oldfd` e' uguale a
 -1 in caso di errore.
 
 
-## Set the size of a file: truncate(), ftruncate()
+## <a name="headIOA4"></a>Set the size of a file: truncate(), ftruncate()
 
 __```int truncate(const char *path, off_t length);```__
 
@@ -107,7 +122,7 @@ La differenza sostanziale rispetto alla funzione `truncate()` riguarda
 l'uso del file descriptor come parametro per individuare un file aperto.
 
 
-## Working with temporary files.
+## <a name="headIOA5"></a>Working with temporary files.
 
 > *Security*: Le funzioni per la creazione di file temporanei sono `tmpfile()`
 >, mkstemp()`, `tmpnam()` e `tempnam()`, tuttavia le uniche che si consiglia di
