@@ -11,7 +11,7 @@
 
 ## <a name="headIOA0"></a>Manipulate file descriptor; fcntl()
 
-```int fcntl(int fd, int cmd, ... < arg > );```
+__```int fcntl(int fd, int cmd, ... < arg > );```__
 
 La funzione `fcntl()` e' una sorta di punto di accesso per l'esecuzione di 
 diverse operazioni sul file descriptor. Il primo argomento `fd'` e' un file
