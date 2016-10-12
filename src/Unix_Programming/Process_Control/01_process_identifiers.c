@@ -5,6 +5,9 @@
 #include <unistd.h>
 
 /*
+Un processo e' un'entita' astratta definita dal kernel, a cui sono allocate 
+delle risorse dal sistema al fine di eseguire un programma.
+
 A ciascun nuovo processo e' assegnato un intero di 16 bit con segno e 
 progressivo che lo identifica univocamente rispetto agli altri processi, il 
 "Process ID" (PID); essendo peraltro un intero a 16 bit puo' raggiungere al 
