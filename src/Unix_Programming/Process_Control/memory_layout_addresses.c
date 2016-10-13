@@ -10,7 +10,8 @@ specifici segmenti del layout della memoria di un processo. Essi sono:
 */
 
 extern char etext, edata, end;
+
 int main(void) {
-    printf("%x %x %x\n", (int)&etext, (int)&edata, (int)&end);
+    printf("next byte past of \'program text\' (etest): %10p\n", (void*)&etext);
     return(EXIT_SUCCESS);
 }
