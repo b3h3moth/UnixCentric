@@ -12,7 +12,10 @@ specifici segmenti del layout della memoria di un processo. Essi sono:
 extern char etext, edata, end;
 
 int main(void) {
-    printf("    next byte past of \'program text\' (etest): %10p\n", (void*)&etext);
-    printf("next byte past of \'initialized data\' (edata): %10p\n", (void*)&edata);
+
+    printf("         next byte past of \'program text\' (etest): %10p\n", (void*)&etext);
+    printf("     next byte past of \'initialized data\' (edata): %10p\n", (void*)&edata);
+    printf("next byte past of \'uninitialized data, bss\' (end): %10p\n", (void*)&end);
+
     return(EXIT_SUCCESS);
 }
