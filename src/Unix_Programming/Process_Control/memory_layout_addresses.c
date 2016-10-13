@@ -13,7 +13,7 @@ extern char etext, edata, end;
 
 int main(void) {
 
-    puts("Print the next byte past of some Memory Layout segments:");
+    puts("Print the next byte past of some Segment Adresses");
 
     printf("         \'program text\' (etest): %10p\n", (void*)&etext);
     printf("     \'initialized data\' (edata): %10p\n", (void*)&edata);
