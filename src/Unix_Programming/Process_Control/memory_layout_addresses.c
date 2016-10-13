@@ -13,9 +13,11 @@ extern char etext, edata, end;
 
 int main(void) {
 
-    printf("         next byte past of \'program text\' (etest): %10p\n", (void*)&etext);
-    printf("     next byte past of \'initialized data\' (edata): %10p\n", (void*)&edata);
-    printf("next byte past of \'uninitialized data, bss\' (end): %10p\n", (void*)&end);
+    puts("Print the next byte past of some Memory Layout segments:");
+
+    printf("         \'program text\' (etest): %10p\n", (void*)&etext);
+    printf("     \'initialized data\' (edata): %10p\n", (void*)&edata);
+    printf("\'uninitialized data, bss\' (end): %10p\n", (void*)&end);
 
     return(EXIT_SUCCESS);
 }
