@@ -7,6 +7,13 @@
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`1983, Prentice-Hall`);
 
+## Kernel Linux
+
+* **Linux Kernel Development**. *Robert Love* (`3rd, 2010, Addison Wesley`);
+
+## Kernel BSD
+
+
 <hr />
 
 <address>`Luca Suriano a.k.a. Behemoth`: `<behemoth _at_ autistici _dot_ org>`
