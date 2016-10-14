@@ -19,7 +19,7 @@
 
 ## Kernel BSD
 
-- __**The Design and Implementation of the FreeBSD Operating System**__. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`2nd, 2014, Addison Wesley`)
+* **`The Design and Implementation of the FreeBSD Operating System`**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`2nd, 2014, Addison Wesley`)
 
 <hr />
 
