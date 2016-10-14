@@ -8,6 +8,8 @@
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`2nd, 2003, Prentice Hall`);
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`1983, Prentice-Hall`);
 
+### File Systems
+
 ## Linux Systems Programming
 
 * **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`2nd, 2013, O'Reilly`);
@@ -20,6 +22,14 @@
 ## Kernel BSD
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`2nd, 2014, Addison Wesley`)
+
+## Programming Unix Desktop Environments
+
+* GNOME
+
+** Security
+
+* PAM
 
 <hr />
 
