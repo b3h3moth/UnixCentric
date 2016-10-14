@@ -14,6 +14,7 @@
 ## Kernel Linux
 
 * **Linux Kernel Development**. *Robert Love* (`3rd, 2010, Addison Wesley`);
+* **Understanding the Linux Kernel - from I/O Ports to Process Management**. *Daniel P.Bovet*, *Marco Cesati* (`3rd, 2005, O'Reilly`)
 
 ## Kernel BSD
 
