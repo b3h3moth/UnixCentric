@@ -8,9 +8,6 @@
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`2nd, 2003, Prentice Hall`);
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`1983, Prentice-Hall`);
 
-### POSIX
-### File Systems
-
 ## Linux Systems Programming
 
 * **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`2nd, 2013, O'Reilly`);
@@ -24,15 +21,30 @@
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`2nd, 2014, Addison Wesley`)
 
+## c89 - iso9899:1989
+  
+* **The C Programming Language: ANSI C Version**. *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
+* **The Standard C Library**. *Phillip James Plauger* (`1992, Prentice Hall`)
+* **Expert C Programming: Deep C Secrets**. *Peter Van Der Linden* (`1994, Prentice Hall`)
+* **C Interfaces and Implementations: Techniques for Creating Reusable Software**. *David R.Hanson* (`1996, Addison Wesley`)
+* **Pointers on C**. *Kenneth Reek* (`1997, Pearson`)
+* **A book on C: Programming in C**. *Al Kelley*, *Ira Pohl* (`4th, 1998, Addison Wesley`)
+
+## c99 - iso9899:1999
+  
+* **The Practice of Programming**. *Brian W.Kernighan*, *Rob Pike* (`1999, Addison Wesley`)
+* **C Programming: A modern Approach**. *Kim N.King* (`2nd, 2008, W. W. Norton & Company`)
+* **Secure coding in C and C++**. *Robert C.Seacord* (`2nd, 2013, Addison Wesley`)
+
+## c11 - iso9899:2011
+
+* **21st Century C: C Tips from the New School**. *Ben Klemens* (`2nd, 2014, O'Reilly`)
+* **The CERT C Coding Standard: 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`2014, Addison Wesley`)
+
+## POSIX
+## File Systems
 ## Programming Unix Desktop Environments
-
 * GNOME
-
 ** Security
-
 * PAM
-
-<hr />
-
-<address>`Luca Suriano a.k.a. Behemoth`: `<behemoth _at_ autistici _dot_ org>`
-`GPG KeyID`: `0xE83F9FBB`</address>
+## Secure Coding
