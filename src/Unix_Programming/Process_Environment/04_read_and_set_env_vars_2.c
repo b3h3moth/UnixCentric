@@ -1,17 +1,25 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
 
 extern char **environ;
 
+/* Lo scopo del programma e' di azzerare l'aambiente mediante clearerr(), 
+dopodiche' aggiungere due nuove 'environment variables', la prima ottenuta 
+dalla command-line e settata con putenv() la seconda impostata nel programma 
+stesso con setenv(). 
+
+Compilare mediante la macro -D_GNU_SOURCE
+*/
+
 int main (int argc, char *argv[]) {
    int i;
    char **var;
   
    /* Si intende aggiungere una variabile d'ambiente come argomento */
-   if (argc < 2) {
+   if (argc < 4) {
       fprintf(stderr, "Uso: %s name=value\n", argv[0]);
       exit(EXIT_FAILURE);
    }
@@ -24,8 +32,8 @@ int main (int argc, char *argv[]) {
    for (i = 1; i < argc; i++)
       if (putenv (argv[i]) != 0) {
       	 fprintf (stderr, "Err.(%s) - put env\n", strerror(errno));
-	 exit(EXIT_FAILURE);
-      }
+	    exit(EXIT_FAILURE);
+   }
    
    /* Si aggiunge una ulteriore variabile d'ambiente con setenv() */
    if (setenv ("E-MAIL", "b3h3m0th@mail.org", 0) < 0) {
