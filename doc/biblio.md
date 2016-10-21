@@ -21,7 +21,7 @@
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`2nd, 2014, Addison Wesley`)
 
-## c89 - iso9899:1989
+## c89/c90 - iso9899:1990
   
 * **The C Programming Language: ANSI C Version**. *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
 * **The Standard C Library**. *Phillip James Plauger* (`1992, Prentice Hall`)
@@ -42,6 +42,7 @@
 * **The CERT C Coding Standard: 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`2014, Addison Wesley`)
 
 ## POSIX
+
 ## File Systems
 ## Programming Unix Desktop Environments
 * GNOME
