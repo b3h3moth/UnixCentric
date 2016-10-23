@@ -23,12 +23,12 @@
 
 ## c89/c90 - iso9899:1990
   
-* **The C Programming Language: ANSI C Version**. *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
+* **The C Programming Language - ANSI C Version**. *Brian W.Kernighan* (`2nd, 1988, Prentice Hall`)
 * **The Standard C Library**. *Phillip James Plauger* (`1992, Prentice Hall`)
-* **Expert C Programming: Deep C Secrets**. *Peter Van Der Linden* (`1994, Prentice Hall`)
-* **C Interfaces and Implementations: Techniques for Creating Reusable Software**. *David R.Hanson* (`1996, Addison Wesley`)
+* **Expert C Programming - Deep C Secrets**. *Peter Van Der Linden* (`1994, Prentice Hall`)
+* **C Interfaces and Implementations - Techniques for Creating Reusable Software**. *David R.Hanson* (`1996, Addison Wesley`)
 * **Pointers on C**. *Kenneth Reek* (`1997, Pearson`)
-* **A book on C: Programming in C**. *Al Kelley*, *Ira Pohl* (`4th, 1998, Addison Wesley`)
+* **A book on C - Programming in C**. *Al Kelley*, *Ira Pohl* (`4th, 1998, Addison Wesley`)
 
 ## c99 - iso9899:1999
   
@@ -42,6 +42,8 @@
 * **The CERT C Coding Standard: 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`2014, Addison Wesley`)
 
 ## POSIX
+
+* POSIX 4
 
 ## File Systems
 ## Programming Unix Desktop Environments
