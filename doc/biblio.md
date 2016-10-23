@@ -38,16 +38,9 @@
 
 ## c11 - iso9899:2011
 
-* **21st Century C: C Tips from the New School**. *Ben Klemens* (`2nd, 2014, O'Reilly`)
-* **The CERT C Coding Standard: 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`2014, Addison Wesley`)
+* **21st Century C - C Tips from the New School**. *Ben Klemens* (`2nd, 2014, O'Reilly`)
+* **The CERT C Coding Standard - 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`2014, Addison Wesley`)
 
 ## POSIX
 
-* POSIX 4
-
-## File Systems
-## Programming Unix Desktop Environments
-* GNOME
-** Security
-* PAM
-## Secure Coding
+* **POSIX.4 - Programmers Guide: Programming for the Real World** *Bill Gellmeister* (`1995, O'Reilly`)
