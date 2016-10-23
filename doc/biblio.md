@@ -43,5 +43,6 @@
 
 ## POSIX
 
-* **POSIX.4 - Programmers Guide: Programming for the Real World** *Bill Gallmeister* (`O'Reilly, 1995`)
+* **Programming with POSIX Threads**. *David B.Butenhof (`Addison Wesley, 1997`)
+* **POSIX.4 - Programmers Guide: Programming for the Real World**. *Bill Gallmeister* (`O'Reilly, 1995`)
 * **POSIX Programmers Guide**. *Donald Lewine* (`O'Reilly, 1991`)
