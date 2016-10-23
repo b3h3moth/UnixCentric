@@ -44,3 +44,4 @@
 ## POSIX
 
 * **POSIX.4 - Programmers Guide: Programming for the Real World** *Bill Gellmeister* (`1995, O'Reilly`)
+* **POSIX Programmers Guide**. *Donald Lewine* (`1991, O'Reilly`)
