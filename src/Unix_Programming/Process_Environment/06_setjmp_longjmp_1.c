@@ -5,55 +5,15 @@
 #include <unistd.h>
 #include <setjmp.h>
 
-/*
-Salti non locali
-----------------
-Di norma una funzione ritorna al punto nel quale e' stata invocata, con la
-funzione setjmp() invece e' possibile far saltare una funzione direttamente
-in un'altra funzione e senza che si effettui un return.
-
-L'header <setjmp.h> mette a disposizione due funzioni, l'una in stretta
-correlazione con l'altra, esse sono setjmp() e longjmp(), con le seguenti
-caratteristiche:
-
-HEADER    : <setjmp.h>
-PROTOTYPE : int setjmp(jmp_buf env);
-SEMANTICS : La funzione setjmp() salva lo stack, contesto/ambiente corrente, 
-            nella variabile 'env', per essere utilizzata successivamente da 
-	        longjmp().
-RETURNS   : 0 se chiamata direttamente, non zero se ritorna da longjmp()
---------------------------------------------------------------------------------
-HEADER    : <setjmp.h>
-PROTOTYPE : int longjmp(jmp_buf env, int val);
-SEMANTICS : La funzione longjmp() restituisce l'ambiente salvato dall'ultima
-            chiamata a setjmp() mediante la variabile 'env'; dopo aver 
-	        completato l'esecuzione restituisce il controllo a setjmp() che
-	        restituira' 'val'.
-RETURNS   : Non ritorna
---------------------------------------------------------------------------------
-
-La funzione setjmp() fissa una posizione all'interno del programma, salvando
-l'ambiente corrente nella variabile 'env' di tipo jmp_buf e ritornando 0, la 
-funzione longjmp() invece puo' essere adoperata per tornare nella posizione 
-definita da setjmp(); l'uso delle funzioni su citate tuttavia riguarda 
-soprattutto la gestione degli errori e degli interrupts.
-
-Dopo aver ripristinato l'ambiente con la variabile 'env' di tipo jmp_buf, la
-funzione longjmp() ritornera' dalla chiamata alla setjmp(), questa volta pero'
-il valore restituito sara' 'val', per cui se 'val' e' uguale a zero la setjmp()
-restituira' uno.
-
-In breve:
-- setjmp() ritorna 0 alla prima invocazione;
-- successivamente longjmp() trasferisce nuovamente il controllo alla chiamata
-  originaria setjmp() che restituira' un valore diverso da zero.
-*/
-
+// Function Prorotipes
 void func_one(void);
 void func_two(void);
 
-/* la variabile che conterra' l'ambiente corrente */
+// Variabile globale, conterra' l'ambiente corrente
 jmp_buf env;
+
+/* Lo scopo del programma e' di presentare un esempio di utilizzo delle
+funzioni setjmp() e longjmp(). */
 
 int main(int argc, char *argv[]) {
     int ret_sj;
