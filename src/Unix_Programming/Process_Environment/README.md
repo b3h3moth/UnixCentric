@@ -32,12 +32,11 @@ La funzione ``setjmp()`` salva lo stack, contesto/ambiente corrente, nella
 variabile ``env``, per essere utilizzata successivamente da ``longjmp()``.
 Ritorna 0 se chiamata direttamente, non zero se ritorna da longjmp()
 
-``int longjmp(jmp_buf env, int val);``
+``void longjmp(jmp_buf env, int val);``
 
 La funzione ``longjmp()`` restituisce l'ambiente salvato dall'ultima chiamata a 
 ``setjmp()`` mediante la variabile ``env'``; dopo aveer completato l'esecuzione 
 restituisce il controllo a ``setjmp()``, restituendo ``val``.
-La funzione ``longjmp()`` non ritorna.
 
 La funzione setjmp() fissa una posizione all'interno del programma, salvando
 l'ambiente corrente nella variabile 'env' di tipo jmp_buf e ritornando 0, la 
