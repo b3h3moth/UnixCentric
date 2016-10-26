@@ -11,6 +11,7 @@
 ## Linux Systems Programming
 
 * **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`O'Reilly, 2013, 2nd`)
+* **Linux Programming by Example - the Fundamentals**. *Arnold Robbins* (`Prentice Hall, 2004`)
 
 ## Kernel Linux
 
