@@ -30,26 +30,21 @@ con le seguenti caratteristiche
 
 La funzione ``setjmp()`` salva lo stack, contesto/ambiente corrente, nella 
 variabile ``env``, per essere utilizzata successivamente da ``longjmp()``.
-Ritorna 0 se chiamata direttamente, non zero se ritorna da longjmp()
+Ritorna 0 se chiamata direttamente, non zero se ritorna da ``longjmp()``.
 
 ``void longjmp(jmp_buf env, int val);``
 
-La funzione ``longjmp()`` restituisce l'ambiente salvato dall'ultima chiamata a 
+La funzione ``longjmp()`` ripristina l'ambiente salvato dall'ultima chiamata a 
 ``setjmp()`` mediante la variabile ``env'``; dopo aveer completato l'esecuzione 
 restituisce il controllo a ``setjmp()``, restituendo ``val``.
 
-La funzione setjmp() fissa una posizione all'interno del programma, salvando
-l'ambiente corrente nella variabile 'env' di tipo jmp_buf e ritornando 0, la 
-funzione longjmp() invece puo' essere adoperata per tornare nella posizione 
-definita da setjmp(); l'uso delle funzioni su citate tuttavia riguarda 
-soprattutto la gestione degli errori e degli interrupts.
-
-Dopo aver ripristinato l'ambiente con la variabile 'env' di tipo jmp_buf, la
-funzione longjmp() ritornera' dalla chiamata alla setjmp(), questa volta pero'
-il valore restituito sara' 'val', per cui se 'val' e' uguale a zero la setjmp()
-restituira' uno.
+La funzione ``setjmp()`` fissa una posizione all'interno del programma, salvando
+l'ambiente corrente nella variabile ``env`` di tipo ``jmp_buf`` e ritornando 
+``0``, la funzione ``longjmp()`` invece puo' essere adoperata per tornare nella 
+posizione definita da ``setjmp()``; l'uso delle funzioni su citate tuttavia 
+riguarda soprattutto la gestione degli errori e degli interrupts.
 
 In breve:
-- setjmp() ritorna 0 alla prima invocazione;
-- successivamente longjmp() trasferisce nuovamente il controllo alla chiamata
-  originaria setjmp() che restituira' un valore diverso da zero.
+- ``setjmp()`` ritorna ``0`` alla prima invocazione;
+- ``longjmp()`` trasferisce nuovamente il controllo alla chiamata originaria 
+  ``setjmp()``, restituendo zero.
