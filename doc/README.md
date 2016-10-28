@@ -5,15 +5,13 @@ documento in modo tale da rendere la fruibilita' il piu' veloce possibile.
 
 UnixCentric riguarda ovviamente tutto cio' che e' inerente l'Universo UNIX, 
 tuttavia, cosi' come per il codice, ci sono due aree principali, ovvero il 
-linguaggio C - standard c99 e c11 - e la programmazione di sistema, e di 
-conseguenza i sistemi operativi UNIX e UNIX-like.
+linguaggio C - standard c99 e c11 - e la programmazione di sistema, che
+implicitamente vanno a sfociare nell'argomento che e' il fulcro di tutto, 
+ovvero l'implementazione dei sistemi operativi UNIX e UNIX-like.
 
-I Sistemi operativi di riferimento sono, per il kernel Linux la *Debian 
-GNU/Linux*, per il kernel BSD *OpenBSD* e *FreeBSD*.
-
-* [Standards and References Manual](standard_references.md)
-* [Bibliography](biblio.md)
-* [Full books](full_books.md)
+* [Standards and Reference Manuals](stds_and_refs.md)
+* [Bibliography](biblio.md) Printed books
+* [Full books](full_books.md) Open/Free books
 * [Articles](articles.md)
-* [Tutorial](tutorial.md)
-* [Talks](talks.md)
+* [Tutorials](tutorial.md)
+* [Talks](talks.md) 
