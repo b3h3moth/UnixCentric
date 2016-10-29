@@ -24,6 +24,7 @@
 
 * Unix Operating Systems
 
+* **UNIX Internals - The New Frontiers**. *Uresh Vahalia* (`Pearson, 1996`)
 * **The Design of the UNIX Operating System**. *Maurice J.Bach* (`Prentice Hall, 1986`)
 
 ## c89 (a.k.a. c90) - iso9899:1990
