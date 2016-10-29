@@ -5,9 +5,9 @@
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
 * **The Linux Programming Interface - A Linux and UNIX System Programming Handbook**. *Michael Kerrisk* (`No Starch Press, 2010`)
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
+* **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
-* **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 
 ## Linux Systems Programming
 
