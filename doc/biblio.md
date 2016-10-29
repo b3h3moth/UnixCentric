@@ -22,6 +22,10 @@
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`Addison Wesley, 2014, 2nd`)
 
+* Unix Operating Systems
+
+* **The Design of the UNIX Operating System**. *Maurice J.Bach* (`Prentice Hall, 1986`)
+
 ## c89 (a.k.a. c90) - iso9899:1990
   
 * **A book on C - Programming in C**. *Al Kelley*, *Ira Pohl* (`Addison Wesley, 1998, 4th`)
