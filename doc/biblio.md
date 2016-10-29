@@ -27,7 +27,7 @@
 
 * **Solaris Internals - Solaris 10 and OpenSolaris Kernel Architecture**. *Richard McDougall*, *Jim Mauro* (`Prentice Hall, 2006, 2nd`)
 
-* Unix Operating Systems (Internals)
+## Unix Operating Systems (Internals)
 
 * **UNIX Internals - The New Frontiers**. *Uresh Vahalia* (`Pearson, 1996`)
 * **The Magic Garden Explained - The Internals of UNIX System V Release 4 an Open Systems Design**. *Berny Goodheart*, *James Cox*, *John R.Mashey* (`Prentice Hall, 1994`)
