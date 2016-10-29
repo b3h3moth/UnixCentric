@@ -7,6 +7,7 @@
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
+* **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 
 ## Linux Systems Programming
 
@@ -31,7 +32,7 @@
 * **UNIX Internals - The New Frontiers**. *Uresh Vahalia* (`Pearson, 1996`)
 * **The Magic Garden Explained - The Internals of UNIX System V Release 4 an Open Systems Design**. *Berny Goodheart*, *James Cox*, *John R.Mashey* (`Prentice Hall, 1994`)
 * **The Design of the UNIX Operating System**. *Maurice J.Bach* (`Prentice Hall, 1986`)
-* **Lions' Commentary on Unix**. *John Lions* (`Peer-to-Peer Communications, 1996, 6th`)
+* **Lions' Commentary on Unix - A commentary on the Sixth Edition UNIX Operating System**. *John Lions* (`Peer-to-Peer Communications, 1977`)
 
 ## c89 (a.k.a. c90) - iso9899:1990
   
