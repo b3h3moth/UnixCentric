@@ -31,6 +31,7 @@
 * **UNIX Internals - The New Frontiers**. *Uresh Vahalia* (`Pearson, 1996`)
 * **The Magic Garden Explained - The Internals of UNIX System V Release 4 an Open Systems Design**. *Berny Goodheart*, *James Cox*, *John R.Mashey* (`Prentice Hall, 1994`)
 * **The Design of the UNIX Operating System**. *Maurice J.Bach* (`Prentice Hall, 1986`)
+* **Lions' Commentary on Unix**. *John Lions* (`Peer-to-Peer Communications, 1996, 6th`)
 
 ## c89 (a.k.a. c90) - iso9899:1990
   
