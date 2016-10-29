@@ -23,7 +23,7 @@
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`Addison Wesley, 2014, 2nd`)
 
-** Solaris
+## Solaris
 
 * **Solaris Internals - Solaris 10 and OpenSolaris Kernel Architecture**. *Richard McDougall*, *Jim Mauro* (`Prentice Hall, 2006, 2nd`)
 
