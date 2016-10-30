@@ -20,12 +20,12 @@
 * **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`O'Reilly, 2013, 2nd`)
 * **Linux Programming by Example - the Fundamentals**. *Arnold Robbins* (`Prentice Hall, 2004`)
 
-## Kernel Linux
+## Linux Kernel and Device Drivers
 
 * **Linux Kernel Development**. *Robert Love* (`Addison Wesley, 2010, 3rd`)
 * **Understanding the Linux Kernel - from I/O Ports to Process Management**. *Daniel P.Bovet*, *Marco Cesati* (`O'Reilly, 2005, 3rd`);
 
-## Kernel BSD
+## BSD Kernel and Device Drivers
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`Addison Wesley, 2014, 2nd`)
 
