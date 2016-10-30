@@ -16,7 +16,11 @@
 
 ## BSD
 
-## GNU C Library
+## The GNU C Library
+https://www.gnu.org/software/libc/manual/
+
+Last updated August 5, 2016, for glibc 2.24.
+
 
 ## XPG
 
@@ -28,6 +32,4 @@
   https://www2.opengroup.org/ogsys/catalog/c165
 
 * The GNU C Library
-Last updated August 5, 2016, for glibc 2.24.
 Copyright 2016 Free Software Foundation, Inc.
-https://www.gnu.org/software/libc/manual/
