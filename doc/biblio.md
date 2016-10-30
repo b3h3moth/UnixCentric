@@ -12,6 +12,8 @@
 ## Unix Network Programming
 
 * **Unix Network Programming, Volume 1 - The Sockets Networking API**. *W.Richard Stevens*, *Bill Fenner*, *Andrew M.Rudoff* (`Addison Wesley, 2003, 3rd`)
+* **Unix Network Programming, Volume 2 - Interprocess Communications**. *W.Richard Stevens* (`Prentice Hall, 1998, 2nd`)
+
 
 ## Linux Systems Programming
 
