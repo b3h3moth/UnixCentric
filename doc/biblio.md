@@ -29,6 +29,7 @@
 ## BSD Kernel and Device Drivers
 
 * **The Design and Implementation of the FreeBSD Operating System**. *Marshal Kirk McKusick*, *George V. Neville-Nell*, *Robert N.M.Watson* (`Addison Wesley, 2014, 2nd`)
+* **FreeBSD Device Drivers - A Guide for the Intrepid**. *Joseph Kong* (`No Starch Press, 2012`)
 
 ## Solaris
 
