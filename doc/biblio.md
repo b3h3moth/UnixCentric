@@ -24,6 +24,7 @@
 
 * **Linux Kernel Development**. *Robert Love* (`Addison Wesley, 2010, 3rd`)
 * **Understanding the Linux Kernel - from I/O Ports to Process Management**. *Daniel P.Bovet*, *Marco Cesati* (`O'Reilly, 2005, 3rd`);
+* **Linux Device Drivers**. *Jonathan Corbet*, *Alessandro Rubini*, *Greg Kroah-Hartman* (`O'Reilly, 2005, 3rd`)
 
 ## BSD Kernel and Device Drivers
 
