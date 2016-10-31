@@ -2,7 +2,7 @@
 
 ## International Standard ISO/IEC Programming languages - C
 
-- [ISO/IEC 9899:1989 - aka C90](http://www.)
+- [ISO/IEC 9899:1990 - aka C90](http://www.)
 - [ISO/IEC 9899:1999 - aka C99](http://www.)
 - [ISO/IEC 9899:2011 - aka C11](http://www.)
 
@@ -18,9 +18,10 @@
 ## BSD
 
 ## The GNU C Library
-https://www.gnu.org/software/libc/manual/
+- [https://www.gnu.org/software/libc/manual/](The GNU C Library - glibc 2.24) Last updated August 5, 2016
+- [](The GNU C Reference Manual)
 
-Last updated August 5, 2016, for glibc 2.24.
+Copyright 2016 Free Software Foundation, Inc.
 
 
 ## XPG
@@ -31,6 +32,3 @@ Last updated August 5, 2016, for glibc 2.24.
 * Base Specifications, Issue 7, 2016 Edition
   Technically identical to IEEE Std 1003.1, 2016 Edition
   https://www2.opengroup.org/ogsys/catalog/c165
-
-* The GNU C Library
-Copyright 2016 Free Software Foundation, Inc.
