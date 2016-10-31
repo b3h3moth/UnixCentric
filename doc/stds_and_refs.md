@@ -1,10 +1,11 @@
 # Standards and manual documentation references
 
-## ISO C
+## International Standard ISO/IEC Programming languages - C
 
-- c89
-- c99
-- c11
+- [ISO/IEC 9899:1989 - aka C90](http://www.)
+- [ISO/IEC 9899:1999 - aka C99](http://www.)
+- [ISO/IEC 9899:2011 - aka C11](http://www.)
+
 
 ## POSIX
 
