@@ -8,7 +8,7 @@ heap, le funzioni principali con cui confrontarsi sono malloc(), calloc(),
 realloc() - generalmente ci si riferisce ad esse come le funzioni della
 famiglia malloc() - e free().
 
-Nota: L'allocazione dinamica della memoria o dynamic memory allocation e' una
+Nota: L'allocazione dinamica della memoria (dynamic memory allocation) e' una
       tecnologia che dipende dal compilatore sul quale si deve lavorare, per 
       cui e' possibile che diverse architetture la trattino in maniera 
       differente. 

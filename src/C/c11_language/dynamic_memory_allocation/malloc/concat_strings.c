@@ -3,11 +3,11 @@
 #include <string.h>
 #include <errno.h>
 
-/* L'allocazione dinamica della memoria è usata di continuo con le stringhe, in
-tal caso peraltro il lavoro sara' facilitato, poichè si dovrà utilizzare un
-char che corrisponde esattamente a 1 byte, per cui, una stringa di N caratteri 
-sara' sizeof(char) * N; da non dimenticare di aggiungere un byte per il 
-carattere di fine stringa \0. */
+/* L'allocazione dinamica della memoria e' usata di continuo con le stringhe,
+in tal caso peraltro il lavoro sara' facilitato poiche' si dovra' utilizzare il
+il tipo di dato 'char', che corrisponde a 1 byte, per cui, una stringa di N 
+caratteri sara' calcolata come sizeof(char) * N, piu' il carattere di fine
+stringa \0. */
 
 char *concat(const char *str1, const char *str2);
 void free_memory(char *block);
