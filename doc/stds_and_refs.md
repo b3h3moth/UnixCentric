@@ -1,4 +1,4 @@
-# Standards and manual documentation references
+# Standards, Standards de facto and Manual References
 
 ## ISO/IEC International Standard for the C Programming language
 
