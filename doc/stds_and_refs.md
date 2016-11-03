@@ -1,13 +1,14 @@
 # Standards and manual documentation references
 
-## International Standard ISO/IEC Programming languages - C
+## ISO/IEC International Standard for the C Programming language
 
-- [ISO/IEC 9899:1990 - aka C90](http://www.) the first formal standard for the C
-- [ISO/IEC 9899:1999 - aka C99](http://www.) the second formal standard for the C
-- [ISO/IEC 9899:2011 - aka C11](http://www.) the third and actual formal standard for the C
+- [ISO/IEC 9899:1990 - aka C90](http://www.) the first formal standard
+- [ISO/IEC 9899:1999 - aka C99](http://www.) the second formal standard
+- [ISO/IEC 9899:2011 - aka C11](http://www.) the third formal standard (current)
 
 
-## POSIX
+## IEEE Standard for the Portable Operating System Interface (POSIX)
+
 
 # System V Interface (4th edition)
 - 1a
@@ -20,8 +21,6 @@
 ## The GNU C Library
 - [https://www.gnu.org/software/libc/manual/](The GNU C Library - glibc 2.24) Last updated August 5, 2016
 - [](The GNU C Reference Manual)
-
-Copyright 2016 Free Software Foundation, Inc.
 
 
 ## XPG
