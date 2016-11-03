@@ -8,25 +8,15 @@
 
 
 ## IEEE Standard for the Portable Operating System Interface (POSIX)
-
-
-# System V Interface (4th edition)
-- 1a
-- 1b
-- 2
-- 3
-
-## BSD
+- [IEEE Standard 1003.1-2001](http://www.)
 
 ## The GNU C Library
-- [https://www.gnu.org/software/libc/manual/](The GNU C Library - glibc 2.24) Last updated August 5, 2016
-- [](The GNU C Reference Manual)
+
+- [The GNU C Library - glibc 2.24](https://www.gnu.org/software/libc/manual/) Last updated August 5, 2016
+- [The GNU C Reference Manual](http://www.)
 
 
-## XPG
-
-* SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems (2016 Edition)
-  https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm
+* [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems (2016 Edition)](https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm)
 
 * Base Specifications, Issue 7, 2016 Edition
   Technically identical to IEEE Std 1003.1, 2016 Edition
