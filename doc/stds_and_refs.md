@@ -20,5 +20,7 @@
 - [The GNU C Reference Manual](http://www.)
 
 
-* [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems (2016 Edition)](https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm)
+## SEI CERT C Secure coding Standard
+
+* [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm) 2016 edition
 
