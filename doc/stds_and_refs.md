@@ -8,11 +8,11 @@
 
 
 ## IEEE Standard for the Portable Operating System Interface (POSIX)
-- [IEEE Standard 1003.1-2001](http://www.)
 
-* Base Specifications, Issue 7, 2016 Edition
-  Technically identical to IEEE Std 1003.1, 2016 Edition
-  https://www2.opengroup.org/ogsys/catalog/c165
+- [IEEE Standard 1003.1-2001](http://www.) 2001 edition
+- [IEEE Standard 1003.1-2016](https://www2.opengroup.org/ogsys/catalog/c165) Issue 7, 2016 edition
+
+##  X/Open System Interface (XSI)
 
 ## The GNU C Library
 
