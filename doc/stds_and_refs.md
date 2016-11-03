@@ -2,7 +2,7 @@
 
 ## International Standard ISO/IEC Programming languages - C
 
-- [ISO/IEC 9899:1990 - aka C90](http://www.)
+- [ISO/IEC 9899:1990 - aka C90](http://www.) the first formal standard for the C programming language
 - [ISO/IEC 9899:1999 - aka C99](http://www.)
 - [ISO/IEC 9899:2011 - aka C11](http://www.)
 
