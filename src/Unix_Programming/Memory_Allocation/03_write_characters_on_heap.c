@@ -54,9 +54,9 @@ int main(int argc, char *argv[]) {
     printf("\n%s\n", (char *)pb_old_addr);
 
     // E se si scrivesse oltre il limite dei size_incr?
-    printf("%c\n", *((char *)pb_old_addr + 100) = 'o');
-    printf("%c\n", *((char *)pb_old_addr + 200) = 'p');
-    printf("%c\n", *((char *)pb_old_addr + 1000) = 's');
+    printf("%c", *((char *)pb_old_addr + 100) = 'o');
+    printf("%c", *((char *)pb_old_addr + 200) = 'p');
+    printf("%c", *((char *)pb_old_addr + 1000) = 's');
     printf("%c\n", *((char *)pb_old_addr + 4095) = '!');
 
     /* La memoria e' suddivisa in pagine da 4096 byte e il 'program break' non
@@ -64,8 +64,22 @@ int main(int argc, char *argv[]) {
     memoria liberi pronti per essere sfruttati. Il programma corrente cosi'
     com'e' stato scritto compilerebbe e sarebbe anche eseguito con successo, 
     un 'segmentation fault' sarebbe occorso solo se si fosse tentato di 
-    scrivere anche un solo byte oltre il limite della pagina, ovvero:
-    *((char *)pb_old_addr + 4096) = '!'; */
+    scrivere anche un solo byte oltre il limite della pagina, ovvero 4095 -
+    ricordo che la numerazione inizia da zero.
+    */
+
+    /* Provare a compilare attribuendo alla macro _OVER_LIMITS degli interi
+    minori o uguali di una pagina (4096 byte) ossia 4095, dopodiche' attribuire
+    alla macro valori superiori a 4095 e verificare cosa succede, ad esempio:
+    
+    gcc11 -D_BSD_SOURCE 03_write_characters_on_heap.c -D_OVER_LIMITS=4000
+    gcc11 -D_BSD_SOURCE 03_write_characters_on_heap.c -D_OVER_LIMITS=4095
+    */
+
+#ifdef _OVER_LIMITS
+    printf("%c", *((char *)pb_old_addr + _OVER_LIMITS) = ':');
+    printf("%c\n", *((char *)pb_old_addr + _OVER_LIMITS) = ')');
+#endif
     
     return(EXIT_SUCCESS);
 }
