@@ -1,3 +1,5 @@
+#define _BSD_SOURCE // Oppure compilare con -D_BSD_SOURCE o -D_SVID_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -66,14 +68,13 @@ int main(int argc, char *argv[]) {
     un 'segmentation fault' sarebbe occorso solo se si fosse tentato di 
     scrivere anche un solo byte oltre il limite della pagina, ovvero 4095 -
     ricordo che la numerazione inizia da zero.
-    */
 
-    /* Provare a compilare attribuendo alla macro _OVER_LIMITS degli interi
-    minori o uguali di una pagina (4096 byte) ossia 4095, dopodiche' attribuire
+    Test: Provare a compilare attribuendo alla macro _OVER_LIMITS degli interi
+    minori o uguali a una pagina (4096 byte) ossia 4095, dopodiche' attribuire
     alla macro valori superiori a 4095 e verificare cosa succede, ad esempio:
     
-    gcc11 -D_BSD_SOURCE 03_write_characters_on_heap.c -D_OVER_LIMITS=4000
-    gcc11 -D_BSD_SOURCE 03_write_characters_on_heap.c -D_OVER_LIMITS=4095
+    gcc11 03_write_characters_on_heap.c -D_OVER_LIMITS=4000
+    gcc11 03_write_characters_on_heap.c -D_OVER_LIMITS=4095
     */
 
 #ifdef _OVER_LIMITS

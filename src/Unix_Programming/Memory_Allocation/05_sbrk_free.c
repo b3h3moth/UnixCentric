@@ -1,3 +1,5 @@
+#define _BSD_SOURCE // Oppure compilare con -D_BSD_SOURCE o -D_SVID_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

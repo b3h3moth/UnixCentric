@@ -1,3 +1,5 @@
+#define _BSD_SOURCE // Oppure compilare con -D_BSD_SOURCE o -D_SVID_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,13 +23,7 @@ del 'program break' mediante un offset intero specificato da 'increment';
 va da se che incrementare sta per allocare memoria, decrementare invece sta per
 deallocare. Ritorna il valore del 'program break' in caso di esito positivo,
 (void*)-1 nel caso fallisse. La chiamata sbrk(0) restituisce la locazione
-corrente del 'program break'.
-
-E' necessario aggiungere in fase di compilazione o la macro BSD_SOURCE oppure
-la macro SVID_SOURCE, altrimenti il programma non compilerebbe:
-$ (gcc o clang) -std=c11 -Wall -pedantic -D_BSD_SOURCE file.c
-$ (gcc o clang) -std=c11 -Wall -pedantic -D_SVID_SOURCE file.c
-*/
+corrente del 'program break'. */
 
 /* Lo scopo del programma e' di incrementare il 'program break' di 15 byte,
 di salvare il suo valore prima e dopo la chiamata alla system call e infine
