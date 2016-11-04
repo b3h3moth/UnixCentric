@@ -29,12 +29,12 @@ $ (gcc o clang) -std=c11 -Wall -pedantic -D_BSD_SOURCE file.c
 $ (gcc o clang) -std=c11 -Wall -pedantic -D_SVID_SOURCE file.c
 */
 
-/* Lo scopo del programma e' di incrementare il 'program break' di 10 byte,
+/* Lo scopo del programma e' di incrementare il 'program break' di 15 byte,
 di salvare il suo valore prima e dopo la chiamata alla system call e infine
 stampare in output i relativi valori. */
 
 int main(void) {
-    static const intptr_t size_incr = 10;
+    static const intptr_t size_incr = 15;
     void *pb_old_addr, *pb_current_addr;
 
     // Si ottiene il valore corrente del 'program 'break'
