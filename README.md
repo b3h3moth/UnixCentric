@@ -2,9 +2,10 @@
 
 ## src (Source Code)
 
-Learning the art of the C language programming and the Unix System Programming:
-reading and writing code.
+Learning the art of the C language programming and the Unix Systems Programming
+with a lot of source code.
 
 ## doc (Documentation)
 
-A lot of documentation: articles, talks, full books, tutorials, bibliography.
+A lot of documentation: the standards and reference manuals, bibliography 
+(printed books), open/free docs, articles, talks.
