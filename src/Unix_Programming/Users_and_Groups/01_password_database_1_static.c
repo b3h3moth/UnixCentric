@@ -20,9 +20,10 @@ struct passwd
   char *pw_shell;		Shell program.
 };
 
-Il campo password conterra' unicamente il carattere 'x', qualora fossero 
-attivate le shadow password, altrimenti conterrebbe 13 caratteri di password 
-crittata.
+Il campo password conterra' unicamente il carattere 'x' qualora fossero state
+attivate le 'shadow passwords' - nel file /etc/shadows ci sarebbe la lista 
+delle le password crittate di ciascun account -, altrimenti conterrebbe 13 
+caratteri per ogni password crittata.
 
 Le uniche funzioni che POSIX prevede per la modifica del file /etc/passwd sono 
 getpwuid() e getpwnam():
