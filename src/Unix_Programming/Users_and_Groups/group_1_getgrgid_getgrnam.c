@@ -46,9 +46,13 @@ int main(int argc, char *argv[]) {
    uid_t my_uid = getuid();
    char *grname = "video";
 
-   if ((grp = getgrgid(my_uid)) == NULL) {
-      fprintf(stderr, "Err. %s getgrgid(%d)\n", strerror(errno), my_uid);
-      exit(EXIT_FAILURE);
+   grp = getgrgid(my_uid);
+   if (grp == NULL) {
+       if (errno == 0) {
+           fprintf(stderr, "Account Not Found.\n");
+           exit(EXIT_FAILURE);
+       } else
+           fprintf(stderr, "Err. %s getgrgid(%d)\n", strerror(errno), my_uid);
    }
 
    printf("         gr_name: %s\n", grp->gr_name);
