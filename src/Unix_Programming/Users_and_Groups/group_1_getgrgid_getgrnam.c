@@ -50,17 +50,25 @@ int main(int argc, char *argv[]) {
    if (grp == NULL) {
        if (errno == 0) {
            fprintf(stderr, "Account Not Found.\n");
-           exit(EXIT_FAILURE);
-       } else
+           return 1;
+       } else {
            fprintf(stderr, "Err. %s getgrgid(%d)\n", strerror(errno), my_uid);
+           return 1;
+       }
    }
 
    printf("         gr_name: %s\n", grp->gr_name);
    printf("         gr_pass: %s\n", grp->gr_passwd);
 
-   if((grp2 = getgrnam(grname)) == NULL) {
-      fprintf(stderr, "Err. %s getgrnam(%s)\n", strerror(errno), grname);
-      exit(EXIT_FAILURE);
+   grp2 = getgrnam(grname);
+   if (grp2 == NULL) {
+       if (errno == 0) {
+           fprintf(stderr, "Account Not Found.\n");
+           return 1;
+       } else {
+           fprintf(stderr, "Err. %s getgrnam(%s)\n", strerror(errno), grname);
+           return 1;
+       }
    }
 
    printf("           gr_ID: %d\n", grp2->gr_gid);
