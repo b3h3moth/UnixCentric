@@ -21,9 +21,11 @@ struct passwd
 };
 
 Il campo password conterra' unicamente il carattere 'x' qualora fossero state
-attivate le 'shadow passwords' - nel file /etc/shadows ci sarebbe la lista 
+attivate le 'shadow passwords' - nel file /etc/shadow ci sarebbe la lista 
 delle le password crittate di ciascun account -, altrimenti conterrebbe 13 
 caratteri per ogni password crittata.
+
+Normalmente le 'shadow password' sono attivate di default.
 
 Le uniche funzioni che POSIX prevede per la modifica del file /etc/passwd sono 
 getpwuid() e getpwnam():
