@@ -71,21 +71,27 @@ int main(void) {
            exit(EXIT_FAILURE);
        }
    } else {
-      printf("               User name: %s\n", pd->pw_name);
-      printf("                Password: %s\n", pd->pw_passwd);
-      printf("                 User ID: %u\n", pd->pw_uid);
-      printf("                Group ID: %u\n", pd->pw_gid);
+      printf("User name: %s\n", pd->pw_name);
+      printf(" Password: %s\n", pd->pw_passwd);
+      printf("  User ID: %u\n", pd->pw_uid);
+      printf(" Group ID: %u\n", pd->pw_gid);
    }
 
    /* In questo caso invece si passa alla funzione il nome di un utente, non
    necessariamente dev'essere colui che si e' loggato al sistema */
-   if ((pd2 = getpwnam(my_name)) == NULL) {
-      fprintf(stderr, "Err. getpwnam() failed.\n");
-      exit(EXIT_FAILURE);
+   pd2 = getpwnam(my_name);
+   if (pd2 == NULL) {
+       if (errno == 0) {
+           fprintf(stderr, "Account Not Found.\n");
+           exit(EXIT_FAILURE);
+       } else {
+           fprintf(stderr, "Err. getpwnam() failed.\n");
+           exit(EXIT_FAILURE);
+       }
    } else {
-      printf("               Real name: %s\n", pd2->pw_gecos);
-      printf("          Home directory: %s\n", pd2->pw_dir);
-      printf("           Shell program: %s\n", pd2->pw_shell);
+      printf("\n     Real name: %s\n", pd2->pw_gecos);
+      printf("Home directory: %s\n", pd2->pw_dir);
+      printf(" Shell program: %s\n", pd2->pw_shell);
    }
 
    return(EXIT_SUCCESS);
