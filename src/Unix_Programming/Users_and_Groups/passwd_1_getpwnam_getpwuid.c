@@ -1,4 +1,4 @@
-#define _BSD_SOURCE // uid_t
+#define _BSD_SOURCE // to use uid_t when compiling with std=c11 standard
 
 #include <stdio.h>
 #include <stdlib.h>
