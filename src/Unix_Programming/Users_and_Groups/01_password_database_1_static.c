@@ -12,13 +12,17 @@ e' formata dai campi definiti in tale struttura:
 struct passwd
 {
   char *pw_name;		Username.  
-  char *pw_passwd;		Password.
+  char *pw_passwd;		password
   __uid_t pw_uid;		User ID.  
   __gid_t pw_gid;		Group ID.
   char *pw_gecos;		Real name.
   char *pw_dir;			Home directory.
   char *pw_shell;		Shell program.
 };
+
+Il campo password conterra' unicamente il carattere 'x', qualora fossero 
+attivate le shadow password, altrimenti conterrebbe 13 caratteri di password 
+crittata.
 
 Le uniche funzioni che POSIX prevede per la modifica del file /etc/passwd sono 
 getpwuid() e getpwnam():
