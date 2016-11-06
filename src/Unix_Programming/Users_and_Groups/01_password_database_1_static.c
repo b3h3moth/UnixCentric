@@ -4,9 +4,10 @@
 #include <unistd.h>
 
 /*
-Il file /etc/passwd contiene svariate informazioni sull'utente loggato al
-sistema, una riga per ciascun account, i cui sette campi, separati dal 
-carattere ':', fanno parte della struttura 'passwd' definita in <pwd.h>:
+Il file /etc/passwd contiene diverse informazioni su ciascun account del
+sistema, i cui campi, separati dal carattere ':', fanno parte della 
+struttura 'passwd' definita in <pwd.h>, per cui ogni riga del file
+e' formata dai campi definiti in tale struttura:
 
 struct passwd
 {
