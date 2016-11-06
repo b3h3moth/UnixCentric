@@ -1,3 +1,5 @@
+#define _BSD_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,13 +13,13 @@ definita in <pwd.h>.
 HEADER    : <pwd.h>
 PROTOTYPE : struct passwd *getpwent(void);
             void setpwent(void);
-	    void endpwent(void);
+	        void endpwent(void);
 SEMANTICS : La funzione getpwent() consente di ottenere il prossimo campo del
             database delle password; la funzione setpwent() riavvolge il 
-	    database delle password, ossia punta al primo record; la funzione 
-	    endpwent() chiude tutti i file ad operazioni avvenute.
-RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd in
-            caso di successo, NULL in caso di errore.
+	        database delle password, ossia punta al primo record; la funzione 
+	        endpwent() chiude tutti i file ad operazioni avvenute.
+RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd
+            in caso di successo, NULL in caso di errore.
 --------------------------------------------------------------------------------
 */
 
@@ -26,9 +28,9 @@ int main(int argc, char *argv[]) {
    char *user_name;
 
    if (argc < 2) {
-      fprintf(stderr, "Uso: %s <utente>\n\n"
-      	              "Cerca se <utente> e' presente nel sistema, verificando\n"
-		      "una corrispondenza nel file /etc/passwd\n", argv[0]);
+      fprintf(stderr, "Usage: %s <user>\n\n"
+              "Find if <user> is in the system, checking a correspondence \n"
+		      "into the /etc/passwd file.\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
@@ -36,11 +38,11 @@ int main(int argc, char *argv[]) {
 
    setpwent();
 
-   while ((ptr = getpwent()) != NULL) {
+   if ((ptr = getpwent()) != NULL) {
       if (strcmp(user_name, ptr->pw_name) == 0) {
-      	 printf("utente \'%s\' presente nel sistema\n", argv[1]);
-      	 break;
-      }
+      	 printf("account \'%s\' is in the system.\n", argv[1]);
+      } else
+          printf("account \'%s\' is not in the system.\n", argv[1]);
    }
    
    endpwent();
