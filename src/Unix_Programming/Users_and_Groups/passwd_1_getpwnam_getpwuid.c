@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <pwd.h>
 #include <unistd.h>
 
@@ -37,9 +38,12 @@ PROTOTYPE : struct passwd *getpwuid(uid_t uid);
             struct passwd *getpwnam(const char *name);
 SEMANTICS : Entrambe restituiscono informazioni relative all'utente specificato,
             alla prima si passa come parametro l'uid utente, alla seconda il
-	    nome dell'utente stesso inddicato con 'name'.
-RETURNS   : Un puntatore alla struttura passwd in caso di successo, NULL in caso
-            di errore
+	        nome dell'utente stesso inddicato con 'name'.
+RETURNS   : Un puntatore alla struttura passwd in caso di successo, 
+            NULL in caso di errore, tutavia qualora l'errore fosse "not found"
+            'errno' non muterebbe rispetto al 'NULL', per cui e' necessaria
+            una ulteriore verifica sullo stesso 'errno' proprio per 
+            distinguere tra i due tipi di errori.
 --------------------------------------------------------------------------------
 Nota: La struttura 'passwd' utilizzata dalle funzioni in oggetto e' allocata
 staticamente, per cui il contenuto e' sovrascritto ad ogni nuova chiamata; esse 
@@ -56,9 +60,16 @@ int main(void) {
  
    /* Come si puo' notare si passa alla funzione l'uid utente, ottenuto grazie
    alla funzione getuid() */
-   if ((pd = getpwuid(uid)) == NULL) {
-      fprintf(stderr, "Err. getpwuid() failed.\n");
-      exit(EXIT_FAILURE);
+
+   pd = getpwuid(uid);
+   if (pd == NULL) {
+       if (errno == 0) {
+           fprintf(stderr, "Account Not Found.\n");
+           exit(EXIT_FAILURE);
+       } else {
+           fprintf(stderr, "Err. getpwuid() failed.\n");
+           exit(EXIT_FAILURE);
+       }
    } else {
       printf("               User name: %s\n", pd->pw_name);
       printf("                Password: %s\n", pd->pw_passwd);
