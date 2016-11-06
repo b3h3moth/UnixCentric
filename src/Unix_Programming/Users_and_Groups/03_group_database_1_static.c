@@ -35,10 +35,9 @@ sono utili qualora dovesse servire uno dei campi del file /etc/group, se
 invece si volesse analizzare il file nel suo complesso dovrebbero essere
 utilizzate altre funzioni quali getgrent(), setgrent(), endgrent().
 
-Nota storia: Le prime implementazioni di UNIX prevedevano che ciascun utente
+Nota storica: Le prime implementazioni di UNIX prevedevano che ciascun utente
 appartenesse a un gruppo per volta. Grazie all'avvento di 4.2BSD fu introdotto
-il concetto di appartenenza a piu' gruppi.
-*/
+il concetto di appartenenza a piu' gruppi. */
 
 int main(int argc, char *argv[]) {
    struct group *grp, *grp2;
