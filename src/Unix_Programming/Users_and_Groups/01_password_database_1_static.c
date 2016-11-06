@@ -5,8 +5,8 @@
 
 /*
 Il file /etc/passwd contiene svariate informazioni sull'utente loggato al
-sistema, i cui campi, separati dal carattere ":", fanno parte della struttura
-'passwd' definita in <pwd.h>:
+sistema, una riga per ciascun account, i cui sette campi, separati dal 
+carattere ':', fanno parte della struttura 'passwd' definita in <pwd.h>:
 
 struct passwd
 {
