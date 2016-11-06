@@ -1,3 +1,5 @@
+#define _BSD_SOURCE // uid_t
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pwd.h>
@@ -50,12 +52,12 @@ int main(void) {
    struct passwd *pd;
    struct passwd *pd2;
    uid_t uid = getuid();
-   char *my_name = "nobody";
+   char *my_name = "mail";
  
    /* Come si puo' notare si passa alla funzione l'uid utente, ottenuto grazie
    alla funzione getuid() */
    if ((pd = getpwuid(uid)) == NULL) {
-      fprintf(stderr, "Err. nella funzione getpwuid()\n");
+      fprintf(stderr, "Err. getpwuid() failed.\n");
       exit(EXIT_FAILURE);
    } else {
       printf("               User name: %s\n", pd->pw_name);
@@ -67,7 +69,7 @@ int main(void) {
    /* In questo caso invece si passa alla funzione il nome di un utente, non
    necessariamente dev'essere colui che si e' loggato al sistema */
    if ((pd2 = getpwnam(my_name)) == NULL) {
-      fprintf(stderr, "Err. nella funzione getpwnam()\n");
+      fprintf(stderr, "Err. getpwnam() failed.\n");
       exit(EXIT_FAILURE);
    } else {
       printf("               Real name: %s\n", pd2->pw_gecos);
