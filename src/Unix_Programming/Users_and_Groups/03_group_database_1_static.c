@@ -13,10 +13,10 @@ definita nell'header <grp.h>:
 
 struct group
 {
-    char *gr_name;	"Group name"
+    char *gr_name;	    "Group name"
     char *gr_passwd;	"Password"
-    __gid_t gr_gid;	"Group ID"
-    char **gr_mem;	"Member list"
+    __gid_t gr_gid;	    "Group ID"
+    char **gr_mem;	    "Member list"
 };
 
 
@@ -25,15 +25,19 @@ PROTOTYPE : struct group *getgrgid(gid_t gid);
             struct group *getgrnam(const char *name);
 SEMANTICS : La funzione getgrgid() restituisce il campo ottenuto fornendo il
             'gid' dell'utente; la funzione getgrnam() il campo ottenuto fornendo
-	    il nome dell'utente indicato da 'name'.
+	        il nome dell'utente indicato da 'name'.
 RETURNS   : Un puntatore alla struttura group in caso di successo, NULL in caso
             di errore
 --------------------------------------------------------------------------------
-Nota: La struttura 'group' utilizzata dalle funzioni in oggetto e' allocata
+La struttura 'group' utilizzata dalle funzioni in oggetto e' allocata
 staticamente, per cui il contenuto e' sovrascritto ad ogni nuova chiamata; esse 
 sono utili qualora dovesse servire uno dei campi del file /etc/group, se
 invece si volesse analizzare il file nel suo complesso dovrebbero essere
 utilizzate altre funzioni quali getgrent(), setgrent(), endgrent().
+
+Nota storia: Le prime implementazioni di UNIX prevedevano che ciascun utente
+appartenesse a un gruppo per volta. Grazie all'avvento di 4.2BSD fu introdotto
+il concetto di appartenenza a piu' gruppi.
 */
 
 int main(int argc, char *argv[]) {
