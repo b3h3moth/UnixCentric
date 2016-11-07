@@ -14,10 +14,10 @@ char *username_from_userid(uid_t uid) {
     if (pwd == NULL) {
         if (errno == 0) {
             fprintf(stderr, "Account Not Found.\n");
-            return -1;
+            return NULL;
         } else {
             fprintf(stderr, "Err. getpwuid() Failed.\n");
-            return -1;
+            return NULL;
         }
     } else
         return pwd->pw_name;
@@ -26,7 +26,6 @@ char *username_from_userid(uid_t uid) {
 // Converte user name in user ID
 uid_t userid_from_username(const char *username) {
     struct passwd *pwd;
-    uid_t uid;
 
     if (username == NULL || username == '\0')
         return -1;
