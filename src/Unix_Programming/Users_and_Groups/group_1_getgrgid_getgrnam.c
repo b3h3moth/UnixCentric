@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
    struct group *grp, *grp2;
    uid_t my_uid = getuid();
    char *grname = "video";
+   int i = 0;
 
    grp = getgrgid(my_uid);
    if (grp == NULL) {
@@ -72,7 +73,13 @@ int main(int argc, char *argv[]) {
    }
 
    printf("           gr_ID: %d\n", grp2->gr_gid);
-   printf("  gr_member list: %s\n", *grp2->gr_mem);
+   printf("  gr_member list: ");
+
+   // Se il gruppo 'grname' ha piu' di un utente, lo stampa
+   do {
+       printf("%s, ", grp2->gr_mem[i]);
+       i++;
+   } while (grp2->gr_mem[i] != NULL);
 
    return(EXIT_SUCCESS);
 }
