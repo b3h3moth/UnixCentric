@@ -7,7 +7,7 @@
 #include "user_group_convertions.h"
 
 // Converte user ID in user name
-char *user_name_from_id(uid_t uid) {
+char *username_from_userid(uid_t uid) {
     struct passwd *pwd;
 
     pwd = getpwuid(uid);

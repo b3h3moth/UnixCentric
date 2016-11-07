@@ -3,6 +3,6 @@
 
 #include <sys/types.h>
 
-char *user_name_from_id(uid_t uid);
+char *username_from_userid(uid_t uid);
 
 #endif
