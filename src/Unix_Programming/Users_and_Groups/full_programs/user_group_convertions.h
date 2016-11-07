@@ -4,5 +4,6 @@
 #include <sys/types.h>
 
 char *username_from_userid(uid_t uid);
+uid_t userid_from_username(const char *username);
 
 #endif
