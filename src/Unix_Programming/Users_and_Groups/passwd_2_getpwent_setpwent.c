@@ -30,22 +30,23 @@ optato per _DEFAULT_SOURCE. */
 int main(int argc, char *argv[]) {
    struct passwd *pwd;
    char *user_name;
+
    if (argc < 2) {
       fprintf(stderr, "Usage: %s <user>\n\n"
-              "Find if <user> is in the system, checking a correspondence \n"
-		      "into the /etc/passwd file.\n", argv[0]);
+              "find a <user> in the system.\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
    user_name = argv[1];
 
-
+   // Lista completa di utente e UID
    while ((pwd = getpwent()) != NULL) 
        printf("%6d %s\n", pwd->pw_uid, pwd->pw_name);
 
-   // Per ricominciare a sca
+   // Per ricominciare la scanning dall'inizio del file
    setpwent();
 
+   // Verifica la presenza di 'user_name' nel file /etc/passwd
    while ((pwd = getpwent()) != NULL)  {
       if (strcmp(user_name, pwd->pw_name) == 0) {
       	 printf("account \'%s\' is in the system.\n", argv[1]);
