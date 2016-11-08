@@ -1,11 +1,10 @@
-#define _BSD_SOURCE // to use uid_t when compiling with std=c11 standard
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
 #include <grp.h>
+#include <sys/types.h>
 
 /*
 La lettura del database dei gruppi /etc/group e' gestita da funzioni del tutto
@@ -77,8 +76,7 @@ int main(int argc, char *argv[]) {
 
    // Se il gruppo 'grname' ha piu' di un utente, lo stampa
    do {
-       printf("%s, ", grp2->gr_mem[i]);
-       i++;
+       printf("%s, ", grp2->gr_mem[i++]);
    } while (grp2->gr_mem[i] != NULL);
 
    return(EXIT_SUCCESS);
