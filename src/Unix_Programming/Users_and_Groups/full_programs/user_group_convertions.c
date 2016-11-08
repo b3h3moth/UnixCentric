@@ -59,3 +59,23 @@ char *groupname_from_groupid(gid_t gid) {
     } else
         return grp->gr_name;
 }
+
+// Converte group name in Group ID
+gid_t groupid_from_groupname(const char *groupname) {
+    struct group *grp;
+
+    if (groupname == NULL || groupname == '\0')
+        return -1;
+
+    grp = getgrnam(groupname);
+    if (grp == NULL) {
+        if (errno == 0) {
+            fprintf(stderr, "Account Not Found.\n");
+            return -1;
+        } else {
+            fprintf(stderr, "Err. getgrnam() Failed.\n");
+            return -1;
+        }
+    } else
+        return grp->gr_gid;
+}
