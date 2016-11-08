@@ -5,5 +5,6 @@
 
 char *username_from_userid(uid_t uid);
 uid_t userid_from_username(const char *username);
+char *groupname_from_groupid(gid_t gid);
 
 #endif
