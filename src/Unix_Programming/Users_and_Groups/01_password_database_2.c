@@ -1,8 +1,9 @@
-#define _BSD_SOURCE
+#define _DEFAULT_SOURCE
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #include <pwd.h>
 
 /*
@@ -21,7 +22,9 @@ SEMANTICS : La funzione getpwent() consente di ottenere il prossimo campo del
 RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd
             in caso di successo, NULL in caso di errore.
 --------------------------------------------------------------------------------
-*/
+Per compilare il programma con le funzioni getpwent(), setpwent(), endpwent()
+e' necessario definire "feature test macros , nel caso specifico si e' optato 
+per _DEFAULT_SOURCE. */
 
 int main(int argc, char *argv[]) {
    struct passwd *ptr;
