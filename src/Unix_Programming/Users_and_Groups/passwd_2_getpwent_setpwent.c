@@ -28,9 +28,8 @@ e' necessario definire una "feature test macros , nel caso specifico si e'
 optato per _DEFAULT_SOURCE. */
 
 int main(int argc, char *argv[]) {
-   struct passwd *ptr;
+   struct passwd *pwd;
    char *user_name;
-
    if (argc < 2) {
       fprintf(stderr, "Usage: %s <user>\n\n"
               "Find if <user> is in the system, checking a correspondence \n"
@@ -40,13 +39,18 @@ int main(int argc, char *argv[]) {
 
    user_name = argv[1];
 
+
+   while ((pwd = getpwent()) != NULL) 
+       printf("%6d %s\n", pwd->pw_uid, pwd->pw_name);
+
+   // Per ricominciare a sca
    setpwent();
 
-   if ((ptr = getpwent()) != NULL) {
-      if (strcmp(user_name, ptr->pw_name) == 0) {
+   while ((pwd = getpwent()) != NULL)  {
+      if (strcmp(user_name, pwd->pw_name) == 0) {
       	 printf("account \'%s\' is in the system.\n", argv[1]);
-      } else
-          printf("account \'%s\' is not in the system.\n", argv[1]);
+         break;
+      } 
    }
    
    endpwent();
