@@ -42,3 +42,20 @@ uid_t userid_from_username(const char *username) {
     } else
         return pwd->pw_uid;
 }
+
+// Converte Group ID in group name
+char *groupname_from_groupid(gid_t gid) {
+    struct group *grp;
+
+    grp = getgrgid(gid);
+    if (grp == NULL) {
+        if (errno == 0) {
+            fprintf(stderr, "Account Not Found.\n");
+            return NULL;
+        } else {
+            fprintf(stderr, "Err. getgrgid() Failed.\n");
+            return NULL;
+        }
+    } else
+        return grp->gr_name;
+}
