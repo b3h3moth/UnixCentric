@@ -7,24 +7,25 @@
 #include <pwd.h>
 
 /*
-Le funzioni di seguito elencate consentono di scandire il "password database",
-solitamente collocato in /etc/passwd e implementato con la struttura 'passwd'
-definita in <pwd.h>.
+Le funzioni setpwent(), getpwent(), endpwent() consentono di scandire il 'file 
+password database', che solitamente e' collocato in /etc/passwd, implementato 
+grazie alla struttura 'passwd' definita in <pwd.h>.
 
 HEADER    : <pwd.h>
 PROTOTYPE : struct passwd *getpwent(void);
             void setpwent(void);
 	        void endpwent(void);
 SEMANTICS : La funzione getpwent() consente di ottenere il prossimo campo del
-            database delle password; la funzione setpwent() riavvolge il 
-	        database delle password, ossia punta al primo record; la funzione 
-	        endpwent() chiude tutti i file ad operazioni avvenute.
+            database delle password; 
+            la funzione setpwent() riavvolge il database delle password, ossia 
+            punta al primo record; 
+            la funzione endpwent() chiude tutti i file ad operazioni avvenute.
 RETURNS   : La funzione getpwent() ritorna un puntatore alla struttura passwd
             in caso di successo, NULL in caso di errore.
 --------------------------------------------------------------------------------
 Per compilare il programma con le funzioni getpwent(), setpwent(), endpwent()
-e' necessario definire "feature test macros , nel caso specifico si e' optato 
-per _DEFAULT_SOURCE. */
+e' necessario definire una "feature test macros , nel caso specifico si e' 
+optato per _DEFAULT_SOURCE. */
 
 int main(int argc, char *argv[]) {
    struct passwd *ptr;
