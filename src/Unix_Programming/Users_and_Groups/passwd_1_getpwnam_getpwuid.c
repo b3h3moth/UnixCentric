@@ -1,10 +1,9 @@
-#define _BSD_SOURCE // to use uid_t when compiling with std=c11 standard
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <pwd.h>
 #include <unistd.h>
+#include <sys/types.h>
 
 /*
 Il file /etc/passwd contiene diverse informazioni su ciascun account del
