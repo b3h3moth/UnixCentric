@@ -1,7 +1,10 @@
+#define _DEFAULT_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/types.h>
 #include <grp.h>
 
 /* Lo scopo del programma e' di scrivere nel file 'file_grp' i campi di 
@@ -32,8 +35,11 @@ int main(int argc, char *argv[]) {
       fprintf(fp, "\n");
    }
 
+   printf("User Group file \'%s\' written.\n", file_grp);
+
    endgrent();
    fclose(fp);
+   free(*tmp_memb);
 
    return(EXIT_SUCCESS);
 }
