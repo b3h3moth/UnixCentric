@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
    // Lista completa di utente e UID
    while ((grp = getgrent()) != NULL) 
-       printf("%6d %s\n", grp->gr_gid, grp->gr_name);
+       printf("%6d %s %1s\n", grp->gr_gid, grp->gr_name, grp->gr_passwd);
 
    // Per ricominciare la scanning dall'inizio del file
    setgrent();
