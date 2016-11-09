@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
-   if ((sp = getspnam("b3h3m0th")) == NULL) {
+   if ((sp = getspnam("behemoth")) == NULL) {
       fprintf(stderr, "Err. %s reading gestpnam()\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
@@ -85,9 +85,8 @@ int main(int argc, char *argv[]) {
    while ((sp2 = getspent()) != NULL) {
       if(strcmp(user, sp2->sp_namp) == 0) {
       	 printf("User %s presente nel sistema\n", user);
-	 break;
+	    break;
       }
-      printf("Searching...\n");
    }
 
    endspent();
