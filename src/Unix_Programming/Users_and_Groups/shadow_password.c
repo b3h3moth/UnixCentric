@@ -64,16 +64,16 @@ RETURNS   : Un puntatore alla struttura spwd in caso di successo, NULL in caso
 */
 
 int main(int argc, char *argv[]) {
-   off_t who_am_i = getuid();
+   uid_t my_uid = getuid();
    struct spwd *sp, *sp2;
    char *user = "nobody";
 
-   if (who_am_i != 0) {
-      fprintf(stderr, "Only root can read shadow password database baby!\n");
+   if (my_uid != 0) {
+      fprintf(stderr, "Ops! Only root can read shadow password file.!\n");
       exit(EXIT_FAILURE);
    }
 
-   if ((sp = getspnam("behemoth")) == NULL) {
+   if ((sp = getspnam(user) == NULL) {
       fprintf(stderr, "Err. %s reading gestpnam()\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
