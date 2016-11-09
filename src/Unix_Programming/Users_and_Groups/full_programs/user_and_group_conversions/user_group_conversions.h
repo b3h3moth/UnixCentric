@@ -1,5 +1,5 @@
-#ifndef USER_GROUP_CONVERTIONS
-#define USER_GROUP_CONVERTIONS
+#ifndef USER_GROUP_CONVERSIONS
+#define USER_GROUP_CONVERSIONS
 
 #include <sys/types.h>
 

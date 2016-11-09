@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "user_group_convertions.h"
+#include "user_group_conversions.h"
 
 int main(void) {
     uid_t uid = getuid();

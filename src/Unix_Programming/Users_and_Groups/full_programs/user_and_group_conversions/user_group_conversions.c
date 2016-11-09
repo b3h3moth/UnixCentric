@@ -4,7 +4,7 @@
 #include <grp.h>
 #include <ctype.h>
 #include <errno.h>
-#include "user_group_convertions.h"
+#include "user_group_conversions.h"
 
 // Converte user ID in user name
 char *username_from_userid(uid_t uid) {
