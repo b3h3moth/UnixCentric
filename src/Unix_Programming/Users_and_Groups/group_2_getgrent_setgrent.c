@@ -40,8 +40,15 @@ int main(int argc, char *argv[]) {
    user_name = argv[1];
 
    // Lista completa di utente e UID
-   while ((grp = getgrent()) != NULL) 
-       printf("%6d %s %1s\n", grp->gr_gid, grp->gr_name, grp->gr_passwd);
+   while ((grp = getgrent()) != NULL) {
+       printf("%6d : %s : %1s : ", grp->gr_gid, grp->gr_name, grp->gr_passwd);
+       int i = 0;
+       while (grp->gr_mem[i]) {
+           printf("%s, ", grp->gr_mem[i]);
+           i++;
+       }
+       printf("\n");
+   }
 
    // Per ricominciare la scanning dall'inizio del file
    setgrent();
@@ -49,7 +56,7 @@ int main(int argc, char *argv[]) {
    // Verifica la presenza di 'user_name' nel file /etc/group
    while ((grp = getgrent()) != NULL)  {
       if (strcmp(user_name, grp->gr_name) == 0) {
-      	 printf("account \'%s\' is in the system.\n", argv[1]);
+      	 printf("\ngroup \'%s\' is in the system.\n", argv[1]);
          break;
       } 
    }
