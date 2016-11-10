@@ -3,11 +3,15 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+#include <pwd.h>
+#include <shadow.h>
 
 int main(void) {
     char *username = NULL;
     long login_max = 0;
     size_t len = 0;
+    struct passwd *pwd;
+    struct spwd *shpw;
 
     /* Salva la grandezza massima per lo username nell'host corrente 
     (tipicamente 256) */
@@ -37,7 +41,29 @@ int main(void) {
     if (username[len - 1] == '\n')
         username[len - 1] = '\0';
 
+    // Verifica la presenza di 'username' nel file /etc/passwd
+    pwd = getpwnam(username);
+    if (pwd == NULL) {
+        if (errno == 0) {
+            fprintf(stderr, "Account Not Found.\n");
+            exit(EXIT_FAILURE);
+        } else {
+            fprintf(stderr, "Err. getpwnam() failed.\n");
+            exit(EXIT_FAILURE);
+        }
+    }
 
+    // Verifica la presenza di 'username' nel file /etc/passwd
+    shpw = getspnam(username);
+    if (shpw == NULL) {
+        if (errno == 0 && errno) {
+            fprintf(stderr, "Account Not Found.\n");
+            exit(EXIT_FAILURE);
+        } else {
+            fprintf(stderr, "Err. getspnam() failed.\n");
+            exit(EXIT_FAILURE);
+        }
+    }
 
     return(EXIT_SUCCESS);
 }
