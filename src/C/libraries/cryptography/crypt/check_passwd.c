@@ -1,3 +1,5 @@
+#define _BSD_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -8,6 +10,7 @@
 
 int main(void) {
     char *username = NULL;
+    char *password = NULL;
     long login_max = 0;
     size_t len = 0;
     struct passwd *pwd;
@@ -70,8 +73,11 @@ int main(void) {
         }
     }
 
+    // Se la shadow password e presenta la utilizza
     if (shpw != NULL)
         pwd->pw_passwd = shpw->sp_pwdp;
+
+    password = getpass("Password: ");
 
     return(EXIT_SUCCESS);
 }
