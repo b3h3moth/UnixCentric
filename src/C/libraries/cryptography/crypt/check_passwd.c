@@ -86,6 +86,11 @@ int main(void) {
     for (p = password; *p != '\0'; )
         *p++ = '\0';
 
+    // Verifia se le password crittate sono le stesse
+    if (strcmp(encrypted, pwd->pw_passwd) != 0) {
+        fprintf(stderr, "Err. strcmp() failed: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
