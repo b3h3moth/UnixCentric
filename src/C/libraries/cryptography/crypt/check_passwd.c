@@ -5,12 +5,10 @@
 int main(void) {
     long login_max = 0;
 
-    // Get the maximum size of a username on the host
+    // Get the maximum size of a username on the host (tipically 256)
     login_max = sysconf(_SC_LOGIN_NAME_MAX);
-
-#ifdef _DEBUG_SYSCONF
-printf("%ld\n", login_max);
-#endif
+    if (login_max < 0)
+        login_max = 256;
 
     return(EXIT_SUCCESS);
 }
