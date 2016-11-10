@@ -88,9 +88,11 @@ int main(void) {
 
     // Verifia se le password crittate sono le stesse
     if (strcmp(encrypted, pwd->pw_passwd) != 0) {
-        fprintf(stderr, "Err. strcmp() failed: %s\n", strerror(errno));
+        fprintf(stderr, "Authentication failed.\n");
         exit(EXIT_FAILURE);
     }
+
+    printf("Authenticated UID = %d\n", pwd->pw_uid);
 
     return(EXIT_SUCCESS);
 }
