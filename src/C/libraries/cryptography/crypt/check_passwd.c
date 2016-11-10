@@ -9,6 +9,11 @@
 #include <pwd.h>
 #include <shadow.h>
 
+/* Lo scopo del programma e' di verificare se la password dell'utente, una
+volta crittata, e' la stessa presente nel file /etc/shadow.
+
+Per compilare utilizzare la libreria -lcrypt. */
+
 int main(void) {
     char *username = NULL;
     char *password = NULL;
