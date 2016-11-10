@@ -13,6 +13,11 @@ int main(void) {
     struct passwd *pwd;
     struct spwd *shpw;
 
+    if (getuid() != 0) {
+        fprintf(stderr, "Sorry, you're not root. Login as root please.\n");
+        exit(EXIT_FAILURE);
+    }
+
     /* Salva la grandezza massima per lo username nell'host corrente 
     (tipicamente 256) */
     login_max = sysconf(_SC_LOGIN_NAME_MAX);
