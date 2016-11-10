@@ -70,5 +70,8 @@ int main(void) {
         }
     }
 
+    if (shpw != NULL)
+        pwd->pw_passwd = shpw->sp_pwdp;
+
     return(EXIT_SUCCESS);
 }
