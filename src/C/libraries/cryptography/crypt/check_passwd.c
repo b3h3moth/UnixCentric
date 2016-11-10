@@ -5,8 +5,9 @@
 #include <string.h>
 
 int main(void) {
-    char *username;
+    char *username = NULL;
     long login_max = 0;
+    size_t len = 0;
 
     /* Salva la grandezza massima per lo username nell'host corrente 
     (tipicamente 256) */
@@ -28,6 +29,9 @@ int main(void) {
         fprintf(stderr, "Err. fgets() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    // Lunghezza della stringa relativa all'username
+    len = strlen(username);
 
     return(EXIT_SUCCESS);
 }
