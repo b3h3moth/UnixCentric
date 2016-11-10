@@ -12,7 +12,7 @@
 int main(void) {
     char *username = NULL;
     char *password = NULL;
-    char *encrypted = NULL;
+    char *encrypted = NULL, *p;
     long login_max = 0;
     size_t len = 0;
     struct passwd *pwd;
@@ -81,8 +81,11 @@ int main(void) {
 
     password = getpass("Password: ");
 
-    // Crittaggio della password
+    // Crittaggio della password e pulizia
     encrypted = crypt(password, pwd->pw_passwd);
+    for (p = password; *p != '\0'; )
+        *p++ = '\0';
+
 
     return(EXIT_SUCCESS);
 }
