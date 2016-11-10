@@ -30,8 +30,14 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    // Lunghezza della stringa relativa all'username
+    /* Calcolo della lunghezza della stringa relativa all'username e, in caso
+    di bisogno, rimozione del carattare di 'new-line' in favore del 
+    'null-terminator character' di fine stringa */
     len = strlen(username);
+    if (username[len - 1] == '\n')
+        username[len - 1] = '\0';
+
+
 
     return(EXIT_SUCCESS);
 }
