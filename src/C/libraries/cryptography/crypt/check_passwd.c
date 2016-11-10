@@ -8,5 +8,9 @@ int main(void) {
     // Get the maximum size of a username on the host
     login_max = sysconf(_SC_LOGIN_NAME_MAX);
 
+#ifdef _DEBUG_SYSCONF
+printf("%ld\n", login_max);
+#endif
+
     return(EXIT_SUCCESS);
 }
