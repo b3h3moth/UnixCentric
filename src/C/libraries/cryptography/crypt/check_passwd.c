@@ -16,14 +16,18 @@ int main(void) {
 
     username = malloc(login_max);
     if (username == NULL) {
-        fprintf(stderr, "Err.malloc() failed: %s\n", strerror(errno));
+        fprintf(stderr, "Err. malloc() failed: %s\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
 
-    // Salva lo username fornito dall'utente per la verifica della password
+    /* Salva lo username fornito dall'utente per la verifica della password,
+    non prima di aver pulito lo stream */
     printf("Username: ");
     fflush(stdout);
-    fgets(
+    if (fgets(username, login_max, stdin) == NULL) {
+        fprintf(stderr, "Err. fgets() failed: %s\n", strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     return(EXIT_SUCCESS);
 }
