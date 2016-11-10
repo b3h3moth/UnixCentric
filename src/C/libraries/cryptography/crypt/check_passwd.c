@@ -1,4 +1,5 @@
-#define _BSD_SOURCE
+#define _BSD_SOURCE     // getpass()
+#define _XOPEN_SOURCE   // crypt()
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +12,7 @@
 int main(void) {
     char *username = NULL;
     char *password = NULL;
+    char *encrypted = NULL;
     long login_max = 0;
     size_t len = 0;
     struct passwd *pwd;
@@ -78,6 +80,9 @@ int main(void) {
         pwd->pw_passwd = shpw->sp_pwdp;
 
     password = getpass("Password: ");
+
+    // Crittaggio della password
+    encrypted = crypt(password, pwd->pw_passwd);
 
     return(EXIT_SUCCESS);
 }
