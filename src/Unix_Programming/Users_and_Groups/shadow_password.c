@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <shadow.h>
+#include <pwd.h>
 #include <sys/types.h>
 
 /*
@@ -65,13 +66,17 @@ RETURNS   : Un puntatore alla struttura spwd in caso di successo, NULL in caso
 
 int main(int argc, char *argv[]) {
    uid_t my_uid = getuid();
-   struct spwd *sp, *sp2;
-   char *user = "nobody";
+   struct spwd *sp;
+   struct passwd *pwd;
+   char *user;
 
    if (my_uid != 0) {
       fprintf(stderr, "Ops! Only root can read shadow password file.!\n");
       exit(EXIT_FAILURE);
    }
+
+   pwd = getpwuid(1000);
+   user = pwd->pw_name;
 
    if ((sp = getspnam(user)) == NULL) {
       fprintf(stderr, "Err. %s reading gestpnam()\n", strerror(errno));
