@@ -73,21 +73,13 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
-   if ((sp = getspnam(user) == NULL) {
+   if ((sp = getspnam(user)) == NULL) {
       fprintf(stderr, "Err. %s reading gestpnam()\n", strerror(errno));
       exit(EXIT_FAILURE);
    }
    printf("     user name: %s\n", sp->sp_namp);
    printf("encrypted pass: %s\n", sp->sp_pwdp);
-
-   setspent();
-
-   while ((sp2 = getspent()) != NULL) {
-      if(strcmp(user, sp2->sp_namp) == 0) {
-      	 printf("User %s presente nel sistema\n", user);
-	    break;
-      }
-   }
+   printf("last changes: %ld\n", sp->sp_lstchg);
 
    endspent();
 
