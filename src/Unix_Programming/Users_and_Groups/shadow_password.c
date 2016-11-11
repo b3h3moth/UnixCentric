@@ -85,6 +85,11 @@ int main(int argc, char *argv[]) {
    printf("     user name: %s\n", sp->sp_namp);
    printf("encrypted pass: %s\n", sp->sp_pwdp);
    printf("last changes: %ld\n", sp->sp_lstchg);
+   printf("min of days between changes: %ld\n", sp->sp_min);
+   printf("max of days between changes: %ld\n", sp->sp_max);
+   printf("days before pass expires to warn user to change it: %ld\n", sp->sp_warn);
+   printf("days before password exipires until account disabled: %ld\n", sp->sp_inact);
+   printf("date when account expires %ld\n", sp->sp_expire);
 
    endspent();
 
