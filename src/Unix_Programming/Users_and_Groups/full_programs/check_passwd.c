@@ -86,8 +86,10 @@ int main(void) {
 
     password = getpass("Password: ");
 
-    // Crittaggio della password e pulizia
+    // Crittaggio della password
     encrypted = crypt(password, pwd->pw_passwd);
+    /* La password in chiaro viene cancellata 'char by char' per ovvie ragioni 
+    di sicurezza */
     for (p = password; *p != '\0'; )
         *p++ = '\0';
 
