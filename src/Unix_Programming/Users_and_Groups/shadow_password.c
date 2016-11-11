@@ -91,7 +91,5 @@ int main(int argc, char *argv[]) {
    printf("days before password exipires until account disabled: %ld\n", sp->sp_inact);
    printf("date when account expires %ld\n", sp->sp_expire);
 
-   endspent();
-
    return(EXIT_SUCCESS);
 }
