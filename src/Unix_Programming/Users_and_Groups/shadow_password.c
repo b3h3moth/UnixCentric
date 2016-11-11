@@ -18,8 +18,9 @@ I file di riferimento sono:
 - /etc/gshadow
 - /etc/shadow- (backup)
 
-Il file /etc/shadow non e' "world readable", pertanto solo l'utente 'root' puo'
-leggerlo, contiene generalmente 9 campi:
+Il file /etc/shadow non e' "world readable", pertanto solo 'root' puo'
+leggerlo - puo' vederlo anche un utente del gruppo shadow -, contiene 
+generalmente 9 campi:
 1 - user login name;
 2 - encrypted password;
 3 - date of last password change;
@@ -50,15 +51,8 @@ tra cui:
 
 HEADER    : <shadow.h>
 PROTOTYPE : struct spwd *getspnam(const char *name);
-            struct spwd *getspent(void);
-	        void setspent(void);
-	        void endspent(void);
 SEMANTICS : La funzione getspnam() ritorna un puntatore alla struttura
-            contenente il campo relativo alla corrispondenza 'name'; la funzione
-	        getspent() ritorna un puntatore alla prossima voce dello shadow
-	        password database; la funzione setspent() riavvolge lo shadow 
-	        password database; la funzione endspent() chiude lo shadow password
-	        database dopo che tutte le operazioni si sono cosnluse.
+            contenente il campo relativo alla corrispondenza 'name';
 RETURNS   : Un puntatore alla struttura spwd in caso di successo, NULL in caso 
             di errore
 --------------------------------------------------------------------------------
