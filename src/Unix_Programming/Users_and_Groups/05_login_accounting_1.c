@@ -1,14 +1,13 @@
+#ifndef _GNU_SOURCE
+    #define _GNU_SOURCE
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <time.h>
 #include <utmpx.h>
-
-/* Necessario per utilizzare ulteriori caratteristiche */
-#ifndef _GNU_SOURCE
-#define _GNU_SOURCE
-#endif
 
 /*
 L'accounting degli utenti e' un registro che permette di salvare una serie
