@@ -10,7 +10,8 @@
 void get_time(long);
 void get_info(struct utmp *);
 
-/* Il programma simula il comportamento del comando who */
+// Lo scopo del programma e' di simulare il comportamento del comando who
+
 int main(void) {
     struct utmp utbuf;
     int utmpfd;
