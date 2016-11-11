@@ -17,11 +17,11 @@ Per compilare utilizzare la libreria -lcrypt. */
 int main(void) {
     char *username = NULL;
     char *password = NULL;
-    char *encrypted = NULL, *p;
+    char *encrypted = NULL;
     long login_max = 0;
     size_t len = 0;
-    struct passwd *pwd;
-    struct spwd *shpw;
+    struct passwd *pwd = NULL;
+    struct spwd *shpw = NULL;
 
     if (getuid() != 0) {
         fprintf(stderr, "Sorry, you're not root. Login as root please.\n");
@@ -90,8 +90,8 @@ int main(void) {
     encrypted = crypt(password, pwd->pw_passwd);
     /* La password in chiaro viene cancellata 'char by char' per ovvie ragioni 
     di sicurezza */
-    for (p = password; *p != '\0'; )
-        *p++ = '\0';
+    while (*password != '\0' )
+        *password++ = '\0';
 
     // Verifia se le password crittate sono le stesse
     if (strcmp(encrypted, pwd->pw_passwd) != 0) {
