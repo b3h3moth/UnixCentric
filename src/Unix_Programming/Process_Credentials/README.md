@@ -1,6 +1,5 @@
 # Process Credentials
 
-> `man 7 credentials`
 
 Un processo e' un'entita' astratta definita dal kernel, a cui sono allocate 
 delle risorse del sistema al fine di eseguire un programma.
@@ -75,7 +74,7 @@ I sistemi unix-like forniscono i seguenti gruppi di identificatori:
 	      si accede al sistema. Solitamente non vengono cambiati, potrebbe
 	      farlo tuttavia solo un processo che gode dei privilegi di 
 	      superuser. 
-	      Identificano l'utente e il gruppo dei proprietari del processo.
+	      Identificano l'utente e il gruppo a cui il processo appartiene.
 
 - Effective , effective user-ID (EUID) / effective group-ID (EGID)
               Ai due si aggiunge anche l'effective GID di altri eventuali gruppi
@@ -101,3 +100,5 @@ I sistemi unix-like forniscono i seguenti gruppi di identificatori:
 
 I sistemi con kernel Linux dispongono anche dell'identificatore filesystem, una
 estensione di sicurezza NFS.
+
+> `man 7 credentials`
