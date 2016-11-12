@@ -6,9 +6,6 @@
 #include <sys/wait.h>
 
 /*
-Si consiglia di leggere il sorgente in cui si introduce il controllo di
-accesso[1] prima di proseguire con le funzioni per la modifica dell'identita'.
-
 HEADER    : <unistd.h>
 PROTOTYPE : int setuid(uid_t uid);
             int setgid(gid_t gid);
@@ -92,6 +89,3 @@ int main(int argc, char *argv[]) {
 
     return(EXIT_SUCCESS);
 }
-/*
-[1] ../Process-Control/01_process_identifiers.c
-*/
