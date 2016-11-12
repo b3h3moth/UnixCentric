@@ -19,7 +19,7 @@ Nota: Il primo bit e' riservato al segno, ecco perche' il valore e' 32768, ossia
 2^15.
 
 PID 0, solitamente e' assegnato allo schedulatore dei processi, detto "swapper";
-PID 1, e' assegnao ad "init", invocato dal kernel alla fine della procedura di 
+PID 1, e' assegnato ad "init", invocato dal kernel alla fine della procedura di 
 "bootstrap", per cui e' il primo processo ad essere eseguito, e si occupa di 
 far partire tutti gli altri processi. 
 
@@ -31,16 +31,16 @@ Vi sono diverse funzioni che consentono l'identificazione dei processi:
 HEADER    : <unistd.h>
 PROTOTYPE : pid_t getpid(void);
             pid_t getppid(void);
-	    uid_t getuid(void);
-	    uid_t geteuid(void);
-	    gid_g getgid(void);
-	    gid_t getegid(void);
+	        uid_t getuid(void);
+	        uid_t geteuid(void);
+	        gid_g getgid(void);
+	        gid_t getegid(void);
 SEMANTICS : getpid() ritorna il PID del processo chiamante;
             getppid() ritorna il parent PID del processo chiamante;
-	    getuid() ritorna il real user ID del processo chiamante;
-	    geteuid() ritorna l'effective user ID del processo chiamante;
-	    getgid() ritorna il real group ID del processo chiamante;
-	    getegid() ritorno l'effective real group ID del processo chiamante.
+	        getuid() ritorna il real user ID del processo chiamante;
+	        geteuid() ritorna l'effective user ID del processo chiamante;
+	        getgid() ritorna il real group ID del processo chiamante;
+	        getegid() ritorno l'effective real group ID del processo chiamante.
 RETURNS   : L'identificativo richiesto in caso di successo, nessun errore.
 --------------------------------------------------------------------------------
 Nota: Le due funzioni getpid() e getppid() servono per acquisire il PID del 
