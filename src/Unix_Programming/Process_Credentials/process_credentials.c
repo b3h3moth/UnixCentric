@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
    printf("                  Process-ID (PID): %d\n", getpid());
    printf("          Parent Process-ID (PPID): %d - la shell\n", getppid());
    printf("           Real User-ID (real-UID): %d\n", getuid());
-   printf( "Effective User-ID (effective-UID): %d\n", geteuid());
+   printf(" Effective User-ID (effective-UID): %d\n", geteuid());
    printf("          Real Group-ID (real-GID): %d\n", getgid());
    printf("Effective Group-ID (effective-GID): %d\n", getegid());
 
