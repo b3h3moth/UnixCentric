@@ -8,7 +8,7 @@
 /*
 HEADER    : <unistd.h>
 PROTOTYPE : char *getlogin(void);
-SEMANTICS : La funzione getlogin() server per ottenere il login name
+SEMANTICS : La funzione getlogin() ottiene il login name
 RETURNS   : Un puntatore alla stringa con il login name in caso di successo, 
             NULL in caso di errore
 --------------------------------------------------------------------------------
