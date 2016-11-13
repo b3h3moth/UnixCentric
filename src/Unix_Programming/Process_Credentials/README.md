@@ -1,6 +1,5 @@
 # Process Credentials
 
-
 Un processo e' un'entita' astratta definita dal kernel, a cui sono allocate 
 delle risorse del sistema al fine di eseguire un programma.
 
@@ -11,8 +10,7 @@ massimo il valore di 32768, dopodiche' eventualmente, dopo la terminazione di un
 processo puo' anche  essere riutilizzato, ma solo dopo uno specifico lasso di 
 tempo.
 
-> Il primo bit e' riservato al segno, ecco perche' il valore e' 32768, ossia 
-> 2^15.
+> Il primo bit e' riservato al segno, per cui il valore e' 32768 (2^15)
 
 PID 0, solitamente e' assegnato allo schedulatore dei processi, detto "swapper";
 PID 1, e' assegnato ad "init", invocato dal kernel alla fine della procedura di 
