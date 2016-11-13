@@ -20,34 +20,47 @@ far partire tutti gli altri processi.
 Il processo "init" non muore mai e sebbene venga eseguito con privilegi da 
 "superuser" e' un normale processo utente e non un processo kernel.
 
+## Function prototypes
+
 Vi sono diverse funzioni che consentono l'identificazione dei processi:
 
-pid_t getpid(void);
-getpid() ritorna il PID del processo chiamante;
+`pid_t getpid(void);`
 
-pid_t getppid(void);
-getppid() ritorna il parent PID del processo chiamante;
+La funzione getpid() ritorna il PID del processo chiamante; nessun errore.
 
-uid_t getuid(void);
-getuid() ritorna il real user ID del processo chiamante;
+`pid_t getppid(void);`
 
-uid_t geteuid(void);
-geteuid() ritorna l'effective user ID del processo chiamante;
+La funzione getppid() ritorna il parent PID del processo chiamante; nessun 
+errore.
 
-gid_g getgid(void);
-getgid() ritorna il real group ID del processo chiamante;
+`uid_t getuid(void);`
 
-gid_t getegid(void);
-getegid() ritorno l'effective real group ID del processo chiamante.
+La funzione getuid() ritorna il real user ID del processo chiamante; nessun 
+errore.
 
-Ciascuna di essere ritorna il numero identificativo richiesto in caso di 
-successo, nessun errore.
+`uid_t geteuid(void);`
 
-Nota: Le due funzioni getpid() e getppid() servono per acquisire il PID del 
-current process e il PID del parent process, ossia il PPID, questo perche' tutti
-i processi conservano, oltre al proprio PID anche il PID del genitore. 
+La funzione geteuid() ritorna l'effective user ID del processo chiamante; 
+nessun errore.
 
-Controllo d'accesso:
+`gid_g getgid(void);`
+
+La funzione getgid() ritorna il real group ID del processo chiamante; nessun 
+errore.
+
+`gid_t getegid(void);`
+
+La funzione getegid(void) ritorna l'effective real group ID del processo 
+chiamante; nessun errore.
+
+Ciascuna di esse pertarno ritorna il numero identificativo richiesto.
+
+> Nota: Le due funzioni getpid() e getppid() servono per acquisire il PID del 
+> current process e il PID del parent process, ossia il PPID, questo perche' 
+> tutti i processi conservano, oltre al proprio PID anche il PID del genitore.
+
+## Accesso control
+
 Un sistema unix-like e' basato su fondamenti di sicurezza imprescindibili,
 anzitutto vi e' una netta differenziazione tra il superuser (root o 
 amministratore) che gode del pieno controllo del sistema e gli utenti che 
