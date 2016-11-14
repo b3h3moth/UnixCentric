@@ -32,7 +32,9 @@ int main(void) {
     assert(grp = getgrgid(gid));
     printf("Real Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
 
-    printf("Effective Group-ID (effective-GID): %d\n", getegid());
+    gid = getegid();
+    assert(grp = getgrgid(gid));
+    printf("Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
 
    return(EXIT_SUCCESS);
 }
