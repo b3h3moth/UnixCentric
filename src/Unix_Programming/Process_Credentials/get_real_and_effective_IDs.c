@@ -3,19 +3,30 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <pwd.h>
+#include <grp.h>
+#include <sys/types.h>
+#include <assert.h>
 
 /* Lo scopo del programma e' di stampare le credenziali di un processo, nello
 specifico, oltre al PID e PPID, i 'Real' e 'Effective' ID. */
 
 int main(void) {
-
-   printf("                  Process-ID (PID): %d\n", getpid());
-   printf("          Parent Process-ID (PPID): %d - shell\n", getppid());
-
-   printf("           Real User-ID (real-UID): %d\n", getuid());
-   printf(" Effective User-ID (effective-UID): %d\n", geteuid());
-   printf("          Real Group-ID (real-GID): %d\n", getgid());
-   printf("Effective Group-ID (effective-GID): %d\n", getegid());
+    uid_t uid;
+    gid_t gid;
+    struct passwd *pwd;
+    struct group *grp;
+    
+    printf("Process-ID (PID): %ld\n", (long)getpid());
+    printf("Parent Process-ID (PPID): %ld \n", (long)getppid());
+    
+    uid = getuid();
+    assert(pwd = getpwuid(uid));
+    printf("Real User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
+   
+    printf(" Effective User-ID (effective-UID): %d\n", geteuid());
+    printf("          Real Group-ID (real-GID): %d\n", getgid());
+    printf("Effective Group-ID (effective-GID): %d\n", getegid());
 
    return(EXIT_SUCCESS);
 }
