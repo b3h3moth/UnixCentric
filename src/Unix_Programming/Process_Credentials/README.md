@@ -150,3 +150,12 @@ sono regole ben precise a riguardo:
   a EPERM, e la funzione setuid() ritorna -1.
 
 Le regole per User-ID sono le medesime di Group-ID
+
+HEADER    : <unistd.h>
+PROTOTYPE : int setuid(uid_t uid);
+            int setgid(gid_t gid);
+SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
+            'uid';
+            la funzione setgid() setta il real group-ID e l'effective group-ID
+	    a 'gid'.
+RETURNS   : 0 in caso di successo, -1 in caso di errore
