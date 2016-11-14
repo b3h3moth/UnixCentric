@@ -24,7 +24,10 @@ int main(void) {
     assert(pwd = getpwuid(uid));
     printf("Real User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
    
-    printf(" Effective User-ID (effective-UID): %d\n", geteuid());
+    uid = geteuid();
+    assert(pwd = getpwuid(uid));
+    printf("Effective User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
+
     printf("          Real Group-ID (real-GID): %d\n", getgid());
     printf("Effective Group-ID (effective-GID): %d\n", getegid());
 
