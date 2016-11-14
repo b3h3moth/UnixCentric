@@ -113,3 +113,40 @@ I sistemi con kernel Linux dispongono anche dell'identificatore filesystem, una
 estensione di sicurezza NFS.
 
 > `man 7 credentials`
+
+## setuid(), setgid()
+
+Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
+a specifiche risorse per le quali non si hanno i dovuti privilegi, si devono 
+modificare l'user-ID (UID) e il group-ID (GID); naturalmente questa e' la strada
+da seguire anche qualora i privilegi dovessero essere ridotti.
+
+Attenzione; si assume che la costante _POSIX_SAVED_IDS sia settata, altrimenti
+i riferimenti a saved UID non saranno disponibili, per verificarlo e' possibile
+invocare la funzione sysconf() con l'argomento _SC_SAVED_IDS a run-time oppure a
+compile-time con _POSIX_SAVED_IDS.
+
+Le applicazioni dovrebbero essere sviluppate seguendo il modello del 
+"least privilege", ossia il principio del privilegio minimo; in informatica e 
+in altri campi, il principio del privilegio minimo richiede che in un 
+particolare livello di astrazione di un ambiente di calcolo ogni modulo 
+computazionale (un processo, un programma o un utente a seconda del livello di 
+astrazione considerato) abbia visibilità delle sole risorse necessarie al suo 
+funzionamento. Lo scopo dell'applicazione del principio e' quello di concedere 
+solo il minimo insieme di privilegi possibile in ogni istante, in modo da 
+migliorare la protezione del sistema.
+
+La funzione setuid() consente di modificare il real-UID e l'effective-UID, vi
+sono regole ben precise a riguardo:
+
+1 Se il processo gode dei privilegi di super-user, la funzione setuid() setta
+  il real UID, l'effective UID e il saved UID a 'uid';[1]
+
+2 Se il processo non gode dei privilegi di super-user, e 'uid' e' uguale o al
+  real-UID o al saved-UID, la funzione setuid() imposta solo l'effective-UID
+  a 'uid';
+  
+3 Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
+  a EPERM, e la funzione setuid() ritorna -1.
+
+Le regole per User-ID sono le medesime di Group-ID
