@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <error.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-int main(int argc, char *argv[])
-{
-	FILE *fp;
+int main(int argc, char *argv[]) {
+    FILE *fp;
 	int c;
 
 	if (argc == 1)
