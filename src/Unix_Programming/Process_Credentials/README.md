@@ -121,10 +121,10 @@ a specifiche risorse per le quali non si hanno i dovuti privilegi, si devono
 modificare l'user-ID (UID) e il group-ID (GID); naturalmente questa e' la strada
 da seguire anche qualora i privilegi dovessero essere ridotti.
 
-Attenzione; si assume che la costante _POSIX_SAVED_IDS sia settata, altrimenti
-i riferimenti a saved UID non saranno disponibili, per verificarlo e' possibile
-invocare la funzione sysconf() con l'argomento _SC_SAVED_IDS a run-time oppure a
-compile-time con _POSIX_SAVED_IDS.
+> Attenzione; si assume che la costante _POSIX_SAVED_IDS sia settata, altrimenti
+> i riferimenti a saved UID non saranno disponibili, per verificarlo e' possibile
+> invocare la funzione sysconf() con l'argomento _SC_SAVED_IDS a run-time oppure a
+> compile-time con _POSIX_SAVED_IDS.
 
 Le applicazioni dovrebbero essere sviluppate seguendo il modello del 
 "least privilege", ossia il principio del privilegio minimo; in informatica e 
@@ -140,7 +140,7 @@ La funzione setuid() consente di modificare il real-UID e l'effective-UID, vi
 sono regole ben precise a riguardo:
 
 1 Se il processo gode dei privilegi di super-user, la funzione setuid() setta
-  il real UID, l'effective UID e il saved UID a 'uid';[1]
+  il real UID, l'effective UID e il saved UID a 'uid';
 
 2 Se il processo non gode dei privilegi di super-user, e 'uid' e' uguale o al
   real-UID o al saved-UID, la funzione setuid() imposta solo l'effective-UID
@@ -149,7 +149,7 @@ sono regole ben precise a riguardo:
 3 Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
   a EPERM, e la funzione setuid() ritorna -1.
 
-Le regole per User-ID sono le medesime di Group-ID
+Le regole per Group-ID sono le medesime di User-ID
 
 HEADER    : <unistd.h>
 PROTOTYPE : int setuid(uid_t uid);
