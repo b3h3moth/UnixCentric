@@ -159,3 +159,23 @@ SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
             la funzione setgid() setta il real group-ID e l'effective group-ID
 	    a 'gid'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <unistd.h>
+
+/*
+HEADER    : <unistd.h>
+PROTOTYPE : int setreuid(uid_t ruid, uid_t euid);
+            int setregid(uid_t rgid, gid_t egid);
+SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
+            a 'ruid' e 'euid' rispettivamente;
+	    la funzione setregid() imposta il real group-ID e l'effective group-
+	    ID a 'rgid' e 'egid' rispettivamente;
+RETURNS   : 0 in caso di successo, -1 in caso di errore
+--------------------------------------------------------------------------------
+Impostando ciascun parametro a -1, i valori non saranno modificati.
+*/
+int main(int argc, char *argv[]) {
+    printf("Permessi originari:\n");
