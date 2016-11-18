@@ -151,7 +151,8 @@ sono regole ben precise a riguardo:
 
 Le regole per Group-ID sono le medesime di User-ID
 
-HEADER    : <unistd.h>
+## setuid() setgid() 
+
 PROTOTYPE : int setuid(uid_t uid);
             int setgid(gid_t gid);
 SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
@@ -159,14 +160,8 @@ SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
             la funzione setgid() setta il real group-ID e l'effective group-ID
 	    a 'gid'.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
-#include <unistd.h>
 
-/*
-HEADER    : <unistd.h>
+## setreiod() setregid()
 PROTOTYPE : int setreuid(uid_t ruid, uid_t euid);
             int setregid(uid_t rgid, gid_t egid);
 SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
@@ -176,6 +171,15 @@ SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 Impostando ciascun parametro a -1, i valori non saranno modificati.
-*/
-int main(int argc, char *argv[]) {
-    printf("Permessi originari:\n");
+
+
+## seteuid() setegid()
+PROTOTYPE : int seteuid(uid_t uid);
+            int setegid(uid_t gid);
+SEMANTICS : La funzione seteuid() setta l'effective user-ID a 'uid';
+            la funzione setegid() setta l'effective group-ID a 'gid'.
+RETURNS   : 0 in caso di successo, -1 in caso di errore
+--------------------------------------------------------------------------------
+Le funzioni sopra citate sono simili alle funzioni setuid() e setgid(), l'unica
+e sostanziale differenza e' che tali funzioni vanno a modificare solo
+l'effective user-ID e l'effective group-ID.
