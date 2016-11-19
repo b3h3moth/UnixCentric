@@ -151,18 +151,20 @@ sono regole ben precise a riguardo:
 
 Le regole per Group-ID sono le medesime di User-ID
 
-## setuid() setgid() 
+## Setup Effective User-ID and Effective Group-ID; setuid(), setgid()
 
-int setuid(uid_t uid);
+`int setuid(uid_t uid);`
 
-La funzione setuid() setta il real user-ID e l'effective user-ID a 'uid'. 
+La funzione `setuid()` setta l'effective user-ID del processo chiamante a `uid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
             
-int setgid(gid_t gid);
-la funzione setgid() setta il real group-ID e l'effective group-ID a 'gid'. 
+`int setgid(gid_t gid);`
+
+La funzione `setgid()` setta l'effective group-ID del processo chiamante a `gid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
 
-## setreiod() setregid()
+## setreid() setregid()
+
 PROTOTYPE : int setreuid(uid_t ruid, uid_t euid);
             int setregid(uid_t rgid, gid_t egid);
 SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
