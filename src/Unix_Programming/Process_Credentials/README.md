@@ -153,13 +153,14 @@ Le regole per Group-ID sono le medesime di User-ID
 
 ## setuid() setgid() 
 
-PROTOTYPE : int setuid(uid_t uid);
-            int setgid(gid_t gid);
-SEMANTICS : La funzione setuid() setta il real user-ID e l'effective user-ID a
-            'uid';
-            la funzione setgid() setta il real group-ID e l'effective group-ID
-	    a 'gid'.
-RETURNS   : 0 in caso di successo, -1 in caso di errore
+int setuid(uid_t uid);
+
+La funzione setuid() setta il real user-ID e l'effective user-ID a 'uid'. 
+Ritorna 0 in caso di successo, -1 in caso di errore.
+            
+int setgid(gid_t gid);
+la funzione setgid() setta il real group-ID e l'effective group-ID a 'gid'. 
+Ritorna 0 in caso di successo, -1 in caso di errore.
 
 ## setreiod() setregid()
 PROTOTYPE : int setreuid(uid_t ruid, uid_t euid);
