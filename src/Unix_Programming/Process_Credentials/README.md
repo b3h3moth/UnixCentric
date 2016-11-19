@@ -163,16 +163,20 @@ Ritorna 0 in caso di successo, -1 in caso di errore.
 La funzione `setgid()` setta l'effective group-ID del processo chiamante a `gid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
 
-## setreid() setregid()
+## Setup Real User-ID and Real Group-ID; setreuid(), setregid()
 
-PROTOTYPE : int setreuid(uid_t ruid, uid_t euid);
-            int setregid(uid_t rgid, gid_t egid);
-SEMANTICS : La funzione setreuid() imposta il real user-ID e l'effective user-ID
-            a 'ruid' e 'euid' rispettivamente;
-	    la funzione setregid() imposta il real group-ID e l'effective group-
-	    ID a 'rgid' e 'egid' rispettivamente;
-RETURNS   : 0 in caso di successo, -1 in caso di errore
---------------------------------------------------------------------------------
+`int setreuid(uid_t ruid, uid_t euid);`
+
+La funzione `setreuid()` setta il real user-ID e l'effective user-ID del 
+processo chiamante a `ruid` e '`euid'` rispettivamente. Ritorna 0 in caso di 
+successo, -1 in caso di errore.
+
+`int setregid(uid_t rgid, gid_t egid);`
+
+La funzione `setregid()` setta il real group-ID e l'effective group-ID del
+processo chiamante a `rgid'` e `egid` rispettivamente. Ritorna 0 in caso di 
+successo, -1 in caso di errore.
+
 Impostando ciascun parametro a -1, i valori non saranno modificati.
 
 
