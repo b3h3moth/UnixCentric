@@ -59,7 +59,7 @@ Ciascuna di esse pertarno ritorna il numero identificativo richiesto.
 > current process e il PID del parent process, ossia il PPID, questo perche' 
 > tutti i processi conservano, oltre al proprio PID anche il PID del genitore.
 
-## Accesso control
+## Access control
 
 Un sistema unix-like e' basato su fondamenti di sicurezza imprescindibili,
 anzitutto vi e' una netta differenziazione tra il superuser (root o 
@@ -114,7 +114,7 @@ estensione di sicurezza NFS.
 
 > `man 7 credentials`
 
-## setuid(), setgid()
+## User and Group IDs
 
 Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
 a specifiche risorse per le quali non si hanno i dovuti privilegi, si devono 
@@ -163,6 +163,9 @@ Ritorna 0 in caso di successo, -1 in caso di errore.
 La funzione `setgid()` setta l'effective group-ID del processo chiamante a `gid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
 
+> Per la modifica dell'effetive user-ID possono essere utilizzate anche le
+> funzioni `seteuid()` e `setegid()`.
+
 ## Setup Real User-ID and Real Group-ID; setreuid(), setregid()
 
 `int setreuid(uid_t ruid, uid_t euid);`
@@ -178,15 +181,3 @@ processo chiamante a `rgid'` e `egid` rispettivamente. Ritorna 0 in caso di
 successo, -1 in caso di errore.
 
 Impostando ciascun parametro a -1, i valori non saranno modificati.
-
-
-## seteuid() setegid()
-PROTOTYPE : int seteuid(uid_t uid);
-            int setegid(uid_t gid);
-SEMANTICS : La funzione seteuid() setta l'effective user-ID a 'uid';
-            la funzione setegid() setta l'effective group-ID a 'gid'.
-RETURNS   : 0 in caso di successo, -1 in caso di errore
---------------------------------------------------------------------------------
-Le funzioni sopra citate sono simili alle funzioni setuid() e setgid(), l'unica
-e sostanziale differenza e' che tali funzioni vanno a modificare solo
-l'effective user-ID e l'effective group-ID.
