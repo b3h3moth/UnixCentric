@@ -28,17 +28,17 @@ int main(void) {
     printf("\nAbbassamento permessi: setuid(1000) setgid(1000)\n");
     setuid(1000);
     setgid(1000);
-    printf("RUID: %d - invariato\n", getuid());
+    printf("RUID: %d\n", getuid());
     printf("EUID: %d\n", geteuid());
-    printf("RGID: %d - invariato\n", getgid());
+    printf("RGID: %d\n", getgid());
     printf("EGID: %d\n", getegid());
 
     printf("\nRipristino permessi: setuid(0) setgid(0)\n");
     setuid(0);
     setgid(0);
-    printf("RUID: %d - invariato\n", getuid());
-    printf("EUID: %d - fallito\n", geteuid());
-    printf("RGID: %d - invariato \n", getgid());
+    printf("RUID: %d\n", getuid());
+    printf("EUID: %d\n", geteuid());
+    printf("RGID: %d\n", getgid());
     printf("EGID: %d\n", getegid());
 
     return(EXIT_SUCCESS);
