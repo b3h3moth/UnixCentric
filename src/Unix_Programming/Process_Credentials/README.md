@@ -61,60 +61,60 @@ Ciascuna di esse pertarno ritorna il numero identificativo richiesto.
 
 ## Access control
 
-Un sistema unix-like e' basato su fondamenti di sicurezza imprescindibili,
-anzitutto vi e' una netta differenziazione tra il superuser (root o 
-amministratore) che gode del pieno controllo del sistema e gli utenti che 
-inevitabilmente hanno diverse restrizioni, vi e' inoltre il concetto di "utente"
-e di "gruppo".
+Un sistema UNIX o UNIX-like e' basato su fondamenti di sicurezza 
+imprescindibili, anzitutto vi e' una netta differenziazione tra il __superuser__
+(o __root__) che gode del pieno controllo del sistema e gli utenti che 
+inevitabilmente hanno diverse restrizioni, vi e' inoltre il concetto di 
+"__utente__" e di "__gruppo__".
 
 Il sistema associa un identificatore univoco ad ogni utente e gruppo, 
-lo user-ID (UID) e il group-ID (GID) rispettivamente, essi servono al kernel per
-identificare uno specifico utente o un gruppo di utenti, e grazie ad essi 
-verificare se godono delle autorizzazioni necessarie per eseguire i compiti 
-richiesti.
+lo __user-ID__ (__UID__) e il __group-ID__ (__GID__) rispettivamente, che 
+servono al kernel per identificare uno specifico utente o un gruppo, e grazie 
+ad essi verificare se godono delle autorizzazioni necessarie per eseguire i 
+compiti richiesti.
 
 Poiche' tutte le operazioni del sistema sono eseguite da uno o piu' processi,
 risulta ovvio che per poter fornire un controllo su tali operazioni e' 
 necessario essere a conoscenza dell'utente che ha lanciato il programma, ragion
-per cui anche un processo deve avere i propri UID e GID.
+per cui anche un processo deve avere i propri __UID__ e __GID__.
 
 I sistemi unix-like forniscono i seguenti gruppi di identificatori:
 
-- Real      , real user-ID (RUID) / real group-ID (RGID)
-              Sono impostati al login al valore dell'utente e del gruppo con cui
-	      si accede al sistema. Solitamente non vengono cambiati, potrebbe
-	      farlo tuttavia solo un processo che gode dei privilegi di 
-	      superuser. 
-	      Identificano l'utente e il gruppo a cui il processo appartiene.
+* __Real User-ID__ (__RUID__), __Real Group-ID__ (__RGID__)
+Sono impostati al login al valore dell'utente e del gruppo con cui si accede al 
+sistema. Solitamente non vengono cambiati, potrebbe farlo tuttavia solo un 
+processo che gode dei privilegi di superuser. 
+Identificano l'utente e il gruppo a cui il processo appartiene, in pratica cio'
+che siamo all'interno di un sistema.
 
-- Effective , effective user-ID (EUID) / effective group-ID (EGID)
-              Ai due si aggiunge anche l'effective GID di altri eventuali gruppi
-	      di appartenenza.
-	      Sono utilizzati nelle verifiche dei permessi del processo e per il
-	      controllo d'accesso ai file, in pratica identificano l'utente e
-	      il gruppo usati per decidere se un processo possa o meno accedere
-	      ad una risorsa.
+- __Effective User-ID__ (__EUID__), __Effective Group-ID__ (__EGID__)
+Sono utilizzati nelle verifiche dei permessi del processo e per il controllo 
+d'accesso ai file, in pratica identificano l'utente e il gruppo usati per 
+decidere se un processo possa o meno accedere ad una risorsa.
 
-              Nota: solitamente real ed effective sono identici, tranne nel caso
-	      in cui il programma in esecuzione avesse i bit 'suid' o 'sgid' 
-	      impostati, in tal caso gli effective saranno impostati al nome 
-	      dell'utente e del gruppo proprietari del file. Questo e' il caso 
-	      in cui un programma puo' essere eseguito da un utente con 
-	      privilegi di superuser (o altri). Puo' rappresentare un serio 
-	      problema di sicurezza.
+> Solitamente __Real__ ed __Effective__ sono identici, tranne nel caso in cui 
+> il programma in esecuzione avesse i bit '__suid__' o '__sgid__' impostati, in 
+> tal caso gli effective saranno impostati al nome dell'utente e del gruppo 
+> proprietari del file. Questo e' il caso in cui un programma puo' essere 
+> eseguito da un utente con privilegi di __superuser__ (o altri), che tuttavia 
+> potrebbe rappresentare un serio problema di sicurezza qualora non fosse
+> utilizzato con accortezza.
               
-- Saved     , saved user-ID / saved group-ID 
-              Solo se _POSIX_SAVED_IDS e' impostato.
-	      Sono copie dell'effective User-ID ed effettive group-ID del 
-	      processo padre - impostati da una delle funzioni exec all'avvio
-	      del processo - cosi che sia possibile ripristinarli.
+Ai due si aggiunge anche l'effective GID di altri eventuali gruppi di 
+appartenenza.
+
+- __Saved User-ID__, __Saved Group-ID__
+Solo se _POSIX_SAVED_IDS e' impostato.
+Sono copie dell'Effective User-ID ed Effettive Group-ID del processo padre - 
+impostati da una delle funzioni exec all'avvio del processo - cosi che possano
+essere ripristinati.
 
 I sistemi con kernel Linux dispongono anche dell'identificatore filesystem, una
 estensione di sicurezza NFS.
 
 > `man 7 credentials`
 
-## User and Group IDs
+## Setup Effective User-ID and Effective Group-ID; setuid(), setgid()
 
 Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
 a specifiche risorse per le quali non si hanno i dovuti privilegi, si devono 
@@ -150,8 +150,6 @@ sono regole ben precise a riguardo:
   a EPERM, e la funzione setuid() ritorna -1.
 
 Le regole per Group-ID sono le medesime di User-ID
-
-## Setup Effective User-ID and Effective Group-ID; setuid(), setgid()
 
 `int setuid(uid_t uid);`
 
