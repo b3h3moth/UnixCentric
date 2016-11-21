@@ -3,7 +3,7 @@
 #include <X11/Xlib.h>
 #include <unistd.h>
 
-/* Lo scopo del programma e' la creazione di una 'window'.
+/* Lo scopo del programma e' la creazione di una 'window' di 400x400px
 
 Per compilare il programma:
 $ gcc (clang) window.c -L/usr/X11R6/lib -lX11 -std=c11 -Wall -pedantic
@@ -18,7 +18,7 @@ int main(void) {
 	display = XOpenDisplay(name);
 	screen = DefaultScreen(display);
 	rootwindow = RootWindow(display, screen);
-	window = XCreateSimpleWindow(display, rootwindow, 0, 0, 100, 100, 1, 0, 0);
+	window = XCreateSimpleWindow(display, rootwindow, 0, 0, 400, 400, 1, 0, 0);
 	XMapWindow(display, window);
 	XFlush(display);
 
