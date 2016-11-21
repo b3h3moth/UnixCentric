@@ -13,8 +13,9 @@ int main(void) {
     Display *display;
 	Window window, rootwindow;
 	int screen;
+    char *name = ":0.0";
 
-	display = XOpenDisplay(NULL);
+	display = XOpenDisplay(name);
 	screen = DefaultScreen(display);
 	rootwindow = RootWindow(display, screen);
 	window = XCreateSimpleWindow(display, rootwindow, 0, 0, 100, 100, 1, 0, 0);
