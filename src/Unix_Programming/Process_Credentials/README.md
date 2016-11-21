@@ -1,5 +1,14 @@
 # Process Credentials
 
+* [Process Identification](#headPC1)
+* [Access control](#headPC2)
+* [Setup Effective User-ID and Effective Group-ID; setuid(), setgid()](#headPC3)
+* [Setup Real User-ID and Real Group-ID; setreuid(), setregid()](#headPC4)
+
+---
+
+## <a name="headPC1"></a>Process Identification
+
 Un processo e' un'entita' astratta definita dal kernel, a cui sono allocate 
 delle risorse del sistema al fine di eseguire un programma.
 
@@ -19,8 +28,6 @@ far partire tutti gli altri processi.
 
 Il processo "init" non muore mai e sebbene venga eseguito con privilegi da 
 "superuser" e' un normale processo utente e non un processo kernel.
-
-## Function prototypes
 
 Vi sono diverse funzioni che consentono l'identificazione dei processi:
 
@@ -59,7 +66,7 @@ Ciascuna di esse pertarno ritorna il numero identificativo richiesto.
 > current process e il PID del parent process, ossia il PPID, questo perche' 
 > tutti i processi conservano, oltre al proprio PID anche il PID del genitore.
 
-## Access control
+## <a name="headPC2"></a>Access control
 
 Un sistema UNIX o UNIX-like e' basato su fondamenti di sicurezza 
 imprescindibili, anzitutto vi e' una netta differenziazione tra il __superuser__
@@ -87,7 +94,7 @@ processo che gode dei privilegi di superuser.
 Identificano l'utente e il gruppo a cui il processo appartiene, in pratica cio'
 che siamo all'interno di un sistema.
 
-- __Effective User-ID__ (__EUID__), __Effective Group-ID__ (__EGID__)
+* __Effective User-ID__ (__EUID__), __Effective Group-ID__ (__EGID__)
 Sono utilizzati nelle verifiche dei permessi del processo e per il controllo 
 d'accesso ai file, in pratica identificano l'utente e il gruppo usati per 
 decidere se un processo possa o meno accedere ad una risorsa.
@@ -103,7 +110,7 @@ decidere se un processo possa o meno accedere ad una risorsa.
 Ai due si aggiunge anche l'effective GID di altri eventuali gruppi di 
 appartenenza.
 
-- __Saved User-ID__, __Saved Group-ID__
+* __Saved User-ID__, __Saved Group-ID__
 Solo se _POSIX_SAVED_IDS e' impostato.
 Sono copie dell'Effective User-ID ed Effettive Group-ID del processo padre - 
 impostati da una delle funzioni exec all'avvio del processo - cosi che possano
@@ -114,14 +121,14 @@ estensione di sicurezza NFS.
 
 > `man 7 credentials`
 
-## Setup Effective User-ID and Effective Group-ID; setuid(), setgid()
+## <a name="headPC3"></a>Setup Effective User-ID and Effective Group-ID; setuid(), setgid()
 
 Quando un programma necessita di privilegi addizionali oppure ottenere l'accesso
 a specifiche risorse per le quali non si hanno i dovuti privilegi, si devono 
 modificare l'user-ID (UID) e il group-ID (GID); naturalmente questa e' la strada
 da seguire anche qualora i privilegi dovessero essere ridotti.
 
-> Attenzione; si assume che la costante _POSIX_SAVED_IDS sia settata, altrimenti
+> Si assume che la costante ___POSIX_SAVED_IDS__ sia settata, altrimenti
 > i riferimenti a saved UID non saranno disponibili, per verificarlo e' possibile
 > invocare la funzione sysconf() con l'argomento _SC_SAVED_IDS a run-time oppure a
 > compile-time con _POSIX_SAVED_IDS.
@@ -139,14 +146,14 @@ migliorare la protezione del sistema.
 La funzione setuid() consente di modificare il real-UID e l'effective-UID, vi
 sono regole ben precise a riguardo:
 
-1 Se il processo gode dei privilegi di super-user, la funzione setuid() setta
+- Se il processo gode dei privilegi di super-user, la funzione setuid() setta
   il real UID, l'effective UID e il saved UID a 'uid';
 
-2 Se il processo non gode dei privilegi di super-user, e 'uid' e' uguale o al
+- Se il processo non gode dei privilegi di super-user, e 'uid' e' uguale o al
   real-UID o al saved-UID, la funzione setuid() imposta solo l'effective-UID
   a 'uid';
   
-3 Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
+- Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
   a EPERM, e la funzione setuid() ritorna -1.
 
 Le regole per Group-ID sono le medesime di User-ID
@@ -164,7 +171,7 @@ Ritorna 0 in caso di successo, -1 in caso di errore.
 > Per la modifica dell'effetive user-ID possono essere utilizzate anche le
 > funzioni `seteuid()` e `setegid()`.
 
-## Setup Real User-ID and Real Group-ID; setreuid(), setregid()
+## <a name="headPC4"></a>Setup Real User-ID and Real Group-ID; setreuid(), setregid()
 
 `int setreuid(uid_t ruid, uid_t euid);`
 
