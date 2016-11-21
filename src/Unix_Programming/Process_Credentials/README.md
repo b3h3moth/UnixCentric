@@ -129,34 +129,35 @@ modificare l'user-ID (UID) e il group-ID (GID); naturalmente questa e' la strada
 da seguire anche qualora i privilegi dovessero essere ridotti.
 
 > Si assume che la costante ___POSIX_SAVED_IDS__ sia settata, altrimenti
-> i riferimenti a saved UID non saranno disponibili, per verificarlo e' possibile
-> invocare la funzione sysconf() con l'argomento _SC_SAVED_IDS a run-time oppure a
-> compile-time con _POSIX_SAVED_IDS.
+> i riferimenti a __Saved UID__ non saranno disponibili; per verificarlo e' 
+> possibile invocare la funzione `sysconf()` con l'argomento ___SC_SAVED_IDS__ 
+> a _run-time_ oppure a _compile-time_ con l'argomento ___POSIX_SAVED_IDS__.
 
 Le applicazioni dovrebbero essere sviluppate seguendo il modello del 
-"least privilege", ossia il principio del privilegio minimo; in informatica e 
-in altri campi, il principio del privilegio minimo richiede che in un 
-particolare livello di astrazione di un ambiente di calcolo ogni modulo 
-computazionale (un processo, un programma o un utente a seconda del livello di 
-astrazione considerato) abbia visibilità delle sole risorse necessarie al suo 
+"__least privilege__", ossia _il principio del privilegio minimo_; 
+in informatica e in altri campi, il principio del privilegio minimo richiede 
+che in un particolare livello di astrazione di un ambiente di calcolo ogni modulo 
+computazionale - un processo, un programma o un utente a seconda del livello di 
+astrazione considerato - abbia visibilità delle sole risorse necessarie al suo 
 funzionamento. Lo scopo dell'applicazione del principio e' quello di concedere 
 solo il minimo insieme di privilegi possibile in ogni istante, in modo da 
 migliorare la protezione del sistema.
 
-La funzione setuid() consente di modificare il real-UID e l'effective-UID, vi
-sono regole ben precise a riguardo:
+La funzione `setuid()` consente di modificare il __Real-UID__ e 
+__l'Effective-UID__, e vi sono regole ben precise a riguardo:
 
-- Se il processo gode dei privilegi di super-user, la funzione setuid() setta
-  il real UID, l'effective UID e il saved UID a 'uid';
+1. Se il processo gode dei privilegi di __super-user__, la funzione `setuid()` 
+imposta il __Real UID__, l'__Effective-UID__ e il __Saved-UID__ a '__uid__';
 
-- Se il processo non gode dei privilegi di super-user, e 'uid' e' uguale o al
-  real-UID o al saved-UID, la funzione setuid() imposta solo l'effective-UID
-  a 'uid';
+2. Se il processo non gode dei privilegi di __superuser__, e '__uid__' e' uguale 
+o al __Real-UID__ o al __Saved-UID__, la funzione `setuid()` imposta solo 
+l'__Effective-UID__ a '__uid__';
   
-- Se nessuna delle condizioni sopra citate e' vera, 'errno' e' impostata
-  a EPERM, e la funzione setuid() ritorna -1.
+3. Se nessuna delle condizioni sopra citate e' vera, '__errno__' e' impostata
+a __EPERM__, e la funzione `setuid()` ritorna -1.
 
-Le regole per Group-ID sono le medesime di User-ID
+Le regole per i gruppi sono concettualmente identiche, la sola eccezione e' che
+naturalmente si lavora sui gruppi.
 
 `int setuid(uid_t uid);`
 
