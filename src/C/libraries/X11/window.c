@@ -14,13 +14,17 @@ int main(void) {
 	Window window, rootwindow;
 	int screen;
     char *display_name = ":0.0";
-    unsigned long background = 0x00ff9944;  // Orange bg
+    unsigned long background = 0x00000000;
+    unsigned long border = 0x00ffffff;   
+    unsigned long border_width = 1;
+    unsigned long height = 300;
+    unsigned long width = 400;
 
 	display = XOpenDisplay(display_name);
 	screen = DefaultScreen(display);
 	rootwindow = RootWindow(display, screen);
 	window = XCreateSimpleWindow(display, rootwindow, 
-            0, 0, 400, 400, 1, 0, background);
+            0, 0, width, height, border_width, border, background);
 	XMapWindow(display, window);
 	XFlush(display);
 
