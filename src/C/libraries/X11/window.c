@@ -15,7 +15,7 @@ int main(void) {
 	int screen;
     char *display_name = ":0.0";
     unsigned long background = 0x00000000;
-    unsigned long border = 0x00ffffff;   
+    unsigned long border = 0x00ffffff;
     unsigned long border_width = 1;
     unsigned long height = 300;
     unsigned long width = 400;
