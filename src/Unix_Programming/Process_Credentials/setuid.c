@@ -12,16 +12,18 @@ essere modificati attivando i setuid bits, utilizzando chmod e chown. */
 
 int main(int argc, char *argv[]) {
     FILE *fp;
-	int c;
     struct passwd *user;
+	int c;
 
 	if (argc != 2) {
-        fprintf(stderr, "Usage: %s <user ID>.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <login name>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
+    // Salva la struttura passwd dell'account fornito come argomento
     user = getpwnam(argv[1]);
-		
+	
+    // Imposta l'Effective user ID a 0, per la lettura del file
     setuid(0);
 
     printf("Real: %ld Effective: %ld\n", (long)getuid(), (long)geteuid());
@@ -38,7 +40,10 @@ int main(int argc, char *argv[]) {
 		
     fclose(fp);
 
+    // Riporta l'Effective user ID allo stato iniziale
     setuid(user->pw_uid);
+
+    printf("Real: %ld Effective: %ld\n", (long)getuid(), (long)geteuid());
 
 	return(EXIT_SUCCESS);
 }
