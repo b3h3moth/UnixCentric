@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
 		
     setuid(0);
 
+    printf("Real: %ld Effective: %ld\n", (long)getuid(), (long)geteuid());
 
 	fp = fopen("/etc/shadow", "r");
 
