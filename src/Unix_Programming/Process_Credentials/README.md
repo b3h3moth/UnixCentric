@@ -187,3 +187,5 @@ processo chiamante a `rgid'` e `egid` rispettivamente. Ritorna 0 in caso di
 successo, -1 in caso di errore.
 
 Impostando ciascun parametro a -1, i valori non saranno modificati.
+
+## Get and Set Group IDs
