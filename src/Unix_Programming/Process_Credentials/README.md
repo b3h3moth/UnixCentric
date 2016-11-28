@@ -189,3 +189,6 @@ successo, -1 in caso di errore.
 Impostando ciascun parametro a -1, i valori non saranno modificati.
 
 ## Get and Set Group IDs
+
+`int getgroups(int size, gid_t list[]);`
+`int setgroups(size_t size, const gid_t *list);`
