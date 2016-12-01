@@ -4,6 +4,7 @@
 * [Access control](#headPC2)
 * [Setup Effective User-ID and Effective Group-ID; setuid(), setgid()](#headPC3)
 * [Setup Real User-ID and Real Group-ID; setreuid(), setregid()](#headPC4)
+* [Retrieving supplementary Group IDs](#headPC5)
 
 ---
 
@@ -159,12 +160,12 @@ a __EPERM__, e la funzione `setuid()` ritorna -1.
 Le regole per i gruppi sono concettualmente identiche, la sola eccezione e' che
 naturalmente si lavora sui gruppi.
 
-`int setuid(uid_t uid);`
+```int setuid(uid_t uid);```
 
 La funzione `setuid()` setta l'effective user-ID del processo chiamante a `uid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
             
-`int setgid(gid_t gid);`
+```int setgid(gid_t gid);```
 
 La funzione `setgid()` setta l'effective group-ID del processo chiamante a `gid`.
 Ritorna 0 in caso di successo, -1 in caso di errore.
@@ -174,13 +175,13 @@ Ritorna 0 in caso di successo, -1 in caso di errore.
 
 ## <a name="headPC4"></a>Setup Real User-ID and Real Group-ID; setreuid(), setregid()
 
-`int setreuid(uid_t ruid, uid_t euid);`
+```int setreuid(uid_t ruid, uid_t euid);```
 
 La funzione `setreuid()` setta il real user-ID e l'effective user-ID del 
 processo chiamante a `ruid` e '`euid'` rispettivamente. Ritorna 0 in caso di 
 successo, -1 in caso di errore.
 
-`int setregid(uid_t rgid, gid_t egid);`
+```int setregid(uid_t rgid, gid_t egid);```
 
 La funzione `setregid()` setta il real group-ID e l'effective group-ID del
 processo chiamante a `rgid'` e `egid` rispettivamente. Ritorna 0 in caso di 
@@ -188,7 +189,14 @@ successo, -1 in caso di errore.
 
 Impostando ciascun parametro a -1, i valori non saranno modificati.
 
-## Get and Set Group IDs
+## <a name="headPC5"></a>Retrieving supplementary Group IDs
 
-`int getgroups(int size, gid_t list[]);`
-`int setgroups(size_t size, const gid_t *list);`
+```int getgroups(int size, gid_t list[]);```
+
+La funzione `getgroups()` ritorna l'insieme di gruppi supplementari ai quali il
+processo chiamante appartiene.
+
+```int setgroups(size_t size, const gid_t *list);```
+
+La funzione `setgroups()` rimpiazza l'insieme di gruppi supplementari ai quali 
+il processo chiamante appartiene, con i gruppi forniti da ```*list```.
