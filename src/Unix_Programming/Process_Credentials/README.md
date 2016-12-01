@@ -200,3 +200,6 @@ processo chiamante appartiene.
 
 La funzione `setgroups()` rimpiazza l'insieme di gruppi supplementari ai quali 
 il processo chiamante appartiene, con i gruppi forniti da ```*list```.
+
+> Il numero massimo di gruppi supplementari a disposizione e' possibile 
+> ottenerlo da ```/proc/sys/kernel/ngroups_max``
