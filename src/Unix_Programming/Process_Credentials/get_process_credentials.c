@@ -16,6 +16,8 @@ int main(void) {
     gid_t gid;
     struct passwd *pwd;
     struct group *grp;
+    long ngroups_max;
+
     
     printf("Process-ID (PID): %ld\n", (long)getpid());
     printf("Parent Process-ID (PPID): %ld \n", (long)getppid());
@@ -35,6 +37,9 @@ int main(void) {
     gid = getegid();
     assert(grp = getgrgid(gid));
     printf("Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
+
+    // Il numero massimo di gruppi supplementari
+    ngroups_max = sysconf(_SC_NGROUPS_MAX);
 
    return(EXIT_SUCCESS);
 }
