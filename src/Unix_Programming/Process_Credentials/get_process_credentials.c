@@ -48,7 +48,11 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
-    printf("Supplementary group: %d", num_grps);
+    printf("\nSupplementary group: %d\n", num_grps);
+    for (i=0; i<num_grps; i++) {
+        grp = getgrgid(sup_grps[i]);
+        printf("%5ld %s\n", (long)sup_grps[i], grp->gr_name );
+    }
 
    return(EXIT_SUCCESS);
 }
