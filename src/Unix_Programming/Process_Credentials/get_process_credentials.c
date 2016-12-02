@@ -21,6 +21,7 @@ int main(void) {
     gid_t gid, sup_grps[SGRP_SZ];
     struct passwd *pwd;
     struct group *grp;
+    int i, num_grps;
     
     printf("Process-ID (PID): %ld\n", (long)getpid());
     printf("Parent Process-ID (PPID): %ld \n", (long)getppid());
@@ -40,6 +41,8 @@ int main(void) {
     gid = getegid();
     assert(grp = getgrgid(gid));
     printf("Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
+
+    num_grps = getgroups(SGRP_SZ, sup_grps);
 
    return(EXIT_SUCCESS);
 }
