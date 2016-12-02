@@ -43,6 +43,10 @@ int main(void) {
     printf("Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
 
     num_grps = getgroups(SGRP_SZ, sup_grps);
+    if (num_grps == -1) {
+        fprintf(stderr, "Err. getgroups() failed.\n");
+        exit(EXIT_FAILURE);
+    }
 
    return(EXIT_SUCCESS);
 }
