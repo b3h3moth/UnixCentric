@@ -23,30 +23,32 @@ int main(void) {
     struct group *grp;
     int i, num_grps;
     
-    printf("Process-ID (PID): %ld\n", (long)getpid());
+    printf("        Process-ID (PID): %ld\n", (long)getpid());
     printf("Parent Process-ID (PPID): %ld \n", (long)getppid());
     
     uid = getuid();
     assert(pwd = getpwuid(uid));
-    printf("Real User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
+    printf("            Real User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
    
     uid = geteuid();
     assert(pwd = getpwuid(uid));
-    printf("Effective User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
+    printf("       Effective User-ID: %ld - %s\n", (long)uid, pwd->pw_name);
 
     gid = getgid();
     assert(grp = getgrgid(gid));
-    printf("Real Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
+    printf("           Real Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
 
     gid = getegid();
     assert(grp = getgrgid(gid));
-    printf("Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
+    printf("      Effective Group-ID: %ld - %s\n", (long)gid, grp->gr_name);
 
     num_grps = getgroups(SGRP_SZ, sup_grps);
     if (num_grps == -1) {
         fprintf(stderr, "Err. getgroups() failed.\n");
         exit(EXIT_FAILURE);
     }
+
+    printf("Supplementary group: %d", num_grps);
 
    return(EXIT_SUCCESS);
 }
