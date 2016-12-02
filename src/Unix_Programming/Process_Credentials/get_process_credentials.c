@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -7,13 +9,16 @@
 #include <grp.h>
 #include <sys/types.h>
 #include <assert.h>
+#include <limits.h>
+
+#define SGRP_SZ (NGROUPS_MAX + 1)
 
 /* Lo scopo del programma e' di stampare le credenziali di un processo, nello
 specifico, oltre al PID e PPID, i 'Real' e 'Effective' ID. */
 
 int main(void) {
     uid_t uid;
-    gid_t gid;
+    gid_t gid, sup_grps[SGRP_SZ];
     struct passwd *pwd;
     struct group *grp;
     
