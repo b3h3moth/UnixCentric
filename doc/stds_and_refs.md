@@ -14,7 +14,7 @@
 
 ## X/Open System Interface (XSI)
 
-## The GNU: C Library, Reference Manual
+## The GNU project development resources
 
 - [The GNU C Library](https://www.gnu.org/software/libc/manual/pdf/libc.pdf) Last updated August 5, 2016, for glibc 2.24
 - [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) v0.2.5 release
