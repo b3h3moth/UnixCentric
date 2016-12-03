@@ -7,12 +7,11 @@
 - [ISO/IEC 9899:2011 - aka C11](http://www.) the third formal standard (current)
 
 
-## Standard for the Portable Operating System Interface (POSIX)
+# Single UNIX Specification
 
-- [IEEE Standard 1003.1-2001](http://www.) 2001 edition
-- [IEEE Standard 1003.1-2016](https://www2.opengroup.org/ogsys/catalog/c165) Issue 7, 2016 edition
-
-## X/Open System Interface (XSI)
+* [Single UNIX Specification, Version 4, 2016 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/download/susv4tc2.tgz)
+* [Single UNIX Specification, Version 3, 2004 Edition](http://pubs.opengroup.org/onlinepubs/009695399/download/susv3.tgz)
+* [Single UNIX Specification, Version 2, 1998 Edition](http://pubs.opengroup.org/onlinepubs/007908799/download/susv2.tgz)
 
 ## The GNU project development resources
 
@@ -24,4 +23,3 @@
 ## SEI CERT C Secure coding Standard
 
 - [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm) 2016 edition
-
