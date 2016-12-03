@@ -14,10 +14,10 @@
 
 ## X/Open System Interface (XSI)
 
-## The GNU C Library
+## The GNU: C Library, Reference Manual
 
-- [The GNU C Library - glibc 2.24](https://www.gnu.org/software/libc/manual/) Last updated August 5, 2016
-- [The GNU C Reference Manual](http://www.)
+- [The GNU C Library](https://www.gnu.org/software/libc/manual/) Last updated August 5, 2016, for glibc 2.24
+- [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) v0.2.5 release
 
 
 ## SEI CERT C Secure coding Standard
