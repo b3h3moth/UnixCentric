@@ -11,7 +11,6 @@ ovvero l'implementazione dei sistemi operativi UNIX e UNIX-like.
 
 * [Standards and Standards de facto](stds_and_refs.md)
 * [Bibliography](biblio.md) Printed books
-* [Full books](full_books.md) Open/Free books
-* [Articles](articles.md)
-* [Docs](docs.md)
+* [Open books](open_books.md) Open full books
+* [Articles](articles.md) Articles and tutorial
 * [Talks](talks.md) 
