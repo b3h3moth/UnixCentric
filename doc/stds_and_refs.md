@@ -18,7 +18,6 @@
 - [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) v0.2.5 release
 - [GNU coding standards](https://www.gnu.org/prep/standards/standards.pdf) Last updated July 25, 2016
 
-
 ## SEI CERT C Secure coding Standard
 
-- [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://www.cert.org/secure-coding/products-services/secure-coding-download.cfm) 2016 edition
+- [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) 2016 edition
