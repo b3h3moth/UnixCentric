@@ -17,3 +17,7 @@
 ## Memory
 
 * [Understanding The Linux Virtual Memory Manager] Mel Gorman 2007
+
+## IPC (Inter Process Communications)
+
+* [The Little Book of Semaphores]
