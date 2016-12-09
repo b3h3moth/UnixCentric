@@ -13,3 +13,7 @@
 * [Think OS: A Brief Introduction to Operating Systems]
 * [The Design and Implementation of the ULIX Operating System]
 * [Linux: a Portable Operating System] Linus Torvalds Thesis
+
+## Memory
+
+* [Understanding The Linux Virtual Memory Manager] Mel Gorman 2007
