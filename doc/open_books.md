@@ -9,3 +9,4 @@
 ## Operating Systems 
 
 * [xv6 a simple Unix-like teaching operating systems]
+* [Implementing a Unix-like operating system in Rust]
