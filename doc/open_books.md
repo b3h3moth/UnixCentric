@@ -12,3 +12,4 @@
 * [Implementing a Unix-like operating system in Rust]
 * [Think OS: A Brief Introduction to Operating Systems]
 * [The Design and Implementation of the ULIX Operating System]
+* [Linux: a Portable Operating System] Linus Torvalds Thesis
