@@ -13,6 +13,7 @@
 * [Think OS: A Brief Introduction to Operating Systems]
 * [The Design and Implementation of the ULIX Operating System]
 * [Linux: a Portable Operating System] Linus Torvalds Thesis
+* [Introduzione ai sistemi operativi] Daniel P. Bovet
 
 ## Memory
 
