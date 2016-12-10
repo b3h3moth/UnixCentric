@@ -5,7 +5,9 @@
 #include <time.h>
 #include <unistd.h>
 
-/* Lo sco
+/* Lo scopo del programma e' di stampare in output nella forma 'Calendar time'
+il tempo trascorso tra la prima e la seconda chiamata a time(); sara'
+utilizzata la funzione difftime() per calcolare tale tempo */
 
 int main(void) {
    time_t start, end;
