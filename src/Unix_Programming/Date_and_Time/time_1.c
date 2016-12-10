@@ -6,10 +6,13 @@
 #include <unistd.h>
 
 /*
-Calendar time: il numero di secondi a partire dalle 00:00 del 01 gennaio 1970
-ITC, Epoch; indica il tempo a cui l'orologio del kernel fa riferimento, usato
-generalmente per le date dei file oppure per il calcolo di tempi con precisione
-di 1 secondo (troppo in realta' se si volesse calcolare un pezzo di codice).
+`Calendar time` indica il numero di secondi a partire dalle 00:00 del 01 
+gennaio 1970, UTC, esso rappresenta il tempo a cui l'orologio del kernel fa 
+riferimento ed e' usato generalmente per le date dei file oppure per il calcolo
+di tempi con precisione di 1 secondo.
+
+Il `Calendar time` viene gestito mediante il tipo di dato `time_t`, che sui
+sistemi a 32 bit e' caratterizzato dall'essere un `signed integer`, e
 
 HEADER    : <time.h>
 PROTOTYPE : time_t time(time_t *tm);
