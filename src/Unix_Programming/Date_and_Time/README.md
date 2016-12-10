@@ -6,8 +6,8 @@
 
 ## <a name="headDT1"></a>Calendar time; gettimeofday()
 
-__Calendar time__ indica il numero di secondi a partire dalle __00:00 del 01 
-gennaio 1970__, Epoch UTC, esso rappresenta il tempo a cui l'orologio del kernel 
+__Calendar time__ indica il numero di secondi a partire da Epoch, 
+__1970-01-01 00:00:00 +0000 (UTC)__, esso rappresenta il tempo a cui l'orologio del kernel 
 fa riferimento, utilizzato generalmente per le date dei file oppure per il 
 calcolo di tempi con precisione di 1 secondo.
 
