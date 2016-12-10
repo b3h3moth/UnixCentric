@@ -26,6 +26,12 @@ int main(void) {
    }
 
    /* Stampa a video della sospensione mediante la funzione difftime() */
+   printf("start: %d\n", (unsigned int)start);
+   printf("  end: %d\n", (unsigned int)end);
+
+   /* Si sarebbe potuto gestire l'output mediante una semplice differenza tra
+   'end' e 'start' */
+   
    printf("Tempo trascorso: %.f secondi\n", difftime(start, end));
 
    return(EXIT_SUCCESS);
