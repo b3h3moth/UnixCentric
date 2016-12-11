@@ -7,6 +7,7 @@
 
 ## UNIX Systems Programming
 
+* [GaPiL; Guida alla Programmazione in Linux](https://dl.dropboxusercontent.com/u/57071683/gapil.pdf) `Last updated 10/21/2016 - S.Piccardi`
 * [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
 
 ## UNIX Network Programming
