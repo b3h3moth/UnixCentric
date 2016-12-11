@@ -24,4 +24,5 @@
 
 ## IPC (Inter Process Communications)
 
-* [The Little Book of Semaphores](http://greenteapress.com/semaphores/LittleBookOfSemaphores.pdf) __`Version 2.2.1, 2016 - Allen B.Downey`__
+* [Beej's Guide to UNIX IPX](https://beej.us/guide/bgipc/output/print/bgipc_A4_2.pdf) `Version 1.1.3, 12/1/2015 - B.Hall`
+* [The Little Book of Semaphores](http://greenteapress.com/semaphores/LittleBookOfSemaphores.pdf) `Version 2.2.1, 2016 - Allen B.Downey`
