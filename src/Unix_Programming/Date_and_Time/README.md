@@ -45,4 +45,5 @@ struct timeval {
 
 > Le funzioni `time()` e `gettimeofday()` restituiscono gli stessi valori, 
 > time() infatti ritorna il numero di secondi a partire da __Epoch__, così come
-> `gettimeofday()` mediante il campo `tv_sec`.
+> `gettimeofday()` mediante il campo `tv_sec`. La differenza sostanziale sta
+> nella precisione, la prima e' al secondo, la secondo al microsecondo.
