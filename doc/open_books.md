@@ -11,6 +11,10 @@
 * [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/ocamlunix.pdf) `Last updated 12/1/2014 - X.Leroy, D.Rémy`
 * [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
 
+## Concurrent Programming
+
+* [Programmazione concorrente nei sistemi UNIX](https://www.dropbox.com/s/y6gon2neug18wjy/programmazione_concorr_nei_sys_unix.pdf?dl=0) `Version 04/18/2008 - G.Lipari, L.Abeni, A.Casile`
+
 ## UNIX Network Programming
 
 * [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/output/print/bgnet_A4_2.pdf) `Version 3.0.21, 6/8/2016 - B.Hall`
