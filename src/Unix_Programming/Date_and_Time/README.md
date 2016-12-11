@@ -42,6 +42,7 @@ struct timeval {
      long tv_usec;	// Microsecondi
 };
 ```
-La funzione 'gettimeofday()` puo' essere indicata per verificare i tempi di 
-reazione di un programma o di un pezzo di codice e, con opportuni accorgimenti, 
-anche per stampare la data corrente.
+
+> Le funzioni `time()` e `gettimeofday()` restituiscono gli stessi valori, 
+> time() infatti ritorna il numero di secondi a partire da __Epoch__, così come
+> `gettimeofday()` mediante il campo `tv_sec`.
