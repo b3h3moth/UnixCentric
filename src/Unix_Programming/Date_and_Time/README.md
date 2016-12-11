@@ -1,6 +1,6 @@
 # Date and Time
 
-* [Calendar time; gettimeofday()](#headDT1)
+* [Calendar time; time(), gettimeofday()](#headDT1)
 
 ---
 
@@ -32,26 +32,16 @@ un argomento obsoleto, mantenuto solo per motivi storici, e' sufficiente
 inserire `NULL`. Ritorna `0` in caso di successo, `-1` altrimenti. Header da 
 includere `sys/time.h`.
 
-> Entrambe le strutture sono  definite in `sys/time.h`
+> La struttura `timeval` e' definita in `sys/time.h`
 
 Precisione al microsecondo
 
 ```
 struct timeval {
-     long tv_sec;	"Secondi"
-     long tv_usec;	"Microsecondi"
+     long tv_sec;	// Secondi da 00:00:00, 1 Jan 1970 UTC
+     long tv_usec;	// Microsecondi
 };
 ```
-
-Precisione al nanosecondo:
-
-```
-struct timespec {
-     time_t tv_sec;	"Secondi"
-     long   tv_nsec;	"Nanosecondi"
-};
-```
-
-Tale funzione puo' essere indicata per verificare i tempi di reazione di un
-programma o di un pezzo di codice e, con opportuni accorgimenti, anche per
-stampare la data corrente.
+La funzione 'gettimeofday()` puo' essere indicata per verificare i tempi di 
+reazione di un programma o di un pezzo di codice e, con opportuni accorgimenti, 
+anche per stampare la data corrente.
