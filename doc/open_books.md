@@ -24,4 +24,4 @@
 
 ## IPC (Inter Process Communications)
 
-* [The Little Book of Semaphores](http://greenteapress.com/semaphores/LittleBookOfSemaphores.pdf) `Version 2.2.1, 2016 Allen B.Downey`
+* [The Little Book of Semaphores](http://greenteapress.com/semaphores/LittleBookOfSemaphores.pdf) `Version 2.2.1, 2016 - __Allen B.Downey__`
