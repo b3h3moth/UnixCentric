@@ -33,11 +33,10 @@ processore causato dal timer di sistema.
 
 `time_t time(time_t *tm);` 
 
-La funzione time() restituisce la data espressa in numero di secondi a partire 
-da __Epoch__, ossia dal __1970-01-01 00:00:00 +0000 (UTC)__, e salvata in nella 
-variabile `tm` di tipo `time_t`. 
-Ritorna `0` in caso di successo, `-1`
-altrimenti. Header da includere `time.h`.
+La funzione time() restituisce la data espressa in numero di secondi a partire
+da __Epoch__, il risultato e' memorizzato nella  variabile `tm` di tipo 
+`time_t`. Ritorna `0` in caso di successo, `-1` altrimenti. Header da includere 
+`time.h`.
 
 `int gettimeofday(struct timeval *tv, struct timezone *tz);`
 
