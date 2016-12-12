@@ -2,10 +2,11 @@
 
 * [Calendar time and Process time](#headDT0)
 * [Calendar time; time(), gettimeofday()](#headDT1)
+* [Converting time_t to string; ctime()](headDT2)
 
 ---
 
-## <a name="headDT0"></a>Calendar time and Process time]
+## <a name="headDT0"></a>Calendar time and Process time
 
 Il __calendar time__ indica il numero di secondi a partire da Epoch, ovvero da
 __1970-01-01 00:00:00 +0000 (UTC)__, esso rappresenta il tempo a cui l'orologio
@@ -61,3 +62,11 @@ struct timeval {
 > time() infatti ritorna il numero di secondi a partire da __Epoch__, così come
 > `gettimeofday()` mediante il campo `tv_sec`. La differenza sostanziale sta
 > nella precisione, la prima e' al secondo, la secondo al microsecondo.
+
+## <a name="headDT2"></a>Converting time_t to string; ctime()
+
+` char *ctime(const time_t *timep);`
+
+La funzione `ctime()` partendo dal parametro `timep` di tipo `time_t` produce
+una stringa null-terminated, simile al comando `date`. Ritorna il puntatore 
+alla stringa in caso di successo, `NULL` in caso di errore.
