@@ -9,8 +9,8 @@ linguaggio C - standard c99 e c11 - e la programmazione di sistema, che
 implicitamente vanno a sfociare nell'argomento che e' il fulcro di tutto, 
 ovvero l'implementazione dei sistemi operativi UNIX e UNIX-like.
 
-* [Standards and Standards de facto](stds_and_refs.md)
-* [Bibliography](biblio.md) Printed books
-* [Open books](open_books.md) Open full books
-* [Articles](articles.md) Articles and tutorial
-* [Talks](talks.md) 
+* [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
+* [Bibliography](biblio.md) `Printed books`
+* [Books](free_books.md) `Free (full) books`
+* [Articles](articles.md) `Articles and tutorial`
+* [Talks](talks.md) `Slide and Video`
