@@ -7,6 +7,7 @@
 * [UNIX Network Programming](#headFB5)
 * [UNIX Operating Systems; Design and Implementation](#headFB6)
 * [How the Memory Works](#headFB7)
+  * [Memory Allocation](#headFB71)
 * [UNIX IPC (Inter Process Communications)](#headFB8)
 
 ---
@@ -47,6 +48,9 @@
 ## <a name="headFB7"></a>How the Memory Works
 
 * [Understanding The Linux Virtual Memory Manager](https://www.kernel.org/doc/gorman/pdf/understand.pdf) `Version 1.0, 7/6/2007 - Mel Gorman`
+
+### <a name="headFB71"></a>Memory Allocation
+
 
 ## <a name="headFB8"></a>UNIX IPC (Inter Process Communications)
 
