@@ -51,7 +51,7 @@
 
 ### <a name="headFB71"></a>Memory Allocation
 
-* [A Malloc tutorial]() `02/16/2009 - M.Burelle`
+* [A Malloc tutorial](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf) `02/16/2009 - M.Burelle`
 
 ## <a name="headFB8"></a>UNIX IPC (Inter Process Communications)
 
