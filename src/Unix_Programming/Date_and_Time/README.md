@@ -2,7 +2,8 @@
 
 * [Calendar time and Process time](#headDT0)
 * [Calendar time; time(), gettimeofday()](#headDT1)
-* [Converting time_t to string; ctime()](headDT2)
+* [Converting time_t to string; ctime()](#headDT2)
+* [Converting time_t to broken-down time; gmtime(), localtime()](#headDT3)
 
 ---
 
@@ -70,3 +71,5 @@ struct timeval {
 La funzione `ctime()` partendo dal parametro `timep` di tipo `time_t` produce
 una stringa null-terminated, simile al comando `date`. Ritorna il puntatore 
 alla stringa in caso di successo, `NULL` in caso di errore.
+
+* <a name="headDT3"></a>Converting time_t to broken-down time; gmtime(), localtime()
