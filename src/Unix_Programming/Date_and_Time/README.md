@@ -72,7 +72,7 @@ La funzione `ctime()` partendo dal parametro `timep` di tipo `time_t` produce
 una stringa null-terminated, simile al comando `date`. Ritorna il puntatore 
 alla stringa in caso di successo, `NULL` in caso di errore.
 
-* <a name="headDT3"></a>Converting time_t to broken-down time; gmtime(), localtime()
+## <a name="headDT3"></a>Converting time_t to broken-down time; gmtime(), localtime()
 
 Le funzioni per la gestione del tempo in __calendar time__ (the Epoch)  non sono 
 affatto intuitive qualora si volesse rappresentare una data, pertanto le date
@@ -94,8 +94,8 @@ struct tm
   int tm_yday;			 Days in year.	[0-365]	
   int tm_isdst;			 DST.		[-101]
 
-  long int tm_gmtoff;		 Seconds east of UTC.  
-  long int __tm_gmtoff;		 Seconds east of UTC.  
+  long int tm_gmtoff;		 Seconds east of UTC
+  long int tm_gmtoff;		 Seconds east of UTC
 };
 `
 
