@@ -88,7 +88,7 @@ legale__), che consente di suddividere i tempi di __calendar time__, in ore,
 minuti, secondi, etc..., tale suddivisione viene opportunamente implementata 
 nella struttura `tm`  definita in `time.h`:
 
-`
+```
 struct tm
 {
   int tm_sec;           // Seconds             [0-60] (1 leap second) 
@@ -104,7 +104,7 @@ struct tm
   long int tm_gmtoff;   // Seconds east of UTC
   long int tm_gmtoff;   // Seconds east of UTC
 };
-`
+```
 
 `struct tm *gmtime(const time_t *tp);`
 
@@ -115,8 +115,8 @@ puntatore alla struttura `tm` in caso di successo, NULL in caso di errore.
 `struct tm *localtime(const time_t *tp);`
 
 La funzione `localtime()` converte la variabile `tp` dal formato 
-__calendar time__ al formato __broken-down time__, espresso nell'ora locale.
-Ritorna un puntatore alla struttura `tm'` in caso di successo, NULL in caso di 
-errore
+__calendar time__ al formato __broken-down time__, espresso nell'ora locale del
+sistema in uso. Ritorna un puntatore alla struttura `tm` in caso di successo, 
+`NULL` in caso di errore
 
 ## <a name="headDT4"></a>Converting broken-down time to time_t; mktime()
