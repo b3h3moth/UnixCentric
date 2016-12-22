@@ -9,7 +9,7 @@ calendar-time a broken-down time, mediante la funzione mktime(). */
 
 int main(void) {
     struct tm *ptm;
-    time_t t, new_time;
+    time_t t, gm;
 
     if ((t = time(NULL)) < 0) {
        fprintf(stderr, "Err.(%s) getting time\n", strerror(errno));
@@ -18,9 +18,18 @@ int main(void) {
 
     ptm = localtime(&t);
 
-    new_time = mktime(ptm);
+    gm = mktime(ptm);
    
-    printf("%ld since The Epoch\n", new_time);
+    printf("localtime() - ");
+    printf("%d/%d/%d - %d:%d:%d\n",             \
+            ptm->tm_mon = ptm->tm_mon + 1,      \
+            ptm->tm_mday,                       \
+            ptm->tm_year = ptm->tm_year + 1900, \
+            ptm->tm_hour,                       \
+            ptm->tm_min,                        \
+            ptm->tm_sec);
+
+    printf("localtime() to mktime() - %ld \n", gm);
 
     return(EXIT_SUCCESS);
 }
