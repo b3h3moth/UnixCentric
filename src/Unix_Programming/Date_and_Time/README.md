@@ -120,3 +120,5 @@ sistema in uso. Ritorna un puntatore alla struttura `tm` in caso di successo,
 `NULL` in caso di errore
 
 ## <a name="headDT4"></a>Converting broken-down time to time_t; mktime()
+
+`time_t mktime(struct tm *timep);`
