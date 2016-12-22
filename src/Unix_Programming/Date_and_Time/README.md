@@ -78,7 +78,7 @@ puntatore alla stringa in caso di successo, `NULL` in caso di errore.
 > La stringa termina con un carattere di `new-line` e un byte `null-terminated`,
 > ed ha un peso di 26 byte.
 
-## <a name="headDT3"></a>Converting time_t to broken-down time; gmtime(), localtime()
+## <a name="headDT3"></a>Converting time_t to broken-down time and viceversa; gmtime(), localtime()
 
 Le funzioni per la gestione del tempo in __calendar time__ (the Epoch)  non 
 sono affatto intuitive qualora si volesse rappresentare una data, pertanto le 
@@ -108,5 +108,5 @@ struct tm
 `struct tm *gmtime(const time_t *tp);`
 
 La funzione `gmtime()` converte la variabile `tp` di tipo `time_t`, dal formato 
-calendar time al formato broken-down time espresso in UTC. Ritorna un puntatore 
-alla struttura `tm` in caso di successo, NULL in caso di errore.
+__calendar time__ al formato __broken-down time__ espresso in UTC. Ritorna un 
+puntatore alla struttura `tm` in caso di successo, NULL in caso di errore.
