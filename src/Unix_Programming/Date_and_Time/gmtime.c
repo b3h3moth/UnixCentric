@@ -18,9 +18,13 @@ int main(void) {
     
     local_gm = gmtime(&t);
     
-    printf("  year: %d\n  month: %d\nday: %d\n   time: %d:%d:%d\n", \
-            local_gm->tm_year, local_gm->tm_mon, local_gm->tm_mday, \
-            local_gm->tm_hour, local_gm->tm_min, local_gm->tm_sec);
+    printf("%d/%d/%d - %d:%d:%d\n",  \
+            local_gm->tm_mon,        \
+            local_gm->tm_mday,       \
+            local_gm->tm_year + 1900,\
+            local_gm->tm_hour,       \
+            local_gm->tm_min,        \
+            local_gm->tm_sec);
     
     return(EXIT_SUCCESS);
 }
