@@ -5,6 +5,7 @@
 * [Converting time_t to string; ctime()](#headDT2)
 * [Converting time_t to broken-down time; gmtime(), localtime()](#headDT3)
 * [Converting broken-down time to time_t; mktime()](#headDT4)
+* [Converting broken-down time to string; asctime(), strftime()](#headDT5)
 
 ---
 
@@ -127,3 +128,22 @@ La funzione `mktime` converte la variabile `timep` di tipo `struct tm` dal
 formato __broken-down time__, espresso in orario locale, in un valore di tipo 
 `time_t`. Ritorna il numero di secondi da __The Epoch__ corrispondenti al 
 valore espresso da `timep` in caso di successo, `-1` altrimenti.
+
+## <a name="headDT5"></a>Converting broken-down time to string; asctime(), strftime()
+
+`char *asctime(const struct tm *tm);`
+
+La funzione `asctime()` partendo dal parametro broken-down time `tm` produce 
+una stringa null-terminated, simile al comando `date`. Ritorna un puntatore 
+alla stringa in caso di successo, `NULL` in caso di errore.
+
+PROTOTYPE : size_s strftime(char *buf, size_t maxsize, const char *format,
+                            const struct tm *ptm);
+SEMANTICS : La funzione strftime() converte un tempo broken-down ime 'ptm' in 
+            una stringa da collocare in buf, di dimensioni 'maxsize' e secondo 
+	    il formato definito da 'format'.
+RETURNS   : Il numero di caratteri in buf, 0 in caso di errore
+--------------------------------------------------------------------------------
+Nota: La costante stringa 'format' puo' contenere diversi specificatori di 
+conversione (come la printf), ciascuno di essi introdotto dal carattere '%',
+sono facilmente reperibili mediante il classico man strftime.
