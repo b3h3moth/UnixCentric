@@ -5,7 +5,7 @@
 #include <time.h>
 
 /* Lo scopo del programma e' di convertire una variabile di tipo struct tm da
-calendar-time a broken-down time, mediante la funzione mktime(). */
+calendar-time a broken-down time, mediante la funzione mktime() */
 
 int main(void) {
     struct tm *ptm;
