@@ -72,9 +72,11 @@ facilmente interpretabile da un essere umano ad un valore di tipo `time_t`.
 ` char *ctime(const time_t *timep);`
 
 La funzione `ctime()` partendo dal parametro `timep` di tipo `time_t` produce
-una stringa null-terminated di 26 byte con data e tempo corrento, simile al 
-comando `date`. Ritorna il puntatore alla stringa in caso di successo, `NULL` 
-in caso di errore.
+una stringa con data e tempo corrente, simile al comando `date`. Ritorna il 
+puntatore alla stringa in caso di successo, `NULL` in caso di errore.
+
+> La stringa termina con un carattere di `new-line` e un byte `null-terminated`,
+> ed ha un peso di 26 byte.
 
 ## <a name="headDT3"></a>Converting time_t to broken-down time; gmtime(), localtime()
 
