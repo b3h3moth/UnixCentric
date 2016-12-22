@@ -66,6 +66,9 @@ struct timeval {
 
 ## <a name="headDT2"></a>Converting time_t to string; ctime()
 
+Lo scopo della funzione `ctime()` e' di fornire una forma stampabile e quindi
+facilmente interpretabile da un essere umano, ad un valore di tipo `time_t`.
+
 ` char *ctime(const time_t *timep);`
 
 La funzione `ctime()` partendo dal parametro `timep` di tipo `time_t` produce
