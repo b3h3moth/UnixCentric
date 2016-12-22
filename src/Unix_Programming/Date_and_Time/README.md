@@ -122,3 +122,8 @@ sistema in uso. Ritorna un puntatore alla struttura `tm` in caso di successo,
 ## <a name="headDT4"></a>Converting broken-down time to time_t; mktime()
 
 `time_t mktime(struct tm *timep);`
+
+La funzione `mktime` converte la variabile `timep` di tipo `struct tm` dal
+formato __broken-down time__, espresso in orario locale, in un valore di tipo 
+`time_t`. Ritorna il numero di secondi da __The Epoch__ corrispondenti al 
+valore espresso da `timep` in caso di successo, `-1` altrimenti.
