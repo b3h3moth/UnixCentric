@@ -133,17 +133,17 @@ valore espresso da `timep` in caso di successo, `-1` altrimenti.
 
 `char *asctime(const struct tm *tm);`
 
-La funzione `asctime()` partendo dal parametro broken-down time `tm` produce 
-una stringa null-terminated, simile al comando `date`. Ritorna un puntatore 
+La funzione `asctime()`, da un parametro __broken-down time__ `tm` produce 
+una stringa __null-terminated__, simile al comando `date`. Ritorna un puntatore
 alla stringa in caso di successo, `NULL` in caso di errore.
 
-PROTOTYPE : size_s strftime(char *buf, size_t maxsize, const char *format,
-                            const struct tm *ptm);
-SEMANTICS : La funzione strftime() converte un tempo broken-down ime 'ptm' in 
-            una stringa da collocare in buf, di dimensioni 'maxsize' e secondo 
-	    il formato definito da 'format'.
-RETURNS   : Il numero di caratteri in buf, 0 in caso di errore
---------------------------------------------------------------------------------
-Nota: La costante stringa 'format' puo' contenere diversi specificatori di 
-conversione (come la printf), ciascuno di essi introdotto dal carattere '%',
-sono facilmente reperibili mediante il classico man strftime.
+`size_s strftime(char *str, size_t max, const char *format, const struct tm *tm);`
+
+La funzione `strftime()` converte la variabile `tm` di tipo `struct tm` dal
+formato __broken-down time__ ad una stringa `str` caratterizzata dal formato
+definito in `format` e di dimensioni `max. Ritorna il numero di caratteri 
+contenuti in `str`, `0` altrimenti.
+
+> La costante stringa `format` puo' contenere diversi specificatori di 
+> conversione - similmente alla la `printf()` -, ciascuno di essi introdotto 
+> dal carattere `%`.
