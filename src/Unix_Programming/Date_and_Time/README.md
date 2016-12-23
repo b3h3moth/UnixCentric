@@ -25,13 +25,13 @@ __`19 gennaio 2038 03:14:07`__.
 
 Il __process time__ invece misura il tempo impiegato dal processore nell'
 esecuguire il codice di un programma nel contesto di un processo, ossia 
-l'ammonare del tempo di CPU usato da un processo. 
+l'ammontare del tempo di CPU usato da un processo. 
 
 > Definito anche __tempo di processore__ oppure __tempo di CPU__.
 
-A differenza del calendar time utilizza il tipo di dato `clock_t` e l'unita' di 
-misura e' il cosiddetto __clock trick__, ovvero il numero di interruzioni del
-processore causato dal timer di sistema.
+A differenza del calendar time, il process time utilizza il tipo di dato 
+`clock_t`, la cui unita' di misura e' il cosiddetto __clock trick__, ovvero il 
+numero di interruzioni del processore causato dal timer di sistema.
 
 ## <a name="headDT1"></a>Calendar time; time(), gettimeofday()
 
