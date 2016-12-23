@@ -85,9 +85,10 @@ puntatore alla stringa in caso di successo, `NULL` in caso di errore.
 Le funzioni per la gestione del tempo in __calendar time__ (the Epoch)  non 
 sono affatto intuitive qualora si volesse rappresentare una data, pertanto le 
 date sono gestite mediante l'implementazione __broken-down time__ (__ora 
-legale__), che consente di suddividere i tempi di __calendar time__, in ore, 
-minuti, secondi, etc..., tale suddivisione viene opportunamente implementata 
-nella struttura `tm`  definita in `time.h`:
+legale__), esso infatti altro non e' che la rappresentazione binaria di 
+__calendar time__ suddivisa in anni, mesi, giorni, e così via, tale 
+suddivisione viene opportunamente implementata nella struttura `tm`  
+definita in `time.h`:
 
 ```
 struct tm
