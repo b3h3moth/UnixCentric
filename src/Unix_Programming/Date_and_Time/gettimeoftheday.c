@@ -7,29 +7,27 @@
 
 
 int main(void){
-   struct timeval start, end;
-   double time_elapsed;
+    struct timeval start, end;
+    double time_elapsed;
   
-   /* Rispetto all'esempio con time() il risultato sara' sicuramente molto
+    /* Rispetto all'esempio con time() il risultato sara' sicuramente molto
     piu' accurato, poiche' esresso in millisecondi */
-   if (gettimeofday(&start, NULL) < 0) {
-      fprintf(stderr, "Err.(%s) getting time, start\n", strerror(errno));
-      exit(EXIT_FAILURE);
-   }
+    if (gettimeofday(&start, NULL) < 0) {
+       fprintf(stderr, "Err.(%s) getting time, start\n", strerror(errno));
+       exit(EXIT_FAILURE);
+    }
 
-   /* Sospendo l'esecuzione del programma per circa 1 secondo e mezzo, espresso
-    in millisecondi */
-   usleep(1500000);
+    sleep(3);
 
-   if (gettimeofday(&end, NULL) < 0) {
-      fprintf(stderr, "Err.(%s) getting time, end\n", strerror(errno));
-      exit(EXIT_FAILURE);
-   }
+    if (gettimeofday(&end, NULL) < 0) {
+       fprintf(stderr, "Err.(%s) getting time, end\n", strerror(errno));
+       exit(EXIT_FAILURE);
+    }
    
-   time_elapsed = ((((end.tv_sec - start.tv_sec) * 1000000.) +
+    time_elapsed = ((((end.tv_sec - start.tv_sec) * 1000000.) +
    	    ((end.tv_usec - start.tv_usec))) / 1000000.);
    
-   printf("Tempo trascorso: %f secondi\n", time_elapsed);
+    printf("Tempo trascorso: %f secondi\n", time_elapsed);
    
-   return(EXIT_SUCCESS);
+    return(EXIT_SUCCESS);
 }
