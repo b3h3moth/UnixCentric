@@ -7,6 +7,10 @@
 
 enum { LEN = 255 };
 
+/* Lo scopo del programma e' di convertire una stringa di data in formato 
+'struct tm' mediante strptime(), successivamente salvarla in un buffer con la 
+funzione strftime() */
+
 int main(void) {
     struct tm tm;
     char buf[LEN];
