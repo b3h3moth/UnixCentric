@@ -6,6 +6,7 @@
 * [Converting time_t to broken-down time; gmtime(), localtime()](#headDT3)
 * [Converting broken-down time to time_t; mktime()](#headDT4)
 * [Converting broken-down time to string; asctime(), strftime()](#headDT5)
+* [Converting string to broken-down time; strptime()](#headDT6)
 
 ---
 
@@ -91,8 +92,7 @@ suddivisione viene opportunamente implementata nella struttura `tm`
 definita in `time.h`:
 
 ```
-struct tm
-{
+struct tm {
   int tm_sec;           // Seconds             [0-60] (1 leap second) 
   int tm_min;           // Minutes             [0-59] 
   int tm_hour;          // Hours               [0-23] 
@@ -148,3 +148,11 @@ contenuti in `str`, `0` altrimenti.
 > La costante stringa `format` puo' contenere diversi specificatori di 
 > conversione - similmente alla la `printf()` -, ciascuno di essi introdotto 
 > dal carattere `%`.
+
+## <a name="headDT6"></a>Converting string to broken-down time; strptime()
+
+`char *strptime(const char *str, const char *format, struct tm *tm);`
+
+La funzione strptime() si occupa di convertire la stringa `str` al formato
+__broken-down time__ della struttura `tm`, secondo il formato indicato da
+`format`.
