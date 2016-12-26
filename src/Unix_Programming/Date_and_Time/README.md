@@ -149,6 +149,10 @@ contenuti in `str`, `0` altrimenti.
 > conversione - similmente alla la `printf()` -, ciascuno di essi introdotto 
 > dal carattere `%`.
 
+La funzione `strftime()`, a differenza di `ctime()` e `asctime()`, non include 
+il carattere new-line alla fine della stringa, a meno che non sia espressamente 
+indicato da `format`.
+
 ## <a name="headDT6"></a>Converting string to broken-down time; strptime()
 
 `char *strptime(const char *str, const char *format, struct tm *tm);`
