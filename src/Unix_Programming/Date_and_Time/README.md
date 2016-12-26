@@ -153,6 +153,6 @@ contenuti in `str`, `0` altrimenti.
 
 `char *strptime(const char *str, const char *format, struct tm *tm);`
 
-La funzione strptime() si occupa di convertire la stringa `str` al formato
-__broken-down time__ della struttura `tm`, secondo il formato indicato da
+La funzione strptime() si occupa di convertire la stringa `str` in
+__broken-down time__ nella struttura `tm`, secondo il formato indicato da
 `format`.
