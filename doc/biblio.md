@@ -1,4 +1,4 @@
-# Bibliography
+# UnixCentric Bibliography
 
 ## Unix Systems Programming
   
@@ -8,6 +8,12 @@
 * **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
+
+## POSIX
+
+* **Programming with POSIX Threads**. *David B.Butenhof* (`Addison Wesley, 1997`)
+* **POSIX.4 - Programmers Guide: Programming for the Real World**. *Bill Gallmeister* (`O'Reilly, 1995`)
+* **POSIX Programmers Guide**. *Donald Lewine* (`O'Reilly, 1991`)
 
 ## Unix Network Programming
 
@@ -43,7 +49,20 @@
 * **The Design of the UNIX Operating System**. *Maurice J.Bach* (`Prentice Hall, 1986`)
 * **Lions' Commentary on Unix - A commentary on the Sixth Edition UNIX Operating System**. *John Lions* (`Peer-to-Peer Communications, 1977`)
 
-## c89 (a.k.a. c90) - iso9899:1990
+## The C Language Programming
+
+### c11 - iso9899:2011 (current)
+
+* **21st Century C - C Tips from the New School**. *Ben Klemens* (`O'Reilly, 2014, 2nd`)
+* **The CERT C Coding Standard - 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`Addison Wesley, 2014`)
+
+### c99 - iso9899:1999
+  
+* **Secure coding in C and C++**. *Robert C.Seacord* (`Addison Wesley, 2013, 2nd`)
+* **C Programming: A modern Approach**. *Kim N.King* (`W. W. Norton & Company, 2008, 2nd`)
+* **The Practice of Programming**. *Brian W.Kernighan*, *Rob Pike* (`Addison Wesley, 1999`)
+
+### c89 (a.k.a. c90) - iso9899:1990
   
 * **A book on C - Programming in C**. *Al Kelley*, *Ira Pohl* (`Addison Wesley, 1998, 4th`)
 * **Pointers on C**. *Kenneth Reek* (`Pearson, 1997`)
@@ -51,20 +70,3 @@
 * **Expert C Programming - Deep C Secrets**. *Peter Van Der Linden* (`Prentice Hall, 1994`)
 * **The Standard C Library**. *Phillip James Plauger* (`Prentice Hall, 1992`)
 * **The C Programming Language - ANSI C Version**. *Brian W.Kernighan* (`Prentice Hall, 1988, 2nd`)
-
-## c99 - iso9899:1999
-  
-* **Secure coding in C and C++**. *Robert C.Seacord* (`Addison Wesley, 2013, 2nd`)
-* **C Programming: A modern Approach**. *Kim N.King* (`W. W. Norton & Company, 2008, 2nd`)
-* **The Practice of Programming**. *Brian W.Kernighan*, *Rob Pike* (`Addison Wesley, 1999`)
-
-## c11 - iso9899:2011
-
-* **21st Century C - C Tips from the New School**. *Ben Klemens* (`O'Reilly, 2014, 2nd`)
-* **The CERT C Coding Standard - 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`Addison Wesley, 2014`)
-
-## POSIX
-
-* **Programming with POSIX Threads**. *David B.Butenhof* (`Addison Wesley, 1997`)
-* **POSIX.4 - Programmers Guide: Programming for the Real World**. *Bill Gallmeister* (`O'Reilly, 1995`)
-* **POSIX Programmers Guide**. *Donald Lewine* (`O'Reilly, 1991`)
