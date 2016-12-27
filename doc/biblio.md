@@ -1,5 +1,8 @@
 # UnixCentric Bibliography
 
+The list include all the books which have been useful for the writer, that
+any Unix Developer should read at least once in his or her life.
+
 ## Unix Systems Programming
   
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
