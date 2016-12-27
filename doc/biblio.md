@@ -57,6 +57,7 @@ any Unix Developer should read at least once in his or her life.
 ### c11 - iso9899:2011 (current)
 
 * **C in a Nutshell**. *Peter Prinz*, *Tony Crawford* (`O'Reilly, 2016, 2nd`)
+* **Programming in C**. *Stephen G.Kochan* (`Addison Wesley, 2015, 4th`)
 * **21st Century C - C Tips from the New School**. *Ben Klemens* (`O'Reilly, 2014, 2nd`)
 * **The CERT C Coding Standard - 98 Rules for Developing Safe, Reliable, and Secure Systems**. *Robert C.Seacord* (`Addison Wesley, 2014`)
 
