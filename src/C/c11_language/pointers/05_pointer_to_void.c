@@ -12,24 +12,27 @@ int main(void) {
     int *ptr = &n;
     int *p;
 
-    printf("   n: %p\n", (void *)&n);
-    printf(" ptr: %p\n", (void *)ptr);
+    printf("    n: %p\n", (void *)&n);
+    printf("  ptr: %p\n", (void *)ptr);
 
-    /* Al puntatore a void vptr si assegna il puntatore ad intero ptr */
+    // Al puntatore a void 'vptr' si assegna il puntatore ad intero 'ptr'
     void *vptr = ptr;
 
-    printf("vptr: %p\n", vptr);
+    // Al puntatore a void 'vnum' si assegna l'indirizzo della variabile 'n'
+    void *vnum = &n;
+
+    printf(" vptr: %p\n", vptr);
+    printf("*vnum: %d\n", *(int *)vnum);
+    printf(" vnum: %x\n", (unsigned int)vnum);
+    printf(" *ptr: %d\n", *(int *)vptr);
     
-    /* printf(" Valore di ptr: %d\n", *vptr);
-    
-    La dereferenziazione non e' consentita, in caso di compilazione ci sara'
-    un errore del compilatore, 'error: invalid use of void expression'.
-    */
+    /* La dereferenziazione non e' consentita, in caso di compilazione ci sara'
+    un errore del compilatore, 'error: invalid use of void expression'. */
 
     p = vptr;
 
-    printf("   p: %p\n", (void *)p);
-    printf("   p: %d\n", *p);
+    printf("    p: %p\n", (void *)p);
+    printf("    p: %d\n", *p);
 
     return(EXIT_SUCCESS);
 }
