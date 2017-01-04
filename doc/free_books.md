@@ -38,6 +38,7 @@
 
 ## <a name="headFB6"></a>UNIX Operating Systems; Design and Implementation
 
+* [Linux From Scratch](http://www.linuxfromscratch.org/lfs/downloads/stable/LFS-BOOK-7.10.pdf) `Version 7.10, 09/07/2016 - LFS Team`
 * [xv6 a simple Unix-like teaching operating systems](https://pdos.csail.mit.edu/6.828/2016/xv6/book-rev9.pdf) `Last updated 05/09/2016 - R.Cox, F.Kaashoek, R.Morris`
 * [The Design and Implementation of the ULIX (Literate Unix) Operating System](http://ulixos.org/doc/ulix-book-0.13.pdf)`Version 0.13, September 2015 - H-G Eber, F.C.Freiling`
 * [Reenix: Implementing a Unix-Like Operating System in Rust](https://scialex.github.io/reenix.pdf) `Part of Senior Thesis, April 2015 - A.Light`
