@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Nota "Vector of strings" e "array of pointers" sono sinonimi
+
 #define MAX_STR 10
 #define ARRAY_SIZE 8
 
