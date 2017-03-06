@@ -2,8 +2,7 @@
 
 ## src (Source Code)
 
-Learning the art of the C language programming and the Unix Systems Programming
-with a lot of source code.
+Learning the art of the C language programming and the Unix Systems Programming through the source code.
 
 ## doc (Documentation)
 
