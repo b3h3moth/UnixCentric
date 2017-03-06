@@ -27,7 +27,8 @@
 
 ## <a name="headFB9"></a>Secure Coding
 
-- [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) `2016 edition - SEI Cert`
+* [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) `2016 edition - SEI Cert`
+* [Secure Programming HOWTO; Creating Secure Software](https://www.dwheeler.com/secure-programs/Secure-Programs-HOWTO.pdf) `Version 3.72, 19/9/2015 - David A.Wheeler`
 
 ## <a name="headFB3"></a>Shared Libraries
 
