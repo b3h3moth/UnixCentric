@@ -2,6 +2,7 @@
 
 * [The C Language Programming](#headFB1)
 * [UNIX Systems Programming](#headFB2)
+* [Secure Coding](#headFB9)
 * [Shared Libraries](#headFB3)
 * [Concurrent Programming](#headFB4)
 * [UNIX Network Programming](#headFB5)
@@ -23,6 +24,10 @@
 * [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/ocamlunix.pdf) `Last updated 12/1/2014 - X.Leroy, D.Rémy`
 * [Advanced Linux Programming](http://advancedlinuxprogramming.com/alp-folder/advanced-linux-programming.pdf) `First edition June 2001 - M.Mitchell, J.Oldham, A.Samuel`
 * [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
+
+## <a name="headFB9"></a>Secure Coding
+
+- [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) `2016 edition - SEI Cert`
 
 ## <a name="headFB3"></a>Shared Libraries
 
