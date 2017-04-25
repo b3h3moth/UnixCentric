@@ -15,7 +15,8 @@
 
 ## <a name="headFB1"></a>The C Language Programming
 
-* [Build Your Own Lisp](https://github.com/orangeduck/BuildYourOwnLisp) `4/21/2017 - Mr Daniel Holden`
+* [Build Your Own Lisp](https://github.com/orangeduck/BuildYourOwnLisp) `Last updated 4/21/2017 - Mr Daniel Holden`
+* [Build Your Own Text Editor](http://viewsourcecode.org/snaptoken/kilo/index.html) `Last updated 4/20/2017 - Snaptoken`
 * [Modern C](http://icube-icps.unistra.fr/index.php/File:ModernC.pdf) `Last updated 11/25/2016 - Jens Gustedt`
 * [Extending C with bounds safety](https://github.com/Microsoft/checkedc/releases/download/v0.5-final/checkedc-v0.5.pdf) `Version 0.5, 06/14/2016 - David Tarditi`
 
