@@ -31,8 +31,7 @@ int main(void) {
     exit(EXIT_SUCCESS);
 }
 
-static void pr_sysconf(char *msg, int name)
-{
+static void pr_sysconf(char *msg, int name) {
     long val;
     fputs (msg, stdout);
     errno = 0;
