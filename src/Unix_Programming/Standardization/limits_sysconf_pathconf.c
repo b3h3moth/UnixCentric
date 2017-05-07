@@ -7,13 +7,16 @@
 static void pr_sysconf(char *mesg, int name);
 static void pr_pathconf(char *mesg, char *path, int name);
 
+/* Lo scopo del programma e' di fornire diverse informazioni circa il sistema
+e in path in uso */
+
 int main (int argc, char *argv[]) {
-    
+
     if (argc != 2) {
-    	printf ("Uso: %s <dirname>", argv[0]);
-	exit(EXIT_FAILURE);
+    	printf ("Usage: %s <dirname>", argv[0]);
+	    exit(EXIT_FAILURE);
     }
-    
+
     pr_sysconf("ARG_MAX                   =", _SC_ARG_MAX);
     pr_sysconf("CHILD_MAX                 =", _SC_CHILD_MAX);
     pr_sysconf("clock ticks/second        =", _SC_CLK_TCK);
@@ -45,7 +48,7 @@ static void pr_sysconf (char *mesg, int name)
     long val;
     fputs (mesg, stdout);
     errno = 0;
-    
+
     if ((val = sysconf (name)) < 0) {
     	if (errno != 0) {
 	    perror ("sysconf error");
@@ -61,7 +64,7 @@ static void pr_pathconf (char *mesg, char *path, int name)
     long val;
     fputs (mesg, stdout);
     errno = 0;
-    
+
     if ((val = pathconf (path, name)) < 0) {
     	if (errno != 0) {
 	    perror ("pathconf error");
