@@ -4,8 +4,8 @@
 #include <limits.h>
 #include <unistd.h>
 
-static void pr_sysconf(char *mesg, int name);
-static void pr_pathconf(char *mesg, char *path, int name);
+static void pr_sysconf(char *msg, int name);
+static void pr_pathconf(char *msg, char *path, int name);
 
 /* Lo scopo del programma e' di fornire diverse informazioni circa il sistema
 e in path in uso */
@@ -40,37 +40,40 @@ int main (int argc, char *argv[]) {
     pr_pathconf("PIPE_BUF                  =", argv[1], _PC_PIPE_BUF);
     pr_pathconf("_POSIX_NO_TRUNC           =", argv[1], _PC_NO_TRUNC);
     pr_pathconf("_POSIX_CHOWN_RESTRICTED   =", argv[1], _PC_CHOWN_RESTRICTED);
+
     exit(EXIT_SUCCESS);
 }
 
-static void pr_sysconf (char *mesg, int name)
+static void pr_sysconf(char *msg, int name)
 {
     long val;
-    fputs (mesg, stdout);
+    fputs (msg, stdout);
     errno = 0;
 
     if ((val = sysconf (name)) < 0) {
     	if (errno != 0) {
-	    perror ("sysconf error");
-	    exit(EXIT_FAILURE);
-	}
-	fputs (" (not defined)\n", stdout);
+	        perror ("sysconf error");
+	        exit(EXIT_FAILURE);
+	    }
+
+        fputs (" (not defined)\n", stdout);
     } else
     	printf (" %ld\n", val);
 }
 
-static void pr_pathconf (char *mesg, char *path, int name)
+static void pr_pathconf(char *msg, char *path, int name)
 {
     long val;
-    fputs (mesg, stdout);
+    fputs (msg, stdout);
     errno = 0;
 
     if ((val = pathconf (path, name)) < 0) {
     	if (errno != 0) {
-	    perror ("pathconf error");
-	    exit(EXIT_FAILURE);
+	        perror ("pathconf error");
+	        exit(EXIT_FAILURE);
 	}
-	fputs (" (no limit)\n", stdout);
+
+        fputs (" (no limit)\n", stdout);
     } else
     	printf (" %ld\n", val);
 }
