@@ -7,8 +7,10 @@
 static void pr_sysconf(char *msg, int name);
 static void pr_pathconf(char *msg, char *path, int name);
 
-/* Lo scopo del programma e' di fornire diverse informazioni circa il sistema
-e in path in uso */
+/* Lo scopo del programma e' di fornire diverse informazioni circa le
+"limitazioni" del sistema in uso. Da notare le costanti passate alle funzioni,
+quelle che iniziano con _SC sono processate da sysconf(), invece quelle che
+iniziano con _PC sono passate a pathconf() o fpathconf().*/
 
 int main (int argc, char *argv[]) {
 
