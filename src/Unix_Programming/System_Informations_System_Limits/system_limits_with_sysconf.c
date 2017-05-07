@@ -18,6 +18,7 @@ int main(void) {
 
     pr_sysconf("NGROUPS_MAX               =", _SC_NGROUPS_MAX);
     pr_sysconf("OPEN_MAX                  =", _SC_OPEN_MAX);
+    pr_sysconf("LOGIN_NAME_MAX            =", _SC_LOGIN_NAME_MAX);
 #ifdef	_SC_STREAM_MAX
     pr_sysconf("STREAM_MAX                =", _SC_STREAM_MAX);
 #endif
