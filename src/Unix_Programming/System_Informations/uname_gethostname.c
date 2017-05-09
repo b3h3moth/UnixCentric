@@ -19,14 +19,18 @@ sul sistema (kernel) in uso:
 
 struct utsname
 {
-	char sysname[_UTSNAME_SYSNAME_LENGTH];
-	char nodename[_UTSNAME_NODENAME_LENGTH];
-	char release[_UTSNAME_RELEASE_LENGTH];
-	char version[_UTSNAME_VERSION_LENGTH];
-	char machine[_UTSNAME_MACHINE_LENGTH];
+	char sysname[];
+	char nodename[];
+	char release[];
+	char version[];
+	char machine[];
+
+#ifdef _GNU_SOURCE
+    char domainname[];
+#endif
 };
 
-HEADER    : <sys/utsname.h>
+HEADER    : <sys/utsname.h> || <linux/utsname.h>
 PROTOTYPE : int uname(struct utsname *name);
 SEMANTICS : La funzione uname() ottiene informazioni sul sistema in uso mediante
             il puntatore alla struttura utsname 'name';
@@ -60,6 +64,10 @@ int main(int argc, char *argv[]) {
     printf(" release: %s\n", my_kernel.release);
     printf(" version: %s\n", my_kernel.version);
     printf(" machine: %s\n", my_kernel.machine);
+
+#ifdef _GNU_SOURCE
+    printf("  domain: %s\n", my_kernel.domainname);
+#endif
 
     return(EXIT_SUCCESS);
 }
