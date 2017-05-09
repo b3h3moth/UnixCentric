@@ -54,8 +54,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("    host: %s\n", my_host);
-    printf(" sysname: %s/%s\n", my_kernel.sysname, my_kernel.machine);
+    printf("    host: %s (gethostname)\n", my_host);
+    printf(" sysname: %s\n", my_kernel.sysname);
     printf("nodename: %s\n", my_kernel.nodename);
     printf(" release: %s\n", my_kernel.release);
     printf(" version: %s\n", my_kernel.version);
