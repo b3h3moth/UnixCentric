@@ -26,7 +26,7 @@ struct utsname
 	char machine[];
 
 #ifdef _GNU_SOURCE
-    char domainname[];
+    char domainname[]; // Specifico di Linux
 #endif
 };
 
@@ -44,7 +44,7 @@ RETURNS   : 0 In caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
 */
 
-int main(int argc, char *argv[]) {
+int main(void) {
     char my_host[MAX_BUF];
     struct utsname my_kernel;
 
