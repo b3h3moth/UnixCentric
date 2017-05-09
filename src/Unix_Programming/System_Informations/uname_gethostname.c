@@ -8,13 +8,13 @@
 #define MAX_BUF 64
 
 /*
-I sistemi UNIX comprendono diverse funzioni il cui scopo e' di fornire le piu' 
+I sistemi UNIX comprendono diverse funzioni il cui scopo e' di fornire le piu'
 disparate informazioni circa la natura del sistema stesso, tra queste uname() e
 gethostname() sono, anche dal punto di vista storico, molto importanti.
 
 La funzione gethostname() e' concettualmente molto semplice da usare, fornisce
-il nome host della macchina; la funzione uname() invece sfrutta la struttura 
-'utsname' definita in <sys/utsname>, consente di ottenere talune informazioni 
+il nome host della macchina; la funzione uname() invece sfrutta la struttura
+'utsname' definita in <sys/utsname>, consente di ottenere talune informazioni
 sul sistema (kernel) in uso:
 
 struct utsname
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Err.(%s) getting hostname\n", strerror(errno));
         exit(EXIT_FAILURE);
     }
-    
+
     if (uname(&my_kernel) < 0) {
         fprintf(stderr, "Err.(%s) getting kernel info\n", strerror(errno));
         exit(EXIT_FAILURE);
@@ -59,6 +59,7 @@ int main(int argc, char *argv[]) {
     printf("nodename: %s\n", my_kernel.nodename);
     printf(" release: %s\n", my_kernel.release);
     printf(" version: %s\n", my_kernel.version);
+    printf(" machine: %s\n", my_kernel.machine);
 
     return(EXIT_SUCCESS);
 }
