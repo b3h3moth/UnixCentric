@@ -4,7 +4,7 @@ Everything is focused on Unix and Unix-like systems.
 
 ## src (Source Code)
 
-Learning the art of the C language programming and the Unix Systems Programming through the source code.
+Learning the art of the C language programming and the Unix Systems Programming.
 
 ## doc (Documentation)
 
