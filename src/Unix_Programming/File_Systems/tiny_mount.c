@@ -47,5 +47,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    if (argc != optind + 2)
+        usage(argv[0], "Err. fix argument number\n");
+
+    if (mount(argv[optind + 1], fs_type, flags, data) == -1) {
+        fprintf(stderr, "Err.: mount() %d - \n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
     return(EXIT_SUCCESS);
 }
