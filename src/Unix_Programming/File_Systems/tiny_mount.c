@@ -3,6 +3,9 @@
 #include <errno.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/mount.h>
+#include <sys/types.h>
+#include <limits.h>
 
 static void usage(const char *prg_name, const char *msg) {
 }
@@ -27,7 +30,7 @@ int main(int argc, char *argv[]) {
             case 'f':
                 for (i = 0; i < strlen(optarg); i++) {
                     switch (optarg[i]) {
-                        case 'b': flags |= MS_BIND; break;
+                        case 'b': flags |= MNT_RDONLY; break;
                         default: usage(argv[0], NULL);
                     }
                 }
