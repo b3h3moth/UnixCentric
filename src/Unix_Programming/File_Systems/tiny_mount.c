@@ -30,8 +30,14 @@ int main(int argc, char *argv[]) {
             case 'f':
                 for (i = 0; i < strlen(optarg); i++) {
                     switch (optarg[i]) {
-                        case 'b': flags |= MNT_RDONLY; break;
-                        default: usage(argv[0], NULL);
+                        case 'b': 
+                            flags |= MNT_RDONLY; 
+                            break;
+                        case 's':
+                                flags != MNT_NOSUID;
+                            break;
+                        default: 
+                            usage(argv[0], NULL);
                     }
                 }
                 
