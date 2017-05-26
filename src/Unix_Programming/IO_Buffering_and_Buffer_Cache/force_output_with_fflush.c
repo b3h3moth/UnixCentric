@@ -25,5 +25,17 @@ int main(void) {
     fflush(stdout);
     write(1, "Bob Marley.\n", 12);
 
+    fputc('\n', stdout);
+
+    /* Da notare ulteriormente che i file associati al terminale, ovvero
+    stdin 0 e stdout 1, sono line-buffered piuttosto che fully-buffered, per
+    cui l'output non sara' scritto fintanto che o il buffer non sia pieno o che
+    si incontri una newline.
+
+    Da notare che l'altro file associato al terminale, stderr 2, e'
+    not-buffered. */
+    printf("Back in black: \n"); // Con la newlline finale
+    write(1, "AC/DC.\n", 7);
+
     return(EXIT_SUCCESS);
 }
