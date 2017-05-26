@@ -3,7 +3,9 @@
 #include <unistd.h>
 
 /* Lo scopo del programma e' di forzare la scrittura dell'output mediante
-l'utilizzo della funzione fflush(). */
+l'utilizzo della funzione fflush() e di verificare il line-buffering mediante
+la semplice aggiunta di una newline per consentire la scrittura su terminale.
+*/
 
 int main(void) {
 
