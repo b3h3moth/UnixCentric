@@ -8,6 +8,7 @@
 #include <limits.h>
 
 static void usage(const char *prg_name, const char *msg) {
+    fprintf(stderr, "usage\n");
 }
 
 int main(int argc, char *argv[]) {
