@@ -6,6 +6,7 @@
 #include <sys/mount.h>
 #include <sys/types.h>
 #include <limits.h>
+#include <getopt.h>
 
 static void usage(const char *prg_name, const char *msg) {
     fprintf(stderr, "usage\n");
@@ -31,19 +32,23 @@ int main(int argc, char *argv[]) {
             case 'f':
                 for (i = 0; i < strlen(optarg); i++) {
                     switch (optarg[i]) {
-                        case 'b': 
-                            flags |= MNT_RDONLY; 
+                        case 'b':
+#if defined(__OPENBSD__)
+                            flags |= MNT_RDONLY;
+#elif (__linux__)
+                            flags |= MS_RDONLY;
+#endif
                             break;
                         case 's':
-                                flags != MNT_NOSUID;
+                                flags != MS_NOSUID;
                             break;
-                        default: 
+                        default:
                             usage(argv[0], NULL);
                     }
                 }
-                
+
                 break;
-            
+
             default: usage(argv[0], NULL);
         }
     }
@@ -51,7 +56,7 @@ int main(int argc, char *argv[]) {
     if (argc != optind + 2)
         usage(argv[0], "Err. fix argument number\n");
 
-    if (mount(argv[optind + 1], fs_type, flags, data) == -1) {
+    if (mount(argv[optind], argv[optind + 1], fs_type, flags, data) == -1) {
         fprintf(stderr, "Err.: mount() %d - \n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
