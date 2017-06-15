@@ -41,6 +41,10 @@ int main(int argc, char *argv[]) {
     printf("%31s: %lu\n", "number of i-nodes available", device.f_favail);
     printf("%31s: %lu\n", "File System ID", device.f_fsid);
     printf("%31s: %lu\n", "Maximum length of filenames", device.f_namemax);
+    printf("%31s: %s\n", "flags (Read only)",
+            (device.f_flag & ST_RDONLY) == ST_RDONLY ? "yes" : "no");
+    printf("%31s: %s\n", "flags (No Suid)",
+            (device.f_flag & ST_NOSUID) == ST_NOSUID ? "yes" : "no");
 
     free(pathname);
 
