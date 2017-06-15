@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string.h>
+#include <errno.h>
 #include <sys/statvfs.h>
 
 /* Lo scopo del programma e' di ottenere informazioni su un file system montato.
@@ -9,6 +11,8 @@ Il device relativo al file siystem viene fornito in input. */
 int main(int argc, char *argv[]) {
     char *pathname = NULL;
     size_t len = 0;
+    int my_err = 0;
+    errno = 0;
     struct statvfs *device = NULL;
 
     if (argc != 2) {
@@ -20,6 +24,13 @@ int main(int argc, char *argv[]) {
     pathname = malloc(len * sizeof(char));
     strncpy(pathname, argv[1], len);
 
+    if (statvfs(pathname, device) == -1) {
+        my_err = errno;
+        fprintf(stdout, "Err.: statvfs() %d (%s)\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    free(pathname);
 
     return(EXIT_SUCCESS);
 }
