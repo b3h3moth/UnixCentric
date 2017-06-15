@@ -30,8 +30,9 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("%13s: %s\n", "file system", pathname);
-    printf("%13s: %lu\n", "fs block size", device.f_bsize);
+    printf("%25s: %s\n", "file system", pathname);
+    printf("%25s: %lu (byte)\n", "fs block size", device.f_bsize);
+    printf("%25s: %lu (byte)\n", "fundamental fs block size", device.f_frsize);
 
     free(pathname);
 
