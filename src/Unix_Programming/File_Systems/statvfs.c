@@ -30,10 +30,15 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    printf("%25s: %s\n", "file system", pathname);
-    printf("%25s: %lu (byte)\n", "fs block size", device.f_bsize);
-    printf("%25s: %lu (byte)\n", "fundamental fs block size", device.f_frsize);
-    printf("%25s: %lu (blocks)\n", "total number of blocks", device.f_blocks);
+    printf("%31s: %s\n", "file system", pathname);
+    printf("%31s: %lu (byte)\n", "fs block size", device.f_bsize);
+    printf("%31s: %lu (byte)\n", "fundamental fs block size", device.f_frsize);
+    printf("%31s: %lu\n", "total number of blocks", device.f_blocks);
+    printf("%31s: %lu\n", "total number of free blocks", device.f_bfree);
+    printf("%31s: %lu\n", "number of free blocks available", device.f_bavail);
+    printf("%31s: %lu\n", "total number of i-nodes", device.f_files);
+    printf("%31s: %lu\n", "total number of free i-nodes", device.f_ffree);
+    printf("%31s: %lu\n", "number of i-nodes available", device.f_favail);
 
     free(pathname);
 
