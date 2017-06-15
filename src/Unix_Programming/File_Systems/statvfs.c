@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     size_t len = 0;
     int my_err = 0;
     errno = 0;
-    struct statvfs *device = NULL;
+    struct statvfs device;
 
     if (argc != 2) {
         fprintf(stdout, "Usage: %s 'pathname'\n", argv[0]);
@@ -24,9 +24,9 @@ int main(int argc, char *argv[]) {
     pathname = malloc(len * sizeof(char));
     strncpy(pathname, argv[1], len);
 
-    if (statvfs(pathname, device) == -1) {
+    if (statvfs(pathname, &device) == -1) {
         my_err = errno;
-        fprintf(stdout, "Err.: statvfs() %d (%s)\n", errno, strerror(errno));
+        fprintf(stdout, "Err.: statvfs() %d (%s)\n", my_err, strerror(errno));
         exit(EXIT_FAILURE);
     }
 
