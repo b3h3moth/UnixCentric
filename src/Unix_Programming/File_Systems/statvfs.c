@@ -39,6 +39,8 @@ int main(int argc, char *argv[]) {
     printf("%31s: %lu\n", "total number of i-nodes", device.f_files);
     printf("%31s: %lu\n", "total number of free i-nodes", device.f_ffree);
     printf("%31s: %lu\n", "number of i-nodes available", device.f_favail);
+    printf("%31s: %lu\n", "File System ID", device.f_fsid);
+    printf("%31s: %lu\n", "Maximum length of filenames", device.f_namemax);
 
     free(pathname);
 
