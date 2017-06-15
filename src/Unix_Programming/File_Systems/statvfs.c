@@ -33,6 +33,7 @@ int main(int argc, char *argv[]) {
     printf("%25s: %s\n", "file system", pathname);
     printf("%25s: %lu (byte)\n", "fs block size", device.f_bsize);
     printf("%25s: %lu (byte)\n", "fundamental fs block size", device.f_frsize);
+    printf("%25s: %lu (blocks)\n", "total number of blocks", device.f_blocks);
 
     free(pathname);
 
