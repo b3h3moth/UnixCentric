@@ -26,9 +26,11 @@ int main(int argc, char *argv[]) {
 
     if (statvfs(pathname, &device) == -1) {
         my_err = errno;
-        fprintf(stdout, "Err.: statvfs() %d (%s)\n", my_err, strerror(errno));
+        fprintf(stdout, "Err.%d statvfs(); %s\n", my_err, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    printf("%s: %s\n", "file system", pathname);
 
     free(pathname);
 
