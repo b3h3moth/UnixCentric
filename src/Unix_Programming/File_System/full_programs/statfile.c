@@ -5,7 +5,6 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <sys/sysmacros.h>
 #include <sys/types.h>
 
 #define TIME_STRING_BUF 50
@@ -52,9 +51,9 @@ int fileStats(const char * file) {
     printf("Filename : %s\n", file);
     printf("On device: major %d/minor %d    Inode number: %ld\n",
             major(statbuf.st_dev), minor(statbuf.st_dev),
-            statbuf.st_ino);
+            (long int)statbuf.st_ino);
     printf("Size     : %-10ld         Type: %07o       "
-            "Permissions: %05o\n", statbuf.st_size,
+            "Permissions: %05o\n", (long int)statbuf.st_size,
             statbuf.st_mode & S_IFMT, statbuf.st_mode & ~(S_IFMT));
     printf("Owner    : %d                Group: %d"
             "          Number of links: %d\n",
