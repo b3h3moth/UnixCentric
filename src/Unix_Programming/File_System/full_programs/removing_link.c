@@ -22,10 +22,8 @@ int main(int argc, char *argv[]) {
     char buf[BUF_SZ];   /* Byte da scrivere nel file */
 
     if (argc < 2) {
-        if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
-            fprintf(stderr, "Usage: %s <tmpfile> [num 1kb blocks]\n", argv[0]);
-            exit(EXIT_FAILURE);
-        }
+        fprintf(stderr, "Usage: %s <tmpfile> [num 1kb blocks]\n", argv[0]);
+        exit(EXIT_FAILURE);
     }
 
     n_blks = strtol(argv[2], NULL, 10);
@@ -36,7 +34,10 @@ int main(int argc, char *argv[]) {
     }
 
     /* Rimozione del file creato */
-
+    if (unlink(argv[1]) == -1) {
+        fprintf(stderr, "Err. %d, unlink() %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
 
     exit(EXIT_SUCCESS);
 }
