@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     collegamenti verso il pathname di origine; il campo della struttura stat a
     cui si fa riferimento e' st_nlink.
    */
-   printf("          tot. link count: '%s' = %d\n", argv[1], statbuf_old.st_nlink);
+   printf("     link count: '%s' = %d\n", argv[1], statbuf_old.st_nlink);
 
    /*
     Elimina la nuova voce di directory appena creata 'argv[2]'; da notare che 
@@ -81,6 +81,8 @@ int main(int argc, char *argv[]) {
       fprintf(stderr, "Err.: %d unlink(); %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
+
+   printf("hard link '%s' removed ", argv[2]);
 
    return(EXIT_SUCCESS);
 }
