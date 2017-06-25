@@ -10,14 +10,20 @@
 
 enum {CMD_SZ=200, BUF_SZ=1024};
 
+/* Lo scopo del programma e' di verificare quando avviene effettivamente la
+rimozione di un file, nel caso specifico il file descriptor di un file appena 
+creato resta attivo pur avendo rimosso il file stesso mediante una chiamata
+ad unlink(). Il file sara' rimosso solo quando tutti i file descriptor
+attivi saranno cessati, ossia alla conclusione del processo. */
+
 int main(int argc, char *argv[]) {
     int fd, n_blks;
     char cmd[CMD_SZ];   /* Comando da eseguire via shell */
-    char buf[BUF_SZ];   /* Random byte da scrivere nel file */
+    char buf[BUF_SZ];   /* Byte da scrivere nel file */
 
     if (argc < 2) {
         if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0) {
-            fprintf(stderr, "Usage: %s tmpfile [num 1kb blocks]\n", argv[0]);
+            fprintf(stderr, "Usage: %s <tmpfile> [num 1kb blocks]\n", argv[0]);
             exit(EXIT_FAILURE);
         }
     }
@@ -29,6 +35,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
+    /* Rimozione del file creato */
 
 
     exit(EXIT_SUCCESS);
