@@ -37,18 +37,18 @@ int main(int argc, char *argv[]) {
    struct stat statbuf_old, statbuf_new;
    
    if (argc < 2) {
-      fprintf(stderr, "Uso: %s <pathname esistentae> <nuovo pathname>\n", argv[0]);
+      fprintf(stderr, "Uso: %s <pathname> <new pathname>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
    /* Crea il link argv[2] verso argv[1] */
    if (link(argv[1], argv[2]) < 0) {
-      fprintf(stderr, "Err.(%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.: %d link(); %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
   
    if (stat(argv[1], &statbuf_old) < 0) {
-      fprintf(stderr, "Err. (%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.: %d stat(); %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
 
@@ -58,12 +58,12 @@ int main(int argc, char *argv[]) {
     inode del pathname dal quale e' stato creato.
    */
    if (stat(argv[2], &statbuf_new) < 0) {
-      fprintf(stderr, "Err. (%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.: %d stat(); %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
     
-   printf("          i-node del link: %d '%s'\n", (int)statbuf_new.st_ino, argv[2]);
-   printf("i-node pathname esistente: %d '%s'\n", (int)statbuf_new.st_ino, argv[1]);
+   printf("    i-node link: %d '%s'\n", (int)statbuf_new.st_ino, argv[2]);
+   printf("i-node pathname: %d '%s'\n", (int)statbuf_new.st_ino, argv[1]);
 
    /*
     Si stampa il valore del link count, per verificare il numero di
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
     si riferiva, nel caso specifico argv[1].
    */
    if (unlink(argv[2]) < 0) {
-      fprintf(stderr, "Err. (%d) - %s\n", errno, strerror(errno));
+      fprintf(stderr, "Err.: %d unlink(); %s\n", errno, strerror(errno));
       exit(EXIT_FAILURE);
    }
 
