@@ -15,7 +15,12 @@ enum {CMD_SZ=200, BUF_SZ=1024};
 rimozione di un file, nel caso specifico il file descriptor di un file appena 
 creato resta attivo pur avendo rimosso il file stesso mediante una chiamata
 ad unlink(). Il file sara' rimosso solo quando tutti i file descriptor
-attivi saranno cessati, ossia alla conclusione del processo. */
+attivi saranno cessati, ossia alla conclusione del processo. 
+
+Nota: Su sisemi con Kernel Linux il programma funziona come da intro. Nei 
+sistemi BSD, in particolare OpenBSD, non fornisce tale comportamento, cosi 
+come in altri UNIX. Da ricordare peraltro che unlink() non e' una funzione 
+portabile. */
 
 int main(int argc, char *argv[]) {
     int i, fd, n_blks;
@@ -48,7 +53,17 @@ int main(int argc, char *argv[]) {
         }
     
     /* Creazione del comando da eseguire */
-    snprintf(cmd,
+    snprintf(cmd, CMD_SZ, "stat %s", argv[1]);
+    system(cmd);
+
+    /* Chiusura del file  descriptor e di conseguenza rimozione del file */
+    close(fd);
+
+    puts("File descriptor closed");
+
+    /* Si esegue nuovamente uno stat del file per verificare 
+    se e' stato eliminato definitivamente */
+    system(cmd);
 
     exit(EXIT_SUCCESS);
 }
