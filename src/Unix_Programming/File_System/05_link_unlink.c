@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
    struct stat statbuf_old, statbuf_new;
    
    if (argc < 2) {
-      fprintf(stderr, "Uso: %s <pathname> <new pathname>\n", argv[0]);
+      fprintf(stderr, "Usage: %s <pathname> <new pathname>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
