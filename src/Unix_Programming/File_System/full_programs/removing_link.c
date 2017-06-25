@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/stat.h>
 
 #define MODES (O_WRONLY | O_CREAT | O_EXCL)
@@ -17,7 +18,7 @@ ad unlink(). Il file sara' rimosso solo quando tutti i file descriptor
 attivi saranno cessati, ossia alla conclusione del processo. */
 
 int main(int argc, char *argv[]) {
-    int fd, n_blks;
+    int i, fd, n_blks;
     char cmd[CMD_SZ];   /* Comando da eseguire via shell */
     char buf[BUF_SZ];   /* Byte da scrivere nel file */
 
@@ -33,11 +34,21 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Rimozione del file creato */
+    /* Rimozione del file creato, che tuttavia continua ad esistere */
     if (unlink(argv[1]) == -1) {
         fprintf(stderr, "Err. %d, unlink() %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
     }
+
+    /* Si riempie il file con 'n_blks' di dati */
+    for (i=0; i<n_blks; i++)
+        if (write(fd, buf, BUF_SZ) != BUF_SZ) {
+            fprintf(stderr, "Err. %d, write() %s\n", errno, strerror(errno));
+            exit(EXIT_FAILURE);
+        }
+    
+    /* Creazione del comando da eseguire */
+    snprintf(cmd,
 
     exit(EXIT_SUCCESS);
 }
