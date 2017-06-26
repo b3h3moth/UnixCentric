@@ -10,19 +10,20 @@
 #define PERMS (S_IRWXU | S_IRGRP | S_IROTH)
 
 /*
-HEADER    : <unistd.h>
+int symlink(const char *actualpath, const char symlinkpath); 
+ssize_t readlink(const char* restrict pathname, char *restrict buf, 
+                 size_t bufsize);
 
-PROTOTYPE : int symlink(const char *actualpath, const char symlinkpath); 
-            ssize_t readlink(const char* restrict pathname, char *restrict buf,
-	                     size_t bufsize);
+symlink() crea una nuova voce di directory 'symlinkpath', che punta ad 
+'actualpath'. readlink() consente la lettura del symbolic link 'pathname' nel 
+buffer 'buf' di dimensione 'bufsize'.
 
-SEMANTICS : symlink() crea una nuova voce di directory 'symlinkpath', essa punta
-            ad 'actualpath'; readlink() consente la lettura del symbolic link
-	        'pathname' nel buffer 'buf' di dimensione 'bufsize'.
+symlink() ritorna 0 In caso di successo, -1 in caso di errore. readlink() 
+invece ritorna il numero dei byte letti in caso di successo, 0 in caso di 
+errore.
 
-RETURNS   : symlink()  - 0 In caso di successo, -1 in caso di errore
-            readlink() - il numero dei byte letti in caso di successo, 0 in caso
-	        di errore.
+Lo scopo del programma e' di creare un symlink di un file ricevuto in input,
+infine stampa alcune informazioni in merito.
 */
 
 int main(int argc, char *argv[]) {
