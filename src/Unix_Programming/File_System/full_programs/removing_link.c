@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Rimozione del file creato, che tuttavia continua ad esistere */
+    /* Rimozione del file creato, che tuttavia continua ad esistere  */
     if (unlink(argv[1]) == -1) {
         fprintf(stderr, "Err. %d, unlink() %s\n", errno, strerror(errno));
         exit(EXIT_FAILURE);
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
         }
     
     /* Creazione del comando da eseguire */
-    snprintf(cmd, CMD_SZ, "stat %s", argv[1]);
+    snprintf(cmd, CMD_SZ, "df -P %s", argv[1]);
     system(cmd);
 
     /* Chiusura del file  descriptor e di conseguenza rimozione del file */
