@@ -48,6 +48,10 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
+   /* Prima si ottiene la lunghezza del buffer, dopodiche' viene aggiunto un
+   null-terminated character al buffer appena creato mediante readlink(), 
+   poiche' tale funzione non lo supporta per cui si deve aggiungere
+   manualmente */
    buf_len = readlink(argv[2], buf, BUF_SIZE - 1);
    if (buf_len == -1) {
       fprintf(stderr, "Err.:(%d) - Read symbolic-link: %s\n", errno, 
