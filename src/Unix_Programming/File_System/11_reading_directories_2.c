@@ -41,7 +41,7 @@ void filesize(char *name)
    if ((stbuf.st_mode & S_IFMT) == S_IFDIR)
       dirwalk(name, filesize);
 
-   printf("%8ld %s\n", stbuf.st_size, name);
+   printf("%8ld %s\n", (long int)stbuf.st_size, name);
 }
 
 void dirwalk(char *dir, void (*fsize)(char *name))
@@ -62,7 +62,7 @@ void dirwalk(char *dir, void (*fsize)(char *name))
       	 fprintf(stderr, "nome %s/%s troppo lungo\n", dir, dp->d_name);
       else {
       	 sprintf(name, "%s/%s", dir, dp->d_name);
-	 (*fsize)(name);
+         (*fsize)(name);
       }
    }
 
