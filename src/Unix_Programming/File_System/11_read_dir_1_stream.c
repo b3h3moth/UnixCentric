@@ -49,12 +49,13 @@ elementi appena citati, si possono scrivere applicazioni portabili:
 struct dirent
 {
     __ino_t             d_ino;		// i-node number
-    __off_t             d_off;
-    unsigned short int  d_reclen;
-    unsigned char       d_type;
     char            d_name[256];	// filename null-terminated '\0'
+    __off_t             d_off;      // Non Standard
+    unsigned short int  d_reclen;   // Non Standard
+    unsigned char       d_type;     // Non Standard
 };
 
+L'utilizzo dei campi Non standard rendera' il programma non portabile
 */
 
 int main(int argc, char *argv[]) {
