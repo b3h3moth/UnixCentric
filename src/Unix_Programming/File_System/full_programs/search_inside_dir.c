@@ -4,7 +4,12 @@
 #include <fcntl.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <string.h>
+#include <errno.h>
 #include <sys/stat.h>
+
+/* Lo scopo del programma e' di cercare, all'interno della directory ottenuta
+in input, ciascun file maggiore di 1MB. */
 
 int  main(int argc, char *argv[]) {
 	int             dir_fd, fd;
@@ -13,7 +18,7 @@ int  main(int argc, char *argv[]) {
 	struct dirent   *dirp;
 
     if (argc != 2) {
-        fprint(stderr, "Usage: %s <dirname>\n", argv[1]);
+        fprintf(stderr, "Usage: %s <dirname>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
@@ -34,18 +39,18 @@ int  main(int argc, char *argv[]) {
 
         /* Si utilizza la funzione openat() per determinare il file nella
         ddirectory corrente */
-		if ((ffd = openat(dfd, dp->d_name, O_RDONLY)) == -1) {
-			perror(dp->d_name);
+		if ((fd = openat(dir_fd, dirp->d_name, O_RDONLY)) == -1) {
+            fprintf(stderr, "Err.:%d openat(); %s", errno, strerror(errno));
 			continue;
 		}
-		if (fstat(ffd, &statbuf) == 0 && statbuf.st_size > (1024 * 1024)) {
-			/* found it ... */
-			printf("%s: %jdK\n", dp->d_name,
+		if (fstat(fd, &statbuf) == 0 && statbuf.st_size > (1024 * 1024)) {
+			/* elemento trovato */
+			printf("%s: %jdK\n", dirp->d_name,
 			       (intmax_t) (statbuf.st_size / 1024));
 		}
-		close(ffd);
+		close(fd);
 	}
-	closedir(d);
-	//note this implicitly closes dfd
-		return 0;
+	closedir(dir);
+    
+    return(EXIT_SUCCESS);
 }
