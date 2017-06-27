@@ -48,11 +48,11 @@ elementi appena citati, si possono scrivere applicazioni portabili:
 
 struct dirent
 {
-    __ino_t		d_ino;		// inode number
-    __off_t		d_off;
-    unsigned short int	d_reclen;
-    unsigned char	d_type;
-    char 		d_name[256];	// filename null-terminated '\0'
+    __ino_t             d_ino;		// i-node number
+    __off_t             d_off;
+    unsigned short int  d_reclen;
+    unsigned char       d_type;
+    char            d_name[256];	// filename null-terminated '\0'
 };
 
 */
@@ -66,13 +66,15 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
    }
 
+   /* opendir() apre la directory specificata dal parametro, dopodiche' 
+   rilascia un puntatore alla struttura 'DIR' */
    if ((dfd = opendir(argv[1])) == NULL) {
       fprintf(stderr, "Err.:(%d) - %s: %s\n", errno, strerror(errno), argv[1]);
       exit(EXIT_SUCCESS);
    }
 
    /*
-    Si legge il contenuto della directory fornita come argomento, eliminando
+    Lettura del contenuto della directory fornita come argomento, eliminando
     dalla stampa "." e ".."
    */
    while ((dp = readdir(dfd)) != NULL) {
