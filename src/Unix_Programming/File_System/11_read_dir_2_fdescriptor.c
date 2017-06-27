@@ -6,6 +6,11 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
+/* Lo scopo del programma e' di leggere il contenuto di una directory mediante
+l'utilizzo della fdopendir(), del tutto simile alla opendir(), ad eccezione del
+fatto che lavora sul file descriptor, piuttosto che sullo stream come la 
+opendir() stessa. */
+
 int main(int argc, char *argv[]) {
    int dfd;
    DIR *dir;
@@ -33,9 +38,8 @@ int main(int argc, char *argv[]) {
       	 printf("%s\n", dp->d_name);
    }
    
-
    while ((closedir(dir) == -1) & (errno == EINTR))
       ;
 
-   exit(EXIT_SUCCESS);
+   return(EXIT_SUCCESS);
 }
