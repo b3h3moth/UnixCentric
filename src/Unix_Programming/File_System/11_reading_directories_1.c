@@ -67,7 +67,8 @@ int main(int argc, char *argv[]) {
    }
 
    /* opendir() apre la directory specificata dal parametro, dopodiche' 
-   rilascia un puntatore alla struttura 'DIR' */
+   rilascia un puntatore alla struttura 'DIR', nello specifico la prima voce
+   della directory */
    if ((dfd = opendir(argv[1])) == NULL) {
       fprintf(stderr, "Err.:(%d) - %s: %s\n", errno, strerror(errno), argv[1]);
       exit(EXIT_SUCCESS);
