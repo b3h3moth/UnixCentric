@@ -4,6 +4,8 @@
 #include <errno.h>
 #include <dirent.h>
 
+/* Lo scopo del programma e' la lista di una directory */
+
 int main(void) {
     DIR * dir;
     struct dirent * ent;
