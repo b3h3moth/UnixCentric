@@ -14,6 +14,9 @@ Il formato e il contenuto di una directory sono dipendenti dal sistema, tuttavia
 le 3 funzioni basilari sono indipendenti dal sistema, esse sono opendir(),
 readdir() e closedir(), mediante le quali si riesce ad ottenere numero di inode
 e nome della directory.
+
+Da notare che le funzioni per la lettura delle directory sono costruite sopra
+la system call getdents().
 --------------------------------------------------------------------------------
 HEADER    : <dirent.h>
 PROTOTYPE : DIR *opendir(const char *pathname); 
