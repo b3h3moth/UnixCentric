@@ -9,7 +9,7 @@ ottenuta in input come paramentro, in modo ordinato, grazie all'utilizzo della
 funzione scandir() */
 
 int main(int argc, char *argv[]) {
-    int n, i;
+    int num_entry, i;
     struct dirent **namelist;
 
     if (argc < 2) {
@@ -17,18 +17,21 @@ int main(int argc, char *argv[]) {
        exit(EXIT_FAILURE);
     }
 
-    n = scandir(argv[1], &namelist, 0, alphasort);
-    if (n < 0) {
+    num_entry = scandir(argv[1], &namelist, NULL, alphasort);
+    if (num_entry < 0) {
         fprintf(stderr, "Err.: %d scandir(); %s\n", errno, strerror(errno));
         return(EXIT_FAILURE);
     } else {
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < num_entry; i++) {
             printf("%s\n", namelist[i]->d_name);
             free(namelist[i]);
         }
     }
 
-       
+    /* Poiche' si tratta di un puntatore a un array di directory e' buona
+    norma rilasciare la memoria sia di ciascun elemento dell'array sia del 
+    puntatore stesso .*/    
     free(namelist);
+
     exit(EXIT_SUCCESS);
 }
