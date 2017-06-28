@@ -19,6 +19,7 @@ int  main(int argc, char *argv[]) {
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <dirname>\n", argv[0]);
+        fprintf(stderr, "Find a filename larger than 1MB\n");
         exit(EXIT_FAILURE);
     }
 
