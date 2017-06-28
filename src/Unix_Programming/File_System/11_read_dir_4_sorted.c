@@ -8,27 +8,26 @@
 grazie all'utilizzo della funzione scandir() */
 
 int main(int argc, char *argv[]) {
-   DIR *dfd;
-   struct dirent *dp;
+   int n, i;
+   struct dirent **namelist;
 
    if (argc < 2) {
       fprintf(stderr, "Uso: %s <dirname>\n", argv[0]);
       exit(EXIT_FAILURE);
    }
 
-   if ((dfd = opendir(argv[1])) == NULL) {
-      fprintf(stderr, "Err.:(%d) - %s: %s\n", errno, strerror(errno), argv[1]);
-      exit(EXIT_SUCCESS);
-   }
-
-   while ((dp = readdir(dfd)) != NULL) {
-      if (strcmp(dp->d_name, ".") == 0 || strcmp(dp->d_name, "..") == 0)
-      	 continue;
-      else
-      	 printf("%s\n", dp->d_name);
+   n = scandir(argv[1], &namelist, 0, alphasort);
+   if (n < 0) {
+       fprintf(stderr, "Err.: %d scandir(); %s\n", errno, strerror(errno));
+       return(EXIT_FAILURE);
+   } else {
+       for (i = 0; i < n; i++) {
+           printf("%s\n", namelist[i]->d_name);
+           free(namelist[i]);
+       }
    }
    
-   closedir(dfd);
+   free(namelist);
 
    exit(EXIT_SUCCESS);
 }
