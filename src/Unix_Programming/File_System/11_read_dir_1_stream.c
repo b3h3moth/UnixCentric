@@ -83,6 +83,7 @@ int main(int argc, char *argv[]) {
       if (strcmp(dp->d_name, ".") == 0 || strcmp(dp->d_name, "..") == 0)
       	 continue;
       else
+          /* La lista dei file in output non e' ordinata */
       	 printf("%s\n", dp->d_name);
    }
    
