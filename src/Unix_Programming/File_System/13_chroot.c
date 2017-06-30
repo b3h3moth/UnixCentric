@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
 	    l'attuale configurazione. La root directory e la current working 
 	    directory ora corrispondono.
 	    */
-	        if (chdir(".") == -1) {
+	        if (chdir("/etc") == -1) {
 	    	    fprintf(stderr,"Err: %d chdir(); %s\n", errno, strerror(errno));
 		        return(EXIT_FAILURE);
 	        }
@@ -83,6 +83,8 @@ int main(int argc, char *argv[]) {
 	    default:
 	        waitpid(pid, NULL, 0);
     }
+
+    free(buf);
 
     return(EXIT_SUCCESS);
 }
