@@ -84,7 +84,5 @@ int main(int argc, char *argv[]) {
 	        waitpid(pid, NULL, 0);
     }
 
-    free(buf);
-
     return(EXIT_SUCCESS);
 }
