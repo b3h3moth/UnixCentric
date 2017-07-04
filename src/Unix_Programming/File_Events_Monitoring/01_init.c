@@ -31,6 +31,7 @@ static void display_events(struct inotify_event *j) {
     if (j->mask & IN_OPEN) printf("IN_OPEN ");
     if (j->mask & IN_Q_OVERFLOW) printf("IN_Q_OVERFLOW ");
     if (j->mask & IN_UNMOUNT) printf("IN_UNMOUNT ");
+    printf("\n");
 
     if (j->len > 0)
         printf(" name:%s\n", j->name);
