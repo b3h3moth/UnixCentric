@@ -2,15 +2,27 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include <limits.h>         /* NAME_MAX */
+#include <linux/limits.h>
+#include <unistd.h>
 #include <sys/inotify.h>
 
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
+static void display_events(struct inotify_event *j) {
+    printf("wd=%2d; ", j->wd);
+
+    if (j->cookie > 0)
+        printf("cookie=%4d; ", j->cookie);
+
+    if (j->len > 0)
+        printf(" name=%s\n", j->name);
+}
+
 int main(int argc, char *argv[]) {
     int intf_fd, i, wd;
     ssize_t nread;
-    char buf[BUF_LEN], *p;
+    char buf[BUF_LEN];
+    char *p;
     struct inotify_event *event;
 
     if (argc < 2) {
@@ -43,7 +55,6 @@ int main(int argc, char *argv[]) {
         nread = read(intf_fd, buf, BUF_LEN);
         if (nread == -1) {
             fprintf(stderr, "returned 0 from inotify read(), it's not good\n");
-            return;
         }
 
         if (nread == -1) {
