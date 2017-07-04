@@ -19,9 +19,10 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Aggiunta dei file da monitorare */
+    /* Il file o i file ottenuti dalla command-line sono aggiunti alla lista
+    dei file da monitorare */
     for (i=1; i<argc; i++) {
-        /* Sono monitorati tutti gli eventi riguardanti l'input */
+        /* Sono monitorati tutti gli eventi possibili riguardanti l'input */
         wd = inotify_add_watch(intf_fd, argv[i], IN_ALL_EVENTS);
         if (wd == -1) {
             fprintf(stderr, "Usage: %s <pathname,...>\n", argv[0]);
