@@ -39,7 +39,7 @@ static void display_events(struct inotify_event *j) {
 int main(int argc, char *argv[]) {
     int intf_fd, i, wd;
     ssize_t nread;
-    char buf[BUF_LEN];
+    char buf[BUF_LEN] __attribute__((aligned(8)));
     char *p;
     struct inotify_event *event;
 
