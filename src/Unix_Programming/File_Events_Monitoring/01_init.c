@@ -9,13 +9,31 @@
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 static void display_events(struct inotify_event *j) {
-    printf("wd=%2d; ", j->wd);
+    printf(" wd:%2d; ", j->wd);
 
     if (j->cookie > 0)
-        printf("cookie=%4d; ", j->cookie);
+        printf(" cookie:%4d; ", j->cookie);
+
+    printf("mask: ");
+    if (j->mask & IN_ACCESS) printf("IN_ACCESS ");
+    if (j->mask & IN_ATTRIB) printf("IN_ATTRIB ");
+    if (j->mask & IN_CLOSE_NOWRITE) printf("IN_CLOSE_NOWRITE ");
+    if (j->mask & IN_CLOSE_WRITE) printf("IN_CLOSE_WRITE ");
+    if (j->mask & IN_CREATE) printf("IN_CREATE ");
+    if (j->mask & IN_DELETE) printf("IN_DELETE ");
+    if (j->mask & IN_DELETE_SELF) printf("IN_DELETE_SELF ");
+    if (j->mask & IN_IGNORED) printf("IN_IGNORED ");
+    if (j->mask & IN_ISDIR) printf("IN_ISDIR ");
+    if (j->mask & IN_MODIFY) printf("IN_ISDIR ");
+    if (j->mask & IN_MOVE_SELF) printf("IN_MOVE_SELF ");
+    if (j->mask & IN_MOVED_FROM) printf("IN_MOVED_FROM ");
+    if (j->mask & IN_MOVED_TO) printf("IN_MOVED_TO ");
+    if (j->mask & IN_OPEN) printf("IN_OPEN ");
+    if (j->mask & IN_Q_OVERFLOW) printf("IN_Q_OVERFLOW ");
+    if (j->mask & IN_UNMOUNT) printf("IN_UNMOUNT ");
 
     if (j->len > 0)
-        printf(" name=%s\n", j->name);
+        printf(" name:%s\n", j->name);
 }
 
 int main(int argc, char *argv[]) {
