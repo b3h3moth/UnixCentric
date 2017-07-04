@@ -7,6 +7,11 @@
 int main(int argc, char *argv[]) {
     int intf_fd;
 
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <pathname,...>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
     /* Creazione del file descriptor */
     intf_fd = inotify_init();
     if (intf_fd == -1) {
