@@ -50,7 +50,12 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    /* Creazione del file descriptor */
+    /* Creazione del file descriptor.
+    La funzine inotify_init() inizializza un'istanza inotify e restituisce un
+    file descriptor mediante il quale saranno effettuate le operazioni di
+    notifica. Al file descriptor peraltro non sono associati file, esso
+    piuttosto si occupa della notifica degli eventi posti in osservazione.
+    E' consentito monitorare sia file sia directory. */
     intf_fd = inotify_init();
     if (intf_fd == -1) {
         fprintf(stderr, "Err: %d inotify_init(); %s\n", errno, strerror(errno));
@@ -58,7 +63,8 @@ int main(int argc, char *argv[]) {
     }
 
     /* Il file o i file ottenuti dalla command-line sono aggiunti alla lista
-    dei file da monitorare */
+    dei file da monitorare (watch list) associata ad una coda, mediante la
+    funzione inotify_add_watch(). */
     for (i=1; i<argc; i++) {
         /* Sono monitorati tutti gli eventi possibili riguardanti l'input */
         wd = inotify_add_watch(intf_fd, argv[i], IN_ALL_EVENTS);
