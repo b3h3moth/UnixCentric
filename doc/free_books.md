@@ -25,8 +25,9 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [GaPiL; Guida alla Programmazione in Linux](https://dl.dropboxusercontent.com/u/57071683/gapil.pdf) `Last updated 10/21/2016 - S.Piccardi`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/ocamlunix.pdf) `Last updated 12/1/2014 - X.Leroy, D.Rémy`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Advanced Linux Programming](http://advancedlinuxprogramming.com/alp-folder/advanced-linux-programming.pdf) `First edition June 2001 - M.Mitchell, J.Oldham, A.Samuel`
-* [Frequently Asked Questions about Unix Programming](https://www.svbug.com/documentation/comp.unix.programmer-FAQ/) `09/01/2000, comp.unix.programmer`
+* [Frequently Asked Questions about Unix Programming](https://www.svbug.com/documentation/comp.unix.programmer-FAQ/) `09/01/2000 - comp.unix.programmer`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
+* [Unix-socket-faq for network programming](https://web.fe.up.pt/~jmcruz/etc/sockets/unix-socket-faq.html) `03/22/1998 - comp.unix.programmer` 
 
 ## <a name="headFB9"></a>Secure Coding
 
