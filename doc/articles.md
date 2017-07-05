@@ -13,7 +13,8 @@
     - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
     - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html)
 
-### Memory Management
+### C: Memory Management
 
+* [What a C programmer should know about memory](http://marek.vavrusa.com/c/memory/2015/02/20/memory/) `2/20/2015, Marek Vavrusa`
 * [A quick tutorial on implementing and debugging malloc, free, calloc, and realloc](https://danluu.com/malloc-tutorial/) `Dec 2014, Dan Luu`
 * [Memory management in C programs](http://nethack4.org/blog/memory.html) `03/16/2014, Alex Smith`
