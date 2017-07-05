@@ -8,7 +8,6 @@
 * [UNIX Network Programming](#headFB5)
 * [UNIX Operating Systems; Design and Implementation](#headFB6)
 * [How the Memory Works](#headFB7)
-  * [Memory Allocation](#headFB71)
 * [UNIX IPC (Inter Process Communications)](#headFB8)
 
 ---
