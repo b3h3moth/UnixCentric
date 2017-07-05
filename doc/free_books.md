@@ -27,7 +27,6 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Advanced Linux Programming](http://advancedlinuxprogramming.com/alp-folder/advanced-linux-programming.pdf) `First edition June 2001 - M.Mitchell, J.Oldham, A.Samuel`
 * [Frequently Asked Questions about Unix Programming](https://www.svbug.com/documentation/comp.unix.programmer-FAQ/) `09/01/2000 - comp.unix.programmer`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
-* [Unix-socket-faq for network programming](https://web.fe.up.pt/~jmcruz/etc/sockets/unix-socket-faq.html) `03/22/1998 - comp.unix.programmer` 
 
 ## <a name="headFB9"></a>Secure Coding
 
@@ -45,6 +44,7 @@
 ## <a name="headFB5"></a>UNIX Network Programming
 
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/output/print/bgnet_A4_2.pdf) `Version 3.0.21, 6/8/2016 - B.Hall`
+* [Unix Socket faq for network programming](https://web.fe.up.pt/~jmcruz/etc/sockets/unix-socket-faq.html) `03/22/1998 - comp.unix.programmer` 
 
 ## <a name="headFB6"></a>UNIX Operating Systems; Design and Implementation
 
