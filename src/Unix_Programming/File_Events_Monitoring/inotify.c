@@ -80,8 +80,9 @@ int main(int argc, char *argv[]) {
     for (;;) {
         /* Lettura di un buffer di eventi dal file descriptor inotify */
         nread = read(intf_fd, buf, BUF_LEN);
-        if (nread == -1) {
+        if (nread == 0) {
             fprintf(stderr, "returned 0 from inotify read(), it's not good\n");
+            exit(EXIT_FAILURE);
         }
 
         if (nread == -1) {
