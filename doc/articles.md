@@ -18,3 +18,4 @@
 * [What a C programmer should know about memory](http://marek.vavrusa.com/c/memory/2015/02/20/memory/) `2/20/2015, Marek Vavrusa`
 * [A quick tutorial on implementing and debugging malloc, free, calloc, and realloc](https://danluu.com/malloc-tutorial/) `Dec 2014, Dan Luu`
 * [Memory management in C programs](http://nethack4.org/blog/memory.html) `03/16/2014, Alex Smith`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [A Malloc Tutorial*](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf) `2/16/2009, Marwan Burelle`
