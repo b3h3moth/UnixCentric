@@ -63,10 +63,11 @@ int main(int argc, char *argv[]) {
     }
 
     /* Il file o i file ottenuti dalla command-line sono aggiunti alla lista
-    dei file da monitorare (watch list) associata ad una coda, mediante la
+    dei file da monitorare (watch list), associata ad una coda, mediante la
     funzione inotify_add_watch(). */
     for (i=1; i<argc; i++) {
-        /* Sono monitorati tutti gli eventi possibili riguardanti l'input */
+        /* Ciascun file ottenuto come argomento dalla command-line sara'
+        monitorato su specifici eventi di input. */
         wd = inotify_add_watch(intf_fd, argv[i], IN_ALL_EVENTS);
         if (wd == -1) {
             fprintf(stderr, "Usage: %s <pathname,...>\n", argv[0]);
