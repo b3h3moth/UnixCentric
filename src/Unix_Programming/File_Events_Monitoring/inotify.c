@@ -37,7 +37,8 @@ static void display_events(struct inotify_event *j) {
 int main(int argc, char *argv[]) {
     int intf_fd, i, wd;
     ssize_t nread;
-    char buf[BUF_LEN]__attribute__ ((aligned(__alignof__(struct inotify_event))));
+    //char buf[BUF_LEN]__attribute__ ((aligned(__alignof__(struct inotify_event))));
+    char buf[512 * (sizeof(struct inotify_event) + 13)];
 
     char *p;
     struct inotify_event *event;
@@ -74,7 +75,7 @@ int main(int argc, char *argv[]) {
         printf("Wathing %s using watch descriptor (wd) %d\n", argv[i], wd);
     }
 
-    for (;;) {
+    while (1) {
         /* Lettura di un buffer di eventi dal file descriptor inotify */
         nread = read(intf_fd, buf, BUF_LEN);
         if (nread == 0) {
