@@ -19,7 +19,7 @@ La funzione getopt() incrementa il valore di optind di volta in volta che
 sono elaborate tutte le opzioni presenti nelle successive chiamate; di
 default optind assume il valore di 1, per cui il primo parametro ad essere
 elaborato sara' argv[1], dopodiche', elaborate le restanti opzioni, optind
-conterra' l'indice del successivo parametro.
+conterra' l'indice del prossimo parametro da processare.
 
 extern int opterr;
 ------------------
