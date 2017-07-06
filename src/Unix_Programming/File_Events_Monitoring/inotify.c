@@ -15,6 +15,7 @@ static void display_events(struct inotify_event *j) {
         printf(" cookie:%4d; ", j->cookie);
 
     printf("mask: ");
+    if (j->mask & IN_OPEN) printf("IN_OPEN ");
     if (j->mask & IN_ACCESS) printf("IN_ACCESS ");
     if (j->mask & IN_ATTRIB) printf("IN_ATTRIB ");
     if (j->mask & IN_CLOSE_NOWRITE) printf("IN_CLOSE_NOWRITE ");
@@ -22,15 +23,11 @@ static void display_events(struct inotify_event *j) {
     if (j->mask & IN_CREATE) printf("IN_CREATE ");
     if (j->mask & IN_DELETE) printf("IN_DELETE ");
     if (j->mask & IN_DELETE_SELF) printf("IN_DELETE_SELF ");
-    if (j->mask & IN_IGNORED) printf("IN_IGNORED ");
     if (j->mask & IN_ISDIR) printf("IN_ISDIR ");
     if (j->mask & IN_MODIFY) printf("IN_ISDIR ");
-    if (j->mask & IN_MOVE_SELF) printf("IN_MOVE_SELF ");
-    if (j->mask & IN_MOVED_FROM) printf("IN_MOVED_FROM ");
     if (j->mask & IN_MOVED_TO) printf("IN_MOVED_TO ");
-    if (j->mask & IN_OPEN) printf("IN_OPEN ");
-    if (j->mask & IN_Q_OVERFLOW) printf("IN_Q_OVERFLOW ");
-    if (j->mask & IN_UNMOUNT) printf("IN_UNMOUNT ");
+    if (j->mask & IN_MOVED_FROM) printf("IN_MOVED_FROM ");
+    if (j->mask & IN_MOVE_SELF) printf("IN_MOVE_SELF ");
     printf("\n");
 
     if (j->len > 0)
@@ -63,8 +60,8 @@ int main(int argc, char *argv[]) {
     }
 
     /* Il file o i file ottenuti dalla command-line sono aggiunti alla lista
-    dei file da monitorare (watch list), associata ad una coda, mediante la
-    funzione inotify_add_watch(). */
+    watch list, associata ad una coda, mediante la funzione
+    inotify_add_watch(). */
     for (i=1; i<argc; i++) {
         /* Ciascun file ottenuto come argomento dalla command-line sara'
         monitorato su specifici eventi di input. */
