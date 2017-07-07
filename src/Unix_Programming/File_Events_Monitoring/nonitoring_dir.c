@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/inotify.h>
 
@@ -14,6 +15,7 @@ int main(int argc, char *argv[]){
     int length, i = 0, fd, wd;
 	char buf[BUF_LEN];
     struct inotify_event *event;
+    struct stat sb;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %d <dirname>\n", argv[0]);
