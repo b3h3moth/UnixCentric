@@ -12,7 +12,8 @@ int main(int argc, char *argv[]){
     int length, i = 0;
 	int fd;
 	int wd;
-	char buffer[BUF_LEN];
+	char buf[BUF_LEN];
+    struct inotify_event *event;
 
 	fd = inotify_init();
 
@@ -23,15 +24,14 @@ int main(int argc, char *argv[]){
 
 	wd = inotify_add_watch(fd, "/home/strike",
 			       IN_MODIFY | IN_CREATE | IN_DELETE);
-	length = read(fd, buffer, BUF_LEN);
+	length = read(fd, buf, BUF_LEN);
 
 	if (length < 0) {
 		perror("read");
 	}
 
 	while (i < length) {
-		struct inotify_event *event =
-		    (struct inotify_event *)&buffer[i];
+		event = (struct inotify_event *)&buf[i];
 		if (event->len) {
 			if (event->mask & IN_CREATE) {
 				if (event->mask & IN_ISDIR) {
