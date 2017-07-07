@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 
 	if (fd < 0) {
         fprintf(stderr, "Err.: %d inotify_init; %s\n", errno, strerror(errno));
-		EXIT(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	wd = inotify_add_watch(fd, "/home/strike",
