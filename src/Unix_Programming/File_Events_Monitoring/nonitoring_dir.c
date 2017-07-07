@@ -11,20 +11,22 @@
 #define EVENTS      (IN_MODIFY | IN_CREATE | IN_DELETE)
 
 int main(int argc, char *argv[]){
-    int length, i = 0;
-	int fd;
-	int wd;
+    int length, i = 0, fd, wd;
 	char buf[BUF_LEN];
     struct inotify_event *event;
 
-	fd = inotify_init();
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %d <dirname>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
+	fd = inotify_init();
 	if (fd < 0) {
         fprintf(stderr, "Err.: %d inotify_init; %s\n", errno, strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 
-	wd = inotify_add_watch(fd, argv[1],
+	wd = inotify_add_watch(fd, argv[1], EVENTS);
 	length = read(fd, buf, BUF_LEN);
 
 	if (length < 0) {
