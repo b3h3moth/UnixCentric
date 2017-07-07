@@ -18,9 +18,20 @@ int main(int argc, char *argv[]){
     struct stat sb;
 
     if (argc != 2) {
-        fprintf(stderr, "Usage: %d <dirname>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <dirname>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    if (stat(argv[1], &sb) == -1) {
+        fprintf(stderr, "Err.: %d stat() %s\n", errno, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    if (!S_ISDIR(sb.st_mode)) {
+        fprintf(stderr, "'%s' is not a directory, plese fix.\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
 
 	fd = inotify_init();
 	if (fd < 0) {
@@ -29,49 +40,40 @@ int main(int argc, char *argv[]){
 	}
 
 	wd = inotify_add_watch(fd, argv[1], EVENTS);
-	length = read(fd, buf, BUF_LEN);
 
+	length = read(fd, buf, BUF_LEN);
 	if (length < 0) {
-		perror("read");
+        fprintf(stderr, "Err.: %d read(); %s\n", errno, strerror(errno));
+		exit(EXIT_FAILURE);
 	}
 
 	while (i < length) {
-		event = (struct inotify_event *)&buf[i];
+        event = (struct inotify_event *)&buf[i];
+
 		if (event->len) {
 			if (event->mask & IN_CREATE) {
 				if (event->mask & IN_ISDIR) {
-					printf
-					    ("The directory %s was created.\n",
-					     event->name);
-				} else {
-					printf("The file %s was created.\n",
-					       event->name);
-				}
+					printf("The directory \'%s\' was created.\n", event->name);
+				} else
+                    printf("The file \'%s\' was created.\n", event->name);
 			} else if (event->mask & IN_DELETE) {
 				if (event->mask & IN_ISDIR) {
-					printf
-					    ("The directory %s was deleted.\n",
-					     event->name);
-				} else {
-					printf("The file %s was deleted.\n",
-					       event->name);
-				}
+					printf("The directory \'%s\' was deleted.\n", event->name);
+				} else
+					printf("The file \'%s\' was deleted.\n", event->name);
 			} else if (event->mask & IN_MODIFY) {
 				if (event->mask & IN_ISDIR) {
-					printf
-					    ("The directory %s was modified.\n",
-					     event->name);
-				} else {
-					printf("The file %s was modified.\n",
-					       event->name);
-				}
+                    printf("The directory \'%s\' was modified.\n", event->name);
+				} else
+					printf("The file \'%s\' was modified.\n", event->name);
 			}
 		}
+
 		i += EVENT_SIZE + event->len;
 	}
 
 	inotify_rm_watch(fd, wd);
 	close(fd);
 
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
