@@ -40,6 +40,10 @@ int main(int argc, char *argv[]){
 	}
 
 	wd = inotify_add_watch(fd, argv[1], EVENTS);
+    if (wd <= 0) {
+        fprintf(stderr, "Err.: %d watch list %s\n", errno, strerror(errno));
+		exit(EXIT_FAILURE);
+	}
 
 	length = read(fd, buf, BUF_LEN);
 	if (length < 0) {
@@ -48,7 +52,7 @@ int main(int argc, char *argv[]){
 	}
 
 	while (i < length) {
-        event = (struct inotify_event *)&buf[i];
+        event = (struct inotify_event *) buf + i;
 
 		if (event->len) {
 			if (event->mask & IN_CREATE) {
