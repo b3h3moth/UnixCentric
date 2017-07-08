@@ -12,7 +12,8 @@
 #define EVENTS      (IN_MODIFY | IN_CREATE | IN_DELETE)
 
 int main(int argc, char *argv[]){
-    int length, i = 0, fd, wd;
+    int i = 0, fd, wd;
+    ssize_t length;
 	char buf[BUF_LEN];
     struct inotify_event *event;
     struct stat sb;
