@@ -9,12 +9,16 @@
 
 #define EVENT_SIZE  (sizeof(struct inotify_event))
 #define BUF_LEN     (1024 * (EVENT_SIZE + 16))
-#define EVENTS      (IN_MODIFY | IN_CREATE | IN_DELETE)
+#define EVENTS      (IN_MODIFY | IN_ACCESS | IN_CREATE | IN_DELETE)
+
+/* Lo scopo del file e' di monitorare una singola directory e il suo
+contenuto mediante le API inotify. Il pathname della directory e' fornito come
+argomento dalla command-line. */
 
 int main(int argc, char *argv[]){
-    int i = 0, fd, wd;
-    ssize_t length;
-	char buf[BUF_LEN];
+    int fd, wd;
+    ssize_t nread;
+	char buf[BUF_LEN], *p;
     struct inotify_event *event;
     struct stat sb;
 
@@ -46,38 +50,38 @@ int main(int argc, char *argv[]){
 		exit(EXIT_FAILURE);
 	}
 
-	length = read(fd, buf, BUF_LEN);
-	if (length < 0) {
-        fprintf(stderr, "Err.: %d read(); %s\n", errno, strerror(errno));
-		exit(EXIT_FAILURE);
-	}
+	while (1) {
+	    nread = read(fd, buf, BUF_LEN);
+	    if (nread < 0) {
+            fprintf(stderr, "Err.: %d read(); %s\n", errno, strerror(errno));
+		    exit(EXIT_FAILURE);
+	    }
 
-	while (i < length) {
-        event = (struct inotify_event *) buf + i;
+        for (p = buf; p<buf + nread; ){
+            event = (struct inotify_event *) p;
 
-		if (event->len) {
-			if (event->mask & IN_CREATE) {
-				if (event->mask & IN_ISDIR) {
-					printf("The directory \'%s\' was created.\n", event->name);
-				} else
-                    printf("The file \'%s\' was created.\n", event->name);
-			} else if (event->mask & IN_DELETE) {
-				if (event->mask & IN_ISDIR) {
-					printf("The directory \'%s\' was deleted.\n", event->name);
-				} else
-					printf("The file \'%s\' was deleted.\n", event->name);
-			} else if (event->mask & IN_MODIFY) {
-				if (event->mask & IN_ISDIR) {
-                    printf("The directory \'%s\' was modified.\n", event->name);
-				} else
-					printf("The file \'%s\' was modified.\n", event->name);
-			}
-		}
+            if (event->len) {
+                if (event->mask & IN_CREATE) {
+				    if (event->mask & IN_ISDIR) {
+					    printf("The dir \'%s\' was created.\n", event->name);
+				    } else
+                        printf("The file \'%s\' was created.\n", event->name);
+			    } else if (event->mask & IN_DELETE) {
+				    if (event->mask & IN_ISDIR) {
+					    printf("The dir \'%s\' was deleted.\n", event->name);
+				    } else
+					    printf("The file \'%s\' was deleted.\n", event->name);
+			    } else if (event->mask & IN_MODIFY) {
+				    if (event->mask & IN_ISDIR) {
+                        printf("The dir \'%s\' was modified.\n", event->name);
+				    } else
+					    printf("The file \'%s\' was modified.\n", event->name);
+			    }
+		    }
+            p += EVENT_SIZE + event->len;
+        }
+    }
 
-		i += EVENT_SIZE + event->len;
-	}
-
-	//inotify_rm_watch(fd, wd);
 	close(fd);
 
 	exit(EXIT_SUCCESS);
