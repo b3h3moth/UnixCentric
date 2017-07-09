@@ -12,9 +12,9 @@ scrittura, che se eseguito come utente causera' un errore, tale errore sara'
 descritto dalla funzione strerror(). */
 
 int main(void) {
-	FILE *password;
-	
-	if ( (password = fopen("/etc/passwd", "w")) == NULL) { 
+	FILE *passdb;
+
+	if ( (passdb = fopen("/etc/passwd", "w")) == NULL) {
 		fprintf(stderr, "EACCES %d: %s\n", EACCES, strerror(EACCES));
 		exit(EXIT_FAILURE);
 	}
