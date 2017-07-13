@@ -89,7 +89,7 @@ $ kill -9 5960
 Nota: D'ora in avanti per indicare, ad esempio, Control-C, si utilizzera' ^C,
       molto piu' chiaro.
 */
-int main(int argc, char *argv[]) {
+int main(void) {
     /* I segnali SIGUSR1 e SIGUSR2 sono segnali a disposizione dell'utente per
     scopi personali, SIGINT invece e' un segnale di terminazione corrispondente
     ai tasti ^C. */
@@ -125,12 +125,12 @@ static void signal_handler(int signum)
 	    exit(EXIT_FAILURE);
 	}
 
-	printf("Ricevuto il segnale: SIGUSR1\n");
+	printf("Got signal: SIGUSR1\n");
 
     } else if (signum == SIGUSR2)
-    	printf("Ricevuto il segnale: SIGUSR2\n");
+    	printf("Got Signal: SIGUSR2\n");
     else if (signum == SIGINT)
-    	printf("Ricevuto il segnale: SIGINT\n");
+    	printf("Got signal: SIGINT\n");
     else
     	abort();
 }
