@@ -6,20 +6,28 @@
 #include <signal.h>
 
 /*
-Per inviare un segnale ad un processo le funzioni che possono essere adoperate,
-tra le altre, sono la funzione kill() - man 2 kill - che invia un segnale ad un
-processo o ad un gruppo di processi, e la funzione raise() che consente ad un 
-processo di inviare un  segnale a se stesso.
+I sistemi Unix prevedono specifiche funzioni in grado di inviare segnali ad un
+processo, esse sono kill(), raise() e killpg().
+
+La funzione kill(), permette di inviare un segnale ad un processo o ad un 
+gruppo di processi; la funzione raise() invece fa si che un processo possa 
+inviare un segnale a se stesso; infine la funzione killpg() e' abilitata per
+l'invio di un segnale a un process group.
 
 HEADER    : <signal.h>
 PROTOTYPE : int kill(pid_t pid, int sig);
             int raise(int sig);
+            int killpg(pid_t pgrp, int sig);
 SEMANTICS : La funzione kill() invia il segnale 'sig' al processo o gruppo di 
             processi con PID 'pid'; 
-	    la funzione raise() invia al processo corrente il segnale 'sig'.
+	        la funzione raise() invia al processo corrente il segnale 'sig'.
+            la funzione killpg() invia un segnale a tutti i membri del process
+            process group.
 RETURNS   : 0 in caso di successo, -1 in caso di errore
 --------------------------------------------------------------------------------
-Nota: raise(sig) e kill(getpid(), sig) sono equivalenti.
+Le seguenti istruzioni sono equivalenti: 
+- raise(sig) == kill(getpid(), sig)
+- killpg(pgrp, sig) == kill(-pgrp, sig)
 
 I valori dell'argomento pid della funzione kill() possono essere:
   pid > 0, il segnale e' inviato al processo indicato da pid;
@@ -61,7 +69,7 @@ int main(int argc, char *argv[]) {
 
     if (signal(SIGUSR1, signal_handler) == SIG_ERR) { 
     	fprintf(stderr, "Err.(%s) signal() main failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
     
     switch(pid = fork()) {
@@ -81,7 +89,7 @@ int main(int argc, char *argv[]) {
 	    /* Si invia il segnale generico SIGURG1 al processo figlio */
 	    if (kill(pid, SIGUSR1) == -1) {
 	    	fprintf(stderr,"Err.(%s) kill() failed()\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		    exit(EXIT_FAILURE);
 	    }
 	    
 	    sleep(1);
@@ -97,7 +105,7 @@ static void signal_handler(int signum)
     
     if (signal(SIGUSR1, signal_handler) == SIG_ERR) { 
     	fprintf(stderr, "Err.(%s) signal() main failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
 }
 /*
