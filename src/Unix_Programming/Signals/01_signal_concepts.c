@@ -3,7 +3,12 @@
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
+#ifndef OPENBSD
+#include <sys/wait.h>
+#define NSIG 32
+#elif LINUX
 #include <wait.h>
+#endif
 
 /*
 I segnali rappresentano la modalita' piu' elementare di comunicazione tra
@@ -194,21 +199,21 @@ int main(int argc, char *argv[]) {
     char *arg_list[] = {"stty", "-a", (char*)0}; 
 
     switch(pid = fork()) {
-    	case -1:
-	    fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
-
-	case 0:
-	    if (execv(prog_name, arg_list) < 0) {
-	    	fprintf(stderr, "Err.(%s) execv() failed\n", strerror(errno));
-		exit(EXIT_FAILURE);
-	    }
-
-	default:
-		waitpid(pid, NULL, 0);
-		printf("Il sistema dispone di %d segnali\n", NSIG); 
+        case -1:
+            fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+	        exit(EXIT_FAILURE);
+        
+        case 0:
+	        if (execv(prog_name, arg_list) < 0) {
+	    	    fprintf(stderr, "Err.(%s) execv() failed\n", strerror(errno));
+		        exit(EXIT_FAILURE);
+            }
+        
+        default:
+		    waitpid(pid, NULL, 0);
+		    printf("Il sistema dispone di %d segnali\n", NSIG);
     }
-
+    
     return(EXIT_SUCCESS);
 }
 /*
