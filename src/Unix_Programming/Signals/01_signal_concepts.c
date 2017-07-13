@@ -222,5 +222,7 @@ int main(int argc, char *argv[]) {
     solo l'header citato.
 
 [2] Consultare le pagine di man per un approfondimento sulle diverse 
-    architetture: man 7 signal.
+    architetture: 
+    man 7 signal (GNU/Linux); 
+    man 3 signal (OpenBSD).
 */
