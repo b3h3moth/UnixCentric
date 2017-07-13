@@ -17,30 +17,30 @@ int main(int argc, char *argv[]) {
 
     if ((user_name = getenv("USER")) == NULL) {
     	fprintf(stderr, "Err.(%s) getenv() failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
 
     char *arg_var[] = {
     	"ps", 
-	"-U", 
-	user_name, 
-	"-o", 
-	"pid,ppid,ruid,euid,args", 
-	(char*)0 
-    };
+	    "-U", 
+	    user_name, 
+	    "-o", 
+	    "pid,ppid,ruid,euid,args", 
+	    (char*)0 
+        };
 
     if ((pid = fork()) < 0) {
     	fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     } else if (pid == 0) {
     	if (execv("/bin/ps", arg_var) < 0) {
-	    fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
-	}
+	        fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
+	        exit(EXIT_FAILURE);
+	    }
     } else {
     	if (waitpid(-1, &child_status, 0) < 0) {
-	    fprintf(stderr, "Err.(%s) waitpid() failed\n", strerror(errno));
-	    exit(EXIT_FAILURE);
+	        fprintf(stderr, "Err.(%s) waitpid() failed\n", strerror(errno));
+	        exit(EXIT_FAILURE);
 	}
 	
 	printf("get PID to kill (0=quit): ");
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 	if (kill(pid_kill, SIGKILL) == -1) {
 	    fprintf(stderr,"Err.(%s) fork() failed\n", strerror(errno));
 	    exit(EXIT_FAILURE);
-	}
+	    }
     }
     	
     return(EXIT_SUCCESS);
