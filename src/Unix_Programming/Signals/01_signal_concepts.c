@@ -50,7 +50,7 @@ le quali e' possibile generare un segnale? Alcune di esse sono:
 - La funzione kill - man 2 kill - permette ad un processo di inviare un 
   qualunque tipo di segnale ad un altro processo oppure ad un "process group",
   tuttavia per farlo e' necessario essere o il proprietario del processo al
-  quale si sta inviando un segnale o essere il superuser (root, amministratore);
+  quale si sta inviando il segnale o essere il superuser (root, amministratore);
 
 - Il comando kill - man 1 kill - consente di inviare un segnale ad un altro
   processo. Tale comando altro non e' che una interfaccia della funzione kill();
@@ -65,7 +65,7 @@ semplice definizione di una variabile, ma piuttosto vi deve essere un meccanismo
 che consenta ad un processo di comunicare con il kernel su come (re)agire al 
 verificarsi di un segnale.
 
-Da notare che gli eventi inseriti pocanzi comportano sempre l'intervento del 
+Da notare che gli eventi inseriti sopra comportano sempre l'intervento del 
 kernel, e' il kernel stesso che genera il segnale, che al verificarsi dell'
 evento puo':
 
@@ -106,13 +106,15 @@ figli ?
 
 Unix System Signals
 -------------------
-I sistemi GNU/Linux supportano i segnali standard elencati di seguito, diversi
-numeri di segnale tuttavia dipendono dall'architettura, per cui nel campo valore
-e' indicato solo il valore corrispondente alle architetture i386, ppc e sh[2].
+I sistemi Unix supportano i segnali standard, e come accennato in precedenza
+e' auspicabile lavorare con i nomi piuttosto che con i numeri, poiche' essi
+sono dipendenti dall'architettura, per cui nel campo valore e' indicato solo 
+il valore corrispondente rispetto all'architettura, ad esempio i386 e PPC[2].
 
-Ciascun segnale ha una disposizione attuale, che determina come si comporta il 
-processo quando il segnale viene recapitato, le  voci  nella colonna "Azione" 
-della tabella specificano per l'appunto l'azione di default del segnale:
+Ciascun segnale ha una disposizione attuale, che determina il comportamento 
+del processo quando il segnale viene recapitato, le  voci  nella colonna 
+"Azione" della tabella specificano per l'appunto l'azione di default del 
+segnale:
 
 Term, terminare il processo;
 Ign , ignorare il segnale;
@@ -124,6 +126,8 @@ Infine, il carattere "-" denota che un segnale è assente sulla corrispondente
 architettura. 
 
 Segnali descritti nello standard POSIX.1-1990 originale.
+
+(GNU/Linux, Debian PPC)
 
 Segnale    Valore    Azione   Commento
 SIGHUP        1       Term    La linea sul terminale che ha il controllo è
