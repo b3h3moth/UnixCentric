@@ -16,12 +16,12 @@ processi, essi sono infatti "software interrupts" - interruzioni software - e
 consentono la gestione di eventi asincroni; i segnali sono standard POSIX.1.
 
 Tutti i segnali, definiti nell'header <signal.h>[1], hanno un nome specifico, le
-prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIG; 
+prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIGxxxx; 
 ogni nome definisce una costante il cui valore indica un intero positivo, il
 "signal number" o numero del segnale.
 
 Per verificare il numero totale dei segnali disponibili e' possibile utilizzare
-la macro NSIG.
+la macro NSIG, che tuttavia non e' definita in tutte le implementazioni Unix.
 
 Nota: Non vi e' un "signal number" 0, POSIX.1 lo definisce in questo ambito come
       "null signal" o segnale nullo. E' consigliabile per la portabilita'
