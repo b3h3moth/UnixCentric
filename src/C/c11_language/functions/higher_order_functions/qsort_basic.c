@@ -6,6 +6,9 @@
 
 char *pline[MAX_LINES];     /* puntatori alle righe */
 
+int readlines(char *pline[], int nlines);
+int writelines(char *pline[], int nlines);
+
 int main(int argc, char *argv[]) {
     int nlines = 0;         /* righe in ingresso lette */
     int numeric_sort = 0;   /* ordinamento numerico = 1 */
