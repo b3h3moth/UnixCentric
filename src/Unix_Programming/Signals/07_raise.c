@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 
     if (signal(SIGUSR1, signal_handler) == SIG_ERR) { 
     	fprintf(stderr, "Err.(%s) signal() main failed\n", strerror(errno));
-	exit(EXIT_FAILURE);
+	    exit(EXIT_FAILURE);
     }
     
     switch(pid = fork()) {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 	    SIGUSR1 */
 	    if (raise(SIGUSR1) == -1) {
 	    	fprintf(stderr,"Err.(%s) raise() failed()\n", strerror(errno));
-		exit(EXIT_FAILURE);
+		    exit(EXIT_FAILURE);
 	    }
 
 	    exit(EXIT_SUCCESS);
