@@ -18,13 +18,17 @@ int main(int argc, char *argv[]) {
     strlcpy(str1, "abcdefghijklmnoprstuvwzx abcdefghijklmnoprstuvwzx", size);
     strlcpy(str2, "1234567890 1234567890 1234567890 1234567890 12345", size);
 
+    printf("%s\n%s\n", str1, str2);
+
     /* 
-    E' sufficiente un byte per superare il limite 
+    Sarebbe sufficiente un byte per superare il limite:
     char *str3 = alloc(1);
     strlcpy(str3, "x", 1); 
     */
 
-    printf("%s\n%s\n", str1, str2);
+    /* Ora ci sono nuovamente ALLOC_SIZE byte a disposizione */
+    afree(str2);
+    afree(str1);
 
     return(EXIT_SUCCESS);
 }
