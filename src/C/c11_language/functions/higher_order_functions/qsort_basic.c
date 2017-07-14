@@ -11,7 +11,7 @@ char *pline[MAX_LINES];             /* puntatori alle righe */
 
 int readlines(char *pline[], int maxlines);
 void writelines(char *pline[], int nlines);
-int getline(char str[], int lim);
+int get_line(char str[], int lim);
 char *alloc(int n);
 void afree(char *p);
 
@@ -33,23 +33,32 @@ int main(int argc, char *argv[]) {
     return(EXIT_SUCCESS);
 }
 
+/* La funzione readlines() legge le righe in entrata */
 int readlines(char *pline[], int maxlines) {
     int len, nlines = 0;
     char *p, line[MAX_LINES];
 
-    while ((len = getline(line, MAX_LINES)) > 0)
+    while ((len = get_line(line, MAX_LINES)) > 0)
         if (nlines >= maxlines || (p = malloc(len)) == NULL)
             return(EXIT_FAILURE);
         else {
             line[len-1] = '\0';
-            strcpy(p, line);
+            strlcpy(p, line, len);
             pline[nlines++] = p;
         }
     return nlines;
 }
 
+/* La funzione writelines() scrive le righe in uscita */
+void writelines(char *pline[], int nlines) {
+    int i;
+    
+    for (i=0; i<nlines; i++)
+        printf("%s\n", pline[i]);
+}
+
 /* Leggere la riga ingresso, la copia in 'str' ritornando la lunghezza */
-int getline(char str[], int lim) {
+int get_line(char str[], int lim) {
     int c, i;
 
     for (i=0; i<lim-1 && (c = getchar()) != EOF && c!= '\n'; ++i)
