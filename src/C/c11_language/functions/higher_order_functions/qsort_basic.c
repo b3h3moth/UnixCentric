@@ -11,6 +11,7 @@ char *pline[MAX_LINES];             /* puntatori alle righe */
 
 int readlines(char *pline[], int maxlines);
 void writelines(char *pline[], int nlines);
+int getline(char str[], int lim);
 char *alloc(int n);
 void afree(char *p);
 
@@ -45,6 +46,21 @@ int readlines(char *pline[], int maxlines) {
             pline[nlines++] = p;
         }
     return nlines;
+}
+
+/* Leggere la riga ingresso, la copia in 'str' ritornando la lunghezza */
+int getline(char str[], int lim) {
+    int c, i;
+
+    for (i=0; i<lim-1 && (c = getchar()) != EOF && c!= '\n'; ++i)
+        str[i] = c;
+    if (c == '\n') {
+        str[i] = c;
+        ++i;
+    }
+    str[i] = '\0';
+    
+    return i;
 }
 
 /* La funzione alloc() restituisce un puntatore a n caratteri */
