@@ -51,10 +51,8 @@ int readlines(char *pline[], int maxlines) {
 
 /* La funzione writelines() scrive le righe in uscita */
 void writelines(char *pline[], int nlines) {
-    int i;
-    
-    for (i=0; i<nlines; i++)
-        printf("%s\n", pline[i]);
+    while (nlines-- > 0)
+        printf("%s\n", *pline++);
 }
 
 /* Leggere la riga ingresso, la copia in 'str' ritornando la lunghezza */
