@@ -4,10 +4,10 @@
 #include <string.h>
 #include <unistd.h>
 #ifndef OPENBSD
-#include <sys/wait.h>
-#define NSIG 32
+    #include <sys/wait.h>
+    #define NSIG 32
 #elif LINUX
-#include <wait.h>
+    #include <wait.h>
 #endif
 
 /*
