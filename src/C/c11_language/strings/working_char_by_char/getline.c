@@ -24,7 +24,7 @@ int main (void)
 
 	/* Legge dallo stream fp una linea, archivia il risultato in line */
 	while ((read = getline(&line, &len, fp)) != -1)
-		printf ("(len: %u) %s", read-1, line);
+		printf ("(len: %u) %s", read, line);
 
 	free (line);
 	fclose(fp);
