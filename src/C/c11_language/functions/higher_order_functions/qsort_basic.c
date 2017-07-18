@@ -18,6 +18,10 @@ void swap(char *vec[], int i, int j);
 char *alloc(int n);
 void afree(char *p);
 
+/* Lo scopo del programma e' di suddividere ciascun file in righe, allocare
+ciascuna di esse in un vettore di puntatori e successivamente ordinarle
+mediante la funzione quicksort(). */
+
 int main(int argc, char *argv[]) {
     int nlines = 0;         /* righe in ingresso lette */
     int numeric_sort;   /* ordinamento numerico = 1 */
