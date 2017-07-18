@@ -43,7 +43,11 @@ int read_lines(char *pline[], int maxlines) {
             return(EXIT_FAILURE);
         else {
             line[len-1] = '\0';
+#ifdef __OpenBSD__
             strlcpy(p, line, len);
+#elif __linux__
+            strncpy(p, line, len);
+#endif
             pline[nlines++] = p;
         }
     return nlines;
@@ -66,7 +70,7 @@ int get_line(char str[], int lim) {
         ++i;
     }
     str[i] = '\0';
-    
+
     return i;
 }
 
