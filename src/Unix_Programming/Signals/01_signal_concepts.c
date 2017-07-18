@@ -1,13 +1,16 @@
+#ifdef __OpenBSD__
+    #include <sys/wait.h>
+#elif __linux__
+    #include <wait.h>
+    #include <sys/types.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
 #include <unistd.h>
-#ifndef OPENBSD
-    #include <sys/wait.h>
+#ifndef NSIG
     #define NSIG 32
-#elif LINUX
-    #include <wait.h>
 #endif
 
 /*
@@ -16,7 +19,7 @@ processi, essi sono infatti "software interrupts" - interruzioni software - e
 consentono la gestione di eventi asincroni; i segnali sono standard POSIX.1.
 
 Tutti i segnali, definiti nell'header <signal.h>[1], hanno un nome specifico, le
-prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIGxxxx; 
+prime tre lettere tuttavia sono identiche per ciascuno di essi, ovvero SIGxxxx;
 ogni nome definisce una costante il cui valore indica un intero positivo, il
 "signal number" o numero del segnale.
 
@@ -40,32 +43,32 @@ le quali e' possibile generare un segnale? Alcune di esse sono:
 - Un segnale puo' essere generato dall'utente allorquando invia dalla tastiera
   una particolare combinazione di tasti per terminare o sospendere il programma,
   come ad esempio Control-Z oppure Control-C;
- 
+
 - Un segnale puo' essere generato a causa di eccezioni hardware, come ad esempio
-  una divisione per zero o un riferimento non valido alla memoria; tali 
+  una divisione per zero o un riferimento non valido alla memoria; tali
   condizioni generalmente sono rilevate dall'hardware e notificate al kernel, il
   quale provvede ad inviare un segnale al processo in esecuzione nel momento in
   cui si e' verificata l'eccezione;
 
-- La funzione kill - man 2 kill - permette ad un processo di inviare un 
+- La funzione kill - man 2 kill - permette ad un processo di inviare un
   qualunque tipo di segnale ad un altro processo oppure ad un "process group",
   tuttavia per farlo e' necessario essere o il proprietario del processo al
   quale si sta inviando il segnale o essere il superuser (root, amministratore);
 
 - Il comando kill - man 1 kill - consente di inviare un segnale ad un altro
   processo. Tale comando altro non e' che una interfaccia della funzione kill();
- 
-- Vi sono inoltre delle condizioni non causate dall'hardware ma dal software, 
+
+- Vi sono inoltre delle condizioni non causate dall'hardware ma dal software,
   come ad esempio la scadenza di un timer o di un allarme o una operazione
   di I/O non ammessa, e cosi' via.
 
-I segnali, come accennato pocanzi, sono eventi asincroni, pertanto possono 
-capitare in qualsiasi momento e di certo non possono essere gestiti con la 
+I segnali, come accennato pocanzi, sono eventi asincroni, pertanto possono
+capitare in qualsiasi momento e di certo non possono essere gestiti con la
 semplice definizione di una variabile, ma piuttosto vi deve essere un meccanismo
-che consenta ad un processo di comunicare con il kernel su come (re)agire al 
+che consenta ad un processo di comunicare con il kernel su come (re)agire al
 verificarsi di un segnale.
 
-Da notare che gli eventi inseriti sopra comportano sempre l'intervento del 
+Da notare che gli eventi inseriti sopra comportano sempre l'intervento del
 kernel, e' il kernel stesso che genera il segnale, che al verificarsi dell'
 evento puo':
 
@@ -91,13 +94,13 @@ Eredità delle impostazioni
 --------------------------
 Come vengono gestite le impostazioni dei segnali quando si creano nuovi processi
 figli ?
-     
+
 - il comportamento associato alla ricezione di un segnale viene "ereditato" dai
   processi figli;
 
 - per quanto riguarda le funzioni del tipo exec, solo le impostazioni di SIG_IGN
   e SIG_DFL vengono mantenute, mentre per ogni segnale armato con una specifica
-  funzione di gestione viene automaticamente impostato il comportamento di 
+  funzione di gestione viene automaticamente impostato il comportamento di
   default;
 
 - Naturalmente il nuovo programma può definire al suo interno una nuova gestione
@@ -108,12 +111,12 @@ Unix System Signals
 -------------------
 I sistemi Unix supportano i segnali standard, e come accennato in precedenza
 e' auspicabile lavorare con i nomi piuttosto che con i numeri, poiche' essi
-sono dipendenti dall'architettura, per cui nel campo valore e' indicato solo 
+sono dipendenti dall'architettura, per cui nel campo valore e' indicato solo
 il valore corrispondente rispetto all'architettura, ad esempio i386 e PPC[2].
 
-Ciascun segnale ha una disposizione attuale, che determina il comportamento 
-del processo quando il segnale viene recapitato, le  voci  nella colonna 
-"Azione" della tabella specificano per l'appunto l'azione di default del 
+Ciascun segnale ha una disposizione attuale, che determina il comportamento
+del processo quando il segnale viene recapitato, le  voci  nella colonna
+"Azione" della tabella specificano per l'appunto l'azione di default del
 segnale:
 
 Term, terminare il processo;
@@ -122,8 +125,8 @@ Core, terminare il processo e fare un dump-core;
 Stop, arrestare il processo;
 Cont, continuare il processo se esso è attualmente fermo.
 
-Infine, il carattere "-" denota che un segnale è assente sulla corrispondente 
-architettura. 
+Infine, il carattere "-" denota che un segnale è assente sulla corrispondente
+architettura.
 
 Segnali descritti nello standard POSIX.1-1990 originale.
 
@@ -131,7 +134,7 @@ Segnali descritti nello standard POSIX.1-1990 originale.
 
 Segnale    Valore    Azione   Commento
 SIGHUP        1       Term    La linea sul terminale che ha il controllo è
-                               stata agganciata o il processo che ha il 
+                               stata agganciata o il processo che ha il
 			       controllo è morto
 SIGINT        2       Term    Interrupt da tastiera
 SIGQUIT       3       Core    Segnale d'uscita della tastiera
@@ -162,7 +165,7 @@ descritti in SUSv2 e POSIX.1-2001.
 Segnale      Valore    Azione   Commento
 --------------------------------------------------------------------------------
 SIGBUS         7        Core    Errore sul bus (accesso erroneo alla memoria)
-SIGPOLL                 Term    Evento suscettibile di polling (Sys V). 
+SIGPOLL                 Term    Evento suscettibile di polling (Sys V).
                                 Sinonimo di SIGIO
 SIGPROF        27       Term    Timer del profiler scaduto
 SIGSYS         -        Core    Argomento sbagliato alla routine (SVr4)
@@ -178,7 +181,7 @@ Segnale      Valore    Azione   Commento
 --------------------------------------------------------------------------------
 SIGIOT         6        Core    Trappola IOT. Sinonimo di SIGABRT
 SIGEMT         -        Term
-SIGSTKFLT      16       Term    Errore dello stack del coprocessore 
+SIGSTKFLT      16       Term    Errore dello stack del coprocessore
 SIGIO          29       Term    I/O ora possibile (4.2 BSD)
 SIGCLD         -        Ign     Sinonimo di SIGCHLD
 SIGPWR         30       Term    Mancanza di corrente (System V)
@@ -191,8 +194,8 @@ Nota: Il comando kill -l fornisce un elenco di segnali.
 */
 
 /* Lo scopo del programma e' di verificare la combinazione di tasti utilizzata
-per interrompere un programma, nel caso specifico il parametro da osservare e' 
-"intr", che dovrebbe corrispondere a ^C, ovvero Control-C, che causera' il 
+per interrompere un programma, nel caso specifico il parametro da osservare e'
+"intr", che dovrebbe corrispondere a ^C, ovvero Control-C, che causera' il
 segnale di interruzione SIGINT. Il comando stty -a tuttavia restituira' il
 settaggio corrente di stty. Infine la macro NSIG restituira' il numero totale
 dei segnali presenti nel sistema. */
@@ -200,24 +203,24 @@ dei segnali presenti nel sistema. */
 int main(int argc, char *argv[]) {
     pid_t pid;
     const char *prog_name = "/bin/stty";
-    char *arg_list[] = {"stty", "-a", (char*)0}; 
+    char *arg_list[] = {"stty", "-a", (char*)0};
 
     switch(pid = fork()) {
         case -1:
             fprintf(stderr, "Err.(%s) fork() failed\n", strerror(errno));
 	        exit(EXIT_FAILURE);
-        
+
         case 0:
 	        if (execv(prog_name, arg_list) < 0) {
 	    	    fprintf(stderr, "Err.(%s) execv() failed\n", strerror(errno));
 		        exit(EXIT_FAILURE);
             }
-        
+
         default:
 		    waitpid(pid, NULL, 0);
 		    printf("Il sistema dispone di %d segnali\n", NSIG);
     }
-    
+
     return(EXIT_SUCCESS);
 }
 /*
@@ -225,8 +228,8 @@ int main(int argc, char *argv[]) {
     segnali in altri header, tuttavia e' considereata buona pratica inserire
     solo l'header citato.
 
-[2] Consultare le pagine di man per un approfondimento sulle diverse 
-    architetture: 
-    man 7 signal (GNU/Linux); 
+[2] Consultare le pagine di man per un approfondimento sulle diverse
+    architetture:
+    man 7 signal (GNU/Linux);
     man 3 signal (OpenBSD).
 */
