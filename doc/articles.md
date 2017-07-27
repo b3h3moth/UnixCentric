@@ -19,3 +19,7 @@
 * [A quick tutorial on implementing and debugging malloc, free, calloc, and realloc](https://danluu.com/malloc-tutorial/) `Dec 2014, Dan Luu`
 * [Memory management in C programs](http://nethack4.org/blog/memory.html) `03/16/2014, Alex Smith`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [A Malloc Tutorial*](http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf) `2/16/2009, Marwan Burelle`
+
+### Structures and Unions
+
+* [The Lost Art of C Structure Packing](https://www.catb.org/esr/structure-packing/) `last update: 06/01/2017 - Eric S.Raymond`
