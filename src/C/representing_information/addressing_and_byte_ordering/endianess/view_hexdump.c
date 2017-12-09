@@ -15,7 +15,7 @@ struct {
 - un vettore char da 4 byte;
 - un int da 4 byte;
 - un altro vettore char da 4 byte
-per un totale di 12 byte. D
+per un totale di 12 byte.
 
 Dpo aver lanciato l'eseguibile, sul file risultante dovra' essere eseguito un
 hexdump, in modo tale da verificare l'allinemento dei byte, l'output infatti
