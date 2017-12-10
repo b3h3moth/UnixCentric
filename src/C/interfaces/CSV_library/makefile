@@ -1,5 +1,5 @@
 CC      =  cc
-CFLAGS  =  -pedantic -Wall -std=c11
+CFLAGS  =  -pedantic -Wall -std=c99
 TARGET  =  csv.out
 
 OBJS    =  main.o  csv.o
