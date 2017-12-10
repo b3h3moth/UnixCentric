@@ -19,5 +19,11 @@ int main(void) {
            "     IEEE 754: \'%e\'\n"
            "     to int: \'%d\' INT_MAX: %d\n", fval2, fval2, ival2, INT_MAX);
 
+    float fval2a = -4147483650.0;
+    int ival2a = (int)fval2a;
+    printf("From float: \'%f\'\n"
+           "     IEEE 754: \'%e\'\n"
+           "     to int: \'%d\' INT_MIN: %d\n", fval2a, fval2a, ival2a, INT_MIN);
+
     return(EXIT_SUCCESS);
 }
