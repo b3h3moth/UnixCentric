@@ -18,6 +18,10 @@ int main(void) {
     /* Explicit casting from int to double */
     double dval1 = (double)ival1;
 
+    /* Explicit casting from int to double */
+    double dval2 = 5678765.6786789;
+    int ival2b = (int)dval2;
+
     printf("From int: \'%d\'\n"
            "     to float: \'%f\'\n"
            "     IEEE 754, exponential notation: \'%e\'\n", 
@@ -34,9 +38,14 @@ int main(void) {
            fval2a, fval2a, ival2a, INT_MIN);
 
     printf("From int: \'%d\'\n"
-           "     to double: \'%lf\'\n"
+           "     to double: \'%f\'\n"
            "     IEEE 754, exponential notation: \'%e\'\n", 
            ival1, dval1, dval1);
+
+    printf("From double: \'%f\'\n"
+           "     to int: \'%d\'\n"
+           "     IEEE 754, exponential notation: \'%e\'\n", 
+           dval2, ival2b, dval2);
 
     return(EXIT_SUCCESS);
 }
