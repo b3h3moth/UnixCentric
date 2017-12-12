@@ -5,8 +5,8 @@
 int main(void) {
 
     int ival1 = 32769;
-    float fval2 = 4147483650.0;
-    float fval2a = -4147483650.0;
+    float fval2 = 4147483650.42376;
+    float fval2a = -4789213978.879342;
 
     /* Explicit casting from int to float */
     float fval1 = (float)ival1;
