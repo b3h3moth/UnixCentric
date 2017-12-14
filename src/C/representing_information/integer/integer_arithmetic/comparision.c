@@ -3,24 +3,29 @@
 
 unsigned char is_zero(unsigned char val);
 unsigned char is_equal(unsigned char x, unsigned char y);
+unsigned char is_greater(unsigned char x, unsigned char y);
+unsigned char is_less(unsigned char x, unsigned char y);
 
-/* Si esegue la comparazione tra due 'unsigned char' senza adoperare
-operatori di confronto, ma solo con tecniche di shifting, AND e XOR 
-logico. */
+/* Lo scopo del programma e' di eseguire la comparazione tra due valori - nel
+caso specifico 'unsigned char' - senza adoperare operatori di confronto, ma 
+soltanto le operazioni sui bit. 
+
+Nota: Ciascuna funzione ritorna 1 in caso di esito positivo, 0 altrimenti.*/
 
 int main(void) {
-    unsigned char val1 = 252;
-    unsigned char val2 = 254;
+    unsigned char val1 = 255;
+    unsigned char val2 = 250;
 
-    if (is_equal(val1, val2))
-        printf("Sono diversi\n");
+    if (is_greater(val1, val2) == 1)
+        printf("%d > %d\n", val1, val2);
     else
-        printf("Sono uguali\n");
+        printf("%d > %d\n", val1, val2);
+
 
     return(EXIT_SUCCESS);
 }
 
-/* Verifica se il parametro passato come argomentoo e' zero o meno */
+/* Verifica se il parametro passato come argomento vale zero */
 unsigned char is_zero(unsigned char val) {
 
     return ~((val & (1<<7)) >> 7 |
@@ -33,7 +38,26 @@ unsigned char is_zero(unsigned char val) {
              (val & 1)) & 1;
 }
 
-/* Verifica se i due parametri sono uguali o meno */
+/* Verifica se i due parametri hanno il medesimo valore */
 unsigned char is_equal(unsigned char x, unsigned char y) {
     return(is_zero(x ^ y));
+}
+
+/* Verifica se il parametro 'x' e' maggiore rispetto ad 'y' */
+unsigned char is_greater(unsigned char x, unsigned char y) {
+    unsigned char uc1, uc2;
+
+    uc1 = ~x & y;
+    uc2 = x & ~y;
+
+    uc1 = uc1 | (uc1 >> 1);
+    uc1 = uc1 | (uc1 >> 2);
+    uc1 = uc1 | (uc1 >> 4);
+
+    return ~is_zero(~uc1 & uc2) & 1;
+}
+
+/* Verifica se il parametro 'x' e' minore rispetto ad 'y' */
+unsigned char is_less(unsigned char x, unsigned char y) {
+    return (!is_equal(x,y) && !is_greater(x,y));
 }
