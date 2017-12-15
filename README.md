@@ -10,5 +10,3 @@ Learning the art of the C language programming and the Unix Systems Programming.
 
 A lot of documentation: the standards, reference manuals, bibliography 
 (printed books), open/free docs, articles, talks.
-
-
