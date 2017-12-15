@@ -13,5 +13,5 @@ ovvero l'implementazione dei sistemi operativi UNIX e UNIX-like.
 * [Bibliography](biblio.md) `Printed books`
 * [Books](free_books.md) `Free (full) books`
 * [Articles](articles.md) `Articles and tutorial`
-* [Talks](talks.md) `Slide and Video`
+* [Papers and Talks](talks.md) `Papers and talks from University, Conference and so on`
 * [Unix_History](unix_history) `Unix History and Timeline`
