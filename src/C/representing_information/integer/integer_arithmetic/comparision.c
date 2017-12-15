@@ -21,6 +21,7 @@ int main(void) {
     else
         printf("%d > %d\n", val1, val2);
 
+    /* Testing all functions is simple */
 
     return(EXIT_SUCCESS);
 }
@@ -37,6 +38,7 @@ unsigned char is_zero(unsigned char val) {
              (val & (1<<1)) >> 1 | 
              (val & 1)) & 1;
 }
+M
 
 /* Verifica se i due parametri hanno il medesimo valore */
 unsigned char is_equal(unsigned char x, unsigned char y) {
