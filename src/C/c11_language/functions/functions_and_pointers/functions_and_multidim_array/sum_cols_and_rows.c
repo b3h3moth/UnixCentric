@@ -15,7 +15,7 @@ signatures possibili. */
 
 int main(void) {
     int tot;
-    int mdarr[ROWS][COLS] = { 
+    int mdarr[ROWS][COLS] = {
         {1,3,5,7},
         {2,4,6,8},
         {0,1,2,3}
@@ -54,11 +54,11 @@ void sum_cols(int arr[][COLS]) {
     }
 }
 
-int sum_all(int arr[][COLS]) {
+int sum_all(int (*arr)[COLS]) {
     static int tot = 0;
 
-    for (int r = 0; r<ROWS; r++) 
-        for (int c = 0; c<COLS; c++) 
+    for (int r = 0; r<ROWS; r++)
+        for (int c = 0; c<COLS; c++)
             tot += arr[r][c];
 
     return tot;
