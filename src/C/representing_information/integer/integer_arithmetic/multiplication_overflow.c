@@ -24,7 +24,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-// Sinceramente non mi piace un granche', da revisionare
+/* Verifica l'overflow */
 int check_overflow(int x, int y) {
     int tot = x * y;
 

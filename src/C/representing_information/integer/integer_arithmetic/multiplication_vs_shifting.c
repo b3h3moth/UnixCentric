@@ -11,26 +11,22 @@ int main(void) {
 
     // The total is 14
     int resx = (val << 3) + (val << 2) + (val << 1);
-    printf("%d\n", resx);
-
     // The total is 3
     int resy = (val << 1) + val;
-    printf("%d\n", resy);
-
     // The total is 6
     int resw = (val << 2) + (val << 1);
-    printf("%d\n", resw);
-
     // The total is 31
     int resz = (val << 5) - val;
-    printf("%d\n", resz);
-
     // The total is -6
     int resk = (val << 1) - (val << 3);
-    printf("%d\n", resk);
-
     // The total is 55
     int resj = (val << 6) - (val << 3) - val;
+
+    printf("%d\n", resx);
+    printf("%d\n", resy);
+    printf("%d\n", resw);
+    printf("%d\n", resz);
+    printf("%d\n", resk);
     printf("%d\n", resj);
 
     return(EXIT_SUCCESS);
