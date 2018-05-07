@@ -10,5 +10,6 @@ int main(void) {
     printf("max value: \t%9.5e \t%18.14e \t%22.17Le\n", FLT_MAX, DBL_MAX, LDBL_MAX);
     printf("min value: \t%9.5e \t%18.14e \t%22.17Le\n", FLT_MIN, DBL_MIN, LDBL_MIN);
 
+    /* Write again with strings */
     return(EXIT_SUCCESS);
 }
