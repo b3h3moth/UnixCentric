@@ -39,7 +39,7 @@ int mol(int val1, int val2) {
     return val1 * val2;
 }
 
-// Divide due interi
+// Divide due interi (molto molto basic)
 int division(int val1, int val2) {
     return val1 / val2;
 }
@@ -48,6 +48,7 @@ int division(int val1, int val2) {
 '+' ritorna la funzione sum();
 '-' ritorna la funzione sub();
 '*' ritorna la funzione mol();
+'/' ritorna la funzione division();
 */
 fp select_symbol(char op) {
     switch(op) {
