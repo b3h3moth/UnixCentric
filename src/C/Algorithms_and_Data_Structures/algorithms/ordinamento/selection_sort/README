@@ -1,0 +1,8 @@
+Gli algoritmi sono implementati nei corrispettivi sorgenti .c, ciascun algoritmo
+peraltro e' facilmente identificabile poiche' ad ogni sorgente e' stato 
+associato il nome dell'algoritmo stesso.
+
+Nel file header.h e' stata inserita sia l'implementazione del vettore sia i
+prototipi di ciascuna funzione.
+
+Il file main.c serve per esguire i test.
