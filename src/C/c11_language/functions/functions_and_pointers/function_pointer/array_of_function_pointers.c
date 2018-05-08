@@ -11,7 +11,7 @@ fp fparr[128] = {NULL};
 int sum(int val1, int val2);
 int sub(int val1, int val2);
 int mol(int val1, int val2);
-fp select(char op);
+fp select_symbol(char op);
 int eval(int op, int val1, int val2);
 void initialize_op(void);
 
@@ -50,7 +50,7 @@ void initialize_op(void) {
 
 /* Se op contiene il segno '+' ritorna la funzione sum(), se invece contiene
 il segno '-' ritorna la funzione sub() */
-fp select(char op) {
+fp select_symbol(char op) {
     switch(op) {
         case '+': return sum;
         case '-': return sub;
