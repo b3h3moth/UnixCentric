@@ -7,9 +7,8 @@ typedef size_t (*fptr)(char *);
 // Function Prototype
 size_t process_string(char *str);
 
-/* Lo scopo del programma e' di dichiarare un puntatore a funzione, dopodiche'
-utilizzando una 'typedef', infine utilizzare ciascuno di essi  salvando al 
-proprio interno l'indirizzo di un'altra funzione. */
+/* Lo scopo del programma e' l'utilizzo di puntatori a funzione per gestire
+talune stringhe inviando in output la lunghezza e la stringa stessa. */
 
 int main(void) {
     // Dichiara il puntatore a funzione fpstrlen
@@ -32,16 +31,16 @@ int main(void) {
 
     /* Non e' stato necessario inserire l'operatore 'address-of', poiche' il
     compilatore l'avrebbe comunque ignorato, pertanto la chiamata
-    fpstrlen = &process_string; 
+    fpstrlen = &process_string;
     e' equivalente, ma non consigliata */
 
     /* Stampa le stringhe dell'array di puntatori, invocando prima
     fpstrlen() e successivamente fpstrlen2() */
     for (int i = 0; i < 3; i++)
-        printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen(pstr[i]));
+        printf("The length of \"%s\" is: %ld\n", pstr[i], fpstrlen(pstr[i]));
     // Codice ripetitivo usato a scopo prettamente didattico
     for (int i = 3; i < 6; i++)
-        printf("The length of \"%s\" is: %d\n", pstr[i], fpstrlen2(pstr[i]));
+        printf("The length of \"%s\" is: %ld\n", pstr[i], fpstrlen2(pstr[i]));
 
     return(EXIT_SUCCESS);
 }
