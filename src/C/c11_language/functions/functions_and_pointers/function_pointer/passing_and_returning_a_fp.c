@@ -9,15 +9,17 @@ typedef int (*fp)(int, int);
 int sum(int val1, int val2);
 int sub(int val1, int val2);
 int mol(int val1, int val2);
-fp select(char op);
+int division(int val1, int val2);
+fp select_symbol(char op);
 int eval(char op, int val1, int val2);
 
 // Lo scopo del programma e' di creare esempio usabile di puntatore a funzione
 
 int main(void) {
-    printf("sum: %d\n", eval('+', 10, 20));
-    printf("sub: %d\n", eval('-', 10, 20));
-    printf("mol: %d\n", eval('*', 10, 20));
+    printf("sum: %d\n", eval('+', 20, 10));
+    printf("sub: %d\n", eval('-', 20, 10));
+    printf("mol: %d\n", eval('*', 20, 10));
+    printf("div: %d\n", eval('/', 20, 10));
 
     return(EXIT_SUCCESS);
 }
@@ -37,13 +39,22 @@ int mol(int val1, int val2) {
     return val1 * val2;
 }
 
-/* Se op contiene il segno '+' ritorna la funzione sum(), se invece contiene
-il segno '-' ritorna la funzione sub() */
-fp select(char op) {
+// Divide due interi
+int division(int val1, int val2) {
+    return val1 / val2;
+}
+
+/* Se op contiene il segno:
+'+' ritorna la funzione sum();
+'-' ritorna la funzione sub();
+'*' ritorna la funzione mol();
+*/
+fp select_symbol(char op) {
     switch(op) {
         case '+': return sum;
         case '-': return sub;
         case '*': return mol;
+        case '/': return division;
     }
 
     return 0;
@@ -51,6 +62,6 @@ fp select(char op) {
 
 // Valuta i parametri a seconda del contesto
 int eval(char op, int val1, int val2) {
-    fp operation = select(op);
+    fp operation = select_symbol(op);
     return operation(val1, val2);
 }
