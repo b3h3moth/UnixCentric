@@ -2,6 +2,10 @@
 
 The repository purpose is to talk about C11 (Standard ISO)
 
+### Algorithms and Data Structures
+
+Algorithms an
+
 ### bitwise Hacks
 
 From bitwise operators to the binary representation. A journey among the bits.
@@ -39,8 +43,7 @@ How computer really works:
   * integer arithmetic
 
 * floating point (Standard IEEE 754 single and double precision)
-  * float, double
-  * (to do, at the moment is empty)
+  * float, double, long double
 
 ### c11 - Syntax, Tips and Tricks
 
@@ -55,7 +58,7 @@ The programs will be compiled with two standard:
 
 - `iso9899:2011`, ``-std=c11`` (experimental and incomplete from GCC 4.7)
 
-Architecture for testing code:
+Architectures for testing code:
 
 - `PPC 32 bit` (big endian)
 - `x86 32 bit` (little endian)
