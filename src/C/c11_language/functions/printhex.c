@@ -24,9 +24,8 @@ void printhex(void *p, int size) {
     unsigned char *ip = (unsigned char *)p;   /* First byte address */
 
     printf("0x");
-    for (int i=0; i<size; i++) {
-        printf("%02x", *ip);
-        *ip++;
+    for (int i=size-1; i>=0; i--) {
+        printf("%02x", *(ip + i) );
     }
     printf("\n");
 }
