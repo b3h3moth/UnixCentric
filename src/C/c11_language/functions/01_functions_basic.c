@@ -41,14 +41,14 @@ main (int argc, char *argv[])
    * - (C89) Se si dovesse omettere il tipo-restituito sara' utilizzato il
    *   tipo di default <int>, in (C99) non e' prevista tale circostanza, ovvero
    *   deve sempre essere inserito il tipo restituito.
-   * 
-   * nome-funzione, e' il nome della funzione, c'e' ampia liberta' in tal 
+   *
+   * nome-funzione, e' il nome della funzione, c'e' ampia liberta' in tal
    * senso, tuttavia e' sempre meglio utilizzare nomi autoesplicativi che
    * possano aiutare coloro che leggeranno il programma.
    *
    * Dopo il nome o ID, tra parentesi, ci sono i parametri, ciascun parametro
    * deve essere preceduto da uno specificatore di tipo, tale regola vale
-   * anche quando ci sono diversi parametri dello stesso tipo; quando la 
+   * anche quando ci sono diversi parametri dello stesso tipo; quando la
    * funzione comprende diversi parametri ciascuno di essi deve essere
    * separato dall'altro mediante una virgola, se invece la funzione non
    * prevede parametri si puo' utilizzare void.
@@ -91,11 +91,11 @@ main (int argc, char *argv[])
 
   /* ARGOMENTI (ARGOMENTI ATTUALI) E PARAMETRI (ARGOMENTI FORMALI)
    ***************************************************************************
-   * In genere si indica come parametro (argomento formale) la variabile 
+   * In genere si indica come parametro (argomento formale) la variabile
    * menzionata nell'elenco tra parentesi della definizione  di una funzione,
    * mentre con argomento (argomento attuale) si indica il valore usato da una
    * chiamata di una funzione; nel caso specifico, nella chiamata Media(x,y)
-   * le variabili x e y sono argomenti o argomenti attuali, mentre val_a e 
+   * le variabili x e y sono argomenti o argomenti attuali, mentre val_a e
    * val_b sono parametri o argomenti formali. Gli argomenti attuali pertanto
    * sono delle espressioni, i parametri sono dei nomi che saranno forniti
    * alla funzione allorquando sara' invocata.
@@ -131,9 +131,9 @@ main (int argc, char *argv[])
 
   /* Da notare che, mediante la funzione SommaElementi(), ciascun elemento del
    * vettore e' stato modificato; ma non si era detto che gli argomenti,
-   * essendo passati per valore, non possono essere modificati? Certo, ma 
+   * essendo passati per valore, non possono essere modificati? Certo, ma
    * ovviamente ci sono delle eccezioni, vettori e puntatori viaggiano in
-   * stretto contatto peraltro, per cui e' facilmente intuibile perche' e' 
+   * stretto contatto peraltro, per cui e' facilmente intuibile perche' e'
    * stato possibile modificare i valori di un vettore. Tale argomento tuttavia
    * sara' ampiamente trattato allorquando ci si occupera' di funzioni e
    * puntatori.
@@ -287,7 +287,9 @@ void SommaInterna(int n)
  *
  * - E' sempre preferibile che il valore retituito dal main sia un intero,
  *   tuttavia e' possibile anche restituire un valore diverso da quello di
- *   default. Pratica sconsigliata per la portabilita';
+ *   default, o addirittura eliminare totalmente l'istruzione 'return'
+ *   dal main stesso, tale pratica tuttavia e' sconsigliata per la
+ *   portabilita';
  *
  * - Si  potrebbe incorrere in un errore se si dovesse utilizzare una istruzione
  *   return senza espressione di ritorno in una funzione dichiaraata non void.
