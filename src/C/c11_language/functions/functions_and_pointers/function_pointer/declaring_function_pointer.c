@@ -22,6 +22,7 @@ int main(void) {
         "C++ is a good choice for OOP",
         "Functional programming is beautiful and Lisp is a good think",
         "AWK was initially developer in 1977 ...",
+        "",
         "...by Aho, Weinberger and Kernighan",
         "UNIX is an ideal development environment"
     };
