@@ -11,9 +11,10 @@ size_t process_string(char *str);
 talune stringhe inviando in output la lunghezza e la stringa stessa. */
 
 int main(void) {
-    // Dichiara il puntatore a funzione fpstrlen
+    /* Una prima dichiarazione di puntatore a funzione senza l'ausilio
+    del tipo creato con la typedef */
     size_t (*fpstrlen)(char *);
-    // Dichiara fpstrlen2 mediante il tipo creato con typedef
+    // La dichiarazione di fpstrlen2 utilizzando il nuovo tipo
     fptr fpstrlen2;
 
     char *pstr[] = {
@@ -26,13 +27,14 @@ int main(void) {
     };
 
     // Copia l'indirizzo della funzione process_string()
-    fpstrlen = process_string;
-    fpstrlen2 = process_string;
+    fpstrlen = process_string;      // Consigliata
+    fpstrlen2 = &process_string;    // Equivalente, non consigliata
 
-    /* Non e' stato necessario inserire l'operatore 'address-of', poiche' il
-    compilatore l'avrebbe comunque ignorato, pertanto la chiamata
-    fpstrlen = &process_string;
-    e' equivalente, ma non consigliata */
+    /* Nella prima chiamata non e' stato necessario inserire
+    l'operatore 'address-of', poiche' il compilatore l'avrebbe comunque
+    ignorato; nella seconda chiamata invece è stato utilizzato, ma resta una
+    pratica non consigliata, come peraltro sottolineato subito dopo la
+    chiamata. */
 
     /* Stampa le stringhe dell'array di puntatori, invocando prima
     fpstrlen() e successivamente fpstrlen2() */
