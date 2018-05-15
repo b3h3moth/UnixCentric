@@ -20,11 +20,13 @@ a funzione */
 
 int main(void) {
     initialize_op();
+
     printf("100+20=%d\n", eval('+', 100, 20));
     printf("100-20=%d\n", eval('-', 100, 20));
     printf("100*20=%d\n", eval('*', 100, 20));
     printf("100/20=%d\n", eval('/', 100, 20));
-    printf("100/0=%d\n",  eval('/', 100, 0));
+    printf("100/ 0=%d\n", eval('/', 100, 0));
+
     return(EXIT_SUCCESS);
 }
 
