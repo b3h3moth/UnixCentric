@@ -57,7 +57,6 @@ fp select_symbol(char op) {
         case '*': return mol;
         case '/': return division;
     }
-
     return 0;
 }
 
