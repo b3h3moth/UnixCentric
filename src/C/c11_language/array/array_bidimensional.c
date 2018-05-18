@@ -18,19 +18,23 @@ int main(void) {
 
     /* Calcolo dell'occupazione di memoria */
     int n_bytes = sizeof(matrix_a);
+    printf("Matrix memory: %d bytes\n", n_bytes);
 
     /* Calcolo del numero degli elementi */
     int n_elem = n_bytes / sizeof(int);
+    printf("Matrix elements: %d\n", n_elem);
 
     /* Calcolo del numero di colonne */
-    int n_rows = sizeof(matrix_a[0]) / sizeof(int);
+    int n_cols = sizeof(matrix_a[0]) / sizeof(int);
+    printf("Matrix cols: %d\n", n_cols);
 
     /* Calcolo del numero di righe */
-    int n_cols = n_elem / n_cols
+    int n_rows = n_elem / n_cols;
+    printf("Matrix rows: %d\n", n_rows);
+
 
     // Accesso agli elementi
     int num = matrix_b[0][1]; // Si assegna 20
-
     printf("num: %d\n", num);
 
     // Visualizzazione elementi della matrice
