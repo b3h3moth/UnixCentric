@@ -32,6 +32,8 @@ int main(void) {
     int n_rows = n_elem / n_cols;
     printf("Matrix rows: %d\n", n_rows);
 
+    /* Pay attention when using sizeof(), because it works only on object
+    statically allocated */
 
     // Accesso agli elementi
     int num = matrix_b[0][1]; // Si assegna 20
