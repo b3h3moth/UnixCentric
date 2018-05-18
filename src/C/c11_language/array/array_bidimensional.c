@@ -44,7 +44,7 @@ int main(void) {
     matrix_a[0][0] = 10;
     matrix_a[0][1] = 86;
 
-    printf("Print each element of matrix_a, by rows:\n");
+    printf("Print each element of matrix_a, scanning by rows:\n");
     for (i=0; i<ROWS; i++) {
         printf("row %d: ", i);
         for (j=0; j<COLS; j++)
@@ -52,7 +52,7 @@ int main(void) {
         printf("\n");
     }
 
-    printf("Print each element of matrix_b, by cols:\n");
+    printf("Print each element of matrix_b, scanning by cols:\n");
     for (i=0; i<COLS; i++) {
         printf("col %d: ", i);
         for (j=0; j<ROWS; j++) 
