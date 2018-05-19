@@ -31,7 +31,7 @@ int main(void) {
     int n_rows = n_elem / n_cols;
 
     printf("Matrix elements: %d\n", n_elem);
-    printf("Matrix memory: %d bytes\n", n_bytes);
+    printf("Matrix bytes: %d\n", n_bytes);
     printf("Matrix cols: %d\n", n_cols);
     printf("Matrix rows: %d\n", n_rows);
 
@@ -55,7 +55,7 @@ int main(void) {
     printf("Print each element of matrix_b, scanning by cols:\n");
     for (i=0; i<COLS; i++) {
         printf("col %d: ", i);
-        for (j=0; j<ROWS; j++) 
+        for (j=0; j<ROWS; j++)
             printf("%2d | ", matrix_b[j][i]);
         printf("\n");
     }
