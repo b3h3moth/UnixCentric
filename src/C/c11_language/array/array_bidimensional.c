@@ -18,6 +18,10 @@ int main(void) {
     int matrix_b[ROWS][COLS] = { {10, 20, 30},
                                  {40, 50, 60} };
 
+    /* It would have been the same:
+    int matrix_b[][COLS] = { {10,20,30},
+                             {40,50,60 }; */
+
     /* Calcolo dell'occupazione di memoria */
     int n_bytes = sizeof(matrix_a);
 
