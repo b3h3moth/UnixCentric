@@ -65,5 +65,6 @@ void set_hostname_info(char *arg, char **vec) {
         exit(EXIT_FAILURE);
     }
 
-    strcpy(*vec, arg);
+    /* On OpenBSD there is the function strlcpy() */
+    strncpy(*vec, arg, strlen(arg));
 }
