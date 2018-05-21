@@ -11,14 +11,14 @@ struct strtag {
 #endif
 
 /*
-Within a .c file we can include this file and then working with the header:
+Within a .c file we can include this file:
 #include "strtag.h"
 */
 
 /* A good way to create a new type is:
 typedef struct strtag NewType;
 
-Then:
+Then we can declare a new struct data type with:
 
 NewType data;
 
