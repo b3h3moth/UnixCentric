@@ -16,7 +16,10 @@ Buffer alloca(int size const char *name) {
 }
 
 /* Releases the Buffer memory */
-void dealloca(Buffer *buf);
+void dealloca(Buffer *buf) {
+    free(buf->data);
+    free(buf);
+}
 
 /* Move the index at the initial position within the Buffer */
 void reset(Buffer *buf);
