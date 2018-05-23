@@ -22,7 +22,9 @@ void dealloca(Buffer *buf) {
 }
 
 /* Move the index at the initial position within the Buffer */
-void reset(Buffer *buf);
+void reset(Buffer *buf) {
+    buf->pos = 0;
+}
 
 /* Setup the Buffer name */
 void set_name(Buffer *buf, const char *name);
