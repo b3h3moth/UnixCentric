@@ -27,7 +27,9 @@ void reset(Buffer *buf) {
 }
 
 /* Setup the Buffer name */
-void set_name(Buffer *buf, const char *name);
+void set_name(Buffer *buf, const char *name) {
+    strncpy(buf->name, name, strlen(MAX_NAME_DIM));
+}
 
 /* Buffer initialization through random characters */
 void init_random(Buffer *buf);
