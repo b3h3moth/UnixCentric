@@ -4,7 +4,16 @@
 #include "buffer.h"
 
 /* Dynamic memory allocation of the Buffer */
-Buffer alloca(int size const char *name);
+Buffer alloca(int size const char *name) {
+    Buffer *buf = (Buffer*)malloc(sizeof(Buffer));
+
+    buf->data = (char*)malloc(size * sizeof(char));
+    buf->size = size;
+    buf->pos = 0;
+    set_name(buf, name);
+    
+    return buf;
+}
 
 /* Releases the Buffer memory */
 void dealloca(Buffer *buf);
