@@ -31,8 +31,21 @@ void set_name(Buffer *buf, const char *name) {
     strncpy(buf->name, name, strlen(MAX_NAME_DIM));
 }
 
-/* Buffer initialization through random characters */
-void init_random(Buffer *buf);
+/* Returns a random character 
+   A + [0,25] = random character with a range from 0 to 25 */
+static char random_ch() {
+    return rand()%26 + 'A';
+}
+
+/* Buffer initialization through random characters.
+   It writes random characters within the Buffer. */
+void init_random(Buffer *buf) {
+    char ch = buf_putc(buf, random_ch());
+
+    if (ch != EOB) /* If the Buffer is not full, we can fill it */
+        init_random(buf);
+}
+
 
 /* Buffer initialization through a string */
 void init(Buffer *buf, const char *str);
