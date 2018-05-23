@@ -39,11 +39,34 @@ void init(Buffer *buf, const char *str);
 
 /* Read next character within the Buffer, increment by one the index,
    It Returns EOB if the End Of Buffer has been reached. */
-char buf_getc(Buffer *buf);
+char buf_getc(Buffer *buf) {
+    char cr = EOB;
+    
+    if (buf->pos < buf->size) {
+        cr = buf->data[buf->pos];
+        buf->pos++;
+    } else if (buf->pos == buf->size) { /* End of the Buffer */
+        reset(buf);
+        cr = EOB;
+    }
+    return cr;
+}
 
 /* Write next character within the Buffer, increment by one the index,
    It Returns EOB if the End Of Buffer has been reached. */
-char buf_putc(Buffer *buf, char *c);
+char buf_putc(Buffer *buf, char *c) {
+    char cr = EOB;
+
+    if (buf->pos < buf->size) {
+        buf->data[buf->pos] = c;
+        cr = c;
+        buf->pos++;
+    } else if (buf->pos == buf->size) { /* End of the Buffer */
+        reset(buf);
+        cr = EOB;
+    }
+    return cr;
+}
 
 /* Print the contents of the Buffer */
 void buf_print(Buffer *buf);
