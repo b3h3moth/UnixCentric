@@ -113,17 +113,33 @@ void buf_copy(Buffer *bsrc, Buffer *bdst) {
 
     if (ch != EOB) {
         buf_putc(bdest, ch);
-        buf_copy(bsrc, bdst);
+        buf_copy(bdst, bsrc);
     }
 }
 
 /* Copy the contents of the Buffer from source to the destination
    inverse order. */
-void buf_inverse_copy(Buffer *bsrc, Buffer *bdst);
+void buf_inverse_copy(Buffer *bsrc, Buffer *bdst) {
+    char ch = buf_getc(bsrc);
+
+    if (ch != EOB) {
+        buf_inverse_copy(bdst, bsrc);
+        buf_putc(bdest, ch);
+    }
+}
 
 /* Count how many occurence of the ASCII character there are within the 
    Buffer */
-int count(Buffer *buf, char c);
+int count(Buffer *buf, char c) {
+    char ch = buf_getc(buf);
+
+    if (ch == EOB)
+        return 0;
+    else if (ch == c)
+        return 1 + count(buf, c);
+    else
+        return count(buf, c);
+}
 
 /* Concatenate two Buffer into new one with its own name */
 Buffer *buf_concatenate(Buffer *bufa, Buffer *bufb, const char *name);
