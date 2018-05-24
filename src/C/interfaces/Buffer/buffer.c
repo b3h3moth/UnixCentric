@@ -108,7 +108,7 @@ void print(Buffer *buf) {
 }
 
 /* Copy the contents of the Buffer from source to the destination */
-void buf_copy(Buffer *bsrc, Buffer *bdst) {
+void buf_copy(Buffer *bdst, Buffer *bsrc) {
     char ch = buf_getc(bsrc);
 
     if (ch != EOB) {
@@ -119,7 +119,7 @@ void buf_copy(Buffer *bsrc, Buffer *bdst) {
 
 /* Copy the contents of the Buffer from source to the destination
    inverse order. */
-void buf_inverse_copy(Buffer *bsrc, Buffer *bdst) {
+void buf_inverse_copy(Buffer *bdst, Buffer *bsrc) {
     char ch = buf_getc(bsrc);
 
     if (ch != EOB) {
@@ -155,9 +155,8 @@ void concatenate(Buffer *bnew, Buffer *bufa, Buffer *bufb) {
         buf_putc(bnew, ch);
         concatenate(bnew, bufa, bufb);
     } else 
-        buf_copy(bufb,bnew);
+        buf_copy(bnew, bufb);
 }
 
-}
 /* Check if the Buffer is palindrome */
 int palindrome(Buffer *buf);
