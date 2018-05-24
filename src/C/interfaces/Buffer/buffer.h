@@ -13,7 +13,7 @@ typedef struct {
 } Buffer;
 
 /* Dynamic memory allocation of the Buffer */
-Buffer alloca(int size const char *name);
+Buffer alloca(int size, const char *name);
 
 /* Releases the Buffer memory */
 void dealloca(Buffer *buf);
