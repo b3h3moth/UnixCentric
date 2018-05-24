@@ -142,7 +142,22 @@ int count(Buffer *buf, char c) {
 }
 
 /* Concatenate two Buffer into new one with its own name */
-Buffer *buf_concatenate(Buffer *bufa, Buffer *bufb, const char *name);
+Buffer *buf_concatenate(Buffer *bufa, Buffer *bufb, const char *name) {
+    Buffer *bnew = alloca(bufa->size + bufb->size, name);
+    concatenate(bnew, bufa, bufb);
+    return bnew;
+}
 
+void concatenate(Buffer *bnew, Buffer *bufa, Buffer *bufb) {
+    char ch = buf_getc(bufa);
+
+    if (ch != EOB) {
+        buf_putc(bnew, ch);
+        concatenate(bnew, bufa, bufb);
+    } else 
+        buf_copy(bufb,bnew);
+}
+
+}
 /* Check if the Buffer is palindrome */
 int palindrome(Buffer *buf);
