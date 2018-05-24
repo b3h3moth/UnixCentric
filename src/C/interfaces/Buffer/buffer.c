@@ -92,7 +92,14 @@ char buf_putc(Buffer *buf, char *c) {
 }
 
 /* Print the contents of the Buffer */
-void buf_print(Buffer *buf);
+void buf_print(Buffer *buf) {
+    char ch = buf_getc(buf);
+
+    if (ch != EOB) {
+        printf("%c", ch);
+        buf_print(buf);
+    }
+}
 
 /* Copy the contents of the Buffer from source to the destination */
 void buf_copy(Buffer *bsrc, Buffer *bdst);
