@@ -108,7 +108,14 @@ void print(Buffer *buf) {
 }
 
 /* Copy the contents of the Buffer from source to the destination */
-void buf_copy(Buffer *bsrc, Buffer *bdst);
+void buf_copy(Buffer *bsrc, Buffer *bdst) {
+    char ch = buf_getc(bsrc);
+
+    if (ch != EOB) {
+        buf_putc(bdest, ch);
+        buf_copy(bsrc, bdst);
+    }
+}
 
 /* Copy the contents of the Buffer from source to the destination
    inverse order. */
