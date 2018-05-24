@@ -28,7 +28,7 @@ void set_name(Buffer *buf, const char *name);
 void init_random(Buffer *buf);
 
 /* Buffer initialization through a string */
-void init(Buffer *buf, const char *str);
+void init_str(Buffer *buf, const char *str);
 
 /* Read next character within the Buffer, increment by one the index,
    It Returns EOB if the End Of Buffer has been reached. */

@@ -48,14 +48,14 @@ void init_random(Buffer *buf) {
 
 
 /* Buffer initialization through a string */
-void init(Buffer *buf, const char *str) {
+void init_str(Buffer *buf, const char *str) {
     if (str[0] == '\0')
         buf->pos = 0;
     else {
         char ch = buf_putc(buf, str[0]);
 
         if (ch != EOB) /* If the Buffer is not full, we can fill it */
-            init(buf, str + 1);
+            init_str(buf, str + 1);
     }
 }
 
