@@ -101,6 +101,12 @@ void buf_print(Buffer *buf) {
     }
 }
 
+void print(Buffer *buf) {
+    printf("%s - ", buf->name);
+    buf_print(buf);
+    printf("\n");
+}
+
 /* Copy the contents of the Buffer from source to the destination */
 void buf_copy(Buffer *bsrc, Buffer *bdst);
 
