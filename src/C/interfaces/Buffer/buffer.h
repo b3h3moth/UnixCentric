@@ -1,8 +1,8 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-const int MAX_NAME_DIM = 20;
-const char EOB = ' ';
+#define MAX_NAME_DIM 20
+#define EOB ' '
 
 /* The Buffer of characters */
 typedef struct {
@@ -13,10 +13,10 @@ typedef struct {
 } Buffer;
 
 /* Dynamic memory allocation of the Buffer */
-Buffer alloca(int size, const char *name);
+Buffer *buf_alloc(int size, const char *name);
 
 /* Releases the Buffer memory */
-void dealloca(Buffer *buf);
+void buf_dealloc(Buffer *buf);
 
 /* Move the index at the initial position within the Buffer */
 void reset(Buffer *buf);
@@ -36,17 +36,18 @@ char buf_getc(Buffer *buf);
 
 /* Write next character within the Buffer, increment by one the index,
    It Returns EOB if the End Of Buffer has been reached. */
-char buf_putc(Buffer *buf, char *c);
+char buf_putc(Buffer *buf, char c);
 
 /* Print the contents of the Buffer */
 void buf_print(Buffer *buf);
+void print(Buffer *buf);
 
 /* Copy the contents of the Buffer from source to the destination */
-void buf_copy(Buffer *bsrc, Buffer *bdst);
+void buf_copy(Buffer *bdst, Buffer *bsrc);
 
 /* Copy the contents of the Buffer from source to the destination
    inverse order. */
-void buf_inverse_copy(Buffer *bsrc, Buffer *bdst);
+void buf_inverse_copy(Buffer *bdst, Buffer *bsrc);
 
 /* Count how many occurence of the ASCII character there are within the 
    Buffer */
@@ -54,6 +55,7 @@ int count(Buffer *buf, char c);
 
 /* Concatenate two Buffer into new one with its own name */
 Buffer *buf_concatenate(Buffer *bufa, Buffer *bufb, const char *name);
+void concatenate(Buffer *bnew, Buffer *bufa, Buffer *bufb);
 
 /* Check if the Buffer is palindrome */
 int palindrome(Buffer *buf);

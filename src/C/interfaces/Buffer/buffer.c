@@ -3,9 +3,9 @@
 #include <string.h>
 #include "buffer.h"
 
-/* Dynamic memory allocation of the Buffer */
-Buffer alloca(int size const char *name) {
-    Buffer *buf = (Buffer*)malloc(sizeof(Buffer));
+/* Dynamic memory alliocation of the Buffer */
+Buffer *buf_alloc(int size, const char *name) {
+    Buffer *buf = (Buffer *)malloc(sizeof(Buffer));
 
     buf->data = (char*)malloc(size * sizeof(char));
     buf->size = size;
@@ -16,7 +16,7 @@ Buffer alloca(int size const char *name) {
 }
 
 /* Releases the Buffer memory */
-void dealloca(Buffer *buf) {
+void buf_dealloc(Buffer *buf) {
     free(buf->data);
     free(buf);
 }
@@ -28,12 +28,12 @@ void reset(Buffer *buf) {
 
 /* Setup the Buffer name */
 void set_name(Buffer *buf, const char *name) {
-    strncpy(buf->name, name, strlen(MAX_NAME_DIM));
+    strncpy(buf->name, name, MAX_NAME_DIM);
 }
 
 /* Returns a random character 
    A + [0,25] = random character with a range from 0 to 25 */
-static char random_ch() {
+char random_ch() {
     return rand()%26 + 'A';
 }
 
@@ -50,7 +50,7 @@ void init_random(Buffer *buf) {
 /* Buffer initialization through a string */
 void init(Buffer *buf, const char *str) {
     if (str[0] == '\0')
-        reset(buf);
+        buf->pos = 0;
     else {
         char ch = buf_putc(buf, str[0]);
 
@@ -69,7 +69,7 @@ char buf_getc(Buffer *buf) {
         cr = buf->data[buf->pos];
         buf->pos++;
     } else if (buf->pos == buf->size) { /* End of the Buffer */
-        reset(buf);
+        buf->pos = 0;
         cr = EOB;
     }
     return cr;
@@ -77,18 +77,18 @@ char buf_getc(Buffer *buf) {
 
 /* Write next character within the Buffer, increment by one the index,
    It Returns EOB if the End Of Buffer has been reached. */
-char buf_putc(Buffer *buf, char *c) {
-    char cr = EOB;
+char buf_putc(Buffer *buf, char c) {
+    char cw = EOB;
 
     if (buf->pos < buf->size) {
         buf->data[buf->pos] = c;
-        cr = c;
+        cw = c;
         buf->pos++;
     } else if (buf->pos == buf->size) { /* End of the Buffer */
-        reset(buf);
-        cr = EOB;
+        buf->pos = 0;
+        cw = EOB;
     }
-    return cr;
+    return cw;
 }
 
 /* Print the contents of the Buffer */
@@ -112,7 +112,7 @@ void buf_copy(Buffer *bdst, Buffer *bsrc) {
     char ch = buf_getc(bsrc);
 
     if (ch != EOB) {
-        buf_putc(bdest, ch);
+        buf_putc(bdst, ch);
         buf_copy(bdst, bsrc);
     }
 }
@@ -124,7 +124,7 @@ void buf_inverse_copy(Buffer *bdst, Buffer *bsrc) {
 
     if (ch != EOB) {
         buf_inverse_copy(bdst, bsrc);
-        buf_putc(bdest, ch);
+        buf_putc(bdst, ch);
     }
 }
 
@@ -143,7 +143,7 @@ int count(Buffer *buf, char c) {
 
 /* Concatenate two Buffer into new one with its own name */
 Buffer *buf_concatenate(Buffer *bufa, Buffer *bufb, const char *name) {
-    Buffer *bnew = alloca(bufa->size + bufb->size, name);
+    Buffer *bnew = buf_alloc((bufa->size + bufb->size), name);
     concatenate(bnew, bufa, bufb);
     return bnew;
 }
