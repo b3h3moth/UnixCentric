@@ -159,4 +159,20 @@ void concatenate(Buffer *bnew, Buffer *bufa, Buffer *bufb) {
 }
 
 /* Check if the Buffer is palindrome */
-int palindrome(Buffer *buf);
+int palindrome(Buffer *buf) {
+    int n = 1;
+
+    char ch_before = buf_getc(buf);
+    
+    if (buf->pos < buf->size / 2)
+        n = n && palindrome(buf);
+    
+    char ch_after = buf_getc(buf);
+    
+    n = n && ch_before == ch_after;
+
+    /* Note: write character on the activation record before and after the 
+     invocation of the recursive function palindrome() */
+
+    return 0;
+}
