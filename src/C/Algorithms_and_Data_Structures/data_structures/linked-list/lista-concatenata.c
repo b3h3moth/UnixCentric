@@ -78,10 +78,12 @@ void CopiaLista(TipoLista lis, TipoLista *copia_lista);
 /* Inserimento di un elemento in coda ad una lista */
 void InserisciCodaListaR(TipoLista *lis, int elem);
 
+/* Costruzione di una lista di n elementi, ciascuno con valore val */
+void CreaLista_r(TipoLista *lis, int n, int val);
 
 int main(int argc, char *argv[])
 {
-   TipoLista new_nodo, new_nodo_2, nodo_copia;
+   TipoLista new_nodo, new_nodo_2, nodo_copia, newrec;
    InitLista(&new_nodo);
    system("tput reset"); /* Da eliminare su sistemi != da UNIX */
    printf("Test lista vuota: %d\n", TestListaVuota(new_nodo));
@@ -148,6 +150,10 @@ int main(int argc, char *argv[])
    InserisciCodaListaR(&new_nodo_2, 200);
    InserisciTestaLista(&new_nodo_2, 1);
    ScorriLista(new_nodo_2);
+   printf("----Testing Recursion------\n");
+   CreaLista_r(&new_nodo_2, 5, 100);
+   CreaLista_r(&newrec, 5, 100);
+   ScorriLista(newrec);
 
    return(EXIT_SUCCESS);
 }
@@ -192,13 +198,8 @@ void TestaLista(TipoLista lis)
       printf("Primo elemento della lista: %d\n", lis->elem);
 
    */
-   while(TRUE) {
-      if (TestListaVuota == NULL)
-      	 break;
-
+   if (TestListaVuota != NULL)
       printf("Primo elemento della lista: %d\n", lis->elem);
-     	break;
-   }
 
 }
 
@@ -377,4 +378,14 @@ void InserisciCodaListaR(TipoLista *lis, int elem)
 		(*lis)->next = NULL;
 	} else
 		InserisciCodaListaR(&(*lis)->next, elem);
+}
+
+void CreaLista_r(TipoLista *lis, int n, int val) {
+    if (n == 0)
+        *lis = NULL;
+    else {
+        *lis = (TipoNodoLista*)malloc(sizeof(TipoNodoLista));
+        (*lis)->elem = val;
+        CreaLista_r(&((*lis)->next), n-1, val);
+    }
 }
