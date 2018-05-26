@@ -1,3 +1,4 @@
+/* Fix TestaLista() */
 #include <stdio.h>
 #include <stdlib.h>
 
