@@ -25,7 +25,7 @@ int main(void) {
     AddressBook *myabook;
 
     myabook = new_item("bar@foo.com", "foo", 1);
-    
+
     /* Con la chiamata alla funzione add_front(), il nuovo elemento andra'
     in testa alla lista */
     myabook = add_front(myabook, new_item("foo@bar.com", "bar", 2));
@@ -40,8 +40,8 @@ int main(void) {
     // Quanti elementi contiene la rubrica
     int n = 0;
     apply(myabook, count_elements, &n);
-    printf("AddressBook contains \'%d\' elements\n", n);
-    
+    printf("AddressBook has \'%d\' elements\n", n);
+
     return(EXIT_SUCCESS);
 }
 
@@ -100,5 +100,5 @@ void count_elements(AddressBook *list_p, void *arg) {
     int *elem;
     elem = (int *) arg;
     (*elem)++;
-} 
- 
+}
+
