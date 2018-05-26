@@ -16,7 +16,7 @@ typedef int Bool;
 /* Nel C99 il tipo di dato booleano e' stato inserito, ed e' una parola chiave
  * del linguaggio stesso peraltro, essa e':
  * "_Bool" o "bool"
- * _Bool var; bool var; 
+ * _Bool var; bool var;
  * Si possono assegnare a tale tipo di variabile solo "0" o "1" */
 
 
@@ -100,9 +100,9 @@ int main(int argc, char *argv[])
    ScorriLista(new_nodo);
    CancellaTesta(&new_nodo);
 
-   /* 
+   /*
     * Si deve utilizzare un altro puntatore, la lista precedente non esiste
-    * piu', poiche' deallocata 
+    * piu', poiche' deallocata
     */
    InitLista(&new_nodo_2);
    InserisciCodaListaI(&new_nodo_2, 2000);
@@ -176,18 +176,18 @@ void TestaLista(TipoLista lis)
    /* Avrei potuto inserire il controllo nel main e qui eseguire solo
      la printf; al momento ritengo questa tecnica piu' elegante, per cui
      la lascio.
-    
-     Per documentazione inserisco anche l'altra tecnica: 
+
+     Per documentazione inserisco anche l'altra tecnica:
      nel main avrei dovuto inserire:
-    
+
     if (TestListaVuota != NULL)
-    TestaLista(new_nodo);
-    
+        TestaLista(new_nodo);
+
      e qui nella funzione la sola printf; avrei avuto la certezza peraltro che
      avrebbe restituito solo il primo elemento.
-    
+
      Oppure avrei potuto inserirlo qui:
-    
+
    if (TestListaVuota != NULL)
       printf("Primo elemento della lista: %d\n", lis->elem);
 
@@ -195,7 +195,7 @@ void TestaLista(TipoLista lis)
    while(TRUE) {
       if (TestListaVuota == NULL)
       	 break;
-      
+
       printf("Primo elemento della lista: %d\n", lis->elem);
      	break;
    }
@@ -214,7 +214,7 @@ void CancellaTesta(TipoLista *lis)
 
 }
 
-void ScorriLista(TipoLista lis) 
+void ScorriLista(TipoLista lis)
 {
    int i = 0;
    if (lis == NULL)
@@ -266,7 +266,7 @@ void CancellaLista(TipoLista *lis)
 
 Bool UgualeElemento(int elem1, int elem2)
 {
-   if (elem1 == elem2) 
+   if (elem1 == elem2)
       return TRUE;
    else
       return FALSE;
@@ -375,6 +375,6 @@ void InserisciCodaListaR(TipoLista *lis, int elem)
 		*lis = malloc(sizeof(TipoNodoLista));
 		(*lis)->elem = elem;
 		(*lis)->next = NULL;
-	} else 
+	} else
 		InserisciCodaListaR(&(*lis)->next, elem);
 }
