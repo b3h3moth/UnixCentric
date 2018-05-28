@@ -6,7 +6,7 @@ struct elemList {
     struct elemList *next;
 };
 
-typedef struct elemList nodeList;
-typedef nodeList *pList;
+typedef struct elemList typeNodeList;
+typedef typeNodeList *typeList;
 
 #endif
