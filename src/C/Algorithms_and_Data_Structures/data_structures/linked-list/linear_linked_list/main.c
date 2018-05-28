@@ -9,6 +9,7 @@ int main(void) {
     addNode(&llst, 1);
     delNode(&llst);
     delNode(&llst);
+    delNode(&llst);
 
     return(EXIT_SUCCESS);
 }
