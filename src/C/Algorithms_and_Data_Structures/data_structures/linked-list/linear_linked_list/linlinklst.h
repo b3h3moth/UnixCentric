@@ -17,4 +17,7 @@ typedef typeNodeList *typeList;
 
 /* Add a node in the first position of the list */
 void addNode(typeList *lis, int n);
+
+/* Remove the first of the list */
+void delNode(typeList *lis);
 #endif

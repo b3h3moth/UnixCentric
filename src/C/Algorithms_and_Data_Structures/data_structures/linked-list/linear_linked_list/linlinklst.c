@@ -7,4 +7,11 @@ void addNode(typeList *lis, int n) {
     *lis = (typeList)malloc(sizeof(typeNodeList));
     (*lis)->data = n;
     (*lis)->next = temp;
-}    
+}
+
+/* Remove the first node of the list */
+void delNode(typeList *lis) {
+    typeList temp = *lis;
+    *lis = (*lis)->next;
+    free(temp);
+}
