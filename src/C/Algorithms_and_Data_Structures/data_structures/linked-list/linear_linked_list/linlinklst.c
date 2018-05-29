@@ -4,7 +4,7 @@
 #include <errno.h>
 #include "linlinklst.h"
 
-/* Add a node in the first position of the list */
+/* Add a node at the first position of the list */
 void addNode(typeList *lis, int n) {
     typeList temp = *lis;
     *lis = (typeList)malloc(sizeof(typeNodeList));
@@ -19,12 +19,12 @@ void delNode(typeList *lis) {
     free(temp);
 }
 
-/* Return true if the list is empty */
+/* Check if the list is empty */
 int emptyList(typeList lis) {
     return lis == NULL;
 }
 
-/* Write node data type on the standard output (support function) */
+/* Write the node data type (integer) on the standard output */
 void writeDataType(int data) {
     printf("%d ", data);
 }
@@ -34,7 +34,7 @@ void writeDataTypeF(FILE *f, int data) {
     fprintf(f, "%d ", data);
 }
 
-/* Write each typeList node on the screen */
+/* Write each 'typeList' node on the screen */
 void writeNode(typeList lis) {
     if (emptyList(lis))
         printf("\n");
@@ -44,7 +44,7 @@ void writeNode(typeList lis) {
     }
 }
 
-/* Write each typeList node on a file */
+/* Write each 'typeList' node on a file */
 void writeNodeF(char *infile, typeList lis) {
     FILE *datafile;
     datafile = fopen(infile, "w");
@@ -65,7 +65,7 @@ void writeNodeF_r(FILE *outfile, typeList lis) {
     }
 }
 
-/*  Find the integer val within the list */
+/*  Find the integer 'val' within the list */
 int findinList(typeList lis, int val) {
     if (emptyList(lis))
         return 0;
@@ -75,7 +75,7 @@ int findinList(typeList lis, int val) {
         return findinList(lis->next, val);
 }
 
- /* Find a node that contains the integer val inside */
+ /* Find a node that contains the integer 'val' inside */
 void findList(typeList lis, int val, typeList *res) {
     if (emptyList(lis))
         *res = NULL;
@@ -85,7 +85,7 @@ void findList(typeList lis, int val, typeList *res) {
         findList(lis->next, val, res);
 }
 
-/* Count the length of the list */
+/* Compute how many nodes there are in the list */
 int lengthList(typeList lis) {
     if (emptyList(lis))
         return 0;
@@ -93,7 +93,7 @@ int lengthList(typeList lis) {
         return 1 + lengthList(lis->next);
 }
 
-/* Count how many occurences of the integer val there are within the list  */
+/* Compute how many occurences of the integer 'val' there are within the list */
 int occurenceElemList(typeList lis, int val) {
     if (emptyList(lis))
         return 0;
@@ -103,3 +103,6 @@ int occurenceElemList(typeList lis, int val) {
         return 0 + occurenceElemList(lis->next, val);
         
 }
+
+/* Find and replace the first occurence of the integer 'val' with 'new_val' */
+void substElemList(typeList lis, int val, int new_val)
