@@ -28,5 +28,9 @@ int main(void) {
     /* $ cat lll.txt */
     for (i=0; i<=10; i++) 
         printf("find %.2d: %d\n", i, findinList(llst, i));
+    typeList res;
+    findList(llst, 7, &res);
+    writeNode(res);
+    printf("%d\n", res->data);
     return(EXIT_SUCCESS);
 }
