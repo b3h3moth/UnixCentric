@@ -11,6 +11,8 @@ int main(void) {
     addNode(&llst, 2);
     addNode(&llst, 1);
     writeNode(llst);
+    for (i=0; i<=10; i++) 
+        printf("find %.2d: %d\n", i, occurenceElemList(llst, i));
     delNode(&llst);
     delNode(&llst);
     if (emptyList(llst))
@@ -26,6 +28,7 @@ int main(void) {
     addNode(&llst, 7);
     writeNodeF(myfile, llst);
     /* $ cat lll.txt */
+    printf("Count elements of list:\n");
     for (i=0; i<=10; i++) 
         printf("find %.2d: %d\n", i, findinList(llst, i));
     typeList res;
@@ -33,5 +36,8 @@ int main(void) {
     writeNode(res);
     printf("%d\n", res->data);
     printf("List A: %d\nList B: %d\n", lengthList(llst), lengthList(res));
+    printf("Count occurence of the integers within the list:\n");
+    for (i=0; i<=10; i++) 
+        printf("find %.2d: %d\n", i, occurenceElemList(llst, i));
     return(EXIT_SUCCESS);
 }

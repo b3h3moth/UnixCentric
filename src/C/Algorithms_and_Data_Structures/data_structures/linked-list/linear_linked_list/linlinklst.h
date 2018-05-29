@@ -62,4 +62,8 @@ void findList(typeList lis, int val, typeList *res);
 /* Count the length of the list */
 int lengthList(typeList lis);
 
+/* Count how many occurences of the integer val there are within the list  */
+int occurenceElemList(typeList lis, int val);
+
+/* Functions that change the contents of the Linear Structure List */
 #endif

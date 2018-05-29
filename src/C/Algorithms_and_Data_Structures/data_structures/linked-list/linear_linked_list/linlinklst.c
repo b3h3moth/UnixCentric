@@ -92,3 +92,14 @@ int lengthList(typeList lis) {
     else
         return 1 + lengthList(lis->next);
 }
+
+/* Count how many occurences of the integer val there are within the list  */
+int occurenceElemList(typeList lis, int val) {
+    if (emptyList(lis))
+        return 0;
+    else if (lis->data == val)
+        return 1 + occurenceElemList(lis->next, val);
+    else 
+        return 0 + occurenceElemList(lis->next, val);
+        
+}
