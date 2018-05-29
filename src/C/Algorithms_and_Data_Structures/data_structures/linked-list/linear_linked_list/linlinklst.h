@@ -31,4 +31,11 @@ void delNode(typeList *lis);
 
 /* Check if the list is empty */
 int emptyList(typeList lis);
+
+/* Write node data information on the standard output (supporrt function) */
+void writeDataType(int data);
+
+/* Write node data information through a file (supporrt function) */
+void writeDataTypeF(FILE *f, int data);
+
 #endif

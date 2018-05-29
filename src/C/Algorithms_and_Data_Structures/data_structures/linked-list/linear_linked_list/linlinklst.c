@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "linlinklst.h"
 
@@ -21,3 +22,12 @@ int emptyList(typeList lis) {
     return lis == NULL;
 }
 
+/* Write node data information on the standard output */
+void writeDataType(int data) {
+    printf("%d ", data);
+}
+
+/* Write node data information through a file */
+void writeDataTypeF(FILE *f, int data) {
+    fprintf(f, "%d ", data);
+}
