@@ -65,7 +65,7 @@ void writeNodeF_r(FILE *outfile, typeList lis) {
     }
 }
 
-/* Find an element within the list */
+/*  Find the integer val within the list */
 int findinList(typeList lis, int val) {
     if (emptyList(lis))
         return 0;
@@ -73,4 +73,14 @@ int findinList(typeList lis, int val) {
         return 1;
     else
         return findinList(lis->next, val);
+}
+
+ /* Find a node that contains the integer val inside */
+void findList(typeList lis, int val, typeList *res) {
+    if (emptyList(lis))
+        *res = NULL;
+    else if (lis->data == val)
+        *res = lis;
+    else
+        findList(lis->next, val, res);
 }

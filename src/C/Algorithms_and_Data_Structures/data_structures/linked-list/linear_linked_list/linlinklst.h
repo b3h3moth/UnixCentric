@@ -57,5 +57,5 @@ int findinList(typeList lis, int val);
    a pointer to the node (true);
    NULL otherwise.
 */
-int findList(typeList lis, int val, typeList *res);
+void findList(typeList lis, int val, typeList *res);
 #endif
