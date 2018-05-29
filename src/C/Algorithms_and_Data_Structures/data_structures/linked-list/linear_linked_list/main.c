@@ -32,6 +32,7 @@ int main(void) {
     typeList res;
     findList(llst, 9, &res);
     writeNode(res);
+    free(res);
     printf("%d\n", res->data);
     printf("List A: %d\nList B: %d\n", lengthList(llst), lengthList(res));
     printf("Count occurence of the integers within the list:\n");
