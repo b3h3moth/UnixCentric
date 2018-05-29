@@ -9,7 +9,13 @@ int main(void) {
     addNode(&llst, 1);
     delNode(&llst);
     delNode(&llst);
+    if (emptyList(llst))
+        fprintf(stdout, "A. The list is empty\n");
+    else
+        fprintf(stdout, "A. The list is not empty\n");
     delNode(&llst);
+    if (emptyList(llst))
+        fprintf(stdout, "B. The list is empty\n");
 
     return(EXIT_SUCCESS);
 }
