@@ -29,8 +29,9 @@ int main(void) {
     for (i=0; i<=10; i++) 
         printf("find %.2d: %d\n", i, findinList(llst, i));
     typeList res;
-    findList(llst, 7, &res);
+    findList(llst, 9, &res);
     writeNode(res);
     printf("%d\n", res->data);
+    printf("List A: %d\nList B: %d\n", lengthList(llst), lengthList(res));
     return(EXIT_SUCCESS);
 }

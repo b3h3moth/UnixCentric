@@ -84,3 +84,11 @@ void findList(typeList lis, int val, typeList *res) {
     else
         findList(lis->next, val, res);
 }
+
+/* Count the length of the list */
+int lengthList(typeList lis) {
+    if (emptyList(lis))
+        return 0;
+    else
+        return 1 + lengthList(lis->next);
+}

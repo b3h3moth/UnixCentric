@@ -58,4 +58,8 @@ int findinList(typeList lis, int val);
    NULL otherwise.
 */
 void findList(typeList lis, int val, typeList *res);
+
+/* Count the length of the list */
+int lengthList(typeList lis);
+
 #endif
