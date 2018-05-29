@@ -11,8 +11,9 @@ typedef typeNodeList *typeList;
 
 
 /* 
- * Basic operations: 
- * "Those operations that involve a single node, the first" 
+ * Basic operations:
+ * ================= 
+ * Operations that involve a single node, the first.
  */
 
 /* Add a node in the first position of the list */
@@ -24,6 +25,8 @@ void delNode(typeList *lis);
 
 /*
  * Recursive visits
+ * ================
+ * 1. Operations that don't modify the list.
  */
 
 /* Check if the list is empty */
