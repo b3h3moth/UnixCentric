@@ -47,7 +47,15 @@ void writeNodeF(char *infile, typeList lis);
 /* Recursive version of writeNodeF() */
 void writeNodeF_r(FILE *outfile, typeList lis);
 
-/* Find an element within the list. 
-   It returns true if exist, 0 otherwise */
-int findinList(typeList lis, int data);
+/* Find the integer val within the list. It returns: 
+   1 (true) if exist;
+   0 if the list is empty.
+*/
+int findinList(typeList lis, int val);
+
+/* Find a node that contains the integer val inside. It returns:
+   a pointer to the node (true);
+   NULL otherwise.
+*/
+int findList(typeList lis, int val, typeList *res);
 #endif
