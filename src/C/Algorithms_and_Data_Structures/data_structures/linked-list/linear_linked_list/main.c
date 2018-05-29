@@ -32,15 +32,22 @@ int main(void) {
     typeList res;
     findList(llst, 9, &res);
     writeNode(res);
-    free(res);
     printf("%d\n", res->data);
     printf("List A: %d\nList B: %d\n", lengthList(llst), lengthList(res));
     printf("Count occurence of the integers within the list:\n");
     for (i=0; i<=10; i++) 
         printf("find %.2d: %d\n", i, occurenceElemList(llst, i));
     writeNode(llst);
+    printf("find and replace the first occurence of %d\n", 4);
     substElemList(llst, 10, 4);
     writeNode(llst);
     writeNodeF(myfile, llst);
+    addNode(&llst, 9);
+    addNode(&llst, 9);
+    addNode(&llst, 9);
+    writeNode(llst);
+    printf("find and replace all the occurences of %d with %d\n", 9, 3);
+    substAllElemList(llst, 9, 3);
+    writeNode(llst);
     return(EXIT_SUCCESS);
 }
