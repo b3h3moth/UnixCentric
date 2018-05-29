@@ -15,3 +15,9 @@ void delNode(typeList *lis) {
     *lis = (*lis)->next;
     free(temp);
 }
+
+/* Return true if the list is empty */
+int emptyList(typeList lis) {
+    return lis == NULL;
+}
+

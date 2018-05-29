@@ -20,4 +20,12 @@ void addNode(typeList *lis, int n);
 
 /* Remove the first of the list */
 void delNode(typeList *lis);
+
+
+/*
+ * Recursive visits
+ */
+
+/* Check if the list is empty */
+int emptyList(typeList lis);
 #endif
