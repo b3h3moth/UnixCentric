@@ -22,12 +22,23 @@ int emptyList(typeList lis) {
     return lis == NULL;
 }
 
-/* Write node data information on the standard output */
+/* Write node data type on the standard output (support function) */
 void writeDataType(int data) {
     printf("%d ", data);
 }
 
-/* Write node data information through a file */
+/* Write node data type through a file (support function) */
 void writeDataTypeF(FILE *f, int data) {
     fprintf(f, "%d ", data);
 }
+
+/* Write each node typeList on the screen */
+void writeNode(typeList lis) {
+    if (emptyList(lis))
+        printf("\n");
+    else {
+        writeDataType(lis->data);
+        writeNode(lis->next);
+    }
+}
+
