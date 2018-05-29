@@ -41,4 +41,9 @@ void writeDataTypeF(FILE *f, int data);
 /* Write typeList each node on the screen */
 void writeNode(typeList lis);
 
+/* Write each typeList node on a file */
+void writeNodeF(char *infile, typeList lis);
+
+/* Recursive version of writeNodeF() */
+void writeNodeF_r(FILE *outfile, typeList lis);
 #endif
