@@ -38,7 +38,7 @@ void writeDataType(int data);
 /* Write node data type through a file (supporrt function) */
 void writeDataTypeF(FILE *f, int data);
 
-/* Write each node typeList on the screen */
+/* Write typeList each node on the screen */
 void writeNode(typeList lis);
 
 #endif

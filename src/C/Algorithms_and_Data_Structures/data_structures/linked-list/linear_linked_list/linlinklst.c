@@ -32,7 +32,7 @@ void writeDataTypeF(FILE *f, int data) {
     fprintf(f, "%d ", data);
 }
 
-/* Write each node typeList on the screen */
+/* Write typeList each node on the screen */
 void writeNode(typeList lis) {
     if (emptyList(lis))
         printf("\n");
