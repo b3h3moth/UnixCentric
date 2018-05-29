@@ -11,8 +11,6 @@ int main(void) {
     addNode(&llst, 2);
     addNode(&llst, 1);
     writeNode(llst);
-    for (i=0; i<=10; i++) 
-        printf("find %.2d: %d\n", i, occurenceElemList(llst, i));
     delNode(&llst);
     delNode(&llst);
     if (emptyList(llst))
@@ -39,5 +37,9 @@ int main(void) {
     printf("Count occurence of the integers within the list:\n");
     for (i=0; i<=10; i++) 
         printf("find %.2d: %d\n", i, occurenceElemList(llst, i));
+    writeNode(llst);
+    substElemList(llst, 10, 4);
+    writeNode(llst);
+    writeNodeF(myfile, llst);
     return(EXIT_SUCCESS);
 }

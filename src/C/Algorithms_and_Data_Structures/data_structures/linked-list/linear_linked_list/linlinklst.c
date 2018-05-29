@@ -101,8 +101,14 @@ int occurenceElemList(typeList lis, int val) {
         return 1 + occurenceElemList(lis->next, val);
     else 
         return 0 + occurenceElemList(lis->next, val);
-        
 }
 
 /* Find and replace the first occurence of the integer 'val' with 'new_val' */
-void substElemList(typeList lis, int val, int new_val)
+void substElemList(typeList lis, int val, int new_val) {
+    if (!emptyList(lis)) {
+        if (lis->data == val)
+            lis->data = new_val;
+        else
+            substElemList(lis->next, val, new_val);
+    }
+}
