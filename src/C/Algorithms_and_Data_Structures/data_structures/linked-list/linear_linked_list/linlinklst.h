@@ -46,4 +46,8 @@ void writeNodeF(char *infile, typeList lis);
 
 /* Recursive version of writeNodeF() */
 void writeNodeF_r(FILE *outfile, typeList lis);
+
+/* Find an element within the list. 
+   It returns true if exist, 0 otherwise */
+int findinList(typeList lis, int data);
 #endif

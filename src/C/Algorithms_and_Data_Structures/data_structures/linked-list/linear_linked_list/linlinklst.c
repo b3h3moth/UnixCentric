@@ -64,3 +64,13 @@ void writeNodeF_r(FILE *outfile, typeList lis) {
         writeNodeF_r(outfile, lis->next);
     }
 }
+
+/* Find an element within the list */
+int findinList(typeList lis, int val) {
+    if (emptyList(lis))
+        return 0;
+    else if (lis->data == val)
+        return 1;
+    else
+        return findinList(lis->next, val);
+}
