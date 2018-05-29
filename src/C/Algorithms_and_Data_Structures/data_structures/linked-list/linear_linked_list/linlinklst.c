@@ -112,3 +112,12 @@ void substElemList(typeList lis, int val, int new_val) {
             substElemList(lis->next, val, new_val);
     }
 }
+
+/* Find and replace all the occurences of the integer 'val' with 'new_val' */
+void substAllElemList(typeList lis, int val, int new_val) {
+    if (!emptyList(lis)) {
+        if (lis->data == val)
+            lis->data = new_val;
+        substAllElemList(lis->next, val, new_val);
+    }
+}

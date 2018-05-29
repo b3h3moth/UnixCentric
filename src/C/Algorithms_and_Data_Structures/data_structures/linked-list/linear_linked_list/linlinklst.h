@@ -73,4 +73,8 @@ int occurenceElemList(typeList lis, int val);
 
 /* Find and replace the first occurence of the integer 'val' with 'new_val' */
 void substElemList(typeList lis, int val, int new_val);
+
+/* Find and replace all the occurences of the integer 'val' with 'new_val' */
+void substAllElemList(typeList lis, int val, int new_val);
+
 #endif
