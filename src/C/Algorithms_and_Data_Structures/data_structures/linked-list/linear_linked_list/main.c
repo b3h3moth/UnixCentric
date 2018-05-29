@@ -7,6 +7,7 @@ int main(void) {
     addNode(&llst, 3);
     addNode(&llst, 2);
     addNode(&llst, 1);
+    writeNode(llst);
     delNode(&llst);
     delNode(&llst);
     if (emptyList(llst))
