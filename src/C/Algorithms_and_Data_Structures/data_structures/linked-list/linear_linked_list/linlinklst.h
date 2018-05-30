@@ -34,8 +34,14 @@ int emptyList(typeList lis);
 /* Write the node data type (integer) on the standard output */
 void writeDataType(int data);
 
-/* Write the node data type through a file */
+/* Write the node data type (integer) through a file */
 void writeDataTypeF(FILE *f, int data);
+
+/* Read the node data type (integer) from standard input*/
+int readDataType(int *data);
+
+/* Read the node data type (integer) through a file */
+int readDataTypeF(FILE *f, int *data);
 
 /* Write 'typeList' each node on the screen */
 void writeNode(typeList lis);

@@ -29,9 +29,19 @@ void writeDataType(int data) {
     printf("%d ", data);
 }
 
-/* Write node data type through a file (support function) */
+/* Write node data type (integer) through a file */
 void writeDataTypeF(FILE *f, int data) {
     fprintf(f, "%d ", data);
+}
+
+/* Read the node data type (integer) from standard input */
+int readDataType(int *data) {
+    return scanf("%d ", data);
+}
+
+/* Read the node data type (integer) through a file */
+int readDataTypeF(FILE *f, int *data) {
+    return fscanf(f, "%d ", data);
 }
 
 /* Write each 'typeList' node on the screen */
