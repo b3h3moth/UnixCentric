@@ -165,3 +165,30 @@ void readAdd(typeList *lis) {
         addNode(lis, temp);
     }
 }
+
+/* Recursive version of readNodeF() */
+void readNodeF_r(FILE *infile, int *val, typeList *lis) {
+    int temp;
+    if (readDataTypeF(infile, &temp) == EOF)
+        *lis = NULL;
+    else {
+        (*val)++;     /* Initialized to 0 within readNodeF() */
+        *lis = (typeList)malloc(sizeof(typeNodeList));
+        (*lis)->data = temp;
+        readNodeF_r(infile, val, &(*lis)->next);
+    }
+}
+
+ /* Read node by node from a file */
+void readNodeF(char *nfile, int *val, typeList *lis) {
+    FILE *dfile;
+    dfile = fopen(nfile, "r");
+    *val = 0;
+    if (dfile == NULL) {
+        fprintf(stdout, "Err. read file %s\n", strerror(errno));
+        lis = NULL;
+    } else {
+        readNodeF_r(dfile, val, lis);
+        fclose(dfile);
+    }
+}

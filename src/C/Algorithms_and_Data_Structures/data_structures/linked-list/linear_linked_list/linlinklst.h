@@ -92,4 +92,10 @@ void buildLS(typeList *lis, int n, int val);
 /* Read and add all the elements (integers) */
 void readAdd(typeList *lis);
 
+/* Recursive version of readNodeF() */
+void readNodeF_r(FILE *infile, int *val, typeList *lis);
+
+/* Read node by node by file */
+void readNodeF(char *nfile, int *val, typeList *lis);
+
 #endif
