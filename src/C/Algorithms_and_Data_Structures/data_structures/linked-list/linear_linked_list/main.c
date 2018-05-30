@@ -49,5 +49,9 @@ int main(void) {
     printf("find and replace all the occurences of %d with %d\n", 9, 3);
     substAllElemList(llst, 9, 3);
     writeNode(llst);
+    printf("build a new Linear Structure with n nodes\n");
+    typeList ls;
+    buildLS(&ls, 3, 7);
+    writeNode(ls);
     return(EXIT_SUCCESS);
 }

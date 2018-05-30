@@ -67,7 +67,7 @@ int occurenceElemList(typeList lis, int val);
 /*
  * Recursive Visits
  * ================
- * Part II - Functions that change the contents of the Linear Structure List
+ * Part II - Functions that change the contents of the Linear Structure
  *           (They modify the integer field 'data')
  */
 
@@ -76,5 +76,8 @@ void substElemList(typeList lis, int val, int new_val);
 
 /* Find and replace all the occurences of the integer 'val' with 'new_val' */
 void substAllElemList(typeList lis, int val, int new_val);
+
+/* Build a new Linear Structure of 'n' nodes */
+void buildLS(typeList *lis, int n, int val);
 
 #endif

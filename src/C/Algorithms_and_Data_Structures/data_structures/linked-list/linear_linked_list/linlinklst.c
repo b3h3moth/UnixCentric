@@ -121,3 +121,14 @@ void substAllElemList(typeList lis, int val, int new_val) {
         substAllElemList(lis->next, val, new_val);
     }
 }
+
+/* Build a new Linear Structure of 'n' nodes */
+void buildLS(typeList *lis, int n, int val) {
+    if (n == 0)
+        *lis = NULL;
+    else {
+        *lis = (typeList)malloc(sizeof(typeNodeList));
+        (*lis)->data = val;
+        buildLS(&((*lis)->next), n-1, val);
+    }
+}
