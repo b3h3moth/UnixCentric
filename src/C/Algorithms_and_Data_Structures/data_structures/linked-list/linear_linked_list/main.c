@@ -3,8 +3,8 @@
 #include "linlinklst.h"
 
 int main(void) {
-    char *myfile = "lll.txt";
-    int i;
+    char *myfile = "l.txt", *myfile2 = "lll.txt";
+    int i, n = 5;
     typeList llst = NULL;
 
     addNode(&llst, 3);
@@ -50,7 +50,7 @@ int main(void) {
     substAllElemList(llst, 9, 3);
     writeNode(llst);
     printf("build a new Linear Structure with n nodes\n");
-    typeList ls;
+    typeList ls = NULL;
     buildLS(&ls, 3, 7);
     writeNode(ls);
     /*readNode(&ls); */
@@ -58,5 +58,7 @@ int main(void) {
     writeNode(llst);
     writeNode(ls);
     printf("List llst: %d\nList ls: %d\n", lengthList(llst), lengthList(ls));
+    readNodeF(myfile2, &n, &ls);
+    writeNode(ls);
     return(EXIT_SUCCESS);
 }
