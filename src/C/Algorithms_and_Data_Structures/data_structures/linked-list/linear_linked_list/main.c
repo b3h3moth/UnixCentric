@@ -53,5 +53,10 @@ int main(void) {
     typeList ls;
     buildLS(&ls, 3, 7);
     writeNode(ls);
+    /*readNode(&ls); */
+    readAdd(&llst);
+    writeNode(llst);
+    writeNode(ls);
+    printf("List llst: %d\nList ls: %d\n", lengthList(llst), lengthList(ls));
     return(EXIT_SUCCESS);
 }

@@ -75,6 +75,18 @@ void writeNodeF_r(FILE *outfile, typeList lis) {
     }
 }
 
+/* Read 'typeList' from each node */
+void readNode(typeList *lis) {
+    int temp;
+    if (readDataType(&temp) == EOF)
+        *lis = NULL;
+    else {
+        *lis = (typeList)malloc(sizeof(typeNodeList));
+        (*lis)->data = temp;
+        readNode(&((*lis)->next));
+    }
+}
+
 /*  Find the integer 'val' within the list */
 int findinList(typeList lis, int val) {
     if (emptyList(lis))
@@ -140,5 +152,16 @@ void buildLS(typeList *lis, int n, int val) {
         *lis = (typeList)malloc(sizeof(typeNodeList));
         (*lis)->data = val;
         buildLS(&((*lis)->next), n-1, val);
+    }
+}
+
+/* Read and add all the elements (integers) */
+void readAdd(typeList *lis) {
+    int temp;
+    if (readDataType(&temp) == EOF)
+        *lis = NULL;
+    else {
+        readAdd(lis);
+        addNode(lis, temp);
     }
 }

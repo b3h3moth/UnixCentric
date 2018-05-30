@@ -52,6 +52,9 @@ void writeNodeF(char *infile, typeList lis);
 /* Recursive version of writeNodeF() */
 void writeNodeF_r(FILE *outfile, typeList lis);
 
+/* Read 'typeList' from each node */
+void readNode(typeList *lis); /* It doesn't work very well */
+
 /* Find the integer 'val' within the list. It returns: 
    1 (true) if it exists;
    0 if doesn't exists or it is empty.
@@ -85,5 +88,8 @@ void substAllElemList(typeList lis, int val, int new_val);
 
 /* Build a new Linear Structure of 'n' nodes */
 void buildLS(typeList *lis, int n, int val);
+
+/* Read and add all the elements (integers) */
+void readAdd(typeList *lis);
 
 #endif
