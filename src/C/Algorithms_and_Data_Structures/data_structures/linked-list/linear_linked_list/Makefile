@@ -14,4 +14,4 @@ linlinklst: linlinklst.c linlinklst.h
 	$(CC) -c linlinklst.c
 
 clean:
-	rm -rf *.o $(TARGET)
+	rm -rf *.o $(TARGET) *.txt
