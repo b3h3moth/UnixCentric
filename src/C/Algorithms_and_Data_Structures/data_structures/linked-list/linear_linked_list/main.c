@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "linlinklst.h"
+#include "linklinstruct.h"
 
 int main(void) {
     char *myfile = "l.txt", *myfile2 = "lll.txt";
