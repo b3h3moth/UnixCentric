@@ -70,5 +70,15 @@ int main(void) {
     writeNode(lls_cpy);
     printf("Delete LLS\n");
     deleteLLS(&ls);
+    printf("Return a pointer to the node in n position\n");
+    typeList newlls = NULL;
+    typeList reslls = NULL;
+    for (i=1; i<=10; i++)
+        addNode(&newlls, i);
+    writeNode(newlls);
+    findPosLLS(newlls, 5, &reslls);
+    writeNode(reslls);
+    printf("reslls points to node with int: %d\n", reslls->data);
+    
     return(EXIT_SUCCESS);
 }
