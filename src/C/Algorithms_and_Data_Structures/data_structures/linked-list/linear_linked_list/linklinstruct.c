@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include "linlinklst.h"
+#include "linklinstruct.h"
 
-/* Add a node at the first position of the list */
+/* Add a node at the first position of the LLS */
 void addNode(typeList *lis, int n) {
     typeList temp = *lis;
     *lis = (typeList)malloc(sizeof(typeNodeList));
@@ -12,14 +12,14 @@ void addNode(typeList *lis, int n) {
     (*lis)->next = temp;
 }
 
-/* Remove the first node of the list */
+/* Remove the first node of the LLS */
 void delNode(typeList *lis) {
     typeList temp = *lis;
     *lis = (*lis)->next;
     free(temp);
 }
 
-/* Check if the list is empty */
+/* Check if the LLS is empty */
 int emptyList(typeList lis) {
     return lis == NULL;
 }
@@ -44,7 +44,7 @@ int readDataTypeF(FILE *f, int *data) {
     return fscanf(f, "%d ", data);
 }
 
-/* Write each 'typeList' node on the screen */
+/* Write the LLS on the screen */
 void writeNode(typeList lis) {
     if (emptyList(lis))
         printf("\n");
@@ -54,7 +54,7 @@ void writeNode(typeList lis) {
     }
 }
 
-/* Write each 'typeList' node on a file */
+/* Write the LLS on a file */
 void writeNodeF(char *infile, typeList lis) {
     FILE *datafile;
     datafile = fopen(infile, "w");
@@ -75,7 +75,7 @@ void writeNodeF_r(FILE *outfile, typeList lis) {
     }
 }
 
-/* Read 'typeList' from each node */
+/* Read LLS from each node */
 void readNode(typeList *lis) {
     int temp;
     if (readDataType(&temp) == EOF)
@@ -87,7 +87,7 @@ void readNode(typeList *lis) {
     }
 }
 
-/*  Find the integer 'val' within the list */
+/*  Find the integer 'val' within the LLS */
 int findinList(typeList lis, int val) {
     if (emptyList(lis))
         return 0;
@@ -107,7 +107,7 @@ void findList(typeList lis, int val, typeList *res) {
         findList(lis->next, val, res);
 }
 
-/* Compute how many nodes there are in the list */
+/* Compute how many nodes there are in the LLS */
 int lengthList(typeList lis) {
     if (emptyList(lis))
         return 0;
@@ -115,7 +115,7 @@ int lengthList(typeList lis) {
         return 1 + lengthList(lis->next);
 }
 
-/* Compute how many occurences of the integer 'val' there are within the list */
+/* Compute how many occurences of the integer 'val' there are within the LLS */
 int occurenceElemList(typeList lis, int val) {
     if (emptyList(lis))
         return 0;
@@ -144,7 +144,7 @@ void substAllElemList(typeList lis, int val, int new_val) {
     }
 }
 
-/* Build a new Linear Structure of 'n' nodes */
+/* Build a new LLS of 'n' nodes */
 void buildLS(typeList *lis, int n, int val) {
     if (n == 0)
         *lis = NULL;
@@ -190,5 +190,16 @@ void readNodeF(char *nfile, int *val, typeList *lis) {
     } else {
         readNodeF_r(dfile, val, lis);
         fclose(dfile);
+    }
+}
+
+/* Copy LLS from source 'lis_src' to destination 'lis_dst */
+void copyList(typeList lis_src, typeList *lis_dst) {
+    if (emptyList(lis_src))
+        *lis_dst = NULL;
+    else {
+       *lis_dst = (typeList)malloc(sizeof(typeNodeList));
+      (*lis_dst)->data = lis_src->data;
+      copyList(lis_src->next, &(*lis_dst)->next);
     }
 }
