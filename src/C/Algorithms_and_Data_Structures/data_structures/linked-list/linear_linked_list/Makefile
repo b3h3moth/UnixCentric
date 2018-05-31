@@ -1,13 +1,17 @@
+LD = gcc
+CC = gcc
+CL = clang
+OBJS = main.o linlinklst.o
+TARGET = linear_linked_list
 
-
-linear_linked_list: main.o linlinklst.o
-	gcc -o linear_linked_list main.o linlinklst.o
+$(TARGET): $(OBJS)
+	$(LD) -o $(TARGET) $(OBJS)
 
 main.o: main.c linlinklst.h
-	gcc -c main.c
+	$(CC) -c main.c
 
 linlinklst: linlinklst.c linlinklst.h
-	gcc -c linlinklst.c
+	$(CC) -c linlinklst.c
 
 clean:
-	rm -rf *.o linear_linked_list
+	rm -rf *.o $(TARGET)
