@@ -104,4 +104,15 @@ void copyList(typeList lis_src, typeList *lis_dest);
 /* Delete LLS. It frees all the memory */
 void deleteLLS(typeList *lis);
 
+/*
+ * Recursive Visits
+ * ================
+ * III - Position-based operations
+ *       General functions on search, insertion and cancellation
+*/
+
+void findPosLLS(typeList lis, int val, typeList *res);
+void addPosLLS(typeList *lis, int val, int n);
+void delPosLLS(typeList *lis, int val, typeList *res);
+
 #endif
