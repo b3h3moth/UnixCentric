@@ -66,6 +66,9 @@ int main(void) {
     printf("Copy LLS from source to destination\n");
     typeList lls_cpy = NULL;
     copyList(ls, &lls_cpy);
+    printf("lls_cpy has : %d elements\n",lengthList(lls_cpy));
     writeNode(lls_cpy);
+    printf("Delete LLS\n");
+    deleteLLS(&ls);
     return(EXIT_SUCCESS);
 }
