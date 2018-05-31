@@ -53,12 +53,19 @@ int main(void) {
     typeList ls = NULL;
     buildLS(&ls, 3, 7);
     writeNode(ls);
-    /*readNode(&ls); */
+    /*
+    Function to testing stdin, stdout, FILE 
+    readNode(&ls);
     readAdd(&llst);
     writeNode(llst);
     writeNode(ls);
     printf("List llst: %d\nList ls: %d\n", lengthList(llst), lengthList(ls));
     readNodeF(myfile2, &n, &ls);
     writeNode(ls);
+    */
+    printf("Copy LLS from source to destination\n");
+    typeList lls_cpy = NULL;
+    copyList(ls, &lls_cpy);
+    writeNode(lls_cpy);
     return(EXIT_SUCCESS);
 }
