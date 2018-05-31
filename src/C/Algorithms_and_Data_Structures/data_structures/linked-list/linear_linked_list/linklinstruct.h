@@ -101,4 +101,7 @@ void readNodeF(char *nfile, int *val, typeList *lis);
 /* Copy LLS from source to destination */
 void copyList(typeList lis_src, typeList *lis_dest);
 
+/* Delete LLS. It frees all the memory */
+void deleteLLS(typeList *lis);
+
 #endif

@@ -203,3 +203,13 @@ void copyList(typeList lis_src, typeList *lis_dst) {
       copyList(lis_src->next, &(*lis_dst)->next);
     }
 }
+
+/* Delete LLS. It frees all the memory */
+void deleteLLS(typeList *lis) {
+    if (*lis != NULL) {
+        typeList temp = *lis;
+        deleteLLS(&(*lis)->next);
+        free(temp);
+    }
+}
+
