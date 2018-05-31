@@ -95,7 +95,7 @@ void readAdd(typeList *lis);
 /* Recursive version of readNodeF() */
 void readNodeF_r(FILE *infile, int *val, typeList *lis);
 
-/* Read node by node by file */
+/* Read node by node from a file */
 void readNodeF(char *nfile, int *val, typeList *lis);
 
 #endif
