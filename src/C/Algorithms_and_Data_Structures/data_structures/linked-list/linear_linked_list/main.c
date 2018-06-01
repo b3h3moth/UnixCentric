@@ -82,5 +82,8 @@ int main(void) {
     printf("Add a node in the position 'n'\n");
     addPosLLS(&newlls, 6, 100);
     writeNode(newlls);    
+    printf("Remove the node in the position 'n'\n");
+    delPosLLS(&newlls, 6);
+    writeNode(newlls);    
     return(EXIT_SUCCESS);
 }

@@ -231,6 +231,15 @@ void addPosLLS(typeList *lis, int pos, int val) {
     } else
         addPosLLS(&(*lis)->next, pos-1, val);
 }
-/*
-void delPosLLS(typeList *lis, int val, typeList *res);
-*/
+
+/* Find the position 'pos' and remove the node to that position */ 
+void delPosLLS(typeList *lis, int pos) {
+    if (lis == NULL)
+        return;
+    else if (pos == 0) {
+        typeList temp = *lis;
+        *lis = (*lis)->next;
+        free(temp);         /* Now the node is actually removed */
+    } else
+        delPosLLS(&(*lis)->next, pos-1);
+}

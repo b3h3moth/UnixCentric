@@ -116,8 +116,8 @@ void findPosLLS(typeList lis, int pos, typeList *res);
 
 /* Find the position 'pos' and add a node to that position */
 void addPosLLS(typeList *lis, int pos, int val);
-/*
-void delPosLLS(typeList *lis, int pos, typeList *res);
-*/
+
+/* Find the position 'pos' and remove the node to that position */
+void delPosLLS(typeList *lis, int pos);
 
 #endif
