@@ -14,4 +14,4 @@ linklinstruct: linklinstruct.c linklinstruct.h
 	$(CC) -c linklinstruct.c
 
 clean:
-	rm -rf *.o $(TARGET) *.txt *.out
+	rm -rf *.o $(TARGET) *.txt *.out *.core
