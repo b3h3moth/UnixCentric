@@ -111,8 +111,11 @@ void deleteLLS(typeList *lis);
  *       General functions on search, insertion and cancellation
 */
 
-void findPosLLS(typeList lis, int val, typeList *res);
-void addPosLLS(typeList *lis, int val, int n);
-void delPosLLS(typeList *lis, int val, typeList *res);
+/* Find the position 'n' and return the pointer to that node position */
+void findPosLLS(typeList lis, int pos, typeList *res);
+/*
+void addPosLLS(typeList *lis, int pos, int n);
+void delPosLLS(typeList *lis, int pos, typeList *res);
+*/
 
 #endif

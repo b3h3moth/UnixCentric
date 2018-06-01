@@ -212,12 +212,12 @@ void deleteLLS(typeList *lis) {
         free(temp);
     }
 }
-/* Find the integer 'val' and return the pointer to that position */ 
-void findPosLLS(typeList lis, int val, typeList *res) {
-    if (val == 0)
+/* Find the position n and return the pointer to that node position */ 
+void findPosLLS(typeList lis, int pos, typeList *res) {
+    if (pos == 0)
         *res = lis;
     else
-        findPosLLS(lis->next, val-1, res);
+        findPosLLS(lis->next, pos-1, res);
 }
 
 /*
