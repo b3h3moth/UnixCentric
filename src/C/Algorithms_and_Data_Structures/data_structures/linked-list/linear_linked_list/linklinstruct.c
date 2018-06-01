@@ -212,7 +212,8 @@ void deleteLLS(typeList *lis) {
         free(temp);
     }
 }
-/* Find the position n and return the pointer to that node position */ 
+
+/* Find the position 'pos' and return the pointer to that node position */ 
 void findPosLLS(typeList lis, int pos, typeList *res) {
     if (pos == 0)
         *res = lis;
@@ -220,7 +221,16 @@ void findPosLLS(typeList lis, int pos, typeList *res) {
         findPosLLS(lis->next, pos-1, res);
 }
 
+/* Find the position 'pos' and add a node to that position */ 
+void addPosLLS(typeList *lis, int pos, int val) {
+    if (pos == 0) {   /* new node in the first position of the LLS */
+        typeList temp = *lis;
+        *lis = (typeList)malloc(sizeof(typeNodeList));
+        (*lis)->data = val;
+        (*lis)->next = temp;
+    } else
+        addPosLLS(&(*lis)->next, pos-1, val);
+}
 /*
-void addPosLLS(typeList *lis, int val, int n);
 void delPosLLS(typeList *lis, int val, typeList *res);
 */

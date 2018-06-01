@@ -3,7 +3,7 @@
 #include "linklinstruct.h"
 
 int main(void) {
-    char *myfile = "l.txt", *myfile2 = "lll.txt";
+    char *myfile = "test.txt", *myfile2 = "test2.txt";
     int i, n = 5;
     typeList llst = NULL;
 
@@ -78,7 +78,9 @@ int main(void) {
     writeNode(newlls);
     findPosLLS(newlls, 3, &reslls);
     writeNode(reslls);
-    printf("reslls points to node with int: %d\n", reslls->data);
-    
+    printf("LLS points to node with int: %d\n", reslls->data);
+    printf("Add a node in the position 'n'\n");
+    addPosLLS(&newlls, 6, 100);
+    writeNode(newlls);    
     return(EXIT_SUCCESS);
 }
