@@ -10,7 +10,7 @@ int main(void) {
     int n;
 
     while(sscanf(ptr, "%19[^;]%n", field, &n) == 1) {
-        printf("Filed = %s\n", field);
+        printf("Filed = %s (%d byte)\n", field, n);
         ptr += n;
         if (*ptr != ';') /* ';' is the field separator */
             break;
