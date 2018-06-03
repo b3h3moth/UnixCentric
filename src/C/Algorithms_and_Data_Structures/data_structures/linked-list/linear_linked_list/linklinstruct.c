@@ -121,7 +121,7 @@ int occurenceElemList(typeList lis, int val) {
         return 0;
     else if (lis->data == val)
         return 1 + occurenceElemList(lis->next, val);
-    else 
+    else
         return 0 + occurenceElemList(lis->next, val);
 }
 
@@ -213,7 +213,7 @@ void deleteLLS(typeList *lis) {
     }
 }
 
-/* Find the position 'pos' and return the pointer to that node position */ 
+/* Find the position 'pos' and return the pointer to that node position */
 void findPosLLS(typeList lis, int pos, typeList *res) {
     if (pos == 0)
         *res = lis;
@@ -221,7 +221,7 @@ void findPosLLS(typeList lis, int pos, typeList *res) {
         findPosLLS(lis->next, pos-1, res);
 }
 
-/* Find the position 'pos' and add a node to that position */ 
+/* Find the position 'pos' and add a node to that position */
 void addPosLLS(typeList *lis, int pos, int val) {
     if (pos == 0) {   /* new node in the first position of the LLS */
         typeList temp = *lis;
@@ -232,7 +232,7 @@ void addPosLLS(typeList *lis, int pos, int val) {
         addPosLLS(&(*lis)->next, pos-1, val);
 }
 
-/* Find the position 'pos' and remove the node to that position */ 
+/* Find the position 'pos' and remove the node to that position */
 void delPosLLS(typeList *lis, int pos) {
     if (lis == NULL)
         return;
@@ -242,4 +242,12 @@ void delPosLLS(typeList *lis, int pos) {
         free(temp);         /* Now the node is actually removed */
     } else
         delPosLLS(&(*lis)->next, pos-1);
+}
+
+/* Write the LLS on the screen (iterative) */
+void writeLLS(typeList lis) {
+    while (!emptyList(lis)) {
+        printf("%d ", lis->data);
+        lis = lis->next;
+    }
 }

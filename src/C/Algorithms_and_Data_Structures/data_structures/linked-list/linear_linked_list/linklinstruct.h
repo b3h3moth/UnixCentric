@@ -10,7 +10,7 @@ typedef struct elemList typeNodeList;
 typedef typeNodeList *typeList;
 
 
-/* 
+/*
  * Basic Operations on Linked Linear Structure (LLS)
  * =================================================
  * Operations that involve a single node, the first.
@@ -55,7 +55,7 @@ void writeNodeF_r(FILE *outfile, typeList lis);
 /* Read LLS from each node */
 void readNode(typeList *lis); /* It doesn't work very well */
 
-/* Find the integer 'val' within the LLS. It returns: 
+/* Find the integer 'val' within the LLS. It returns:
    1 (true) if it exists;
    0 if doesn't exists or it is empty.
 */
@@ -119,5 +119,13 @@ void addPosLLS(typeList *lis, int pos, int val);
 
 /* Find the position 'pos' and remove the node to that position */
 void delPosLLS(typeList *lis, int pos);
+
+
+/* Iterative Visits
+ * ================
+ */
+
+/* Write the LLS on the screen */
+void writeLLS(typeList lis);
 
 #endif
