@@ -37,5 +37,7 @@ int main(void) {
         ++ptr2, i++;
     }
 
+    free(field2);
+
     return(EXIT_SUCCESS);
 }
