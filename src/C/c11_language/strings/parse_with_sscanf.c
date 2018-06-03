@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* The program's purpose is to test sscanf() function  */
+/* The program's purpose is to test sscanf() function with two strings. */
 
 int main(void) {
-    const char str[] = "1982/08/12 21:30:37;Unix;Operating;System";
+    const char str[] = "1982/08/12 21:30:37;data1;data2;data3;data4";
     const char *ptr = str;
     char field[20];
+    int n, i;
 
     /* The second string to work with has been taken from /etc/passwd file;
       the field variable is not an array but a pointer to char, previously
@@ -14,8 +15,9 @@ int main(void) {
     const char str2[] = "b3h3m0th:x:1000:1000:,,,:/home/b3h3m0th:/usr/bin/zsh";
     const char *ptr2 = str2;
     char *field2 = (char *)malloc(sizeof(15));
+    int n2;
 
-    int n, n2, i = 1;
+    i = 1;
 
     printf("Full string: %s\n", str);
 
@@ -28,7 +30,9 @@ int main(void) {
     }
 
     i = 1;
+
     printf("\nFull string: %s\n", str2);
+
     while(sscanf(ptr2, "%14[^:]%n", field2, &n2) == 1) {
         printf("%d field = %s (%d byte)\n", i, field2, n2);
         ptr2 += n2;
