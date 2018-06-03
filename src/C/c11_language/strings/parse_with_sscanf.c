@@ -7,14 +7,14 @@ int main(void) {
     const char str[] = "1982/08/12 21:30:37;Unix;Operating;System";
     const char *ptr = str;
     char field[20];
-    int n;
+    int n, i = 1;
 
     while(sscanf(ptr, "%19[^;]%n", field, &n) == 1) {
-        printf("Filed = %s (%d byte)\n", field, n);
+        printf("%d field = %s (%d byte)\n", i, field, n);
         ptr += n;
         if (*ptr != ';') /* ';' is the field separator */
             break;
-        ++ptr;
+        ++ptr, i++;
     }
 
     return(EXIT_SUCCESS);
