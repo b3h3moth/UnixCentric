@@ -126,7 +126,7 @@ void delPosLLS(typeList *lis, int pos);
  */
 
 /* Write the LLS on the screen */
-void writeLLS(typeList lis);
+void write_LLS(typeList lis);
 
 /* Find the integer 'val' within the LLS. It returns:
    1 (true) if it exists;
@@ -136,5 +136,11 @@ int find_in_LLS(typeList lis, int val);
 
 /* Compute how many nodes there are in the LLS */
 int length_LLS(typeList lis);
+
+/* Find and replace the first occurence of the integer 'val' with 'new_val' */
+void subst_elem_LLS(typeList lis, int val, int new_val);
+
+/* Find and replace all the occurences of the integer 'val' with 'new_val' */
+void subst_all_elem_LLS(typeList lis, int val, int new_val);
 
 #endif
