@@ -91,8 +91,11 @@ int main(void) {
     for (i=0; i<=10; i++)
         printf("find %.2d: %d\n", i, find_in_LLS(newlls, i));
     printf("LLS has: %d elements (iterative form)\n", length_LLS(newlls));
-    printf("find and replace the occurence %d with %d\n", 9, 3);
+    printf("find and replace the occurence %d with %d\n", 5, 8);
     subst_elem_LLS(newlls, 5, 8);
+    write_LLS(newlls);
+    printf("\nfind and replace all the occurences %d with %d\n", 8, 7);
+    subst_all_elem_LLS(newlls, 8, 7);
     write_LLS(newlls);
 
     return(EXIT_SUCCESS);
