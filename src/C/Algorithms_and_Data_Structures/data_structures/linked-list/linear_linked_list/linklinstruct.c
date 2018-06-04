@@ -273,3 +273,15 @@ int length_LLS(typeList lis) {
     }
     return count;
 }
+
+/* Find and replace the first occurence of the integer 'val' with 'new_val' 
+   (iterative form) */
+void subst_elem_LLS(typeList lis, int val, int new_val) {
+    int found = 0;
+    while(!emptyList(lis) && !found) {
+        if (lis->data == val) 
+            lis->data = new_val, found = 1;
+        else
+            lis = lis->next;
+    }
+}
