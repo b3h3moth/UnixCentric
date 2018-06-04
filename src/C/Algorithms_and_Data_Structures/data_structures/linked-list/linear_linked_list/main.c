@@ -85,18 +85,23 @@ int main(void) {
     printf("Remove the node in the position 'n'\n");
     delPosLLS(&newlls, 6);
     writeNode(newlls);
-    printf("Print each element of the list (iterative form)\n");
+    printf("___________ Iterative Operations ____________\n");
+    printf("Print each element of the list\n");
     write_LLS(newlls);
     printf("\nFind element (iterative form)\n");
     for (i=0; i<=10; i++)
         printf("find %.2d: %d\n", i, find_in_LLS(newlls, i));
-    printf("LLS has: %d elements (iterative form)\n", length_LLS(newlls));
+    printf("LLS has: %d elements\n", length_LLS(newlls));
     printf("find and replace the occurence %d with %d\n", 5, 8);
     subst_elem_LLS(newlls, 5, 8);
     write_LLS(newlls);
     printf("\nfind and replace all the occurences %d with %d\n", 8, 7);
     subst_all_elem_LLS(newlls, 8, 7);
     write_LLS(newlls);
+    printf("\nBuild a new LLS with n=5 nodes, integer value=2\n");
+    typeList lls2 = NULL;
+    build_LLS(&lls2, 5, 2);
+    writeNode(lls2);
 
     return(EXIT_SUCCESS);
 }

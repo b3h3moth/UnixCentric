@@ -295,3 +295,20 @@ void subst_all_elem_LLS(typeList lis, int val, int new_val) {
         lis = lis->next;
     }
 }
+
+/* Build a new LLS of 'n' nodes */
+void build_LLS(typeList *lis, int n, int val) {
+    typeList paux;
+    paux = (typeList)malloc(sizeof(typeNodeList));
+    *lis = paux;
+    while (n > 0) {
+        paux->next = (typeList)malloc(sizeof(typeNodeList));
+        paux = paux->next;
+        paux->data = val;
+        n--;
+    }
+    paux->next = NULL;
+    paux = *lis;
+    *lis = (*lis)->next;
+    free(paux);
+}
