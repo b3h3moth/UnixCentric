@@ -86,7 +86,7 @@ int main(void) {
     delPosLLS(&newlls, 6);
     writeNode(newlls);
     printf("Print each element of the list (iterative form)\n");
-    writeLLS(newlls);
+    write_LLS(newlls);
     printf("\nFind element (iterative form)\n");
     for (i=0; i<=10; i++)
         printf("find %.2d: %d\n", i, find_in_LLS(newlls, i));

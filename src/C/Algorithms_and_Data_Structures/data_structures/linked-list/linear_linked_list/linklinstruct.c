@@ -245,7 +245,7 @@ void delPosLLS(typeList *lis, int pos) {
 }
 
 /* Write the LLS on the screen (iterative) */
-void writeLLS(typeList lis) {
+void write_LLS(typeList lis) {
     while (!emptyList(lis)) {
         printf("%d ", lis->data);
         lis = lis->next;
