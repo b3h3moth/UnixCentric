@@ -285,3 +285,13 @@ void subst_elem_LLS(typeList lis, int val, int new_val) {
             lis = lis->next;
     }
 }
+
+/* Find and replace all the occurences of the integer 'val' with 'new_val'
+   (iterative form) */
+void subst_all_elem_LLS(typeList lis, int val, int new_val) {
+    while(!emptyList(lis)) {
+        if (lis->data == val) 
+            lis->data = new_val;
+        lis = lis->next;
+    }
+}
