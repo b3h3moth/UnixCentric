@@ -26,7 +26,7 @@ int main(void) {
     addNode(&llst, 7);
     writeNodeF(myfile, llst);
     /* $ cat lll.txt */
-    printf("Count elements of list:\n");
+    printf("Find an element within the LLS:\n");
     for (i=0; i<=10; i++)
         printf("find %.2d: %d\n", i, findinList(llst, i));
     typeList res;
@@ -49,7 +49,7 @@ int main(void) {
     printf("find and replace all the occurences of %d with %d\n", 9, 3);
     substAllElemList(llst, 9, 3);
     writeNode(llst);
-    printf("build a new Linear Structure with n nodes\n");
+    printf("build a new Linked Linear Structure with n nodes\n");
     typeList ls = NULL;
     buildLS(&ls, 3, 7);
     writeNode(ls);
@@ -66,7 +66,7 @@ int main(void) {
     printf("Copy LLS from source to destination\n");
     typeList lls_cpy = NULL;
     copyList(ls, &lls_cpy);
-    printf("lls_cpy has : %d elements\n",lengthList(lls_cpy));
+    printf("LLS has : %d elements\n",lengthList(lls_cpy));
     writeNode(lls_cpy);
     printf("Delete LLS\n");
     deleteLLS(&ls);
@@ -90,6 +90,7 @@ int main(void) {
     printf("\nFind element (iterative form)\n");
     for (i=0; i<=10; i++)
         printf("find %.2d: %d\n", i, find_in_LLS(newlls, i));
+    printf("LLS has: %d elements (iterative form)\n", length_LLS(newlls));
 
     return(EXIT_SUCCESS);
 }

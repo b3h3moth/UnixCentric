@@ -263,3 +263,13 @@ int find_in_LLS(typeList lis, int val) {
     }
     return found;
 }
+
+/* Compute how many nodes there are in the LLS (iterative) */
+int length_LLS(typeList lis) {
+    int count = 0;
+    while (!emptyList(lis)) {
+        lis = lis->next;
+        count++;
+    }
+    return count;
+}

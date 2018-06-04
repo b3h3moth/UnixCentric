@@ -134,4 +134,7 @@ void writeLLS(typeList lis);
 */
 int find_in_LLS(typeList lis, int val);
 
+/* Compute how many nodes there are in the LLS */
+int length_LLS(typeList lis);
+
 #endif
