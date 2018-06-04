@@ -87,6 +87,9 @@ int main(void) {
     writeNode(newlls);
     printf("Print each element of the list (iterative form)\n");
     writeLLS(newlls);
+    printf("\nFind element (iterative form)\n");
+    for (i=0; i<=10; i++)
+        printf("find %.2d: %d\n", i, find_in_LLS(newlls, i));
 
     return(EXIT_SUCCESS);
 }

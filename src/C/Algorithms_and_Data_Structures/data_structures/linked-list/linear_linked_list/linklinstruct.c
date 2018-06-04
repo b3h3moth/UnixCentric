@@ -251,3 +251,15 @@ void writeLLS(typeList lis) {
         lis = lis->next;
     }
 }
+
+/* Find the integer 'val' within the LLS (iterative) */
+int find_in_LLS(typeList lis, int val) {
+    int found = 0;
+    while(!emptyList(lis) && !found) {
+        if (lis->data == val)
+            return 1;
+        else
+            lis = lis->next;
+    }
+    return found;
+}

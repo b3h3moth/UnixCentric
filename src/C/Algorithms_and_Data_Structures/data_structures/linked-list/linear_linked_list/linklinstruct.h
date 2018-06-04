@@ -128,4 +128,10 @@ void delPosLLS(typeList *lis, int pos);
 /* Write the LLS on the screen */
 void writeLLS(typeList lis);
 
+/* Find the integer 'val' within the LLS. It returns:
+   1 (true) if it exists;
+   0 if doesn't exists or it is empty 
+*/
+int find_in_LLS(typeList lis, int val);
+
 #endif
