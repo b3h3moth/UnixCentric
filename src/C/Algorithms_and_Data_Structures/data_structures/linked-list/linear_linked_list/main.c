@@ -76,8 +76,8 @@ int main(void) {
     for (i=0; i<10; i++)
         addNode(&newlls, i);
     writeNode(newlls);
+    printf("Find and print element. ");
     findPosLLS(newlls, 3, &reslls);
-    writeNode(reslls);
     printf("LLS points to node with int: %d\n", reslls->data);
     printf("Add a node in the position 'n'\n");
     addPosLLS(&newlls, 6, 100);
@@ -102,6 +102,10 @@ int main(void) {
     typeList lls2 = NULL;
     build_LLS(&lls2, 5, 2);
     writeNode(lls2);
+    printf("\nDelete LLS'\n");
+    delete_LLS(&llst);
+    delete_LLS(&lls_cpy);
+    delete_LLS(&newlls);
 
     return(EXIT_SUCCESS);
 }

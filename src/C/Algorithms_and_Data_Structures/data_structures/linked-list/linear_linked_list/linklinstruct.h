@@ -146,4 +146,7 @@ void subst_all_elem_LLS(typeList lis, int val, int new_val);
 /* Build a new LLS of 'n' nodes */
 void build_LLS(typeList *lis, int n, int val);
 
+/* Delete LLS. It frees each memory node*/
+void delete_LLS(typeList *lis);
+
 #endif

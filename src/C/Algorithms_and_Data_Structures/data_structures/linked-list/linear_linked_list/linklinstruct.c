@@ -296,11 +296,11 @@ void subst_all_elem_LLS(typeList lis, int val, int new_val) {
     }
 }
 
-/* Build a new LLS of 'n' nodes */
+/* Build a new LLS of 'n' nodes (iterative form) */
 void build_LLS(typeList *lis, int n, int val) {
     typeList paux;
-    paux = (typeList)malloc(sizeof(typeNodeList));
-    *lis = paux;
+    *lis = (typeList)malloc(sizeof(typeNodeList));
+    paux = *lis;
     while (n > 0) {
         paux->next = (typeList)malloc(sizeof(typeNodeList));
         paux = paux->next;
@@ -311,4 +311,13 @@ void build_LLS(typeList *lis, int n, int val) {
     paux = *lis;
     *lis = (*lis)->next;
     free(paux);
+}
+
+/* Delete LLS. It frees each memory node (iterative form) */
+void delete_LLS(typeList *lis) {
+    while(!emptyList(*lis)) {
+        typeList paux = *lis;
+        *lis = (*lis)->next;
+        free(paux);
+    }
 }
