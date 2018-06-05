@@ -149,4 +149,7 @@ void build_LLS(typeList *lis, int n, int val);
 /* Delete LLS. It frees each memory node*/
 void delete_LLS(typeList *lis);
 
+/* Invert the LLS */
+void invert_LLS(typeList *lis);
+
 #endif

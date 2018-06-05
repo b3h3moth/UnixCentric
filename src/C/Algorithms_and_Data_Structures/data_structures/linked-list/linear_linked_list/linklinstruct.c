@@ -321,3 +321,17 @@ void delete_LLS(typeList *lis) {
         free(paux);
     }
 }
+
+/* Invert the LLS */
+void invert_LLS(typeList *lis) {
+    typeList prv = NULL;    /* previous element */
+    typeList nxt;           /* next element */
+    while (!emptyList(*lis)) {
+        nxt = *lis;
+        *lis = (*lis)->next;
+        nxt->next = prv;
+        prv = nxt;
+    }
+    *lis = prv;
+}
+

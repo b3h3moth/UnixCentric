@@ -102,10 +102,20 @@ int main(void) {
     typeList lls2 = NULL;
     build_LLS(&lls2, 5, 2);
     writeNode(lls2);
-    printf("\nDelete LLS'\n");
+    printf("Delete LLS'\n");
     delete_LLS(&llst);
     delete_LLS(&lls_cpy);
-    delete_LLS(&newlls);
+    printf("Invert the LLS\n");
+    printf("before: ");
+    write_LLS(reslls);
+    printf("\n after: ");
+    invert_LLS(&reslls);
+    write_LLS(reslls);
+    printf("\nbefore: ");
+    write_LLS(newlls);
+    printf("\n after: ");
+    invert_LLS(&newlls);
+    write_LLS(newlls);
 
     return(EXIT_SUCCESS);
 }
