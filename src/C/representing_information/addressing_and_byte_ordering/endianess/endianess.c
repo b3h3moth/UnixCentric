@@ -40,9 +40,7 @@ int main(void) {
     return(EXIT_SUCCESS);
 }
 
-/* function Bits ------------------------------------------- */
-char* Bits(char c)
-{
+char* Bits(char c) {
    static char ret[9];
    int i;
    i = (int) c;
@@ -57,10 +55,9 @@ char* Bits(char c)
     ret[7] = ((c&1) == 1)+'0';
     ret[8] = '\0';
    return ret;
-}/* end Bits */
-/* function AmBigEndian ------------------------------------ */
-int AmBigEndian()
-{
+}
+
+int AmBigEndian() {
   long x = 1;
   return !(*((char *)(&x)));
-}/* end AmBigEndian */
+}
