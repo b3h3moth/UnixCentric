@@ -1,6 +1,5 @@
 LD = gcc
 CC = gcc
-CL = clang
 OBJS = main.o linklinstruct.o
 TARGET = linkedlinstruct.out
 
