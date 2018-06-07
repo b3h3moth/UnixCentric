@@ -1,13 +1,18 @@
 #ifndef SORTED_SEQUENCE_H
 #define SORTED_SEQUENCE_H
 
-struct sorted_Sequence {
-    struct sorted_Sequence_Node *head;
-};
+typedef struct sorted_Sequence_Node sorted_Sequence_Node;
+typedef struct sorted_Sequence sorted_Sequence;
 
 struct sorted_Sequence_Node {
     int data;
-    struct sorted_Sequence_Node *next;
+    sorted_Sequence_Node *next;
 };
+
+struct sorted_Sequence {
+    sorted_Sequence_Node *head;
+};
+
+sorted_Sequence *init(void);
 
 #endif
