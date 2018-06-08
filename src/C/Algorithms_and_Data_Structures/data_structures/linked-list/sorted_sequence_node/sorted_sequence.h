@@ -14,5 +14,6 @@ struct sorted_Sequence {
 };
 
 sorted_Sequence *init(void);
+void ins_First(sorted_Sequence *s, int val);
 
 #endif
