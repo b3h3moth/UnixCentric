@@ -12,7 +12,7 @@ int main() {
     ins_First(ssn, 15);
 
     /* For debugging purpose: print integer in the first node */
-#ifdef _DBG
+#ifdef DBG
     printf("%d\n", ssn->head->next->data);
 #endif
 
