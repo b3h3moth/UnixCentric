@@ -13,7 +13,16 @@ struct sorted_Sequence {
     sorted_Sequence_Node *head;
 };
 
+
+/* Sorted Sequence Node (alias SSN)
+- A pointer to sorted_Sequence_Node 'head' is a pointer to the generator node:
+- The generator node is the ever first SSN but it is not part of it, it only
+  serves to manage the SSN. */
+
+/* SSN initialization */
 sorted_Sequence *init(void);
+
+/* Add a node in the first position of the SSN */
 void ins_First(sorted_Sequence *s, int val);
 
 #endif

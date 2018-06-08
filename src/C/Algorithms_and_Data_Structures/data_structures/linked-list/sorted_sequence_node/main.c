@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "sorted_sequence.h"
 
+/* The goal of "Sorted Sequence Node" (from now SSN) ADT is to keep all element
+   sorted all time. */
+
 int main() {
     /* Initialize the SSN to NULL */
     sorted_Sequence *ssn = init();

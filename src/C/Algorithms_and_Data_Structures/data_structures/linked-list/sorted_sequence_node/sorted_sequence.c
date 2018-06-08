@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "sorted_sequence.h"
 
+/* SSN initialization */
 sorted_Sequence *init(void) {
     sorted_Sequence *s = (sorted_Sequence*)malloc(sizeof(sorted_Sequence));
     s->head = (sorted_Sequence_Node*)malloc(sizeof(sorted_Sequence_Node));
@@ -8,6 +9,7 @@ sorted_Sequence *init(void) {
     return s;
 }
 
+/* Add a node in the first position of the SSN */
 void ins_First(sorted_Sequence *s, int val) {
     sorted_Sequence_Node *n = (sorted_Sequence_Node*)malloc(sizeof(sorted_Sequence_Node));
     n->data = val;
