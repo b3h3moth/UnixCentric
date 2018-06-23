@@ -19,7 +19,7 @@ struct sorted_Sequence {
 - The generator node is the ever first SSN but it is not part of it, it only
   serves to manage the SSN. */
 
-/* SSN initialization */
+/* SSN initialization. It contains only the generator node. */
 sorted_Sequence *init(void);
 
 /* Add a node in the first position of the SSN */
