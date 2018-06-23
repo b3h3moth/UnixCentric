@@ -16,3 +16,14 @@ void ins_First(sorted_Sequence *s, int val) {
     n->next = s->head->next;
     s->head->next = n;
 }
+
+/* Add a node in the sorted sequence */
+void ins_Sort(sorted_Sequence *s, int val) {
+    sorted_Sequence_Node *p = s->head;
+    while ((p->next != NULL) && p->next->data < val)
+        p = p->next;
+    sorted_Sequence_Node *n = (sorted_Sequence_Node*)malloc(sizeof(sorted_Sequence_Node));
+    n->data = val;
+    n->next = p->next;
+    p->next = n;
+}
