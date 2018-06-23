@@ -25,4 +25,6 @@ sorted_Sequence *init(void);
 /* Add a node in the first position of the SSN */
 void ins_First(sorted_Sequence *s, int val);
 
+/* Add a node in the sorted sequence */
+void ins_Sort(sorted_Sequence *s, int val);
 #endif
