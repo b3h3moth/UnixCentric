@@ -16,5 +16,14 @@ int main() {
     printf("%d\n", ssn->head->next->data);
 #endif
 
+    ins_Sort(ssn, 20);
+#ifdef DBG
+    printf("%d\n", ssn->head->next->data);
+#endif
+    ins_Sort(ssn, 10);
+#ifdef DBG
+    printf("%d\n", ssn->head->next->data);
+#endif
+
     return(EXIT_SUCCESS);
 }
