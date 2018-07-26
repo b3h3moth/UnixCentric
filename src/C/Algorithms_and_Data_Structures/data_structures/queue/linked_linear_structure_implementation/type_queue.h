@@ -23,4 +23,6 @@ struct typeQueue_LLS {
     - the field next, a pointer to the next node of the queue.
 */
 
+typeQueue_LLS *init();
+
 #endif
