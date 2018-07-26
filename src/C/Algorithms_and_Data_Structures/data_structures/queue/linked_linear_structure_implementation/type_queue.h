@@ -2,14 +2,14 @@
 #define TYPE_QUEUE_H
 
 typedef struct node_LLS node_LLS;
-typedef struct typeQueue typeQueue;
+typedef struct typeQueue_LLS typeQueue_LLS;
 
 struct node_LLS {
     int data;
     node_LLS *next;
 };
 
-struct typeQueue {
+struct typeQueue_LLS {
     node_LLS *head;
     node_LLS *tail;
 };
