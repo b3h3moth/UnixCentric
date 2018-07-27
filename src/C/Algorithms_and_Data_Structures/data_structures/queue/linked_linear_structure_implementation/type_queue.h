@@ -26,5 +26,6 @@ struct typeQueue_LLS {
 typeQueue_LLS *init(void);
 int emptyQueue(typeQueue_LLS q);
 void printQueue(typeQueue_LLS q);
+void insQueue(typeQueue_LLS *q, int val);
 
 #endif

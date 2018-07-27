@@ -24,3 +24,12 @@ void printQueue(typeQueue_LLS q) {
         n = n->next;
     }
 }
+
+/* Add an element to queue */
+void insQueue(typeQueue_LLS *q, int val) {
+    node_LLS *n = (node_LLS*)malloc(sizeof(node_LLS));
+    n->data = val;
+    n->next = NULL;
+    q->tail->next = n;
+    q->tail = n;
+}
