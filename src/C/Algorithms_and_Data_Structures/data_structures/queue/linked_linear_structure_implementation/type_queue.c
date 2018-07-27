@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "type_queue.h"
 
@@ -14,4 +15,12 @@ typeQueue_LLS *init(void) {
 /* Check if the queue is empty */
 int emptyQueue(typeQueue_LLS q) {
     return q.head->next == NULL;
+}
+
+void printQueue(typeQueue_LLS q) {
+    node_LLS *n = q.head->next;
+    while (n != NULL) {
+        printf("%d, ", n->data);
+        n = n->next;
+    }
 }
