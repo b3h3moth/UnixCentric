@@ -8,7 +8,7 @@ int main(void) {
     if (emptyQueue(*myqq))
         printf("The queue is empty\n");
     else
-        printf("The queue is not empty\n");
+        printQueue(*myqq);
 
     return(EXIT_SUCCESS);
 }
