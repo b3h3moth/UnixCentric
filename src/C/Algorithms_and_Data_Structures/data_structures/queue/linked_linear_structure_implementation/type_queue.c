@@ -26,11 +26,21 @@ void printQueue(typeQueue_LLS q) {
     }
 }
 
-/* Add an element to the queue */
+/* Put an element to the queue */
 void putElemToQueue(typeQueue_LLS *q, int val) {
     node_LLS *n = (node_LLS*)malloc(sizeof(node_LLS));
     n->data = val;
     n->next = NULL;
     q->tail->next = n;
     q->tail = n;
+}
+
+/* Get the first element of the queue and delete it */
+int getElemFromQueue(typeQueue_LLS *q) {
+    int val = q->head->next->data;
+    node_LLS *p = q->head->next;
+    q->head->next = p->next;
+    free(p);
+
+    return val;
 }

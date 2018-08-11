@@ -27,5 +27,6 @@ typeQueue_LLS *init(void);
 int emptyQueue(typeQueue_LLS q);
 void printQueue(typeQueue_LLS q);
 void putElemToQueue(typeQueue_LLS *q, int val);
+int getElemFromQueue(typeQueue_LLS *q);
 
 #endif
