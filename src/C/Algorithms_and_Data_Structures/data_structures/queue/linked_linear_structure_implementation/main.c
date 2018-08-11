@@ -4,15 +4,26 @@
 
 int main(void) {
     int i;
+    int val = -1;
     typeQueue_LLS *myqq = init();
 
-    for (i = 0; i<10; i++)
+    for (i = 1; i<10; i++)
         putElemToQueue(myqq, i*i);
 
-    if (emptyQueue(*myqq))
-        printf("The queue is empty\n");
-    else
-        printQueue(*myqq);
+    printQueue(*myqq);
+
+    printf("\n");
+
+    for (i = 1; i<10; i++) {
+        val = getElemFromQueue(myqq);
+        printf("The first elemment of the queue is: %d\n", val);
+        if (emptyQueue(*myqq)) {
+            printf("The queue is empty\n");
+            break;
+        }
+    }
+
+    free(myqq);
 
     return(EXIT_SUCCESS);
 }
