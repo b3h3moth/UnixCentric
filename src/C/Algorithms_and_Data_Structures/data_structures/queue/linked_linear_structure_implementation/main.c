@@ -7,7 +7,7 @@ int main(void) {
     typeQueue_LLS *myqq = init();
 
     for (i = 0; i<10; i++)
-        insQueue(myqq, i*i);
+        putElemToQueue(myqq, i*i);
 
     if (emptyQueue(*myqq))
         printf("The queue is empty\n");

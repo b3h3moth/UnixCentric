@@ -17,6 +17,7 @@ int emptyQueue(typeQueue_LLS q) {
     return q.head->next == NULL;
 }
 
+/* Print each element of the queue */
 void printQueue(typeQueue_LLS q) {
     node_LLS *n = q.head->next;
     while (n != NULL) {
@@ -25,8 +26,8 @@ void printQueue(typeQueue_LLS q) {
     }
 }
 
-/* Add an element to queue */
-void insQueue(typeQueue_LLS *q, int val) {
+/* Add an element to the queue */
+void putElemToQueue(typeQueue_LLS *q, int val) {
     node_LLS *n = (node_LLS*)malloc(sizeof(node_LLS));
     n->data = val;
     n->next = NULL;
