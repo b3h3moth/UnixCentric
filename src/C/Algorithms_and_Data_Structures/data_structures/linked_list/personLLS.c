@@ -31,9 +31,13 @@ void print(Person p);
 int equal(Person p1, Person p2);
 /* Function prototypes: on LLS */
 TypeLLS *init();
+int empty(TypeLLS *l);
 
-int main() {
+int main(void) {
     TypeLLS *t = init();
+
+    if (empty(t))
+        printf("The LLS is empty\n");
 
     return(EXIT_SUCCESS);
 }
@@ -55,4 +59,9 @@ TypeLLS *init() {
     h->head = NULL;
     h->size = 0;
     return h;
+}
+
+/* Check if the LLS is empty */
+int empty(TypeLLS *l) {
+    return l->size == 0;    /* or: return l->head == NULL; */
 }
