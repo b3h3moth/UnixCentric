@@ -3,18 +3,20 @@
 #include <string.h>
 #include <time.h>
 
-struct Person {
+struct person {
     char firstname[16];
     char lastname[16];
     int age;
-}
+};
+
+typedef struct person Person;
 
 /* When error occurs */
 Person PersonError = {"","",0};
 
 /* Print full person */
 void print(Person p) {
-    print("%s %s, %d years old\n", p.firstname, p.lastname, p.age);
+    printf("%s %s, %d years old\n", p.firstname, p.lastname, p.age);
 }
 
 /* Two persons are equals */
