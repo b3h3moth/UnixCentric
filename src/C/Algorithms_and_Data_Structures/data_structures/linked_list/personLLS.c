@@ -4,7 +4,7 @@
 #include <time.h>
 
 typedef struct person Person;
-typedef struct node_lls NodeLLS;
+typedef struct node_lls NodeLLS; /* LLS stands for Linear Linked Structure */
 typedef struct type_lls TypeLLS;
 
 struct person {
@@ -19,16 +19,17 @@ struct node_lls {
 };
 
 struct type_lls {
-    NodeLLS *head;  /* Pointer to the first element of the Linear Linked List */
-    int size;       /* How many nodes the Linked Linear Structure contains */
+    NodeLLS *head;  /* Pointer to the first element of the LLS */
+    int size;       /* How many nodes the LLS contains */
 };
 
 /* Constant PersonError is useful when an error occurs */
 Person PersonError = {"","",0};
 
-/* Function prototypes */
+/* Function prototypes: on Person */
 void print(Person p);
 int equal(Person p1, Person p2);
+/* Function prototypes: on LLS */
 
 int main() {
     return(EXIT_SUCCESS);
