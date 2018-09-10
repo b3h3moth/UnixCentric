@@ -30,8 +30,11 @@ Person PersonError = {"","",0};
 void print(Person p);
 int equal(Person p1, Person p2);
 /* Function prototypes: on LLS */
+TypeLLS *init();
 
 int main() {
+    TypeLLS *t = init();
+
     return(EXIT_SUCCESS);
 }
 
@@ -44,4 +47,12 @@ void print(Person p) {
 int equal(Person p1, Person p2) {
     return (strcmp(p1.firstname, p2.firstname) == 0) &&
            (strcmp(p1.lastname, p2.lastname) == 0) && (p1.age == p2.age);
+}
+
+/* LLS initialization */
+TypeLLS *init() {
+    TypeLLS *h = (TypeLLS *)malloc(sizeof(TypeLLS));
+    h->head = NULL;
+    h->size = 0;
+    return h;
 }
