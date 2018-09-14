@@ -3,7 +3,7 @@
 * [The C Language Programming](#headFB1)
 * [UNIX Systems Programming](#headFB2)
 * [Secure Coding](#headFB9)
-* [Link Library](#headFB3)
+* [Compiling and Linking](#headFB3)
 * [Concurrent Programming](#headFB4)
 * [UNIX Network Programming](#headFB5)
 * [UNIX Operating Systems; Design and Implementation](#headFB6)
@@ -32,9 +32,11 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) `2016 edition - SEI Cert`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Secure Programming HOWTO; Creating Secure Software](https://www.dwheeler.com/secure-programs/Secure-Programs-HOWTO.pdf) `Version 3.72, 19/9/2015 - David A.Wheeler`
 
-## <a name="headFB3"></a>Link Library
+## <a name="headFB3"></a>Compiling and Linking
 
 * ![pdf doc](./img/pdf_doc.png?raw=true) [How to Write Shared Libraries](https://www.akkadia.org/drepper/dsohowto.pdf) `Last updated 10/12/2011 - Ulrich Drepper`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [Program Library HOWTO](https://www.dwheeler.com/program-library/Program-Library-HOWTO.pdf) `version 1.36, 05/15/2010 - David A. Wheeler`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [An Introduction to GCC - for the GNU Compilers gcc and g++](https://www.dropbox.com/s/i8hj6ouvsohxl2e/An%20Introduction%20to%20GCC.pdf?dl=0) `03/07/2004 - Brian J. Gough, foreword by Richard M. Stallman` 
 
 ## <a name="headFB4"></a>Concurrent Programming
 
