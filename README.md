@@ -47,8 +47,8 @@ Learning the art of the C language programming and the Unix Systems Programming.
 * [Bibliography](doc/biblio.md)
 * [Free books](doc/free_books.md)
 * [Papers and Talks](doc/papers_talks.md)
-* [Standards and References](doc/std_and_refs.md)
-* [Unix History](doc/unix_history)
+* [Standards and References](doc/stds_and_refs.md)
+* [Unix History](doc/unix_history.md)
 
 A lot of documentation: the standards, reference manuals, bibliography 
 (printed books), open/free docs, articles, talks.
