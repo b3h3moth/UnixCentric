@@ -10,10 +10,10 @@
 * [How to C in 2016](https://matt.sh/howto-c) `2016, Matt Stancliff`
 * [Write a Shell in C](https://brennan.io/2015/01/16/write-a-shell-in-c/) `1/16/2015, Stephen Brennan`
 * [Guide to Advanced Programming in C](http://pfacka.binaryparadise.com/articles/guide-to-advanced-programming-in-C.html) `01/06/2014 - Peter Facka`
-* What Every C Programmer Should Know About Undefined Behavior `May 2011, Chris Lattner`
-    - [part 1](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html)
-    - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
-    - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html)
+* What Every C Programmer Should Know About Undefined Behavior
+    - [part 1](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html) `05/13/2011 - Chris Lattner`
+    - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html) `05/14/2011 - Chris Lattner`
+    - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html) `05/21/2011 - Chris Lattner`
 
 ### Memory Management
 
@@ -28,6 +28,14 @@
 ### Structures and Unions
 
 * [The Lost Art of C Structure Packing](https://www.catb.org/esr/structure-packing/) `last update: 06/01/2017 - Eric S.Raymond`
+
+## Unix Programming
+
+* [The real power of Linux executables](file:///home/b3h3m0th/Download/ScrapBook/data/20180601123241/index.html) `05/23/2018 -  nachoparker`
+* [UNIX Syscalls](https://john-millikin.com/unix-syscalls) `2017 - John Millikin`
+* Anatomy of a system call 
+  - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
+  - [part 2](https://lwn.net/Articles/604515/) `07/16/2014 - David Drysdale`
 
 ## Compiling and linking
 
