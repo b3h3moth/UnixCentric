@@ -8,4 +8,4 @@ of link libraries:
 
 > References
 
-* [Drepper 2011](../doc/free_books.md#headFB3)
+* [Drepper 2011](../../doc/free_books.md#headFB3)
