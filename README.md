@@ -12,7 +12,7 @@ Unix OS development, Systems Programming, C Language Programming.
   * interfaces/
   * libraries/
   * representing_information/
-* [Unix Programming]((src/Unix_Programming)
+* [Unix Programming](src/Unix_Programming)
   * Date_and_Time/
   * Error_Handling/
   * File_Events_Monitoring/
@@ -45,7 +45,7 @@ Learning the art of the C language programming and the Unix Systems Programming.
 
 * [Articles](doc/articles.md)
 * [Bibliography](doc/biblio.md)
-* [Free books](doc(free_books.md)
+* [Free books](doc/free_books.md)
 * [Papers and Talks](doc/papers_talks.md)
 * [Standards and References](doc/std_and_refs.md)
 * [Unix History](doc/unix_history)
