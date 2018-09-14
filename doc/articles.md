@@ -31,7 +31,7 @@
 
 ## Unix Programming
 
-* [The real power of Linux executables](file:///home/b3h3m0th/Download/ScrapBook/data/20180601123241/index.html) `05/23/2018 -  nachoparker`
+* [The real power of Linux executables](https://ownyourbits.com/2018/05/23/the-real-power-of-linux-executables/) `05/23/2018 -  nachoparker`
 * [UNIX Syscalls](https://john-millikin.com/unix-syscalls) `2017 - John Millikin`
 * Anatomy of a system call 
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
