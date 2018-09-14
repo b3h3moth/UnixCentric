@@ -3,7 +3,8 @@
 The list include only a printed books.
 
 ## Unix Systems Programming
-  
+ 
+* **Systems Programming in Unix/Linux**. *K.C. Wang* (`Springer, 2018`) 
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
 * **The Linux Programming Interface - A Linux and UNIX System Programming Handbook**. *Michael Kerrisk* (`No Starch Press, 2010`)
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
@@ -75,6 +76,6 @@ The list include only a printed books.
 * **The Standard C Library**. *Phillip James Plauger* (`Prentice Hall, 1992`)
 * **The C Programming Language - ANSI C Version**. *Brian W.Kernighan* (`Prentice Hall, 1988, 2nd`)
 
-### Compiling and Linking
+## Compiling and Linking
 
 * **Advanced C and C++ Compiling**. *Milan Stevanovic* (`Apress, 2014`)
