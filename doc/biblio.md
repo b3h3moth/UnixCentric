@@ -5,6 +5,8 @@ The list include only a printed books.
 ## Unix Systems Programming
  
 * **Systems Programming in Unix/Linux**. *K.C. Wang* (`Springer, 2018`) 
+* **Computer System - A Programmers Perspective**. *Randal E. Bryant*, *David R. O’Hallaron* (`Pearson, 2016, 3rd`) 
+  - 3rd edition is focused on x86_64 architecture, while the 2nd edition on x86.
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
 * **The Linux Programming Interface - A Linux and UNIX System Programming Handbook**. *Michael Kerrisk* (`No Starch Press, 2010`)
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
