@@ -10,6 +10,7 @@ The list include only a printed books.
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
 * **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
+* **Understanding Unix/Linux Programming**. *Bruce Molay* (`Pearson, 2003`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
 
 ## POSIX
