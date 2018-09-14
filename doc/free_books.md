@@ -3,7 +3,7 @@
 * [The C Language Programming](#headFB1)
 * [UNIX Systems Programming](#headFB2)
 * [Secure Coding](#headFB9)
-* [Shared Libraries](#headFB3)
+* [Link Lybrary](#headFB3)
 * [Concurrent Programming](#headFB4)
 * [UNIX Network Programming](#headFB5)
 * [UNIX Operating Systems; Design and Implementation](#headFB6)
@@ -32,9 +32,9 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [SEI CERT C Coding Standard: Rules for Developing Safe, Reliable, and Secure Systems)](https://dl.dropboxusercontent.com/u/57071683/sei-cert-c-coding-standard-2016-v01.pdf) `2016 edition - SEI Cert`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Secure Programming HOWTO; Creating Secure Software](https://www.dwheeler.com/secure-programs/Secure-Programs-HOWTO.pdf) `Version 3.72, 19/9/2015 - David A.Wheeler`
 
-## <a name="headFB3"></a>Shared Libraries
+## <a name="headFB3"></a>Link Lybrary
 
-* ![pdf doc](./img/pdf_doc.png?raw=true) [How to Write Shared Libraries](https://www.akkadia.org/drepper/dsohowto.pdf) `Last updated 08/20/2008 - Ulrich Drepper`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [How to Write Shared Libraries](https://www.akkadia.org/drepper/dsohowto.pdf) `Last updated 10/12/2011 - Ulrich Drepper`
 
 ## <a name="headFB4"></a>Concurrent Programming
 
