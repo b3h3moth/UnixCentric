@@ -1,7 +1,6 @@
 # UnixCentric Bibliography
 
-The list include all the books which have been useful for the writer, that
-any Unix Developer should read at least once in his or her life.
+The list include only a printed books.
 
 ## Unix Systems Programming
   
@@ -75,3 +74,7 @@ any Unix Developer should read at least once in his or her life.
 * **Expert C Programming - Deep C Secrets**. *Peter Van Der Linden* (`Prentice Hall, 1994`)
 * **The Standard C Library**. *Phillip James Plauger* (`Prentice Hall, 1992`)
 * **The C Programming Language - ANSI C Version**. *Brian W.Kernighan* (`Prentice Hall, 1988, 2nd`)
+
+### Compiling and Linking
+
+* **Advanced C and C++ Compiling**. *Milan Stevanovic* (`Apress, 2014`)
