@@ -13,7 +13,7 @@
     - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html)
     - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html)
 
-### C: Memory Management
+### Memory Management
 
 * [What a C programmer should know about memory](http://marek.vavrusa.com/c/memory/2015/02/20/memory/) `2/20/2015, Marek Vavrusa`
 * [A quick tutorial on implementing and debugging malloc, free, calloc, and realloc](https://danluu.com/malloc-tutorial/) `Dec 2014, Dan Luu`
@@ -23,3 +23,8 @@
 ### Structures and Unions
 
 * [The Lost Art of C Structure Packing](https://www.catb.org/esr/structure-packing/) `last update: 06/01/2017 - Eric S.Raymond`
+
+## Compiling and linking
+
+* [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
+* [Static, Shared Dynamic and Loadable Linux Libraries](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html) `YoLinux`
