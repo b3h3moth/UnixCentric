@@ -1,16 +1,21 @@
-We would like to create a link library containing the object code of the pow() 
-function, which can be called from different C programs.
+We would like to create a link library containing the object code of the sum()
+and mul() functions written inside mymath.c source file, which can be called 
+from different C programs.
 
-We produce the file object mymath.o:
-1) gcc -c mymath.c 
+* We produce the file object mymath.o:
+`
 
-Create static link library from mymath.o:
-2) ar rcs libmylib.a mymath.o
+    gcc -c mymath.c `
 
-Static compile main.c with mylib.a as link library. 
+* Create static link library from mymath.o:
+`
+
+    ar rcs libmylib.a mymath.o`
+
+* Static compile main.c with mylib.a as link library. 
 Note that -L speciﬁes the "current directory" library path, 
 -l speciﬁes the library, without prefix 'lib' and suffix 'a':
-3) gcc -static main.c -L. –lmylib
+`gcc -static main.c -L. –lmylib`
 
-Now executable is ready to be executed:
-4) ./a.out
+* Now executable is ready to be executed:
+`./a.out`
