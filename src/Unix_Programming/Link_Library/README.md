@@ -8,4 +8,5 @@ of link libraries:
 
 ### References
 
+* [Stevanovic 2014](../../../biblio.md)
 * [Drepper 2011](../../../doc/free_books.md#headFB3)
