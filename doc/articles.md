@@ -17,7 +17,7 @@
 
 ### Memory Management
 
-* [Write a simple memory allocator](https://arjunsreedharan.org/post/148675821737/write-a-simple-memory-allocator) `2016 - Arjun Sreedharan`
+* [Write a simple memory allocator](https://arjunsreedharan.org/post/148675821737/write-a-simple-memory-allocator) `08/09/2016 - Arjun Sreedharan`
 * [What a C programmer should know about memory](http://marek.vavrusa.com/memory/) `2/20/2015, Marek Vavrusa`
 * [A quick tutorial on implementing and debugging malloc, free, calloc, and realloc](https://danluu.com/malloc-tutorial/) `Dec 2014, Dan Luu`
 * [Memory management in C programs](http://nethack4.org/blog/memory.html) `03/16/2014, Alex Smith`
