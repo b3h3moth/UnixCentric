@@ -24,6 +24,7 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [GaPiL; Guida alla Programmazione in Linux](https://dl.dropboxusercontent.com/u/57071683/gapil.pdf) `Last updated 9/6/2018 - S.Piccardi`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Unix system programming in OCaml](https://ocaml.github.io/ocamlunix/ocamlunix.pdf) `Last updated 12/1/2014 - X.Leroy, D.Rémy`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Advanced Linux Programming](http://advancedlinuxprogramming.com/alp-folder/advanced-linux-programming.pdf) `First edition June 2001 - M.Mitchell, J.Oldham, A.Samuel`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [The Unix Programming Environment](htgtp://iu.hio.no/~mark/unix/unix.html) `Edition 2.2 August 2001 - Mark Burgess`
 * [Frequently Asked Questions about Unix Programming](https://www.svbug.com/documentation/comp.unix.programmer-FAQ/) `09/01/2000 - comp.unix.programmer`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Programmazione in ambiente UNIX](http://www.dis.uniroma1.it/pub/quaglia/dispensa.pdf) `Version 1.0, 09/30/1999 - F.Quaglia, C.Demetrescu`
 
