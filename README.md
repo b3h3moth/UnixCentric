@@ -5,6 +5,8 @@ Unix OS development, Systems Programming, C Language Programming.
 
 ## Source code
 
+Learning the art of the C language programming and the Unix Systems Programming.
+
 * [C](src/C/)
   * [Algorithms and Data Structures](src/C/Algorithms_and_Data_Structures/)
   * [Bitwise Hacks](ars/C/bitwise_hacks/)
@@ -39,9 +41,11 @@ Unix OS development, Systems Programming, C Language Programming.
   * Unix_Daemons/
   * Users_and_Groups/
 
-Learning the art of the C language programming and the Unix Systems Programming.
 
 ## All kinds of Documentation
+
+A lot of documentation: the standards, reference manuals, bibliography 
+(printed books), open/free docs, articles, talks.
 
 * [Articles](doc/articles.md)
 * [Bibliography](doc/biblio.md)
@@ -49,6 +53,3 @@ Learning the art of the C language programming and the Unix Systems Programming.
 * [Papers and Talks](doc/papers_talks.md)
 * [Standards and References](doc/stds_and_refs.md)
 * [Unix History](doc/unix_history.md)
-
-A lot of documentation: the standards, reference manuals, bibliography 
-(printed books), open/free docs, articles, talks.
