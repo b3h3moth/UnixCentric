@@ -41,6 +41,7 @@
 
 ## <a name="headFB4"></a>Concurrent Programming
 
+* [Is Parallel Programming Hard, And, If So, What Can You Do About It?](http://kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html) `Last updated 11/22/2017 - Paul E. McKenney`
 * [Programmazione concorrente nei sistemi UNIX](https://www.dropbox.com/s/y6gon2neug18wjy/programmazione_concorr_nei_sys_unix.pdf?dl=0) `Version 04/18/2008 - G.Lipari, L.Abeni, A.Casile`
 
 ## <a name="headFB5"></a>UNIX Network Programming
