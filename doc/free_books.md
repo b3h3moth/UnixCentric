@@ -4,7 +4,7 @@
 * [UNIX Systems Programming](#headFB2)
 * [Secure Coding](#headFB9)
 * [Compiling and Linking](#headFB3)
-* [Concurrent Programming](#headFB4)
+* [Concurrent Programming | Parallel Programming](#headFB4)
 * [UNIX Network Programming](#headFB5)
 * [UNIX Operating Systems; Design and Implementation](#headFB6)
 * [How the Memory Works](#headFB7)
@@ -39,7 +39,7 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Program Library HOWTO](https://www.dwheeler.com/program-library/Program-Library-HOWTO.pdf) `version 1.36, 05/15/2010 - David A. Wheeler`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [An Introduction to GCC - for the GNU Compilers gcc and g++](https://www.dropbox.com/s/i8hj6ouvsohxl2e/An%20Introduction%20to%20GCC.pdf?dl=0) `03/07/2004 - Brian J. Gough, foreword by Richard M. Stallman` 
 
-## <a name="headFB4"></a>Concurrent Programming
+## <a name="headFB4"></a>Concurrent Programming | Parallel Programming
 
 * [Is Parallel Programming Hard, And, If So, What Can You Do About It?](http://kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html) `Last updated 11/22/2017 - Paul E. McKenney`
 * [Programmazione concorrente nei sistemi UNIX](https://www.dropbox.com/s/y6gon2neug18wjy/programmazione_concorr_nei_sys_unix.pdf?dl=0) `Version 04/18/2008 - G.Lipari, L.Abeni, A.Casile`
