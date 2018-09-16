@@ -41,3 +41,7 @@
 
 * [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
 * [Static, Shared Dynamic and Loadable Linux Libraries](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html) `YoLinux`
+
+## Unix stuff
+
+* [Back To The Future: Unix Wildcards Gone Wild](http://) `last updated 06/25/2014 - Leon Juranic`
