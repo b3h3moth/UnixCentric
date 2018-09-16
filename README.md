@@ -6,12 +6,12 @@ Unix OS development, Systems Programming, C Language Programming.
 ## Source code
 
 * [C](src/C/)
-  * [Algorithms_and_Data_Structures](src/C/Algorithms_and_Data_Structures/)
-  * [bitwise_hacks](ars/C/bitwise_hacks/)
-  * [c11_language](src/C/c11_language/)
-  * [interfaces](src/C/interfaces/)
-  * [libraries](src/C/libraries/)
-  * [representing_information](src/C/representing_information/)
+  * [Algorithms and Data Structures](src/C/Algorithms_and_Data_Structures/)
+  * [Bitwise Hacks](ars/C/bitwise_hacks/)
+  * [c11](src/C/c11_language/)
+  * [Interfaces](src/C/interfaces/)
+  * [Libraries](src/C/libraries/)
+  * [Representing information](src/C/representing_information/)
 * [Unix Programming](src/Unix_Programming)
   * Date_and_Time/
   * Error_Handling/
