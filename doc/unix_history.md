@@ -10,4 +10,4 @@
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Evolution of the Unix Time-sharing System](http://www.read.seas.harvard.edu/~kohler/class/aosref/ritchie84evolution.pdf) `09/10/1979 - Dennis M.Ritchie`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Unix Time-sharing System](https://people.eecs.berkeley.edu/~brewer/cs262/unix.pdf) `July 1974 - Dennis M.Ritchie, Ken Thompson`
 
-<sup>1</sup><a name="fn01"></a>: It's chapter 3 of *Open Sources: Voices from the Open Source Revolution* book, edited by O'Reilly in 1999.
+(<a name="fn01">1</a>): It's chapter 3 of *Open Sources: Voices from the Open Source Revolution* book, edited by O'Reilly in 1999.
