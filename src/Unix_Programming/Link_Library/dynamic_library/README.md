@@ -1,5 +1,5 @@
-We would like to create a shared link library containing the object code of the 
-sum() and mul() functions written inside mymath.c source file, which can be 
+We would like to create a dynamic link library containing the object code of the 
+sum() and mul() functions written into mymath.c source file, which can be 
 called from different C programs.
 
 1. Compile Position Independent Code (PIC) mymath.o: 
