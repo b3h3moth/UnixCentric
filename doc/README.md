@@ -5,7 +5,7 @@ in such a way as to make the usability as fast as possible.
 
 UnixCentric covers everything inherent the UNIX Universe, however, as well as 
 for the code, there are two main areas: the C language and Unix Systems 
-Programming.
+Programming, but we will cover Unix history as well.
 
 * [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
 * [Bibliography](biblio.md) `Printed books`
