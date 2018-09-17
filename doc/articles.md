@@ -44,4 +44,4 @@
 
 ## Unix stuff
 
-* [Back To The Future: Unix Wildcards Gone Wild](http://) `last updated 06/25/2014 - Leon Juranic`
+* [Back To The Future: Unix Wildcards Gone Wild](https://www.exploit-db.com/papers/33930/) `last updated 06/25/2014 - Leon Juranic`
