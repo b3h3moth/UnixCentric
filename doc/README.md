@@ -1,13 +1,11 @@
 # UnixCentric Documentation 
 
-La documentazione e' suddivisa in sezioni, ciascuna delle quali e' un unico
-documento in modo tale da rendere la fruibilita' il piu' veloce possibile.
+The documentation is splitted into many sections, each of which is a single page, 
+in such a way as to make the usability as fast as possible.
 
-UnixCentric riguarda ovviamente tutto cio' che e' inerente l'Universo UNIX, 
-tuttavia, cosi' come per il codice, ci sono due aree principali, ovvero il 
-linguaggio C - standard c99 e c11 - e la programmazione di sistema, che
-implicitamente vanno a sfociare nell'argomento che e' il fulcro di tutto, 
-ovvero l'implementazione dei sistemi operativi UNIX e UNIX-like.
+UnixCentric covers everything inherent the UNIX Universe, however, as well as 
+for the code, there are two main areas: the C language and Unix Systems 
+Programming.
 
 * [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
 * [Bibliography](biblio.md) `Printed books`
