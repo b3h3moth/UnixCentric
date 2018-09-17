@@ -5,9 +5,9 @@
 * [The Strange Birth and Long Life of Unix](https://spectrum.ieee.org/tech-history/cyberspace/the-strange-birth-and-long-life-of-unix) `11/28/2011 - Warren Toomey`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Single UNIX Specification History & Timeline](http://www.unix.org/Posters/download/unix_posterA3.pdf) `2004 - The OpenGroup`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [UNIX History & Timeline](http://www.catb.org/~esr/writings/taoup/html/graphics/timeline.pdf) `2003 - Eric S. Raymond`
-* [Twenty Years of Berkeley Unix](https://www.oreilly.com/openbook/opensources/book/kirkmck.html) `1999 - Marshall Kirk McKusick`[^1]
+* [Twenty Years of Berkeley Unix](https://www.oreilly.com/openbook/opensources/book/kirkmck.html) `1999 - Marshall Kirk McKusick`<sup>1
 * ![pdf doc](./img/pdf_doc.png?raw=true) [A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](http://www.cs.dartmouth.edu/~doug/reader.pdf) `1987 - M. Douglas McIlroy`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Evolution of the Unix Time-sharing System](http://www.read.seas.harvard.edu/~kohler/class/aosref/ritchie84evolution.pdf) `09/10/1979 - Dennis M.Ritchie`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Unix Time-sharing System](https://people.eecs.berkeley.edu/~brewer/cs262/unix.pdf) `July 1974 - Dennis M.Ritchie, Ken Thompson`
 
-[^1]: It's chapter 3 of *Open Sources: Voices from the Open Source Revolution* book, edited by O'Reilly in 1999.
+<sup>1</sup>: It's chapter 3 of *Open Sources: Voices from the Open Source Revolution* book, edited by O'Reilly in 1999.
