@@ -25,6 +25,8 @@
 * [Anatomy of a Program in Memory](https://manybutfinite.com/post/anatomy-of-a-program-in-memory/) `01/27/2009 - Gustavo Duarte`
 * What every programmer should know about memory
   - [part 1](https://lwn.net/Articles/250967/) `09/27/2007 - Ulrich Drepper`
+  - [part 2, CPU Caches](https://lwn.net/Articles/252125/) `10/01/2007 - Ulrich Drepper`
+  - [part 2,  `09/27/2007 - Ulrich Drepper`
 * [Inside memory management](https://www.ibm.com/developerworks/linux/library/l-memory/) `11/16/2004 - Jonathan Bartlett`
 
 ### Structures and Unions
