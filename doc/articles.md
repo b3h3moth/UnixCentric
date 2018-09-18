@@ -29,6 +29,7 @@
   - [part 3, Virtual memory](https://lwn.net/Articles/253361/) `10/09/2007 - Ulrich Drepper`
   - [part 4, NUMA support](https://lwn.net/Articles/254445/) `10/17/2007 - Ulrich Drepper`
   - [part 5, What programmers can do - cache optimization](https://lwn.net/Articles/255364/) `10/23/2007 - Ulrich Drepper`
+  - [part 6, More things programmers can do](https://lwn.net/Articles/256433/) `10/31/2007 - Ulrich Drepper`
 * [Inside memory management](https://www.ibm.com/developerworks/linux/library/l-memory/) `11/16/2004 - Jonathan Bartlett`
 
 ### Structures and Unions
