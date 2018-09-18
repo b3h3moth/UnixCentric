@@ -26,7 +26,8 @@
 * What every programmer should know about memory
   - [part 1](https://lwn.net/Articles/250967/) `09/27/2007 - Ulrich Drepper`
   - [part 2, CPU Caches](https://lwn.net/Articles/252125/) `10/01/2007 - Ulrich Drepper`
-  - [part 3, Virtual memory](https://lwn.net/Articles/253361/) `09/10/2007 - Ulrich Drepper`
+  - [part 3, Virtual memory](https://lwn.net/Articles/253361/) `10/09/2007 - Ulrich Drepper`
+  - [part 4, NUMA support](https://lwn.net/Articles/254445/) `10,27/2007 - Ulrich Drepper`
 * [Inside memory management](https://www.ibm.com/developerworks/linux/library/l-memory/) `11/16/2004 - Jonathan Bartlett`
 
 ### Structures and Unions
