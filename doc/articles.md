@@ -32,6 +32,7 @@
   - [part 6, More things programmers can do](https://lwn.net/Articles/256433/) `10/31/2007 - Ulrich Drepper`
   - [part 7, Memory performance tools](https://lwn.net/Articles/257209/) `11/07/2007 - Ulrich Drepper`
   - [part 8, Future technologies](https://lwn.net/Articles/258154/) `11/14/2007 - Ulrich Drepper`
+  - [part 9, Appendices and bibliography](https://lwn.net/Articles/258188/) `11/14/2007 - Ulrich Drepper`
 * [Inside memory management](https://www.ibm.com/developerworks/linux/library/l-memory/) `11/16/2004 - Jonathan Bartlett`
 
 ### Structures and Unions
