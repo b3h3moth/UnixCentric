@@ -18,8 +18,8 @@ Learning the art of the C language programming and the Unix Systems Programming.
   * [Date and Time/](src/Unix_Programming/Date_and_Time)
   * [Error Handling/](src/Unix_Programming/Error_Handling)
   * [File Events Monitoring/](src/Unix_Programming/File_Events_Monitoring)
-  * [File System/](File_System)
-  * Internetworking/
+  * [File System/](src/Unix_Programming/File_System)
+  * [Internetworking/](src/Unix_Programming/Internetworking)
   * IO_Advanced/
   * IO_Buffering_and_Buffer_Cache/
   * IO_Standard_Library/
