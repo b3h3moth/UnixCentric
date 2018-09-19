@@ -56,6 +56,7 @@ A lot of documentation: the standards, reference manuals, bibliography
   - [Unix History](doc/unix_history.md)
 
 ---
+
 ```Luca Suriano a.k.a. b3h3m0th | behemoth (at) autistici (dot) org
 GPG fingerprint: 11C3 D822 EA07 6D99 1F59 5F86 2023 8259 E83F 9FBB```
 
