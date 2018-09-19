@@ -57,6 +57,4 @@ A lot of documentation: the standards, reference manuals, bibliography
 
 ---
 
-<address>
 ```Luca Suriano a.k.a. Behemoth - https://keybase.io/behemoth```
-</address>
