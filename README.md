@@ -16,7 +16,7 @@ Learning the art of the C language programming and the Unix Systems Programming.
   * [Representing information](src/C/representing_information/)
 * [Unix Programming](src/Unix_Programming)
   * [Date and Time/](src/Unix_Programming/Date_and_Time)
-  * Error_Handling/
+  * [Error Handling/](src/Unix_Programming/Error_Handling)
   * File_Events_Monitoring/
   * File_System/
   * Internetworking/
