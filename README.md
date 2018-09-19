@@ -9,13 +9,13 @@ Learning the art of the C language programming and the Unix Systems Programming.
 
 * [C](src/C/)
   * [Algorithms and Data Structures](src/C/Algorithms_and_Data_Structures/)
-  * [Bitwise Hacks](ars/C/bitwise_hacks/)
+  * [Bitwise Hacks](src/C/bitwise_hacks/)
   * [c11](src/C/c11_language/)
   * [Interfaces](src/C/interfaces/)
   * [Libraries](src/C/libraries/)
   * [Representing information](src/C/representing_information/)
 * [Unix Programming](src/Unix_Programming)
-  * Date_and_Time/
+  * [Date_and_Time/]
   * Error_Handling/
   * File_Events_Monitoring/
   * File_System/
