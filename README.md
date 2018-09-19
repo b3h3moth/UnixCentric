@@ -56,4 +56,7 @@ A lot of documentation: the standards, reference manuals, bibliography
   - [Unix History](doc/unix_history.md)
 
 ---
-contact: behemoth (at) autistici (dot) org
+
+<address>
+```Luca Suriano a.k.a. Behemoth - https://keybase.io/behemoth```
+</address>
