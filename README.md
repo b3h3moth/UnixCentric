@@ -54,3 +54,6 @@ A lot of documentation: the standards, reference manuals, bibliography
   - [Papers and Talks](doc/papers_talks.md)
   - [Standards and References](doc/stds_and_refs.md)
   - [Unix History](doc/unix_history.md)
+
+---
+contact: behemoth (at) autistici (dot) org
