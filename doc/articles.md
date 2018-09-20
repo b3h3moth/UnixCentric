@@ -46,7 +46,13 @@
   - [part 1, Setup](https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/) `03/21/2017 - Simon Brand`
   - [part 2, Breakpoints](https://blog.tartanllama.xyz/writing-a-linux-debugger-breakpoints/) `03/24/2017 - Simon Brand`
   - [part 3, Registers and memory](https://blog.tartanllama.xyz/writing-a-linux-debugger-registers/) `02/31/2017 - Simon Brand)`
-
+  - [part 4, Elves and dwarves](https://blog.tartanllama.xyz/writing-a-linux-debugger-elf-dwarf/= `04/05/2017 - Simon Brand`
+  - [part 5, Source and signals](https://blog.tartanllama.xyz/writing-a-linux-debugger-source-signal/) `04/24/2017 - Simon Brand`
+  - [part 6, Source-level stepping](https://blog.tartanllama.xyz/writing-a-linux-debugger-dwarf-step/) `05/06/2017 - Simon Brand`
+  - [part 7, Source-level breakpoints](https://blog.tartanllama.xyz/writing-a-linux-debugger-source-break/) `06/19/2017 - Simon Brand`
+  - [part 8, Stack unwinding](https://blog.tartanllama.xyz/writing-a-linux-debugger-unwinding/) `06/24/2017 - Simon Brand`
+  - [part 9, Handling variables](https://blog.tartanllama.xyz/writing-a-linux-debugger-variables/) `07/26/2017 - Simon Brand`
+  - [part 10, Advanced topics](https://blog.tartanllama.xyz/writing-a-linux-debugger-advanced-topics/) `08/01/2017 - Simon Brand`
 * [UNIX Syscalls](https://john-millikin.com/unix-syscalls) `2017 - John Millikin`
 * Anatomy of a system call 
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
