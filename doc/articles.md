@@ -44,6 +44,7 @@
 * [The real power of Linux executables](https://ownyourbits.com/2018/05/23/the-real-power-of-linux-executables/) `05/23/2018 -  nachoparker`
 * Writing a Linux Debugger
   - [part 1, Setup](https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/) `03/21/2017 - Simon Brand`
+  - [part 2, Breakpoints](https://blog.tartanllama.xyz/writing-a-linux-debugger-breakpoints/) `03/24/2017 - Simon Brand`
 
 * [UNIX Syscalls](https://john-millikin.com/unix-syscalls) `2017 - John Millikin`
 * Anatomy of a system call 
