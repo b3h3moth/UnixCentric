@@ -24,7 +24,7 @@ Learning the art of the C language programming and the Unix Systems Programming.
   - [IO Buffering and Buffer Cache/](IO_Buffering_and_Buffer_Cache)
   - [IO Standard Library/](IO_Standard_Library)
   - [IO Unbuffered/](IO_Unbuffered)
-  - IPC_InterProcess_Communication/
+  - [IPC InterProcess Communication/](IPC_InterProcess_Communication)
   - Link_Library/
   - Memory_Allocation/
   - Parsing_Command_Line_Options/
