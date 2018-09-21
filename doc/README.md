@@ -7,9 +7,9 @@ UnixCentric covers everything inherent the UNIX Universe, however, as well as
 for the code, there are two main areas: the C language and Unix Systems 
 Programming, but we will cover Unix history as well.
 
-* [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
+* [Articles](articles.md) `Articles and small tutorial`
 * [Bibliography](biblio.md) `Printed books`
-* [Books](free_books.md) `Free (full) books`
-* [Articles](articles.md) `Articles and tutorial`
-* [Papers and Talks](talks.md) `Papers and talks from University, Conference and so on`
+* [Free Books](free_books.md) `Free/Open (full) books`
+* [Papers and Talks](talks.md) `Academic Papers and talks; from University, Conference and so on`
+* [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
 * [Unix_History](unix_history.md) `Unix History and Timeline`
