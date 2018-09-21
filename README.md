@@ -41,10 +41,10 @@ Learning the art of the C language programming and the Unix Systems Programming.
   - [Users and Groups](src/Unix_Programming/Users_and_Groups/)
 
 
-## All kinds of Documentation
+## Documentation
 
 A lot of documentation: the standards, reference manuals, bibliography 
-(printed books), open/free docs, articles, talks.
+(printed books), open/free docs, articles, academic talks and research papers.
 
 * [Documentation](doc/)
   - [Articles](doc/articles.md)
@@ -54,8 +54,15 @@ A lot of documentation: the standards, reference manuals, bibliography
   - [Standards and References](doc/stds_and_refs.md)
   - [Unix History](doc/unix_history.md)
 
----
 
-```Luca Suriano a.k.a. b3h3m0th | behemoth (at) autistici (dot) org```
+## Contact
 
-```GPG fingerprint: 11C3 D822 EA07 6D99 1F59 5F86 2023 8259 E83F 9FBB```
+[@b3h3m0th](https://twitter.com/b3h3m0th)
+
+```
+GPG fingerprint: 11C3 D822 EA07 6D99 1F59 5F86 2023 8259 E83F 9FBB
+```
+
+## License
+
+Licensed [BY-NC-SA Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/).
