@@ -3,6 +3,11 @@
 Everything is focused on Unix systems. Unix Operating Systems,
 Unix OS development, Systems Programming, C Language Programming.
 
+> Pretty much everything on the web uses those two things: C and UNIX. 
+> The browsers are written in C. The UNIX kernel - that pretty much the entire 
+> Internet runs on - is written in C. `Rob Pike`
+
+
 ## Source code
 
 Learning the art of the C language programming and the Unix Systems Programming.
