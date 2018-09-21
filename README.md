@@ -63,11 +63,6 @@ A lot of documentation: the standards, reference manuals, bibliography
 ## Contact
 
 [@b3h3m0th](https://twitter.com/b3h3m0th)
-
 ```
 GPG fingerprint: 11C3 D822 EA07 6D99 1F59 5F86 2023 8259 E83F 9FBB
 ```
-
-## License
-
-Licensed [BY-NC-SA Creative Commons](http://creativecommons.org/licenses/by-nc-sa/4.0/).
