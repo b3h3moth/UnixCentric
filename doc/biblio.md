@@ -15,6 +15,11 @@ The list include only a printed books.
 * **Understanding Unix/Linux Programming**. *Bruce Molay* (`Pearson, 2003`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
 
+## Linux Systems Programming
+
+* **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`O'Reilly, 2013, 2nd`)
+* **Linux Programming by Example - the Fundamentals**. *Arnold Robbins* (`Prentice Hall, 2004`)
+
 ## POSIX
 
 * **Programming with POSIX Threads**. *David B.Butenhof* (`Addison Wesley, 1997`)
@@ -25,12 +30,6 @@ The list include only a printed books.
 
 * **Unix Network Programming, Volume 1 - The Sockets Networking API**. *W.Richard Stevens*, *Bill Fenner*, *Andrew M.Rudoff* (`Addison Wesley, 2003, 3rd`)
 * **Unix Network Programming, Volume 2 - Interprocess Communications**. *W.Richard Stevens* (`Prentice Hall, 1998, 2nd`)
-
-
-## Linux Systems Programming
-
-* **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`O'Reilly, 2013, 2nd`)
-* **Linux Programming by Example - the Fundamentals**. *Arnold Robbins* (`Prentice Hall, 2004`)
 
 ## Linux Kernel and Device Drivers
 
