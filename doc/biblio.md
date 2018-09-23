@@ -70,13 +70,14 @@ The list include only a printed books.
 * **Unix Network Programming, Volume 1 - The Sockets Networking API**. *W.Richard Stevens*, *Bill Fenner*, *Andrew M.Rudoff* (`Addison Wesley, 2003, 3rd`)
 * **Unix Network Programming, Volume 2 - Interprocess Communications**. *W.Richard Stevens* (`Prentice Hall, 1998, 2nd`)
 
-## Unix Kernel and Device Drivers
+## Unix Kernel Development and Device Drivers
 
 ### Linux Kernel
 
 * **Linux Kernel Development**. *Robert Love* (`Addison Wesley, 2010, 3rd`)
 * **Understanding the Linux Kernel - from I/O Ports to Process Management**. *Daniel P.Bovet*, *Marco Cesati* (`O'Reilly, 2005, 3rd`);
 * **Linux Device Drivers**. *Jonathan Corbet*, *Alessandro Rubini*, *Greg Kroah-Hartman* (`O'Reilly, 2005, 3rd`)
+* **Linux Kernel Programming**. *Michael Beck*, *Harald Bohme*, *Mirko Dziadzka*, *Ulrich Kunitz*, *Robert Magnus*, *Dirk Verworner* (`Addison Wesley, 2002, 3rd`)
 
 ### BSD Kernel
 
