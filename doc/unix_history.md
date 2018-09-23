@@ -1,5 +1,6 @@
 # Unix History and timeline
 
+* [Jon "maddog" Hall talks Unix and Linux history](https://www.youtube.com/watch?v=EZMA3Ge144U) `2018 - Jon Hall`
 * [Unix and Multics](https://www.multicians.org/unix.html) `Last updated 12/13/16 - Tom Van Vleck`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Evolution of C Programming Practices: A Study of the Unix Operating System 1973–2015](https://www2.dmst.aueb.gr/dds/pubs/conf/2016-ICSE-ProgEvol/html/SLK16.pdf) `May 2016 - Diomidis Spinellis, Panos Louridas, Maria Kechagia`
 * [The Strange Birth and Long Life of Unix](https://spectrum.ieee.org/tech-history/cyberspace/the-strange-birth-and-long-life-of-unix) `11/28/2011 - Warren Toomey`
