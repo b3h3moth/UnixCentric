@@ -1,6 +1,15 @@
 # Articles
 
-## The C Programming Language
+* [The C Programming Language](#headAR1)
+  - [Memory Management](#headAR1a)
+  - [Structures and Unions](#headAR1b)
+* [Unix Programming](#headAR2)
+* [Compiling and Linking](#headAR3)
+* [Unix stuff](#headAR4)
+
+---
+
+## <a name="headAR1"></a>The C Programming Language
 
 * [Undefined Behavior in 2017](https://blog.regehr.org/archives/1520) `07/04/2017 - Pascal Cuoq, John Regehr`
 * [How is GNU `yes` so fast?](https://www.reddit.com/r/unix/comments/6gxduc/how_is_gnu_yes_so_fast/) `06/13/2017, reddit unix`
@@ -15,7 +24,7 @@
     - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html) `05/14/2011 - Chris Lattner`
     - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html) `05/21/2011 - Chris Lattner`
 
-### Memory Management
+### <a name="headAR1a"></a>Memory Management
 
 * [Write a simple memory allocator](https://arjunsreedharan.org/post/148675821737/write-a-simple-memory-allocator) `08/09/2016 - Arjun Sreedharan`
 * [What a C programmer should know about memory](http://marek.vavrusa.com/memory/) `2/20/2015, Marek Vavrusa`
@@ -35,11 +44,11 @@
   - [part 9, Appendices and bibliography](https://lwn.net/Articles/258188/) `11/14/2007 - Ulrich Drepper`
 * [Inside memory management](https://www.ibm.com/developerworks/linux/library/l-memory/) `11/16/2004 - Jonathan Bartlett`
 
-### Structures and Unions
+### <a name="headAR1b"></a>Structures and Unions
 
 * [The Lost Art of C Structure Packing](https://www.catb.org/esr/structure-packing/) `last update: 06/01/2017 - Eric S.Raymond`
 
-## Unix Programming
+## <a name="headAR2"></a>Unix Programming
 
 * [The real power of Linux executables](https://ownyourbits.com/2018/05/23/the-real-power-of-linux-executables/) `05/23/2018 -  nachoparker`
 * Writing a Linux Debugger
@@ -58,12 +67,12 @@
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
   - [part 2](https://lwn.net/Articles/604515/) `07/16/2014 - David Drysdale`
 
-## Compiling and linking
+## <a name="headAR3"></a>Compiling and linking
 
 * [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
 * [Linux Internals ~ Dynamic Linking Wizardry](https://0x00sec.org/t/linux-internals-dynamic-linking-wizardry/1082) `09/15/2016 - _py (0x00sec.org)`
 * [Static, Shared Dynamic and Loadable Linux Libraries](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html) `YoLinux`
 
-## Unix stuff
+## <a name="headAR4"></a>Unix stuff
 
 * [Back To The Future: Unix Wildcards Gone Wild](https://www.exploit-db.com/papers/33930/) `last updated 06/25/2014 - Leon Juranic`
