@@ -11,6 +11,6 @@ Unix history as well.
 * [Articles](articles.md) `Articles and small tutorial`
 * [Bibliography](biblio.md) `Printed books`
 * [Free Books](free_books.md) `Free/Open (full) books`
-* [Papers and Talks](talks.md) `Academic Papers and talks; from University, Conference and so on`
+* [Papers and Talks](papers_talks.md) `Academic Papers and talks; from University, Conference and so on`
 * [Standards](stds_and_refs.md) `Standards, Standards de facto, Reference manuals`
 * [Unix_History](unix_history.md) `Unix History and Timeline`
