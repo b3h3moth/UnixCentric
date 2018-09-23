@@ -11,4 +11,6 @@ conferences around the world.
 
 ## Talks
 
+* [How to succeed in language design without really trying](https://www.youtube.com/watch?v=Sg4U4r_AgJU) `November 2015 - Brian Kernighan`
 * [Unicorn Unix Magic Tricks](https://www.youtube.com/watch?v=DGhlQomeqKc) `ArrrrCamp 2014 - Thorsten Ball`
+* [Elements of Programming Style](https://www.youtube.com/watch?v=8SUkrR7ZfTA) `07/13/2009 - Brian Kernighan`
