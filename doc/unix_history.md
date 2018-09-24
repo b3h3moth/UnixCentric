@@ -9,6 +9,7 @@
 * [An Interview with Brian Kernighan](https://www.cs.cmu.edu/~mihaib/kernighan-interview/) `July 2000 - Mihai Budiu`
 * [Twenty Years of Berkeley Unix](https://www.oreilly.com/openbook/opensources/book/kirkmck.html) `1999 - Marshall Kirk McKusick` <sup>[1](#fn01)
 * ![pdf doc](./img/pdf_doc.png?raw=true) [A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](http://www.cs.dartmouth.edu/~doug/reader.pdf) `1987 - M. Douglas McIlroy`
+* [A History of UNIX before Berkeley: UNIX Evolution: 1975-1984](http://www.darwinsys.com/history/hist.html) `1984 - Ian F. Darwin, Ian Darwin, Geoffrey Collyer`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [Program Design in the UNIX Environment](http://harmful.cat-v.org/cat-v/unix_prog_design.pdf) `1983 - Rob Pike, Brian W. Kernighan`
 * [The UNIX System: Making Computers More Productive](https://www.youtube.com/watch?v=tc4ROCJYbm0) `1982 - Bell Laboratories`
 * [UNIX: Making Computers Easier To Use](https://www.youtube.com/watch?v=XvDZLjaCJuw) `1982 - Bell Laboratories`
