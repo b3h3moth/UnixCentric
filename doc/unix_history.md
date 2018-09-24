@@ -9,6 +9,7 @@
 * [An Interview with Brian Kernighan](https://www.cs.cmu.edu/~mihaib/kernighan-interview/) `July 2000 - Mihai Budiu`
 * [Twenty Years of Berkeley Unix](https://www.oreilly.com/openbook/opensources/book/kirkmck.html) `1999 - Marshall Kirk McKusick` <sup>[1](#fn01)
 * ![pdf doc](./img/pdf_doc.png?raw=true) [A Research UNIX Reader: Annotated Excerpts from the Programmer's Manual, 1971-1986](http://www.cs.dartmouth.edu/~doug/reader.pdf) `1987 - M. Douglas McIlroy`
+* ![pdf doc](./img/pdf_doc.png?raw=true) [Program Design in the UNIX Environment]
 * [The UNIX System: Making Computers More Productive](https://www.youtube.com/watch?v=tc4ROCJYbm0) `1982 - Bell Laboratories`
 * [UNIX: Making Computers Easier To Use](https://www.youtube.com/watch?v=XvDZLjaCJuw) `1982 - Bell Laboratories`
 * ![pdf doc](./img/pdf_doc.png?raw=true) [The Evolution of the Unix Time-sharing System](http://www.read.seas.harvard.edu/~kohler/class/aosref/ritchie84evolution.pdf) `09/10/1979 - Dennis M.Ritchie`
