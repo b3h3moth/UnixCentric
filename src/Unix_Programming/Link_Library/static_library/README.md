@@ -23,6 +23,16 @@ Note that -L speciﬁes the "current directory" library path,
 
 ### Display contents of the archive
 
-```$ ar -t libmylib.a
+```
+$ ar -t libmylib.a
 mymath.o
 ```
+
+### Converting static library to dynamic library
+
+```
+$ ar -x libmylib.a
+```
+
+The full collection of the object files is extracted from static library, now
+we can build [dynamic library](../dynamic_library/).
