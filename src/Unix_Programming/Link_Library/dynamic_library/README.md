@@ -1,3 +1,5 @@
+## Dynamic (shared) Lybrary
+
 We would like to create a dynamic link library containing the object code of the 
 sum() and mul() functions written into mymath.c source file, which can be 
 called from different C programs.
