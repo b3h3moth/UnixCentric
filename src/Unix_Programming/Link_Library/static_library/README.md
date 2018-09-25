@@ -4,8 +4,8 @@ We would like to create a link library containing the object code of the sum()
 and mul() functions written inside mymath.c source file, which can be called 
 from different C programs.
 
-> By convention GNU/Linux provide that a static library name stars with prefix
-> `lib` and has the file extension `.a`.
+> GNU/Linux systems, by convention, expect that the name of a static library has 
+> the prefix `lib` and file extension `.a`.
 
 1. We produce the file object mymath.o:
   ```$ gcc -c mymath.c```
