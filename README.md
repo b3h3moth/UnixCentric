@@ -44,7 +44,8 @@ Learning the art of the C language programming and the Unix Systems Programming.
   - [Threads](src/Unix_Programming/Threads/)
   - [Unix Daemons](src/Unix_Programming/Unix_Daemons/)
   - [Users and Groups](src/Unix_Programming/Users_and_Groups/)
-* [Kernel and Device Drivers](src/Kernel_and_Device_Drivers)
+* [Kernel Hacking](src/Kernel_Hacking)
+  - [LKM - Loadable Kernel Modules](src/Kernel_Hacking/LKM)
 
 
 ## Documentation
