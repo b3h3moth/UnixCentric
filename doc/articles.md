@@ -72,6 +72,7 @@
 * [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
 * [Linux Internals ~ Dynamic Linking Wizardry](https://0x00sec.org/t/linux-internals-dynamic-linking-wizardry/1082) `09/15/2016 - _py (0x00sec.org)`
 * [Position Independent Code and x86-64 libraries](https://www.technovelty.org/c/position-independent-code-and-x86-64-libraries.html) `01/05/2013 - Ian Wienand`
+* [Beginner's Guide to Linkers](http://www.lurklurk.org/linkers/linkers.html) `2010 - David Drysdale`
 * [Static, Shared Dynamic and Loadable Linux Libraries](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html) `YoLinux`
 
 ## <a name="headAR4"></a>Unix stuff
