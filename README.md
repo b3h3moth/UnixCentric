@@ -10,7 +10,8 @@ Unix OS development, Systems Programming, C Language Programming.
 
 ## Source code
 
-Learning the art of the C language programming and the Unix Systems Programming.
+Learning the art of the C language programming, Unix Systems Programming and
+Kernel Hacking
 
 * [C](src/C/)
   - [Algorithms and Data Structures](src/C/Algorithms_and_Data_Structures/)
