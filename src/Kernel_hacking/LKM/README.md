@@ -11,27 +11,33 @@ $ sudo insmod <modulo.ko>
 ```
 
 Add modules from the linux Kernel
-carica quei moduli disponibili mediante il comando modprobe -l, ossia
-disponibili dopo la fase di compilazione del kernel, e marcati con <M>
 ```
 $ sudo modprobe <modulo>
 ```
 
 Open Kernel log
 ```
-$ dmesg (tipicamente realizzati con KERN_ALERT)
-$ cat /var/log/messages (tipicamente realizzati con KERN_INFO)
+$ dmesg (made with KERN_ALERT)
+$ cat /var/log/messages (made with KERN_INFO)
 ```
 
 Show information about a Linux Kernel module
-$ modinfo <modulo.ko>
+```
+$ modinfo <module.ko>
+```
 
-lista moduli attivi
+Show active modules
+```
 $ cat /proc/modules
-$ lsmod (il comando precedente ma formattato)
+$ lsmod (as the previous command but formatted)
+```
 
-lista di quei moduli disponibili dopo la fase di compilazione del kernel
+Show available modules 
+```
 $ sudo modprobe -l (*.ko)
+```
 
-rimuove modulo
-$ sudo rmmod <modulo.ko | modulo>
+remove module
+```
+$ sudo rmmod <module.ko | module>
+```
