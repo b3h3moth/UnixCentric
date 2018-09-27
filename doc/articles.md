@@ -68,8 +68,10 @@
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
   - [part 2](https://lwn.net/Articles/604515/) `07/16/2014 - David Drysdale`
 
-## <a name="headAR5"></a>Kernel and Device Drivers
+## <a name="headAR5"></a>Kernel hacking
 
+* Linux Device Drivers (series)
+  - [part 1, Introduction](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/) `2017 - embetronicx.com`
 
 ## <a name="headAR3"></a>Compiling and linking
 
