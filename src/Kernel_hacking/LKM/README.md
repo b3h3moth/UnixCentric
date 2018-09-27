@@ -1,20 +1,29 @@
 ## LKM Loadable Kernel Module - Kernel Linux
 
-compile	modulules
+Compile	modules
+```
 $ make
+```
 
-carica modulo
+Insert a module into the Linux Kernel
+```
 $ sudo insmod <modulo.ko>
+```
 
+Add modules from the linux Kernel
 carica quei moduli disponibili mediante il comando modprobe -l, ossia
 disponibili dopo la fase di compilazione del kernel, e marcati con <M>
+```
 $ sudo modprobe <modulo>
+```
 
-log kernel
+Open Kernel log
+```
 $ dmesg (tipicamente realizzati con KERN_ALERT)
 $ cat /var/log/messages (tipicamente realizzati con KERN_INFO)
+```
 
-info modulo
+Show information about a Linux Kernel module
 $ modinfo <modulo.ko>
 
 lista moduli attivi
