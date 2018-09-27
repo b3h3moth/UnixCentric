@@ -4,6 +4,7 @@
   - [Memory Management](#headAR1a)
   - [Structures and Unions](#headAR1b)
 * [Unix Programming](#headAR2)
+* [Kernel and Device Drivers](#headAR5)
 * [Compiling and Linking](#headAR3)
 * [Unix stuff](#headAR4)
 
@@ -66,6 +67,9 @@
 * Anatomy of a system call 
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
   - [part 2](https://lwn.net/Articles/604515/) `07/16/2014 - David Drysdale`
+
+## <a name="headAR5"></a>Kernel and Device Drivers
+
 
 ## <a name="headAR3"></a>Compiling and linking
 
