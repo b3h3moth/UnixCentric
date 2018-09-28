@@ -11,6 +11,7 @@ conferences around the world.
 
 ## Talks
 
+* [OpenBSD porting workshop #1: Porting basics](https://youtu.be/z_TnemhzbXQ) `08/11/2018 - Brian Callahan`
 * [How to succeed in language design without really trying](https://www.youtube.com/watch?v=Sg4U4r_AgJU) `November 2015 - Brian Kernighan`
 * [Unicorn Unix Magic Tricks](https://www.youtube.com/watch?v=DGhlQomeqKc) `ArrrrCamp 2014 - Thorsten Ball`
 * [Elements of Programming Style](https://www.youtube.com/watch?v=8SUkrR7ZfTA) `07/13/2009 - Brian Kernighan`
