@@ -72,6 +72,7 @@
 
 * Linux Device Drivers (series)
   - [part 1, Introduction](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/) `2017 - embetronicx.com`
+  - [part 2, 
 
 ## <a name="headAR3"></a>Compiling and linking
 
