@@ -4,16 +4,15 @@
   - [Memory Management](#headAR1a)
   - [Structures and Unions](#headAR1b)
 * [Unix Programming](#headAR2)
-* [Kernel and Device Drivers](#headAR5)
-* [Compiling and Linking](#headAR3)
-* [Unix stuff](#headAR4)
+* [Kernel and Device Drivers](#headAR3)
+* [Compiling and Linking](#headAR4)
+* [Unix stuff](#headAR5)
 
 ---
 
 ## <a name="headAR1"></a>The C Programming Language
 
 * [Undefined Behavior in 2017](https://blog.regehr.org/archives/1520) `07/04/2017 - Pascal Cuoq, John Regehr`
-* [How is GNU `yes` so fast?](https://www.reddit.com/r/unix/comments/6gxduc/how_is_gnu_yes_so_fast/) `06/13/2017, reddit unix`
 * [Yes C is unsafe, but…](https://daniel.haxx.se/blog/2017/03/30/yes-c-is-unsafe-but/) `03/30/2017, Daniel Stenberg`
 * [curl is C](https://daniel.haxx.se/blog/2017/03/27/curl-is-c/) `03/27/2017, Daniel Stenberg`
 * [A critique of "How to C in 2016"](https://github.com/Keith-S-Thompson/how-to-c-response) `1/15/2016, Keith Thompson`
@@ -52,6 +51,7 @@
 ## <a name="headAR2"></a>Unix Programming
 
 * [The real power of Linux executables](https://ownyourbits.com/2018/05/23/the-real-power-of-linux-executables/) `05/23/2018 -  nachoparker`
+* [How is GNU `yes` so fast?](https://www.reddit.com/r/unix/comments/6gxduc/how_is_gnu_yes_so_fast/) `06/13/2017, reddit unix`
 * Writing a Linux Debugger
   - [part 1, Setup](https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/) `03/21/2017 - Simon Brand`
   - [part 2, Breakpoints](https://blog.tartanllama.xyz/writing-a-linux-debugger-breakpoints/) `03/24/2017 - Simon Brand`
@@ -68,13 +68,14 @@
   - [part 1](https://lwn.net/Articles/604287/) `07/09/2014 - David Drysdale`
   - [part 2](https://lwn.net/Articles/604515/) `07/16/2014 - David Drysdale`
 
-## <a name="headAR5"></a>Kernel hacking
+## <a name="headAR3"></a>Kernel hacking
 
 * Linux Device Drivers (series)
-  - [part 1, Introduction](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/) `2017 - embetronicx.com`
-  - [part 2, 
+  - [part 1, Introduction](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/) `2018 - embetronicx`
+  - [part 2, First Device Driver](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-2-first-device-driver/) `2018 - embetronicx`
+  - [part 3, Module Parameter](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-3-passing-arguments-to-device-driver/) `2018 - embetronicx`
 
-## <a name="headAR3"></a>Compiling and linking
+## <a name="headAR4"></a>Compiling and linking
 
 * [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
 * [Linux Internals ~ Dynamic Linking Wizardry](https://0x00sec.org/t/linux-internals-dynamic-linking-wizardry/1082) `09/15/2016 - _py (0x00sec.org)`
@@ -82,6 +83,6 @@
 * [Beginner's Guide to Linkers](http://www.lurklurk.org/linkers/linkers.html) `2010 - David Drysdale`
 * [Static, Shared Dynamic and Loadable Linux Libraries](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html) `YoLinux`
 
-## <a name="headAR4"></a>Unix stuff
+## <a name="headAR5"></a>Unix stuff
 
 * [Back To The Future: Unix Wildcards Gone Wild](https://www.exploit-db.com/papers/33930/) `last updated 06/25/2014 - Leon Juranic`
