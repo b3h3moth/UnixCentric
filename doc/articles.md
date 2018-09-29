@@ -74,11 +74,8 @@
   - [part 1, Introduction](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-part-1-introduction/) `2018 - embetronicx`
   - [part 2, First Device Driver](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-2-first-device-driver/) `2018 - embetronicx`
   - [part 3, Module Parameter](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-3-passing-arguments-to-device-driver/) `2018 - embetronicx`
-<<<<<<< HEAD
   - [part 4, Character Device Driver](https://embetronicx.com/tutorials/linux/device-drivers/character-device-driver-major-number-and-minor-number/) `2018 - embetronicx`
   - [part 5, Device File Creation](https://embetronicx.com/tutorials/linux/device-drivers/device-file-creation-for-character-drivers/) `2018 - embetronicx`
-=======
->>>>>>> 7f9d146877770434f846f236d6531b0ca99b3d59
 
 ## <a name="headAR4"></a>Compiling and linking
 
