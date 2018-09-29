@@ -14,6 +14,6 @@
 
 ## The GNU project development resources
 
-- [The GNU C Library](https://www.gnu.org/software/libc/manual/pdf/libc.pdf) `Last updated August 5, 2016, for glibc 2.24`
+- [The GNU C Library](https://www.gnu.org/software/libc/manual/pdf/libc.pdf) `Last updated 08/01/2018, for glibc 2.28`
 - [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) `v0.2.5 release`
 - [GNU coding standards](https://www.gnu.org/prep/standards/standards.pdf) `Last updated July 25, 2016`
