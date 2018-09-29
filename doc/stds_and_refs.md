@@ -15,6 +15,7 @@
 ## The GNU project development resources
 
 - [Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc-8.2.0/gcc.pdf) `2018 - for gcc version 8.2.0`
-- [The GNU C Library](https://www.gnu.org/software/libc/manual/pdf/libc.pdf) `Last updated 08/01/2018, for glibc 2.28`
-- [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) `v0.2.5 release`
+- [Debugging with GDB](http://sourceware.org/gdb/current/onlinedocs/gdb.pdf.gz) `2018 - Version 8.2.50.20180929-git`
 - [GNU coding standards](https://www.gnu.org/prep/standards/standards.pdf) `Last updated 08/26/2018`
+- [The GNU C Library](https://www.gnu.org/software/libc/manual/pdf/libc.pdf) `Last updated 08/01/2018, for glibc 2.28`
+- [The GNU C Reference Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf) `2015 - v0.2.5 release`
