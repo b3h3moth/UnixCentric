@@ -6,7 +6,7 @@ of link libraries:
 
 1) static link library for static linking;
 
-2) dynamic link library for dynamic linking. 
+2) shared link library for dynamic linking. 
 
 ### References
 
