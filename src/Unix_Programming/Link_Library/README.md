@@ -10,6 +10,6 @@ of link libraries:
 
 ### References
 
-* [Kerrisk 2010](../../../doc/biblio.md#headBB1a) `chapters 41, 42`
 * [Stevanovic 2014](../../../doc/biblio.md#headBB6)
+* [Kerrisk 2010](../../../doc/biblio.md#headBB1a) `chapters 41, 42`
 * [Drepper 2011](../../../doc/free_books.md#headFB3)
