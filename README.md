@@ -1,7 +1,7 @@
 # UnixCentric
 
 Everything is focused on Unix systems. Unix Operating Systems,
-Unix OS development, Systems Programming, C Language Programming.
+Unix OS development, C Lnaguage, Systems Programming and Kernel Hacking.
 
 > Pretty much everything on the web uses those two things: C and UNIX. 
 > The browsers are written in C. The UNIX kernel - that pretty much the entire 
