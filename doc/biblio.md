@@ -49,7 +49,6 @@ The list include only a printed books.
 * **Computer System - A Programmers Perspective**. *Randal E. Bryant*, *David R. O’Hallaron* (`Pearson, 2016, 3rd`) 
   - 3rd edition is focused on x86_64 architecture, while the 2nd edition covers  x86.
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
-* **The Linux Programming Interface - A Linux and UNIX System Programming Handbook**. *Michael Kerrisk* (`No Starch Press, 2010`)
 * **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
 * **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
@@ -59,6 +58,7 @@ The list include only a printed books.
 ### <a name="headBB1a"></a>Linux System Programming
 
 * **Linux System Programming - Talking Directly to the Kernel and C Library**. *Robert Love* (`O'Reilly, 2013, 2nd`)
+* **The Linux Programming Interface - A Linux and UNIX System Programming Handbook**. *Michael Kerrisk* (`No Starch Press, 2010`)
 * **The Linux Programmer's Toolbox**. *John Fusco* (`Prentice Hall, 2007`)
 * **Linux Programming by Example - the Fundamentals**. *Arnold Robbins* (`Prentice Hall, 2004`)
 
