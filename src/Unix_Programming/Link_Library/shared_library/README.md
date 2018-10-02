@@ -1,4 +1,4 @@
-## Shared Lybrary
+## Shared Library
 
 We would like to create a shared link library containing the object code of the 
 sum() and mul() functions written into mymath.c source file, which can be 
