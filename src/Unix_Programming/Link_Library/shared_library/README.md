@@ -28,3 +28,7 @@ export LD_LIBRARY_PATH=./
 ```
 ./a.out
 ```
+
+### Naming conventions
+
+Shared Library have the prefix `lib` and the suffix `so`.
