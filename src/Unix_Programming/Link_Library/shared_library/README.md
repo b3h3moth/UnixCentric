@@ -9,7 +9,7 @@ called from different C programs.
 gcc -c -fPIC mymath.c
 ```
 
-2. Create shared link library libmymath.a from mymath.o: 
+2. Create shared link library `libmymath.so` from `mymath.o`: 
 ```
 gcc -shared -o libmymath.so mymath.o
 ```
