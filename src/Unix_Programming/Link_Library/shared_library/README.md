@@ -18,8 +18,18 @@ $ gcc -shared -o libmymath.so mymath.o
 ```
 $ gcc main.c -L. -lmymath
 ```
+or 
+```
+$ gcc main.c libmymath.so
+```
 
-4. Export the current path
+4. Now we must informing the dynamic linker that a shared library doesn't reside 
+in the standard directory - `/lib /usr/lib tipically`. We can do that by setting
+the `LD_LIBRARY_PATH` environment variable:
+```
+LD_LIBRARY_PATH=./
+```
+or
 ```
 $ export LD_LIBRARY_PATH=./
 ```
