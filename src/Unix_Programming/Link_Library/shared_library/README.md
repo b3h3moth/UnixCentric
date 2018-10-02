@@ -24,7 +24,7 @@ $ gcc main.c libmymath.so
 ```
 
 4. Now we must informing the dynamic linker that a shared library doesn't reside 
-in the standard directory - `/lib /usr/lib tipically`. We can do that by setting
+in the standard directories - `/lib /usr/lib tipically`. We can do that by setting
 the `LD_LIBRARY_PATH` environment variable:
 ```
 LD_LIBRARY_PATH=./
