@@ -27,14 +27,13 @@ $ gcc main.c libmymath.so
 in the standard directories - `/lib /usr/lib tipically`. We can do that by setting
 the `LD_LIBRARY_PATH` environment variable:
 ```
-LD_LIBRARY_PATH=./
+LD_LIBRARY_PATH=./ ./a.out
 ```
 or
 ```
 $ export LD_LIBRARY_PATH=./
 ```
-
-5. Now the executable is ready to be executed:
+Now the executable is ready to be executed:
 ```
 $ ./a.out
 ```
