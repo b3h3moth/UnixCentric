@@ -45,4 +45,4 @@ $ ar -x libmylib.a
 ```
 
 The full collection of the object files is extracted from static library, now
-we can build [dynamic library](../dynamic_library/).
+we can build [dynamic library](../static_library/).
