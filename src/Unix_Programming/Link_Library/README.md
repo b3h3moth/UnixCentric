@@ -4,9 +4,9 @@ A link library contains precompiled object code. During linking, the linker uses
 the link library to complete the linking process. In Linux, there are two kinds 
 of link libraries:
 
-1) static link library (also know as `archives`) for static linking;
+1) [static link library](./static_library) (also know as `archives`) for static linking;
 
-2) shared link library for dynamic linking. 
+2) [shared link library](./shared_library) for dynamic linking. 
 
 ### References
 
