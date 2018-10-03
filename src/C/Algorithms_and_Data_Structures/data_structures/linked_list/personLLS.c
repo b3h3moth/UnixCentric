@@ -30,24 +30,32 @@ Person PersonError = {"","",0};
 void printPerson(Person p);
 int equal(Person p1, Person p2);
 /* Function prototypes: on LLS */
-TypeLLS *init();
+TypeLLS *init(void);
 int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
 TypeLLS *del(TypeLLS *l);
 Person printFirst(TypeLLS *l);
 void print(TypeLLS *l);
+TypeLLS *copy(TypeLLS *l);
 
 int main(void) {
     TypeLLS *t = init();
-    Person newperson = { "Richard", "Stallman", 65};
+    Person newperson1 = { "Richard", "Stallman", 65};
+    Person newperson2 = { "Dennis", "Ritchie", 70};
 
     if (empty(t))
         printf("The LLS is empty\n");
 
-    t = add(t, newperson);
+    t = add(t, newperson1);
     print(t);
     t = del(t);
     print(t);
+    t = add(t, newperson1);
+    t = add(t, newperson2);
+    TypeLLS *tcpy = init();
+    tcpy = copy(t);
+    printf("copy()\n");
+    print(tcpy);
 
     return(EXIT_SUCCESS);
 }
@@ -64,7 +72,7 @@ int equal(Person p1, Person p2) {
 }
 
 /* LLS initialization */
-TypeLLS *init() {
+TypeLLS *init(void) {
     TypeLLS *h = (TypeLLS *) malloc(sizeof(TypeLLS));
     h->head = NULL;
     h->size = 0;
@@ -112,5 +120,17 @@ void print(TypeLLS *l) {
     while (n != NULL) {
         printPerson(n->info);
         n = n->next;
+    }
+}
+
+/* Copy LLS with memory sharing */
+TypeLLS *copy(TypeLLS *l) {
+    if (l->size == 0)
+        return l;
+    else {
+        TypeLLS *lcpy = init();
+        lcpy->head = l->head;
+        lcpy->size = l->size;
+        return lcpy;
     }
 }
