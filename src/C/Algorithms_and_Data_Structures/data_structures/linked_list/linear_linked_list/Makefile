@@ -11,5 +11,6 @@ main.o: main.c linklinstruct.h
 
 linklinstruct: linklinstruct.c linklinstruct.h
 
+.PHONY: clean
 clean:
 	rm -rf *.o $(TARGET) *.txt *.out *.core

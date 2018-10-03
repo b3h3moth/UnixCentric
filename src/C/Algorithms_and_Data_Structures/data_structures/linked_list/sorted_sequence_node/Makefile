@@ -12,5 +12,6 @@ main.o: main.c sorted_sequence.h
 
 sorted_sequence: sorted_sequence.c sorted_sequence.h
 
+.PHONY: clean
 clean:
 	rm -rf *.o *.txt *.out *.core
