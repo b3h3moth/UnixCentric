@@ -32,13 +32,19 @@ int equal(Person p1, Person p2);
 /* Function prototypes: on LLS */
 TypeLLS *init();
 int empty(TypeLLS *l);
+TypeLLS *add(TypeLLS *l, Person p);
 
 int main(void) {
     TypeLLS *t = init();
+    Person newperson = { "Richard", "Stallman", 65};
 
     if (empty(t))
         printf("The LLS is empty\n");
 
+    t = add(t, newperson);
+    printf("%s %s %d\n", t->head->info.firstname,\
+                          t->head->info.lastname,\
+                           t->head->info.age);
     return(EXIT_SUCCESS);
 }
 
@@ -55,7 +61,7 @@ int equal(Person p1, Person p2) {
 
 /* LLS initialization */
 TypeLLS *init() {
-    TypeLLS *h = (TypeLLS *)malloc(sizeof(TypeLLS));
+    TypeLLS *h = (TypeLLS *) malloc(sizeof(TypeLLS));
     h->head = NULL;
     h->size = 0;
     return h;
@@ -64,4 +70,14 @@ TypeLLS *init() {
 /* Check if the LLS is empty */
 int empty(TypeLLS *l) {
     return l->size == 0;    /* or: return l->head == NULL; */
+}
+
+/* Add a Person on the head of the list */
+TypeLLS *add(TypeLLS *l, Person p) {
+    TypeLLS *new = init();
+    new->head = (NodeLLS*) malloc(sizeof(NodeLLS));
+    new->head->info = p;                            /* copy each member of p */
+    new->head->next = l->head;                      /* link previous node */
+    new->size = l->size + 1;
+    return new;
 }
