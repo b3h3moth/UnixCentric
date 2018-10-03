@@ -40,6 +40,6 @@ $ ./a.out
 
 ### Naming conventions
 
-library filename = `lib` + library name + `so` + `Major version` + `minor version` + `patch version`
+library filename = `lib` + library name + `.so` + `Major version` + `minor version` + `patch version`
 
 i.e.: `libgnustep-base.so.1.25.1`
