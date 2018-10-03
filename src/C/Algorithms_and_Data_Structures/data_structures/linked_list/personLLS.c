@@ -39,6 +39,7 @@ Person printFirst(TypeLLS *l);
 int main(void) {
     TypeLLS *t = init();
     Person newperson = { "Richard", "Stallman", 65};
+    Person newcpy;
 
     if (empty(t))
         printf("The LLS is empty\n");
@@ -48,6 +49,8 @@ int main(void) {
                           t->head->info.lastname,\
                            t->head->info.age);
 
+    newcpy = printFirst(t);
+    printf("%s %s %d\n", newcpy.firstname, newcpy.lastname, newcpy.age);
     t = del(t);
 
     return(EXIT_SUCCESS);
