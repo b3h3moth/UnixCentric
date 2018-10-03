@@ -40,4 +40,6 @@ $ ./a.out
 
 ### Naming conventions
 
-Shared Library have the prefix `lib` and the suffix `so`.
+library filename = `lib` + library name + `so` + `Major version` + `minor version` + `patch version`
+
+i.e.: `libgnustep-base.so.1.25.1`
