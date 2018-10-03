@@ -33,6 +33,7 @@ int equal(Person p1, Person p2);
 TypeLLS *init();
 int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
+TypeLLS *del(TypeLLS *l);
 
 int main(void) {
     TypeLLS *t = init();
@@ -45,6 +46,9 @@ int main(void) {
     printf("%s %s %d\n", t->head->info.firstname,\
                           t->head->info.lastname,\
                            t->head->info.age);
+
+    t = del(t);
+
     return(EXIT_SUCCESS);
 }
 
@@ -80,4 +84,16 @@ TypeLLS *add(TypeLLS *l, Person p) {
     new->head->next = l->head;                      /* link previous node */
     new->size = l->size + 1;
     return new;
+}
+
+/* Remove a Person from the head of the list */
+TypeLLS *del(TypeLLS *l) {
+    if (l->size == 0)
+        return l;
+    else {
+        TypeLLS *temp = init();
+        temp->head = l->head->next;
+        temp->size = l->size - 1;
+        return temp;
+    }
 }
