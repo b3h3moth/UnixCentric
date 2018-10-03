@@ -27,7 +27,7 @@ struct type_lls {
 Person PersonError = {"","",0};
 
 /* Function prototypes: on Person */
-void print(Person p);
+void printPerson(Person p);
 int equal(Person p1, Person p2);
 /* Function prototypes: on LLS */
 TypeLLS *init();
@@ -35,6 +35,7 @@ int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
 TypeLLS *del(TypeLLS *l);
 Person printFirst(TypeLLS *l);
+void print(TypeLLS *l);
 
 int main(void) {
     TypeLLS *t = init();
@@ -45,19 +46,15 @@ int main(void) {
         printf("The LLS is empty\n");
 
     t = add(t, newperson);
-    printf("%s %s %d\n", t->head->info.firstname,\
-                          t->head->info.lastname,\
-                           t->head->info.age);
-
-    newcpy = printFirst(t);
-    printf("%s %s %d\n", newcpy.firstname, newcpy.lastname, newcpy.age);
+    print(t);
     t = del(t);
+    print(t);
 
     return(EXIT_SUCCESS);
 }
 
 /* Print full person */
-void print(Person p) {
+void printPerson(Person p) {
     printf("%s %s, %d years old\n", p.firstname, p.lastname, p.age);
 }
 
@@ -108,4 +105,13 @@ Person printFirst(TypeLLS *l) {
         return PersonError;
     else
         return l->head->info;
+}
+
+/* Print each node */
+void print(TypeLLS *l) {
+    NodeLLS *n = l->head;
+    while (n != NULL) {
+        printPerson(n->info);
+        n = n->next;
+    }
 }
