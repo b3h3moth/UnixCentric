@@ -40,7 +40,6 @@ void print(TypeLLS *l);
 int main(void) {
     TypeLLS *t = init();
     Person newperson = { "Richard", "Stallman", 65};
-    Person newcpy;
 
     if (empty(t))
         printf("The LLS is empty\n");
