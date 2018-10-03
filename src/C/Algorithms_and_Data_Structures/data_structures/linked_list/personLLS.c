@@ -34,6 +34,7 @@ TypeLLS *init();
 int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
 TypeLLS *del(TypeLLS *l);
+Person printFirst(TypeLLS *l);
 
 int main(void) {
     TypeLLS *t = init();
@@ -96,4 +97,12 @@ TypeLLS *del(TypeLLS *l) {
         temp->size = l->size - 1;
         return temp;
     }
+}
+
+/* Returns the first element */
+Person printFirst(TypeLLS *l) {
+    if (l->size == 0)
+        return PersonError;
+    else
+        return l->head->info;
 }
