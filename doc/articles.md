@@ -78,6 +78,7 @@
   - [part 5, Device File Creation](https://embetronicx.com/tutorials/linux/device-drivers/device-file-creation-for-character-drivers/) `2018 - embetronicx`
   - [part 6, Cdev structure and File Operations](https://embetronicx.com/tutorials/linux/device-drivers/cdev-structure-and-file-operations-of-character-drivers/) `2018 - embetronicx`
   - [part 7, Linux Device Driver Tutorial Programming](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-programming/) `2018 - embetronicx`
+  - [part 8, 
 
 ## <a name="headAR4"></a>Compiling and linking
 
