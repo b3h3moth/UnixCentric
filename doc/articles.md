@@ -80,6 +80,8 @@
   - [part 7, Linux Device Driver Tutorial Programming](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-programming/) `2018 - embetronicx`
   - [part 8, 
   - [part 9, 
+  - [part 10, 
+  - [part 11, 
 
 ## <a name="headAR4"></a>Compiling and linking
 
