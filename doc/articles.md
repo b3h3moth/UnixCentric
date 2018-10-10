@@ -78,10 +78,10 @@
   - [part 5, Device File Creation](https://embetronicx.com/tutorials/linux/device-drivers/device-file-creation-for-character-drivers/) `2018 - embetronicx`
   - [part 6, Cdev structure and File Operations](https://embetronicx.com/tutorials/linux/device-drivers/cdev-structure-and-file-operations-of-character-drivers/) `2018 - embetronicx`
   - [part 7, Linux Device Driver Tutorial Programming](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-programming/) `2018 - embetronicx`
-  - [part 8, 
-  - [part 9, 
-  - [part 10, 
-  - [part 11, 
+  - [part 8, I/O Control in Linux IOCTL()](https://embetronicx.com/tutorials/linux/device-drivers/ioctl-tutorial-in-linux/) `2018 - embetronicx`
+  - [part 9, Procfs in Linux](https://embetronicx.com/tutorials/linux/device-drivers/procfs-in-linux/) `2018 - embetronicx`
+  - [part 10, WaitQueue in Linux](https://embetronicx.com/tutorials/linux/device-drivers/waitqueue-in-linux-device-driver-tutorial/) `2018 - embetronicx`
+  - [part 11, Sysfs in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/sysfs-in-linux-kernel/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
