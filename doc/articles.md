@@ -50,6 +50,10 @@
 
 ## <a name="headAR2"></a>Unix Programming
 
+* Making a low level (Linux) debugger
+  - [part 1](https://blog.asrpo.com/making_a_low_level_debugger) `06/14/2018 - aspro`
+  - [part 2, C](https://blog.asrpo.com/making_a_low_level_debugger_part_2) `06/22/2018 - aspro`
+  - [part 3, our first program](https://blog.asrpo.com/making_a_low_level_debugger_part_3) `07/06/2018 - aspro`
 * [The real power of Linux executables](https://ownyourbits.com/2018/05/23/the-real-power-of-linux-executables/) `05/23/2018 -  nachoparker`
 * [How is GNU `yes` so fast?](https://www.reddit.com/r/unix/comments/6gxduc/how_is_gnu_yes_so_fast/) `06/13/2017, reddit unix`
 * Writing a Linux Debugger
