@@ -86,6 +86,7 @@
   - [part 9, Procfs in Linux](https://embetronicx.com/tutorials/linux/device-drivers/procfs-in-linux/) `2018 - embetronicx`
   - [part 10, WaitQueue in Linux](https://embetronicx.com/tutorials/linux/device-drivers/waitqueue-in-linux-device-driver-tutorial/) `2018 - embetronicx`
   - [part 11, Sysfs in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/sysfs-in-linux-kernel/) `2018 - embetronicx`
+  - [part 12, Interrupts in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/interrupts-in-linux-kernel/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
