@@ -88,6 +88,8 @@
   - [part 11, Sysfs in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/sysfs-in-linux-kernel/) `2018 - embetronicx`
   - [part 12, Interrupts in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/interrupts-in-linux-kernel/) `2018 - embetronicx`
   - [part 13, Interrupts Example Program in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-13-interrupt-example-program-in-linux-kernel/) `2018 - embetronicx`
+  - [part 14, Workqueue in Linux Kernel 1](https://embetronicx.com/tutorials/linux/device-drivers/workqueue-in-linux-kernel/) `2018 - embetronicx`
+  - [part 15, Workqueue in Linux Kernel 2](https://embetronicx.com/tutorials/linux/device-drivers/workqueue-in-linux-dynamic-creation/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
