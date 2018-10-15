@@ -94,6 +94,8 @@
   - [part 17, Linked List in Linux Kernel 1](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-17-linked-list-in-linux-kernel/) `2018 - embetronicx`
   - [part 18, Linked List in Linux Kernel 2](https://embetronicx.com/tutorials/linux/device-drivers/example-linked-list-in-linux-kernel/) `2018 - embetronicx`
   - [part 19, Kernel Thread](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-drivers-tutorial-kernel-thread/) `2018 - embetronicx`
+  - [part 20, Tasklets Static Method](https://embetronicx.com/tutorials/linux/device-drivers/tasklet-static-method/) `2018 - embetronicx`
+  - [part 21, Tasklets Dynamic Method](https://embetronicx.com/tutorials/linux/device-drivers/tasklets-dynamic-method/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
