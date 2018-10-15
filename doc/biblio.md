@@ -78,6 +78,7 @@ The list include only a printed books.
 ### <a name="headBB4a"></a>Linux Kernel
 
 * **Linux Kernel Development**. *Robert Love* (`Addison Wesley, 2010, 3rd`)
+* **Essential Linux Device Drivers**. *Sreekrishnan Venkateswaran* (`Prentice Hall, 2008`)
 * **Understanding the Linux Kernel - from I/O Ports to Process Management**. *Daniel P.Bovet*, *Marco Cesati* (`O'Reilly, 2005, 3rd`);
 * **Linux Device Drivers**. *Jonathan Corbet*, *Alessandro Rubini*, *Greg Kroah-Hartman* (`O'Reilly, 2005, 3rd`)
 * **Linux Kernel Programming**. *Michael Beck*, *Harald Bohme*, *Mirko Dziadzka*, *Ulrich Kunitz*, *Robert Magnus*, *Dirk Verworner* (`Addison Wesley, 2002, 3rd`)
