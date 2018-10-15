@@ -93,6 +93,7 @@
   - [part 16, Workqueue in Linux Kernel 3](https://embetronicx.com/tutorials/linux/device-drivers/work-queue-in-linux-own-workqueue/) `2018 - embetronicx`
   - [part 17, Linked List in Linux Kernel 1](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-part-17-linked-list-in-linux-kernel/) `2018 - embetronicx`
   - [part 18, Linked List in Linux Kernel 2](https://embetronicx.com/tutorials/linux/device-drivers/example-linked-list-in-linux-kernel/) `2018 - embetronicx`
+  - [part 19, Kernel Thread](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-drivers-tutorial-kernel-thread/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
