@@ -98,7 +98,8 @@
   - [part 21, Tasklets Dynamic Method](https://embetronicx.com/tutorials/linux/device-drivers/tasklets-dynamic-method/) `2018 - embetronicx`
   - [part 22, Mutex in Linux Kernel](https://embetronicx.com/tutorials/linux/device-drivers/linux-device-driver-tutorial-mutex-in-linux-kernel/) `2018 - embetronicx`
   - [part 23, Spinlock in Linux Kernel Part 1](https://embetronicx.com/tutorials/linux/device-drivers/spinlock-in-linux-kernel-1/) `2018 - embetronicx`
-  -
+  - [part 24, Read Write Spinlock in Linux Kernel (Spinlock Part 2)](https://embetronicx.com/tutorials/linux/device-drivers/read-write-spinlock/) `2018 - embetronicx`
+
 ## <a name="headAR4"></a>Compiling and linking
 
 * [Creating a shared and static library with the gnu compiler (gcc)](https://renenyffenegger.ch/notes/development/languages/C-C-plus-plus/GCC/create-libraries/index) `01/27/2018 - Rene Nyffenegger`
