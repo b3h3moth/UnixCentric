@@ -26,10 +26,9 @@ struct type_lls {
 /* Constant PersonError is useful when an error occurs */
 Person PersonError = {"","",0};
 
-/* Function prototypes: on Person */
+/* Function prototypes */
 void printPerson(Person p);
 int equal(Person p1, Person p2);
-/* Function prototypes: on LLS */
 TypeLLS *init(void);
 int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
@@ -37,6 +36,8 @@ TypeLLS *del(TypeLLS *l);
 Person printFirst(TypeLLS *l);
 void print(TypeLLS *l);
 TypeLLS *copy(TypeLLS *l);
+NodeLLS *clone_r(NodeLLS *n);
+TypeLLS *clone(TypeLLS *l);
 
 int main(void) {
     TypeLLS *t = init();
@@ -60,9 +61,12 @@ int main(void) {
     printf("\t### save() the first node\n");
     Person pfirst = printFirst(t);
     printPerson(pfirst);
-    printf("\t### copy() the list\n");
+    printf("\t### copy() the whole list (with memory sharing)\n");
     tcpy = copy(t);
     print(tcpy);
+    printf("\t### (deep) copy() the whole list (without memory sharing)\n");
+    TypeLLS *dp = clone(t);
+    print(dp);
 
     return(EXIT_SUCCESS);
 }
@@ -140,4 +144,25 @@ TypeLLS *copy(TypeLLS *l) {
         lcpy->size = l->size;
         return lcpy;
     }
+}
+
+/* Auxiliary function to copy node by node in recursive manner */
+NodeLLS *clone_r(NodeLLS *p) {
+    if (p == NULL)
+        return NULL;
+    else {
+        NodeLLS *newnode = (NodeLLS *) malloc(sizeof(NodeLLS));
+        newnode->info = p->info;
+        newnode->next = clone_r(p->next);
+        return newnode;
+    }
+}
+
+
+/* Copy LLS without memory sharing (deep copy) */
+TypeLLS *clone(TypeLLS *l) {
+    TypeLLS *n = init();
+    n->head = clone_r(l->head);
+    n->size = l->size;
+    return n;
 }
