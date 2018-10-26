@@ -46,15 +46,22 @@ int main(void) {
     if (empty(t))
         printf("The LLS is empty\n");
 
+    printf("\t### add() 1 person\n");
     t = add(t, newperson1);
     print(t);
+    printf("\t### del() 1 person\n");
     t = del(t);
     print(t);
+    printf("\t### add() 2 person\n");
     t = add(t, newperson1);
     t = add(t, newperson2);
+    print(t);
     TypeLLS *tcpy = init();
+    printf("\t### save() the first node\n");
+    Person pfirst = printFirst(t);
+    printPerson(pfirst);
+    printf("\t### copy() the list\n");
     tcpy = copy(t);
-    printf("copy()\n");
     print(tcpy);
 
     return(EXIT_SUCCESS);
