@@ -121,7 +121,7 @@ Person printFirst(TypeLLS *l) {
         return l->head->info;
 }
 
-/* Print each node */
+/* Print each node (iterative) */
 void print(TypeLLS *l) {
     NodeLLS *n = l->head;
     while (n != NULL) {
