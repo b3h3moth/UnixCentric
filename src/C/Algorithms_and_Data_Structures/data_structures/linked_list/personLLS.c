@@ -28,7 +28,7 @@ Person PersonError = {"","",0};
 
 /* Function prototypes */
 void printPerson(Person p);
-int equal(Person p1, Person p2);
+int equalPerson(Person p1, Person p2);
 TypeLLS *init(void);
 int empty(TypeLLS *l);
 TypeLLS *add(TypeLLS *l, Person p);
@@ -77,7 +77,7 @@ void printPerson(Person p) {
 }
 
 /* Two structure person (or two persons) are equals */
-int equal(Person p1, Person p2) {
+int equalPerson(Person p1, Person p2) {
     return (strcmp(p1.firstname, p2.firstname) == 0) &&
            (strcmp(p1.lastname, p2.lastname) == 0) && (p1.age == p2.age);
 }
