@@ -168,3 +168,10 @@ TypeLLS *clone(TypeLLS *l) {
     n->size = l->size;
     return n;
 }
+
+/* Auxiliary function to check if the nodes of the list n1 are equals to node
+ * of the list n2, in recursive manner */
+int equalNode_r(TypeLLS *n1, TypeLLS *n2);
+
+/* Check if two lists are equals */
+int equalNode(NodeLLS *n1, NodeLLS *n2);
