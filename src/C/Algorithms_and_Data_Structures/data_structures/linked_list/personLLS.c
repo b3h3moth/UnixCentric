@@ -38,6 +38,8 @@ void print(TypeLLS *l);
 TypeLLS *copy(TypeLLS *l);
 NodeLLS *clone_r(NodeLLS *n);
 TypeLLS *clone(TypeLLS *l);
+int equalNode_r(TypeLLS *n1, TypeLLS *n2);
+int equalNode(NodeLLS *n1, Node* n2);
 
 int main(void) {
     TypeLLS *t = init();
