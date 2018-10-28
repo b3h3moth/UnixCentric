@@ -39,7 +39,7 @@ TypeLLS *copy(TypeLLS *l);
 NodeLLS *clone_r(NodeLLS *n);
 TypeLLS *clone(TypeLLS *l);
 int equalNode_r(NodeLLS *n1, NodeLLS *n2);
-int equalNode(TypeLLS *l1, TypeLLS *l2);
+int equalList(TypeLLS *l1, TypeLLS *l2);
 
 int main(void) {
     TypeLLS *t = init();
@@ -69,6 +69,20 @@ int main(void) {
     printf("\t### (deep) copy() the whole list (without memory sharing)\n");
     TypeLLS *dp = clone(t);
     print(dp);
+    printf("\t### Check if two LLS are equals\n");
+    Person np1 = { "Dennis", "Stallman", 65};
+    Person np2 = { "Richard", "Ritchie", 70};
+    TypeLLS *l1 = init();
+    l1 = add(l1, np1);
+    l1 = add(l1, np2);
+    if (equalList(dp, t))
+        printf("dp and t are equals\n");
+    else
+        printf("dp and t are not equals\n");
+    if (equalList(dp, l1))
+        printf("dp and l1 are equals\n");
+    else
+        printf("dp and l1 are not equals\n");
 
     return(EXIT_SUCCESS);
 }
@@ -182,7 +196,7 @@ int equalNode_r(NodeLLS *n1, NodeLLS *n2) {
 }
 
 /* Check if two lists are equals */
-int equalNode(TypeLLS *l1, TypeLLS *l2) {
+int equalList(TypeLLS *l1, TypeLLS *l2) {
     if (l1->size != l2->size)
         return 0;
     else
