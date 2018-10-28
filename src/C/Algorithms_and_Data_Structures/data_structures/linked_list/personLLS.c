@@ -38,8 +38,8 @@ void print(TypeLLS *l);
 TypeLLS *copy(TypeLLS *l);
 NodeLLS *clone_r(NodeLLS *n);
 TypeLLS *clone(TypeLLS *l);
-int equalNode_r(TypeLLS *n1, TypeLLS *n2);
-int equalNode(NodeLLS *n1, Node* n2);
+int equalNode_r(NodeLLS *n1, NodeLLS *n2);
+int equalNode(TypeLLS *l1, TypeLLS *l2);
 
 int main(void) {
     TypeLLS *t = init();
@@ -171,7 +171,9 @@ TypeLLS *clone(TypeLLS *l) {
 
 /* Auxiliary function to check if the nodes of the list n1 are equals to node
  * of the list n2, in recursive manner */
-int equalNode_r(TypeLLS *n1, TypeLLS *n2);
+int equalNode_r(NodeLLS *n1, NodeLLS *n2) {
 
 /* Check if two lists are equals */
-int equalNode(NodeLLS *n1, NodeLLS *n2);
+int equalNode(TypeLLS *l1, TypeLLS *l2);
+
+}
