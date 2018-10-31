@@ -204,4 +204,11 @@ int equalList(TypeLLS *l1, TypeLLS *l2) {
         return equalNode_r(l1->head, l2->head);
 }
 
-int findSurname_r(NodeLLS *n, const char *str);
+/* Find the surname in the nodes */
+int findSurname_r(NodeLLS *n, const char *str) {
+    if (n == NULL)
+        return 0;
+    else if (strcmp(n->info.lastname) == 0)
+        return 1;
+    else return findSurname_r(n->next, str);
+}
