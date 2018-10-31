@@ -84,6 +84,15 @@ int main(void) {
         printf("dp and l1 are equals\n");
     else
         printf("dp and l1 are not equals\n");
+    printf("\t### Find lastname (1 true, 0 false)\n");
+    if (findLastname_r(l1->head, "Stallman") == 1)
+        printf("true\n");
+    else
+        printf("false\n");
+    if (findLastname_r(l1->head, "Starman") == 1)
+        printf("true\n");
+    else
+        printf("false\n");
 
     return(EXIT_SUCCESS);
 }
