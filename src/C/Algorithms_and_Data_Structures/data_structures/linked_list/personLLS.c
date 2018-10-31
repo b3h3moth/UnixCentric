@@ -40,7 +40,7 @@ NodeLLS *clone_r(NodeLLS *n);
 TypeLLS *clone(TypeLLS *l);
 int equalNode_r(NodeLLS *n1, NodeLLS *n2);
 int equalList(TypeLLS *l1, TypeLLS *l2);
-int findSurname_r(NodeLLS *n, const char *str);
+int findLastname_r(NodeLLS *n, const char *str);
 
 int main(void) {
     TypeLLS *t = init();
@@ -204,11 +204,11 @@ int equalList(TypeLLS *l1, TypeLLS *l2) {
         return equalNode_r(l1->head, l2->head);
 }
 
-/* Find the surname in the nodes */
-int findSurname_r(NodeLLS *n, const char *str) {
+/* Find the lastname in the nodes */
+int findLastname_r(NodeLLS *n, const char *str) {
     if (n == NULL)
         return 0;
-    else if (strcmp(n->info.lastname) == 0)
+    else if (strcmp(n->info.lastname, str) == 0)
         return 1;
-    else return findSurname_r(n->next, str);
+    else return findLastname_r(n->next, str);
 }
