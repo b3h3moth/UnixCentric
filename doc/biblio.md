@@ -55,6 +55,7 @@ The list include only a printed books.
 * **Understanding Unix/Linux Programming**. *Bruce Molay* (`Pearson, 2003`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
 * **UNIX System Programming for SVR4**. *Dave Curry* (`1996, O'Reilly`)
+* **Using C on the UNIX System**. *Dave Curry* (`1989, O'Reilly`)
 
 ### <a name="headBB1a"></a>Linux System Programming
 
