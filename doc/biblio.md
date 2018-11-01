@@ -3,7 +3,7 @@
 The list include only a printed books.
 
 * [The C Language Programming](#headBB0)
-  - [c11 - iso9899:2011 (current)](#headBB0a)
+  - [c11 - iso9899:2011](#headBB0a)
   - [c99 - iso9899:1999](#headBB0b)
   - [c89 - iso9899:1990 (aka c90)](#headBB0c)
 * [Unix System Programming](#headBB1)
@@ -21,7 +21,7 @@ The list include only a printed books.
 
 ## <a name="headBB0"></a>The C Language Programming
 
-### <a name="headBB0a"></a>c11 - iso9899:2011 (current)
+### <a name="headBB0a"></a>c11 - iso9899:2011
 
 * **C in a Nutshell**. *Peter Prinz*, *Tony Crawford* (`O'Reilly, 2016, 2nd`)
 * **Programming in C**. *Stephen G.Kochan* (`Addison Wesley, 2015, 4th`)
@@ -49,14 +49,14 @@ The list include only a printed books.
 * **Computer System - A Programmers Perspective**. *Randal E. Bryant*, *David R. O’Hallaron* (`Pearson, 2016, 3rd`) 
   - 3rd edition is focused on x86_64 architecture, while the 2nd edition covers  x86.
 * **Advanced Programming in the UNIX Environment**. *Richard Stevens*, *Stephen A.Rago* (`O'Reilly, 2013, 3rd`)
-* **Advanced Unix Programming**. *Marc J.Rochkind* (`2nd, 2004, Addison Wesley`);
+* **Advanced Unix Programming**. *Marc J.Rochkind* (`Addison Wesley, 2004, 2nd`)
 * **The Art of UNIX Programming**. *Eric S.Raymond* (`Addison Wesley, 2003`)
 * **Unix Systems Programming - Communication, Concurrency, and Threads**. *Kay A.Robbins*, *Steven Robbins* (`Prentice Hall, 2003, 2nd`)
 * **Understanding Unix/Linux Programming**. *Bruce Molay* (`Pearson, 2003`)
 * **The Unix Programming Environment**. *Brian W.Kernighan*, *Rob Pike* (`Prentice Hall, 1983`)
-* **UNIX System Programming for SVR4**. *Dave Curry* (`1996, O'Reilly`)
+* **UNIX System Programming for SVR4**. *Dave Curry* (`O'Reilly, 1996`)
 * **Unix System Programming**. *Keith Haviland*, *Dina Gray*, *Ben Salama* (`Addison Wesley, 1996, 2nd`)
-* **Using C on the UNIX System**. *Dave Curry* (`1989, O'Reilly`)
+* **Using C on the UNIX System**. *Dave Curry* (`O'Reilly, 1989`)
 
 ### <a name="headBB1a"></a>Linux System Programming
 
