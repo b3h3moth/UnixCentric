@@ -23,6 +23,7 @@
     - [part 1](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html) `05/13/2011 - Chris Lattner`
     - [part 2](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html) `05/14/2011 - Chris Lattner`
     - [part 3](http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html) `05/21/2011 - Chris Lattner`
+* [Portability of C Programs and the UNIX System](https://www.bell-labs.com/usr/dmr/www/portpap.html) `July-August 1978 - Bell Labs`
 
 ### <a name="headAR1a"></a>Memory Management
 
