@@ -101,6 +101,7 @@
   - [part 23, Spinlock in Linux Kernel Part 1](https://embetronicx.com/tutorials/linux/device-drivers/spinlock-in-linux-kernel-1/) `2018 - embetronicx`
   - [part 24, Read Write Spinlock in Linux Kernel (Spinlock Part 2)](https://embetronicx.com/tutorials/linux/device-drivers/read-write-spinlock/) `2018 - embetronicx`
   - [part 25, Sending Signal from Linux Device Driver to User Space](https://embetronicx.com/tutorials/linux/device-drivers/sending-signal-from-linux-device-driver-to-user-space/) `2018 - embetronicx`
+  - [part 26, Using Kernel Timer In Linux Device Driver](https://embetronicx.com/tutorials/linux/device-drivers/using-kernel-timer-in-linux-device-driver/) `2018 - embetronicx`
 
 ## <a name="headAR4"></a>Compiling and linking
 
